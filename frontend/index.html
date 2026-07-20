@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oh hi Mark(down)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1 class="brand">Oh hi Mark<span class="accent">(down)</span></h1>
+    <span id="status-badge" class="badge badge--unknown" title="Backend status">
+      <span class="badge__dot"></span><span id="status-text">checking…</span>
+    </span>
+  </header>
+
+  <main class="layout">
+    <section class="panel panel--input">
+      <div class="tabs" role="tablist">
+        <button class="tab tab--active" data-tab="url" role="tab">URL</button>
+        <button class="tab" data-tab="file" role="tab">File</button>
+      </div>
+
+      <div id="tab-url" class="tab-pane tab-pane--active">
+        <label for="url-input" class="field-label">Web page URL</label>
+        <div class="url-row">
+          <input id="url-input" type="url" placeholder="https://example.com/article" />
+          <button id="convert-url-btn" class="btn btn--primary">Convert</button>
+        </div>
+      </div>
+
+      <div id="tab-file" class="tab-pane">
+        <label class="field-label">PDF or DOCX document</label>
+        <div id="drop-zone" class="drop-zone">
+          <p class="drop-zone__hint">Drop a file here, or <span class="link">browse</span></p>
+          <p id="file-name" class="drop-zone__file"></p>
+          <input id="file-input" type="file" accept=".pdf,.docx" hidden />
+        </div>
+        <button id="convert-file-btn" class="btn btn--primary" disabled>Convert</button>
+      </div>
+    </section>
+
+    <section class="panel panel--output">
+      <div class="output-head">
+        <span class="field-label">Markdown</span>
+        <div class="output-actions">
+          <span id="output-meta" class="meta"></span>
+          <button id="copy-btn" class="btn btn--ghost" disabled>Copy</button>
+          <button id="download-btn" class="btn btn--ghost" disabled>Download</button>
+        </div>
+      </div>
+      <pre id="output" class="output" aria-live="polite"><span class="placeholder">Converted Markdown will appear here.</span></pre>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
