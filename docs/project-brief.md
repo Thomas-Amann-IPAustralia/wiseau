@@ -1,0 +1,179 @@
+# Project Brief: Universal Markdown Ingestion Engine
+
+> Oh hi Mark(down) — a deterministic engine that converts web pages and documents into clean, structured Markdown.
+
+## 1. Overview
+
+The Universal Markdown Ingestion Engine is a deterministic, self-hosted microservice
+that converts arbitrary web URLs, PDFs, and DOCX documents into clean, structured
+Markdown. It is designed to serve as a foundational data-ingestion layer for both
+human-facing interfaces and automated background pipelines.
+
+The system targets the rigorous demands of tracking authoritative IP sources,
+legislative instruments, and terms-of-service updates — workloads where extraction
+must be reliable, repeatable, and resistant to performance bottlenecks.
+
+Two classes of consumer drive the design:
+
+- **Humans** interact through a static web UI (paste a URL, drop a file, read the
+  rendered Markdown).
+- **LLMs and agents** interact through the API, exposed natively over HTTP and
+  described by an OpenAPI schema so it can be wired into MCP servers and
+  function-calling frameworks.
+
+### Design principles
+
+- **Deterministic first.** Favour algorithmic extraction over fragile, layout-specific
+  CSS selectors so the same input reliably yields the same Markdown.
+- **Decoupled layers.** A static frontend and a containerized backend communicate only
+  over HTTP, keeping the UI free to evolve independently of the engine.
+- **Memory-aware.** Headless browsing and PDF extraction are memory-heavy; the compute
+  tier is sized to avoid out-of-memory crashes under concurrent load.
+- **Agent-native.** The API is a first-class integration surface, not an afterthought
+  bolted onto a UI.
+
+## 2. System Architecture
+
+The system is split into two independent layers that communicate over standard HTTP,
+optimized for memory-heavy operations.
+
+| Component    | Technology                    | Responsibility                                                                 | Hosting                        |
+| ------------ | ----------------------------- | ------------------------------------------------------------------------------ | ------------------------------ |
+| Frontend     | HTML5 / CSS3 / JavaScript     | Custom UI/UX, user input collection, state management, and Markdown rendering. | GitHub Pages (static, free)    |
+| Backend API  | FastAPI (Python)              | Headless browser execution, deterministic extraction, and document parsing.    | Hugging Face Spaces (Docker)   |
+| Compute      | 16 GB RAM, 2 vCPU             | Prevents OOM crashes during heavy PDF extraction and concurrent web scraping.  | Hugging Face free tier         |
+
+### Request flow
+
+```
+Human (browser) ─┐
+                 ├─► HTTPS ─► FastAPI backend ─► extraction/parsing ─► clean Markdown (JSON)
+LLM / MCP agent ─┘
+```
+
+The backend returns JSON payloads containing the extracted Markdown, so both the UI and
+automated agents consume an identical contract.
+
+## 3. Milestone Plan
+
+### Phase 1 — Backend API Development (Python Engine)
+
+Build and test the core parsing microservice locally.
+
+- **Environment setup.** Initialize a Python virtual environment and a `requirements.txt`
+  containing `fastapi`, `uvicorn`, `pymupdf4llm`, `mammoth`, `trafilatura`, `selenium`,
+  `selenium-stealth`, and `markdownify`.
+- **Endpoints.** Construct the primary FastAPI routes — `GET /ping`, `POST /convert/url`,
+  and `POST /convert/file` — to handle status checks and return JSON payloads containing
+  clean Markdown.
+- **CORS.** Configure `CORSMiddleware` to explicitly restrict incoming requests to the
+  GitHub Pages origin domain.
+
+### Phase 2 — Algorithmic Scraper Integration
+
+Extract the core logic from the batch-processing script and upgrade it for live,
+universal API execution.
+
+- **Headless browser configuration.** Implement `initialize_driver()` using
+  `selenium-stealth` and robust Chrome arguments (`--no-sandbox`,
+  `--disable-dev-shm-usage`) to reliably render JavaScript and bypass basic bot
+  protections.
+- **Algorithmic extraction.** Integrate `trafilatura.extract()` in place of fragile CSS
+  selectors, ensuring deterministic extraction of primary semantic content across any
+  page layout.
+- **Markdown polish engine.** Port the custom regex post-processing to strip residual
+  noise, normalize characters, and format ATX headings for uniform output.
+
+### Phase 3 — Static Frontend Development (JS/CSS)
+
+Build a fully custom, responsive UI with robust state management.
+
+- **Structure & style.** Create a responsive interface (`index.html`, `style.css`) with
+  input containers, file-upload drop zones, and an output display pane.
+- **Application logic.** Write `app.js` to manage UI state, using `fetch` to send URLs
+  or binary file objects to the FastAPI endpoints.
+- **Status indication.** Add a visual server-status badge that pings the backend on page
+  load to confirm readiness.
+
+### Phase 4 — AI & Agentic Integration
+
+Structure the API so external systems can leverage the extraction engine natively.
+
+- **OpenAPI specification.** Leverage FastAPI's native `openapi.json` generation to
+  expose the microservice schema to external LLMs and agentic frameworks.
+- **MCP surface.** Provide an MCP server that wraps the endpoints so agents can call
+  extraction as a tool.
+- **Autonomous ingestion.** Enable agents to query the endpoints via standard function
+  calling, supporting automated diff-checking and continuous background monitoring.
+
+### Phase 5 — Containerization & Deployment
+
+Automate the deployment pipeline and provision the cloud hardware.
+
+- **Dockerized backend.** Package the FastAPI app with a custom `Dockerfile` on Hugging
+  Face Spaces to version-lock Chromium, Python, and system-level dependencies.
+- **Hardware allocation.** Deploy to the Hugging Face free CPU tier so high-memory
+  operations execute reliably without container crashes.
+- **Cold-start mitigation.** Rely on the generous 48-hour inactivity timeout of Hugging
+  Face Spaces to keep the API persistently warm for daily background checks.
+- **Frontend deployment.** Push the static UI to GitHub and activate GitHub Pages on the
+  main branch.
+
+## 4. API Surface
+
+| Method | Path            | Purpose                                                    |
+| ------ | --------------- | ---------------------------------------------------------- |
+| GET    | `/ping`         | Liveness/readiness check for the status badge and monitors.|
+| POST   | `/convert/url`  | Fetch, render, and extract a URL into Markdown.            |
+| POST   | `/convert/file` | Parse an uploaded PDF or DOCX into Markdown.               |
+
+All conversion endpoints return a JSON payload containing the extracted Markdown, so the
+UI and automated agents share a single contract. The auto-generated `openapi.json`
+serves as the machine-readable description for LLM and MCP integration.
+
+## 5. Directory Structure
+
+```
+markdown-converter/
+├── frontend/                 # Static site hosted on GitHub Pages
+│   ├── index.html
+│   ├── style.css
+│   └── app.js                # State management & API fetch calls
+└── backend/                  # Containerized microservice hosted on Hugging Face
+    ├── Dockerfile            # Installs Chromium, Python, and system libs
+    ├── requirements.txt
+    ├── main.py               # FastAPI routing and CORS configuration
+    └── parsers/
+        ├── __init__.py
+        ├── browser.py        # Selenium Stealth initialization
+        ├── url_parser.py     # Trafilatura + Markdownify extraction
+        ├── file_parser.py    # PyMuPDF4LLM & Mammoth implementations
+        └── cleaner.py        # Regex post-processing and text normalization
+```
+
+## 6. Technology Rationale
+
+| Choice              | Why                                                                                     |
+| ------------------- | --------------------------------------------------------------------------------------- |
+| FastAPI             | Async, minimal boilerplate, and native OpenAPI generation for agent integration.        |
+| Trafilatura         | Algorithmic main-content extraction that is robust across layouts — the determinism core.|
+| Selenium + Stealth  | Renders JavaScript-heavy pages and clears basic bot protection before extraction.        |
+| PyMuPDF4LLM         | High-fidelity PDF-to-Markdown extraction tuned for LLM consumption.                      |
+| Mammoth             | Clean DOCX-to-Markdown conversion that preserves semantic structure.                     |
+| Markdownify         | Deterministic HTML-to-Markdown fallback for the polish stage.                            |
+| GitHub Pages        | Free, zero-maintenance static hosting for the decoupled frontend.                       |
+| Hugging Face Spaces | Free Docker hosting with high memory and a long inactivity timeout for warm background use.|
+
+## 7. Open Questions & Risks
+
+- **Bot protection.** `selenium-stealth` clears basic protections; sites behind advanced
+  anti-bot systems (e.g. aggressive CAPTCHA or fingerprinting) may still require
+  per-source handling or are out of scope.
+- **Concurrency limits.** Free-tier compute caps how many headless browser sessions run
+  in parallel; a request queue or rate limit may be needed under load.
+- **Determinism boundaries.** Extraction is deterministic given identical input, but live
+  pages change; monitoring pipelines must account for legitimate content drift when
+  diff-checking.
+- **CORS lockdown.** Restricting the API to a single GitHub Pages origin secures the
+  browser UI but does not by itself authenticate agent/MCP traffic; an auth strategy for
+  non-browser callers is an open decision.
