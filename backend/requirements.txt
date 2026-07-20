@@ -1,17 +1,22 @@
+# Runtime dependencies, version-pinned for reproducible builds.
+# Determinism is the product; an unpinned dependency can silently change the
+# extracted Markdown, so bump these deliberately, not implicitly.
+
 # Web framework
-fastapi
-uvicorn[standard]
-python-multipart          # multipart/form-data uploads for /convert/file
+fastapi==0.139.2
+uvicorn[standard]==0.51.0
+python-multipart==0.0.32   # multipart/form-data uploads for /convert/file
 
 # Rate limiting (fair use on shared free compute)
-slowapi
+slowapi==0.1.10
 
 # URL extraction
-selenium
-selenium-stealth
-trafilatura
-markdownify
+selenium==4.46.0
+selenium-stealth==1.0.6
+trafilatura==2.1.0
+markdownify==1.2.3
 
 # Document parsing
-pymupdf4llm               # PDF -> Markdown (pulls in pymupdf/fitz)
-mammoth                   # DOCX -> HTML
+pymupdf4llm==1.28.0        # PDF -> Markdown (pulls in pymupdf/fitz)
+pymupdf==1.28.0            # imported directly in file_parser; pin to match pymupdf4llm
+mammoth==1.12.0            # DOCX -> HTML

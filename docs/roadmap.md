@@ -19,8 +19,12 @@ merely written. Written-but-unverified is `[~]` with a note.
 - [~] Permissive CORS for public browser access — *written.*
 - [~] Per-IP rate limiting via `slowapi` — *written.*
 - [~] Global concurrency ceiling (semaphore) + upload size cap — *written.*
-- [ ] Boot the app and confirm all routes respond as specified.
-- [ ] Pin dependency versions in `requirements.txt` (reproducibility).
+- [x] Boot the app and confirm all routes respond as specified. — *verified via
+  FastAPI `TestClient`: `/ping`, `/convert/file` (real PDF), and `/convert/url`
+  (browser worker mocked) all respond per contract; app imports cleanly with all
+  parsers loaded.*
+- [x] Pin dependency versions in `requirements.txt` (reproducibility). — *all
+  direct deps pinned to verified versions; test tools in `requirements-dev.txt`.*
 
 ## Phase 2 — Algorithmic scraper integration
 
@@ -59,11 +63,13 @@ merely written. Written-but-unverified is `[~]` with a note.
 
 ## Cross-cutting backlog (not phase-bound)
 
-- [ ] **Test suite.** Start with browser-free deterministic units: `cleaner`
-  normalization, `file_parser` extension dispatch, request validation & error
-  codes. Add URL-path tests behind a flag or with a mocked driver.
-- [ ] **CI.** GitHub Actions: install deps, run tests, build the Docker image.
-- [ ] **Dependency pinning** across `requirements.txt`.
+- [~] **Test suite.** Browser-free deterministic units done (28 tests, all
+  passing): `cleaner` normalization/determinism, `file_parser` dispatch + real
+  PDF round-trip, request validation & error codes, `/convert/url` with a mocked
+  driver. *Remaining:* live URL-render path and a real DOCX-body test.
+- [~] **CI.** GitHub Actions (`.github/workflows/backend-tests.yml`) installs deps
+  and runs `pytest` on `backend/**` changes. *Remaining:* Docker image build step.
+- [x] **Dependency pinning** across `requirements.txt`.
 - [ ] **Observability.** Structured request logging; a lightweight metric for
   job duration/memory to tune `MAX_CONCURRENT_JOBS` against real usage.
 - [ ] **Abuse controls beyond rate limiting** (per-IP daily quota, optional API
