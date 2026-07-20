@@ -1,0 +1,7 @@
+# Development / CI dependencies. Install on top of requirements.txt:
+#   pip install -r requirements.txt -r requirements-dev.txt
+# The test suite covers the browser-free, deterministic half of the engine
+# (cleaner, file dispatch, request validation); URL rendering is mocked.
+
+pytest==9.1.1
+httpx==0.28.1              # required by fastapi.testclient.TestClient

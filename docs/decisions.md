@@ -81,6 +81,25 @@ both tiers. No build-time coupling is permitted between them.
 browser versions; "works on my machine" drift would break determinism.
 **Decision:** Ship a `Dockerfile` (Python 3.11-slim + system Chromium/chromedriver)
 that version-locks the runtime; run as non-root UID 1000 for Hugging Face.
-**Consequences:** Reproducible runtime. *Open follow-up:* Python dependencies in
-`requirements.txt` are currently unpinned — pinning them is a roadmap item and
-would complete this decision's intent.
+**Consequences:** Reproducible runtime. *Follow-up (resolved 2026-07-20):* Python
+dependencies in `requirements.txt` are now version-pinned — see ADR-006 —
+completing this decision's intent.
+
+## ADR-006 — Browser-free deterministic test suite + pinned dependencies
+**Date:** 2026-07-20 · **Status:** Accepted
+**Context:** The engine had no tests and no CI, and its dependencies were
+unpinned — both flagged risks to the determinism guarantee. The heavy path (URL
+rendering) needs Chromium, which is slow and awkward to provision in CI, but the
+load-bearing determinism logic (`cleaner`, file dispatch, request validation)
+does not.
+**Decision:** Test the browser-free half directly and mock the Chromium worker
+(`url_to_markdown`) so the `/convert/url` route's plumbing is still covered
+without a browser. PDF paths use in-memory PyMuPDF-generated documents, so no
+fixture files are needed. Pin every direct dependency in `requirements.txt` to
+the versions the suite was verified against; keep test-only tools in
+`requirements-dev.txt`. CI (`.github/workflows/backend-tests.yml`) installs both
+and runs `pytest` on any `backend/**` change — no browser provisioned.
+**Consequences:** Fast, deterministic CI that guards the contract on every push.
+The live browser-render and DOCX-body paths remain unproven by automation and
+still need manual/Docker verification (tracked in `roadmap.md`). Dependency bumps
+are now deliberate: change the pin, re-run the suite.
