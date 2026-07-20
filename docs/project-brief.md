@@ -31,6 +31,9 @@ Two classes of consumer drive the design:
   tier is sized to avoid out-of-memory crashes under concurrent load.
 - **Agent-native.** The API is a first-class integration surface, not an afterthought
   bolted onto a UI.
+- **Open but protected.** The API is intentionally public — anyone may call it, paying
+  the free compute forward. Access is guarded not by origin locks but by fair-use rate
+  limiting and a concurrency ceiling that keeps shared compute healthy for everyone.
 
 ## 2. System Architecture
 
@@ -62,12 +65,17 @@ Build and test the core parsing microservice locally.
 
 - **Environment setup.** Initialize a Python virtual environment and a `requirements.txt`
   containing `fastapi`, `uvicorn`, `pymupdf4llm`, `mammoth`, `trafilatura`, `selenium`,
-  `selenium-stealth`, and `markdownify`.
+  `selenium-stealth`, `markdownify`, and `slowapi` (rate limiting).
 - **Endpoints.** Construct the primary FastAPI routes — `GET /ping`, `POST /convert/url`,
   and `POST /convert/file` — to handle status checks and return JSON payloads containing
   clean Markdown.
-- **CORS.** Configure `CORSMiddleware` to explicitly restrict incoming requests to the
-  GitHub Pages origin domain.
+- **CORS.** Configure `CORSMiddleware` with a permissive origin policy so the public
+  API is reachable from any browser client (the hosted UI, forks, and third-party
+  frontends), rather than locking to a single origin.
+- **Rate limiting & fair use.** Add a per-IP rate limiter (e.g. `slowapi`, backed by an
+  in-memory or lightweight store) and a global concurrency ceiling so shared free
+  compute stays healthy. Requests over the limit receive `429 Too Many Requests`;
+  requests over the concurrency cap queue rather than overwhelming the box.
 
 ### Phase 2 — Algorithmic Scraper Integration
 
@@ -161,6 +169,7 @@ markdown-converter/
 | PyMuPDF4LLM         | High-fidelity PDF-to-Markdown extraction tuned for LLM consumption.                      |
 | Mammoth             | Clean DOCX-to-Markdown conversion that preserves semantic structure.                     |
 | Markdownify         | Deterministic HTML-to-Markdown fallback for the polish stage.                            |
+| SlowAPI             | Per-IP rate limiting on FastAPI to keep the open, shared compute fair and healthy.       |
 | GitHub Pages        | Free, zero-maintenance static hosting for the decoupled frontend.                       |
 | Hugging Face Spaces | Free Docker hosting with high memory and a long inactivity timeout for warm background use.|
 
@@ -170,10 +179,18 @@ markdown-converter/
   anti-bot systems (e.g. aggressive CAPTCHA or fingerprinting) may still require
   per-source handling or are out of scope.
 - **Concurrency limits.** Free-tier compute caps how many headless browser sessions run
-  in parallel; a request queue or rate limit may be needed under load.
+  in parallel. A per-IP rate limiter and a global concurrency ceiling (with queuing)
+  keep the shared box healthy; the exact thresholds need tuning against observed memory
+  use per job type (a browser render costs far more than a DOCX parse).
+- **Abuse of open access.** A public, unauthenticated API invites scraping-as-a-service
+  abuse. Rate limiting is the first line of defence; if it proves insufficient, options
+  include per-IP daily quotas, blocklists, or an optional API key for higher tiers —
+  without closing off casual free use.
 - **Determinism boundaries.** Extraction is deterministic given identical input, but live
   pages change; monitoring pipelines must account for legitimate content drift when
   diff-checking.
-- **CORS lockdown.** Restricting the API to a single GitHub Pages origin secures the
-  browser UI but does not by itself authenticate agent/MCP traffic; an auth strategy for
-  non-browser callers is an open decision.
+- **Single-instance ceiling.** A free-tier Space is one container, so there is no true
+  horizontal load balancing — throughput is bounded by that instance. The rate limiter
+  and concurrency queue smooth load rather than scale it; sustained demand beyond one
+  box would require a paid multi-replica tier, which is out of scope for the free,
+  pay-it-forward model.
