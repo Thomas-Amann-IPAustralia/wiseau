@@ -173,13 +173,25 @@ GitHub Pages (static frontend)  ──HTTPS──►  Hugging Face Space (Docker
 
 ---
 
-## 9. Phase 4 forward-looking notes (not yet built)
+## 9. Agent integration (Phase 4)
 
-- **MCP server** should wrap `/convert/url` and `/convert/file` as tools, reusing
-  the exact same contract — no new response shape.
-- **OpenAPI** is already emitted at `/openapi.json`; keep operation IDs and
-  descriptions clean so they read well as tool definitions.
-- **Autonomous ingestion** (scheduled diff-checking) consumes the same endpoints;
-  it must account for content drift (§7).
+The agent-facing surface is documented in full in [`mcp.md`](mcp.md). Summary of
+the contract-level guarantees:
 
-See [`roadmap.md`](roadmap.md) for the task breakdown.
+- **MCP server** (`backend/mcp_server.py`) wraps `/convert/url`, `/convert/file`,
+  and `/ping` as MCP tools (`convert_url`, `convert_file`, `ping`). It is a thin
+  HTTP adapter over the running backend — every tool call is an HTTP request, so
+  the tools reuse the exact `MarkdownResponse` shape and inherit the rate limiter
+  and concurrency ceiling unchanged (invariant #4). No in-process bypass. Its
+  only backend coupling is `WISEAU_API_BASE`, mirroring the frontend's
+  `MARKDOWN_API_BASE` (ADR-009).
+- **OpenAPI** is emitted at `/openapi.json` with explicit, clean operation IDs
+  (`convert_url`, `convert_file`, `ping`) and per-route summaries so the schema
+  reads well as a function-calling tool definition. Setting operation IDs is a
+  fixed part of the contract now — do not let them regress to FastAPI's
+  auto-generated `*_post` names.
+- **Autonomous ingestion** (scheduled diff-checking) consumes the same
+  tools/endpoints; it must account for content drift (§7). Not yet built.
+
+See [`roadmap.md`](roadmap.md) for the task breakdown and [`mcp.md`](mcp.md) for
+client wiring.

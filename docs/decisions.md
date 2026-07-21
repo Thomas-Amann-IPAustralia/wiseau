@@ -85,6 +85,35 @@ that version-locks the runtime; run as non-root UID 1000 for Hugging Face.
 dependencies in `requirements.txt` are now version-pinned — see ADR-006 —
 completing this decision's intent.
 
+## ADR-009 — MCP server as a thin HTTP adapter over the backend
+**Date:** 2026-07-21 · **Status:** Accepted
+**Context:** Phase 4 calls for an MCP server wrapping `/convert/url` and
+`/convert/file` as agent tools. Two implementations were possible: (a) import the
+`parsers` functions in-process and run extraction inside the MCP process, or (b)
+make the MCP server an HTTP client of the running backend. Option (a) is one
+fewer moving part but bypasses the rate limiter and concurrency ceiling, which
+tech-spec invariant #4 says are *unconditional* for every heavy conversion, and
+would create a second place the extraction stack is wired up (drift risk).
+**Decision:** Build `backend/mcp_server.py` as a **thin HTTP adapter** (option b)
+using the MCP SDK's `FastMCP`. Each tool (`convert_url`, `convert_file`, `ping`)
+issues an HTTP request to the backend at `WISEAU_API_BASE` (default
+`http://localhost:7860`), so it reuses the exact `MarkdownResponse` contract and
+inherits the fair-use guards unchanged — mirroring the frontend's single
+`MARKDOWN_API_BASE` coupling (ADR-004). Backend error `detail` is surfaced
+verbatim. `convert_file` reads a local path (the MCP server runs alongside the
+agent) and forwards bytes + filename so the backend still dispatches by
+extension. Also refined the OpenAPI surface: explicit operation IDs
+(`convert_url`/`convert_file`/`ping`) + per-route summaries so `/openapi.json`
+reads cleanly as a function-calling schema; bumped the API version to `0.2.0`.
+The MCP SDK is an optional extra (`requirements-mcp.txt`), added to
+`requirements-dev.txt` so CI can test the adapter; `httpx` was already a dev dep.
+**Consequences:** One extraction path, one contract, guards always in force. The
+tools require a reachable backend (documented) — acceptable, and consistent with
+the decoupled architecture. Tested with a mocked `httpx` transport (no live
+server/browser) and verified end-to-end against a live `uvicorn` backend
+(`ping`, real-PDF `convert_file`, 415 error path). Remaining Phase 4 item:
+autonomous ingestion (scheduled diff-checking). See `docs/mcp.md`.
+
 ## ADR-007 — Live browser path verified; real DOCX round-trip added; live test kept opt-in
 **Date:** 2026-07-21 · **Status:** Accepted
 **Context:** After ADR-006, the two biggest automation gaps were the live

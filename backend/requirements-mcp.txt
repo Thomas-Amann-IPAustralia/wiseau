@@ -1,0 +1,8 @@
+# MCP server dependencies. Install on top of requirements.txt to run the
+# agent-facing tool surface (backend/mcp_server.py):
+#   pip install -r requirements.txt -r requirements-mcp.txt
+# The MCP server is a thin HTTP adapter over the running backend, so it needs
+# only the MCP SDK and an async HTTP client — not the extraction stack itself.
+
+mcp==1.28.1                # Model Context Protocol SDK (FastMCP server)
+httpx==0.28.1              # async HTTP client used to reach WISEAU_API_BASE

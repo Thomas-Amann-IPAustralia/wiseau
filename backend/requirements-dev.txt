@@ -6,5 +6,6 @@
 # (WISEAU_LIVE_BROWSER=1) drives real Chromium and is skipped by default.
 
 pytest==9.1.1
-httpx==0.28.1              # required by fastapi.testclient.TestClient
+httpx==0.28.1              # required by fastapi.testclient.TestClient AND the MCP server
 python-docx==1.2.0         # synthesizes DOCX fixtures for the docx round-trip tests
+mcp==1.28.1                # MCP SDK — so the suite can import and test mcp_server.py

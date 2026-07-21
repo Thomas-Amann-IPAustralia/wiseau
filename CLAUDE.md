@@ -36,6 +36,7 @@ The design values, in priority order:
 | [`docs/tech-spec.md`](docs/tech-spec.md) | The detailed "how": API contracts, modules, config, errors. | When behaviour/contract changes. |
 | [`docs/roadmap.md`](docs/roadmap.md) | Phased task backlog with checkboxes. | As tasks start/finish. |
 | [`docs/decisions.md`](docs/decisions.md) | ADR log — decisions and their rationale. | When a non-trivial decision is made. |
+| [`docs/mcp.md`](docs/mcp.md) | Agent integration: MCP tools + function-calling surface. | When the agent-facing surface changes. |
 | [`docs/agent-workflow.md`](docs/agent-workflow.md) | How instances pick up, execute, and hand off work. | Rarely. |
 
 If you're unsure where a piece of information belongs: *facts about current
@@ -52,6 +53,7 @@ wiseau/
 ├── docs/                   # all project documentation (see map above)
 ├── backend/                # FastAPI microservice (Hugging Face Spaces target)
 │   ├── main.py             # routing, CORS, rate limiting, concurrency ceiling
+│   ├── mcp_server.py       # MCP tool surface (thin HTTP adapter over the API)
 │   ├── parsers/            # deterministic extraction pipeline
 │   │   ├── browser.py      # Selenium-stealth headless Chrome
 │   │   ├── url_parser.py   # Trafilatura extraction (+ markdownify fallback)
