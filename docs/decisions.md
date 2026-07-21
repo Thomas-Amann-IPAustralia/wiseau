@@ -132,3 +132,29 @@ and runs `pytest` on any `backend/**` change — no browser provisioned.
 The live browser-render and DOCX-body paths remain unproven by automation and
 still need manual/Docker verification (tracked in `roadmap.md`). Dependency bumps
 are now deliberate: change the pin, re-run the suite.
+
+## ADR-008 — Frontend (Phase 3) verified by driving the real UI against a live backend
+**Date:** 2026-07-21 · **Status:** Accepted
+**Context:** The static frontend (`index.html`/`app.js`/`config.js`) was
+code-complete but had never been exercised against a running backend, so Phase 3's
+two verification tasks were still open. The decoupling rule (frontend ↔ backend
+only over HTTP via `MARKDOWN_API_BASE`) means the only honest way to mark them
+`[x]` is to actually load the page in a browser and watch it talk to the API.
+**Decision:** Verify by driving the shipped UI end-to-end with headless Chromium
+(Playwright) against a locally-running stack — `uvicorn` backend on `:7860`, the
+static frontend served on `:8000`, and a throwaway fixtures server on `:8001` so
+the URL path renders a *local* article page (no external egress needed here). The
+driver script asserts the observable contract: status badge → `online`, URL
+conversion (headless-Chrome render → Trafilatura → cleaner → output pane with a
+char-count meta), PDF **and** DOCX upload conversion, copy (clipboard content
+checked) and download (`converted.md`), and error rendering for a backend 415 plus
+the client-side empty-URL guard. 18/18 checks passed. The driver is a
+verification artifact, not committed app code — the frontend has no build step and
+we keep it framework-free (ADR-004).
+**Consequences:** Phase 3 is proven, not just written; the shared response
+contract is confirmed to render correctly for both success and error paths in a
+real browser. The check is reproducible in any environment with a browser but is
+not wired into CI (the static UI has no test runner and CI stays browserless per
+ADR-006); re-running it is a manual step. Live *external*-URL conversion through
+the UI remains gated on an environment with direct egress (Phase 5 / Docker),
+same as the backend.

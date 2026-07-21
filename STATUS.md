@@ -6,10 +6,12 @@
 > green checkmark that lies.
 
 **Last updated:** 2026-07-21
-**Updated by:** Claude Code (live-browser verification & DOCX round-trip session)
-**Overall phase:** Phase 1 backend verified; Phase 2 render pipeline verified
-end-to-end (host); Phase 3 code-complete/untested; Phases 4–5 open. Test suite
-now covers PDF **and** DOCX round-trips plus an opt-in live-browser test.
+**Updated by:** Claude Code (Phase 3 frontend end-to-end verification session)
+**Overall phase:** Phases 1–3 verified end-to-end. Backend API, the live render
+pipeline, and now the **static frontend driven against a running backend** are all
+proven. Phase 4 (MCP/agentic) untouched; Phase 5 (Docker build / deploy) open —
+Docker-image build and live *external*-URL fetch still need an environment with a
+Docker daemon / direct egress.
 
 ---
 
@@ -19,10 +21,10 @@ now covers PDF **and** DOCX round-trips plus an opt-in live-browser test.
 | ---- | ----- | ----- |
 | Backend API (Phase 1) | 🟢 Verified (browser-free) | Routes, CORS, rate limiting, concurrency ceiling written; app imports cleanly; `/ping`, `/convert/file` (real PDF), `/convert/url` (mocked driver) verified via `TestClient`. Live URL render still unproven. |
 | Scraper / extraction (Phase 2) | 🟢 Verified (host) | Live headless-Chrome render → Trafilatura → cleaner proven end-to-end and codified as an opt-in test; DOCX-body path now covered. Only fetching arbitrary **external** URLs is unproven here (sandbox egress proxy; works with direct egress). |
-| Frontend UI (Phase 3) | 🟡 Code complete, untested | Full static UI written. Not exercised against a running backend. |
+| Frontend UI (Phase 3) | 🟢 Verified | Full static UI driven end-to-end with headless Chromium against a live `uvicorn` backend: status badge, URL + PDF + DOCX conversion, copy/download, and error states all confirmed (18/18 UI checks). See ADR-008. |
 | AI / MCP integration (Phase 4) | 🔴 Not started | OpenAPI auto-generated (presence asserted in tests); no MCP server or agent tooling yet. |
 | Containerization & deploy (Phase 5) | 🔴 Not deployed | `Dockerfile` written; nothing deployed to Hugging Face or GitHub Pages. |
-| Automated tests | 🟢 Passing | 31 pass + 2 skipped (opt-in live-browser). Adds real DOCX round-trip (unit + HTTP) to the prior `cleaner`/PDF/validation coverage; live render→extract→clean pipeline codified behind `WISEAU_LIVE_BROWSER=1`. |
+| Automated tests | 🟢 Passing | 31 pass + 2 skipped in default (browserless) runs. With a version-matched Chromium+chromedriver and `WISEAU_LIVE_BROWSER=1`, the 2 opt-in live-browser tests also run → **33/33** (confirmed this session). Covers `cleaner`/PDF/**DOCX**/validation plus the live render→extract→clean pipeline. |
 | CI/CD | 🟡 Tests wired | `.github/workflows/backend-tests.yml` runs `pytest` on `backend/**`. Docker-build step still open. |
 | Documentation | 🟢 Established | Brief, tech spec, roadmap, decisions, agent workflow, this file. |
 
@@ -81,17 +83,22 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
 ## Suggested next actions (see `docs/roadmap.md` for the full backlog)
 
 1. **Build the Docker image and confirm Chromium launches inside the container**,
-   then verify a real *external* URL renders end-to-end (needs direct egress —
-   the sandbox proxy blocks it, so this is the natural place to prove it). This
-   is the last piece of Phase 2 / start of Phase 5.
-2. **Load the frontend against a running backend** (Phase 3): confirm URL + file
-   conversion, copy/download, and error states render sensibly.
-3. **Extend CI to build the Docker image** (the last cross-cutting test gap).
-4. **Then** proceed to deployment (Phase 5) and MCP integration (Phase 4).
+   then verify a real *external* URL renders end-to-end (needs a Docker daemon +
+   direct egress — neither is available in this sandbox, so this is the natural
+   place to prove it). This is the last piece of Phase 2 / start of Phase 5.
+2. **Phase 4 — MCP integration.** Wrap `/convert/url` and `/convert/file` as MCP
+   tools over the same `MarkdownResponse` contract, and document the
+   function-calling/MCP surface for external agents. This is pure code and fully
+   buildable here — the highest-value work now that Phases 1–3 are proven.
+3. **Extend CI to build the Docker image** (the last cross-cutting test gap) —
+   pairs with item 1; needs a Docker-capable runner.
+4. **Then** proceed to deployment (Phase 5): Hugging Face Space + GitHub Pages,
+   and point `frontend/config.js` at the live Space.
 
-*Done this session (previously item 1 & the DOCX half of item 3): the live render
-pipeline is verified and codified, and a real DOCX round-trip is in the suite —
-see the session log.*
+*Done this session (previously item 2): the shipped frontend is verified
+end-to-end against a running backend — status badge, URL/PDF/DOCX conversion,
+copy/download, and error states all confirmed by driving the real UI. See the
+session log and ADR-008.*
 
 ---
 
@@ -100,6 +107,23 @@ see the session log.*
 Newest first. One short entry per working session — what changed and what the
 next instance should know.
 
+- **2026-07-21 — Phase 3 frontend end-to-end verification.** Closed both open
+  Phase 3 tasks by driving the *shipped* UI with headless Chromium (Playwright)
+  against a live stack — `uvicorn` backend on `:7860`, the static frontend on
+  `:8000`, and a throwaway fixtures server on `:8001` so the URL path renders a
+  *local* article (no external egress needed here). 18/18 UI checks passed: status
+  badge → `online`, URL conversion (headless-Chrome render → Trafilatura →
+  cleaner), PDF **and** DOCX upload conversion, Copy (clipboard content verified) +
+  "Copied!" feedback, Download → `converted.md`, plus error rendering for a backend
+  415 (styled, shows the server's `detail`) and the client-side empty-URL guard.
+  Backend endpoints were also smoke-tested directly via curl. Practical finding:
+  the sandbox ships Chromium 141 (Playwright bundle) but only v147 chromedrivers on
+  `PATH`; fetched a matching **141** chromedriver from Chrome-for-Testing and pinned
+  it via `CHROMEDRIVER_PATH` — with that, the full suite runs 33/33 (the 2 opt-in
+  live-browser tests now execute rather than skip). Recorded ADR-008; flipped the
+  two Phase 3 roadmap tasks to `[x]`. **Next instance:** Phase 4 (MCP wrappers over
+  the two convert endpoints) is the highest-value pure-code work; the Docker-image
+  build + live *external*-URL check still need a Docker daemon / direct egress.
 - **2026-07-21 — Live-browser verification & DOCX round-trip.** Proved the
   biggest remaining unknown: the live URL render path. With a version-matched
   Chromium + chromedriver, `url_to_markdown` launches headless Chrome, renders

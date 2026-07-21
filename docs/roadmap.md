@@ -48,8 +48,16 @@ merely written. Written-but-unverified is `[~]` with a note.
 - [~] Responsive layout: URL tab, file drop zone, output pane — *written.*
 - [~] `app.js` state management + `fetch` to backend — *written.*
 - [~] Server-status badge pinging `/ping` on load — *written.*
-- [ ] Load the UI against a running backend and confirm URL + file conversion work.
-- [ ] Confirm copy/download of output and error states render sensibly.
+- [x] Load the UI against a running backend and confirm URL + file conversion work. —
+  *verified: drove the shipped UI with headless Chromium against a live `uvicorn`
+  backend. Status badge → `online`; URL conversion (headless-Chrome render →
+  Trafilatura → cleaner) against a locally-served article; PDF **and** DOCX upload
+  conversion all render into the output pane. See ADR-008.*
+- [x] Confirm copy/download of output and error states render sensibly. —
+  *verified: Copy writes the markdown to the clipboard and flips to "Copied!";
+  Download emits `converted.md`; a backend 415 renders the styled error state with
+  the server's `detail`, and the empty-URL client guard shows its message. 18/18
+  UI checks passed (ADR-008).*
 
 ## Phase 4 — AI & agentic integration
 
