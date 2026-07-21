@@ -29,10 +29,19 @@ merely written. Written-but-unverified is `[~]` with a note.
 ## Phase 2 — Algorithmic scraper integration
 
 - [~] `initialize_driver()` with selenium-stealth + hardened Chrome args — *written.*
-- [~] Trafilatura extraction with markdownify fallback — *written.*
-- [~] Deterministic Markdown polish (`cleaner.py`) — *written.*
-- [ ] Verify a live URL renders and extracts end-to-end (needs Chromium; use Docker).
-- [ ] Confirm determinism: same URL snapshot → identical Markdown across runs.
+- [x] Trafilatura extraction with markdownify fallback — *exercised end-to-end by
+  the opt-in live-browser test.*
+- [x] Deterministic Markdown polish (`cleaner.py`) — *unit-tested (ADR-006) and
+  re-confirmed through the live render path.*
+- [x] Verify a live URL renders and extracts end-to-end. — *verified: with a
+  version-matched Chromium + chromedriver, `url_to_markdown` launches headless
+  Chrome, renders the DOM, and Trafilatura → cleaner emit clean Markdown. Codified
+  as `tests/test_browser_live.py` (opt-in, `WISEAU_LIVE_BROWSER=1`) against a
+  self-contained `data:` URL. Fetching arbitrary **external** URLs is blocked in
+  this sandbox by its authenticated egress proxy — not a code issue; works with
+  direct egress (Docker/Spaces). See ADR-007.*
+- [x] Confirm determinism: same URL snapshot → identical Markdown across runs. —
+  *`test_live_render_is_deterministic` asserts identical output across two runs.*
 
 ## Phase 3 — Static frontend (JS/CSS)
 
@@ -53,7 +62,10 @@ merely written. Written-but-unverified is `[~]` with a note.
 ## Phase 5 — Containerization & deployment
 
 - [~] `Dockerfile` version-locking Chromium + Python — *written, not built/run in CI.*
-- [ ] Build the image and confirm Chromium launches inside the container.
+- [~] Build the image and confirm Chromium launches inside the container. —
+  *Chromium launch + full render→extract→clean pipeline proven on the host this
+  session (ADR-007); building the actual Docker image and confirming launch
+  inside the container is still open.*
 - [ ] Deploy backend to a Hugging Face Space (free CPU tier).
 - [ ] Point `frontend/config.js` `MARKDOWN_API_BASE` at the live Space.
 - [ ] Deploy frontend via GitHub Pages.
@@ -63,10 +75,13 @@ merely written. Written-but-unverified is `[~]` with a note.
 
 ## Cross-cutting backlog (not phase-bound)
 
-- [~] **Test suite.** Browser-free deterministic units done (28 tests, all
-  passing): `cleaner` normalization/determinism, `file_parser` dispatch + real
-  PDF round-trip, request validation & error codes, `/convert/url` with a mocked
-  driver. *Remaining:* live URL-render path and a real DOCX-body test.
+- [~] **Test suite.** Browser-free deterministic units (31 passing, 2 skipped):
+  `cleaner` normalization/determinism, `file_parser` dispatch + real PDF **and
+  DOCX** round-trips, request validation & error codes, `/convert/url` with a
+  mocked driver, plus PDF/DOCX HTTP happy-paths. An opt-in live-browser test
+  (`WISEAU_LIVE_BROWSER=1`) covers the real render→extract→clean pipeline.
+  *Remaining:* Docker image build step in CI; live **external**-URL verification
+  (needs direct egress).
 - [~] **CI.** GitHub Actions (`.github/workflows/backend-tests.yml`) installs deps
   and runs `pytest` on `backend/**` changes. *Remaining:* Docker image build step.
 - [x] **Dependency pinning** across `requirements.txt`.
