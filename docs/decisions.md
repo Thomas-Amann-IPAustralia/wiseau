@@ -85,6 +85,35 @@ that version-locks the runtime; run as non-root UID 1000 for Hugging Face.
 dependencies in `requirements.txt` are now version-pinned — see ADR-006 —
 completing this decision's intent.
 
+## ADR-007 — Live browser path verified; real DOCX round-trip added; live test kept opt-in
+**Date:** 2026-07-21 · **Status:** Accepted
+**Context:** After ADR-006, the two biggest automation gaps were the live
+Chromium render path (the project's biggest unknown) and a real DOCX-body
+round-trip. The live path was verified end-to-end this session: with a
+version-matched Chromium + chromedriver, `url_to_markdown` launches headless
+Chrome, renders the DOM, and Trafilatura → cleaner produce clean Markdown.
+Two practical findings: (1) chromedriver must match the Chrome *major* version —
+a mismatched driver on `PATH` fails to start a session; Selenium Manager
+(`selenium-manager --browser chrome --browser-version <N>`) auto-fetches the
+matching pair, and `browser.py` already honours `CHROME_BIN`/`CHROMEDRIVER_PATH`
+for explicit pinning. (2) This CI/sandbox forces outbound HTTPS through an
+authenticated proxy that headless Chrome cannot consume via `--proxy-server`, so
+fetching *arbitrary external* URLs is blocked *here* — not a code defect; the
+Docker/Spaces deployment has direct egress.
+**Decision:** Keep the live-browser test **opt-in** — a new
+`tests/test_browser_live.py`, skipped unless `WISEAU_LIVE_BROWSER=1`, exercising
+the full render → extract → clean pipeline against a self-contained `data:` URL
+(no network) so it is repeatable without egress. Default CI stays browser-free.
+Add real DOCX round-trip tests (dispatch, structure, determinism, and an HTTP
+happy-path) using in-memory `python-docx` fixtures; pin `python-docx` in
+`requirements-dev.txt`.
+**Consequences:** Phase 2's render path is proven and codified as a runnable test
+rather than a one-off manual check; the DOCX-body path is now covered by
+automation. CI remains fast and browserless. To run the live test in a new
+environment, ensure a matching Chrome/chromedriver (Selenium Manager handles this
+by default) and set `WISEAU_LIVE_BROWSER=1`. Verifying live *external* URLs still
+requires an environment with direct egress (e.g. the Docker image, Phase 5).
+
 ## ADR-006 — Browser-free deterministic test suite + pinned dependencies
 **Date:** 2026-07-20 · **Status:** Accepted
 **Context:** The engine had no tests and no CI, and its dependencies were

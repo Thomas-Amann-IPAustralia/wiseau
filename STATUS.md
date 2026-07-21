@@ -5,10 +5,11 @@
 > session. Keep it honest — "scaffolded but untested" is more useful than a
 > green checkmark that lies.
 
-**Last updated:** 2026-07-20
-**Updated by:** Claude Code (test-suite & dependency-pinning session)
-**Overall phase:** Phase 1 backend verified (browser-free); Phases 2–3 partially
-proven; Phases 4–5 open. Test suite + CI + pinned deps now in place.
+**Last updated:** 2026-07-21
+**Updated by:** Claude Code (live-browser verification & DOCX round-trip session)
+**Overall phase:** Phase 1 backend verified; Phase 2 render pipeline verified
+end-to-end (host); Phase 3 code-complete/untested; Phases 4–5 open. Test suite
+now covers PDF **and** DOCX round-trips plus an opt-in live-browser test.
 
 ---
 
@@ -17,11 +18,11 @@ proven; Phases 4–5 open. Test suite + CI + pinned deps now in place.
 | Area | State | Notes |
 | ---- | ----- | ----- |
 | Backend API (Phase 1) | 🟢 Verified (browser-free) | Routes, CORS, rate limiting, concurrency ceiling written; app imports cleanly; `/ping`, `/convert/file` (real PDF), `/convert/url` (mocked driver) verified via `TestClient`. Live URL render still unproven. |
-| Scraper / extraction (Phase 2) | 🟡 Partly proven | `cleaner` + PDF path tested end-to-end. Trafilatura/Selenium live render and DOCX-body path not yet exercised (need Chromium/Docker). |
+| Scraper / extraction (Phase 2) | 🟢 Verified (host) | Live headless-Chrome render → Trafilatura → cleaner proven end-to-end and codified as an opt-in test; DOCX-body path now covered. Only fetching arbitrary **external** URLs is unproven here (sandbox egress proxy; works with direct egress). |
 | Frontend UI (Phase 3) | 🟡 Code complete, untested | Full static UI written. Not exercised against a running backend. |
 | AI / MCP integration (Phase 4) | 🔴 Not started | OpenAPI auto-generated (presence asserted in tests); no MCP server or agent tooling yet. |
 | Containerization & deploy (Phase 5) | 🔴 Not deployed | `Dockerfile` written; nothing deployed to Hugging Face or GitHub Pages. |
-| Automated tests | 🟢 Passing (browser-free) | 28 tests: `cleaner`, file dispatch + PDF round-trip, API validation/error codes. Live-browser + DOCX-body paths still uncovered. |
+| Automated tests | 🟢 Passing | 31 pass + 2 skipped (opt-in live-browser). Adds real DOCX round-trip (unit + HTTP) to the prior `cleaner`/PDF/validation coverage; live render→extract→clean pipeline codified behind `WISEAU_LIVE_BROWSER=1`. |
 | CI/CD | 🟡 Tests wired | `.github/workflows/backend-tests.yml` runs `pytest` on `backend/**`. Docker-build step still open. |
 | Documentation | 🟢 Established | Brief, tech spec, roadmap, decisions, agent workflow, this file. |
 
@@ -63,11 +64,13 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
 
 ## Known gaps / not yet proven
 
-- **Live browser render unproven.** No confirmation Chromium launches (locally or
-  in the container) or that a real URL extracts end-to-end. The `/convert/url`
-  test mocks the browser worker; the live path needs Docker to verify.
-- **DOCX-body extraction untested.** File dispatch and the PDF path are covered;
-  a real `.docx` round-trip is not (no `python-docx` at hand to synthesize one).
+- **Live *external*-URL fetch unproven in this sandbox.** The render pipeline is
+  proven (headless Chrome launches, renders a `data:` page, Trafilatura + cleaner
+  emit Markdown), but fetching arbitrary internet URLs is blocked here by the
+  sandbox's authenticated egress proxy (`net::ERR_CONNECTION_RESET`). Not a code
+  issue — needs an environment with direct egress (the Docker image / a Space).
+- **Chromium-in-container unconfirmed.** Launch is proven on the host; building
+  the actual Docker image and launching Chromium inside it is still open.
 - **No deployment** — no live Hugging Face Space, no GitHub Pages activation,
   so `MARKDOWN_API_BASE` still points at localhost.
 - **Phase 4 (MCP/agentic) untouched** beyond FastAPI's auto-generated schema.
@@ -77,16 +80,18 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
 
 ## Suggested next actions (see `docs/roadmap.md` for the full backlog)
 
-1. **Prove the live browser path.** Build the Docker image and confirm Chromium
-   launches and a real URL renders + extracts end-to-end. This is the biggest
-   remaining unknown and unblocks flipping Phase 2 fully green.
+1. **Build the Docker image and confirm Chromium launches inside the container**,
+   then verify a real *external* URL renders end-to-end (needs direct egress —
+   the sandbox proxy blocks it, so this is the natural place to prove it). This
+   is the last piece of Phase 2 / start of Phase 5.
 2. **Load the frontend against a running backend** (Phase 3): confirm URL + file
    conversion, copy/download, and error states render sensibly.
-3. **Extend CI to build the Docker image**, and add a real DOCX-body test.
+3. **Extend CI to build the Docker image** (the last cross-cutting test gap).
 4. **Then** proceed to deployment (Phase 5) and MCP integration (Phase 4).
 
-*Done this session (previously items 2–3): browser-free test suite (28 tests) and
-dependency pinning are complete — see the session log.*
+*Done this session (previously item 1 & the DOCX half of item 3): the live render
+pipeline is verified and codified, and a real DOCX round-trip is in the suite —
+see the session log.*
 
 ---
 
@@ -95,6 +100,23 @@ dependency pinning are complete — see the session log.*
 Newest first. One short entry per working session — what changed and what the
 next instance should know.
 
+- **2026-07-21 — Live-browser verification & DOCX round-trip.** Proved the
+  biggest remaining unknown: the live URL render path. With a version-matched
+  Chromium + chromedriver, `url_to_markdown` launches headless Chrome, renders
+  the DOM, and Trafilatura → cleaner produce clean, deterministic Markdown —
+  confirmed end-to-end and codified as `backend/tests/test_browser_live.py`
+  (opt-in via `WISEAU_LIVE_BROWSER=1`, self-contained `data:` URL so it needs no
+  network). Learned that chromedriver must match Chrome's *major* version;
+  Selenium Manager auto-fetches the matching pair (`browser.py` already honours
+  `CHROME_BIN`/`CHROMEDRIVER_PATH`). Fetching arbitrary **external** URLs is
+  blocked in this sandbox by its authenticated egress proxy (`ERR_CONNECTION_
+  RESET`) — not a code defect; deferred to the Docker/Spaces environment. Also
+  closed the DOCX gap: added real DOCX round-trip tests (dispatch, structure,
+  determinism, HTTP happy-path) with in-memory `python-docx` fixtures and pinned
+  `python-docx==1.2.0` in `requirements-dev.txt`. Suite now 31 pass + 2 skipped.
+  Recorded ADR-007; flipped Phase 2 render/determinism tasks to `[x]`.
+  **Next instance:** build the Docker image (confirm in-container Chromium launch)
+  and verify a real external URL where direct egress is available.
 - **2026-07-20 — Test suite, CI & dependency pinning.** Stood up the
   browser-free half of the engine as verified. Installed and resolved all deps,
   confirmed `main` imports cleanly (every parser loads). Added `backend/tests/`

@@ -8,6 +8,8 @@ shape) is verified while Chromium is not.
 
 from __future__ import annotations
 
+import io
+
 import pymupdf
 import pytest
 from fastapi.testclient import TestClient
@@ -85,6 +87,23 @@ def test_convert_file_pdf_happy_path(client):
     assert resp.status_code == 200
     body = resp.json()
     assert "Integration Body" in body["markdown"]
+    assert body["length"] == len(body["markdown"])
+
+
+def test_convert_file_docx_happy_path(client):
+    docx = pytest.importorskip("docx", reason="python-docx (dev dependency) is required to synthesize a DOCX")
+    document = docx.Document()
+    document.add_heading("Contract Heading", level=1)
+    document.add_paragraph("Body over the wire.")
+    buf = io.BytesIO()
+    document.save(buf)
+
+    ctype = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    resp = client.post("/convert/file", files={"file": ("doc.docx", buf.getvalue(), ctype)})
+    assert resp.status_code == 200
+    body = resp.json()
+    assert "# Contract Heading" in body["markdown"]
+    assert "Body over the wire." in body["markdown"]
     assert body["length"] == len(body["markdown"])
 
 
