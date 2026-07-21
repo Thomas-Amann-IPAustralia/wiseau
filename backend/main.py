@@ -44,7 +44,7 @@ app = FastAPI(
         "Deterministic conversion of web URLs, PDFs, and DOCX documents into "
         "clean, structured Markdown. Designed for both human UIs and LLM/MCP agents."
     ),
-    version="0.1.0",
+    version="0.2.0",
 )
 
 app.state.limiter = limiter
@@ -73,14 +73,25 @@ class MarkdownResponse(BaseModel):
 
 
 # --- Routes -----------------------------------------------------------------
-@app.get("/ping", tags=["status"])
+@app.get(
+    "/ping",
+    tags=["status"],
+    operation_id="ping",
+    summary="Liveness/readiness probe",
+)
 @limiter.exempt
 async def ping(request: Request) -> dict:
     """Liveness/readiness check for the UI status badge and background monitors."""
     return {"status": "ok", "service": "markdown-ingestion-engine", "version": app.version}
 
 
-@app.post("/convert/url", response_model=MarkdownResponse, tags=["convert"])
+@app.post(
+    "/convert/url",
+    response_model=MarkdownResponse,
+    tags=["convert"],
+    operation_id="convert_url",
+    summary="Convert a web page to Markdown",
+)
 @limiter.limit("20/minute")
 async def convert_url(request: Request, body: UrlRequest) -> MarkdownResponse:
     """Render a URL (JS-aware) and extract its primary content as Markdown."""
@@ -94,7 +105,13 @@ async def convert_url(request: Request, body: UrlRequest) -> MarkdownResponse:
     return MarkdownResponse(source=url, markdown=markdown, length=len(markdown))
 
 
-@app.post("/convert/file", response_model=MarkdownResponse, tags=["convert"])
+@app.post(
+    "/convert/file",
+    response_model=MarkdownResponse,
+    tags=["convert"],
+    operation_id="convert_file",
+    summary="Convert an uploaded PDF or DOCX to Markdown",
+)
 @limiter.limit("20/minute")
 async def convert_file(request: Request, file: UploadFile = File(...)) -> MarkdownResponse:
     """Parse an uploaded PDF or DOCX into Markdown."""
