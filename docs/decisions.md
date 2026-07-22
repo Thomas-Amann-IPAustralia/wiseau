@@ -21,6 +21,38 @@ one `Superseded`.
 
 ---
 
+## ADR-013 — RapidOCR (layout-aware) as the default OCR engine
+**Date:** 2026-07-22 · **Status:** Accepted (refines ADR-012's engine default)
+**Context:** ADR-012 shipped OCR with MuPDF-Tesseract as the default. Tesseract is
+deterministic and dependency-light but weak on real-world scans — flat reading
+order, no region detection, poor on skew/noise/varied fonts. We wanted "generally
+better" OCR without giving up determinism or bloating the free-tier image, and
+explicitly wanted to keep it simple: a single better engine, **not** a
+dual-engine consensus/confidence layer (considered and deferred — two engines
+disagreeing yields a confidence signal, not a correction, and doubles cost).
+Candidates: docTR/Surya (torch, heavy, CPU-slow, big image) vs RapidOCR
+(ONNX Runtime, torch-free).
+**Decision:** Make **RapidOCR** (`rapidocr-onnxruntime`) the default engine. It is
+a detection + recognition pipeline that reads text region-by-region — better
+accuracy and line structure than Tesseract on real scans — while staying
+deterministic (fixed ONNX models, greedy decoding) and light (~190 MB of deps,
+**no PyTorch**). Tesseract is demoted to a **zero-dependency fallback**: when
+`rapidocr_onnxruntime` isn't importable, `file_parser._default_engine_name()`
+selects `tesseract`, so a lean deploy still OCRs without a hard failure. EasyOCR
+remains the opt-in handwriting engine. The Dockerfile adds `libgl1` +
+`libglib2.0-0` (OpenCV's shared libs); `rapidocr-onnxruntime` + `onnxruntime` are
+pinned in `requirements.txt` for output stability.
+**Consequences:** Better default extraction on real scans, still deterministic
+(verified stable across repeated runs; both engines covered by parametrized
+tests). Image grows by RapidOCR's deps — acceptable (torch-free) and still
+free-tier-friendly. Two watch-outs: (a) RapidOCR is detection-based and can
+**over-segment trivial single-line images** (Tesseract reads those cleaner) —
+fine on real multi-region docs, and either engine is one env var away; (b) this
+buys better *recognition + line structure*, not full document-layout semantics
+(headings/tables) — that would need docTR/Surya/PP-Structure or a doc VLM, a
+heavier future step behind the same `OcrEngine` seam. `WISEAU_OCR_ENGINE`
+overrides the default in either direction.
+
 ## ADR-012 — OCR for scanned/handwritten PDFs and images (deterministic, pluggable)
 **Date:** 2026-07-22 · **Status:** Accepted
 **Context:** The engine only read a PDF's embedded text layer (`pymupdf4llm`), so

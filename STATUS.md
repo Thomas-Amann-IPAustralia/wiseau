@@ -6,7 +6,7 @@
 > green checkmark that lies.
 
 **Last updated:** 2026-07-22
-**Updated by:** Claude Code (OCR capability session)
+**Updated by:** Claude Code (OCR capability + RapidOCR default engine)
 **Overall phase:** Phases 1–4 verified end-to-end, and **Phase 5 now has its
 container proven**: the Docker image builds from the committed `Dockerfile`,
 Chromium **150** + ChromeDriver **150** launch inside it, and a real *external*
@@ -27,11 +27,11 @@ accounts/credentials rather than code. See ADR-011.
 | ---- | ----- | ----- |
 | Backend API (Phase 1) | 🟢 Verified (browser-free) | Routes, CORS, rate limiting, concurrency ceiling written; app imports cleanly; `/ping`, `/convert/file` (real PDF), `/convert/url` (mocked driver) verified via `TestClient`. Live URL render still unproven. |
 | Scraper / extraction (Phase 2) | 🟢 Verified (incl. external URLs) | Live headless-Chrome render → Trafilatura → cleaner proven end-to-end and codified as an opt-in test; DOCX-body path covered. Fetching arbitrary **external** URLs now proven inside the Docker container (example.com, Wikipedia — deterministic across runs); ADR-011. |
-| OCR (scanned/handwritten) | 🟢 Verified | Image-only PDF pages + image uploads OCR'd; per-page detection assembles mixed PDFs in order. Default MuPDF-Tesseract (deterministic, in the image); opt-in neural EasyOCR for handwriting. Deterministic by pinning `pymupdf4llm` legacy mode + driving MuPDF's OCR primitive directly (ADR-012). 13 tests + HTTP round-trip verified; API `v0.3.0`. |
+| OCR (scanned/handwritten) | 🟢 Verified | Image-only PDF pages + image uploads OCR'd; per-page detection assembles mixed PDFs in order. **Default RapidOCR** (layout-aware, ONNX, torch-free, deterministic — better than Tesseract on real scans; ADR-013), **Tesseract** fallback, opt-in **EasyOCR** for handwriting. Deterministic by pinning `pymupdf4llm` legacy mode + driving the OCR engine directly (ADR-012). Tests parametrized over both installed engines + HTTP round-trip; API `v0.3.0`. |
 | Frontend UI (Phase 3) | 🟢 Verified | Full static UI driven end-to-end with headless Chromium against a live `uvicorn` backend: status badge, URL + PDF + DOCX conversion, copy/download, and error states all confirmed (18/18 UI checks). See ADR-008. |
 | AI / MCP integration (Phase 4) | 🟢 Complete | MCP server (`mcp_server.py`) exposes `convert_url`/`convert_file`/`ping` as tools — thin HTTP adapter, same contract, guards intact; verified end-to-end vs a live backend + 6 unit tests. OpenAPI operation IDs/summaries cleaned (v`0.2.0`); `docs/mcp.md` written. **Autonomous-ingestion monitor** (`monitor.py`) built + verified (16 tests + real end-to-end run) — closes Phase 4. |
 | Containerization & deploy (Phase 5) | 🟡 Image proven, not deployed | Image **builds and runs**: Chromium 150 launches in-container, a live external URL renders end-to-end + deterministically (ADR-011). Nothing deployed to Hugging Face / GitHub Pages yet (needs external accounts). |
-| Automated tests | 🟢 Passing | **71 pass + 2 skipped** in default (browserless) runs (+18 OCR tests this session: 13 recognition + 5 engine-layer). Covers `cleaner`/PDF/**DOCX**/**OCR**/validation, the MCP tool surface, the **autonomous-ingestion monitor**, plus the live render→extract→clean pipeline. *This sandbox run: 65 pass + 2 skipped verified directly; the 6 (unchanged) MCP tests couldn't collect here because `mcp` wouldn't install over a Debian-managed `PyJWT` — they run in CI.* With `WISEAU_LIVE_BROWSER=1` the 2 live-browser tests also run. |
+| Automated tests | 🟢 Passing | **78 pass + 2 skipped** in default (browserless) runs (OCR recognition tests parametrized over both installed engines — RapidOCR + Tesseract). Covers `cleaner`/PDF/**DOCX**/**OCR**/validation, the MCP tool surface, the **autonomous-ingestion monitor**, plus the live render→extract→clean pipeline. *This sandbox run: 72 pass + 2 skipped verified directly; the 6 (unchanged) MCP tests couldn't collect here because `mcp` wouldn't install over a Debian-managed `PyJWT` — they run in CI.* With `WISEAU_LIVE_BROWSER=1` the 2 live-browser tests also run. |
 | CI/CD | 🟢 Tests + Docker build | `.github/workflows/backend-tests.yml`: a `test` job runs `pytest` (browserless) and a `docker-build` job builds the image, boots it, and renders a live external URL through the container. Docker-build gap closed (ADR-011). |
 | Documentation | 🟢 Established | Brief, tech spec, roadmap, decisions, agent workflow, this file. |
 
@@ -62,8 +62,9 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   Trafilatura, falls back to markdownify, normalizes via cleaner.
 - `parsers/file_parser.py` — PDF via PyMuPDF4LLM (legacy mode) with per-page OCR
   of scanned pages, DOCX via Mammoth + markdownify, images via OCR.
-- `parsers/ocr.py` — pluggable OCR engines: default MuPDF-Tesseract (system binary,
-  deterministic), opt-in EasyOCR (neural, handwriting; `WISEAU_OCR_ENGINE=easyocr`).
+- `parsers/ocr.py` — pluggable OCR engines: default **RapidOCR** (layout-aware,
+  ONNX, torch-free, deterministic), **Tesseract** fallback (system binary), opt-in
+  **EasyOCR** (neural, handwriting; `WISEAU_OCR_ENGINE=easyocr`).
 - `parsers/cleaner.py` — deterministic Unicode/whitespace/typography normalizer.
 - `Dockerfile` — Python 3.11-slim + system Chromium/chromedriver, non-root user.
 - `requirements.txt` — direct dependencies **version-pinned** to verified
@@ -102,12 +103,12 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   clients, so their tools only work when a backend is running at
   `WISEAU_API_BASE`. Verified against a local `uvicorn`/stub; not yet exercised
   against a deployed Space.
-- **EasyOCR engine written but not run here.** The default OCR engine
-  (MuPDF-Tesseract) is fully verified. The opt-in neural engine
-  (`WISEAU_OCR_ENGINE=easyocr`) is implemented and its selection/lang-mapping are
-  unit-tested, but the actual EasyOCR recognition path wasn't executed in this
-  sandbox (PyTorch/`easyocr` not installed). Exercise it once when deploying with
-  handwriting needs.
+- **EasyOCR engine written but not run here.** The default RapidOCR engine and the
+  Tesseract fallback are both fully verified (parametrized recognition tests + HTTP
+  round-trip). The opt-in neural engine (`WISEAU_OCR_ENGINE=easyocr`) is implemented
+  and its selection/lang-mapping are unit-tested, but the actual EasyOCR recognition
+  path wasn't executed in this sandbox (PyTorch/`easyocr` not installed). Exercise it
+  once when deploying with handwriting needs.
 - *Sandbox note (not a product gap):* a live external **HTTPS** render inside the
   container in *this* sandbox returns the egress gateway's TLS interstitial unless
   the gateway CA is imported into Chromium's NSS store (`~/.pki/nssdb`). This is a
@@ -152,6 +153,32 @@ production `Dockerfile` is unchanged. See the session log and ADR-011.*
 Newest first. One short entry per working session — what changed and what the
 next instance should know.
 
+- **2026-07-22 — RapidOCR as the default (layout-aware) OCR engine.** Follow-up to
+  the OCR session below: swapped the default engine from Tesseract to **RapidOCR**
+  (`rapidocr-onnxruntime`), a detection + recognition pipeline on ONNX Runtime that
+  reads a page region-by-region — better accuracy + line structure than plain
+  Tesseract on real-world scans, while staying **deterministic** (fixed ONNX models,
+  greedy decoding; verified byte-stable across repeated runs) and **torch-free**
+  (~190 MB of deps, fine for the free tier). Chose it over docTR/Surya (torch, heavy,
+  CPU-slow) to keep it simple and light, and deliberately **skipped** the
+  dual-engine consensus/confidence idea (two engines disagreeing is a signal, not a
+  correction, and doubles cost) — deferred. Tesseract is now a **zero-dependency
+  fallback**: `file_parser._default_engine_name()` picks RapidOCR when importable,
+  else Tesseract, so a lean deploy still OCRs with no hard failure; EasyOCR stays the
+  opt-in handwriting engine. Added `rapidocr-onnxruntime==1.4.4` + `onnxruntime==1.27.0`
+  (pinned) to `requirements.txt` and `libgl1` + `libglib2.0-0` (OpenCV's shared libs)
+  to the Dockerfile. Reworked the OCR tests to run recognition **parametrized over
+  every installed engine** (RapidOCR + Tesseract both exercised here). Verified: full
+  suite **72 pass + 2 skipped** locally (OCR stable across 3 repeated runs) + a
+  `TestClient` round-trip through RapidOCR (scanned PDF + image → recovered text).
+  Recorded **ADR-013**; updated tech-spec §5/§10, roadmap, both READMEs. **Known
+  wrinkle:** RapidOCR is detection-based so it can over-segment *trivial single-line*
+  images (Tesseract reads those cleaner) — a non-issue on real multi-region docs, and
+  either engine is one `WISEAU_OCR_ENGINE` away. This buys better recognition + line
+  structure, **not** full layout semantics (headings/tables) — that's a heavier future
+  step (docTR/Surya/PP-Structure or a doc VLM) behind the same `OcrEngine` seam.
+  **Next instance:** unchanged — Phase 5 deployment (HF Space + GitHub Pages) is all
+  that's left; CI's `docker-build` job will prove RapidOCR works inside the built image.
 - **2026-07-22 — OCR for scanned & handwritten documents.** The engine only read a
   PDF's embedded text layer, so scanned/handwritten PDFs (page images) converted to
   empty Markdown. Added OCR: per-page detection (`< 16` non-whitespace chars ⇒

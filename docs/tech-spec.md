@@ -93,7 +93,7 @@ The backend is deliberately small and layered. Each module has one job.
 | `parsers/browser.py` | Build a stealth headless Chrome driver. | Know about Markdown. |
 | `parsers/url_parser.py` | Render → Trafilatura extract → (markdownify fallback) → clean. | Contain per-site CSS selectors. |
 | `parsers/file_parser.py` | Dispatch by extension; PDF→PyMuPDF4LLM (legacy mode) with per-page OCR of scanned pages, DOCX→Mammoth, images→OCR; then clean. | Return unnormalized text; use PyMuPDF4LLM's unstable layout/OCR engine. |
-| `parsers/ocr.py` | Pluggable OCR engines (default MuPDF-Tesseract, opt-in EasyOCR): page image → text. | Introduce nondeterminism. |
+| `parsers/ocr.py` | Pluggable OCR engines (default RapidOCR, Tesseract fallback, opt-in EasyOCR): page image → text. | Introduce nondeterminism. |
 | `parsers/cleaner.py` | Deterministic Unicode/whitespace/typography normalization. | Introduce nondeterminism. |
 
 ### Extraction pipelines
@@ -133,7 +133,7 @@ All backend configuration is via environment variables (12-factor).
 | `CHROME_BIN` | — | Path to Chromium binary (set in Docker image). |
 | `CHROMEDRIVER_PATH` | — | Path to chromedriver (set in Docker image). |
 | `WISEAU_OCR_MODE` | `auto` | `auto` (OCR pages that need it), `force` (OCR every page), or `off` (native text only). |
-| `WISEAU_OCR_ENGINE` | `tesseract` | OCR backend: `tesseract` (default) or `easyocr` (opt-in neural, handwriting). |
+| `WISEAU_OCR_ENGINE` | `rapidocr` | OCR backend: `rapidocr` (default; falls back to `tesseract` if not installed), `tesseract`, or `easyocr` (opt-in neural, handwriting). |
 | `WISEAU_OCR_DPI` | `300` | Rasterization DPI for OCR (fixed for reproducibility). |
 | `WISEAU_OCR_LANG` | `eng` | OCR language(s); Tesseract 639-2/T code(s), `+`-joined. |
 
@@ -236,11 +236,22 @@ fully scanned PDF is entirely OCR'd; a mixed PDF interleaves.
 OCR DPI is a fixed constant (300). All OCR output still ends in `clean_markdown()`
 (invariant #3) and runs under the concurrency + rate-limit guards (invariant #4).
 
-**Engines (pluggable, `parsers/ocr.py`).**
-- `tesseract` (default) — MuPDF's built-in Tesseract. System binary only (no extra
-  Python dependency); deterministic; strong on printed/scanned text; weak on
-  cursive handwriting. Installed in the Docker image (`tesseract-ocr` +
-  `tesseract-ocr-eng`); tessdata is auto-discovered (no `TESSDATA_PREFIX` needed).
+**Engines (pluggable, `parsers/ocr.py`).** Selected by `WISEAU_OCR_ENGINE`; each
+is a deterministic `OcrEngine` (page image → text), built lazily as a per-worker
+singleton so a model loads at most once. See ADR-013 for the default choice.
+- `rapidocr` (**default**) — RapidOCR: text detection + recognition on ONNX
+  Runtime. Reads a page region-by-region, so it beats plain Tesseract on
+  real-world scans (skew, noise, varied fonts) and recovers line structure from
+  the detected boxes. Torch-free (~190 MB of deps: onnxruntime + opencv + numpy +
+  models), CPU-friendly, deterministic (fixed ONNX models, greedy decoding).
+  Shipped in the default image; needs `libgl1` + `libglib2.0-0` (OpenCV), which
+  the Dockerfile installs. It is detection-based, so it can over-segment trivial
+  single-line images — Tesseract reads those cleaner, but RapidOCR wins on real
+  multi-region documents.
+- `tesseract` (fallback) — MuPDF's built-in Tesseract. System binary only (no
+  Python dependency); deterministic; solid on clean printed text. Used
+  automatically when RapidOCR isn't installed (`tesseract-ocr` +
+  `tesseract-ocr-eng` in the image; tessdata auto-discovered, no `TESSDATA_PREFIX`).
 - `easyocr` (opt-in) — a neural engine that handles handwriting and noisy
   captures. Enabled with `WISEAU_OCR_ENGINE=easyocr` after
   `pip install -r requirements-ocr.txt`. PyTorch is heavy, so it is kept out of

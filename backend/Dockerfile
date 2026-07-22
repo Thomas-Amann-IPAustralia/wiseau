@@ -9,8 +9,11 @@ ENV PYTHONUNBUFFERED=1 \
     CHROME_BIN=/usr/bin/chromium \
     CHROMEDRIVER_PATH=/usr/bin/chromedriver
 
-# System dependencies: Chromium + driver + fonts for rendering, and Tesseract
-# (with English language data) for OCR of scanned / handwritten PDFs and images.
+# System dependencies:
+#  - Chromium + driver + fonts: JS-aware page rendering.
+#  - Tesseract + English data: the zero-dependency OCR fallback engine.
+#  - libgl1 + libglib2.0-0: shared libraries OpenCV needs, pulled in by the
+#    default RapidOCR engine (opencv-python), absent from the slim base image.
 RUN apt-get update && apt-get install -y --no-install-recommends \
         chromium \
         chromium-driver \
@@ -19,6 +22,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libxss1 \
         tesseract-ocr \
         tesseract-ocr-eng \
+        libgl1 \
+        libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app

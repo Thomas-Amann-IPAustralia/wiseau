@@ -18,19 +18,24 @@ served at `/docs` and `/openapi.json`.
 
 ## OCR (scanned & handwritten documents)
 
-Image-only PDF pages and image uploads (`.png/.jpg/.tif/...`) are OCR'd. The
-default engine is MuPDF's built-in **Tesseract** (installed in the Docker image;
-nothing extra to `pip install`) — deterministic and strong on printed/scanned
-text. For handwriting, enable the neural **EasyOCR** engine:
+Image-only PDF pages and image uploads (`.png/.jpg/.tif/...`) are OCR'd. Engines
+(select with `WISEAU_OCR_ENGINE`):
 
-```bash
-pip install -r requirements-ocr.txt
-export WISEAU_OCR_ENGINE=easyocr
-```
+- **`rapidocr`** (default) — RapidOCR on ONNX Runtime: detection + recognition,
+  more accurate than Tesseract on real-world scans, torch-free, deterministic.
+  Shipped in the Docker image.
+- **`tesseract`** — MuPDF's built-in Tesseract; zero-dependency fallback used
+  automatically when RapidOCR isn't installed.
+- **`easyocr`** — neural engine for **handwriting** (opt-in; pulls PyTorch):
+  ```bash
+  pip install -r requirements-ocr.txt
+  export WISEAU_OCR_ENGINE=easyocr
+  ```
 
 Tuning knobs (all optional): `WISEAU_OCR_MODE` (`auto`/`force`/`off`),
 `WISEAU_OCR_DPI` (default `300`), `WISEAU_OCR_LANG` (default `eng`). See
-[`../docs/tech-spec.md`](../docs/tech-spec.md) §10 and ADR-012 for the design.
+[`../docs/tech-spec.md`](../docs/tech-spec.md) §10 and ADR-012/ADR-013 for the
+design.
 
 ## Run locally
 

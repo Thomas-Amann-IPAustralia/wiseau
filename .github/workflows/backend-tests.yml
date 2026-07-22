@@ -30,8 +30,10 @@ jobs:
           python-version: "3.11"
           cache: pip
 
-      - name: Install Tesseract (OCR engine for scanned/handwritten docs)
-        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends tesseract-ocr tesseract-ocr-eng
+      - name: Install OCR system deps (Tesseract fallback + OpenCV libs for RapidOCR)
+        run: |
+          sudo apt-get update && sudo apt-get install -y --no-install-recommends \
+            tesseract-ocr tesseract-ocr-eng libgl1 libglib2.0-0
 
       - name: Install dependencies
         run: |
@@ -75,7 +77,8 @@ jobs:
         run: |
           # Build an image-only (no text layer) PDF with PyMuPDF, then run it
           # through the real parser. This proves OCR works in the deployed image
-          # (tesseract binary + tessdata discoverable via TESSDATA_PREFIX).
+          # using the default engine (RapidOCR + its OpenCV libs), with Tesseract
+          # available as the fallback.
           docker exec -i md-engine python - <<'PY'
           import pymupdf
           from parsers.file_parser import pdf_to_markdown

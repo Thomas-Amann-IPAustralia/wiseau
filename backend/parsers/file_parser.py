@@ -17,8 +17,8 @@ Two determinism-critical choices (see ADR-012):
 * PyMuPDF4LLM runs in its **legacy layout mode** (`use_layout(False)`). The 1.28
   layout engine accumulates cross-call state that non-deterministically drops
   content; the legacy path is stable and byte-reproducible.
-* OCR uses MuPDF's own OCR primitive (via `ocr.py`), **not** PyMuPDF4LLM's OCR
-  integration, which has the same cross-call instability.
+* OCR is done by a pluggable engine (`ocr.py`; default RapidOCR, else Tesseract),
+  **not** PyMuPDF4LLM's OCR integration, which has the same cross-call instability.
 
 Behaviour is controlled by env vars: `WISEAU_OCR_MODE` (`auto`/`force`/`off`),
 `WISEAU_OCR_DPI`, `WISEAU_OCR_LANG`, `WISEAU_OCR_ENGINE`.
@@ -26,6 +26,7 @@ Behaviour is controlled by env vars: `WISEAU_OCR_MODE` (`auto`/`force`/`off`),
 
 from __future__ import annotations
 
+import importlib.util
 import io
 import os
 
@@ -76,8 +77,17 @@ def _ocr_lang() -> str:
     return os.environ.get("WISEAU_OCR_LANG", DEFAULT_OCR_LANG)
 
 
+def _default_engine_name() -> str:
+    """RapidOCR when its (ONNX) deps are installed, else the zero-dependency
+    Tesseract fallback — so a lean deploy still OCRs without a hard failure."""
+    if importlib.util.find_spec("rapidocr_onnxruntime") is not None:
+        return "rapidocr"
+    return "tesseract"
+
+
 def _engine():
-    return get_engine(os.environ.get("WISEAU_OCR_ENGINE", "tesseract"))
+    name = os.environ.get("WISEAU_OCR_ENGINE") or _default_engine_name()
+    return get_engine(name)
 
 
 def _page_needs_ocr(page: pymupdf.Page) -> bool:

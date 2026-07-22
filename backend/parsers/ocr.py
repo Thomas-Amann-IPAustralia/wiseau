@@ -1,13 +1,19 @@
 """Pluggable OCR engines for scanned and handwritten pages.
 
 `file_parser` renders/hands each image-only page to an engine and gets text
-back; it stays ignorant of which engine ran. Two engines ship:
+back; it stays ignorant of which engine ran. Three engines ship:
 
-* **tesseract** (default) — MuPDF's built-in Tesseract, driven through
-  ``Page.get_textpage_ocr``. It needs only the system ``tesseract`` binary plus
-  language data (installed in the Dockerfile) — no extra Python package. It is
-  fully deterministic and strong on printed/scanned text. This is what runs in
-  the default image.
+* **rapidocr** (default) — RapidOCR on ONNX Runtime: a detection + recognition
+  pipeline that reads text region-by-region, so it beats plain Tesseract on
+  real-world scans (skew, noise, varied fonts) and recovers line structure from
+  the detected boxes. Torch-free (~190 MB of deps), CPU-friendly, and
+  deterministic (fixed ONNX models, greedy decoding). Shipped in the default
+  image; `file_parser` falls back to `tesseract` where RapidOCR isn't installed.
+
+* **tesseract** — MuPDF's built-in Tesseract, driven through
+  ``Page.get_textpage_ocr``. Needs only the system ``tesseract`` binary + language
+  data (no Python package), so it is the zero-dependency fallback. Fully
+  deterministic; solid on clean printed text, weaker than RapidOCR on messy scans.
 
   Note: we deliberately do **not** use PyMuPDF4LLM's own OCR integration. In
   1.28 its layout+OCR engine carries state across calls that non-deterministically
@@ -21,10 +27,10 @@ back; it stays ignorant of which engine ran. Two engines ship:
   after installing ``requirements-ocr.txt``. RNG seeds are pinned and it runs in
   CPU inference mode, so output stays reproducible for fixed model weights.
 
-Determinism is the product (``CLAUDE.md`` invariant #1): both engines are
+Determinism is the product (``CLAUDE.md`` invariant #1): every engine is
 configured for reproducible output — identical page pixels yield identical text.
 Engines are selected by ``WISEAU_OCR_ENGINE`` and built lazily as process-wide
-singletons, so a heavy neural model loads at most once per worker.
+singletons, so a model loads at most once per worker.
 """
 
 from __future__ import annotations
@@ -79,6 +85,46 @@ class TesseractEngine(OcrEngine):
         return page.get_text("text", textpage=textpage)
 
 
+class RapidOcrEngine(OcrEngine):
+    """Default engine: RapidOCR (detection + recognition) on ONNX Runtime.
+
+    Reads text region-by-region and returns lines in reading order, so it
+    recovers more structure and handles messy scans better than plain Tesseract.
+    Torch-free and deterministic (fixed ONNX models). The recognizer bundles
+    multilingual models, so ``language`` is currently informational only.
+    """
+
+    name = "rapidocr"
+
+    def __init__(self) -> None:
+        self._engine = None
+        self._lock = threading.Lock()
+
+    def _get_engine(self):
+        if self._engine is None:
+            with self._lock:
+                if self._engine is None:
+                    from rapidocr_onnxruntime import RapidOCR
+
+                    self._engine = RapidOCR()
+        return self._engine
+
+    def ocr_page(self, page: pymupdf.Page, *, dpi: int, language: str) -> str:
+        import numpy as np
+
+        pix = page.get_pixmap(dpi=dpi)
+        arr = np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.height, pix.width, pix.n)
+        if pix.n == 4:  # drop alpha
+            arr = arr[:, :, :3]
+        elif pix.n == 1:  # grayscale → 3-channel
+            arr = np.repeat(arr, 3, axis=2)
+        result, _ = self._get_engine()(arr)
+        if not result:
+            return ""
+        # result: list of [box, text, score] in reading order (top→bottom).
+        return "\n".join(line[1] for line in result if line and line[1] and line[1].strip())
+
+
 class EasyOCREngine(OcrEngine):
     """Opt-in neural engine (EasyOCR) — handles handwriting and noisy captures.
 
@@ -131,12 +177,14 @@ def _easyocr_langs(language: str) -> list[str]:
 
 def _build_engine(name: str) -> OcrEngine:
     key = name.strip().lower()
-    if key in ("", "tesseract", "tess"):
+    if key in ("", "rapidocr", "rapid", "layout"):
+        return RapidOcrEngine()
+    if key in ("tesseract", "tess"):
         return TesseractEngine()
     if key in ("easyocr", "easy", "neural"):
         return EasyOCREngine()
     raise ValueError(
-        f"Unknown OCR engine '{name}'. Supported: 'tesseract' (default), 'easyocr'."
+        f"Unknown OCR engine '{name}'. Supported: 'rapidocr' (default), 'tesseract', 'easyocr'."
     )
 
 

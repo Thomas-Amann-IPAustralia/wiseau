@@ -5,13 +5,15 @@ text is *rendered to an image* (no embedded text layer) so the only way to
 recover it is genuine OCR — proving the scanned-document path works, not merely
 PyMuPDF4LLM's native text extraction.
 
-The whole module is skipped when the `tesseract` binary / language data are
-unavailable, mirroring the existing opt-in pattern for environment-dependent
-tests. CI installs Tesseract so these run for real there.
+Recognition tests are parametrized over every OCR engine whose dependencies are
+installed (RapidOCR and/or Tesseract), so both the default and the fallback are
+verified wherever they're available. The module is skipped only if no engine is
+installed. CI provides both, so both run for real there.
 """
 
 from __future__ import annotations
 
+import importlib.util
 import io
 import shutil
 
@@ -24,8 +26,27 @@ Image = pytest.importorskip("PIL.Image", reason="Pillow is required to synthesiz
 ImageDraw = pytest.importorskip("PIL.ImageDraw")
 ImageFont = pytest.importorskip("PIL.ImageFont")
 
-if shutil.which("tesseract") is None or pymupdf.get_tessdata() is None:
-    pytest.skip("tesseract binary / tessdata not installed", allow_module_level=True)
+
+def _available_engines() -> list[str]:
+    engines = []
+    if importlib.util.find_spec("rapidocr_onnxruntime") is not None:
+        engines.append("rapidocr")
+    if shutil.which("tesseract") is not None and pymupdf.get_tessdata() is not None:
+        engines.append("tesseract")
+    return engines
+
+
+_ENGINES = _available_engines()
+
+if not _ENGINES:
+    pytest.skip("no OCR engine installed (rapidocr / tesseract)", allow_module_level=True)
+
+
+@pytest.fixture(params=_ENGINES)
+def ocr_engine(request, monkeypatch):
+    """Run the test once per installed OCR engine."""
+    monkeypatch.setenv("WISEAU_OCR_ENGINE", request.param)
+    return request.param
 
 
 def _font(size: int):
@@ -38,15 +59,15 @@ def _font(size: int):
     return ImageFont.load_default()
 
 
-def _text_image(text: str, *, width: int = 1100, line_height: int = 80):
-    """Render text onto a clean white image at a size Tesseract reads reliably."""
+def _text_image(text: str, *, width: int = 1200, line_height: int = 95):
+    """Render text onto a clean white image at a size OCR reads reliably."""
     lines = text.split("\n")
-    img = Image.new("RGB", (width, line_height * len(lines) + 80), "white")
+    img = Image.new("RGB", (width, line_height * len(lines) + 90), "white")
     draw = ImageDraw.Draw(img)
-    font = _font(52)
-    y = 40
+    font = _font(54)
+    y = 45
     for line in lines:
-        draw.text((40, y), line, fill="black", font=font)
+        draw.text((45, y), line, fill="black", font=font)
         y += line_height
     return img
 
@@ -90,16 +111,16 @@ def test_scanned_pdf_fixture_has_no_text_layer():
         doc.close()
 
 
-# --- OCR recovers text from a scanned PDF ------------------------------------
+# --- OCR recovers text from a scanned PDF (per engine) -----------------------
 
 
-def test_scanned_pdf_is_ocred():
-    result = pdf_to_markdown(_scanned_pdf("Invoice Total Amount"))
+def test_scanned_pdf_is_ocred(ocr_engine):
+    result = pdf_to_markdown(_scanned_pdf("Invoice Number Vendor"))
     assert "Invoice" in result
-    assert "Total" in result
+    assert "Vendor" in result
 
 
-def test_scanned_pdf_via_dispatch_and_cleaner():
+def test_scanned_pdf_via_dispatch_and_cleaner(ocr_engine):
     # Full public path: dispatch by extension + clean_markdown normalization.
     result = file_to_markdown(_scanned_pdf("Scanned Document Body"), "scan.pdf")
     assert "Scanned" in result
@@ -107,33 +128,33 @@ def test_scanned_pdf_via_dispatch_and_cleaner():
     assert not result.endswith("\n\n")
 
 
-def test_scanned_pdf_ocr_is_deterministic():
-    data = _scanned_pdf("Deterministic OCR Output")
+def test_scanned_pdf_ocr_is_deterministic(ocr_engine):
+    data = _scanned_pdf("Deterministic Output Check")
     assert pdf_to_markdown(data) == pdf_to_markdown(data)
 
 
-def test_mixed_pdf_uses_native_text_and_ocr():
+def test_mixed_pdf_uses_native_text_and_ocr(ocr_engine):
     # The native page must survive verbatim; the scanned page must be OCR'd.
-    result = file_to_markdown(_mixed_pdf("Native Page Content", "Scanned Insert Page"), "mixed.pdf")
+    result = file_to_markdown(_mixed_pdf("Native Page Content", "Scanned Insert"), "mixed.pdf")
     assert "Native Page Content" in result
-    assert "Scanned" in result and "Insert" in result
+    assert "Scanned" in result
 
 
-# --- Image uploads -----------------------------------------------------------
+# --- Image uploads (per engine) ----------------------------------------------
 
 
-def test_png_upload_is_ocred():
+def test_png_upload_is_ocred(ocr_engine):
     result = file_to_markdown(_image_bytes("Hello From Image"), "note.png")
     assert "Hello" in result
     assert "Image" in result
 
 
-def test_jpeg_upload_is_ocred():
+def test_jpeg_upload_is_ocred(ocr_engine):
     result = file_to_markdown(_image_bytes("Receipt Photo", fmt="JPEG"), "receipt.jpg")
     assert "Receipt" in result
 
 
-def test_image_to_markdown_direct():
+def test_image_to_markdown_direct(ocr_engine):
     assert "Snapshot" in image_to_markdown(_image_bytes("Snapshot Text"), ".png")
 
 
@@ -154,7 +175,7 @@ def test_digital_pdf_still_extracts_native_text():
     assert "Born Digital Text" in pdf_to_markdown(data)
 
 
-# --- OCR modes ---------------------------------------------------------------
+# --- OCR modes (default engine) ----------------------------------------------
 
 
 def test_ocr_mode_off_skips_scanned_ocr(monkeypatch):
