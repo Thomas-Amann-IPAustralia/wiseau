@@ -21,6 +21,41 @@ one `Superseded`.
 
 ---
 
+## ADR-011 — Docker image verified end-to-end; CI builds it and renders a live URL
+**Date:** 2026-07-22 · **Status:** Accepted
+**Context:** Every prior session was blocked on the same two things: no Docker
+daemon to build the image, and an egress proxy headless Chrome couldn't consume,
+so a *live external* URL had never rendered through the containerized pipeline.
+This session's environment had both a working Docker daemon and direct egress,
+making the marquee Phase 5 / last-of-Phase-2 verification finally possible. One
+sandbox wrinkle remained: outbound HTTPS is re-terminated by an egress gateway
+presenting its own CA, which Chromium's NSS store doesn't trust by default (a
+render returns the browser's "connection is not private" interstitial as the
+page — proving the pipeline works, but not on real content).
+**Decision:** Build the committed `backend/Dockerfile` and verify the whole path
+inside the container — `/ping`, Chromium **150** + ChromeDriver **150** (matched
+pair from apt), and `POST /convert/url` on real external URLs. The production
+Dockerfile was kept clean; sandbox-only CA trust (pip build egress + a per-user
+NSS import of the egress CA so Chromium renders real content) was applied through
+a *throwaway* `Dockerfile.verify` / NSS import that were **deleted after
+verification, not committed**. To make this a standing guarantee rather than a
+one-off, add a `docker-build` job to `backend-tests.yml`: it builds the image,
+starts the container, asserts `/ping`, checks the Chromium/ChromeDriver versions,
+and does a real `POST /convert/url` on `https://example.com` asserting the
+extracted `Example Domain` content — GitHub-hosted runners have a Docker daemon
+and *direct* egress (no gateway), so no CA workaround is needed there.
+**Consequences:** The image is proven to build from pinned deps and to render
+real external pages deterministically (example.com → clean Markdown; a Wikipedia
+article → ~30 KB of structured Markdown; byte-identical SHA-256 across two runs).
+The container is deployment-ready for Hugging Face Spaces. CI now guards the heavy
+browser path the unit suite mocks, closing the last cross-cutting test gap. Still
+open (needs external accounts/credentials, not code): the actual HF Space deploy,
+pointing `frontend/config.js` at it, and GitHub Pages — the remaining Phase 5
+items. The one non-obvious gotcha for future local runs *in this sandbox*: a live
+external HTTPS render returns the egress gateway's TLS interstitial unless the
+gateway CA is imported into Chromium's NSS store (`~/.pki/nssdb`); this does not
+apply to production or CI.
+
 ## ADR-010 — Autonomous ingestion as a zero-dependency HTTP client of the backend
 **Date:** 2026-07-22 · **Status:** Accepted
 **Context:** The last open Phase 4 item is an autonomous-ingestion example:

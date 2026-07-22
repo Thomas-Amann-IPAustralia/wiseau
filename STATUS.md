@@ -6,15 +6,18 @@
 > green checkmark that lies.
 
 **Last updated:** 2026-07-22
-**Updated by:** Claude Code (Phase 4 autonomous-ingestion session)
-**Overall phase:** Phases 1–4 verified end-to-end. **Phase 4 (agent integration)
-is now complete** — the engine is exposed as MCP tools, the OpenAPI
-function-calling schema is cleaned up, and the **autonomous-ingestion monitor**
-(`backend/monitor.py`) is built and verified. Backend API, the live render
-pipeline, the static frontend, the MCP tool surface, and the scheduled
-diff-checker are all proven. **Phase 5 (Docker build / deploy) is the whole
-remaining frontier** — the Docker-image build and live *external*-URL fetch still
-need an environment with a Docker daemon / direct egress.
+**Updated by:** Claude Code (Docker verification + CI docker-build session)
+**Overall phase:** Phases 1–4 verified end-to-end, and **Phase 5 now has its
+container proven**: the Docker image builds from the committed `Dockerfile`,
+Chromium **150** + ChromeDriver **150** launch inside it, and a real *external*
+URL renders end-to-end and deterministically through `POST /convert/url`
+(example.com → clean Markdown; a Wikipedia article → ~30 KB structured Markdown;
+byte-identical SHA-256 across two runs). This closes the biggest standing
+blocker — every prior session lacked a Docker daemon / direct egress — and also
+retires Phase 2's last "live external-URL" caveat. CI now has a `docker-build`
+job that re-proves this on every backend change. **Remaining Phase 5 work is
+deployment only** (Hugging Face Space + GitHub Pages), which needs external
+accounts/credentials rather than code. See ADR-011.
 
 ---
 
@@ -23,12 +26,12 @@ need an environment with a Docker daemon / direct egress.
 | Area | State | Notes |
 | ---- | ----- | ----- |
 | Backend API (Phase 1) | 🟢 Verified (browser-free) | Routes, CORS, rate limiting, concurrency ceiling written; app imports cleanly; `/ping`, `/convert/file` (real PDF), `/convert/url` (mocked driver) verified via `TestClient`. Live URL render still unproven. |
-| Scraper / extraction (Phase 2) | 🟢 Verified (host) | Live headless-Chrome render → Trafilatura → cleaner proven end-to-end and codified as an opt-in test; DOCX-body path now covered. Only fetching arbitrary **external** URLs is unproven here (sandbox egress proxy; works with direct egress). |
+| Scraper / extraction (Phase 2) | 🟢 Verified (incl. external URLs) | Live headless-Chrome render → Trafilatura → cleaner proven end-to-end and codified as an opt-in test; DOCX-body path covered. Fetching arbitrary **external** URLs now proven inside the Docker container (example.com, Wikipedia — deterministic across runs); ADR-011. |
 | Frontend UI (Phase 3) | 🟢 Verified | Full static UI driven end-to-end with headless Chromium against a live `uvicorn` backend: status badge, URL + PDF + DOCX conversion, copy/download, and error states all confirmed (18/18 UI checks). See ADR-008. |
 | AI / MCP integration (Phase 4) | 🟢 Complete | MCP server (`mcp_server.py`) exposes `convert_url`/`convert_file`/`ping` as tools — thin HTTP adapter, same contract, guards intact; verified end-to-end vs a live backend + 6 unit tests. OpenAPI operation IDs/summaries cleaned (v`0.2.0`); `docs/mcp.md` written. **Autonomous-ingestion monitor** (`monitor.py`) built + verified (16 tests + real end-to-end run) — closes Phase 4. |
-| Containerization & deploy (Phase 5) | 🔴 Not deployed | `Dockerfile` written; nothing deployed to Hugging Face or GitHub Pages. |
+| Containerization & deploy (Phase 5) | 🟡 Image proven, not deployed | Image **builds and runs**: Chromium 150 launches in-container, a live external URL renders end-to-end + deterministically (ADR-011). Nothing deployed to Hugging Face / GitHub Pages yet (needs external accounts). |
 | Automated tests | 🟢 Passing | **53 pass + 2 skipped** in default (browserless) runs (+16 monitor tests this session). With a version-matched Chromium+chromedriver and `WISEAU_LIVE_BROWSER=1`, the 2 opt-in live-browser tests also run → **55/55**. Covers `cleaner`/PDF/**DOCX**/validation, the MCP tool surface, the **autonomous-ingestion monitor**, plus the live render→extract→clean pipeline. |
-| CI/CD | 🟡 Tests wired | `.github/workflows/backend-tests.yml` runs `pytest` on `backend/**`. Docker-build step still open. |
+| CI/CD | 🟢 Tests + Docker build | `.github/workflows/backend-tests.yml`: a `test` job runs `pytest` (browserless) and a `docker-build` job builds the image, boots it, and renders a live external URL through the container. Docker-build gap closed (ADR-011). |
 | Documentation | 🟢 Established | Brief, tech spec, roadmap, decisions, agent workflow, this file. |
 
 Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not started/absent
@@ -67,8 +70,13 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   browserless runs).
 
 **CI** (`.github/`)
-- `workflows/backend-tests.yml` — installs runtime + dev deps and runs `pytest`
-  on any `backend/**` change (no browser provisioned; URL worker is mocked).
+- `workflows/backend-tests.yml` — two jobs on any `backend/**` change:
+  - `test`: installs runtime + dev deps and runs `pytest` (no browser
+    provisioned; URL worker is mocked).
+  - `docker-build`: builds the image from `backend/Dockerfile`, boots the
+    container, asserts `/ping`, checks Chromium/ChromeDriver versions, and runs a
+    live `POST /convert/url` on `https://example.com` (real headless-Chrome
+    render — GitHub runners have Docker + direct egress). ADR-011.
 
 **Frontend** (`frontend/`)
 - `index.html`, `style.css`, `app.js` — tabbed URL/file UI, drop zone, status
@@ -82,43 +90,50 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
 
 ## Known gaps / not yet proven
 
-- **Live *external*-URL fetch unproven in this sandbox.** The render pipeline is
-  proven (headless Chrome launches, renders a `data:` page, Trafilatura + cleaner
-  emit Markdown), but fetching arbitrary internet URLs is blocked here by the
-  sandbox's authenticated egress proxy (`net::ERR_CONNECTION_RESET`). Not a code
-  issue — needs an environment with direct egress (the Docker image / a Space).
-- **Chromium-in-container unconfirmed.** Launch is proven on the host; building
-  the actual Docker image and launching Chromium inside it is still open.
 - **No deployment** — no live Hugging Face Space, no GitHub Pages activation,
-  so `MARKDOWN_API_BASE` still points at localhost.
+  so `MARKDOWN_API_BASE` still points at localhost. The container is *proven
+  deploy-ready* (ADR-011); this is now the only substantial Phase 5 gap, and it
+  needs external accounts/credentials rather than code.
 - **MCP server + monitor need a reachable backend.** By design both are HTTP
   clients, so their tools only work when a backend is running at
   `WISEAU_API_BASE`. Verified against a local `uvicorn`/stub; not yet exercised
   against a deployed Space.
-- CI runs tests but **does not yet build the Docker image**.
+- *Sandbox note (not a product gap):* a live external **HTTPS** render inside the
+  container in *this* sandbox returns the egress gateway's TLS interstitial unless
+  the gateway CA is imported into Chromium's NSS store (`~/.pki/nssdb`). This is a
+  sandbox artifact only — production and GitHub-runner CI have direct egress and
+  render real content with no workaround (confirmed this session).
+
+*Resolved this session (previously listed here): live external-URL fetch,
+Chromium-in-container launch, and the CI Docker-build gap — all now proven
+(ADR-011).*
 
 ---
 
 ## Suggested next actions (see `docs/roadmap.md` for the full backlog)
 
-With Phase 4 complete, everything left is **Phase 5 (containerization & deploy)**,
-which needs infrastructure this sandbox lacks (a Docker daemon + direct egress):
+With the container proven (ADR-011), everything left is **Phase 5 deployment**,
+which needs external accounts/credentials rather than code:
 
-1. **Build the Docker image and confirm Chromium launches inside the container**,
-   then verify a real *external* URL renders end-to-end (needs a Docker daemon +
-   direct egress — neither is available in this sandbox, so this is the natural
-   place to prove it). This is the last piece of Phase 2 / start of Phase 5.
-2. **Extend CI to build the Docker image** (the last cross-cutting test gap) —
-   pairs with item 1; needs a Docker-capable runner.
-3. **Then** proceed to deployment (Phase 5): Hugging Face Space + GitHub Pages,
-   point `frontend/config.js` at the live Space, and re-run the MCP + monitor
-   end-to-end checks against the deployed Space (set `WISEAU_API_BASE` to the
-   Space URL).
+1. **Deploy the backend to a Hugging Face Space** (free CPU tier). The image is
+   proven deploy-ready — it builds from `backend/Dockerfile`, boots, and renders
+   live external URLs. Needs an HF account + Space (push the `backend/` build
+   context or the built image). The container listens on `7860` and runs as
+   UID 1000, already matching Spaces.
+2. **Point `frontend/config.js` `MARKDOWN_API_BASE` at the live Space**, then
+   deploy the frontend via **GitHub Pages** (repo settings → Pages, serve
+   `frontend/`).
+3. **Confirm the deployed UI talks to the deployed backend end-to-end**, and
+   re-run the MCP + monitor checks against the deployed Space (set
+   `WISEAU_API_BASE` to the Space URL).
 
-*Done this session: Phase 4's last item — the autonomous-ingestion monitor
-(`backend/monitor.py`), a stdlib-only diff-checker over `POST /convert/url`.
-Verified with 16 unit tests and a real end-to-end run against a stub backend
-(new → unchanged → changed-with-diff → error). See the session log and ADR-010.*
+*Done this session: the marquee Phase 5 / last-of-Phase-2 blocker — built the
+Docker image and proved the whole heavy path inside the container (Chromium 150
+launches; example.com and a Wikipedia article render end-to-end and
+deterministically via `POST /convert/url`). Added a CI `docker-build` job that
+re-proves it on every backend change. Verification used a throwaway
+`Dockerfile.verify` + NSS CA import that were deleted, not committed — the
+production `Dockerfile` is unchanged. See the session log and ADR-011.*
 
 ---
 
@@ -127,6 +142,31 @@ Verified with 16 unit tests and a real end-to-end run against a stub backend
 Newest first. One short entry per working session — what changed and what the
 next instance should know.
 
+- **2026-07-22 — Docker image proven end-to-end + CI docker-build.** Cleared the
+  blocker every prior session was stuck on: this environment had a working Docker
+  daemon *and* direct egress. Built the committed `backend/Dockerfile` and verified
+  the full heavy path **inside the container** — `/ping` serves `v0.2.0`, Chromium
+  **150** + ChromeDriver **150** launch (matched pair from apt), and `POST
+  /convert/url` renders real external URLs end-to-end: example.com → clean
+  Markdown, a Wikipedia article → ~30 KB of structured Markdown (tables + links),
+  and byte-identical SHA-256 across two runs (determinism holds). This also retires
+  Phase 2's last "live external-URL" caveat — headless Chrome rendered arbitrary
+  internet pages, not just a `data:` URL. Kept the production Dockerfile **clean**:
+  the only reason the plain build failed here was the sandbox proxy CA for pip, so
+  verification used a *throwaway* `Dockerfile.verify` (adds CA trust for build
+  egress) plus a per-user NSS import of the egress-gateway CA (so Chromium renders
+  real content instead of the gateway's TLS interstitial) — both **deleted after
+  verification, not committed**. Made it a standing guarantee by adding a
+  `docker-build` job to `.github/workflows/backend-tests.yml`: it builds the image,
+  boots the container, checks `/ping` + Chromium/ChromeDriver versions, and does a
+  live `POST /convert/url` on `https://example.com` asserting the extracted
+  `Example Domain` content (GitHub runners have Docker + direct egress → no CA
+  workaround needed). Updated roadmap (Phase 5 image-build + Chromium-in-container
+  → `[x]`, CI Docker-build → `[x]`), flipped the cross-cutting CI item, and recorded
+  ADR-011. **Next instance:** everything left is Phase 5 **deployment** — Hugging
+  Face Space for the backend, then `frontend/config.js` → the Space URL and GitHub
+  Pages for the frontend. That needs external accounts/credentials, not code; the
+  container itself is proven deploy-ready.
 - **2026-07-22 — Phase 4 autonomous ingestion (complete).** Built the last Phase 4
   item: `backend/monitor.py`, a scheduled diff-checker. It converts one or more
   URLs to Markdown and diffs each fresh conversion against the last one it saw.

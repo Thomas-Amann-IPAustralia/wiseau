@@ -37,3 +37,42 @@ jobs:
 
       - name: Run tests
         run: pytest
+
+  # Builds the production image and proves the heavy path the unit suite mocks:
+  # Chromium launches inside the container and a real external URL renders
+  # end-to-end. GitHub-hosted runners provide a Docker daemon and direct egress,
+  # so unlike the unit job this exercises the browser for real.
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build -t markdown-engine ./backend
+
+      - name: Run container
+        run: |
+          docker run -d --name md-engine -p 7860:7860 markdown-engine
+          # Wait for the app to report healthy (up to ~30s).
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:7860/ping; then echo; echo "backend up"; break; fi
+            sleep 1
+          done
+          curl -sf http://localhost:7860/ping >/dev/null || { echo "backend never came up"; docker logs md-engine; exit 1; }
+
+      - name: Confirm Chromium + chromedriver are present and version-matched
+        run: |
+          docker exec md-engine chromium --version
+          docker exec md-engine chromedriver --version
+
+      - name: Render a real external URL end-to-end
+        run: |
+          body=$(curl -sf --max-time 90 -X POST http://localhost:7860/convert/url \
+            -H 'Content-Type: application/json' \
+            -d '{"url":"https://example.com"}')
+          echo "$body"
+          echo "$body" | grep -q "Example Domain" || { echo "expected extracted content not found"; docker logs md-engine; exit 1; }
+
+      - name: Tear down
+        if: always()
+        run: docker rm -f md-engine || true
