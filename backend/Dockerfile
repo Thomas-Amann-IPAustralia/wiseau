@@ -9,13 +9,16 @@ ENV PYTHONUNBUFFERED=1 \
     CHROME_BIN=/usr/bin/chromium \
     CHROMEDRIVER_PATH=/usr/bin/chromedriver
 
-# System dependencies: Chromium, its driver, and fonts for correct rendering.
+# System dependencies: Chromium + driver + fonts for rendering, and Tesseract
+# (with English language data) for OCR of scanned / handwritten PDFs and images.
 RUN apt-get update && apt-get install -y --no-install-recommends \
         chromium \
         chromium-driver \
         fonts-liberation \
         libnss3 \
         libxss1 \
+        tesseract-ocr \
+        tesseract-ocr-eng \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app

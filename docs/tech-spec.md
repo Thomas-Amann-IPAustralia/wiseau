@@ -54,11 +54,13 @@ interactive docs are at `/docs`.
   `502` extraction/render failure.
 
 ### `POST /convert/file`
-- **Purpose:** parse an uploaded PDF or DOCX into Markdown.
+- **Purpose:** parse an uploaded PDF, DOCX, or image into Markdown. Scanned /
+  handwritten PDFs and image uploads are OCR'd automatically (see §10).
 - **Rate limit:** `20/minute` per IP.
 - **Request:** `multipart/form-data` with a single `file` field.
-- **Constraints:** extension must be `.pdf` or `.docx`; body must be non-empty
-  and ≤ `MAX_UPLOAD_BYTES` (default 25 MB).
+- **Constraints:** extension must be `.pdf`, `.docx`, or an image type
+  (`.png`, `.jpg`, `.jpeg`, `.tif`, `.tiff`, `.bmp`, `.webp`, `.gif`); body must
+  be non-empty and ≤ `MAX_UPLOAD_BYTES` (default 25 MB).
 - **200 response:** `MarkdownResponse`.
 - **Errors:** `400` empty upload; `413` too large; `415` unsupported type;
   `429` rate limited; `502` parse failure.
@@ -90,7 +92,8 @@ The backend is deliberately small and layered. Each module has one job.
 | `parsers/__init__.py` | Public entrypoints: `url_to_markdown`, `file_to_markdown`. | — |
 | `parsers/browser.py` | Build a stealth headless Chrome driver. | Know about Markdown. |
 | `parsers/url_parser.py` | Render → Trafilatura extract → (markdownify fallback) → clean. | Contain per-site CSS selectors. |
-| `parsers/file_parser.py` | Dispatch by extension; PDF→PyMuPDF4LLM, DOCX→Mammoth; then clean. | Return unnormalized text. |
+| `parsers/file_parser.py` | Dispatch by extension; PDF→PyMuPDF4LLM (legacy mode) with per-page OCR of scanned pages, DOCX→Mammoth, images→OCR; then clean. | Return unnormalized text; use PyMuPDF4LLM's unstable layout/OCR engine. |
+| `parsers/ocr.py` | Pluggable OCR engines (default MuPDF-Tesseract, opt-in EasyOCR): page image → text. | Introduce nondeterminism. |
 | `parsers/cleaner.py` | Deterministic Unicode/whitespace/typography normalization. | Introduce nondeterminism. |
 
 ### Extraction pipelines
@@ -99,10 +102,16 @@ The backend is deliberately small and layered. Each module has one job.
 → `trafilatura.extract(..., output_format="markdown", favor_precision=True)` →
 if empty, `markdownify(html, heading_style="ATX")` → `clean_markdown()`.
 
-**PDF:** `pymupdf.open(stream=...)` → `pymupdf4llm.to_markdown(doc)` → `clean_markdown()`.
+**PDF:** `pymupdf.open(stream=...)` → per-page: native pages via
+`pymupdf4llm.to_markdown` (legacy mode), scanned pages via the OCR engine (§10) →
+assemble in page order → `clean_markdown()`. A fully digital PDF keeps the single
+whole-document `to_markdown(doc)` fast path.
 
 **DOCX:** `mammoth.convert_to_html(...)` → `markdownify(..., heading_style="ATX")`
 → `clean_markdown()`.
+
+**Image** (`.png`/`.jpg`/...): re-wrap as a one-page PDF → OCR engine (§10) →
+`clean_markdown()`.
 
 ### `clean_markdown()` guarantees
 Given identical input it returns identical output: NFC Unicode normalization,
@@ -123,6 +132,10 @@ All backend configuration is via environment variables (12-factor).
 | `MAX_UPLOAD_BYTES` | `26214400` | Upload size limit (25 MB). |
 | `CHROME_BIN` | — | Path to Chromium binary (set in Docker image). |
 | `CHROMEDRIVER_PATH` | — | Path to chromedriver (set in Docker image). |
+| `WISEAU_OCR_MODE` | `auto` | `auto` (OCR pages that need it), `force` (OCR every page), or `off` (native text only). |
+| `WISEAU_OCR_ENGINE` | `tesseract` | OCR backend: `tesseract` (default) or `easyocr` (opt-in neural, handwriting). |
+| `WISEAU_OCR_DPI` | `300` | Rasterization DPI for OCR (fixed for reproducibility). |
+| `WISEAU_OCR_LANG` | `eng` | OCR language(s); Tesseract 639-2/T code(s), `+`-joined. |
 
 Rate limits are code-level constants in `main.py` (`60/min` + `1000/day` default;
 `20/min` on convert routes). Promote them to env vars only if a real tuning need
@@ -199,3 +212,41 @@ the contract-level guarantees:
 
 See [`roadmap.md`](roadmap.md) for the task breakdown and [`mcp.md`](mcp.md) for
 client wiring.
+
+---
+
+## 10. OCR (scanned & handwritten documents)
+
+Born-digital PDFs carry a text layer that is read directly. Scanned and
+handwritten PDFs are page *images* with no text layer, so they are OCR'd. Image
+uploads are OCR'd the same way. This is handled in `parsers/file_parser.py` +
+`parsers/ocr.py`; see **ADR-012** for the full rationale.
+
+**Detection & assembly.** Detection is per page: a page with `< 16` non-whitespace
+characters of embedded text is treated as image-only and OCR'd; other pages take
+the fast native path. The document is then assembled in page order. A fully
+digital PDF keeps the exact pre-OCR fast path (`pymupdf4llm.to_markdown(doc)`); a
+fully scanned PDF is entirely OCR'd; a mixed PDF interleaves.
+
+**Determinism (invariant #1).** Two deliberate choices keep output byte-stable:
+1. `pymupdf4llm.use_layout(False)` — the 1.28 layout engine accumulates cross-call
+   state that non-deterministically drops content; the legacy extractor is stable.
+2. OCR uses MuPDF's own primitive (`Page.get_textpage_ocr`), **not**
+   PyMuPDF4LLM's OCR integration, which has the same instability.
+OCR DPI is a fixed constant (300). All OCR output still ends in `clean_markdown()`
+(invariant #3) and runs under the concurrency + rate-limit guards (invariant #4).
+
+**Engines (pluggable, `parsers/ocr.py`).**
+- `tesseract` (default) — MuPDF's built-in Tesseract. System binary only (no extra
+  Python dependency); deterministic; strong on printed/scanned text; weak on
+  cursive handwriting. Installed in the Docker image (`tesseract-ocr` +
+  `tesseract-ocr-eng`); tessdata is auto-discovered (no `TESSDATA_PREFIX` needed).
+- `easyocr` (opt-in) — a neural engine that handles handwriting and noisy
+  captures. Enabled with `WISEAU_OCR_ENGINE=easyocr` after
+  `pip install -r requirements-ocr.txt`. PyTorch is heavy, so it is kept out of
+  the default image; determinism holds for fixed model weights on CPU.
+
+For a predominantly handwritten corpus, EasyOCR is the recommended engine; a
+dedicated handwriting model (e.g. TrOCR) could be added as a further engine
+behind the same `OcrEngine` interface. Configuration: see §5
+(`WISEAU_OCR_MODE`/`ENGINE`/`DPI`/`LANG`).

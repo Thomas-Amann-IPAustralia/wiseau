@@ -1,7 +1,8 @@
 # Backend — Markdown Ingestion Engine
 
-FastAPI microservice that converts URLs, PDFs, and DOCX documents into clean
-Markdown. See [`../docs/project-brief.md`](../docs/project-brief.md) for the
+FastAPI microservice that converts URLs, PDFs, DOCX documents, and images into
+clean Markdown. Scanned and handwritten PDFs (and image uploads) are OCR'd
+automatically. See [`../docs/project-brief.md`](../docs/project-brief.md) for the
 full design.
 
 ## Endpoints
@@ -10,15 +11,33 @@ full design.
 | ------ | --------------- | ------------------------------------------------ |
 | GET    | `/ping`         | Liveness/readiness check (rate-limit exempt).    |
 | POST   | `/convert/url`  | `{ "url": "..." }` → Markdown JSON.              |
-| POST   | `/convert/file` | multipart `file` (PDF/DOCX) → Markdown JSON.     |
+| POST   | `/convert/file` | multipart `file` (PDF/DOCX/image) → Markdown JSON.|
 
 Interactive docs and the machine-readable schema for LLM/MCP integration are
 served at `/docs` and `/openapi.json`.
 
+## OCR (scanned & handwritten documents)
+
+Image-only PDF pages and image uploads (`.png/.jpg/.tif/...`) are OCR'd. The
+default engine is MuPDF's built-in **Tesseract** (installed in the Docker image;
+nothing extra to `pip install`) — deterministic and strong on printed/scanned
+text. For handwriting, enable the neural **EasyOCR** engine:
+
+```bash
+pip install -r requirements-ocr.txt
+export WISEAU_OCR_ENGINE=easyocr
+```
+
+Tuning knobs (all optional): `WISEAU_OCR_MODE` (`auto`/`force`/`off`),
+`WISEAU_OCR_DPI` (default `300`), `WISEAU_OCR_LANG` (default `eng`). See
+[`../docs/tech-spec.md`](../docs/tech-spec.md) §10 and ADR-012 for the design.
+
 ## Run locally
 
 Chromium and chromedriver must be on `PATH` (or set `CHROME_BIN` /
-`CHROMEDRIVER_PATH`).
+`CHROMEDRIVER_PATH`). For OCR of scanned/handwritten files, the `tesseract`
+binary + language data must be installed (e.g. `apt install tesseract-ocr
+tesseract-ocr-eng`); the Docker image includes them.
 
 ```bash
 python -m venv .venv && source .venv/bin/activate

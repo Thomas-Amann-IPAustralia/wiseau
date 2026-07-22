@@ -30,11 +30,12 @@
       </div>
 
       <div id="tab-file" class="tab-pane">
-        <label class="field-label">PDF or DOCX document</label>
+        <label class="field-label">PDF, DOCX, or scanned image</label>
         <div id="drop-zone" class="drop-zone">
           <p class="drop-zone__hint">Drop a file here, or <span class="link">browse</span></p>
+          <p class="drop-zone__sub">Scanned &amp; handwritten PDFs and images are OCR'd automatically.</p>
           <p id="file-name" class="drop-zone__file"></p>
-          <input id="file-input" type="file" accept=".pdf,.docx" hidden />
+          <input id="file-input" type="file" accept=".pdf,.docx,.png,.jpg,.jpeg,.tif,.tiff,.bmp,.webp,.gif" hidden />
         </div>
         <button id="convert-file-btn" class="btn btn--primary" disabled>Convert</button>
       </div>

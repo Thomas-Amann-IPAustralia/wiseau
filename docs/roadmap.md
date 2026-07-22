@@ -108,6 +108,18 @@ merely written. Written-but-unverified is `[~]` with a note.
 
 ## Cross-cutting backlog (not phase-bound)
 
+- [x] **OCR for scanned / handwritten documents.** Image-only PDF pages and image
+  uploads (`.png/.jpg/.tif/...`) are OCR'd; detection is per-page so mixed PDFs use
+  native text where possible and OCR only scanned pages, assembled in order.
+  Default engine is MuPDF's built-in Tesseract (deterministic, system-binary only);
+  a neural handwriting engine (EasyOCR) is opt-in via `WISEAU_OCR_ENGINE=easyocr` +
+  `requirements-ocr.txt`. Determinism preserved by pinning `pymupdf4llm`'s legacy
+  extractor and driving MuPDF's OCR primitive directly (the 1.28 layout/OCR engine
+  drops content non-deterministically across calls). Verified: 13 OCR tests (real
+  Tesseract, in-memory scanned/image fixtures, stable across repeated runs) + HTTP
+  round-trip; CI installs Tesseract and OCRs a page inside the built image. API
+  `0.2.0 → 0.3.0`. See ADR-012 and tech-spec §10.
+
 - [~] **Test suite.** Browser-free deterministic units (53 passing, 2 skipped):
   `cleaner` normalization/determinism, `file_parser` dispatch + real PDF **and
   DOCX** round-trips, request validation & error codes, `/convert/url` with a

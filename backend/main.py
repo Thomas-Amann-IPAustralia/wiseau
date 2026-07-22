@@ -44,7 +44,7 @@ app = FastAPI(
         "Deterministic conversion of web URLs, PDFs, and DOCX documents into "
         "clean, structured Markdown. Designed for both human UIs and LLM/MCP agents."
     ),
-    version="0.2.0",
+    version="0.3.0",
 )
 
 app.state.limiter = limiter
