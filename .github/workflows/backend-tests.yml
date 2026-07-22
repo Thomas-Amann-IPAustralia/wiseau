@@ -30,6 +30,9 @@ jobs:
           python-version: "3.11"
           cache: pip
 
+      - name: Install Tesseract (OCR engine for scanned/handwritten docs)
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends tesseract-ocr tesseract-ocr-eng
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -64,6 +67,33 @@ jobs:
         run: |
           docker exec md-engine chromium --version
           docker exec md-engine chromedriver --version
+
+      - name: Confirm Tesseract OCR engine is present in the image
+        run: docker exec md-engine tesseract --version
+
+      - name: OCR a scanned page inside the container (end-to-end)
+        run: |
+          # Build an image-only (no text layer) PDF with PyMuPDF, then run it
+          # through the real parser. This proves OCR works in the deployed image
+          # (tesseract binary + tessdata discoverable via TESSDATA_PREFIX).
+          docker exec -i md-engine python - <<'PY'
+          import pymupdf
+          from parsers.file_parser import pdf_to_markdown
+
+          src = pymupdf.open()
+          src.new_page().insert_text((72, 120), "Container Scanned OCR", fontsize=48)
+          pix = src[0].get_pixmap(dpi=200)
+
+          scan = pymupdf.open()
+          page = scan.new_page(width=pix.width, height=pix.height)
+          page.insert_image(page.rect, pixmap=pix)   # image only: no text layer
+          data = scan.tobytes()
+
+          out = pdf_to_markdown(data)
+          print("OCR output:", repr(out))
+          assert "Container" in out, f"OCR did not recover text: {out!r}"
+          print("in-container OCR OK")
+          PY
 
       - name: Render a real external URL end-to-end
         run: |

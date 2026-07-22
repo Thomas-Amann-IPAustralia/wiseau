@@ -57,7 +57,8 @@ wiseau/
 │   ├── parsers/            # deterministic extraction pipeline
 │   │   ├── browser.py      # Selenium-stealth headless Chrome
 │   │   ├── url_parser.py   # Trafilatura extraction (+ markdownify fallback)
-│   │   ├── file_parser.py  # PyMuPDF4LLM (PDF) + Mammoth (DOCX)
+│   │   ├── file_parser.py  # PyMuPDF4LLM (PDF) + Mammoth (DOCX) + OCR dispatch
+│   │   ├── ocr.py          # pluggable OCR engines (Tesseract / EasyOCR)
 │   │   └── cleaner.py      # regex/Unicode normalization
 │   ├── Dockerfile          # version-locks Chromium + Python
 │   └── requirements.txt

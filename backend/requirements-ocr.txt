@@ -1,0 +1,18 @@
+# Optional neural OCR engine for handwriting and noisy real-world captures.
+#
+# By default OCR uses MuPDF's built-in Tesseract (see the Dockerfile): tiny,
+# deterministic, and strong on clean printed/scanned text but weak on cursive
+# handwriting. EasyOCR is a deep-learning engine that handles handwriting and
+# messy captures far better. It pulls in PyTorch (large), so it is deliberately
+# NOT part of the default image or requirements.txt — the free-tier Space stays
+# lean unless you opt in.
+#
+# To enable:
+#   pip install -r requirements-ocr.txt
+#   export WISEAU_OCR_ENGINE=easyocr
+# then rebuild/redeploy.
+#
+# EasyOCR downloads its detection/recognition model weights on first use; in a
+# container, pre-warm or bake the weights (~/.EasyOCR) so the first request does
+# not pay the download cost. Determinism holds for fixed weights on CPU.
+easyocr==1.7.2

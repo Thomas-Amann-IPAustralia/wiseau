@@ -6,7 +6,7 @@
 > green checkmark that lies.
 
 **Last updated:** 2026-07-22
-**Updated by:** Claude Code (Docker verification + CI docker-build session)
+**Updated by:** Claude Code (OCR capability session)
 **Overall phase:** Phases 1–4 verified end-to-end, and **Phase 5 now has its
 container proven**: the Docker image builds from the committed `Dockerfile`,
 Chromium **150** + ChromeDriver **150** launch inside it, and a real *external*
@@ -27,10 +27,11 @@ accounts/credentials rather than code. See ADR-011.
 | ---- | ----- | ----- |
 | Backend API (Phase 1) | 🟢 Verified (browser-free) | Routes, CORS, rate limiting, concurrency ceiling written; app imports cleanly; `/ping`, `/convert/file` (real PDF), `/convert/url` (mocked driver) verified via `TestClient`. Live URL render still unproven. |
 | Scraper / extraction (Phase 2) | 🟢 Verified (incl. external URLs) | Live headless-Chrome render → Trafilatura → cleaner proven end-to-end and codified as an opt-in test; DOCX-body path covered. Fetching arbitrary **external** URLs now proven inside the Docker container (example.com, Wikipedia — deterministic across runs); ADR-011. |
+| OCR (scanned/handwritten) | 🟢 Verified | Image-only PDF pages + image uploads OCR'd; per-page detection assembles mixed PDFs in order. Default MuPDF-Tesseract (deterministic, in the image); opt-in neural EasyOCR for handwriting. Deterministic by pinning `pymupdf4llm` legacy mode + driving MuPDF's OCR primitive directly (ADR-012). 13 tests + HTTP round-trip verified; API `v0.3.0`. |
 | Frontend UI (Phase 3) | 🟢 Verified | Full static UI driven end-to-end with headless Chromium against a live `uvicorn` backend: status badge, URL + PDF + DOCX conversion, copy/download, and error states all confirmed (18/18 UI checks). See ADR-008. |
 | AI / MCP integration (Phase 4) | 🟢 Complete | MCP server (`mcp_server.py`) exposes `convert_url`/`convert_file`/`ping` as tools — thin HTTP adapter, same contract, guards intact; verified end-to-end vs a live backend + 6 unit tests. OpenAPI operation IDs/summaries cleaned (v`0.2.0`); `docs/mcp.md` written. **Autonomous-ingestion monitor** (`monitor.py`) built + verified (16 tests + real end-to-end run) — closes Phase 4. |
 | Containerization & deploy (Phase 5) | 🟡 Image proven, not deployed | Image **builds and runs**: Chromium 150 launches in-container, a live external URL renders end-to-end + deterministically (ADR-011). Nothing deployed to Hugging Face / GitHub Pages yet (needs external accounts). |
-| Automated tests | 🟢 Passing | **53 pass + 2 skipped** in default (browserless) runs (+16 monitor tests this session). With a version-matched Chromium+chromedriver and `WISEAU_LIVE_BROWSER=1`, the 2 opt-in live-browser tests also run → **55/55**. Covers `cleaner`/PDF/**DOCX**/validation, the MCP tool surface, the **autonomous-ingestion monitor**, plus the live render→extract→clean pipeline. |
+| Automated tests | 🟢 Passing | **71 pass + 2 skipped** in default (browserless) runs (+18 OCR tests this session: 13 recognition + 5 engine-layer). Covers `cleaner`/PDF/**DOCX**/**OCR**/validation, the MCP tool surface, the **autonomous-ingestion monitor**, plus the live render→extract→clean pipeline. *This sandbox run: 65 pass + 2 skipped verified directly; the 6 (unchanged) MCP tests couldn't collect here because `mcp` wouldn't install over a Debian-managed `PyJWT` — they run in CI.* With `WISEAU_LIVE_BROWSER=1` the 2 live-browser tests also run. |
 | CI/CD | 🟢 Tests + Docker build | `.github/workflows/backend-tests.yml`: a `test` job runs `pytest` (browserless) and a `docker-build` job builds the image, boots it, and renders a live external URL through the container. Docker-build gap closed (ADR-011). |
 | Documentation | 🟢 Established | Brief, tech spec, roadmap, decisions, agent workflow, this file. |
 
@@ -59,7 +60,10 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   Chrome args, env-configurable Chrome/driver paths.
 - `parsers/url_parser.py` — renders with headless Chrome, extracts with
   Trafilatura, falls back to markdownify, normalizes via cleaner.
-- `parsers/file_parser.py` — PDF via PyMuPDF4LLM, DOCX via Mammoth + markdownify.
+- `parsers/file_parser.py` — PDF via PyMuPDF4LLM (legacy mode) with per-page OCR
+  of scanned pages, DOCX via Mammoth + markdownify, images via OCR.
+- `parsers/ocr.py` — pluggable OCR engines: default MuPDF-Tesseract (system binary,
+  deterministic), opt-in EasyOCR (neural, handwriting; `WISEAU_OCR_ENGINE=easyocr`).
 - `parsers/cleaner.py` — deterministic Unicode/whitespace/typography normalizer.
 - `Dockerfile` — Python 3.11-slim + system Chromium/chromedriver, non-root user.
 - `requirements.txt` — direct dependencies **version-pinned** to verified
@@ -98,6 +102,12 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   clients, so their tools only work when a backend is running at
   `WISEAU_API_BASE`. Verified against a local `uvicorn`/stub; not yet exercised
   against a deployed Space.
+- **EasyOCR engine written but not run here.** The default OCR engine
+  (MuPDF-Tesseract) is fully verified. The opt-in neural engine
+  (`WISEAU_OCR_ENGINE=easyocr`) is implemented and its selection/lang-mapping are
+  unit-tested, but the actual EasyOCR recognition path wasn't executed in this
+  sandbox (PyTorch/`easyocr` not installed). Exercise it once when deploying with
+  handwriting needs.
 - *Sandbox note (not a product gap):* a live external **HTTPS** render inside the
   container in *this* sandbox returns the egress gateway's TLS interstitial unless
   the gateway CA is imported into Chromium's NSS store (`~/.pki/nssdb`). This is a
@@ -142,6 +152,41 @@ production `Dockerfile` is unchanged. See the session log and ADR-011.*
 Newest first. One short entry per working session — what changed and what the
 next instance should know.
 
+- **2026-07-22 — OCR for scanned & handwritten documents.** The engine only read a
+  PDF's embedded text layer, so scanned/handwritten PDFs (page images) converted to
+  empty Markdown. Added OCR: per-page detection (`< 16` non-whitespace chars ⇒
+  image-only) OCRs only the scanned pages and assembles the doc in page order — a
+  fully digital PDF keeps the exact fast path, a fully scanned one is all-OCR, mixed
+  interleaves. Also added **image uploads** (`.png/.jpg/.tif/...`, re-wrapped as a
+  1-page PDF and OCR'd) as new supported input types (API `0.2.0 → 0.3.0`, additive).
+  Engine is **pluggable** (`parsers/ocr.py`): default **tesseract** (MuPDF's built-in
+  Tesseract via `get_textpage_ocr` — system binary only, no new Python dep,
+  deterministic, strong on print) and opt-in **easyocr** (neural, handwriting;
+  `WISEAU_OCR_ENGINE=easyocr` + `requirements-ocr.txt`, PyTorch kept out of the
+  default image). Env knobs: `WISEAU_OCR_MODE`/`ENGINE`/`DPI`(300)/`LANG`(eng).
+  **The hard part was determinism.** `pymupdf4llm` 1.28 *already* auto-OCRs when
+  Tesseract is present — but two of its subsystems silently break invariant #1: its
+  new **layout engine** (`use_layout(True)`, default) and its **built-in OCR** both
+  accumulate cross-call process state that *non-deterministically drops content*
+  (words, and even whole native-text pages) once several varied docs pass through
+  one worker — reproduced outside pytest. MuPDF's own `Page.get_textpage_ocr` and
+  `pymupdf4llm`'s **legacy** extractor are clean and byte-reproducible, so I pinned
+  `use_layout(False)` and drive MuPDF's OCR primitive directly, bypassing both traps
+  (ADR-012). Dockerfile installs `tesseract-ocr` + `tesseract-ocr-eng`; tessdata is
+  **auto-discovered** (dropped an earlier hardcoded `TESSDATA_PREFIX` that could go
+  stale across distros). CI `test` job now installs Tesseract so the 13 new OCR tests
+  run for real, and `docker-build` OCRs a page **inside the built image** to prove
+  the deployed container can. Frontend `accept=` + hint updated for images. Verified:
+  full suite **65 pass + 2 skipped** here (OCR tests stable across 3 repeated runs;
+  the 6 unchanged MCP tests couldn't collect in this sandbox — `mcp` won't install
+  over Debian's `PyJWT` — they run in CI), plus a `TestClient` round-trip (scanned
+  PDF + image → recovered text, `.txt` still 415). Updated tech-spec (§2/§4/§5 + new
+  §10), roadmap, decisions (ADR-012), both READMEs. **Next instance:** unchanged —
+  Phase 5 **deployment** (Hugging Face Space + GitHub Pages) is all that's left, and
+  needs external accounts/credentials, not code. If deploying with heavy handwriting
+  needs, enable EasyOCR (bake its weights into the image to avoid first-request
+  download) and consider bumping `MAX_CONCURRENT_JOBS` down since OCR at 300 DPI is
+  memory-heavy.
 - **2026-07-22 — Docker image proven end-to-end + CI docker-build.** Cleared the
   blocker every prior session was stuck on: this environment had a working Docker
   daemon *and* direct egress. Built the committed `backend/Dockerfile` and verified

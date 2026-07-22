@@ -21,6 +21,49 @@ one `Superseded`.
 
 ---
 
+## ADR-012 — OCR for scanned/handwritten PDFs and images (deterministic, pluggable)
+**Date:** 2026-07-22 · **Status:** Accepted
+**Context:** The engine only read a PDF's embedded text layer (`pymupdf4llm`), so
+scanned and handwritten PDFs — which are just page images — converted to empty
+Markdown. OCR was needed, and it had to honour invariant #1 (determinism) and
+stay light enough for the free Hugging Face CPU tier the backend still has to be
+deployed to. Investigation surfaced two traps in `pymupdf4llm` 1.28:
+1. Its **new layout engine** (`use_layout(True)`, the default) accumulates
+   cross-call process state that *non-deterministically drops content* — not just
+   OCR text but sometimes a page's native text — once several varied documents
+   pass through one worker. Fatal for determinism.
+2. Its **built-in OCR integration** has the same instability (progressive
+   word-dropping across calls). MuPDF's own OCR primitive
+   (`Page.get_textpage_ocr`), by contrast, is clean and byte-reproducible.
+**Decision:** Do OCR ourselves, deterministically, and route around both traps:
+- Pin `pymupdf4llm.use_layout(False)` (stable legacy extractor) for native text.
+- Detect image-only pages **per page** (`< 16` non-whitespace chars of embedded
+  text); OCR only those, then assemble the document in page order. A fully
+  digital PDF keeps the exact pre-OCR fast path; a fully scanned PDF is entirely
+  OCR'd; mixed PDFs interleave. Image uploads (PNG/JPEG/TIFF/...) are re-wrapped
+  as a one-page PDF and OCR'd the same way — new supported input types.
+- Make the OCR engine **pluggable** (`parsers/ocr.py`). Default **tesseract**
+  (MuPDF's built-in Tesseract via `get_textpage_ocr`; system binary only, no new
+  Python dep, deterministic, strong on printed/scanned). Opt-in **easyocr**
+  (`WISEAU_OCR_ENGINE=easyocr` + `requirements-ocr.txt`) is a neural engine that
+  handles handwriting/noisy captures; PyTorch is kept out of the default image.
+- Configuration via env: `WISEAU_OCR_MODE` (`auto`/`force`/`off`),
+  `WISEAU_OCR_DPI` (fixed 300 for reproducibility), `WISEAU_OCR_LANG`,
+  `WISEAU_OCR_ENGINE`. Output still flows through `clean_markdown` (invariant #3)
+  and runs under the concurrency + rate-limit guards (invariant #4). API `0.2.0
+  → 0.3.0` (additive: new input types, no response-shape change).
+**Consequences:** Scanned/handwritten documents now convert. The default stays
+tiny and deterministic (only `tesseract-ocr` + `tesseract-ocr-eng` added to the
+image; tessdata is auto-discovered — no `TESSDATA_PREFIX` hardcode that could go
+stale across distros). CI installs Tesseract so the OCR tests run for real, and
+the `docker-build` job OCRs a page *inside the image* to prove the deployed
+container can. Watch for: (a) genuine handwriting is only "very good" with the
+EasyOCR engine — Tesseract alone is weak on cursive, and no self-hosted engine is
+flawless; (b) if a future `pymupdf4llm` fixes the layout-engine instability,
+revisit the `use_layout(False)` pin (it also forgoes the newer engine's richer
+table handling); (c) OCR is memory/CPU-heavy at 300 DPI — it shares the existing
+`_job_semaphore`, so tune `MAX_CONCURRENT_JOBS` if scans dominate traffic.
+
 ## ADR-011 — Docker image verified end-to-end; CI builds it and renders a live URL
 **Date:** 2026-07-22 · **Status:** Accepted
 **Context:** Every prior session was blocked on the same two things: no Docker

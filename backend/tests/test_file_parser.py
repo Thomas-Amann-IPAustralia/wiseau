@@ -88,5 +88,8 @@ def test_docx_extraction_is_deterministic():
     assert file_to_markdown(data, "report.docx") == file_to_markdown(data, "report.docx")
 
 
-def test_supported_extensions_are_pdf_and_docx():
-    assert SUPPORTED_EXTENSIONS == {".pdf", ".docx"}
+def test_supported_extensions_include_documents_and_images():
+    # Documents plus image types (the latter are OCR'd). Kept as a superset check
+    # so adding another image format doesn't spuriously break this test.
+    assert {".pdf", ".docx"} <= SUPPORTED_EXTENSIONS
+    assert {".png", ".jpg", ".jpeg", ".tiff"} <= SUPPORTED_EXTENSIONS
