@@ -103,10 +103,48 @@ identical behaviour, identical output, and the same rate limits.
 
 ---
 
-## 3. Autonomous ingestion (roadmap)
+## 3. Autonomous ingestion (`backend/monitor.py`)
 
-The remaining Phase 4 item — scheduled diff-checking against saved snapshots —
-consumes exactly these tools/endpoints. It must treat legitimate page changes as
-expected: determinism is **per input**, not across time (tech-spec §7). A monitor
-stores the last `markdown` for a URL, re-runs `convert_url` on a schedule, and
-diffs the two strings. Not yet built; see [`roadmap.md`](roadmap.md).
+A worked example of an agent consuming the engine on a schedule:
+`backend/monitor.py` watches one or more URLs, converting each to Markdown and
+diffing every fresh conversion against the last one it saw. Like the MCP server it
+is a **thin HTTP client** over `POST /convert/url` at `WISEAU_API_BASE`, so it
+inherits the backend's rate-limit + concurrency guards unchanged (invariant #4).
+It uses **only the Python standard library** — nothing to install beyond a
+reachable backend.
+
+It treats content drift as expected, not as a bug: determinism is **per input**,
+not across time (tech-spec §7). Each check yields one of four outcomes —
+
+| Status | Meaning |
+| ------ | ------- |
+| `new` | First time this URL is seen; the Markdown is saved as a baseline. |
+| `unchanged` | Identical Markdown to the previous check. |
+| `changed` | Content drift — a deterministic unified diff is attached. Still a success. |
+| `error` | The backend was unreachable or the render failed; the last good baseline is left intact. |
+
+Snapshots persist as one JSON file per URL under `WISEAU_SNAPSHOT_DIR` (default
+`.wiseau-snapshots`), so state survives across runs.
+
+```bash
+cd backend
+# Single pass — baseline on first sight, diff thereafter.
+WISEAU_API_BASE=http://localhost:7860 \
+    python monitor.py https://example.com/article
+
+# Watch on a schedule (every hour) until interrupted.
+python monitor.py --watch --interval 3600 https://example.com/article
+```
+
+| Variable | Default | Purpose |
+| -------- | ------- | ------- |
+| `WISEAU_API_BASE` | `http://localhost:7860` | Backend base URL (shared with the MCP server). |
+| `WISEAU_SNAPSHOT_DIR` | `.wiseau-snapshots` | Where per-URL snapshots are stored. |
+| `WISEAU_MONITOR_TIMEOUT` | `120` | Per-request timeout (seconds). |
+
+A single pass exits `0` unless a check errored (content changes are **not** an
+error and stay exit `0`), so it composes cleanly into cron, a systemd timer, or a
+CI job. The `--watch` loop is a self-contained scheduler for demos; production
+scheduling is left to the operator. The reusable pieces (`fetch_markdown`,
+`SnapshotStore`, `check_url`, `watch`) are importable for building a richer
+integration. See [`roadmap.md`](roadmap.md) and ADR-010.

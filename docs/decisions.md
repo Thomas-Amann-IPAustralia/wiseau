@@ -21,6 +21,38 @@ one `Superseded`.
 
 ---
 
+## ADR-010 — Autonomous ingestion as a zero-dependency HTTP client of the backend
+**Date:** 2026-07-22 · **Status:** Accepted
+**Context:** The last open Phase 4 item is an autonomous-ingestion example:
+scheduled diff-checking of a URL's Markdown against a saved snapshot. Two design
+choices had to be settled. (1) *How does it reach the engine?* Mirroring ADR-009,
+it could import the parsers in-process or hit the HTTP API — and invariant #4
+(fair-use guards are unconditional) forces the same answer: go over HTTP so it is
+rate-limited and concurrency-capped like any other client. (2) *What is a
+"change"?* Determinism is per-input, not across time (tech-spec §7): a live page
+legitimately drifts, so a content difference is an *expected, reportable outcome*,
+not a failure — only being unable to obtain fresh Markdown (backend down / render
+error) is an error.
+**Decision:** Add `backend/monitor.py` as a **thin HTTP client** over
+`POST /convert/url` at `WISEAU_API_BASE`, using **only the Python standard
+library** (`urllib`, `difflib`, `hashlib`, `json`, `argparse`) — no new
+dependency to install or pin, and it runs anywhere the backend URL is reachable.
+A `SnapshotStore` persists the last-seen Markdown per URL as one JSON file
+(`WISEAU_SNAPSHOT_DIR`, default `.wiseau-snapshots`). `check_url` returns a typed
+`CheckResult` with status `new` (first sight → baseline saved), `unchanged`
+(identical content), `changed` (a deterministic unified diff attached — content
+drift, `ok` is still true), or `error` (fetch failed; the last good baseline is
+left untouched so the next check diffs against it). A CLI runs a single pass or,
+with `--watch --interval N`, a bounded/looping schedule; the diff is dateless so
+the same before/after pair always yields the same output.
+**Consequences:** One extraction path and one contract, guards always in force,
+zero added dependencies. The monitor needs a reachable backend (documented, same
+as the MCP server). Tested with an injected fake fetcher and a real `urllib` path
+against a stdlib stub server (new/unchanged/changed/error, exit codes, bounded
+watch loop) — 16 tests, no browser or external network. Scheduling itself (cron,
+systemd timer, CI) is left to the operator; `--watch` is a self-contained example.
+Completes Phase 4.
+
 ## ADR-000 — Establish the documentation foundation for an instance chain
 **Date:** 2026-07-20 · **Status:** Accepted
 **Context:** The project is executed by a series of Claude Code instances with no

@@ -76,7 +76,15 @@ merely written. Written-but-unverified is `[~]` with a note.
   *`docs/mcp.md`: tool table, config (`WISEAU_API_BASE`), how to run, Claude
   Desktop client wiring, and the OpenAPI/function-calling path. tech-spec §9
   rewritten to describe the built surface.*
-- [ ] Autonomous ingestion example: scheduled diff-checking against saved snapshots.
+- [x] Autonomous ingestion example: scheduled diff-checking against saved snapshots. —
+  *`backend/monitor.py`: a zero-dependency (stdlib-only) thin HTTP client over
+  `POST /convert/url` that snapshots each URL's Markdown and diffs fresh
+  conversions against the last one. Statuses: `new`/`unchanged`/`changed` (unified
+  diff; content drift is expected, not an error, per §7) / `error`. CLI does a
+  single pass or `--watch --interval N`. Inherits the backend's rate-limit +
+  concurrency guards (invariant #4). Verified: 16 unit tests plus a real end-to-end
+  run against a stdlib stub server (new → unchanged → changed-with-diff → error);
+  see ADR-010. This closes Phase 4.*
 
 ## Phase 5 — Containerization & deployment
 
@@ -94,15 +102,18 @@ merely written. Written-but-unverified is `[~]` with a note.
 
 ## Cross-cutting backlog (not phase-bound)
 
-- [~] **Test suite.** Browser-free deterministic units (37 passing, 2 skipped):
+- [~] **Test suite.** Browser-free deterministic units (53 passing, 2 skipped):
   `cleaner` normalization/determinism, `file_parser` dispatch + real PDF **and
   DOCX** round-trips, request validation & error codes, `/convert/url` with a
-  mocked driver, PDF/DOCX HTTP happy-paths, plus the **MCP tool surface**
+  mocked driver, PDF/DOCX HTTP happy-paths, the **MCP tool surface**
   (`test_mcp_server.py`: contract round-trip, multipart forwarding, error-detail
-  surfacing, tool registration — over a mocked HTTP transport). An opt-in
-  live-browser test (`WISEAU_LIVE_BROWSER=1`) covers the real
-  render→extract→clean pipeline. *Remaining:* Docker image build step in CI; live
-  **external**-URL verification (needs direct egress).
+  surfacing, tool registration — over a mocked HTTP transport), and the
+  **autonomous-ingestion monitor** (`test_monitor.py`: new/unchanged/changed/error
+  state machine, snapshot round-trip, diff determinism, real `urllib` request
+  building, bounded watch loop). An opt-in live-browser test
+  (`WISEAU_LIVE_BROWSER=1`) covers the real render→extract→clean pipeline.
+  *Remaining:* Docker image build step in CI; live **external**-URL verification
+  (needs direct egress).
 - [~] **CI.** GitHub Actions (`.github/workflows/backend-tests.yml`) installs deps
   and runs `pytest` on `backend/**` changes. *Remaining:* Docker image build step.
 - [x] **Dependency pinning** across `requirements.txt`.
