@@ -190,8 +190,12 @@ the contract-level guarantees:
   reads well as a function-calling tool definition. Setting operation IDs is a
   fixed part of the contract now — do not let them regress to FastAPI's
   auto-generated `*_post` names.
-- **Autonomous ingestion** (scheduled diff-checking) consumes the same
-  tools/endpoints; it must account for content drift (§7). Not yet built.
+- **Autonomous ingestion** (`backend/monitor.py`) consumes the same
+  route (`POST /convert/url`) as a thin, stdlib-only HTTP client, so it inherits
+  the same guards. It snapshots each URL's Markdown and diffs fresh conversions
+  against the last, treating content drift as an expected `changed` outcome rather
+  than an error (§7); only a failure to reach/render is an `error`. See
+  [`mcp.md`](mcp.md) §3 and ADR-010.
 
 See [`roadmap.md`](roadmap.md) for the task breakdown and [`mcp.md`](mcp.md) for
 client wiring.

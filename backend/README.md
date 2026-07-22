@@ -35,6 +35,18 @@ docker build -t markdown-engine .
 docker run -p 7860:7860 markdown-engine
 ```
 
+## Agent surfaces
+
+- **MCP server** (`mcp_server.py`) exposes the engine as Model Context Protocol
+  tools. See [`../docs/mcp.md`](../docs/mcp.md).
+- **Autonomous ingestion** (`monitor.py`) — a stdlib-only diff-checker that
+  snapshots a URL's Markdown and reports changes on a schedule:
+  ```bash
+  python monitor.py --watch --interval 3600 https://example.com/article
+  ```
+  Both are thin HTTP clients over the routes above, so they inherit the same
+  rate-limit and concurrency guards. See [`../docs/mcp.md`](../docs/mcp.md) §3.
+
 ## Configuration
 
 | Variable              | Default   | Purpose                                        |

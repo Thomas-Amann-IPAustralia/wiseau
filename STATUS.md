@@ -5,15 +5,16 @@
 > session. Keep it honest — "scaffolded but untested" is more useful than a
 > green checkmark that lies.
 
-**Last updated:** 2026-07-21
-**Updated by:** Claude Code (Phase 4 MCP integration session)
-**Overall phase:** Phases 1–3 verified end-to-end; **Phase 4 (agent integration)
-now largely built and verified** — the engine is exposed as MCP tools and the
-OpenAPI function-calling schema is cleaned up. Backend API, the live render
-pipeline, the static frontend, and now the **MCP tool surface** are all proven.
-Only the autonomous-ingestion example remains in Phase 4. Phase 5 (Docker build /
-deploy) open — Docker-image build and live *external*-URL fetch still need an
-environment with a Docker daemon / direct egress.
+**Last updated:** 2026-07-22
+**Updated by:** Claude Code (Phase 4 autonomous-ingestion session)
+**Overall phase:** Phases 1–4 verified end-to-end. **Phase 4 (agent integration)
+is now complete** — the engine is exposed as MCP tools, the OpenAPI
+function-calling schema is cleaned up, and the **autonomous-ingestion monitor**
+(`backend/monitor.py`) is built and verified. Backend API, the live render
+pipeline, the static frontend, the MCP tool surface, and the scheduled
+diff-checker are all proven. **Phase 5 (Docker build / deploy) is the whole
+remaining frontier** — the Docker-image build and live *external*-URL fetch still
+need an environment with a Docker daemon / direct egress.
 
 ---
 
@@ -24,9 +25,9 @@ environment with a Docker daemon / direct egress.
 | Backend API (Phase 1) | 🟢 Verified (browser-free) | Routes, CORS, rate limiting, concurrency ceiling written; app imports cleanly; `/ping`, `/convert/file` (real PDF), `/convert/url` (mocked driver) verified via `TestClient`. Live URL render still unproven. |
 | Scraper / extraction (Phase 2) | 🟢 Verified (host) | Live headless-Chrome render → Trafilatura → cleaner proven end-to-end and codified as an opt-in test; DOCX-body path now covered. Only fetching arbitrary **external** URLs is unproven here (sandbox egress proxy; works with direct egress). |
 | Frontend UI (Phase 3) | 🟢 Verified | Full static UI driven end-to-end with headless Chromium against a live `uvicorn` backend: status badge, URL + PDF + DOCX conversion, copy/download, and error states all confirmed (18/18 UI checks). See ADR-008. |
-| AI / MCP integration (Phase 4) | 🟢 Mostly done | MCP server (`mcp_server.py`) exposes `convert_url`/`convert_file`/`ping` as tools — thin HTTP adapter, same contract, guards intact; verified end-to-end vs a live backend + 6 unit tests. OpenAPI operation IDs/summaries cleaned (v`0.2.0`); `docs/mcp.md` written. *Remaining:* autonomous-ingestion example. |
+| AI / MCP integration (Phase 4) | 🟢 Complete | MCP server (`mcp_server.py`) exposes `convert_url`/`convert_file`/`ping` as tools — thin HTTP adapter, same contract, guards intact; verified end-to-end vs a live backend + 6 unit tests. OpenAPI operation IDs/summaries cleaned (v`0.2.0`); `docs/mcp.md` written. **Autonomous-ingestion monitor** (`monitor.py`) built + verified (16 tests + real end-to-end run) — closes Phase 4. |
 | Containerization & deploy (Phase 5) | 🔴 Not deployed | `Dockerfile` written; nothing deployed to Hugging Face or GitHub Pages. |
-| Automated tests | 🟢 Passing | 37 pass + 2 skipped in default (browserless) runs (+6 MCP-tool tests this session). With a version-matched Chromium+chromedriver and `WISEAU_LIVE_BROWSER=1`, the 2 opt-in live-browser tests also run → **39/39**. Covers `cleaner`/PDF/**DOCX**/validation, the MCP tool surface, plus the live render→extract→clean pipeline. |
+| Automated tests | 🟢 Passing | **53 pass + 2 skipped** in default (browserless) runs (+16 monitor tests this session). With a version-matched Chromium+chromedriver and `WISEAU_LIVE_BROWSER=1`, the 2 opt-in live-browser tests also run → **55/55**. Covers `cleaner`/PDF/**DOCX**/validation, the MCP tool surface, the **autonomous-ingestion monitor**, plus the live render→extract→clean pipeline. |
 | CI/CD | 🟡 Tests wired | `.github/workflows/backend-tests.yml` runs `pytest` on `backend/**`. Docker-build step still open. |
 | Documentation | 🟢 Established | Brief, tech spec, roadmap, decisions, agent workflow, this file. |
 
@@ -45,6 +46,12 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   `ping`. Thin HTTP adapter over the backend (`WISEAU_API_BASE`); reuses the
   `MarkdownResponse` contract and inherits the rate-limit + concurrency guards.
   Run with `python mcp_server.py` (stdio). Deps in `requirements-mcp.txt`.
+- `monitor.py` — autonomous-ingestion example (Phase 4): a **stdlib-only** thin
+  HTTP client over `POST /convert/url` that snapshots each URL's Markdown and
+  diffs fresh conversions against the last (`new`/`unchanged`/`changed`/`error`;
+  content drift is a `changed`, not an error — tech-spec §7). Inherits the
+  rate-limit + concurrency guards. CLI: single pass or `--watch --interval N`.
+  Snapshots under `WISEAU_SNAPSHOT_DIR` (default `.wiseau-snapshots`). ADR-010.
 - `parsers/browser.py` — `initialize_driver()` with selenium-stealth + hardened
   Chrome args, env-configurable Chrome/driver paths.
 - `parsers/url_parser.py` — renders with headless Chrome, extracts with
@@ -56,7 +63,8 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   releases; `requirements-dev.txt` — `pytest` + `httpx` for the suite.
 - `conftest.py` + `pytest.ini` — put `backend/` on `sys.path`; `tests/` dir holds
   `test_cleaner.py`, `test_file_parser.py`, `test_api.py`, `test_mcp_server.py`,
-  and the opt-in `test_browser_live.py` (37 pass + 2 skipped in browserless runs).
+  `test_monitor.py`, and the opt-in `test_browser_live.py` (53 pass + 2 skipped in
+  browserless runs).
 
 **CI** (`.github/`)
 - `workflows/backend-tests.yml` — installs runtime + dev deps and runs `pytest`
@@ -83,35 +91,34 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   the actual Docker image and launching Chromium inside it is still open.
 - **No deployment** — no live Hugging Face Space, no GitHub Pages activation,
   so `MARKDOWN_API_BASE` still points at localhost.
-- **MCP server needs a reachable backend.** By design it's an HTTP adapter, so
-  its tools only work when a backend is running at `WISEAU_API_BASE`. Verified
-  against a local `uvicorn`; not yet exercised against a deployed Space.
-- **Autonomous ingestion** (scheduled diff-checking) — the one remaining Phase 4
-  task — not started.
+- **MCP server + monitor need a reachable backend.** By design both are HTTP
+  clients, so their tools only work when a backend is running at
+  `WISEAU_API_BASE`. Verified against a local `uvicorn`/stub; not yet exercised
+  against a deployed Space.
 - CI runs tests but **does not yet build the Docker image**.
 
 ---
 
 ## Suggested next actions (see `docs/roadmap.md` for the full backlog)
 
+With Phase 4 complete, everything left is **Phase 5 (containerization & deploy)**,
+which needs infrastructure this sandbox lacks (a Docker daemon + direct egress):
+
 1. **Build the Docker image and confirm Chromium launches inside the container**,
    then verify a real *external* URL renders end-to-end (needs a Docker daemon +
    direct egress — neither is available in this sandbox, so this is the natural
    place to prove it). This is the last piece of Phase 2 / start of Phase 5.
-2. **Finish Phase 4 — autonomous ingestion example.** A small scheduled
-   diff-checker that stores a URL's last Markdown, re-runs `convert_url`, and
-   diffs — accounting for content drift (tech-spec §7). Pure code, buildable here.
-3. **Extend CI to build the Docker image** (the last cross-cutting test gap) —
+2. **Extend CI to build the Docker image** (the last cross-cutting test gap) —
    pairs with item 1; needs a Docker-capable runner.
-4. **Then** proceed to deployment (Phase 5): Hugging Face Space + GitHub Pages,
-   point `frontend/config.js` at the live Space, and re-run the MCP end-to-end
-   check against the deployed Space (set `WISEAU_API_BASE` to the Space URL).
+3. **Then** proceed to deployment (Phase 5): Hugging Face Space + GitHub Pages,
+   point `frontend/config.js` at the live Space, and re-run the MCP + monitor
+   end-to-end checks against the deployed Space (set `WISEAU_API_BASE` to the
+   Space URL).
 
-*Done this session (previously item 2): Phase 4 MCP integration — the engine is
-exposed as MCP tools (`convert_url`/`convert_file`/`ping`) via a thin HTTP
-adapter, the OpenAPI schema is cleaned for function calling, and `docs/mcp.md`
-documents both. Verified end-to-end against a live backend. See the session log
-and ADR-009.*
+*Done this session: Phase 4's last item — the autonomous-ingestion monitor
+(`backend/monitor.py`), a stdlib-only diff-checker over `POST /convert/url`.
+Verified with 16 unit tests and a real end-to-end run against a stub backend
+(new → unchanged → changed-with-diff → error). See the session log and ADR-010.*
 
 ---
 
@@ -120,6 +127,31 @@ and ADR-009.*
 Newest first. One short entry per working session — what changed and what the
 next instance should know.
 
+- **2026-07-22 — Phase 4 autonomous ingestion (complete).** Built the last Phase 4
+  item: `backend/monitor.py`, a scheduled diff-checker. It converts one or more
+  URLs to Markdown and diffs each fresh conversion against the last one it saw.
+  Like the MCP server, it's a **thin HTTP client** over `POST /convert/url` at
+  `WISEAU_API_BASE`, so it inherits the backend's rate-limit + concurrency guards
+  unchanged (invariant #4) — no in-process bypass. Deliberately **stdlib-only**
+  (`urllib`/`difflib`/`hashlib`/`json`/`argparse`): no new dependency to pin, runs
+  anywhere the backend is reachable. `SnapshotStore` persists last-seen Markdown
+  as one JSON file per URL under `WISEAU_SNAPSHOT_DIR`; `check_url` returns a typed
+  `CheckResult` — `new` (baseline saved) / `unchanged` / `changed` (deterministic,
+  dateless unified diff; content drift is a **success**, not an error, per §7) /
+  `error` (fetch failed → last good baseline left intact). CLI does a single pass
+  (exit 0, or 1 if any check errored) or `--watch --interval N`. Added
+  `tests/test_monitor.py` (16 tests: the new/unchanged/changed/error state machine,
+  snapshot round-trip, diff determinism, real `urllib` request-building + error
+  surfacing, bounded watch loop, CLI formatting/exit codes) — full suite now **53
+  pass + 2 skipped**, verified by actually running it. Also **verified end-to-end**
+  by running the CLI against a stdlib stub backend: `new` → `unchanged` →
+  `changed` (printed a correct unified diff) → `error` (exit 1 when the backend was
+  down). Rewrote `docs/mcp.md` §3 to document the built monitor, updated tech-spec
+  §9, added a monitor section to `backend/README.md`, recorded ADR-010, and flipped
+  the last Phase 4 checkbox. **Next instance:** Phase 4 is done — everything left
+  is Phase 5 (Docker image build + in-container Chromium, then Hugging Face Space +
+  GitHub Pages deploy), which needs a Docker daemon / direct egress this sandbox
+  lacks.
 - **2026-07-21 — Phase 4 MCP integration.** Exposed the engine as an agent-native
   tool surface. Added `backend/mcp_server.py` (FastMCP) with three tools —
   `convert_url`, `convert_file`, `ping` — built as a **thin HTTP adapter** over
