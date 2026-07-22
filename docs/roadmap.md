@@ -88,11 +88,17 @@ merely written. Written-but-unverified is `[~]` with a note.
 
 ## Phase 5 — Containerization & deployment
 
-- [~] `Dockerfile` version-locking Chromium + Python — *written, not built/run in CI.*
-- [~] Build the image and confirm Chromium launches inside the container. —
-  *Chromium launch + full render→extract→clean pipeline proven on the host this
-  session (ADR-007); building the actual Docker image and confirming launch
-  inside the container is still open.*
+- [x] `Dockerfile` version-locking Chromium + Python — *built and run this
+  session; pinned deps resolve, image boots, `/ping` serves `v0.2.0`. Also built
+  in CI (`docker-build` job). See ADR-011.*
+- [x] Build the image and confirm Chromium launches inside the container. —
+  *verified: the image builds from the committed `Dockerfile`; inside the
+  container Chromium **150** + ChromeDriver **150** launch and a real external URL
+  renders end-to-end through `POST /convert/url` (example.com → clean Markdown;
+  a Wikipedia article → ~30 KB structured Markdown; byte-identical SHA-256 across
+  two runs → deterministic). This also closes Phase 2's live *external*-URL
+  gap — headless Chrome rendered arbitrary internet pages, not just a `data:` URL.
+  The CI `docker-build` job now re-proves this on every backend change. ADR-011.*
 - [ ] Deploy backend to a Hugging Face Space (free CPU tier).
 - [ ] Point `frontend/config.js` `MARKDOWN_API_BASE` at the live Space.
 - [ ] Deploy frontend via GitHub Pages.
@@ -111,11 +117,15 @@ merely written. Written-but-unverified is `[~]` with a note.
   **autonomous-ingestion monitor** (`test_monitor.py`: new/unchanged/changed/error
   state machine, snapshot round-trip, diff determinism, real `urllib` request
   building, bounded watch loop). An opt-in live-browser test
-  (`WISEAU_LIVE_BROWSER=1`) covers the real render→extract→clean pipeline.
-  *Remaining:* Docker image build step in CI; live **external**-URL verification
-  (needs direct egress).
-- [~] **CI.** GitHub Actions (`.github/workflows/backend-tests.yml`) installs deps
-  and runs `pytest` on `backend/**` changes. *Remaining:* Docker image build step.
+  (`WISEAU_LIVE_BROWSER=1`) covers the real render→extract→clean pipeline, and the
+  CI `docker-build` job renders a live **external** URL through the container.
+  *Remaining:* none — both the Docker image build step in CI and live
+  external-URL verification are done (ADR-011).
+- [x] **CI.** GitHub Actions (`.github/workflows/backend-tests.yml`) has two jobs:
+  `test` installs deps and runs `pytest` on `backend/**` changes (browserless), and
+  `docker-build` builds the image, boots the container, and renders a live external
+  URL end-to-end (Chromium runs for real on the Docker-capable, direct-egress
+  runner). Docker image build step is done (ADR-011).
 - [x] **Dependency pinning** across `requirements.txt`.
 - [ ] **Observability.** Structured request logging; a lightweight metric for
   job duration/memory to tune `MAX_CONCURRENT_JOBS` against real usage.
