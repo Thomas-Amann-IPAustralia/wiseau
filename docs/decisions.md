@@ -21,6 +21,101 @@ one `Superseded`.
 
 ---
 
+## ADR-015 — docling-serve as an internal microservice; free two-Space deployment
+**Date:** 2026-07-24 · **Status:** Proposed (implementation is Phase 6)
+**Context:** ADR-014 makes docling the default document parser, and docling must
+be **self-hosted** to stay free of per-page fees. docling is PyTorch + model
+weights (~2–4 GB RAM to load and run), and the existing WAF-bypass path is a
+headless Chromium (also RAM-hungry). Of the free tiers surveyed, only **Hugging
+Face Spaces free** (2 vCPU / **16 GB** RAM, Docker) has enough memory for either;
+**Render free** (512 MB) OOMs on both PyTorch *and* real-page Chromium and is
+usable only for static hosting. The owner wants a **live paste/upload → convert**
+experience for $0.
+**Decision:** Deploy three cooperating pieces, decoupled over HTTP (consistent
+with ADR-004/009/010):
+1. **Static UI** — GitHub Pages (existing Phase 5 plan). `config.js`
+   `MARKDOWN_API_BASE` → the wiseau backend Space.
+2. **wiseau backend + headless Chrome** — HF Space #1. The public front door:
+   owns the `MarkdownResponse` contract, the fair-use guards, and the
+   WAF-bypass fetch. Not a model box.
+3. **docling-serve** — HF Space #2. The internal converter. Called **only** by
+   the wiseau backend over HTTP (`WISEAU_DOCLING_BASE`), never by the public
+   directly. Protect the internal call with a shared secret
+   (`WISEAU_DOCLING_TOKEN`, bearer header) and/or a private Space.
+Pre-download the docling model weights **at image build** (`docling-tools models
+download`) so a cold start doesn't also pay a download and so it runs with
+restricted egress; **pin docling-serve + the model revision**. docling-serve
+runs its own low concurrency (1–2 on 2 vCPU); the wiseau side uses a bounded
+timeout and falls back (ADR-014) on cold-start/overload.
+**Consequences:** A $0, memory-isolated, live stack that matches the project's
+decoupled architecture; each box scales on its own 16 GB / 2 vCPU. Costs to
+accept: two Spaces to operate; **CPU-only inference is slow** (seconds/page) and
+free Spaces **sleep after ~48 h idle** (30–60 s+ cold start) — both softened by
+the automatic fallback and an optional warm-ping. The datacenter IP is unchanged,
+so the **WAF ceiling is unchanged** — a residential proxy is the (paid) escape
+hatch for the most aggressive targets and is explicitly out of scope here. The
+WAF-bypass fetcher itself is a separate concern (a `nodriver`/`undetected-
+chromedriver` upgrade to `browser.py`), tracked independently of this ADR.
+
+## ADR-014 — docling as the default document parser; PyMuPDF/Mammoth as automatic fallback
+**Date:** 2026-07-24 · **Status:** Proposed (implementation is Phase 6)
+**Context:** docling (layout model + TableFormer + integrated OCR) produces
+markedly more **faithful** Markdown on complex, multi-column, and scanned
+documents — notably the government PDFs this project targets — than the legacy
+PyMuPDF4LLM path, which ADR-012 explicitly pinned to `use_layout(False)` and so
+"forgoes the newer engine's richer table handling." With ADR-013 relaxing strict
+determinism, docling can now be the default. But docling is heavy and, on the
+free HF CPU tier, slow with cold starts (ADR-015), so it can be **transiently
+unavailable** — a hard dependency would make the whole service flaky.
+**Decision:** Make document conversion **docling-first with automatic fallback**,
+implemented as a pluggable parser-engine layer that mirrors `parsers/ocr.py`:
+- New `parsers/docling_client.py` — a thin HTTP client to docling-serve at
+  `WISEAU_DOCLING_BASE` (mirrors the `WISEAU_API_BASE` pattern of the MCP server
+  / monitor). Sends the document bytes, requests `md`, returns Markdown; bounded
+  timeout, typed errors.
+- `parsers/file_parser.py` selects the engine via `WISEAU_PDF_ENGINE`
+  (default `docling`; `docling` | `pymupdf`). On a connection error, timeout,
+  5xx, or empty result from docling, **log and fall back** to the existing
+  deterministic parsers (PyMuPDF4LLM + OCR for PDF/image; Mammoth for DOCX).
+- All output still ends in `clean_markdown()` (invariant #3 unchanged), and the
+  docling call runs inside the existing `_job_semaphore` (invariant #4 unchanged).
+- DOCX stays on Mammoth by default (cheap, already deterministic); route it to
+  docling only when `WISEAU_PDF_ENGINE=docling` is set *and* docling is up.
+**Consequences:** High fidelity when docling is up; graceful degradation to a
+working (lower-fidelity, deterministic) result when it is cold/asleep/down —
+essential on the free tier. Costs: two conversion paths to maintain; the fallback
+can **mask** docling outages, so log/metric which engine served each request
+(feeds the observability backlog item). Whether a given conversion is
+deterministic now depends on which engine answered — accepted under ADR-013. The
+public `MarkdownResponse` contract is unchanged (no version bump for the shape;
+this is an engine swap behind it).
+
+## ADR-013 — Fidelity over strict determinism for the default extraction path
+**Date:** 2026-07-24 · **Status:** Accepted
+**Context:** Invariant #1 ("Determinism is the product") made byte-identical
+output the core guarantee, which drove algorithmic extraction (Trafilatura,
+ADR-001), the legacy-mode PyMuPDF pin (ADR-012), and kept ML engines opt-in
+(EasyOCR). The project owner has **reprioritized**: the goal is faithful Markdown
+of real-world documents (government PDFs with complex tables and scans), and a
+**stochastic** ML extractor is acceptable — preferred, even — when it is more
+faithful than a deterministic one.
+**Decision:** Relax invariant #1 from an absolute to a **scoped** guarantee.
+Fidelity now outranks reproducibility for the default document path. The
+deterministic paths that remain deterministic — `clean_markdown()` normalization,
+the PyMuPDF/Mammoth fallback (ADR-014), and Trafilatura URL extraction — keep
+that property; the new docling default is **best-effort / high-fidelity** and may
+vary run-to-run. `clean_markdown()` still runs on every path (invariant #3
+untouched).
+**Consequences:** Unlocks docling as the default (ADR-014). Costs to accept:
+(a) the same input may yield slightly different Markdown across runs on the
+docling path; (b) the autonomous-ingestion **monitor** (ADR-010) will see
+conversion noise as spurious `changed` results on that path — treat monitor
+diffs as best-effort when docling served the conversion, or diff a tolerant/
+normalized baseline; (c) any future "same input → same output" response cache is
+invalid for the docling path. **Guidance for future instances: do NOT "fix"
+non-deterministic docling output as a bug — it is intended.** tech-spec §1
+(invariant #1) is amended to reflect this scope.
+
 ## ADR-012 — OCR for scanned/handwritten PDFs and images (deterministic, pluggable)
 **Date:** 2026-07-22 · **Status:** Accepted
 **Context:** The engine only read a PDF's embedded text layer (`pymupdf4llm`), so

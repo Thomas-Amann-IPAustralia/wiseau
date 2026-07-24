@@ -12,10 +12,16 @@ note it in [`decisions.md`](decisions.md).
 
 ## 1. Invariants (do not break these)
 
-1. **Determinism.** For a fixed input, output Markdown is byte-identical across
-   runs. No timestamps, no random ordering, no wall-clock-dependent content in
-   the output. (Live web pages legitimately change; that is content drift, not a
-   determinism violation — see §7.)
+1. **Determinism (scoped — see ADR-013).** Fidelity now outranks strict
+   reproducibility for the default document path. The paths that *are*
+   deterministic stay so — `clean_markdown()` normalization, the PyMuPDF/Mammoth
+   fallback parsers, and Trafilatura URL extraction all yield byte-identical
+   output for a fixed input (no timestamps, no random ordering, no
+   wall-clock-dependent content). The **docling** engine (default document
+   parser, ADR-014) is ML-based and **best-effort**: its Markdown may vary
+   run-to-run, and that is intended, not a bug. Do not "fix" it. (Live web pages
+   also legitimately change; that is content drift, not a determinism violation —
+   see §7.)
 2. **Single contract.** Humans and agents receive the same `MarkdownResponse`
    JSON. There is no consumer-specific response shape.
 3. **Normalization is universal.** Every Markdown-producing path ends in

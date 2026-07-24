@@ -5,8 +5,16 @@
 > session. Keep it honest — "scaffolded but untested" is more useful than a
 > green checkmark that lies.
 
-**Last updated:** 2026-07-22
-**Updated by:** Claude Code (OCR capability session)
+**Last updated:** 2026-07-24
+**Updated by:** Claude Code (docling integration — planning session)
+**Planning note (2026-07-24):** A new **Phase 6** is on record — integrate
+**docling** as the *default* document parser for higher-fidelity Markdown
+(complex/scanned government PDFs), with the existing PyMuPDF/Mammoth path as an
+*automatic fallback* when docling is unavailable. This is **planned, not built**:
+the decisions (ADR-013 fidelity>determinism, ADR-014 docling default+fallback,
+ADR-015 docling-serve microservice on a free two-Space HF topology) and the
+Phase 6 task list are written; **no code has changed**. See `docs/roadmap.md`
+Phase 6 and `docs/decisions.md`. The Phase 5 deployment status below is unchanged.
 **Overall phase:** Phases 1–4 verified end-to-end, and **Phase 5 now has its
 container proven**: the Docker image builds from the committed `Dockerfile`,
 Chromium **150** + ChromeDriver **150** launch inside it, and a real *external*
@@ -152,6 +160,31 @@ production `Dockerfile` is unchanged. See the session log and ADR-011.*
 Newest first. One short entry per working session — what changed and what the
 next instance should know.
 
+- **2026-07-24 — docling integration plan (Phase 6, planning only).** Recorded a
+  decision to adopt **docling** as the *default* document parser for higher-fidelity
+  Markdown of complex/scanned government documents, with the existing
+  PyMuPDF4LLM+OCR / Mammoth parsers kept as an **automatic fallback** for when
+  docling is cold/asleep/down (critical on the free tier). Three ADRs capture the
+  reasoning: **ADR-013** relaxes invariant #1 — fidelity now outranks strict
+  determinism for the default path, and stochastic docling output is *intended*,
+  not a bug (tech-spec §1 amended to say so, so a future instance doesn't "fix"
+  it); **ADR-014** makes conversion docling-first with automatic fallback via a
+  pluggable engine layer mirroring `parsers/ocr.py` (new `parsers/docling_client.py`
+  thin HTTP client at `WISEAU_DOCLING_BASE`, `WISEAU_PDF_ENGINE` default `docling`);
+  **ADR-015** sets a $0 topology — static UI on GitHub Pages, wiseau backend +
+  headless Chrome (WAF-bypass) on HF Space #1, docling-serve on HF Space #2 (16 GB
+  each; Render free's 512 MB can't host either heavy box), internal call guarded by
+  `WISEAU_DOCLING_TOKEN`. **No code changed** — `docs/roadmap.md` Phase 6 lists the
+  ordered build tasks (docling client + engine selection + fallback, the
+  docling-serve Space, tests, deploy/verify). Key caveats on record: CPU inference
+  is slow and free Spaces cold-start (fallback + warm-ping mitigate); the datacenter
+  IP leaves the **WAF ceiling unchanged** (the `browser.py` stealth upgrade to
+  `nodriver`/`undetected-chromedriver` is a *separate* concern, not part of Phase 6).
+  **Next instance:** implement Phase 6 top-down — start with `parsers/docling_client.py`
+  + the `WISEAU_PDF_ENGINE` selection/fallback in `file_parser.py` (mockable, no live
+  docling needed for unit tests), then stand up the docling-serve Space and verify
+  live upload + fallback. Phase 5 deployment (HF Space for the wiseau backend +
+  GitHub Pages) is still open and is a prerequisite for the live end-to-end check.
 - **2026-07-22 — OCR for scanned & handwritten documents.** The engine only read a
   PDF's embedded text layer, so scanned/handwritten PDFs (page images) converted to
   empty Markdown. Added OCR: per-page detection (`< 16` non-whitespace chars ⇒
