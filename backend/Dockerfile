@@ -33,4 +33,6 @@ RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app
 USER appuser
 
 EXPOSE 7860
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860"]
+# `--no-access-log`: the app's own middleware already emits one structured
+# (JSON) line per request, so uvicorn's plain-text access log is a duplicate.
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860", "--no-access-log"]

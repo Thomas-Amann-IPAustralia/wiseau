@@ -21,6 +21,76 @@ one `Superseded`.
 
 ---
 
+## ADR-020 — repair Trafilatura's duplicated body on short pages in the URL parser
+**Date:** 2026-07-26 · **Status:** Accepted — implemented and verified live (real Chromium render, before/after).
+**Context:** A backlog note from the ADR-017 session recorded that Trafilatura
+returns the body of very small documents twice. Chasing it to the source: when
+Trafilatura's own extraction yields less than `MIN_EXTRACTED_SIZE` (250
+characters) of text, `extract_content` calls `recover_wild_text`, which
+**extends** the already-populated result body with every `<p>`/`<table>`/… it can
+find in the document — including the ones already extracted. So the trigger is not
+"tiny document" but *any* page whose extracted text is under 250 characters and
+whose main content sits in a container the extractor recognises (`<article>`, a
+content `<div>`). Short government notices are exactly that shape, and the
+duplicate is invisible to a caller: valid Markdown, plausible content, silently
+doubled. It also affects the duplicated run's position — Trafilatura appends
+comments after the body, so the repeat is not always a suffix.
+**Decision:** Repair it in `url_parser`, after extraction and before
+`clean_markdown()`. `_drop_repeated_run` finds the **longest** run of blocks
+immediately followed by an identical run and drops the second copy. Three guard
+rails keep it from ever touching a healthy document: it only runs on the
+Trafilatura path (never markdownify, never the PDF pipeline), only on documents of
+≤ 60 blocks (a long page cannot have the upstream bug, and this also bounds the
+scan's cost), and only for repeats of ≥ 40 characters, so a genuinely repeated
+short line ("Yes", a table cell) is left alone.
+**Rejected:** (a) lowering `MIN_EXTRACTED_SIZE` via Trafilatura's config — the
+same constant gates the justext rescue *and* several readability-vs-extraction
+comparisons, so tuning it to fix duplication silently changes which extractor
+serves other pages; (b) deduplicating in `cleaner.py` — the normalizer is shared
+by every path and must stay a pure, non-lossy normalizer; (c) Trafilatura's own
+`deduplicate=True` — it uses a process-wide LRU cache, i.e. output that depends on
+what was converted *before it*, which would break determinism outright.
+**Consequences:** Short pages now convert once, deterministically and
+idempotently. The repair is lossy in one narrow case by construction — a document
+that legitimately repeats a substantial block run back-to-back loses the second
+copy — accepted because that shape is rare and the duplication is common in the
+target corpus. It is a workaround for upstream behaviour: revisit it when
+Trafilatura stops double-counting recovered text, and delete it rather than build
+on it.
+
+## ADR-019 — observability is stdlib-only, in-process, and attributes every conversion to an engine
+**Date:** 2026-07-26 · **Status:** Accepted — implemented and verified live (real requests, real fallback, real logs).
+**Context:** Two blind spots, one of them created on purpose. (1) `MAX_CONCURRENT_JOBS`
+defaults to 4 with nothing measured behind it — the number that decides whether a
+free-tier container gets OOM-killed was a guess. (2) ADR-014 makes document
+conversion docling-first with an automatic fallback, which by design converts a
+docling outage into a **successful** response. That is the right behaviour and it
+means a dead docling Space is indistinguishable from normal operation: the
+fidelity the whole of Phase 6 exists to deliver could be absent for weeks without
+a single error.
+**Decision:** Add `backend/observability.py`: a JSON-lines log formatter (one
+machine-readable object per record, `WISEAU_LOG_FORMAT=text` to opt out) plus a
+thread-safe in-process metrics registry, surfaced at `GET /metrics` (API
+`0.3.0 → 0.4.0`, additive). Every conversion is attributed to the engine that
+actually produced it — `docling`, `pymupdf`, `mammoth`, `ocr`, `trafilatura`,
+`markdownify` — and docling's successes, fallbacks (by typed reason), and skips
+(not selected vs not configured) are counted apart. Job queue-wait, run duration,
+peak concurrency, and process RSS are recorded for sizing. Every request gets a
+correlation id, returned as `X-Request-ID` and logged; uvicorn's own access log is
+switched off so it does not duplicate the structured one.
+**Rejected:** a Prometheus client and an exporter sidecar — a new runtime
+dependency and a second thing to deploy, for a two-Space free-tier service where
+nobody is running a scraper. Stdlib only, consistent with ADR-010/016; the
+counters are an operational aid, not an audit trail.
+**Consequences:** `/metrics` is public, so it deliberately carries **aggregates
+only** — no URLs, filenames, or content. Numbers are per-process and reset on
+restart (a multi-worker deployment reports per-worker slices); that is enough to
+answer "is docling serving anything?" and "what should the ceiling be?", and not
+enough to be mistaken for a metrics backend. The parsers now import
+`observability` directly rather than having a recorder threaded through their
+signatures — recording is a global side channel, and it must stay one that cannot
+change a byte of output.
+
 ## ADR-018 — the docling Space is the *upstream* CPU image, digest-pinned, with two independent guards
 **Date:** 2026-07-26 · **Status:** Accepted — image written & digest-verified against the registry; **not built or deployed** (no Docker daemon in the build session).
 **Context:** ADR-015 put docling-serve on its own 16 GB HF Space. The roadmap left

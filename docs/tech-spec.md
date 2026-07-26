@@ -44,8 +44,17 @@ interactive docs are at `/docs`.
 - **Rate limit:** exempt.
 - **200 response:**
   ```json
-  { "status": "ok", "service": "markdown-ingestion-engine", "version": "0.1.0" }
+  { "status": "ok", "service": "markdown-ingestion-engine", "version": "0.4.0" }
   ```
+
+### `GET /metrics`
+- **Purpose:** operational counters for *this process* — request/job timings,
+  peak concurrency, memory, and which extraction engine served each conversion
+  (see §12). Not part of the conversion contract; shape may change without a
+  major bump.
+- **Rate limit:** the default (`60/min`, `1000/day`). It does no heavy work, so
+  it takes no job slot.
+- **200 response:** a JSON object; see §12 for the fields.
 
 ### `POST /convert/url`
 - **Purpose:** render a URL (JS-aware) and extract primary content as Markdown.
@@ -94,7 +103,8 @@ The backend is deliberately small and layered. Each module has one job.
 
 | Module | Responsibility | Must not |
 | ------ | -------------- | -------- |
-| `main.py` | HTTP surface: routing, validation, CORS, rate limiting, concurrency ceiling, upload limits, error → HTTP mapping. | Contain extraction logic. |
+| `main.py` | HTTP surface: routing, validation, CORS, rate limiting, concurrency ceiling, upload limits, error → HTTP mapping, per-request timing/logging. | Contain extraction logic. |
+| `observability.py` | Structured (JSON) log formatting and the in-process metrics registry read by `GET /metrics`. Imported by `main.py` *and* the parsers. | Affect extraction output in any way; add a runtime dependency; record URLs, filenames, or content into `/metrics`. |
 | `parsers/__init__.py` | Public entrypoints: `url_to_markdown`, `file_to_markdown`. | — |
 | `parsers/browser.py` | Build a stealth headless Chrome driver; download a URL's raw bytes *through that driver's session* (`fetch_bytes`), so WAF clearance/cookies carry over. | Know about Markdown; raise on a failed download (return `None`). |
 | `parsers/url_parser.py` | Render → Trafilatura extract → (markdownify fallback) → clean. Detect a direct-PDF response and route its bytes to the document pipeline instead. | Contain per-site CSS selectors; trust a `.pdf` URL without verifying the magic bytes. |
@@ -108,7 +118,11 @@ The backend is deliberately small and layered. Each module has one job.
 **URL (HTML):** `initialize_driver()` renders the page (45s load timeout) →
 `page_source` → `trafilatura.extract(..., output_format="markdown",
 favor_precision=True)` → if empty, `markdownify(html, heading_style="ATX")` →
-`clean_markdown()`.
+`clean_markdown()`. Trafilatura output additionally passes through
+`_drop_repeated_run`, which removes the duplicated body Trafilatura emits for
+pages under its 250-character threshold (ADR-020); it is guarded to short
+documents and exact, substantial, adjacent repeats, so a healthy page is
+untouched.
 
 **URL (direct PDF):** if the rendered DOM is Chrome's PDF viewer (`<embed
 type="application/pdf">`) *or* the URL path ends in `.pdf`, `browser.fetch_bytes`
@@ -159,6 +173,8 @@ All backend configuration is via environment variables (12-factor).
 | `WISEAU_DOCLING_TOKEN` | — | *(Phase 6)* Sent as `Authorization: Bearer` — the *platform gateway* credential (an HF token when Space #2 is private). |
 | `WISEAU_DOCLING_API_KEY` | — | *(Phase 6)* Sent as `X-Api-Key` — docling-serve's *own* guard, matching its `DOCLING_SERVE_API_KEY`. A different mechanism from the bearer token; either, both, or neither may be in use (ADR-018). |
 | `WISEAU_DOCLING_TIMEOUT` | `120` | *(Phase 6)* Seconds to wait on docling before falling back (generous, to absorb cold starts). |
+| `WISEAU_LOG_FORMAT` | `json` | Log rendering: `json` (one object per line, for aggregators) or `text` (human-readable, for local work). |
+| `WISEAU_LOG_LEVEL` | `INFO` | Root log level. |
 
 Rate limits are code-level constants in `main.py` (`60/min` + `1000/day` default;
 `20/min` on convert routes). Promote them to env vars only if a real tuning need
@@ -292,9 +308,12 @@ behind the same `OcrEngine` interface. Configuration: see §5
 > **Status: the whole backend half is implemented & unit-tested (ADR-014/016/017)
 > — the docling client, engine-selection/fallback in `file_parser.py`, and
 > direct-PDF `/convert/url` routing, all covered by a mocked-transport /
-> faked-driver suite. The docling Space image is written and digest-pinned
+> faked-driver suite, plus a loopback HTTP stub that exercises the client's real
+> `urllib` transport (endpoint, multipart body, both credentials) and the
+> end-to-end fallback. The docling Space image is written and digest-pinned
 > (ADR-018) but has never been built or deployed, so nothing below has been
-> verified against a live docling-serve.**
+> verified against *real* docling-serve — only against a stub that speaks its
+> response shape.**
 
 Document conversion — `/convert/file`, and `/convert/url` when the URL serves a
 PDF (ADR-017) — is **docling-first with automatic fallback**:
@@ -328,3 +347,39 @@ when `WISEAU_PDF_ENGINE=docling` is explicitly set *and* docling is reachable.
 Determinism note (ADR-013): the docling path is best-effort and may vary
 run-to-run; the fallback path is deterministic. So the *same* document can yield
 different Markdown depending on which engine served it — intended, not a bug.
+Which engine served a request is visible in `GET /metrics` (§12) — the only way
+to tell a working docling from one that has been quietly falling back for weeks.
+
+---
+
+## 12. Observability (ADR-019)
+
+A side channel, in both directions: nothing here may change a byte of extracted
+Markdown, and nothing here is part of the conversion contract.
+
+**Structured logs.** `observability.configure_logging()` installs a JSON-lines
+formatter (`WISEAU_LOG_FORMAT=text` opts out). One object per record; callers add
+fields with `extra={"wiseau": {...}}` rather than formatting them into the
+message. Every request produces exactly one access line — uvicorn's own access
+log is switched off in the `Dockerfile` CMD and in `main.__main__` so it does not
+duplicate it — carrying `request_id`, `method`, `path`, `status`, `duration_ms`,
+and `client`. The same `request_id` is returned to the caller as `X-Request-ID`
+(exposed through CORS), so a user-reported problem can be found in the log.
+
+**Metrics.** `GET /metrics` returns the process's counters:
+
+| Group | Contents | Answers |
+| ----- | -------- | ------- |
+| `requests` | Count by **route template** (never the raw path — unmatched requests all bucket to `unmatched`, so no caller can inflate the table) and by status; duration count/mean/p50/p95/max per route. | Is anything erroring? |
+| `jobs` | `in_flight`, `max_in_flight`, semaphore queue-wait and run-duration series. | What should `MAX_CONCURRENT_JOBS` be? Is anything queuing? |
+| `conversions` | `url.ok` / `url.error` / `file.ok` / `file.error`. | Success rate per surface. |
+| `engines` | Count per engine that actually produced Markdown: `docling`, `pymupdf`, `mammoth`, `ocr`, `trafilatura`, `markdownify`. | **Is docling serving anything?** |
+| `docling` | `attempts` / `successes` / `fallbacks` / `skipped`, `reasons` (`DoclingUnavailable`, `DoclingBadDocument`, `not_configured`, `engine_not_selected`), and call durations. | Is the Space down, misconfigured, or just slow? |
+| `memory` | `peak_rss_mb` (getrusage) and `rss_mb` (Linux `/proc/self/statm`). | Headroom against the Space's limit. |
+
+Constraints that keep it honest: **aggregates only** — no URLs, filenames, or
+document content, because the endpoint is public. Counters are per-process and
+reset on restart; percentiles come from a bounded window of recent samples, so
+memory use is fixed. Recording is thread-safe, because the parsers record from
+the worker threads `asyncio.to_thread` runs them in. Adding a Prometheus client
+or an exporter was rejected (ADR-019): stdlib only, no new runtime dependency.

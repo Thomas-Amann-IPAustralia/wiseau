@@ -14,6 +14,11 @@ the WAF clearance the render just earned — see `browser.fetch_bytes`), and han
 to `file_to_markdown`, i.e. the same docling-first-with-fallback document
 pipeline `/convert/file` uses. HTML pages are untouched: they stay on the
 render → Trafilatura → cleaner path.
+
+**Short-document repair (ADR-020).** Trafilatura duplicates the body of any page
+whose extracted text falls under its 250-character threshold — a documented
+consequence of its wild-text rescue, not of anything here. `_drop_repeated_run`
+removes the exact adjacent repeat; see that function for the full reasoning.
 """
 
 from __future__ import annotations
@@ -27,6 +32,7 @@ from typing import Optional
 
 import trafilatura
 from markdownify import markdownify as html_to_md
+from observability import metrics
 
 from .browser import fetch_bytes, initialize_driver
 from .cleaner import clean_markdown
@@ -50,6 +56,12 @@ _PDF_EMBED_RE = re.compile(r"<embed[^>]+type=[\"']application/pdf[\"']", re.IGNO
 # to "-" so a hostile path can't smuggle quotes/newlines into the multipart body.
 _UNSAFE_FILENAME_CHARS = re.compile(r"[^A-Za-z0-9._-]+")
 _MAX_FILENAME_LENGTH = 100
+
+# Guard rails for the short-document repair below (see `_drop_repeated_run`).
+# Only short extractions can be affected, so the scan never runs on a large
+# document — which also keeps its cost trivial.
+_MAX_REPAIR_BLOCKS = 60
+_MIN_REPEATED_RUN_CHARS = 40
 
 
 @dataclass(frozen=True)
@@ -89,6 +101,44 @@ def pdf_filename_for(url: str) -> str:
         name = name[: -len(".pdf")]
     name = name[:_MAX_FILENAME_LENGTH].strip("-.") or "document"
     return f"{name}.pdf"
+
+
+def _drop_repeated_run(markdown: str) -> str:
+    """Remove a block run that Trafilatura emitted twice back to back.
+
+    **Why this exists.** When Trafilatura's own extraction yields less than its
+    `MIN_EXTRACTED_SIZE` (250 characters) of text, `extract_content` calls
+    `recover_wild_text`, which *extends* the already-populated result body with
+    every `<p>`/`<table>`/... it can find in the document — including the ones
+    already extracted. Short pages therefore come back with their body present
+    twice. Reproduced by calling `trafilatura.extract` directly with our options,
+    so it is upstream behaviour, not something this pipeline introduces
+    (ADR-020). Short government notices are exactly the shape that trips it.
+
+    The repair is deliberately narrow: find the **longest** run of blocks that is
+    immediately followed by an identical run, and drop the second copy. Anything
+    that is not an exact, adjacent, substantial repeat is left alone, and a
+    document long enough to be unaffected by the upstream bug is not even
+    scanned. Deterministic: same input, same output (invariant #1).
+
+    Delete this once upstream stops double-counting recovered text.
+    """
+    blocks = markdown.split("\n\n")
+    count = len(blocks)
+    if count < 2 or count > _MAX_REPAIR_BLOCKS:
+        return markdown
+
+    for size in range(count // 2, 0, -1):
+        for start in range(count - 2 * size + 1):
+            first = blocks[start : start + size]
+            if first != blocks[start + size : start + 2 * size]:
+                continue
+            # A repeated one-word line ("Yes", a table cell) is plausibly real
+            # content; a repeated run of substance is the upstream artifact.
+            if sum(len(block) for block in first) < _MIN_REPEATED_RUN_CHARS:
+                continue
+            return "\n\n".join(blocks[: start + size] + blocks[start + 2 * size :])
+    return markdown
 
 
 def fetch_rendered(url: str) -> FetchedPage:
@@ -134,8 +184,12 @@ def url_to_markdown(url: str) -> str:
 
     if page.is_pdf:
         filename = pdf_filename_for(url)
-        logger.info("%s served a PDF (%d bytes); converting as %r", url, len(page.pdf_bytes), filename)
+        logger.info(
+            "URL served a PDF; converting as a document",
+            extra={"wiseau": {"url": url, "bytes": len(page.pdf_bytes), "filename": filename}},
+        )
         # The document pipeline: docling-first with automatic fallback, cleaned.
+        # It records its own engine attribution, so none is recorded here.
         return file_to_markdown(page.pdf_bytes, filename)
 
     extracted = trafilatura.extract(
@@ -148,7 +202,14 @@ def url_to_markdown(url: str) -> str:
     )
 
     if not extracted:
-        logger.info("Trafilatura returned empty for %s; falling back to markdownify", url)
+        logger.info(
+            "Trafilatura returned empty; falling back to markdownify",
+            extra={"wiseau": {"url": url}},
+        )
+        metrics.record_engine("markdownify")
         extracted = html_to_md(page.html, heading_style="ATX")
+    else:
+        metrics.record_engine("trafilatura")
+        extracted = _drop_repeated_run(extracted)
 
     return clean_markdown(extracted)

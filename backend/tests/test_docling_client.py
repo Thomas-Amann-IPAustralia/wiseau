@@ -248,3 +248,73 @@ def test_both_errors_are_docling_errors():
     # file_parser catches the common base to decide on fallback.
     assert issubclass(docling_client.DoclingUnavailable, docling_client.DoclingError)
     assert issubclass(docling_client.DoclingBadDocument, docling_client.DoclingError)
+
+
+# --- Over a real socket -----------------------------------------------------
+# Everything above injects a transport, which cannot catch a mistake in the
+# request the *default* transport actually puts on the wire. These two drive the
+# real `urllib` path against a loopback stub — still no docling Space, but a
+# genuine HTTP round trip (multipart body, headers, endpoint, status handling).
+
+
+@pytest.fixture()
+def stub_docling():
+    """A loopback HTTP server standing in for docling-serve."""
+    import threading
+    from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+
+    state: dict = {"status": 200, "body": _ok_body("# Over the wire\n")}
+
+    class Handler(BaseHTTPRequestHandler):
+        def do_POST(self):  # noqa: N802 - BaseHTTPRequestHandler's naming
+            length = int(self.headers.get("Content-Length", 0))
+            state["received"] = {
+                "path": self.path,
+                "body": self.rfile.read(length),
+                "content_type": self.headers.get("Content-Type", ""),
+                "api_key": self.headers.get("X-Api-Key"),
+                "authorization": self.headers.get("Authorization"),
+            }
+            self.send_response(state["status"])
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(state["body"])))
+            self.end_headers()
+            self.wfile.write(state["body"])
+
+        def log_message(self, *args):  # keep pytest output clean
+            pass
+
+    server = ThreadingHTTPServer(("127.0.0.1", 0), Handler)
+    thread = threading.Thread(target=server.serve_forever, daemon=True)
+    thread.start()
+    state["base"] = f"http://127.0.0.1:{server.server_port}"
+    try:
+        yield state
+    finally:
+        server.shutdown()
+        server.server_close()
+
+
+def test_real_request_reaches_docling_with_the_expected_shape(stub_docling, monkeypatch):
+    monkeypatch.setenv("WISEAU_DOCLING_API_KEY", "sekrit")
+    monkeypatch.setenv("WISEAU_DOCLING_TOKEN", "hf_token")
+
+    markdown = docling_client.convert_document(b"%PDF-1.4 body", "gov.pdf", base=stub_docling["base"])
+
+    assert markdown == "# Over the wire\n"  # raw; the caller cleans
+    received = stub_docling["received"]
+    assert received["path"] == "/v1/convert/file"
+    assert received["content_type"].startswith("multipart/form-data; boundary=")
+    assert received["api_key"] == "sekrit"  # docling-serve's own guard
+    assert received["authorization"] == "Bearer hf_token"  # the Space gateway's
+    assert b'filename="gov.pdf"' in received["body"]
+    assert b"%PDF-1.4 body" in received["body"]
+    assert b"md" in received["body"]  # to_formats
+
+
+def test_a_real_5xx_is_classified_as_unavailable(stub_docling):
+    stub_docling["status"] = 503
+    stub_docling["body"] = b'{"detail":"model still loading"}'
+
+    with pytest.raises(docling_client.DoclingUnavailable):
+        docling_client.convert_document(b"data", "d.pdf", base=stub_docling["base"])
