@@ -10,11 +10,24 @@ covered separately (and opt-in) by `test_browser_live.py`.
 from __future__ import annotations
 
 import base64
+import socket
 
 import pymupdf
 import pytest
 
 from parsers import browser, url_parser
+
+
+@pytest.fixture(autouse=True)
+def allow_test_hosts(monkeypatch):
+    """Keep the suite off the network.
+
+    Every test here hands `url_to_markdown` a fake driver, but the private-address
+    guard (ADR-021) would still resolve the hostname for real — turning a
+    browserless, offline suite into one that waits on DNS. The guard's own
+    behaviour is covered below against a stubbed resolver.
+    """
+    monkeypatch.setenv("WISEAU_ALLOW_PRIVATE_URLS", "1")
 
 
 def _make_pdf(text: str) -> bytes:
@@ -332,9 +345,126 @@ def test_drop_repeated_run_ignores_insubstantial_repeats():
 
 
 def test_drop_repeated_run_skips_large_documents():
-    # The upstream bug only affects short extractions, so a big document is
-    # never scanned — cheap, and it cannot damage a long page.
+    # The block cap bounds the cost of the scan: a document with many blocks is
+    # not examined at all.
     block = "A paragraph long enough to clear the substance threshold easily."
     blocks = [block] * (url_parser._MAX_REPAIR_BLOCKS + 2)
     text = "\n\n".join(blocks)
     assert url_parser._drop_repeated_run(text) == text
+
+
+def test_drop_repeated_run_leaves_a_repeat_too_large_for_the_bug_alone():
+    # The correctness guard is the size of the *repeat*, not the size of the
+    # document. Trafilatura only duplicates a body it had already extracted at
+    # under 250 characters, so a bigger adjacent repeat cannot be the artifact —
+    # it is a page that genuinely prints the same paragraph twice, and deleting
+    # it would silently destroy real content.
+    para = "The applicant must lodge the form within twenty-eight days of the notice date. " * 5
+    assert len(para) > url_parser._MAX_REPEATED_RUN_CHARS
+    text = "\n\n".join(["# Notice of Decision", para, para, "## Contact", "Write to the Registrar."])
+
+    assert url_parser._drop_repeated_run(text) == text
+
+
+def test_drop_repeated_run_still_repairs_a_sub_threshold_repeat_in_a_long_page():
+    # The flip side: a *small* duplicated run is repaired even when the page
+    # around it is long, because that is exactly what the upstream rescue does —
+    # a precise extraction under 250 chars, then everything recovered on top.
+    body = "The registry office closes on Monday for the holiday."
+    assert len(body) < url_parser._MAX_REPEATED_RUN_CHARS
+    recovered = "A long tail of recovered paragraphs. " * 20
+    text = "\n\n".join(["# Notice", body, body, recovered])
+
+    assert url_parser._drop_repeated_run(text) == "\n\n".join(["# Notice", body, recovered])
+
+
+# --- Private-address guard (ADR-021) ----------------------------------------
+# `/convert/url` fetches whatever host it is handed, from inside the container.
+# Without a check that is an SSRF primitive: loopback, RFC-1918 neighbours and
+# the cloud metadata address are all reachable from where the renderer runs and
+# from nowhere the caller sits. The resolver is stubbed so these stay offline.
+def _resolver(*addresses: str):
+    """A `getaddrinfo` stand-in resolving every host to ``addresses``."""
+
+    def getaddrinfo(host, port, *args, **kwargs):
+        return [
+            (socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_TCP, "", (address, 0))
+            for address in addresses
+        ]
+
+    return getaddrinfo
+
+
+@pytest.fixture()
+def enforced(monkeypatch):
+    """Turn the guard back on (the module-level fixture opts every test out)."""
+    monkeypatch.delenv("WISEAU_ALLOW_PRIVATE_URLS", raising=False)
+
+
+@pytest.mark.parametrize(
+    "address",
+    [
+        "127.0.0.1",        # the backend's own loopback — /metrics, /docs, ...
+        "10.1.2.3",         # RFC 1918
+        "192.168.0.5",
+        "172.16.4.4",
+        "169.254.169.254",  # cloud instance metadata
+        "0.0.0.0",
+        "::1",
+        "::ffff:127.0.0.1",  # IPv4-mapped loopback: only the mapped view knows
+    ],
+)
+def test_non_public_addresses_are_refused(enforced, monkeypatch, address):
+    monkeypatch.setattr(socket, "getaddrinfo", _resolver(address))
+    with pytest.raises(url_parser.BlockedUrlError) as excinfo:
+        url_parser.assert_url_allowed("https://internal.example/secret")
+    assert address in str(excinfo.value)
+
+
+def test_public_addresses_are_allowed(enforced, monkeypatch):
+    monkeypatch.setattr(socket, "getaddrinfo", _resolver("93.184.216.34"))
+    url_parser.assert_url_allowed("https://example.com/article")  # must not raise
+
+
+def test_a_host_with_any_private_record_is_refused(enforced, monkeypatch):
+    # A name answering with both a public and a private address must not be a
+    # coin flip on which one Chrome happens to connect to.
+    monkeypatch.setattr(socket, "getaddrinfo", _resolver("93.184.216.34", "10.0.0.9"))
+    with pytest.raises(url_parser.BlockedUrlError):
+        url_parser.assert_url_allowed("https://split-horizon.example/")
+
+
+def test_non_http_schemes_are_refused(enforced):
+    for url in ("file:///etc/passwd", "ftp://example.com/x", "chrome://settings"):
+        with pytest.raises(url_parser.BlockedUrlError):
+            url_parser.assert_url_allowed(url)
+
+
+def test_an_unresolvable_host_is_left_to_fail_as_a_render_error(enforced, monkeypatch):
+    # Nothing to vet, and a DNS failure is not a policy decision — let it through
+    # so it surfaces as an ordinary 502 rather than a misleading 400.
+    def boom(*args, **kwargs):
+        raise socket.gaierror("Name or service not known")
+
+    monkeypatch.setattr(socket, "getaddrinfo", boom)
+    url_parser.assert_url_allowed("https://no-such-host.invalid/")  # must not raise
+
+
+def test_the_opt_out_allows_intranet_conversion(monkeypatch):
+    # A self-hosted deployment converting its own intranet is a legitimate use.
+    monkeypatch.setenv("WISEAU_ALLOW_PRIVATE_URLS", "1")
+    monkeypatch.setattr(socket, "getaddrinfo", _resolver("10.0.0.9"))
+    url_parser.assert_url_allowed("http://wiki.internal/page")  # must not raise
+
+
+def test_a_blocked_url_is_refused_before_the_browser_starts(enforced, monkeypatch):
+    # The guard must run ahead of `initialize_driver`, so a probe of the internal
+    # network never costs a render.
+    def exploding_driver():  # pragma: no cover - must not run
+        raise AssertionError("the browser must not start for a blocked URL")
+
+    monkeypatch.setattr(url_parser, "initialize_driver", exploding_driver)
+    monkeypatch.setattr(socket, "getaddrinfo", _resolver("127.0.0.1"))
+
+    with pytest.raises(url_parser.BlockedUrlError):
+        url_parser.url_to_markdown("http://localhost:7860/metrics")

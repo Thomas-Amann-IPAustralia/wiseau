@@ -19,13 +19,23 @@ render → Trafilatura → cleaner path.
 whose extracted text falls under its 250-character threshold — a documented
 consequence of its wild-text rescue, not of anything here. `_drop_repeated_run`
 removes the exact adjacent repeat; see that function for the full reasoning.
+
+**Private-address guard (ADR-021).** `/convert/url` is a public endpoint that
+fetches whatever host it is handed from *inside* the container, which is a
+server-side request forgery primitive: without a check, any caller could aim the
+renderer at loopback, an RFC-1918 neighbour, or the cloud metadata address.
+`assert_url_allowed` resolves the host first and refuses non-public addresses;
+`WISEAU_ALLOW_PRIVATE_URLS=1` opts a self-hosted deployment back in for intranet
+use. See that function for what this does and does not cover.
 """
 
 from __future__ import annotations
 
+import ipaddress
 import logging
 import os
 import re
+import socket
 import urllib.parse
 from dataclasses import dataclass
 from typing import Optional
@@ -58,10 +68,101 @@ _UNSAFE_FILENAME_CHARS = re.compile(r"[^A-Za-z0-9._-]+")
 _MAX_FILENAME_LENGTH = 100
 
 # Guard rails for the short-document repair below (see `_drop_repeated_run`).
-# Only short extractions can be affected, so the scan never runs on a large
-# document — which also keeps its cost trivial.
+#
+# `_MAX_REPEATED_RUN_CHARS` is the correctness guard, and it is Trafilatura's own
+# `MIN_EXTRACTED_SIZE`: the run it duplicates is the body it had already
+# extracted, and it only reaches for `recover_wild_text` when that body came in
+# *under* this threshold. A larger repeat therefore cannot be the upstream
+# artifact, whatever the size of the surrounding document. `_MAX_REPAIR_BLOCKS`
+# is only a cost guard — it bounds the scan, it does not decide what is safe.
 _MAX_REPAIR_BLOCKS = 60
 _MIN_REPEATED_RUN_CHARS = 40
+_MAX_REPEATED_RUN_CHARS = 250
+
+
+class BlockedUrlError(ValueError):
+    """The URL resolves to an address this deployment refuses to fetch (ADR-021).
+
+    A caller error rather than a render failure — `main.py` maps it to a 400 —
+    so a probe of the internal network reads as "refused", not "broken page".
+    """
+
+
+# Schemes the renderer will follow. Anything else (`file:`, `ftp:`, ...) is a way
+# to read something other than a web page and is refused outright.
+_ALLOWED_SCHEMES = frozenset({"http", "https"})
+
+
+def _allow_private_urls() -> bool:
+    """True when this deployment has opted into fetching non-public addresses."""
+    return os.environ.get("WISEAU_ALLOW_PRIVATE_URLS", "").strip().lower() in {
+        "1",
+        "true",
+        "yes",
+        "on",
+    }
+
+
+def _is_public_address(ip: ipaddress._BaseAddress) -> bool:
+    """False for loopback/private/link-local/reserved/multicast addresses."""
+    mapped = getattr(ip, "ipv4_mapped", None)
+    if mapped is not None:
+        # `::ffff:127.0.0.1` is loopback, but only the mapped view knows it.
+        ip = mapped
+    return not (
+        ip.is_private
+        or ip.is_loopback
+        or ip.is_link_local
+        or ip.is_reserved
+        or ip.is_multicast
+        or ip.is_unspecified
+    )
+
+
+def assert_url_allowed(url: str) -> None:
+    """Refuse a URL that names a non-public address, before anything fetches it.
+
+    The endpoint is public and the fetch happens inside the container, so an
+    unguarded renderer is an SSRF primitive: `http://127.0.0.1:7860/`,
+    `http://10.0.0.5/`, and the `169.254.169.254` metadata address are all
+    reachable from where it runs, but from nowhere the caller sits. Every address
+    the host resolves to must be public — *every* one, because a name with both a
+    public and a private record would otherwise be a coin flip.
+
+    Deliberately not covered: a public URL that **redirects** to a private one
+    (Chrome follows the redirect itself, past this check), and DNS rebinding
+    between this lookup and the render. Those need a proxy-level control; this
+    closes the direct case, which is the one a caller can trivially aim.
+    Unresolvable hosts are allowed through to fail as an ordinary render error.
+
+    Raises:
+        BlockedUrlError: on a non-`http(s)` scheme, a missing host, or any
+            resolved address that is not public.
+    """
+    parsed = urllib.parse.urlparse(url)
+    if parsed.scheme.lower() not in _ALLOWED_SCHEMES:
+        raise BlockedUrlError(f"Only http and https URLs can be converted (got '{parsed.scheme}').")
+
+    host = parsed.hostname
+    if not host:
+        raise BlockedUrlError("The URL has no host to fetch.")
+
+    if _allow_private_urls():
+        return
+
+    try:
+        resolved = socket.getaddrinfo(host, None, proto=socket.IPPROTO_TCP)
+    except socket.gaierror:
+        # Nothing to vet; the render will fail on its own and report a 502.
+        return
+
+    for info in resolved:
+        address = ipaddress.ip_address(info[4][0])
+        if not _is_public_address(address):
+            raise BlockedUrlError(
+                f"Refusing to fetch '{host}': it resolves to the non-public address "
+                f"{address}. Set WISEAU_ALLOW_PRIVATE_URLS=1 to allow this."
+            )
 
 
 @dataclass(frozen=True)
@@ -116,10 +217,14 @@ def _drop_repeated_run(markdown: str) -> str:
     (ADR-020). Short government notices are exactly the shape that trips it.
 
     The repair is deliberately narrow: find the **longest** run of blocks that is
-    immediately followed by an identical run, and drop the second copy. Anything
-    that is not an exact, adjacent, substantial repeat is left alone, and a
-    document long enough to be unaffected by the upstream bug is not even
-    scanned. Deterministic: same input, same output (invariant #1).
+    immediately followed by an identical run, and drop the second copy — but only
+    when that run is small enough to be something Trafilatura could have
+    duplicated in the first place (`_MAX_REPEATED_RUN_CHARS`, its own 250-char
+    threshold). Anything that is not an exact, adjacent, substantial *and
+    sub-threshold* repeat is left alone: a page can legitimately print the same
+    paragraph twice, and the size of the repeat — not the size of the document
+    around it — is what tells the two apart. Deterministic: same input, same
+    output (invariant #1).
 
     Delete this once upstream stops double-counting recovered text.
     """
@@ -134,8 +239,10 @@ def _drop_repeated_run(markdown: str) -> str:
             if first != blocks[start + size : start + 2 * size]:
                 continue
             # A repeated one-word line ("Yes", a table cell) is plausibly real
-            # content; a repeated run of substance is the upstream artifact.
-            if sum(len(block) for block in first) < _MIN_REPEATED_RUN_CHARS:
+            # content; so is a repeat too big for the upstream bug to have
+            # produced. Only what falls between the two is the artifact.
+            run_chars = sum(len(block) for block in first)
+            if not _MIN_REPEATED_RUN_CHARS <= run_chars <= _MAX_REPEATED_RUN_CHARS:
                 continue
             return "\n\n".join(blocks[: start + size] + blocks[start + 2 * size :])
     return markdown
@@ -148,7 +255,12 @@ def fetch_rendered(url: str) -> FetchedPage:
     viewer DOM, or a `.pdf` path), and the result is accepted only if it really
     starts with `%PDF-`. Anything else — including a `.pdf` URL that actually
     serves an HTML error/consent page — continues down the HTML path.
+
+    Raises:
+        BlockedUrlError: the URL names a non-public address (ADR-021). Checked
+            before the browser starts, so nothing is fetched.
     """
+    assert_url_allowed(url)
     driver = initialize_driver()
     try:
         driver.set_page_load_timeout(PAGE_LOAD_TIMEOUT)

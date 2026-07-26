@@ -92,7 +92,10 @@ def fetch_markdown(url: str, *, api_base: str = API_BASE, timeout: float = REQUE
         ``{"source": <url>, "markdown": <content>, "length": <int>}``.
 
     Raises:
-        MonitorError: on any HTTP error or if the backend is unreachable.
+        MonitorError: on any HTTP error, timeout, unreachable backend, or an
+            unreadable response body. Every failure to obtain fresh Markdown
+            leaves as a ``MonitorError`` — that is what lets ``check_url`` report
+            an ``error`` result instead of propagating and killing the run.
     """
     payload = json.dumps({"url": url}).encode("utf-8")
     request = urllib.request.Request(
@@ -103,11 +106,22 @@ def fetch_markdown(url: str, *, api_base: str = API_BASE, timeout: float = REQUE
     )
     try:
         with urllib.request.urlopen(request, timeout=timeout) as response:
-            return json.loads(response.read().decode("utf-8"))
+            body = response.read()
     except urllib.error.HTTPError as exc:
         raise MonitorError(f"backend error {exc.code}: {_error_detail(exc)}") from exc
     except urllib.error.URLError as exc:
         raise MonitorError(f"could not reach backend at {api_base}: {exc.reason}") from exc
+    except (TimeoutError, OSError) as exc:
+        # urllib wraps connect-time failures in URLError, but a timeout while
+        # *reading* the response comes through bare — and that is the likely one
+        # here, because a render plus a docling cold start is exactly what
+        # outlasts the timeout.
+        raise MonitorError(f"request to {api_base} failed: {exc}") from exc
+
+    try:
+        return json.loads(body.decode("utf-8"))
+    except (ValueError, UnicodeDecodeError) as exc:
+        raise MonitorError(f"backend at {api_base} returned an unreadable response") from exc
 
 
 def _error_detail(exc: urllib.error.HTTPError) -> str:
@@ -117,9 +131,14 @@ def _error_detail(exc: urllib.error.HTTPError) -> str:
     except Exception:  # noqa: BLE001 - the body may be unreadable; degrade gracefully
         return exc.reason or "unknown error"
     try:
-        return str(json.loads(body).get("detail", body))
+        payload = json.loads(body)
     except ValueError:  # non-JSON body
         return body or (exc.reason or "unknown error")
+    # A JSON body need not be an object (a proxy may return a bare string or
+    # list), so only read `detail` off a mapping.
+    if isinstance(payload, dict) and payload.get("detail"):
+        return str(payload["detail"])
+    return body or (exc.reason or "unknown error")
 
 
 # --- Snapshot storage -------------------------------------------------------

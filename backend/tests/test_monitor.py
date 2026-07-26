@@ -207,6 +207,79 @@ def test_fetch_markdown_reports_unreachable_backend(monkeypatch):
     assert "could not reach backend" in str(excinfo.value)
 
 
+def test_a_read_timeout_is_a_monitor_error(monkeypatch):
+    """A slow render must not escape as a bare `TimeoutError`.
+
+    urllib wraps connect-time failures in `URLError`, but a timeout while
+    *reading* the response comes through raw — and that is the likely failure
+    here, since a headless render plus a docling cold start is exactly what
+    outlasts the timeout. Anything that is not a `MonitorError` sails past
+    `check_url` and takes the whole watch loop down with it.
+    """
+
+    def fake_urlopen(request, timeout=None):
+        raise TimeoutError("timed out")
+
+    monkeypatch.setattr(monitor.urllib.request, "urlopen", fake_urlopen)
+    with pytest.raises(monitor.MonitorError) as excinfo:
+        monitor.fetch_markdown("https://example.com", api_base="http://backend:7860")
+    assert "failed" in str(excinfo.value)
+
+
+def test_a_timed_out_check_is_reported_as_an_error_result(tmp_path, monkeypatch):
+    # The end-to-end consequence: an `error` result, not a crashed pass.
+    def fake_urlopen(request, timeout=None):
+        raise TimeoutError("timed out")
+
+    monkeypatch.setattr(monitor.urllib.request, "urlopen", fake_urlopen)
+    store = monitor.SnapshotStore(tmp_path)
+
+    results = monitor.run_once(["https://example.com/slow"], store, api_base="http://backend:7860")
+
+    assert [r.status for r in results] == [monitor.ERROR]
+    assert results[0].ok is False
+    # A failed check must not overwrite the last good baseline.
+    assert store.load("https://example.com/slow") is None
+
+
+def test_a_non_object_json_error_body_is_still_a_monitor_error(monkeypatch):
+    # A proxy in front of the backend can return a bare JSON string or list;
+    # reading `detail` off it must not raise an AttributeError of its own.
+    import io
+    import urllib.error
+
+    def fake_urlopen(request, timeout=None):
+        raise urllib.error.HTTPError(
+            url=request.full_url,
+            code=503,
+            msg="Service Unavailable",
+            hdrs=None,
+            fp=io.BytesIO(b'["upstream is down"]'),
+        )
+
+    monkeypatch.setattr(monitor.urllib.request, "urlopen", fake_urlopen)
+    with pytest.raises(monitor.MonitorError) as excinfo:
+        monitor.fetch_markdown("https://example.com", api_base="http://backend:7860")
+    assert "503" in str(excinfo.value)
+
+
+def test_an_unreadable_success_body_is_a_monitor_error(monkeypatch):
+    class _JunkResponse:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc):
+            return False
+
+        def read(self):
+            return b"<html>not json at all</html>"
+
+    monkeypatch.setattr(monitor.urllib.request, "urlopen", lambda request, timeout=None: _JunkResponse())
+    with pytest.raises(monitor.MonitorError) as excinfo:
+        monitor.fetch_markdown("https://example.com", api_base="http://backend:7860")
+    assert "unreadable" in str(excinfo.value)
+
+
 # --- Watch loop -------------------------------------------------------------
 def test_watch_runs_a_bounded_number_of_passes(tmp_path, monkeypatch):
     store = monitor.SnapshotStore(tmp_path)

@@ -25,16 +25,23 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, HttpUrl
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
+from slowapi.middleware import SlowAPIMiddleware
 from slowapi.util import get_remote_address
 
 from observability import configure_logging, metrics
-from parsers import file_to_markdown, url_to_markdown
+from parsers import BlockedUrlError, file_to_markdown, url_to_markdown
 
 configure_logging()
 logger = logging.getLogger("markdown_engine")
 
 # --- Fair-use guards --------------------------------------------------------
 # Per-IP rate limits (see individual routes for per-endpoint overrides).
+#
+# The `default_limits` here only bind routes that carry no `@limiter.limit`
+# decorator, and *only* because `SlowAPIMiddleware` is installed below: slowapi
+# applies decorator limits from the decorator itself, but the defaults are
+# enforced by the middleware alone. Without it the defaults silently apply to
+# nothing and `@limiter.exempt` becomes a no-op (invariant #4).
 limiter = Limiter(key_func=get_remote_address, default_limits=["60/minute", "1000/day"])
 
 # Global concurrency ceiling: headless-browser renders and PDF extraction are
@@ -44,8 +51,13 @@ limiter = Limiter(key_func=get_remote_address, default_limits=["60/minute", "100
 MAX_CONCURRENT_JOBS = int(os.environ.get("MAX_CONCURRENT_JOBS", "4"))
 _job_semaphore = asyncio.Semaphore(MAX_CONCURRENT_JOBS)
 
-# Reject obviously oversized uploads before buffering them (bytes).
+# Upload size ceiling (bytes). Enforced by `_read_upload` while streaming, so an
+# oversized body is rejected without ever being assembled in memory.
 MAX_UPLOAD_BYTES = int(os.environ.get("MAX_UPLOAD_BYTES", str(25 * 1024 * 1024)))
+
+# How much of an upload to pull per `read()`. Bounds the overshoot past
+# MAX_UPLOAD_BYTES to one chunk before the 413 is raised.
+_UPLOAD_CHUNK_BYTES = 256 * 1024
 
 app = FastAPI(
     title="Universal Markdown Ingestion Engine",
@@ -53,11 +65,17 @@ app = FastAPI(
         "Deterministic conversion of web URLs, PDFs, and DOCX documents into "
         "clean, structured Markdown. Designed for both human UIs and LLM/MCP agents."
     ),
-    version="0.4.0",
+    version="0.5.0",
 )
 
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
+# Applies `limiter`'s default limits to every route that has no explicit
+# `@limiter.limit` (i.e. `/metrics`), and honours `@limiter.exempt` (`/ping`).
+# Added *before* CORS so the CORS middleware wraps it and a middleware-issued 429
+# still carries the headers a browser client needs to read it.
+app.add_middleware(SlowAPIMiddleware)
 
 # Open but protected: any browser origin may call the public API. Access is
 # controlled by rate limiting, not origin locks.
@@ -120,18 +138,33 @@ async def observe_requests(request: Request, call_next):
     return response
 
 
+def _registered_paths() -> frozenset:
+    """Every route path this app serves — the only labels `/metrics` may report."""
+    return frozenset(
+        path for path in (getattr(route, "path", None) for route in app.routes) if path
+    )
+
+
 def _route_label(request: Request) -> str:
-    """The matched route's *template* — never the raw path.
+    """The matched route's *template* — never an arbitrary caller-supplied path.
 
     Counting raw paths would let any caller inflate the metrics registry with
-    unbounded keys, so unmatched requests all collapse into one bucket.
+    unbounded keys, so unmatched requests all collapse into one bucket. Normally
+    the router has already resolved the route, but a request rejected by a
+    middleware (a rate-limit 429) never reaches the router; for those the path is
+    accepted only when it is one this app actually registers, which keeps the key
+    space bounded while still attributing the rejection to its real route.
     """
     route = request.scope.get("route")
-    return getattr(route, "path", None) or "unmatched"
+    label = getattr(route, "path", None)
+    if label:
+        return label
+    path = request.url.path
+    return path if path in _registered_paths() else "unmatched"
 
 
 @asynccontextmanager
-async def _job_slot(kind: str) -> AsyncIterator[None]:
+async def _job_slot() -> AsyncIterator[None]:
     """Hold a slot in the concurrency ceiling, timing the queue wait and the work.
 
     Wraps `_job_semaphore` rather than replacing it: the guard is unchanged
@@ -156,6 +189,34 @@ class MarkdownResponse(BaseModel):
     source: str
     markdown: str
     length: int
+
+
+# --- Upload handling --------------------------------------------------------
+async def _read_upload(file: UploadFile) -> bytes:
+    """Read an upload, refusing to assemble more than `MAX_UPLOAD_BYTES` in memory.
+
+    Reading the whole part first and *then* checking its size would materialize
+    an arbitrarily large body in the container's RAM before rejecting it — the
+    opposite of what a memory-sized free-tier box wants. Streaming in chunks
+    bounds that to the limit plus one chunk.
+
+    Raises:
+        HTTPException: 413 as soon as the part exceeds `MAX_UPLOAD_BYTES`.
+    """
+    chunks: list[bytes] = []
+    total = 0
+    while True:
+        chunk = await file.read(_UPLOAD_CHUNK_BYTES)
+        if not chunk:
+            break
+        total += len(chunk)
+        if total > MAX_UPLOAD_BYTES:
+            raise HTTPException(
+                status_code=413,
+                detail=f"File exceeds the {MAX_UPLOAD_BYTES // (1024 * 1024)} MB limit.",
+            )
+        chunks.append(chunk)
+    return b"".join(chunks)
 
 
 # --- Routes -----------------------------------------------------------------
@@ -201,9 +262,14 @@ async def read_metrics(request: Request) -> dict:
 async def convert_url(request: Request, body: UrlRequest) -> MarkdownResponse:
     """Render a URL (JS-aware) and extract its primary content as Markdown."""
     url = str(body.url)
-    async with _job_slot("url"):
+    async with _job_slot():
         try:
             markdown = await asyncio.to_thread(url_to_markdown, url)
+        except BlockedUrlError as exc:
+            # The caller asked for a host this deployment refuses to fetch. That
+            # is a bad request, not a failed render, so it must not read as a 502.
+            metrics.record_conversion("url", "error")
+            raise HTTPException(status_code=400, detail=str(exc)) from exc
         except Exception as exc:  # noqa: BLE001 - surface a clean 502 to the caller
             metrics.record_conversion("url", "error")
             logger.exception("URL conversion failed for %s", url)
@@ -222,16 +288,11 @@ async def convert_url(request: Request, body: UrlRequest) -> MarkdownResponse:
 @limiter.limit("20/minute")
 async def convert_file(request: Request, file: UploadFile = File(...)) -> MarkdownResponse:
     """Parse an uploaded PDF or DOCX into Markdown."""
-    data = await file.read()
+    data = await _read_upload(file)
     if not data:
         raise HTTPException(status_code=400, detail="Empty file upload.")
-    if len(data) > MAX_UPLOAD_BYTES:
-        raise HTTPException(
-            status_code=413,
-            detail=f"File exceeds the {MAX_UPLOAD_BYTES // (1024 * 1024)} MB limit.",
-        )
 
-    async with _job_slot("file"):
+    async with _job_slot():
         try:
             markdown = await asyncio.to_thread(file_to_markdown, data, file.filename or "")
         except ValueError as exc:

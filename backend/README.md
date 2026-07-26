@@ -14,6 +14,12 @@ full design.
 | POST   | `/convert/file` | multipart `file` (PDF/DOCX/image) → Markdown JSON.|
 | GET    | `/metrics`      | Per-process operational counters (see below).    |
 
+`/convert/url` refuses a URL that resolves to a loopback/private/link-local
+address with a **400** — the endpoint is public and the fetch happens inside the
+container, so an unguarded renderer is an SSRF primitive. Set
+`WISEAU_ALLOW_PRIVATE_URLS=1` on a self-hosted deployment that converts its own
+intranet. See [`../docs/tech-spec.md`](../docs/tech-spec.md) §13 and ADR-021.
+
 Interactive docs and the machine-readable schema for LLM/MCP integration are
 served at `/docs` and `/openapi.json`.
 
@@ -100,7 +106,7 @@ fallback makes a docling outage look like success:
 
 ```bash
 curl -s localhost:7860/metrics | python -m json.tool
-# engines: {"docling": 0, "pymupdf": 41}  <- docling has been down all week
+# engines: {"docling": 0, "pymupdf": 38, "ocr": 3}  <- docling has been down all week
 ```
 
 Aggregates only (no URLs, filenames, or content — the endpoint is public), and
@@ -121,8 +127,12 @@ they reset with the process. See [`../docs/tech-spec.md`](../docs/tech-spec.md)
 | `WISEAU_DOCLING_TOKEN`| —         | Sent as `Authorization: Bearer` (private-Space gateway). |
 | `WISEAU_DOCLING_API_KEY` | —      | Sent as `X-Api-Key` (docling-serve's `DOCLING_SERVE_API_KEY`). |
 | `WISEAU_DOCLING_TIMEOUT` | `120`  | Seconds to wait on docling before falling back. |
+| `WISEAU_DOCLING_PATH` | `/v1/convert/file` | docling-serve convert endpoint path. |
+| `WISEAU_ALLOW_PRIVATE_URLS` | unset | Allow `/convert/url` to fetch non-public addresses (ADR-021). |
 | `WISEAU_LOG_FORMAT`   | `json`    | `json` (one object per line) or `text` (human-readable). |
 | `WISEAU_LOG_LEVEL`    | `INFO`    | Root log level.                                |
 
 Per-IP rate limits (`60/min`, `1000/day` default; `20/min` on convert routes)
-are configured in `main.py`.
+are configured in `main.py`. The defaults reach undecorated routes only because
+`SlowAPIMiddleware` is installed — remove it and they bind nothing while the
+convert routes keep working, so the loss is silent. `/ping` is exempt.
