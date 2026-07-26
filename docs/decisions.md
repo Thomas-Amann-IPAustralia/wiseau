@@ -21,6 +21,45 @@ one `Superseded`.
 
 ---
 
+## ADR-016 — docling client uses stdlib `urllib`, not `httpx`; typed errors drive fallback
+**Date:** 2026-07-26 · **Status:** Accepted
+**Context:** Implementing the Phase 6 docling client (ADR-014). The roadmap
+assumed an `httpx`-based client ("only an HTTP client — httpx, already present"),
+but `httpx` is **not** a backend runtime dependency: it appears only in
+`requirements-dev.txt` (for FastAPI's `TestClient`) and `requirements-mcp.txt`
+(the separate MCP process). The docling client, by contrast, is imported by
+`parsers/file_parser.py` at module load, so a hard `httpx` import would make the
+**whole backend fail to import** if the library were ever absent — directly at
+odds with the "never hard-depend on the docling Space / degrade to a working
+result" resilience rule (ADR-014, invariant-style). `monitor.py` (ADR-010) had
+already established a zero-dependency, stdlib-`urllib` HTTP-client precedent in
+this same codebase, with an injectable transport for testing.
+**Decision:** Build `parsers/docling_client.py` on the **standard library**
+(`urllib`), mirroring `monitor.py`: a `convert_document(bytes, filename, ...)`
+function with an **injectable transport** so tests mock docling-serve without a
+live Space (the roadmap's "mocked transport" requirement). Multipart is hand-encoded
+with a content-hash-derived boundary (deterministic, collision-safe). Errors are
+**typed** so the caller can distinguish infrastructure problems from bad inputs:
+`DoclingUnavailable` (connection error, timeout, 5xx, empty/non-JSON body) and
+`DoclingBadDocument` (a 4xx verdict), both subclassing `DoclingError`.
+`file_parser.py` gates docling on `WISEAU_PDF_ENGINE=docling` (default) **and**
+`docling_client.is_configured()` (`WISEAU_DOCLING_BASE` set); on any `DoclingError`
+it logs and falls back to the deterministic PyMuPDF/Mammoth path. So with no
+docling base configured — the default local/dev/CI case — behaviour is byte-for-byte
+what it was before Phase 6, and every existing test is unaffected. The returned
+Markdown is **not** normalized in the client; `file_to_markdown` runs
+`clean_markdown()` on it like every other path (invariant #3), inside the existing
+`_job_semaphore` (invariant #4, unchanged in `main.py`).
+**Consequences:** The backend image acquires **no** new runtime dependency
+(`requirements.txt` untouched — still no torch, no httpx) and can never fail to
+import for lack of an HTTP library; the docling call path is fully unit-tested over
+a mocked transport (18 client tests + 6 engine-selection tests, browserless and
+docling-serve-less). Cost: hand-rolled multipart instead of `httpx`'s helper (a
+dozen lines, tested). This ADR refines — does not overturn — the roadmap's client
+task; the "httpx" note there was inaccurate for the runtime image. Still open for
+Phase 6: routing PDF-typed `/convert/url` fetches to docling, the docling-serve
+Space (ADR-015), and live upload/fallback verification.
+
 ## ADR-015 — docling-serve as an internal microservice; free two-Space deployment
 **Date:** 2026-07-24 · **Status:** Proposed (implementation is Phase 6)
 **Context:** ADR-014 makes docling the default document parser, and docling must
@@ -58,7 +97,7 @@ WAF-bypass fetcher itself is a separate concern (a `nodriver`/`undetected-
 chromedriver` upgrade to `browser.py`), tracked independently of this ADR.
 
 ## ADR-014 — docling as the default document parser; PyMuPDF/Mammoth as automatic fallback
-**Date:** 2026-07-24 · **Status:** Proposed (implementation is Phase 6)
+**Date:** 2026-07-24 · **Status:** Accepted — backend implemented 2026-07-26 (client + engine selection + fallback); docling-serve Space & live verification still pending. See ADR-016.
 **Context:** docling (layout model + TableFormer + integrated OCR) produces
 markedly more **faithful** Markdown on complex, multi-column, and scanned
 documents — notably the government PDFs this project targets — than the legacy

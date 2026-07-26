@@ -1,8 +1,19 @@
 """Document -> Markdown extraction for PDF, DOCX, and image uploads.
 
-PDFs are converted with PyMuPDF4LLM (LLM-tuned Markdown output); DOCX files are
-converted to HTML with Mammoth and then to Markdown with Markdownify. Both paths
-finish in the shared `clean_markdown` normalizer for uniform output.
+**Engine selection (Phase 6; ADR-014).** Document conversion is *docling-first
+with automatic fallback*. When `WISEAU_PDF_ENGINE` selects `docling` (the
+default) **and** a docling-serve Space is configured (`WISEAU_DOCLING_BASE`), the
+bytes are sent to docling for high-fidelity Markdown; on any docling failure —
+unreachable, timeout, 5xx, empty, or a rejected document — the parser **logs and
+falls back** to the deterministic parsers below. With no docling base configured
+(the common local/dev case) docling is simply skipped, so behaviour is identical
+to before Phase 6. The docling default may vary run-to-run **by design** (ADR-013);
+the fallback path stays deterministic.
+
+The deterministic fallback: PDFs are converted with PyMuPDF4LLM (LLM-tuned
+Markdown output); DOCX files are converted to HTML with Mammoth and then to
+Markdown with Markdownify. Every path — docling included — finishes in the shared
+`clean_markdown` normalizer for uniform output (invariant #3).
 
 **OCR.** A born-digital PDF carries a text layer that PyMuPDF4LLM reads directly.
 Scanned and handwritten PDFs do not — their pages are images. Detection is
@@ -27,6 +38,7 @@ Behaviour is controlled by env vars: `WISEAU_OCR_MODE` (`auto`/`force`/`off`),
 from __future__ import annotations
 
 import io
+import logging
 import os
 
 import mammoth
@@ -34,8 +46,11 @@ import pymupdf  # provided by pymupdf4llm; formerly imported as `fitz`
 import pymupdf4llm
 from markdownify import markdownify as html_to_md
 
+from . import docling_client
 from .cleaner import clean_markdown
 from .ocr import get_engine
+
+logger = logging.getLogger(__name__)
 
 # Pin PyMuPDF4LLM to its deterministic legacy extractor (see module docstring /
 # ADR-012). This is a process-wide setting; do it once at import.
@@ -160,17 +175,50 @@ def docx_to_markdown(data: bytes) -> str:
     return html_to_md(result.value, heading_style="ATX")
 
 
+def _pdf_engine() -> str:
+    """Preferred document engine: 'docling' (default; ADR-014) or 'pymupdf'."""
+    return os.environ.get("WISEAU_PDF_ENGINE", "docling").strip().lower()
+
+
+def _fallback_markdown(data: bytes, ext: str) -> str:
+    """Deterministic extraction by extension — the always-available fallback."""
+    if ext == ".pdf":
+        return pdf_to_markdown(data)
+    if ext == ".docx":
+        return docx_to_markdown(data)
+    # Only reachable for image extensions; other types are rejected upstream.
+    return image_to_markdown(data, ext)
+
+
+def _extract_markdown(data: bytes, filename: str, ext: str) -> str:
+    """Convert a supported document to Markdown, docling-first with fallback.
+
+    Tries docling only when it is *selected* (`WISEAU_PDF_ENGINE=docling`, the
+    default) **and** *configured* (`WISEAU_DOCLING_BASE` set). Any docling failure
+    — infrastructure (`DoclingUnavailable`) or a rejected document
+    (`DoclingBadDocument`) — is logged and degraded to the deterministic parser,
+    so the service returns a working result rather than an error (ADR-014).
+    """
+    if _pdf_engine() == "docling" and docling_client.is_configured():
+        try:
+            markdown = docling_client.convert_document(data, filename)
+            logger.info("docling converted %r (%d chars)", filename, len(markdown))
+            return markdown
+        except docling_client.DoclingError as exc:
+            logger.warning(
+                "docling conversion failed for %r (%s); falling back to the deterministic parser",
+                filename,
+                exc,
+            )
+    return _fallback_markdown(data, ext)
+
+
 def file_to_markdown(data: bytes, filename: str) -> str:
     """Dispatch an uploaded document to the right parser by extension."""
     ext = os.path.splitext(filename)[1].lower()
-    if ext == ".pdf":
-        raw = pdf_to_markdown(data)
-    elif ext == ".docx":
-        raw = docx_to_markdown(data)
-    elif ext in IMAGE_EXTENSIONS:
-        raw = image_to_markdown(data, ext)
-    else:
+    if ext not in SUPPORTED_EXTENSIONS:
         supported = ", ".join(sorted(SUPPORTED_EXTENSIONS))
         raise ValueError(f"Unsupported file type '{ext or 'unknown'}'. Supported: {supported}.")
 
+    raw = _extract_markdown(data, filename, ext)
     return clean_markdown(raw)
