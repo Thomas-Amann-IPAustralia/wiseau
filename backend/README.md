@@ -1,3 +1,13 @@
+---
+title: wiseau
+emoji: 📝
+colorFrom: indigo
+colorTo: gray
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # Backend — Markdown Ingestion Engine
 
 FastAPI microservice that converts URLs, PDFs, DOCX documents, and images into
@@ -77,6 +87,27 @@ The image version-locks Chromium, Python, and system libraries.
 docker build -t markdown-engine .
 docker run -p 7860:7860 markdown-engine
 ```
+
+## Deploying as a Hugging Face Space (#1)
+
+1. Create a **Docker** Space (16 GB CPU tier) and push the contents of
+   `backend/` to its repository root — a Space builds the `Dockerfile` it finds
+   there, and the frontmatter at the top of this file is the Space card
+   (`app_port: 7860` matches the `Dockerfile`, which already runs as UID 1000 as
+   Spaces require).
+2. Optionally set any of the variables in [Configuration](#configuration) in the
+   Space's settings. None is required — the defaults are the deployed defaults —
+   but a Space with no `WISEAU_DOCLING_BASE` skips docling entirely and serves
+   everything from the deterministic parsers.
+3. To enable the high-fidelity half, deploy [`../docling/`](../docling) as Space
+   #2 and set `WISEAU_DOCLING_BASE` / `WISEAU_DOCLING_API_KEY` /
+   `WISEAU_DOCLING_TOKEN` here. Steps and the live-verification order are in
+   [`../docling/README.md`](../docling/README.md).
+4. Confirm the Space is live: `GET /ping` returns the API version, and after a
+   conversion `GET /metrics` shows it attributed to an engine. Then point the
+   frontend at it — set the `MARKDOWN_API_BASE` repository variable (or edit
+   `frontend/config.js`) and run the **Deploy frontend** workflow; see
+   [`../frontend/README.md`](../frontend/README.md).
 
 ## Agent surfaces
 

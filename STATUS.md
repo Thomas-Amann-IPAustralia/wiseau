@@ -6,8 +6,36 @@
 > green checkmark that lies.
 
 **Last updated:** 2026-07-26
-**Updated by:** Claude Code (code-review pass: fixing guards that were not guarding)
-**Build note (2026-07-26, fourth session today):** **A code-review pass over the
+**Updated by:** Claude Code (operational-readiness pass: deployment prepared in-repo)
+**Build note (2026-07-26, fifth session today):** **Everything left to reach
+"operational" is now account work.** An audit of what deployment actually requires
+found two blockers that were *code*, not accounts, and both would have failed on
+the first attempt (ADR-023):
+
+1. **Space #1 had no Space card.** A Hugging Face Docker Space reads its
+   configuration from YAML frontmatter in the Space repo's `README.md`.
+   `docling/README.md` had one; `backend/README.md` did not — no `sdk: docker`,
+   no `app_port: 7860`. Added, plus a deployment section covering what to push
+   and how to verify the Space is live.
+2. **GitHub Pages could not have served `frontend/`.** Branch publishing serves a
+   repository root or `/docs` only, and `/docs` is the project documentation — so
+   "activate GitHub Pages" was not a setting anyone could switch on. Added
+   `.github/workflows/deploy-frontend.yml` (`upload-pages-artifact` /
+   `deploy-pages`, push-to-`main` on `frontend/**` plus manual dispatch).
+
+The workflow also removes the last commit from the deployment path: with the
+`MARKDOWN_API_BASE` **repository variable** set, it rewrites that assignment in
+the *uploaded* `config.js` only, so the committed default stays `localhost` and a
+public repo needn't carry the deployment's URL. A non-absolute value fails the job
+rather than publishing a site that silently calls localhost. Verified by extracting
+the step from the YAML and running it against a copy of the real `config.js`: unset
+→ committed default untouched, set → rewritten with the trailing slash stripped,
+malformed → exit 1. **Neither half is proven end-to-end** — no Space and no Pages
+site exists, so frontmatter and workflow are written-but-unrun. No backend code
+changed this session; the suite was not re-run (deps are not installed in this
+sandbox), and the numbers below are the previous session's.
+
+**The previous build note stands:** **A code-review pass over the
 backend found six defects and one security exposure; all are fixed, regression-
 tested, and verified live.** API `0.4.0 → 0.5.0`. The theme is guards that read as
 present but bound nothing:
@@ -123,11 +151,11 @@ accounts/credentials rather than code. See ADR-011.
 | OCR (scanned/handwritten) | 🟢 Verified | Image-only PDF pages + image uploads OCR'd; per-page detection assembles mixed PDFs in order. Default MuPDF-Tesseract (deterministic, in the image); opt-in neural EasyOCR for handwriting. Deterministic by pinning `pymupdf4llm` legacy mode + driving MuPDF's OCR primitive directly (ADR-012). 13 tests + HTTP round-trip verified; API `v0.3.0`. |
 | Frontend UI (Phase 3) | 🟢 Verified | Full static UI driven end-to-end with headless Chromium against a live `uvicorn` backend: status badge, URL + PDF + DOCX conversion, copy/download, and error states all confirmed (18/18 UI checks). See ADR-008. |
 | AI / MCP integration (Phase 4) | 🟢 Complete | MCP server (`mcp_server.py`) exposes `convert_url`/`convert_file`/`ping` as tools — thin HTTP adapter, same contract, guards intact; verified end-to-end vs a live backend + 6 unit tests. OpenAPI operation IDs/summaries cleaned (v`0.2.0`); `docs/mcp.md` written. **Autonomous-ingestion monitor** (`monitor.py`) built + verified (16 tests + real end-to-end run) — closes Phase 4. |
-| Containerization & deploy (Phase 5) | 🟡 Image proven, not deployed | Image **builds and runs**: Chromium 150 launches in-container, a live external URL renders end-to-end + deterministically (ADR-011). Nothing deployed to Hugging Face / GitHub Pages yet (needs external accounts). |
+| Containerization & deploy (Phase 5) | 🟡 Image proven + deploy prepared, not deployed | Image **builds and runs**: Chromium 150 launches in-container, a live external URL renders end-to-end + deterministically (ADR-011). Both deployments are now prepared in-repo — HF Space card frontmatter on `backend/README.md`, a Pages workflow for `frontend/` (ADR-023) — so what remains is account work only. Nothing deployed to Hugging Face / GitHub Pages yet. |
 | Higher-fidelity extraction (Phase 6) | 🟡 Code complete, not deployed | docling client + docling-first engine selection with automatic fallback (ADR-014/016), **direct-PDF URL routing** (ADR-017, verified live), and the **docling Space image** `docling/Dockerfile` (ADR-018, digest-pinned but **never built**). Left: deploy Space #2 and verify against a live docling-serve. Fidelity outranks strict determinism (ADR-013). |
 | Observability | 🟢 Verified | Structured JSON logs (one access line per request + `X-Request-ID`), `GET /metrics` with request/job timings, peak concurrency, RSS, and **engine attribution** (docling vs the fallback parsers, with typed fallback reasons). Stdlib-only, no new runtime dep. Verified live, incl. a real docling fallback and a real docling success over a socket. ADR-019, tech-spec §12. |
 | Automated tests | 🟢 Passing | **176 pass + 6 skipped** in default (browserless) runs (this sandbox, verified directly). +29 this session (rate-limit enforcement + exemption + route attribution, streamed upload rejection, blocked-URL 400, 12 private-address guard cases, the repair's corrected size bound, native-vs-OCR path pinning, OCR engine attribution, 4 monitor failure modes). Covers `cleaner`/PDF/**DOCX**/**OCR**/**docling client & engine selection**/**direct-PDF URL routing**/**observability**/**fair-use guards**/**fetch-target policy**/validation, the MCP tool surface, the **autonomous-ingestion monitor**, plus the live render→extract→clean pipeline. Skips: 5 opt-in live-browser (`WISEAU_LIVE_BROWSER=1`; **all 5 run and passed here** with a version-matched Chromium 141 + driver → 181 total) + 1 OCR-fixture test needing Pillow. |
-| CI/CD | 🟢 Tests + Docker build | `.github/workflows/backend-tests.yml`: a `test` job runs `pytest` (browserless) and a `docker-build` job builds the image, boots it, renders a live external URL through the container, and now also asserts the **short-page repair** on that real render, the **`/metrics` attribution**, and that request logs are structured JSON. Docker-build gap closed (ADR-011). |
+| CI/CD | 🟢 Tests + Docker build | `.github/workflows/backend-tests.yml`: a `test` job runs `pytest` (browserless) and a `docker-build` job builds the image, boots it, renders a live external URL through the container, and now also asserts the **short-page repair** on that real render, the **`/metrics` attribution**, and that request logs are structured JSON. Docker-build gap closed (ADR-011). A second workflow, `deploy-frontend.yml`, publishes `frontend/` to GitHub Pages (never run — Pages is not enabled yet; ADR-023). |
 | Documentation | 🟢 Established | Brief, tech spec, roadmap, decisions, agent workflow, this file. |
 
 Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not started/absent
@@ -210,6 +238,12 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
     container, asserts `/ping`, checks Chromium/ChromeDriver versions, and runs a
     live `POST /convert/url` on `https://example.com` (real headless-Chrome
     render — GitHub runners have Docker + direct egress). ADR-011.
+- `workflows/deploy-frontend.yml` — publishes `frontend/` to GitHub Pages on a
+  push to `main` (or manual dispatch), via `upload-pages-artifact`/`deploy-pages`.
+  Branch publishing could not serve `frontend/` (it serves a repo root or `/docs`,
+  and `/docs` is the documentation). If the `MARKDOWN_API_BASE` repository
+  variable is set, the workflow writes it into the *uploaded* `config.js`; the
+  committed default stays `localhost`. Never run — Pages is not enabled. ADR-023.
 
 **docling converter** (`docling/`) — *written, never built*
 - `Dockerfile` — `FROM ghcr.io/docling-project/docling-serve-cpu:v1.27.0@sha256:a70cd391…`
@@ -235,8 +269,11 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
 
 - **No deployment** — no live Hugging Face Space, no GitHub Pages activation,
   so `MARKDOWN_API_BASE` still points at localhost. The container is *proven
-  deploy-ready* (ADR-011); this is now the only substantial Phase 5 gap, and it
-  needs external accounts/credentials rather than code.
+  deploy-ready* (ADR-011) and both deployments are now prepared in-repo
+  (ADR-023), so this is purely account work: create the Spaces, push `backend/`
+  and `docling/` to them, set the secrets, set one repository variable, switch
+  Pages' source to GitHub Actions. The Space card and the Pages workflow are
+  themselves **unrun** — the first deploy is also their first test.
 - **MCP server + monitor need a reachable backend.** By design both are HTTP
   clients, so their tools only work when a backend is running at
   `WISEAU_API_BASE`. Verified against a local `uvicorn`/stub; not yet exercised
@@ -270,10 +307,10 @@ URLs, which used to convert to an empty PDF-viewer shell (ADR-017).*
 
 ## Suggested next actions (see `docs/roadmap.md` for the full backlog)
 
-**Phase 6 has no code left in it, and the cross-cutting backlog's code items are
-done too.** Everything remaining in both open tracks needs something this chain of
-sessions hasn't had: a Docker daemon with a few GB of pull budget, or external
-accounts. Once deployed, `GET /metrics` is the fastest way to check the docling
+**Phase 6 has no code left in it, the cross-cutting backlog's code items are done
+too, and as of this session both deployments are prepared in-repo (ADR-023).**
+Everything remaining in both open tracks needs something this chain of sessions
+hasn't had: a Docker daemon with a few GB of pull budget, or external accounts. Once deployed, `GET /metrics` is the fastest way to check the docling
 half is actually working (`engines.docling` vs `engines.pymupdf`).
 
 **A. Phase 6 — build and deploy the docling Space (ADR-015/018).**
@@ -291,11 +328,16 @@ half is actually working (`engines.docling` vs `engines.pymupdf`).
    PyMuPDF still returns, with a `falling back` line in the log).
 
 **B. Phase 5 — deployment (still open; a prerequisite for the live end-to-end
-check).** Needs external accounts/credentials rather than code:
-1. Deploy the backend to a Hugging Face Space (free CPU tier). The image is proven
-   deploy-ready (ADR-011); container listens on `7860`, runs as UID 1000.
-2. Point `frontend/config.js` `MARKDOWN_API_BASE` at the live Space; deploy the
-   frontend via GitHub Pages.
+check).** Nothing here needs a commit any more (ADR-023) — only accounts and
+settings:
+1. Deploy the backend to a Hugging Face Space (free CPU tier): create a **Docker**
+   Space and push the *contents of* `backend/` to its repo root (the Space card is
+   `backend/README.md`'s frontmatter). The image is proven deploy-ready (ADR-011);
+   container listens on `7860`, runs as UID 1000.
+2. Set **Settings → Pages → Source** to *GitHub Actions*, set the
+   `MARKDOWN_API_BASE` repository variable to the Space URL, and run the **Deploy
+   frontend** workflow. (Editing `frontend/config.js` still works, and is the route
+   for any non-Pages host.)
 3. Confirm the deployed UI talks to the deployed backend end-to-end; re-run the
    MCP + monitor checks against the Space.
 
@@ -306,6 +348,45 @@ check).** Needs external accounts/credentials rather than code:
 Newest first. One short entry per working session — what changed and what the
 next instance should know.
 
+- **2026-07-26 — Operational readiness: the deployment path no longer needs a commit.**
+  Asked what actually remains before wiseau is operational, and audited the answer
+  instead of restating it. Both open tracks were on record as "needs external
+  accounts, not code" — but two of the steps *were* code, and each would have
+  failed at the first attempt (**ADR-023**). **(1) Space #1 had no Space card.** A
+  Hugging Face Docker Space reads its configuration from YAML frontmatter in the
+  Space repo's `README.md`; `docling/README.md` had one, `backend/README.md` did
+  not, so the backend Space had no `sdk: docker` and no `app_port`. Added it,
+  mirroring `docling/`, plus a deployment section (push the *contents* of
+  `backend/` to the Space root; which env vars matter; how to confirm it is live
+  via `/ping` + `/metrics`). **(2) GitHub Pages could not have served
+  `frontend/`.** Pages' branch publishing serves a repository root or `/docs`
+  only, and `/docs` holds this documentation — so the roadmap's "activate GitHub
+  Pages" was not a setting that exists. Added
+  `.github/workflows/deploy-frontend.yml`: `configure-pages` →
+  `upload-pages-artifact` (path `frontend`) → `deploy-pages`, on pushes to `main`
+  touching `frontend/**` and on manual dispatch, with `pages: write` +
+  `id-token: write` and a non-cancelling `pages` concurrency group (a half-published
+  site is worse than a stale one). The workflow also takes the last commit out of
+  the deployment path: when the `MARKDOWN_API_BASE` **repository variable** is set
+  it rewrites that one assignment in the *uploaded* `config.js`, leaving the
+  committed `localhost` default alone — so a public repo needn't carry the
+  deployment URL, and local development is untouched. A value that isn't an
+  absolute URL fails the job rather than publishing a site that silently calls
+  localhost. **Verified** by pulling the step out of the YAML and running it
+  against a copy of the real `config.js`: unset → file untouched, set → rewritten
+  with the trailing slash stripped, malformed → exit 1; the YAML itself parses.
+  **Not verified, and can't be here:** the Space card and the Pages workflow have
+  never run — no HF account, no Pages site — so the first deploy is also their
+  first test. No backend code changed and the suite was not re-run (its deps
+  aren't installed in this sandbox); the test numbers above are the previous
+  session's. Docs: ADR-023, roadmap Phase 5 (a new `[x]` for the preparation; the
+  four deploy items now spell out the account steps), tech-spec §8,
+  `frontend/README.md`, `frontend/config.js` header. **Next instance:** the
+  remaining work is now genuinely account-only — build `docling/Dockerfile` when
+  you have a Docker daemon, create both Spaces, set `DOCLING_SERVE_API_KEY` and
+  the three `WISEAU_DOCLING_*` vars, then Pages source → *GitHub Actions* +
+  the `MARKDOWN_API_BASE` variable. Live checks: `docling/README.md` for the
+  docling half, `GET /metrics` to confirm docling is really serving conversions.
 - **2026-07-26 — Observability, and the Trafilatura duplication bug root-caused.**
   With no Docker daemon and no external accounts available, took the two open
   *code* items from the cross-cutting backlog. **(1) Observability (ADR-019).**

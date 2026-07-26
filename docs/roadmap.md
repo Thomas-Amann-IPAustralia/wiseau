@@ -99,9 +99,20 @@ merely written. Written-but-unverified is `[~]` with a note.
   two runs → deterministic). This also closes Phase 2's live *external*-URL
   gap — headless Chrome rendered arbitrary internet pages, not just a `data:` URL.
   The CI `docker-build` job now re-proves this on every backend change. ADR-011.*
-- [ ] Deploy backend to a Hugging Face Space (free CPU tier).
-- [ ] Point `frontend/config.js` `MARKDOWN_API_BASE` at the live Space.
-- [ ] Deploy frontend via GitHub Pages.
+- [x] Prepare both deployments so nothing but account work is left (ADR-023). —
+  *`backend/README.md` now carries the HF Space card frontmatter (`sdk: docker`,
+  `app_port: 7860`) a Docker Space reads its configuration from, without which
+  Space #1 would not have built; `.github/workflows/deploy-frontend.yml`
+  publishes `frontend/` to Pages, which branch publishing cannot do (it serves a
+  repo root or `/docs`, and `/docs` is the documentation). Written, not run —
+  no Space and no Pages site exist yet.*
+- [ ] Deploy backend to a Hugging Face Space (free CPU tier). *Push the contents
+  of `backend/` to the Space repo root; steps in `backend/README.md`.*
+- [ ] Point the frontend at the live Space: set the `MARKDOWN_API_BASE`
+  **repository variable** (the Pages workflow writes it into the published
+  `config.js`), or edit `frontend/config.js` for a non-Pages host.
+- [ ] Deploy frontend via GitHub Pages: set **Settings → Pages → Source** to
+  *GitHub Actions*, then run the **Deploy frontend** workflow.
 - [ ] Confirm the deployed UI talks to the deployed backend end-to-end.
 
 ## Phase 6 — Higher-fidelity extraction via docling (default engine)
