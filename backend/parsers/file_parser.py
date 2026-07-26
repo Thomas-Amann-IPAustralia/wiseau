@@ -40,11 +40,13 @@ from __future__ import annotations
 import io
 import logging
 import os
+import time
 
 import mammoth
 import pymupdf  # provided by pymupdf4llm; formerly imported as `fitz`
 import pymupdf4llm
 from markdownify import markdownify as html_to_md
+from observability import metrics
 
 from . import docling_client
 from .cleaner import clean_markdown
@@ -183,10 +185,13 @@ def _pdf_engine() -> str:
 def _fallback_markdown(data: bytes, ext: str) -> str:
     """Deterministic extraction by extension — the always-available fallback."""
     if ext == ".pdf":
+        metrics.record_engine("pymupdf")
         return pdf_to_markdown(data)
     if ext == ".docx":
+        metrics.record_engine("mammoth")
         return docx_to_markdown(data)
     # Only reachable for image extensions; other types are rejected upstream.
+    metrics.record_engine("ocr")
     return image_to_markdown(data, ext)
 
 
@@ -199,17 +204,41 @@ def _extract_markdown(data: bytes, filename: str, ext: str) -> str:
     (`DoclingBadDocument`) — is logged and degraded to the deterministic parser,
     so the service returns a working result rather than an error (ADR-014).
     """
-    if _pdf_engine() == "docling" and docling_client.is_configured():
+    selected = _pdf_engine()
+    if selected != "docling":
+        metrics.record_docling_skipped("engine_not_selected")
+    elif not docling_client.is_configured():
+        metrics.record_docling_skipped("not_configured")
+    else:
+        started = time.perf_counter()
         try:
             markdown = docling_client.convert_document(data, filename)
-            logger.info("docling converted %r (%d chars)", filename, len(markdown))
-            return markdown
         except docling_client.DoclingError as exc:
+            # `DoclingUnavailable` means the *Space* is the problem;
+            # `DoclingBadDocument` means docling read the document and refused it.
+            # Recorded apart so a silent outage is distinguishable from a file
+            # docling simply cannot handle (ADR-014/018).
+            reason = type(exc).__name__
+            metrics.record_docling_attempt((time.perf_counter() - started) * 1000, ok=False, reason=reason)
             logger.warning(
-                "docling conversion failed for %r (%s); falling back to the deterministic parser",
-                filename,
-                exc,
+                "docling conversion failed; falling back to the deterministic parser",
+                extra={"wiseau": {"filename": filename, "reason": reason, "error": str(exc)}},
             )
+        else:
+            elapsed_ms = (time.perf_counter() - started) * 1000
+            metrics.record_docling_attempt(elapsed_ms, ok=True)
+            metrics.record_engine("docling")
+            logger.info(
+                "docling converted document",
+                extra={
+                    "wiseau": {
+                        "filename": filename,
+                        "chars": len(markdown),
+                        "duration_ms": round(elapsed_ms, 1),
+                    }
+                },
+            )
+            return markdown
     return _fallback_markdown(data, ext)
 
 

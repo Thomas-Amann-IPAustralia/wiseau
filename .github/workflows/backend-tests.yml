@@ -102,6 +102,35 @@ jobs:
             -d '{"url":"https://example.com"}')
           echo "$body"
           echo "$body" | grep -q "Example Domain" || { echo "expected extracted content not found"; docker logs md-engine; exit 1; }
+          # example.com extracts to well under Trafilatura's 250-character
+          # threshold, so it is exactly the shape that used to come back with its
+          # body duplicated (ADR-020). One copy, on a real page, in the image.
+          count=$(printf '%s' "$body" | python3 -c 'import json,sys; print(json.load(sys.stdin)["markdown"].count("illustrative examples"))')
+          [ "$count" = "1" ] || { echo "short-page body duplicated ($count copies)"; exit 1; }
+
+      - name: Confirm the metrics surface reflects the work just done
+        run: |
+          # Proves the observability wiring in the *production image*: the URL
+          # conversion above must be attributed to a real extraction engine.
+          curl -sf http://localhost:7860/metrics | tee /tmp/metrics.json
+          python3 - <<'PY'
+          import json
+
+          with open("/tmp/metrics.json") as handle:
+              m = json.load(handle)
+          assert m["conversions"].get("url.ok") == 1, m["conversions"]
+          assert m["engines"].get("trafilatura") == 1, m["engines"]
+          assert m["requests"]["by_route"]["/convert/url"] == 1, m["requests"]
+          assert m["jobs"]["duration"]["count"] == 1, m["jobs"]
+          assert m["memory"]["peak_rss_mb"] > 0, m["memory"]
+          print("metrics OK")
+          PY
+
+      - name: Confirm request logs are structured JSON
+        run: |
+          docker logs md-engine 2>&1 | grep '"msg": "request"' | tail -3
+          docker logs md-engine 2>&1 | grep -q '"path": "/convert/url"' \
+            || { echo "no structured access log line for the conversion"; docker logs md-engine; exit 1; }
 
       - name: Tear down
         if: always()

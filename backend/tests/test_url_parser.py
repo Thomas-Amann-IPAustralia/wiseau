@@ -262,3 +262,79 @@ def test_fetch_rendered_html_still_returns_the_dom(monkeypatch):
     # Back-compat: the old helper keeps its string contract.
     _install_driver(monkeypatch, _FakeDriver(_ARTICLE_HTML))
     assert url_parser.fetch_rendered_html("https://example.com/article") == _ARTICLE_HTML
+
+
+# --- Short-document repair (ADR-020) ----------------------------------------
+# Trafilatura duplicates the body of any page whose extracted text falls under
+# its 250-character threshold. These tests pin both halves: the repair itself
+# (pure, no browser) and the end-to-end result through the real extractor.
+def test_short_page_body_is_not_duplicated(monkeypatch):
+    _install_driver(monkeypatch, _FakeDriver(_ARTICLE_HTML))
+
+    markdown = url_parser.url_to_markdown("https://example.com/article")
+
+    assert markdown.count("Revenue grew by twelve percent this year.") == 1
+    assert markdown.count("Annual Report") == 1
+
+
+def test_short_page_repair_is_deterministic_and_idempotent(monkeypatch):
+    _install_driver(monkeypatch, _FakeDriver(_ARTICLE_HTML))
+    first = url_parser.url_to_markdown("https://example.com/article")
+    _install_driver(monkeypatch, _FakeDriver(_ARTICLE_HTML))
+    second = url_parser.url_to_markdown("https://example.com/article")
+
+    assert first == second
+    assert url_parser._drop_repeated_run(first) == first
+
+
+def test_long_page_content_survives_untouched(monkeypatch):
+    # Above Trafilatura's threshold there is no duplication to repair, and the
+    # repair must not invent one: every paragraph has to come through intact.
+    paragraphs = "".join(
+        f"<p>Paragraph {n} of the annual report describes the funding round in some detail.</p>"
+        for n in range(1, 8)
+    )
+    html = f"<html><body><article><h1>Annual Report</h1>{paragraphs}</article></body></html>"
+    _install_driver(monkeypatch, _FakeDriver(html))
+
+    markdown = url_parser.url_to_markdown("https://example.com/long")
+
+    for n in range(1, 8):
+        assert markdown.count(f"Paragraph {n} of the annual report") == 1
+
+
+def test_drop_repeated_run_removes_the_longest_adjacent_repeat():
+    body = "\n\n".join(["# Notice", "First paragraph of the notice.", "Second paragraph of the notice."])
+    duplicated = body + "\n\n" + "\n\n".join(
+        ["First paragraph of the notice.", "Second paragraph of the notice."]
+    )
+    assert url_parser._drop_repeated_run(duplicated) == body
+
+
+def test_drop_repeated_run_handles_a_repeat_before_a_trailing_block():
+    # Trafilatura appends comments after the body, so the duplicated run is not
+    # always a suffix of the document.
+    blocks = ["# Notice", "The registry office closes on Monday for the holiday.", "| a | b |"]
+    text = "\n\n".join(blocks + blocks[1:] + ["Comment from a reader."])
+    assert url_parser._drop_repeated_run(text) == "\n\n".join(blocks + ["Comment from a reader."])
+
+
+def test_drop_repeated_run_leaves_unrepeated_text_alone():
+    text = "\n\n".join(["# Title", "One paragraph of prose.", "Another, entirely different one."])
+    assert url_parser._drop_repeated_run(text) == text
+
+
+def test_drop_repeated_run_ignores_insubstantial_repeats():
+    # Two identical short lines are plausibly real content (a table cell, a
+    # yes/no answer), so they are left exactly as extracted.
+    text = "\n\n".join(["# Form", "Yes", "Yes"])
+    assert url_parser._drop_repeated_run(text) == text
+
+
+def test_drop_repeated_run_skips_large_documents():
+    # The upstream bug only affects short extractions, so a big document is
+    # never scanned — cheap, and it cannot damage a long page.
+    block = "A paragraph long enough to clear the substance threshold easily."
+    blocks = [block] * (url_parser._MAX_REPAIR_BLOCKS + 2)
+    text = "\n\n".join(blocks)
+    assert url_parser._drop_repeated_run(text) == text

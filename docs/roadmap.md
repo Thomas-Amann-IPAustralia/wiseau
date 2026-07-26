@@ -198,8 +198,15 @@ parsers when docling is unavailable. The deploy tasks below extend Phase 5.
   `WISEAU_DOCLING_TOKEN` on Space #1. Verify **live**: a paste (HTML article), an
   **upload of a table-heavy / scanned government PDF** (docling fidelity vs the
   old path), and **fallback** (stop Space #2 → PyMuPDF still returns a result).
-- [ ] Optional: a warm-ping (frontend or monitor) to keep the docling Space awake;
-  a log/metric of docling-vs-fallback usage so silent outages are visible.
+- [x] A log/metric of docling-vs-fallback usage so silent outages are visible. —
+  *done as part of the observability work: `GET /metrics` reports
+  `engines.docling` against `engines.pymupdf`/`mammoth` plus docling
+  `successes`/`fallbacks`/`skipped` and the typed reason for each fallback, and
+  every fallback also emits a structured WARNING. Verified live against both a
+  stub docling-serve and a dead one. See ADR-019 and tech-spec §12.*
+- [ ] Optional: a warm-ping (frontend or monitor) to keep the docling Space awake.
+  *Deferred until Space #2 exists — the right interval can only be set against a
+  real cold-start time.*
 
 ---
 
@@ -236,16 +243,26 @@ parsers when docling is unavailable. The deploy tasks below extend Phase 5.
   URL end-to-end (Chromium runs for real on the Docker-capable, direct-egress
   runner). Docker image build step is done (ADR-011).
 - [x] **Dependency pinning** across `requirements.txt`.
-- [ ] **Observability.** Structured request logging; a lightweight metric for
-  job duration/memory to tune `MAX_CONCURRENT_JOBS` against real usage. Phase 6
-  adds a second reason to want this: docling-vs-fallback usage is currently only
-  visible as a log line, so a silent docling outage looks like normal operation.
-- [ ] **Trafilatura duplicates the body of very small documents.** Observed while
-  verifying ADR-017: a one-paragraph `<article>` comes back with its paragraph
-  twice — reproducible by calling `trafilatura.extract` directly with our options,
-  so it is the extractor, not our pipeline. Harmless on real pages (none seen in
-  the live Wikipedia/example.com renders), but worth pinning down before it shows
-  up in a short government notice.
+- [x] **Observability.** `backend/observability.py` + `GET /metrics` (API
+  `0.3.0 → 0.4.0`). Structured JSON request logging with a correlation id
+  (returned as `X-Request-ID`; uvicorn's duplicate access log switched off), job
+  queue-wait/duration/peak-concurrency and process RSS for sizing
+  `MAX_CONCURRENT_JOBS`, and **engine attribution** so a silent docling outage is
+  visible: every conversion is counted against the engine that produced it, with
+  docling's successes / fallbacks-by-reason / skips counted apart. Stdlib-only,
+  no new runtime dependency (ADR-019). Verified: 19 registry tests + 8 HTTP tests
+  + 4 attribution tests, and live — real requests through uvicorn, a real
+  fallback with docling pointed at a dead port, and the JSON log lines. CI now
+  asserts the metrics surface inside the built image. tech-spec §12.
+- [x] **Trafilatura duplicates the body of very small documents.** Root-caused and
+  repaired (ADR-020). Not a size quirk: when Trafilatura's extraction yields under
+  `MIN_EXTRACTED_SIZE` (250 chars), `extract_content` calls `recover_wild_text`,
+  which *extends* the already-populated body with every `<p>`/`<table>` it finds —
+  re-adding what was already extracted. `url_parser._drop_repeated_run` drops the
+  exact adjacent repeat, guarded to short documents and substantial runs so a
+  healthy page is untouched. Verified live: the same headless-Chromium render of a
+  short notice page returns the body twice before the repair and once after; 8
+  tests, plus a CI assertion on the real example.com render.
 - [ ] **Abuse controls beyond rate limiting** (per-IP daily quota, optional API
   key tier) — only if fair-use limiting proves insufficient (see brief §7).
 

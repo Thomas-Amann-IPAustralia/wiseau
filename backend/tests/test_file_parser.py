@@ -189,3 +189,67 @@ def test_fallback_preserves_unsupported_type_error(monkeypatch):
     with pytest.raises(ValueError) as excinfo:
         file_to_markdown(b"whatever", "notes.txt")
     assert ".txt" in str(excinfo.value)
+
+
+# --- Engine attribution (observability) -------------------------------------
+# ADR-014 turns a docling outage into a *successful* response, so the only way a
+# silent outage is visible is the engine attribution these tests pin.
+
+
+@pytest.fixture()
+def fresh_metrics():
+    from observability import metrics
+
+    metrics.reset()
+    yield metrics
+    metrics.reset()
+
+
+def test_docling_success_is_attributed_to_docling(monkeypatch, fresh_metrics):
+    monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)
+    _enable_docling(monkeypatch, lambda data, filename, **kwargs: "# From docling\n")
+
+    file_to_markdown(_make_pdf("native text here"), "gov.pdf")
+
+    snapshot = fresh_metrics.snapshot()
+    assert snapshot["engines"] == {"docling": 1}
+    assert snapshot["docling"]["successes"] == 1
+    assert snapshot["docling"]["fallbacks"] == 0
+
+
+def test_fallback_records_the_engine_and_the_reason(monkeypatch, fresh_metrics):
+    def failing_convert(data, filename, **kwargs):
+        raise docling_client.DoclingUnavailable("cold start")
+
+    monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)
+    _enable_docling(monkeypatch, failing_convert)
+
+    file_to_markdown(_make_pdf("Recovered by fallback"), "doc.pdf")
+
+    snapshot = fresh_metrics.snapshot()
+    assert snapshot["engines"] == {"pymupdf": 1}
+    assert snapshot["docling"]["fallbacks"] == 1
+    assert snapshot["docling"]["reasons"] == {"DoclingUnavailable": 1}
+
+
+def test_a_rejected_document_is_recorded_apart_from_an_outage(monkeypatch, fresh_metrics):
+    def rejecting_convert(data, filename, **kwargs):
+        raise docling_client.DoclingBadDocument("unreadable")
+
+    monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)
+    _enable_docling(monkeypatch, rejecting_convert)
+
+    file_to_markdown(_make_pdf("Recovered by fallback"), "doc.pdf")
+
+    assert fresh_metrics.snapshot()["docling"]["reasons"] == {"DoclingBadDocument": 1}
+
+
+def test_pinning_pymupdf_is_recorded_as_a_deliberate_skip(monkeypatch, fresh_metrics):
+    monkeypatch.setenv("WISEAU_PDF_ENGINE", "pymupdf")
+    _enable_docling(monkeypatch, lambda *a, **k: pytest.fail("docling must not be called"))
+
+    file_to_markdown(_make_docx(), "doc.docx")
+
+    snapshot = fresh_metrics.snapshot()
+    assert snapshot["engines"] == {"mammoth": 1}
+    assert snapshot["docling"]["reasons"] == {"engine_not_selected": 1}

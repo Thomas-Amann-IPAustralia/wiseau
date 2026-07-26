@@ -12,6 +12,7 @@ full design.
 | GET    | `/ping`         | Liveness/readiness check (rate-limit exempt).    |
 | POST   | `/convert/url`  | `{ "url": "..." }` → Markdown JSON.              |
 | POST   | `/convert/file` | multipart `file` (PDF/DOCX/image) → Markdown JSON.|
+| GET    | `/metrics`      | Per-process operational counters (see below).    |
 
 Interactive docs and the machine-readable schema for LLM/MCP integration are
 served at `/docs` and `/openapi.json`.
@@ -83,6 +84,29 @@ docker run -p 7860:7860 markdown-engine
   Both are thin HTTP clients over the routes above, so they inherit the same
   rate-limit and concurrency guards. See [`../docs/mcp.md`](../docs/mcp.md) §3.
 
+## Observability
+
+Logs are **JSON lines** by default (`WISEAU_LOG_FORMAT=text` for local work), one
+object per record, with exactly one access line per request — uvicorn's own access
+log is off so it does not duplicate it. Each line (and each response, as
+`X-Request-ID`) carries a correlation id.
+
+`GET /metrics` reports this process's counters: request and job timings, peak
+concurrency and RSS (what to size `MAX_CONCURRENT_JOBS` against), and **engine
+attribution** — which of `docling`/`pymupdf`/`mammoth`/`ocr`/`trafilatura`/
+`markdownify` actually produced each conversion, plus docling's successes,
+fallbacks by reason, and skips. That last part matters because the automatic
+fallback makes a docling outage look like success:
+
+```bash
+curl -s localhost:7860/metrics | python -m json.tool
+# engines: {"docling": 0, "pymupdf": 41}  <- docling has been down all week
+```
+
+Aggregates only (no URLs, filenames, or content — the endpoint is public), and
+they reset with the process. See [`../docs/tech-spec.md`](../docs/tech-spec.md)
+§12 and ADR-019.
+
 ## Configuration
 
 | Variable              | Default   | Purpose                                        |
@@ -97,6 +121,8 @@ docker run -p 7860:7860 markdown-engine
 | `WISEAU_DOCLING_TOKEN`| —         | Sent as `Authorization: Bearer` (private-Space gateway). |
 | `WISEAU_DOCLING_API_KEY` | —      | Sent as `X-Api-Key` (docling-serve's `DOCLING_SERVE_API_KEY`). |
 | `WISEAU_DOCLING_TIMEOUT` | `120`  | Seconds to wait on docling before falling back. |
+| `WISEAU_LOG_FORMAT`   | `json`    | `json` (one object per line) or `text` (human-readable). |
+| `WISEAU_LOG_LEVEL`    | `INFO`    | Root log level.                                |
 
 Per-IP rate limits (`60/min`, `1000/day` default; `20/min` on convert routes)
 are configured in `main.py`.
