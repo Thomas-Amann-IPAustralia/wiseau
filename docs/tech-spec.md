@@ -12,10 +12,16 @@ note it in [`decisions.md`](decisions.md).
 
 ## 1. Invariants (do not break these)
 
-1. **Determinism.** For a fixed input, output Markdown is byte-identical across
-   runs. No timestamps, no random ordering, no wall-clock-dependent content in
-   the output. (Live web pages legitimately change; that is content drift, not a
-   determinism violation — see §7.)
+1. **Determinism (scoped — see ADR-013).** Fidelity now outranks strict
+   reproducibility for the default document path. The paths that *are*
+   deterministic stay so — `clean_markdown()` normalization, the PyMuPDF/Mammoth
+   fallback parsers, and Trafilatura URL extraction all yield byte-identical
+   output for a fixed input (no timestamps, no random ordering, no
+   wall-clock-dependent content). The **docling** engine (default document
+   parser, ADR-014) is ML-based and **best-effort**: its Markdown may vary
+   run-to-run, and that is intended, not a bug. Do not "fix" it. (Live web pages
+   also legitimately change; that is content drift, not a determinism violation —
+   see §7.)
 2. **Single contract.** Humans and agents receive the same `MarkdownResponse`
    JSON. There is no consumer-specific response shape.
 3. **Normalization is universal.** Every Markdown-producing path ends in
@@ -92,8 +98,9 @@ The backend is deliberately small and layered. Each module has one job.
 | `parsers/__init__.py` | Public entrypoints: `url_to_markdown`, `file_to_markdown`. | — |
 | `parsers/browser.py` | Build a stealth headless Chrome driver. | Know about Markdown. |
 | `parsers/url_parser.py` | Render → Trafilatura extract → (markdownify fallback) → clean. | Contain per-site CSS selectors. |
-| `parsers/file_parser.py` | Dispatch by extension; PDF→PyMuPDF4LLM (legacy mode) with per-page OCR of scanned pages, DOCX→Mammoth, images→OCR; then clean. | Return unnormalized text; use PyMuPDF4LLM's unstable layout/OCR engine. |
-| `parsers/ocr.py` | Pluggable OCR engines (default MuPDF-Tesseract, opt-in EasyOCR): page image → text. | Introduce nondeterminism. |
+| `parsers/file_parser.py` | Select the conversion engine (`WISEAU_PDF_ENGINE`): docling-first with automatic fallback to PyMuPDF4LLM (legacy mode) + per-page OCR / Mammoth. Dispatch by extension; then clean. | Hard-depend on docling; return unnormalized text; use PyMuPDF4LLM's unstable layout/OCR engine in the fallback. |
+| `parsers/docling_client.py` *(Phase 6)* | Thin HTTP client to docling-serve (`WISEAU_DOCLING_BASE`): document bytes → Markdown. Bounded timeout; typed errors so the caller can tell "docling down" from "bad document". | Contain conversion logic itself; retry forever; leak the token. |
+| `parsers/ocr.py` | Pluggable OCR engines (default MuPDF-Tesseract, opt-in EasyOCR): page image → text. Used by the *fallback* PDF path. | Introduce nondeterminism. |
 | `parsers/cleaner.py` | Deterministic Unicode/whitespace/typography normalization. | Introduce nondeterminism. |
 
 ### Extraction pipelines
@@ -136,6 +143,10 @@ All backend configuration is via environment variables (12-factor).
 | `WISEAU_OCR_ENGINE` | `tesseract` | OCR backend: `tesseract` (default) or `easyocr` (opt-in neural, handwriting). |
 | `WISEAU_OCR_DPI` | `300` | Rasterization DPI for OCR (fixed for reproducibility). |
 | `WISEAU_OCR_LANG` | `eng` | OCR language(s); Tesseract 639-2/T code(s), `+`-joined. |
+| `WISEAU_PDF_ENGINE` | `docling` | *(Phase 6)* Document engine: `docling` (default; via docling-serve) or `pymupdf` (force the local fallback). |
+| `WISEAU_DOCLING_BASE` | — | *(Phase 6)* Base URL of the internal docling-serve service (HF Space #2). Unset ⇒ behave as `pymupdf`. |
+| `WISEAU_DOCLING_TOKEN` | — | *(Phase 6)* Bearer token the backend sends to docling-serve; docling-serve rejects calls without it. |
+| `WISEAU_DOCLING_TIMEOUT` | `120` | *(Phase 6)* Seconds to wait on docling before falling back (generous, to absorb cold starts). |
 
 Rate limits are code-level constants in `main.py` (`60/min` + `1000/day` default;
 `20/min` on convert routes). Promote them to env vars only if a real tuning need
@@ -173,16 +184,22 @@ Frontend configuration is the single `window.MARKDOWN_API_BASE` in
 ## 8. Deployment topology
 
 ```
-GitHub Pages (static frontend)  ──HTTPS──►  Hugging Face Space (Docker backend)
-        index.html / app.js                    FastAPI + Chromium, 16 GB / 2 vCPU
+GitHub Pages ──HTTPS──► HF Space #1: FastAPI + Chromium ──HTTP──► HF Space #2: docling-serve
+ static frontend         backend, WAF-bypass, guards               PyTorch converter
+                         16 GB / 2 vCPU                            16 GB / 2 vCPU  (Phase 6)
 ```
 
 - Backend image version-locks Chromium + Python via the `Dockerfile`; runs as
   non-root UID 1000 (Hugging Face requirement) on port 7860.
 - Frontend is served as static files; the only per-deployment edit is
-  `config.js` → `MARKDOWN_API_BASE` pointing at the Space URL.
-- Cold-start is mitigated by the Space's long inactivity timeout, keeping the API
-  warm enough for daily background checks.
+  `config.js` → `MARKDOWN_API_BASE` pointing at the Space #1 URL.
+- **docling-serve (Phase 6, ADR-015)** runs as a *second* HF Space, called only by
+  the backend over `WISEAU_DOCLING_BASE` and guarded by `WISEAU_DOCLING_TOKEN`
+  (not exposed to the public). Its image pins docling-serve + a pre-downloaded
+  model revision; UID 1000, port 7860, its own low concurrency cap.
+- Cold-start is mitigated by the Space's long inactivity timeout; docling
+  cold-starts are additionally absorbed by `WISEAU_DOCLING_TIMEOUT` + the automatic
+  fallback (a cold docling Space yields the PyMuPDF result, not an error).
 
 ---
 
@@ -250,3 +267,34 @@ For a predominantly handwritten corpus, EasyOCR is the recommended engine; a
 dedicated handwriting model (e.g. TrOCR) could be added as a further engine
 behind the same `OcrEngine` interface. Configuration: see §5
 (`WISEAU_OCR_MODE`/`ENGINE`/`DPI`/`LANG`).
+
+---
+
+## 11. Extraction engine selection & fallback (Phase 6)
+
+> **Status: planned — see ADR-014. Not yet implemented; this section is the
+> contract the implementing instance builds against.**
+
+Document conversion (`/convert/file`, and PDF-typed `/convert/url` fetches) is
+**docling-first with automatic fallback**:
+
+1. `file_parser.py` reads `WISEAU_PDF_ENGINE` (default `docling`).
+2. If `docling` **and** `WISEAU_DOCLING_BASE` is set: `docling_client.py` POSTs the
+   document bytes to docling-serve (bearer `WISEAU_DOCLING_TOKEN`), requesting `md`
+   output, within `WISEAU_DOCLING_TIMEOUT`.
+3. **Fall back** to the local parser (PyMuPDF4LLM + OCR for PDF/image; Mammoth for
+   DOCX) whenever docling is unset/`pymupdf`, times out, returns a 5xx /
+   connection error, or returns empty Markdown. The fallback is logged/counted so
+   silent docling outages are visible (feeds the observability backlog item).
+4. Whichever engine answers, the result flows through `clean_markdown()`
+   (invariant #3) inside the `_job_semaphore` (invariant #4). The public
+   `MarkdownResponse` shape is **unchanged** — this is an engine swap behind the
+   contract, so no response-shape version bump. (Which engine served a request is
+   logged for observability; it is not part of the contract.)
+
+DOCX stays on Mammoth by default (cheap, deterministic); route it to docling only
+when `WISEAU_PDF_ENGINE=docling` is explicitly set *and* docling is reachable.
+
+Determinism note (ADR-013): the docling path is best-effort and may vary
+run-to-run; the fallback path is deterministic. So the *same* document can yield
+different Markdown depending on which engine served it — intended, not a bug.

@@ -104,6 +104,59 @@ merely written. Written-but-unverified is `[~]` with a note.
 - [ ] Deploy frontend via GitHub Pages.
 - [ ] Confirm the deployed UI talks to the deployed backend end-to-end.
 
+## Phase 6 — Higher-fidelity extraction via docling (default engine)
+
+Design & rationale: **ADR-013** (fidelity now outranks strict determinism),
+**ADR-014** (docling default + automatic PyMuPDF/Mammoth fallback), **ADR-015**
+(docling-serve as an internal microservice; free two-Space topology). Goal: a
+live paste/upload → convert experience that uses docling for faithful Markdown of
+complex/scanned government documents, degrading gracefully to the existing
+parsers when docling is unavailable. The deploy tasks below extend Phase 5.
+
+**Backend — docling client + engine selection**
+- [ ] `parsers/docling_client.py` — thin HTTP client to docling-serve
+  (`WISEAU_DOCLING_BASE`), bearer `WISEAU_DOCLING_TOKEN`. Sends document bytes,
+  requests `md`, returns Markdown. Bounded timeout (`WISEAU_DOCLING_TIMEOUT`) and
+  typed errors so the caller can distinguish "docling down" from "bad document".
+- [ ] Engine selection in `parsers/file_parser.py` — `WISEAU_PDF_ENGINE`
+  (default `docling`; `docling` | `pymupdf`). Try docling first; on connection
+  error / timeout / 5xx / empty result, **log and fall back** to PyMuPDF4LLM+OCR
+  (PDF/image) or Mammoth (DOCX). Output still flows through `clean_markdown()`.
+- [ ] Keep the docling call inside `main.py`'s `_job_semaphore` (invariant #4)
+  — verify the guard still wraps the new path; no new unguarded endpoint.
+- [ ] PDF-typed **URL** fetches: when the headless browser retrieves a PDF (many
+  government links are direct PDFs), route those bytes to docling too; HTML pages
+  stay on the browser-render → Trafilatura path.
+- [ ] Isolate deps: the wiseau image needs **no torch** — only an HTTP client
+  (`httpx`, already present). No docling/PyTorch added to `requirements.txt`.
+
+**docling-serve — the converter Space**
+- [ ] `docling/Dockerfile` (or the official `docling-serve` image) pinning
+  docling-serve **and the model revision**; pre-download weights at build
+  (`docling-tools models download`); run as UID 1000 on port 7860 (HF Spaces).
+- [ ] Own low concurrency cap (1–2) sized for 2 vCPU / 16 GB; reject/queue rather
+  than OOM. Health endpoint for the warm-ping.
+- [ ] Internal-auth check: require `WISEAU_DOCLING_TOKEN` (bearer) and/or make the
+  Space private so only the wiseau backend can call it.
+
+**Tests (stay browserless + docling-serve-less in default CI)**
+- [ ] `tests/test_docling_client.py` over a mocked HTTP transport: success →
+  Markdown; timeout / 5xx / empty → fallback signalled; auth header sent.
+- [ ] Engine-selection tests in `test_file_parser.py`: docling path chosen by
+  default; fallback on simulated docling failure; `clean_markdown()` still
+  applied; `MarkdownResponse` contract unchanged.
+
+**Config, docs, deploy**
+- [ ] tech-spec: add the new env vars to §5, update the topology in §8, add a
+  new §11 "Extraction engine selection & fallback"; keep `mcp.md` as-is (the
+  contract is unchanged, so the agent surface is unaffected).
+- [ ] Deploy HF Space #2 (docling-serve); set `WISEAU_DOCLING_BASE` +
+  `WISEAU_DOCLING_TOKEN` on Space #1. Verify **live**: a paste (HTML article), an
+  **upload of a table-heavy / scanned government PDF** (docling fidelity vs the
+  old path), and **fallback** (stop Space #2 → PyMuPDF still returns a result).
+- [ ] Optional: a warm-ping (frontend or monitor) to keep the docling Space awake;
+  a log/metric of docling-vs-fallback usage so silent outages are visible.
+
 ---
 
 ## Cross-cutting backlog (not phase-bound)

@@ -5,8 +5,16 @@
 > session. Keep it honest — "scaffolded but untested" is more useful than a
 > green checkmark that lies.
 
-**Last updated:** 2026-07-22
-**Updated by:** Claude Code (OCR capability session)
+**Last updated:** 2026-07-24
+**Updated by:** Claude Code (docling integration — planning session)
+**Planning note (2026-07-24):** A new **Phase 6** is on record — integrate
+**docling** as the *default* document parser for higher-fidelity Markdown
+(complex/scanned government PDFs), with the existing PyMuPDF/Mammoth path as an
+*automatic fallback* when docling is unavailable. This is **planned, not built**:
+the decisions (ADR-013 fidelity>determinism, ADR-014 docling default+fallback,
+ADR-015 docling-serve microservice on a free two-Space HF topology) and the
+Phase 6 task list are written; **no code has changed**. See `docs/roadmap.md`
+Phase 6 and `docs/decisions.md`. The Phase 5 deployment status below is unchanged.
 **Overall phase:** Phases 1–4 verified end-to-end, and **Phase 5 now has its
 container proven**: the Docker image builds from the committed `Dockerfile`,
 Chromium **150** + ChromeDriver **150** launch inside it, and a real *external*
@@ -31,6 +39,7 @@ accounts/credentials rather than code. See ADR-011.
 | Frontend UI (Phase 3) | 🟢 Verified | Full static UI driven end-to-end with headless Chromium against a live `uvicorn` backend: status badge, URL + PDF + DOCX conversion, copy/download, and error states all confirmed (18/18 UI checks). See ADR-008. |
 | AI / MCP integration (Phase 4) | 🟢 Complete | MCP server (`mcp_server.py`) exposes `convert_url`/`convert_file`/`ping` as tools — thin HTTP adapter, same contract, guards intact; verified end-to-end vs a live backend + 6 unit tests. OpenAPI operation IDs/summaries cleaned (v`0.2.0`); `docs/mcp.md` written. **Autonomous-ingestion monitor** (`monitor.py`) built + verified (16 tests + real end-to-end run) — closes Phase 4. |
 | Containerization & deploy (Phase 5) | 🟡 Image proven, not deployed | Image **builds and runs**: Chromium 150 launches in-container, a live external URL renders end-to-end + deterministically (ADR-011). Nothing deployed to Hugging Face / GitHub Pages yet (needs external accounts). |
+| Higher-fidelity extraction (Phase 6) | 🔴 Planned (no code) | docling as the **default** document parser + PyMuPDF/Mammoth **automatic fallback**, on a two-Space HF topology. Decisions on record (ADR-013/014/015) + ordered task list (roadmap Phase 6). Fidelity now outranks strict determinism (ADR-013). |
 | Automated tests | 🟢 Passing | **71 pass + 2 skipped** in default (browserless) runs (+18 OCR tests this session: 13 recognition + 5 engine-layer). Covers `cleaner`/PDF/**DOCX**/**OCR**/validation, the MCP tool surface, the **autonomous-ingestion monitor**, plus the live render→extract→clean pipeline. *This sandbox run: 65 pass + 2 skipped verified directly; the 6 (unchanged) MCP tests couldn't collect here because `mcp` wouldn't install over a Debian-managed `PyJWT` — they run in CI.* With `WISEAU_LIVE_BROWSER=1` the 2 live-browser tests also run. |
 | CI/CD | 🟢 Tests + Docker build | `.github/workflows/backend-tests.yml`: a `test` job runs `pytest` (browserless) and a `docker-build` job builds the image, boots it, and renders a live external URL through the container. Docker-build gap closed (ADR-011). |
 | Documentation | 🟢 Established | Brief, tech spec, roadmap, decisions, agent workflow, this file. |
@@ -122,28 +131,30 @@ Chromium-in-container launch, and the CI Docker-build gap — all now proven
 
 ## Suggested next actions (see `docs/roadmap.md` for the full backlog)
 
-With the container proven (ADR-011), everything left is **Phase 5 deployment**,
-which needs external accounts/credentials rather than code:
+Two tracks are open. **Phase 6 is the active build** and can start immediately,
+mocked, with no live services.
 
-1. **Deploy the backend to a Hugging Face Space** (free CPU tier). The image is
-   proven deploy-ready — it builds from `backend/Dockerfile`, boots, and renders
-   live external URLs. Needs an HF account + Space (push the `backend/` build
-   context or the built image). The container listens on `7860` and runs as
-   UID 1000, already matching Spaces.
-2. **Point `frontend/config.js` `MARKDOWN_API_BASE` at the live Space**, then
-   deploy the frontend via **GitHub Pages** (repo settings → Pages, serve
-   `frontend/`).
-3. **Confirm the deployed UI talks to the deployed backend end-to-end**, and
-   re-run the MCP + monitor checks against the deployed Space (set
-   `WISEAU_API_BASE` to the Space URL).
+**A. Phase 6 — docling integration (pure code; ADR-013/014/015).** Build
+top-down; unit-tests use a mocked docling-serve transport, so no live docling
+Space is needed for the core:
+1. **`backend/parsers/docling_client.py`** — thin HTTP client to docling-serve
+   (`WISEAU_DOCLING_BASE`, bearer `WISEAU_DOCLING_TOKEN`, `WISEAU_DOCLING_TIMEOUT`).
+   Test success / timeout / 5xx / empty over a mocked transport.
+2. **Engine selection in `backend/parsers/file_parser.py`** — `WISEAU_PDF_ENGINE`
+   (default `docling`); docling-first with automatic fallback to PyMuPDF/Mammoth;
+   output still through `clean_markdown()`, still inside `_job_semaphore`.
+3. **`docling/` Space** — Dockerfile pinning docling-serve + a pre-downloaded model
+   revision; then deploy HF Space #2 and verify a live upload + the fallback.
+   (Full ordered list: `roadmap.md` Phase 6.)
 
-*Done this session: the marquee Phase 5 / last-of-Phase-2 blocker — built the
-Docker image and proved the whole heavy path inside the container (Chromium 150
-launches; example.com and a Wikipedia article render end-to-end and
-deterministically via `POST /convert/url`). Added a CI `docker-build` job that
-re-proves it on every backend change. Verification used a throwaway
-`Dockerfile.verify` + NSS CA import that were deleted, not committed — the
-production `Dockerfile` is unchanged. See the session log and ADR-011.*
+**B. Phase 5 — deployment (still open; a prerequisite for the live end-to-end
+check).** Needs external accounts/credentials rather than code:
+1. Deploy the backend to a Hugging Face Space (free CPU tier). The image is proven
+   deploy-ready (ADR-011); container listens on `7860`, runs as UID 1000.
+2. Point `frontend/config.js` `MARKDOWN_API_BASE` at the live Space; deploy the
+   frontend via GitHub Pages.
+3. Confirm the deployed UI talks to the deployed backend end-to-end; re-run the
+   MCP + monitor checks against the Space.
 
 ---
 
@@ -152,6 +163,31 @@ production `Dockerfile` is unchanged. See the session log and ADR-011.*
 Newest first. One short entry per working session — what changed and what the
 next instance should know.
 
+- **2026-07-24 — docling integration plan (Phase 6, planning only).** Recorded a
+  decision to adopt **docling** as the *default* document parser for higher-fidelity
+  Markdown of complex/scanned government documents, with the existing
+  PyMuPDF4LLM+OCR / Mammoth parsers kept as an **automatic fallback** for when
+  docling is cold/asleep/down (critical on the free tier). Three ADRs capture the
+  reasoning: **ADR-013** relaxes invariant #1 — fidelity now outranks strict
+  determinism for the default path, and stochastic docling output is *intended*,
+  not a bug (tech-spec §1 amended to say so, so a future instance doesn't "fix"
+  it); **ADR-014** makes conversion docling-first with automatic fallback via a
+  pluggable engine layer mirroring `parsers/ocr.py` (new `parsers/docling_client.py`
+  thin HTTP client at `WISEAU_DOCLING_BASE`, `WISEAU_PDF_ENGINE` default `docling`);
+  **ADR-015** sets a $0 topology — static UI on GitHub Pages, wiseau backend +
+  headless Chrome (WAF-bypass) on HF Space #1, docling-serve on HF Space #2 (16 GB
+  each; Render free's 512 MB can't host either heavy box), internal call guarded by
+  `WISEAU_DOCLING_TOKEN`. **No code changed** — `docs/roadmap.md` Phase 6 lists the
+  ordered build tasks (docling client + engine selection + fallback, the
+  docling-serve Space, tests, deploy/verify). Key caveats on record: CPU inference
+  is slow and free Spaces cold-start (fallback + warm-ping mitigate); the datacenter
+  IP leaves the **WAF ceiling unchanged** (the `browser.py` stealth upgrade to
+  `nodriver`/`undetected-chromedriver` is a *separate* concern, not part of Phase 6).
+  **Next instance:** implement Phase 6 top-down — start with `parsers/docling_client.py`
+  + the `WISEAU_PDF_ENGINE` selection/fallback in `file_parser.py` (mockable, no live
+  docling needed for unit tests), then stand up the docling-serve Space and verify
+  live upload + fallback. Phase 5 deployment (HF Space for the wiseau backend +
+  GitHub Pages) is still open and is a prerequisite for the live end-to-end check.
 - **2026-07-22 — OCR for scanned & handwritten documents.** The engine only read a
   PDF's embedded text layer, so scanned/handwritten PDFs (page images) converted to
   empty Markdown. Added OCR: per-page detection (`< 16` non-whitespace chars ⇒

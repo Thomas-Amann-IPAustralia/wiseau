@@ -10,20 +10,36 @@ shared memory that keeps the chain on-spec — keep them accurate.
 ## What this project is
 
 **wiseau** — "Oh hi Mark(down)" — is the **Universal Markdown Ingestion Engine**:
-a deterministic, self-hosted microservice that converts web URLs, PDFs, and DOCX
-documents into clean, structured Markdown. It serves two consumers from one
-contract: humans (via a static web UI) and LLM/agents (via the HTTP API +
-OpenAPI schema).
+a self-hosted service that converts web URLs, PDFs, DOCX, and images into clean,
+structured Markdown. It serves two consumers from one contract: humans (via a
+static web UI) and LLM/agents (via the HTTP API + OpenAPI schema).
+
+> **Direction (2026-07-24).** The project is evolving to prioritise **fidelity** —
+> the most faithful Markdown of real-world documents (complex, multi-column, and
+> scanned government PDFs) — **over strict determinism**. **docling** becomes the
+> *default* document parser, running as an internal microservice, with the
+> original PyMuPDF/Mammoth path kept as an **automatic fallback**. This is the
+> Phase 6 work; the decisions are on record in ADR-013/014/015 and the task list
+> is in `roadmap.md` Phase 6. The values below already reflect this.
 
 The design values, in priority order:
 
-1. **Deterministic** — identical input yields identical Markdown. Favour
-   algorithmic extraction (Trafilatura) over per-site CSS selectors.
-2. **Decoupled** — static frontend and containerized backend talk only over HTTP.
-3. **Memory-aware** — headless browsing and PDF extraction are heavy; the box is
-   sized and rate-limited to avoid OOM under concurrent load.
-4. **Agent-native** — the API is a first-class integration surface.
-5. **Open but protected** — the API is public; fair-use rate limiting and a
+1. **Faithful first** — produce the most accurate Markdown of the source, even
+   when that means a *stochastic* ML extractor (docling). Determinism is no longer
+   the top goal: the paths that *are* deterministic (the normalizer, the
+   PyMuPDF/Mammoth fallback, Trafilatura URL extraction) stay so, but the default
+   docling path may vary run-to-run **by design** (ADR-013 — do not "fix" it).
+   Still favour algorithmic/model extraction over per-site CSS selectors.
+2. **Resilient** — docling on the free tier is slow and cold-starts, so document
+   conversion is docling-first with an **automatic fallback** to the deterministic
+   parsers: the service degrades to a working result rather than failing (ADR-014).
+3. **Decoupled** — static frontend, backend, and the docling converter talk only
+   over HTTP. The backend's only knowledge of docling is `WISEAU_DOCLING_BASE`.
+4. **Memory-aware** — headless browsing and ML extraction are heavy; each service
+   is sized (16 GB HF Space) and rate-limited to avoid OOM. docling and the browser
+   live in *separate* Spaces so neither starves the other.
+5. **Agent-native** — the API is a first-class integration surface.
+6. **Open but protected** — the API is public; fair-use rate limiting and a
    concurrency ceiling guard it, not origin locks.
 
 ## The document map
@@ -51,17 +67,20 @@ wiseau/
 ├── STATUS.md               # live project state
 ├── README.md               # public-facing one-liner
 ├── docs/                   # all project documentation (see map above)
-├── backend/                # FastAPI microservice (Hugging Face Spaces target)
+├── backend/                # FastAPI microservice — HF Space #1 (backend + Chrome)
 │   ├── main.py             # routing, CORS, rate limiting, concurrency ceiling
 │   ├── mcp_server.py       # MCP tool surface (thin HTTP adapter over the API)
-│   ├── parsers/            # deterministic extraction pipeline
-│   │   ├── browser.py      # Selenium-stealth headless Chrome
+│   ├── parsers/            # extraction pipeline
+│   │   ├── browser.py      # Selenium-stealth headless Chrome (WAF-bypass fetch)
 │   │   ├── url_parser.py   # Trafilatura extraction (+ markdownify fallback)
-│   │   ├── file_parser.py  # PyMuPDF4LLM (PDF) + Mammoth (DOCX) + OCR dispatch
+│   │   ├── file_parser.py  # engine select: docling-first, PyMuPDF/Mammoth fallback
+│   │   ├── docling_client.py  # [Phase 6] thin HTTP client to docling-serve
 │   │   ├── ocr.py          # pluggable OCR engines (Tesseract / EasyOCR)
-│   │   └── cleaner.py      # regex/Unicode normalization
+│   │   └── cleaner.py      # regex/Unicode normalization (always runs)
 │   ├── Dockerfile          # version-locks Chromium + Python
 │   └── requirements.txt
+├── docling/                # [Phase 6] docling-serve converter — HF Space #2
+│   └── Dockerfile          # pins docling-serve + pre-downloaded model revision
 └── frontend/               # static UI (GitHub Pages target)
     ├── index.html
     ├── style.css
@@ -102,24 +121,44 @@ curl -X POST localhost:7860/convert/url \
 open localhost:7860/docs          # interactive OpenAPI docs
 ```
 
-> **Note:** There is no automated test suite or CI yet. Adding one is an open
-> roadmap item — see `docs/roadmap.md`. Until it exists, verify changes with the
-> manual smoke checks above and say so honestly in `STATUS.md`.
+**Run the tests:**
+```bash
+cd backend
+pip install -r requirements-dev.txt
+pytest                          # browserless suite (URL worker mocked)
+WISEAU_LIVE_BROWSER=1 pytest    # also runs the opt-in live-Chromium tests
+```
+
+> **Note:** CI (`.github/workflows/backend-tests.yml`) runs the browserless suite
+> plus a Docker build that renders a live URL in-container. Phase 6 (docling) tests
+> run against a **mocked** docling-serve transport, so they need no live docling
+> Space — see `docs/roadmap.md`. Still verify what you change and record it
+> honestly in `STATUS.md`.
 
 ## Working rules for this repo
 
-- **Determinism is the product.** Before adding any per-site logic, timestamp,
-  random value, or ordering that depends on dict iteration, ask whether the same
-  input still produces the same Markdown. If not, reconsider.
+- **Fidelity is the product; determinism where it's free (ADR-013).** The goal is
+  the most faithful Markdown of the source. The default docling path is stochastic
+  **on purpose** — do not "fix" run-to-run variation there. But keep the paths that
+  *are* deterministic deterministic: never add a timestamp, random value, or
+  dict-iteration-ordered output to the normalizer, the PyMuPDF/Mammoth fallback, or
+  the URL path. Still prefer algorithmic/model extraction over per-site selectors.
+- **Document conversion is docling-first with automatic fallback (ADR-014).** A new
+  document parser slots into the engine-selection layer and must fall back cleanly
+  when docling is unavailable — never make the service hard-depend on the docling
+  Space.
 - **All extracted output flows through `cleaner.clean_markdown()`.** Don't return
-  Markdown from a new parser without running it through the shared normalizer.
+  Markdown from any parser (docling included) without running it through the shared
+  normalizer.
 - **The API contract is shared by humans and agents.** Both consume the same
   `MarkdownResponse` JSON. Don't fork the contract per consumer. Contract changes
   go in `tech-spec.md` and bump the API `version` in `main.py`.
 - **Respect the fair-use guards.** Heavy work belongs inside the `_job_semaphore`
   and behind the rate limiter. Don't add an endpoint that bypasses them.
-- **Keep the layers decoupled.** The frontend must reach the backend only over
-  HTTP via `MARKDOWN_API_BASE`. No build-time coupling.
+- **Keep the layers decoupled.** The frontend reaches the backend only over HTTP
+  via `MARKDOWN_API_BASE`; the backend reaches docling only over HTTP via
+  `WISEAU_DOCLING_BASE`. No build-time coupling; docling-serve is internal (never
+  called by the public directly).
 - **Match the surrounding style.** Python: type hints, module docstrings, `from
   __future__ import annotations`. JS: vanilla, no framework, no build step.
 - **Leave the campsite documented.** End every working session by updating
