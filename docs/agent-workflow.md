@@ -29,9 +29,12 @@ Every working session should follow this shape.
 - Mark the roadmap task `[~]`.
 - Make the change, honouring the invariants in `tech-spec.md` §1 and the working
   rules in `CLAUDE.md`.
-- **Verify it.** Prefer running the thing over asserting it works. Backend
-  changes involving Chromium should be checked via Docker (see `CLAUDE.md`).
-  There is no CI yet, so verification is your responsibility.
+- **Verify it.** Prefer running the thing over asserting it works. Run `pytest`
+  in `backend/` (CI runs it too, browserless). Chromium changes should be checked
+  via Docker (see `CLAUDE.md`). **Phase 6 (docling)** client/engine changes are
+  verifiable against a **mocked** docling-serve transport — you do **not** need a
+  live docling Space to build and test the core, only to verify the end-to-end
+  deploy.
 
 ### 4. Record (the handoff — never skip this)
 Before ending the session, leave the repo self-explanatory for the next instance:
@@ -70,6 +73,9 @@ Before ending the session, leave the repo self-explanatory for the next instance
   ADR that supersedes it and explain why — don't just quietly do it differently.
 - **Keep the layers and the contract intact** unless the task is explicitly to
   change them (then update `tech-spec.md` + `decisions.md`).
+- **Two services now, not one.** The repo deploys a backend Space (FastAPI +
+  Chrome) and, from Phase 6, a docling-serve Space. Keep them decoupled over HTTP
+  and never make the backend hard-depend on docling — fall back (ADR-014).
 
 ---
 

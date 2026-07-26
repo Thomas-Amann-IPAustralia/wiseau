@@ -1,6 +1,17 @@
 # Project Brief: Universal Markdown Ingestion Engine
 
-> Oh hi Mark(down) — a deterministic engine that converts web pages and documents into clean, structured Markdown.
+> Oh hi Mark(down) — an engine that converts web pages and documents into clean, structured Markdown.
+
+> **Scope evolution (2026-07-24).** The project now prioritises **fidelity over
+> strict determinism**: the goal is the most faithful Markdown of real-world
+> documents (complex, multi-column, and scanned government PDFs). **docling**
+> becomes the *default* document parser, running as an internal microservice
+> (a second Hugging Face Space), with the original PyMuPDF/Mammoth path kept as an
+> **automatic fallback**. This is Phase 6 (§3); rationale is in ADR-013 (fidelity
+> over determinism), ADR-014 (docling default + fallback), and ADR-015 (the
+> two-Space topology). The sections below are amended to match; where they still
+> say "deterministic", read it as "faithful, and deterministic on the paths where
+> that is free."
 
 ## 1. Overview
 
@@ -23,8 +34,15 @@ Two classes of consumer drive the design:
 
 ### Design principles
 
-- **Deterministic first.** Favour algorithmic extraction over fragile, layout-specific
-  CSS selectors so the same input reliably yields the same Markdown.
+- **Faithful first (amended — ADR-013).** Produce the most accurate Markdown of the
+  source, even when that means a stochastic ML extractor (docling). Favour
+  algorithmic/model extraction over fragile, layout-specific CSS selectors. The
+  paths that are deterministic (the normalizer, the PyMuPDF/Mammoth fallback,
+  Trafilatura URL extraction) stay deterministic; the default docling path may vary
+  run-to-run by design.
+- **Resilient (added — ADR-014).** Document conversion is docling-first with an
+  automatic fallback to the deterministic parsers, so a cold/slow/down docling
+  service degrades to a working result instead of failing.
 - **Decoupled layers.** A static frontend and a containerized backend communicate only
   over HTTP, keeping the UI free to evolve independently of the engine.
 - **Memory-aware.** Headless browsing and PDF extraction are memory-heavy; the compute
@@ -42,9 +60,10 @@ optimized for memory-heavy operations.
 
 | Component    | Technology                    | Responsibility                                                                 | Hosting                        |
 | ------------ | ----------------------------- | ------------------------------------------------------------------------------ | ------------------------------ |
-| Frontend     | HTML5 / CSS3 / JavaScript     | Custom UI/UX, user input collection, state management, and Markdown rendering. | GitHub Pages (static, free)    |
-| Backend API  | FastAPI (Python)              | Headless browser execution, deterministic extraction, and document parsing.    | Hugging Face Spaces (Docker)   |
-| Compute      | 16 GB RAM, 2 vCPU             | Prevents OOM crashes during heavy PDF extraction and concurrent web scraping.  | Hugging Face free tier         |
+| Frontend       | HTML5 / CSS3 / JavaScript   | Custom UI/UX, user input collection, state management, and Markdown rendering. | GitHub Pages (static, free)    |
+| Backend API    | FastAPI (Python)            | Headless browser execution (WAF-bypass fetch), engine selection, fallback parsing, and the shared contract + guards. | Hugging Face Space #1 (Docker) |
+| docling-serve  | docling (PyTorch)           | *(Phase 6)* Default high-fidelity document→Markdown converter; internal, called only by the backend. | Hugging Face Space #2 (Docker) |
+| Compute        | 16 GB RAM, 2 vCPU per Space | Prevents OOM during heavy PDF/ML extraction and concurrent web scraping; browser and docling live in separate Spaces so neither starves the other. | Hugging Face free tier         |
 
 ### Request flow
 
@@ -127,6 +146,26 @@ Automate the deployment pipeline and provision the cloud hardware.
 - **Frontend deployment.** Push the static UI to GitHub and activate GitHub Pages on the
   main branch.
 
+### Phase 6 — Higher-fidelity extraction via docling (added 2026-07-24)
+
+Adopt docling as the default document parser for faithful Markdown of complex and
+scanned documents, without sacrificing availability on the free tier.
+
+- **docling client + engine selection.** Add `parsers/docling_client.py` (a thin
+  HTTP client to docling-serve) and an engine-selection layer in `file_parser.py`
+  (`WISEAU_PDF_ENGINE`, default `docling`) that is **docling-first with automatic
+  fallback** to PyMuPDF4LLM/Mammoth. All output still passes through
+  `clean_markdown()`.
+- **docling-serve Space.** Package docling-serve in its own `Dockerfile`
+  (pinned + model weights pre-downloaded at build), deployed as a second Hugging
+  Face Space and called only by the backend (guarded by `WISEAU_DOCLING_TOKEN`).
+- **Verify.** Unit-test the client/selection against a mocked transport; then
+  verify live — a table-heavy/scanned upload converts via docling, and the service
+  falls back to PyMuPDF when the docling Space is stopped.
+
+See ADR-013/014/015, `tech-spec.md` §11, and `roadmap.md` Phase 6 for the full
+detail.
+
 ## 4. API Surface
 
 | Method | Path            | Purpose                                                    |
@@ -166,7 +205,8 @@ markdown-converter/
 | FastAPI             | Async, minimal boilerplate, and native OpenAPI generation for agent integration.        |
 | Trafilatura         | Algorithmic main-content extraction that is robust across layouts — the determinism core.|
 | Selenium + Stealth  | Renders JavaScript-heavy pages and clears basic bot protection before extraction.        |
-| PyMuPDF4LLM         | High-fidelity PDF-to-Markdown extraction tuned for LLM consumption.                      |
+| docling             | *(Phase 6, default)* ML layout + table-structure + OCR pipeline; the most faithful engine for complex/scanned documents. Runs as an internal microservice. |
+| PyMuPDF4LLM         | Fast, deterministic PDF-to-Markdown; now the **automatic fallback** when docling is unavailable. |
 | Mammoth             | Clean DOCX-to-Markdown conversion that preserves semantic structure.                     |
 | Markdownify         | Deterministic HTML-to-Markdown fallback for the polish stage.                            |
 | SlowAPI             | Per-IP rate limiting on FastAPI to keep the open, shared compute fair and healthy.       |
