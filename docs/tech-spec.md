@@ -272,20 +272,29 @@ behind the same `OcrEngine` interface. Configuration: see §5
 
 ## 11. Extraction engine selection & fallback (Phase 6)
 
-> **Status: planned — see ADR-014. Not yet implemented; this section is the
-> contract the implementing instance builds against.**
+> **Status: backend implemented & unit-tested (ADR-014/016) — the docling client
+> and engine-selection/fallback in `file_parser.py` are built and covered by a
+> mocked-transport suite. Still open: PDF-typed `/convert/url` routing to docling,
+> the docling-serve Space itself (ADR-015), and live verification.**
 
-Document conversion (`/convert/file`, and PDF-typed `/convert/url` fetches) is
-**docling-first with automatic fallback**:
+Document conversion (`/convert/file`; PDF-typed `/convert/url` fetches are a
+planned extension) is **docling-first with automatic fallback**:
 
 1. `file_parser.py` reads `WISEAU_PDF_ENGINE` (default `docling`).
 2. If `docling` **and** `WISEAU_DOCLING_BASE` is set: `docling_client.py` POSTs the
    document bytes to docling-serve (bearer `WISEAU_DOCLING_TOKEN`), requesting `md`
    output, within `WISEAU_DOCLING_TIMEOUT`.
 3. **Fall back** to the local parser (PyMuPDF4LLM + OCR for PDF/image; Mammoth for
-   DOCX) whenever docling is unset/`pymupdf`, times out, returns a 5xx /
-   connection error, or returns empty Markdown. The fallback is logged/counted so
-   silent docling outages are visible (feeds the observability backlog item).
+   DOCX) whenever docling is unset/`pymupdf`, times out, returns a 5xx or
+   connection error, returns empty/non-JSON, or **rejects the document** with a
+   4xx. The client raises typed errors so the two cases are logged apart —
+   `DoclingUnavailable` (infrastructure: down/asleep/timeout/5xx/empty) vs
+   `DoclingBadDocument` (a 4xx verdict on the input) — both subclass
+   `DoclingError`, which `file_parser` catches to fall back. Every fallback is
+   logged so silent docling outages are visible (feeds the observability backlog).
+   The client is stdlib-`urllib`, not `httpx`, so the backend image gains no new
+   runtime dependency and cannot fail to import if an HTTP library is absent
+   (ADR-016).
 4. Whichever engine answers, the result flows through `clean_markdown()`
    (invariant #3) inside the `_job_semaphore` (invariant #4). The public
    `MarkdownResponse` shape is **unchanged** — this is an engine swap behind the

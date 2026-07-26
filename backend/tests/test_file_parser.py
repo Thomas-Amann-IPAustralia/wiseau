@@ -13,6 +13,7 @@ import io
 import pymupdf
 import pytest
 
+from parsers import docling_client
 from parsers.file_parser import SUPPORTED_EXTENSIONS, file_to_markdown
 
 docx = pytest.importorskip("docx", reason="python-docx (dev dependency) is required to synthesize DOCX fixtures")
@@ -93,3 +94,98 @@ def test_supported_extensions_include_documents_and_images():
     # so adding another image format doesn't spuriously break this test.
     assert {".pdf", ".docx"} <= SUPPORTED_EXTENSIONS
     assert {".png", ".jpg", ".jpeg", ".tiff"} <= SUPPORTED_EXTENSIONS
+
+
+# --- Engine selection: docling-first with automatic fallback (Phase 6) ------
+#
+# `is_configured()` (does WISEAU_DOCLING_BASE point somewhere?) gates whether
+# docling is attempted at all. With no base set — the default in tests and local
+# dev — the deterministic parsers run exactly as before Phase 6, so every test
+# above is unaffected. These tests drive the docling branch by faking both the
+# "configured" check and the client's `convert_document`.
+
+
+def _enable_docling(monkeypatch, converter):
+    """Make docling appear configured and route conversions to ``converter``."""
+    monkeypatch.setattr(docling_client, "is_configured", lambda: True)
+    monkeypatch.setattr(docling_client, "convert_document", converter)
+
+
+def test_docling_used_by_default_when_configured(monkeypatch):
+    calls = {}
+
+    def fake_convert(data, filename, **kwargs):
+        calls["filename"] = filename
+        return "# From docling\n\nHigh-fidelity body."
+
+    monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)  # default is docling
+    _enable_docling(monkeypatch, fake_convert)
+
+    result = file_to_markdown(_make_pdf("native text here"), "gov.pdf")
+    assert "# From docling" in result
+    assert calls["filename"] == "gov.pdf"
+    # docling output still flows through the cleaner (single trailing newline).
+    assert result.endswith("\n")
+    assert not result.endswith("\n\n")
+
+
+def test_docling_skipped_when_not_configured(monkeypatch):
+    # No base configured (the default): the deterministic parser runs, and the
+    # docling client is never called.
+    def exploding_convert(*args, **kwargs):  # pragma: no cover - must not run
+        raise AssertionError("docling must not be called when unconfigured")
+
+    monkeypatch.setattr(docling_client, "is_configured", lambda: False)
+    monkeypatch.setattr(docling_client, "convert_document", exploding_convert)
+
+    result = file_to_markdown(_make_pdf("Deterministic PyMuPDF path"), "doc.pdf")
+    assert "Deterministic PyMuPDF path" in result
+
+
+def test_pymupdf_engine_forces_deterministic_path(monkeypatch):
+    # WISEAU_PDF_ENGINE=pymupdf pins the deterministic parser even if docling is up.
+    def exploding_convert(*args, **kwargs):  # pragma: no cover - must not run
+        raise AssertionError("docling must not be called when WISEAU_PDF_ENGINE=pymupdf")
+
+    monkeypatch.setenv("WISEAU_PDF_ENGINE", "pymupdf")
+    _enable_docling(monkeypatch, exploding_convert)
+
+    result = file_to_markdown(_make_pdf("Pinned to PyMuPDF"), "doc.pdf")
+    assert "Pinned to PyMuPDF" in result
+
+
+def test_fallback_on_docling_unavailable(monkeypatch):
+    # docling infrastructure failure → degrade to the deterministic parser.
+    def failing_convert(data, filename, **kwargs):
+        raise docling_client.DoclingUnavailable("cold start")
+
+    monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)
+    _enable_docling(monkeypatch, failing_convert)
+
+    result = file_to_markdown(_make_pdf("Recovered by fallback"), "doc.pdf")
+    assert "Recovered by fallback" in result
+
+
+def test_fallback_on_bad_document(monkeypatch):
+    # docling rejects the document (4xx) → still fall back rather than error out.
+    def failing_convert(data, filename, **kwargs):
+        raise docling_client.DoclingBadDocument("unsupported")
+
+    monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)
+    _enable_docling(monkeypatch, failing_convert)
+
+    result = file_to_markdown(_make_docx(), "report.docx")
+    # The Mammoth fallback recovers the DOCX structure.
+    assert "# Quarterly Report" in result
+
+
+def test_fallback_preserves_unsupported_type_error(monkeypatch):
+    # Engine selection must not swallow the 415 contract for unknown types: the
+    # extension is rejected before any engine is consulted.
+    def exploding_convert(*args, **kwargs):  # pragma: no cover - must not run
+        raise AssertionError("unsupported types must be rejected before docling")
+
+    _enable_docling(monkeypatch, exploding_convert)
+    with pytest.raises(ValueError) as excinfo:
+        file_to_markdown(b"whatever", "notes.txt")
+    assert ".txt" in str(excinfo.value)

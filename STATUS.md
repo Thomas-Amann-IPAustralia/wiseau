@@ -5,16 +5,21 @@
 > session. Keep it honest — "scaffolded but untested" is more useful than a
 > green checkmark that lies.
 
-**Last updated:** 2026-07-24
-**Updated by:** Claude Code (docling integration — planning session)
-**Planning note (2026-07-24):** A new **Phase 6** is on record — integrate
-**docling** as the *default* document parser for higher-fidelity Markdown
-(complex/scanned government PDFs), with the existing PyMuPDF/Mammoth path as an
-*automatic fallback* when docling is unavailable. This is **planned, not built**:
-the decisions (ADR-013 fidelity>determinism, ADR-014 docling default+fallback,
-ADR-015 docling-serve microservice on a free two-Space HF topology) and the
-Phase 6 task list are written; **no code has changed**. See `docs/roadmap.md`
-Phase 6 and `docs/decisions.md`. The Phase 5 deployment status below is unchanged.
+**Last updated:** 2026-07-26
+**Updated by:** Claude Code (Phase 6 — docling client + engine selection, built)
+**Build note (2026-07-26):** **Phase 6's backend half is now built and tested.**
+The docling integration is no longer planning-only: `parsers/docling_client.py`
+(a stdlib-`urllib` thin HTTP client to docling-serve, with typed errors) and
+docling-first engine selection with automatic PyMuPDF/Mammoth fallback in
+`parsers/file_parser.py` are implemented and covered by **24 new browserless
+tests** (18 client + 6 engine-selection) over a mocked docling-serve transport —
+no live docling Space needed. Crucially, with **no `WISEAU_DOCLING_BASE` set (the
+default)** docling is skipped and behaviour is byte-identical to pre-Phase-6, so
+the existing suite is unaffected and the backend image gains **no new runtime
+dependency** (no torch, no httpx — ADR-016). Full suite: **80 pass + 3 skipped**.
+Still open in Phase 6: routing PDF-typed `/convert/url` fetches to docling, the
+docling-serve Space itself (ADR-015), and live upload/fallback verification. See
+`docs/roadmap.md` Phase 6, ADR-014/016. The Phase 5 deployment status is unchanged.
 **Overall phase:** Phases 1–4 verified end-to-end, and **Phase 5 now has its
 container proven**: the Docker image builds from the committed `Dockerfile`,
 Chromium **150** + ChromeDriver **150** launch inside it, and a real *external*
@@ -39,8 +44,8 @@ accounts/credentials rather than code. See ADR-011.
 | Frontend UI (Phase 3) | 🟢 Verified | Full static UI driven end-to-end with headless Chromium against a live `uvicorn` backend: status badge, URL + PDF + DOCX conversion, copy/download, and error states all confirmed (18/18 UI checks). See ADR-008. |
 | AI / MCP integration (Phase 4) | 🟢 Complete | MCP server (`mcp_server.py`) exposes `convert_url`/`convert_file`/`ping` as tools — thin HTTP adapter, same contract, guards intact; verified end-to-end vs a live backend + 6 unit tests. OpenAPI operation IDs/summaries cleaned (v`0.2.0`); `docs/mcp.md` written. **Autonomous-ingestion monitor** (`monitor.py`) built + verified (16 tests + real end-to-end run) — closes Phase 4. |
 | Containerization & deploy (Phase 5) | 🟡 Image proven, not deployed | Image **builds and runs**: Chromium 150 launches in-container, a live external URL renders end-to-end + deterministically (ADR-011). Nothing deployed to Hugging Face / GitHub Pages yet (needs external accounts). |
-| Higher-fidelity extraction (Phase 6) | 🔴 Planned (no code) | docling as the **default** document parser + PyMuPDF/Mammoth **automatic fallback**, on a two-Space HF topology. Decisions on record (ADR-013/014/015) + ordered task list (roadmap Phase 6). Fidelity now outranks strict determinism (ADR-013). |
-| Automated tests | 🟢 Passing | **71 pass + 2 skipped** in default (browserless) runs (+18 OCR tests this session: 13 recognition + 5 engine-layer). Covers `cleaner`/PDF/**DOCX**/**OCR**/validation, the MCP tool surface, the **autonomous-ingestion monitor**, plus the live render→extract→clean pipeline. *This sandbox run: 65 pass + 2 skipped verified directly; the 6 (unchanged) MCP tests couldn't collect here because `mcp` wouldn't install over a Debian-managed `PyJWT` — they run in CI.* With `WISEAU_LIVE_BROWSER=1` the 2 live-browser tests also run. |
+| Higher-fidelity extraction (Phase 6) | 🟡 Backend built, not deployed | docling client (`docling_client.py`) + docling-first engine selection with automatic PyMuPDF/Mammoth fallback (`file_parser.py`) **implemented & unit-tested** (mocked transport; ADR-014/016). Still open: PDF-typed URL routing, the docling-serve Space (ADR-015), and live verification. Fidelity outranks strict determinism (ADR-013). |
+| Automated tests | 🟢 Passing | **80 pass + 3 skipped** in default (browserless) runs (this sandbox, verified directly — MCP suite collected fine here). +24 Phase-6 tests this session (18 `docling_client` + 6 engine-selection). Covers `cleaner`/PDF/**DOCX**/**OCR**/**docling client & engine selection**/validation, the MCP tool surface, the **autonomous-ingestion monitor**, plus the live render→extract→clean pipeline. Skips: 2 opt-in live-browser (`WISEAU_LIVE_BROWSER=1`) + 1 OCR-fixture test needing Pillow. |
 | CI/CD | 🟢 Tests + Docker build | `.github/workflows/backend-tests.yml`: a `test` job runs `pytest` (browserless) and a `docker-build` job builds the image, boots it, and renders a live external URL through the container. Docker-build gap closed (ADR-011). |
 | Documentation | 🟢 Established | Brief, tech spec, roadmap, decisions, agent workflow, this file. |
 
@@ -69,8 +74,17 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   Chrome args, env-configurable Chrome/driver paths.
 - `parsers/url_parser.py` — renders with headless Chrome, extracts with
   Trafilatura, falls back to markdownify, normalizes via cleaner.
-- `parsers/file_parser.py` — PDF via PyMuPDF4LLM (legacy mode) with per-page OCR
-  of scanned pages, DOCX via Mammoth + markdownify, images via OCR.
+- `parsers/file_parser.py` — engine selection (`WISEAU_PDF_ENGINE`, default
+  `docling`): docling-first with automatic fallback to the deterministic parsers —
+  PDF via PyMuPDF4LLM (legacy mode) with per-page OCR of scanned pages, DOCX via
+  Mammoth + markdownify, images via OCR. docling is attempted only when selected
+  **and** `WISEAU_DOCLING_BASE` is set; any `DoclingError` logs and falls back.
+- `parsers/docling_client.py` *(Phase 6)* — thin **stdlib-`urllib`** HTTP client
+  to docling-serve (`WISEAU_DOCLING_BASE`, bearer `WISEAU_DOCLING_TOKEN`,
+  `WISEAU_DOCLING_TIMEOUT`). Sends document bytes as multipart, requests `md`,
+  returns raw Markdown (caller cleans). Typed errors: `DoclingUnavailable`
+  (down/timeout/5xx/empty/non-JSON) vs `DoclingBadDocument` (4xx), both
+  `DoclingError`. Injectable transport for tests; **no new runtime dep** (ADR-016).
 - `parsers/ocr.py` — pluggable OCR engines: default MuPDF-Tesseract (system binary,
   deterministic), opt-in EasyOCR (neural, handwriting; `WISEAU_OCR_ENGINE=easyocr`).
 - `parsers/cleaner.py` — deterministic Unicode/whitespace/typography normalizer.
@@ -78,9 +92,10 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
 - `requirements.txt` — direct dependencies **version-pinned** to verified
   releases; `requirements-dev.txt` — `pytest` + `httpx` for the suite.
 - `conftest.py` + `pytest.ini` — put `backend/` on `sys.path`; `tests/` dir holds
-  `test_cleaner.py`, `test_file_parser.py`, `test_api.py`, `test_mcp_server.py`,
-  `test_monitor.py`, and the opt-in `test_browser_live.py` (53 pass + 2 skipped in
-  browserless runs).
+  `test_cleaner.py`, `test_file_parser.py` (incl. Phase-6 engine selection),
+  `test_docling_client.py`, `test_api.py`, `test_mcp_server.py`, `test_monitor.py`,
+  `test_ocr.py`, `test_ocr_engine.py`, and the opt-in `test_browser_live.py`
+  (80 pass + 3 skipped in browserless runs).
 
 **CI** (`.github/`)
 - `workflows/backend-tests.yml` — two jobs on any `backend/**` change:
@@ -131,20 +146,22 @@ Chromium-in-container launch, and the CI Docker-build gap — all now proven
 
 ## Suggested next actions (see `docs/roadmap.md` for the full backlog)
 
-Two tracks are open. **Phase 6 is the active build** and can start immediately,
-mocked, with no live services.
+Two tracks are open. **Phase 6's backend core is now built**; what remains in
+Phase 6 needs either a browser change or live services.
 
-**A. Phase 6 — docling integration (pure code; ADR-013/014/015).** Build
-top-down; unit-tests use a mocked docling-serve transport, so no live docling
-Space is needed for the core:
-1. **`backend/parsers/docling_client.py`** — thin HTTP client to docling-serve
-   (`WISEAU_DOCLING_BASE`, bearer `WISEAU_DOCLING_TOKEN`, `WISEAU_DOCLING_TIMEOUT`).
-   Test success / timeout / 5xx / empty over a mocked transport.
-2. **Engine selection in `backend/parsers/file_parser.py`** — `WISEAU_PDF_ENGINE`
-   (default `docling`); docling-first with automatic fallback to PyMuPDF/Mammoth;
-   output still through `clean_markdown()`, still inside `_job_semaphore`.
-3. **`docling/` Space** — Dockerfile pinning docling-serve + a pre-downloaded model
-   revision; then deploy HF Space #2 and verify a live upload + the fallback.
+**A. Phase 6 — remaining docling work (ADR-013/014/015/016).** The client +
+engine-selection/fallback are done and unit-tested (mocked transport). Left:
+1. **PDF-typed `/convert/url` fetches** — when the headless browser retrieves a
+   direct-PDF link (common for government sites), route those bytes to docling
+   too; HTML pages stay on the browser-render → Trafilatura path. Needs
+   `parsers/browser.py`/`url_parser.py` to detect a PDF response and return bytes.
+   *Pure-ish code, but touches the browser path — verify carefully.*
+2. **`docling/` Space** — a `docling/Dockerfile` pinning docling-serve + a
+   pre-downloaded model revision (UID 1000, port 7860, low concurrency cap); then
+   deploy HF Space #2. *Needs an external account.*
+3. **Live verification** — set `WISEAU_DOCLING_BASE`/`_TOKEN` on Space #1 and
+   confirm: an HTML paste, a table-heavy/scanned government-PDF upload (docling
+   fidelity vs the old path), and fallback (stop Space #2 → PyMuPDF still returns).
    (Full ordered list: `roadmap.md` Phase 6.)
 
 **B. Phase 5 — deployment (still open; a prerequisite for the live end-to-end
@@ -163,6 +180,39 @@ check).** Needs external accounts/credentials rather than code:
 Newest first. One short entry per working session — what changed and what the
 next instance should know.
 
+- **2026-07-26 — Phase 6 backend: docling client + engine selection (built).**
+  Turned the Phase 6 plan into code. Added `backend/parsers/docling_client.py`, a
+  thin HTTP client to docling-serve, and wired docling-first engine selection with
+  automatic fallback into `backend/parsers/file_parser.py`. **Key decision
+  (ADR-016):** the roadmap assumed an `httpx` client "already present", but `httpx`
+  is only a *dev/MCP* dependency, not a backend runtime one — a hard import would
+  make the whole backend fail to load if it were ever absent, against the
+  "never hard-depend on docling / degrade to a working result" rule. So the client
+  is **stdlib-`urllib`** (mirroring `monitor.py`, ADR-010) with an **injectable
+  transport** for testing: the runtime image gains **no** new dependency
+  (`requirements.txt` untouched — still no torch, no httpx). Errors are **typed** —
+  `DoclingUnavailable` (down/timeout/5xx/empty/non-JSON) vs `DoclingBadDocument`
+  (4xx), both `DoclingError` — so `file_parser` catches the base and falls back
+  while logging which happened. Engine selection is gated on
+  `WISEAU_PDF_ENGINE=docling` (default) **and** `is_configured()`
+  (`WISEAU_DOCLING_BASE` set), so with **no base configured (the default)** docling
+  is skipped and behaviour is byte-identical to pre-Phase-6 — the existing suite is
+  unaffected. Output still flows through `clean_markdown()` (invariant #3) inside
+  the unchanged `_job_semaphore` (invariant #4 — no new endpoint). Added **24 tests**
+  (mocked transport, no live Space): `tests/test_docling_client.py` (18 — success,
+  request shape/endpoint/multipart/`to_formats=md`, auth header, and every failure
+  mode's typed error) and 6 engine-selection tests in `test_file_parser.py`
+  (docling by default; skipped when unconfigured; `pymupdf` pins the local path;
+  fallback on both error kinds; 415 preserved). Full suite **80 pass + 3 skipped**,
+  verified here. Updated tech-spec (§4 module table already listed the client; §11
+  status banner + fallback detail; §5/§8 env/topology already present), roadmap
+  (Phase-6 backend + test tasks → `[x]`), decisions (ADR-016; ADR-014 status →
+  implemented). **Next instance:** the rest of Phase 6 — (1) route PDF-typed
+  `/convert/url` fetches to docling (needs a `browser.py`/`url_parser.py` change to
+  detect a PDF response and return bytes), (2) the `docling/` docling-serve Space,
+  (3) live upload + fallback verification. Phase 5 deployment (HF Space for the
+  backend + GitHub Pages) is still open and is the prerequisite for the live
+  end-to-end check.
 - **2026-07-24 — docling integration plan (Phase 6, planning only).** Recorded a
   decision to adopt **docling** as the *default* document parser for higher-fidelity
   Markdown of complex/scanned government documents, with the existing
