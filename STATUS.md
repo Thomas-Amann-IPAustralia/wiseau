@@ -6,8 +6,65 @@
 > green checkmark that lies.
 
 **Last updated:** 2026-07-26
-**Updated by:** Claude Code (observability + the Trafilatura short-page repair)
-**Build note (2026-07-26, third session today):** **The cross-cutting backlog's
+**Updated by:** Claude Code (code-review pass: fixing guards that were not guarding)
+**Build note (2026-07-26, fourth session today):** **A code-review pass over the
+backend found six defects and one security exposure; all are fixed, regression-
+tested, and verified live.** API `0.4.0 → 0.5.0`. The theme is guards that read as
+present but bound nothing:
+
+1. **The default rate limits applied to nothing.** `Limiter(default_limits=...)`
+   only reaches undecorated routes through `SlowAPIMiddleware`, which was never
+   installed — so `/metrics` (and `/openapi.json`, `/docs`) were completely
+   unlimited and `@limiter.exempt` on `/ping` was a no-op, while the decorated
+   `20/min` on the convert routes kept working and hid it. tech-spec §2/§5 and
+   `backend/README.md` had documented the defaults as live for three sessions.
+   Verified through real uvicorn: 60× 200 then 429 on `/metrics`, 70× 200 on
+   `/ping`, and a middleware-issued 429 still carrying CORS + `X-Request-ID`.
+2. **The short-page repair could delete real content** (ADR-022). Its only size
+   guard was a block count, but Trafilatura's bug needs an extraction under 250
+   *characters* — so an 851-char document (3.4× over the threshold, i.e. one the
+   bug cannot have touched) lost a legitimately repeated paragraph. Now bounded by
+   the size of the *repeat* (40–250 chars), which is what the upstream rescue can
+   actually produce.
+3. **`monitor.py` crashed instead of reporting an error.** urllib does not wrap a
+   *read* timeout in `URLError`, so it surfaced as a bare `TimeoutError`, sailed
+   past `check_url`'s handler and took the whole `--watch` loop down — on the most
+   likely failure of all (a slow render plus a docling cold start). Every failure
+   to obtain Markdown is a `MonitorError` again.
+4. **Oversized uploads were fully buffered before the 413.** The comment said
+   "reject before buffering"; the code read the whole body first. Now streamed
+   with the ceiling enforced per chunk.
+5. **Scanned PDFs were attributed to `pymupdf`**, so `engines.ocr` was structurally
+   incapable of counting a document — the OCR path was invisible in `/metrics`.
+   Each parser now records what it actually ran; verified live (a scanned upload
+   reports `engines: {"ocr": 1}`).
+6. **The PDF round-trip test tested OCR, not PDF extraction.** Its fixture string
+   was 14 characters, under the 16-char image-only threshold, so the born-digital
+   page was rasterized and OCR'd — passing for the wrong reason, and failing
+   outright wherever `tesseract` is absent.
+
+Plus **ADR-021**: `/convert/url` rendered any host from inside the container, which
+is an SSRF primitive on a public endpoint (`127.0.0.1`, RFC-1918,
+`169.254.169.254`). Addresses are now resolved and vetted before the browser
+starts → **400**, with `WISEAU_ALLOW_PRIVATE_URLS=1` for self-hosted intranet use.
+Redirect-to-private and DNS rebinding stay open **by design** — they need a
+network-layer egress control, and the docs say so rather than overclaiming.
+
+Suite **147 → 176 pass + 6 skipped** (181 with the live-browser opt-in, all 5 of
+which were run and passed here against real Chromium 141 + a matched driver,
+including a new test proving the guard refuses a real loopback URL). One flake to
+know about: `test_live_render_extracts_heading_and_body` failed once on a full
+live run and then passed 8 consecutive times (3 full runs + 5 of that module
+alone). Not reproduced and not diagnosed — most likely a cold Chrome start
+immediately after the browserless suite. Watch it; do not assume it is fixed. Also verified
+through a real uvicorn: the rate limits above, the SSRF refusals, a loopback page
+converting end-to-end with the short-page repair intact (one body copy), and the
+corrected engine attribution. *Not* verified here: rendering an **external** URL —
+this sandbox routes egress through a proxy the headless browser is not configured
+for, so Chrome gets `ERR_CONNECTION_RESET`. CI's `docker-build` job covers that
+path and is unaffected by these changes.
+
+**The earlier build note stands:** **The cross-cutting backlog's
 two open code items are done.** (1) **Observability** (ADR-019): structured JSON
 logging with a per-request correlation id, and `GET /metrics` (API `0.4.0`)
 reporting job timings, peak concurrency, RSS, and — the point of the exercise —
@@ -61,7 +118,7 @@ accounts/credentials rather than code. See ADR-011.
 
 | Area | State | Notes |
 | ---- | ----- | ----- |
-| Backend API (Phase 1) | 🟢 Verified (browser-free) | Routes, CORS, rate limiting, concurrency ceiling written; app imports cleanly; `/ping`, `/convert/file` (real PDF), `/convert/url` (mocked driver) verified via `TestClient`. Live URL render still unproven. |
+| Backend API (Phase 1) | 🟢 Verified (browser-free) | Routes, CORS, rate limiting, concurrency ceiling written; app imports cleanly; `/ping`, `/convert/file` (real PDF), `/convert/url` (mocked driver) verified via `TestClient`. Rate limiting **now actually enforced** on undecorated routes (`SlowAPIMiddleware` was missing, so the documented `60/min` + `1000/day` defaults bound nothing) and uploads are size-checked while streaming; both verified through a real uvicorn. API `v0.5.0`. |
 | Scraper / extraction (Phase 2) | 🟢 Verified (incl. external URLs) | Live headless-Chrome render → Trafilatura → cleaner proven end-to-end and codified as an opt-in test; DOCX-body path covered. Fetching arbitrary **external** URLs now proven inside the Docker container (example.com, Wikipedia — deterministic across runs); ADR-011. **Direct-PDF links** now convert as documents rather than yielding the empty PDF viewer — verified live (ADR-017). **Short pages no longer come back with a duplicated body** (ADR-020), verified live before/after. |
 | OCR (scanned/handwritten) | 🟢 Verified | Image-only PDF pages + image uploads OCR'd; per-page detection assembles mixed PDFs in order. Default MuPDF-Tesseract (deterministic, in the image); opt-in neural EasyOCR for handwriting. Deterministic by pinning `pymupdf4llm` legacy mode + driving MuPDF's OCR primitive directly (ADR-012). 13 tests + HTTP round-trip verified; API `v0.3.0`. |
 | Frontend UI (Phase 3) | 🟢 Verified | Full static UI driven end-to-end with headless Chromium against a live `uvicorn` backend: status badge, URL + PDF + DOCX conversion, copy/download, and error states all confirmed (18/18 UI checks). See ADR-008. |
@@ -69,7 +126,7 @@ accounts/credentials rather than code. See ADR-011.
 | Containerization & deploy (Phase 5) | 🟡 Image proven, not deployed | Image **builds and runs**: Chromium 150 launches in-container, a live external URL renders end-to-end + deterministically (ADR-011). Nothing deployed to Hugging Face / GitHub Pages yet (needs external accounts). |
 | Higher-fidelity extraction (Phase 6) | 🟡 Code complete, not deployed | docling client + docling-first engine selection with automatic fallback (ADR-014/016), **direct-PDF URL routing** (ADR-017, verified live), and the **docling Space image** `docling/Dockerfile` (ADR-018, digest-pinned but **never built**). Left: deploy Space #2 and verify against a live docling-serve. Fidelity outranks strict determinism (ADR-013). |
 | Observability | 🟢 Verified | Structured JSON logs (one access line per request + `X-Request-ID`), `GET /metrics` with request/job timings, peak concurrency, RSS, and **engine attribution** (docling vs the fallback parsers, with typed fallback reasons). Stdlib-only, no new runtime dep. Verified live, incl. a real docling fallback and a real docling success over a socket. ADR-019, tech-spec §12. |
-| Automated tests | 🟢 Passing | **147 pass + 5 skipped** in default (browserless) runs (this sandbox, verified directly). +41 this session (19 observability registry, 8 HTTP/metrics, 4 engine attribution, 8 short-page repair, 2 docling-over-a-real-socket). Covers `cleaner`/PDF/**DOCX**/**OCR**/**docling client & engine selection**/**direct-PDF URL routing**/**observability**/validation, the MCP tool surface, the **autonomous-ingestion monitor**, plus the live render→extract→clean pipeline. Skips: 4 opt-in live-browser (`WISEAU_LIVE_BROWSER=1`; **all 4 run and passed here** with a version-matched Chromium 141 + driver → 151 total) + 1 OCR-fixture test needing Pillow. |
+| Automated tests | 🟢 Passing | **176 pass + 6 skipped** in default (browserless) runs (this sandbox, verified directly). +29 this session (rate-limit enforcement + exemption + route attribution, streamed upload rejection, blocked-URL 400, 12 private-address guard cases, the repair's corrected size bound, native-vs-OCR path pinning, OCR engine attribution, 4 monitor failure modes). Covers `cleaner`/PDF/**DOCX**/**OCR**/**docling client & engine selection**/**direct-PDF URL routing**/**observability**/**fair-use guards**/**fetch-target policy**/validation, the MCP tool surface, the **autonomous-ingestion monitor**, plus the live render→extract→clean pipeline. Skips: 5 opt-in live-browser (`WISEAU_LIVE_BROWSER=1`; **all 5 run and passed here** with a version-matched Chromium 141 + driver → 181 total) + 1 OCR-fixture test needing Pillow. |
 | CI/CD | 🟢 Tests + Docker build | `.github/workflows/backend-tests.yml`: a `test` job runs `pytest` (browserless) and a `docker-build` job builds the image, boots it, renders a live external URL through the container, and now also asserts the **short-page repair** on that real render, the **`/metrics` attribution**, and that request logs are structured JSON. Docker-build gap closed (ADR-011). |
 | Documentation | 🟢 Established | Brief, tech spec, roadmap, decisions, agent workflow, this file. |
 
@@ -81,12 +138,15 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
 
 **Backend** (`backend/`)
 - `main.py` — `GET /ping`, `GET /metrics`, `POST /convert/url`,
-  `POST /convert/file`; permissive CORS; `slowapi` per-IP limits;
+  `POST /convert/file`; permissive CORS; `slowapi` per-IP limits (decorator limits
+  **plus** `SlowAPIMiddleware`, without which the defaults bind nothing);
   `asyncio.Semaphore` concurrency ceiling; upload size cap. Heavy work offloaded
   via `asyncio.to_thread`, inside a `_job_slot` wrapper that times the queue wait
   and the work without changing the guard. One structured access log line per
-  request, with an `X-Request-ID` correlation id. Explicit OpenAPI operation IDs
-  (`ping`/`metrics`/`convert_url`/`convert_file`) + summaries; API `v0.4.0`.
+  request, with an `X-Request-ID` correlation id. Uploads are read in chunks with
+  the size ceiling enforced mid-stream, so an oversized body is refused without
+  being assembled in memory. Explicit OpenAPI operation IDs
+  (`ping`/`metrics`/`convert_url`/`convert_file`) + summaries; API `v0.5.0`.
 - `observability.py` — JSON-lines log formatter + the thread-safe in-process
   metrics registry behind `/metrics`. Stdlib only; a pure side channel that
   cannot alter extracted Markdown. ADR-019.
@@ -104,16 +164,20 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   Chrome args, env-configurable Chrome/driver paths; `fetch_bytes()` downloads a
   URL *through the driver's own session* (keeps WAF clearance) and returns `None`
   rather than raising on failure.
-- `parsers/url_parser.py` — renders with headless Chrome, extracts with
+- `parsers/url_parser.py` — vets the target address first (ADR-021: non-public
+  addresses are refused with a 400 unless `WISEAU_ALLOW_PRIVATE_URLS=1`), then
+  renders with headless Chrome, extracts with
   Trafilatura, falls back to markdownify, normalizes via cleaner. If the response
   is a **PDF** (viewer DOM or `.pdf` path, confirmed by `%PDF-` magic bytes), the
   bytes go to `file_to_markdown` instead — the docling-first document pipeline
   (ADR-017). Trafilatura output passes through `_drop_repeated_run`, which undoes
-  the body duplication Trafilatura emits below its 250-char threshold (ADR-020).
+  the body duplication Trafilatura emits below its 250-char threshold (ADR-020),
+  bounded by the size of the *repeat* rather than of the document (ADR-022).
 - `parsers/file_parser.py` — engine selection (`WISEAU_PDF_ENGINE`, default
   `docling`): docling-first with automatic fallback to the deterministic parsers —
   PDF via PyMuPDF4LLM (legacy mode) with per-page OCR of scanned pages, DOCX via
-  Mammoth + markdownify, images via OCR. docling is attempted only when selected
+  Mammoth + markdownify, images via OCR. Each parser records its own engine
+  attribution, so a scanned PDF counts as `ocr`, not `pymupdf`. docling is attempted only when selected
   **and** `WISEAU_DOCLING_BASE` is set; any `DoclingError` logs and falls back.
 - `parsers/docling_client.py` *(Phase 6)* — thin **stdlib-`urllib`** HTTP client
   to docling-serve (`WISEAU_DOCLING_BASE`, `WISEAU_DOCLING_TIMEOUT`, and two

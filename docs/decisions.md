@@ -21,8 +21,69 @@ one `Superseded`.
 
 ---
 
+## ADR-022 — bound the short-page repair by the size of the *repeat*, not the document
+**Date:** 2026-07-26 · **Status:** Accepted — amends ADR-020; implemented and unit-tested.
+**Context:** ADR-020's guard rails were meant to make the repair unable to touch a
+document the upstream bug cannot affect, and the code, its comments and
+tech-spec §4 all claimed exactly that ("a document long enough to be unaffected by
+the upstream bug is not even scanned"). It was not true. The only size guard was a
+**block count** (≤ 60 blocks), but Trafilatura's bug is triggered by an
+**extraction under 250 characters** — an entirely different measure. A document of
+five blocks and 851 characters is 3.4× over Trafilatura's threshold, so any repeat
+in it is genuine content, yet it was scanned and a legitimately repeated paragraph
+was silently deleted. `recover_wild_text` can also append far more than it
+duplicates, so the *document's* length says nothing about whether the bug fired;
+the surviving signal is the size of the duplicated run itself.
+**Decision:** Add `_MAX_REPEATED_RUN_CHARS = 250` — Trafilatura's own
+`MIN_EXTRACTED_SIZE` — as an upper bound on the repeat the repair will drop. The
+run it duplicates *is* the body it had already extracted, and it only reaches for
+the rescue when that body came in under this threshold, so a larger adjacent
+repeat provably is not the artifact. The block cap stays, demoted to what it
+actually is: a bound on the scan's cost, not a statement about safety.
+**Consequences:** The lossy case ADR-020 accepted shrinks to repeats between 40 and
+250 characters — a page that prints the same *substantial* passage twice now
+survives intact, which is the shape that made the old guard dangerous in the
+target corpus (repeated disclaimers on government notices). A short duplicated run
+is still repaired inside a long page, which is correct: the rescue precisely
+produces a small duplicate followed by a large recovered tail. Delete the whole
+repair when upstream stops double-counting, per ADR-020.
+
+## ADR-021 — refuse non-public addresses on `/convert/url`
+**Date:** 2026-07-26 · **Status:** Accepted — implemented, unit-tested, and verified live against real Chromium.
+**Context:** `/convert/url` is a public, unauthenticated endpoint that fetches
+whatever host it is handed *from inside the container*. That is a textbook
+server-side request forgery primitive: `http://127.0.0.1:7860/` reaches the
+backend's own surface, RFC-1918 addresses reach whatever shares the network, and
+`169.254.169.254` is the cloud instance-metadata address. All are reachable from
+where the renderer runs and from nowhere the caller sits. Nothing in the code or
+the threat model addressed it — ADR-002 chose "open but protected", and rate
+limiting is not a control against this.
+**Decision:** Resolve the host before anything fetches it and refuse the request
+when *any* resolved address is loopback, private, link-local, reserved, multicast
+or unspecified (a name answering with both a public and a private record must not
+be a coin flip on which one Chrome connects to). Only `http`/`https` are followed,
+so `file:`/`ftp:` are out even though `HttpUrl` already blocks them at the API
+layer — the parser is also reachable from `monitor.py` and tests. The check raises
+a typed `BlockedUrlError`, which `main.py` maps to **400**: this is a caller error,
+not a failed render, and a 502 would read as "wiseau is broken".
+`WISEAU_ALLOW_PRIVATE_URLS=1` opts a self-hosted deployment back in, because
+converting your own intranet is a legitimate use of a self-hosted converter.
+**Rejected:** (a) an allowlist of hosts — this is a *universal* ingestion engine;
+(b) doing nothing and documenting the exposure — the mitigation is cheap and the
+endpoint is public; (c) blocking inside `browser.py` — the guard belongs before the
+browser starts, so a probe of the internal network costs no render.
+**Consequences:** Deliberately **not** airtight, and it must not be sold as such:
+Chrome follows redirects itself, so a public URL that 302s to a private one still
+reaches it, and a DNS rebind between the lookup and the render wins. Closing those
+needs a proxy-level egress control, which is the right place for it and out of
+scope here; this closes the direct case, the only one a caller can trivially aim.
+An unresolvable host is allowed through so it fails as an ordinary 502 rather than
+a misleading 400. The live-browser tests serve their fixtures over loopback and so
+set the opt-out — which is itself the documented way to run against a private
+address.
+
 ## ADR-020 — repair Trafilatura's duplicated body on short pages in the URL parser
-**Date:** 2026-07-26 · **Status:** Accepted — implemented and verified live (real Chromium render, before/after).
+**Date:** 2026-07-26 · **Status:** Accepted — implemented and verified live (real Chromium render, before/after). **Guard rails amended by ADR-022** (the block count never bounded what the repair could damage; the repeat's own size does).
 **Context:** A backlog note from the ADR-017 session recorded that Trafilatura
 returns the body of very small documents twice. Chasing it to the source: when
 Trafilatura's own extraction yields less than `MIN_EXTRACTED_SIZE` (250

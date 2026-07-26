@@ -262,9 +262,33 @@ parsers when docling is unavailable. The deploy tasks below extend Phase 5.
   exact adjacent repeat, guarded to short documents and substantial runs so a
   healthy page is untouched. Verified live: the same headless-Chromium render of a
   short notice page returns the body twice before the repair and once after; 8
-  tests, plus a CI assertion on the real example.com render.
+  tests, plus a CI assertion on the real example.com render. **Guard corrected
+  (ADR-022):** the original bound was a block count, which does not track the
+  250-char extraction the bug actually needs — an 851-char document lost a
+  legitimately repeated paragraph. The repair is now bounded by the size of the
+  *repeat* (40–250 chars), which is what the upstream rescue can produce.
+- [x] **Code-review pass: fix the guards that were not guarding.** Six defects
+  found by reading the backend against its own spec, all fixed and regression-tested
+  (API `0.4.0 → 0.5.0`). (1) `Limiter(default_limits=...)` bound *nothing* —
+  slowapi enforces the defaults only from `SlowAPIMiddleware`, so `/metrics` and
+  every other undecorated route were unlimited and `@limiter.exempt` was a no-op
+  (invariant #4). (2) The short-page repair could delete legitimate content from
+  documents the upstream bug cannot affect (ADR-022). (3) `monitor.check_url`
+  crashed the watch loop on a read timeout instead of reporting `error`, because
+  urllib does not wrap that in `URLError`. (4) Oversized uploads were fully
+  buffered in memory before the 413. (5) A scanned PDF was attributed to
+  `pymupdf`, hiding the OCR path from `/metrics` entirely. (6) The PDF round-trip
+  test's 14-char fixture sat under the 16-char OCR threshold, so it silently tested
+  OCR rather than native extraction. Suite 147 → 176 (181 with the live-browser
+  opt-in).
 - [ ] **Abuse controls beyond rate limiting** (per-IP daily quota, optional API
   key tier) — only if fair-use limiting proves insufficient (see brief §7).
+- [x] **SSRF exposure on `/convert/url`.** The public endpoint rendered any host
+  from inside the container — loopback, RFC-1918, and `169.254.169.254` included.
+  Addresses are now resolved and vetted before the browser starts; refusal is a
+  400, and `WISEAU_ALLOW_PRIVATE_URLS=1` opts a self-hosted intranet deployment
+  back in. Redirect-to-private and DNS rebinding remain open by design and need a
+  network-layer egress control (ADR-021, tech-spec §13).
 
 ---
 
