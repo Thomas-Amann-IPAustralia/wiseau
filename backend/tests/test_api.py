@@ -8,13 +8,16 @@ shape) is verified while Chromium is not.
 
 from __future__ import annotations
 
+import asyncio
 import io
 
 import pymupdf
 import pytest
+from fastapi import HTTPException
 from fastapi.testclient import TestClient
 
 import main
+from parsers import BlockedUrlError
 
 
 @pytest.fixture()
@@ -74,6 +77,51 @@ def test_convert_file_rejects_oversized_upload_with_413(client, monkeypatch):
     monkeypatch.setattr(main, "MAX_UPLOAD_BYTES", 8)
     resp = client.post("/convert/file", files={"file": ("big.pdf", b"x" * 64, "application/pdf")})
     assert resp.status_code == 413
+
+
+def test_oversized_upload_is_refused_without_being_assembled(monkeypatch):
+    """The 413 must land *before* the whole body is joined into one bytes object.
+
+    Reading first and checking after would materialize an arbitrarily large
+    upload in the container's RAM to then throw it away, which is how a
+    memory-sized free-tier box gets OOM-killed by a single request.
+    """
+
+    class _CountingUpload:
+        """An upload that serves bytes on demand and records what was taken."""
+
+        def __init__(self, size: int) -> None:
+            self.remaining = size
+            self.served = 0
+
+        async def read(self, size: int = -1) -> bytes:
+            take = self.remaining if size < 0 else min(size, self.remaining)
+            self.remaining -= take
+            self.served += take
+            return b"x" * take
+
+    monkeypatch.setattr(main, "MAX_UPLOAD_BYTES", 1024 * 1024)
+    upload = _CountingUpload(64 * 1024 * 1024)
+
+    with pytest.raises(HTTPException) as excinfo:
+        asyncio.run(main._read_upload(upload))
+
+    assert excinfo.value.status_code == 413
+    # It stopped one chunk past the limit, with most of the body never read.
+    assert upload.served <= main.MAX_UPLOAD_BYTES + main._UPLOAD_CHUNK_BYTES
+    assert upload.remaining > 0
+
+
+def test_a_blocked_url_is_a_400_not_a_502(client, monkeypatch):
+    # Asking for a host the deployment refuses is a bad request, not a failed
+    # render — a 502 would read as "wiseau is broken" (ADR-021).
+    def blocked(url):
+        raise BlockedUrlError("Refusing to fetch 'localhost': non-public address.")
+
+    monkeypatch.setattr(main, "url_to_markdown", blocked)
+    resp = client.post("/convert/url", json={"url": "http://localhost/admin"})
+    assert resp.status_code == 400
+    assert "Refusing to fetch" in resp.json()["detail"]
 
 
 def test_convert_file_pdf_happy_path(client):
@@ -202,3 +250,48 @@ def test_an_upload_attributes_the_engine_that_served_it(client, fresh_metrics, m
 def test_metrics_is_exposed_as_an_openapi_operation(client):
     schema = client.get("/openapi.json").json()
     assert schema["paths"]["/metrics"]["get"]["operationId"] == "metrics"
+
+
+# --- Fair-use guards (invariant #4) -----------------------------------------
+# `Limiter(default_limits=...)` binds *nothing* by itself: slowapi enforces a
+# decorator's limit from the decorator, but the defaults only from
+# `SlowAPIMiddleware`. Drop that middleware and every undecorated route silently
+# goes unlimited while `@limiter.exempt` quietly stops meaning anything — a
+# regression no other test would notice, hence these. The autouse
+# `reset_rate_limiter` fixture keeps the counters they burn out of their
+# neighbours' way.
+def test_default_limit_is_enforced_on_undecorated_routes(client):
+    # 60/minute is the documented default, so the 61st call in a minute is 429.
+    codes = [client.get("/metrics").status_code for _ in range(61)]
+    assert codes[:60] == [200] * 60
+    assert codes[60] == 429
+
+
+def test_ping_is_exempt_from_the_default_limit(client):
+    # The probe the UI badge and uptime monitors poll must never be throttled.
+    codes = {client.get("/ping").status_code for _ in range(65)}
+    assert codes == {200}
+
+
+def test_convert_routes_keep_their_tighter_explicit_limit(client, monkeypatch):
+    monkeypatch.setattr(main, "url_to_markdown", lambda url: "# Rendered\n")
+    codes = [
+        client.post("/convert/url", json={"url": "https://example.com"}).status_code
+        for _ in range(21)
+    ]
+    assert codes[:20] == [200] * 20
+    assert codes[20] == 429
+
+
+def test_a_rate_limited_request_is_attributed_to_its_route(client, fresh_metrics):
+    # The limit is per-route, so tripping one route leaves /metrics answerable
+    # and able to report the rejection. A request rejected by the middleware
+    # never reaches the router, so this also pins `_route_label`'s fallback:
+    # a real registered path, never the `unmatched` bucket.
+    codes = [client.get("/openapi.json").status_code for _ in range(61)]
+    assert codes.count(429) == 1
+
+    body = client.get("/metrics").json()
+    assert body["requests"]["by_route"]["/openapi.json"] == 61
+    assert body["requests"]["by_status"]["429"] == 1
+    assert "unmatched" not in body["requests"]["by_route"]

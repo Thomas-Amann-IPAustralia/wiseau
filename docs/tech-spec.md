@@ -41,10 +41,10 @@ interactive docs are at `/docs`.
 
 ### `GET /ping`
 - **Purpose:** liveness/readiness for the UI status badge and background monitors.
-- **Rate limit:** exempt.
+- **Rate limit:** exempt (`@limiter.exempt`, honoured by `SlowAPIMiddleware`).
 - **200 response:**
   ```json
-  { "status": "ok", "service": "markdown-ingestion-engine", "version": "0.4.0" }
+  { "status": "ok", "service": "markdown-ingestion-engine", "version": "0.5.0" }
   ```
 
 ### `GET /metrics`
@@ -52,8 +52,9 @@ interactive docs are at `/docs`.
   peak concurrency, memory, and which extraction engine served each conversion
   (see §12). Not part of the conversion contract; shape may change without a
   major bump.
-- **Rate limit:** the default (`60/min`, `1000/day`). It does no heavy work, so
-  it takes no job slot.
+- **Rate limit:** the default (`60/min`, `1000/day`), applied by
+  `SlowAPIMiddleware` because it carries no explicit `@limiter.limit`. It does no
+  heavy work, so it takes no job slot.
 - **200 response:** a JSON object; see §12 for the fields.
 
 ### `POST /convert/url`
@@ -65,8 +66,9 @@ interactive docs are at `/docs`.
   ```
   `url` is validated as an `HttpUrl`.
 - **200 response:** `MarkdownResponse` (see §3).
-- **Errors:** `422` invalid URL (FastAPI validation); `429` rate limited;
-  `502` extraction/render failure.
+- **Errors:** `400` the URL resolves to a non-public address and this
+  deployment refuses to fetch it (§13); `422` invalid URL (FastAPI validation);
+  `429` rate limited; `502` extraction/render failure.
 
 ### `POST /convert/file`
 - **Purpose:** parse an uploaded PDF, DOCX, or image into Markdown. Scanned /
@@ -75,7 +77,9 @@ interactive docs are at `/docs`.
 - **Request:** `multipart/form-data` with a single `file` field.
 - **Constraints:** extension must be `.pdf`, `.docx`, or an image type
   (`.png`, `.jpg`, `.jpeg`, `.tif`, `.tiff`, `.bmp`, `.webp`, `.gif`); body must
-  be non-empty and ≤ `MAX_UPLOAD_BYTES` (default 25 MB).
+  be non-empty and ≤ `MAX_UPLOAD_BYTES` (default 25 MB). The limit is enforced
+  while the part is *streamed*, so an oversized body is refused without being
+  assembled in memory.
 - **200 response:** `MarkdownResponse`.
 - **Errors:** `400` empty upload; `413` too large; `415` unsupported type;
   `429` rate limited; `502` parse failure.
@@ -103,11 +107,11 @@ The backend is deliberately small and layered. Each module has one job.
 
 | Module | Responsibility | Must not |
 | ------ | -------------- | -------- |
-| `main.py` | HTTP surface: routing, validation, CORS, rate limiting, concurrency ceiling, upload limits, error → HTTP mapping, per-request timing/logging. | Contain extraction logic. |
+| `main.py` | HTTP surface: routing, validation, CORS, rate limiting (decorator limits **and** `SlowAPIMiddleware` for the defaults), concurrency ceiling, streamed upload limits, error → HTTP mapping, per-request timing/logging. | Contain extraction logic; read a whole upload before checking its size. |
 | `observability.py` | Structured (JSON) log formatting and the in-process metrics registry read by `GET /metrics`. Imported by `main.py` *and* the parsers. | Affect extraction output in any way; add a runtime dependency; record URLs, filenames, or content into `/metrics`. |
 | `parsers/__init__.py` | Public entrypoints: `url_to_markdown`, `file_to_markdown`. | — |
 | `parsers/browser.py` | Build a stealth headless Chrome driver; download a URL's raw bytes *through that driver's session* (`fetch_bytes`), so WAF clearance/cookies carry over. | Know about Markdown; raise on a failed download (return `None`). |
-| `parsers/url_parser.py` | Render → Trafilatura extract → (markdownify fallback) → clean. Detect a direct-PDF response and route its bytes to the document pipeline instead. | Contain per-site CSS selectors; trust a `.pdf` URL without verifying the magic bytes. |
+| `parsers/url_parser.py` | Refuse non-public addresses (§13), then render → Trafilatura extract → (markdownify fallback) → clean. Detect a direct-PDF response and route its bytes to the document pipeline instead. | Contain per-site CSS selectors; trust a `.pdf` URL without verifying the magic bytes; start the browser before the address is vetted. |
 | `parsers/file_parser.py` | Select the conversion engine (`WISEAU_PDF_ENGINE`): docling-first with automatic fallback to PyMuPDF4LLM (legacy mode) + per-page OCR / Mammoth. Dispatch by extension; then clean. | Hard-depend on docling; return unnormalized text; use PyMuPDF4LLM's unstable layout/OCR engine in the fallback. |
 | `parsers/docling_client.py` *(Phase 6)* | Thin HTTP client to docling-serve (`WISEAU_DOCLING_BASE`): document bytes → Markdown. Bounded timeout; typed errors so the caller can tell "docling down" from "bad document". | Contain conversion logic itself; retry forever; leak the token. |
 | `parsers/ocr.py` | Pluggable OCR engines (default MuPDF-Tesseract, opt-in EasyOCR): page image → text. Used by the *fallback* PDF path. | Introduce nondeterminism. |
@@ -120,11 +124,14 @@ The backend is deliberately small and layered. Each module has one job.
 favor_precision=True)` → if empty, `markdownify(html, heading_style="ATX")` →
 `clean_markdown()`. Trafilatura output additionally passes through
 `_drop_repeated_run`, which removes the duplicated body Trafilatura emits for
-pages under its 250-character threshold (ADR-020); it is guarded to short
-documents and exact, substantial, adjacent repeats, so a healthy page is
-untouched.
+pages under its 250-character threshold (ADR-020). It only drops an **exact,
+adjacent** repeat of **40–250 characters** — the upper bound being Trafilatura's
+own `MIN_EXTRACTED_SIZE`, so a repeat too large for the upstream bug to have
+produced is left alone no matter how short the document (ADR-022). The block cap
+bounds the scan's cost, not what it may touch.
 
-**URL (direct PDF):** if the rendered DOM is Chrome's PDF viewer (`<embed
+**URL (direct PDF):** the address guard (§13) runs first for every URL. If the
+rendered DOM is Chrome's PDF viewer (`<embed
 type="application/pdf">`) *or* the URL path ends in `.pdf`, `browser.fetch_bytes`
 downloads the URL from inside the already-navigated page (so the session's
 cookies/WAF clearance apply). The bytes are accepted only if they start with
@@ -173,12 +180,21 @@ All backend configuration is via environment variables (12-factor).
 | `WISEAU_DOCLING_TOKEN` | — | *(Phase 6)* Sent as `Authorization: Bearer` — the *platform gateway* credential (an HF token when Space #2 is private). |
 | `WISEAU_DOCLING_API_KEY` | — | *(Phase 6)* Sent as `X-Api-Key` — docling-serve's *own* guard, matching its `DOCLING_SERVE_API_KEY`. A different mechanism from the bearer token; either, both, or neither may be in use (ADR-018). |
 | `WISEAU_DOCLING_TIMEOUT` | `120` | *(Phase 6)* Seconds to wait on docling before falling back (generous, to absorb cold starts). |
+| `WISEAU_DOCLING_PATH` | `/v1/convert/file` | *(Phase 6)* docling-serve convert endpoint path; override only if a server version moves it. |
+| `WISEAU_ALLOW_PRIVATE_URLS` | unset (off) | Allow `/convert/url` to fetch loopback/private/link-local addresses. Off by default (ADR-021); set to `1` for a self-hosted deployment that converts its own intranet. |
 | `WISEAU_LOG_FORMAT` | `json` | Log rendering: `json` (one object per line, for aggregators) or `text` (human-readable, for local work). |
 | `WISEAU_LOG_LEVEL` | `INFO` | Root log level. |
 
 Rate limits are code-level constants in `main.py` (`60/min` + `1000/day` default;
 `20/min` on convert routes). Promote them to env vars only if a real tuning need
 arises — record the change in `decisions.md`.
+
+> **Do not remove `SlowAPIMiddleware`.** slowapi enforces a route's decorator limit
+> from the decorator, but the `default_limits` *only* from that middleware. Without
+> it the defaults bind nothing, every undecorated route (`/metrics`,
+> `/openapi.json`, `/docs`) goes unlimited, and `@limiter.exempt` stops meaning
+> anything — silently, since the convert routes keep working. `test_api.py` pins
+> all three behaviours.
 
 Frontend configuration is the single `window.MARKDOWN_API_BASE` in
 `frontend/config.js`.
@@ -201,7 +217,10 @@ Frontend configuration is the single `window.MARKDOWN_API_BASE` in
 - **Render/extraction failure** (dead URL, timeout, driver crash) → `502` with a
   clean `detail` message; the exception is logged server-side, never leaked as a
   stack trace to the caller.
-- **Unsupported file type** → `415`; **oversized** → `413`; **empty** → `400`.
+- **Unsupported file type** → `415`; **oversized** → `413` (raised mid-stream, so
+  the body is never fully buffered); **empty** → `400`.
+- **Non-public target address** → `400` with the refusing detail (§13). A caller
+  error, deliberately distinct from the `502` a genuine render failure gets.
 - **Rate limit** → `429` (handled by `slowapi`); **concurrency overflow** →
   requests *queue* on the semaphore rather than erroring.
 - **Content drift:** monitoring/diff pipelines must treat legitimate page changes
@@ -341,8 +360,11 @@ PDF (ADR-017) — is **docling-first with automatic fallback**:
    contract, so no response-shape version bump. (Which engine served a request is
    logged for observability; it is not part of the contract.)
 
-DOCX stays on Mammoth by default (cheap, deterministic); route it to docling only
-when `WISEAU_PDF_ENGINE=docling` is explicitly set *and* docling is reachable.
+DOCX takes the same engine selection as everything else: with `docling` selected
+(the default) *and* a base configured, a DOCX goes to docling too, and falls back
+to Mammoth on any failure. Mammoth serves it whenever docling is unset,
+unreachable, or `WISEAU_PDF_ENGINE=pymupdf` pins it — which is the common local and
+dev case, and cheap and deterministic when it happens.
 
 Determinism note (ADR-013): the docling path is best-effort and may vary
 run-to-run; the fallback path is deterministic. So the *same* document can yield
@@ -370,10 +392,10 @@ and `client`. The same `request_id` is returned to the caller as `X-Request-ID`
 
 | Group | Contents | Answers |
 | ----- | -------- | ------- |
-| `requests` | Count by **route template** (never the raw path — unmatched requests all bucket to `unmatched`, so no caller can inflate the table) and by status; duration count/mean/p50/p95/max per route. | Is anything erroring? |
+| `requests` | Count by **route template** (never an arbitrary caller-supplied path — a path is only accepted as a label when this app registers it, so nothing else can inflate the table; everything else buckets to `unmatched`) and by status; duration count/mean/p50/p95/max per route. A request the rate-limit middleware rejects never reaches the router, so it is attributed by that registered-path check rather than lost to `unmatched`. | Is anything erroring? |
 | `jobs` | `in_flight`, `max_in_flight`, semaphore queue-wait and run-duration series. | What should `MAX_CONCURRENT_JOBS` be? Is anything queuing? |
 | `conversions` | `url.ok` / `url.error` / `file.ok` / `file.error`. | Success rate per surface. |
-| `engines` | Count per engine that actually produced Markdown: `docling`, `pymupdf`, `mammoth`, `ocr`, `trafilatura`, `markdownify`. | **Is docling serving anything?** |
+| `engines` | Count per engine that actually produced Markdown: `docling`, `pymupdf`, `mammoth`, `ocr`, `trafilatura`, `markdownify`. Each parser records its own, so a PDF with **any** OCR'd page counts as `ocr` rather than `pymupdf` — one engine per conversion, and the OCR path stays visible. | **Is docling serving anything?** |
 | `docling` | `attempts` / `successes` / `fallbacks` / `skipped`, `reasons` (`DoclingUnavailable`, `DoclingBadDocument`, `not_configured`, `engine_not_selected`), and call durations. | Is the Space down, misconfigured, or just slow? |
 | `memory` | `peak_rss_mb` (getrusage) and `rss_mb` (Linux `/proc/self/statm`). | Headroom against the Space's limit. |
 
@@ -383,3 +405,33 @@ reset on restart; percentiles come from a bounded window of recent samples, so
 memory use is fixed. Recording is thread-safe, because the parsers record from
 the worker threads `asyncio.to_thread` runs them in. Adding a Prometheus client
 or an exporter was rejected (ADR-019): stdlib only, no new runtime dependency.
+
+---
+
+## 13. Fetch-target policy (ADR-021)
+
+`/convert/url` is public, unauthenticated, and fetches the host it is given from
+*inside* the container — so without a check it is a server-side request forgery
+primitive. `url_parser.assert_url_allowed` runs before the browser starts and
+refuses the request when:
+
+- the scheme is not `http`/`https` (so `file:`, `ftp:`, `chrome:` are out — the API
+  layer's `HttpUrl` also blocks these, but the parser is reachable from
+  `monitor.py` and the tests), or
+- **any** address the host resolves to is loopback, private, link-local, reserved,
+  multicast or unspecified. Every record must be public: a name answering with both
+  a public and a private address must not be a coin flip on which one Chrome picks.
+
+Refusal is a `BlockedUrlError` → **400** with the reason. An unresolvable host is
+*allowed* through, so DNS failure surfaces as an ordinary `502` render error rather
+than a misleading `400`.
+
+`WISEAU_ALLOW_PRIVATE_URLS=1` disables the address check (not the scheme check) for
+a self-hosted deployment that converts its own intranet. The live-browser tests set
+it, because their fixtures are served over loopback.
+
+**Known limits — do not describe this as airtight.** Chrome follows redirects
+itself, so a public URL that redirects to a private one still reaches it, and a DNS
+rebind between the lookup and the render wins. Closing those requires a
+proxy/egress control at the network layer, which is where it belongs. This closes
+the direct case, which is the only one a caller can trivially aim.

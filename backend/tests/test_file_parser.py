@@ -9,23 +9,45 @@ need no committed binary files.
 from __future__ import annotations
 
 import io
+import shutil
 
 import pymupdf
 import pytest
 
-from parsers import docling_client
+from parsers import docling_client, file_parser
 from parsers.file_parser import SUPPORTED_EXTENSIONS, file_to_markdown
 
 docx = pytest.importorskip("docx", reason="python-docx (dev dependency) is required to synthesize DOCX fixtures")
 
 
 def _make_pdf(text: str) -> bytes:
-    """Build a minimal one-page PDF containing ``text``."""
+    """Build a minimal one-page **born-digital** PDF containing ``text``.
+
+    Keep ``text`` comfortably longer than ``_TEXT_LAYER_MIN_CHARS``: a page with
+    fewer than that many characters is classified as image-only and quietly
+    rerouted through OCR, so a short fixture stops testing the native path (and
+    starts needing a `tesseract` binary to pass at all).
+    """
     doc = pymupdf.open()
     page = doc.new_page()
     page.insert_text((72, 72), text)
     data = doc.tobytes()
     doc.close()
+    return data
+
+
+def _make_scanned_pdf(text: str) -> bytes:
+    """Build a one-page PDF with **no** text layer — the page is a rendered image."""
+    src = pymupdf.open()
+    src.new_page().insert_text((72, 120), text, fontsize=44)
+    pix = src[0].get_pixmap(dpi=150)
+    src.close()
+
+    scan = pymupdf.open()
+    page = scan.new_page(width=pix.width, height=pix.height)
+    page.insert_image(page.rect, pixmap=pix)
+    data = scan.tobytes()
+    scan.close()
     return data
 
 
@@ -56,13 +78,32 @@ def test_missing_extension_raises_valueerror():
 
 def test_extension_matching_is_case_insensitive():
     # An uppercase extension must not fall through to the unsupported branch.
-    pdf = _make_pdf("Case Insensitive")
+    pdf = _make_pdf("Case Insensitive extension routing")
     result = file_to_markdown(pdf, "REPORT.PDF")
     assert "Case Insensitive" in result
 
 
+def test_a_page_with_a_text_layer_is_never_ocred(monkeypatch):
+    """The native fast path must not touch the OCR engine.
+
+    Detection is a character count, so a fixture that drifts under
+    `_TEXT_LAYER_MIN_CHARS` silently moves onto the OCR path — passing for the
+    wrong reason, and only where `tesseract` is installed. Making the engine fatal
+    pins the born-digital PDF to native extraction.
+    """
+    monkeypatch.setattr(
+        file_parser,
+        "_engine",
+        lambda: pytest.fail("a born-digital page must not be sent to OCR"),
+    )
+
+    result = file_to_markdown(_make_pdf("A born-digital page with a real text layer"), "doc.pdf")
+
+    assert "born-digital page" in result
+
+
 def test_pdf_round_trip_extracts_text():
-    pdf = _make_pdf("Hello Markdown")
+    pdf = _make_pdf("Hello Markdown, rendered from a real text layer")
     result = file_to_markdown(pdf, "doc.pdf")
     assert "Hello Markdown" in result
     # Output flows through the cleaner, so it ends with a single newline.
@@ -121,7 +162,7 @@ def test_docling_used_by_default_when_configured(monkeypatch):
     monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)  # default is docling
     _enable_docling(monkeypatch, fake_convert)
 
-    result = file_to_markdown(_make_pdf("native text here"), "gov.pdf")
+    result = file_to_markdown(_make_pdf("native text layer, comfortably long"), "gov.pdf")
     assert "# From docling" in result
     assert calls["filename"] == "gov.pdf"
     # docling output still flows through the cleaner (single trailing newline).
@@ -209,7 +250,7 @@ def test_docling_success_is_attributed_to_docling(monkeypatch, fresh_metrics):
     monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)
     _enable_docling(monkeypatch, lambda data, filename, **kwargs: "# From docling\n")
 
-    file_to_markdown(_make_pdf("native text here"), "gov.pdf")
+    file_to_markdown(_make_pdf("native text layer, comfortably long"), "gov.pdf")
 
     snapshot = fresh_metrics.snapshot()
     assert snapshot["engines"] == {"docling": 1}
@@ -253,3 +294,24 @@ def test_pinning_pymupdf_is_recorded_as_a_deliberate_skip(monkeypatch, fresh_met
     snapshot = fresh_metrics.snapshot()
     assert snapshot["engines"] == {"mammoth": 1}
     assert snapshot["docling"]["reasons"] == {"engine_not_selected": 1}
+
+
+def test_a_scanned_pdf_is_attributed_to_ocr(fresh_metrics):
+    """A scanned PDF must not be billed to `pymupdf`.
+
+    Attributing every `.pdf` to `pymupdf` regardless of how the text was actually
+    recovered leaves `engines.ocr` permanently at zero for documents, hiding the
+    OCR path completely from `GET /metrics` (tech-spec §12).
+    """
+    if shutil.which("tesseract") is None or pymupdf.get_tessdata() is None:
+        pytest.skip("tesseract binary / tessdata not installed")
+
+    result = file_to_markdown(_make_scanned_pdf("SCANNED NOTICE"), "scan.pdf")
+
+    assert "SCANNED" in result.upper()
+    assert fresh_metrics.snapshot()["engines"] == {"ocr": 1}
+
+
+def test_a_born_digital_pdf_is_still_attributed_to_pymupdf(fresh_metrics):
+    file_to_markdown(_make_pdf("A born-digital page with a real text layer"), "doc.pdf")
+    assert fresh_metrics.snapshot()["engines"] == {"pymupdf": 1}

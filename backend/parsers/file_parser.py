@@ -108,12 +108,20 @@ def _native_page_markdown(doc: pymupdf.Document, index: int) -> str:
 
 
 def pdf_to_markdown(data: bytes) -> str:
-    """Convert PDF bytes to Markdown, OCR-ing scanned pages as configured."""
+    """Convert PDF bytes to Markdown, OCR-ing scanned pages as configured.
+
+    Records its own engine attribution, because only this function knows whether
+    the text came off the page's own layer (`pymupdf`) or out of the OCR engine
+    (`ocr`) — a scanned PDF billed to `pymupdf` would hide OCR entirely from
+    `GET /metrics`. A document with *any* OCR'd page counts as `ocr`, so one
+    conversion is still attributed to exactly one engine.
+    """
     doc = pymupdf.open(stream=data, filetype="pdf")
     try:
         mode = _ocr_mode()
         # OCR disabled: native extraction only (scanned pages yield nothing).
         if mode == "off":
+            metrics.record_engine("pymupdf")
             return pymupdf4llm.to_markdown(doc)
 
         page_count = doc.page_count
@@ -124,8 +132,10 @@ def pdf_to_markdown(data: bytes) -> str:
 
         # Fast path: nothing needs OCR — identical to the pre-OCR behaviour.
         if not ocr_pages:
+            metrics.record_engine("pymupdf")
             return pymupdf4llm.to_markdown(doc)
 
+        metrics.record_engine("ocr")
         engine = _engine()
         dpi, lang = _ocr_dpi(), _ocr_lang()
 
@@ -153,6 +163,7 @@ def image_to_markdown(data: bytes, ext: str) -> str:
     """OCR a standalone image (PNG/JPEG/TIFF/...) into text."""
     if _ocr_mode() == "off":
         raise ValueError("OCR is disabled (WISEAU_OCR_MODE=off); cannot read image files.")
+    metrics.record_engine("ocr")
     # Re-wrap the image as a single-page PDF so the OCR engine sees a normal page.
     src = pymupdf.open(stream=data, filetype=ext.lstrip("."))
     try:
@@ -173,6 +184,7 @@ def image_to_markdown(data: bytes, ext: str) -> str:
 
 def docx_to_markdown(data: bytes) -> str:
     """Convert DOCX bytes to Markdown via Mammoth + Markdownify."""
+    metrics.record_engine("mammoth")
     result = mammoth.convert_to_html(io.BytesIO(data))
     return html_to_md(result.value, heading_style="ATX")
 
@@ -183,15 +195,16 @@ def _pdf_engine() -> str:
 
 
 def _fallback_markdown(data: bytes, ext: str) -> str:
-    """Deterministic extraction by extension — the always-available fallback."""
+    """Deterministic extraction by extension — the always-available fallback.
+
+    Each parser records the engine that actually served the conversion; a scanned
+    PDF and a born-digital one both arrive here but are attributed differently.
+    """
     if ext == ".pdf":
-        metrics.record_engine("pymupdf")
         return pdf_to_markdown(data)
     if ext == ".docx":
-        metrics.record_engine("mammoth")
         return docx_to_markdown(data)
     # Only reachable for image extensions; other types are rejected upstream.
-    metrics.record_engine("ocr")
     return image_to_markdown(data, ext)
 
 

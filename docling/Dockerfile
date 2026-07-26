@@ -67,7 +67,8 @@ ENV \
 
 EXPOSE 7860
 
-# /health is what the backend's warm-ping (and any uptime check) should poll.
+# /health is what an uptime check should poll. (The backend does not warm-ping it;
+# it absorbs a cold start with WISEAU_DOCLING_TIMEOUT and the automatic fallback.)
 HEALTHCHECK --interval=60s --timeout=10s --start-period=300s --retries=3 \
     CMD python3 -c "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:7860/health', timeout=5).status == 200 else 1)"
 
