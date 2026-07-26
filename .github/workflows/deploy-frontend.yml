@@ -1,0 +1,86 @@
+name: Deploy frontend
+
+# Publishes frontend/ to GitHub Pages.
+#
+# A workflow is required rather than Pages' branch setting: branch publishing
+# serves a repository root or /docs only, and /docs here holds the project
+# documentation — so the static UI, which lives in frontend/, needs an explicit
+# artifact upload.
+#
+# The backend URL is not baked into the repository. If the MARKDOWN_API_BASE
+# repository variable is set (Settings -> Secrets and variables -> Actions ->
+# Variables), it is written into config.js in the uploaded copy only; the
+# committed default (localhost) is left alone, so local development is
+# unaffected and pointing the site at a Space needs no commit.
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "frontend/**"
+      - ".github/workflows/deploy-frontend.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time; never cancel one in flight — a half-published site
+# is worse than a slightly stale one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Point the UI at the deployed backend
+        env:
+          MARKDOWN_API_BASE: ${{ vars.MARKDOWN_API_BASE }}
+        run: |
+          if [ -z "$MARKDOWN_API_BASE" ]; then
+            echo "MARKDOWN_API_BASE is not set; publishing config.js as committed."
+            grep MARKDOWN_API_BASE frontend/config.js
+            exit 0
+          fi
+          python3 - <<'PY'
+          import os
+          import pathlib
+          import re
+
+          base = os.environ["MARKDOWN_API_BASE"].strip().rstrip("/")
+          if not base.startswith(("http://", "https://")):
+              raise SystemExit(f"MARKDOWN_API_BASE must be an absolute URL, got {base!r}")
+
+          config = pathlib.Path("frontend/config.js")
+          source = config.read_text(encoding="utf-8")
+          patched, count = re.subn(
+              r'window\.MARKDOWN_API_BASE\s*=\s*"[^"]*";',
+              f'window.MARKDOWN_API_BASE = "{base}";',
+              source,
+          )
+          if count != 1:
+              raise SystemExit(f"expected 1 MARKDOWN_API_BASE assignment in config.js, found {count}")
+
+          config.write_text(patched, encoding="utf-8")
+          print(f"config.js now points at {base}")
+          PY
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload frontend/ as the Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: frontend
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

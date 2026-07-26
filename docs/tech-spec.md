@@ -237,9 +237,19 @@ GitHub Pages ──HTTPS──► HF Space #1: FastAPI + Chromium ──HTTP─�
 ```
 
 - Backend image version-locks Chromium + Python via the `Dockerfile`; runs as
-  non-root UID 1000 (Hugging Face requirement) on port 7860.
+  non-root UID 1000 (Hugging Face requirement) on port 7860. A Docker Space takes
+  its configuration from YAML frontmatter in the Space repo's `README.md`, so
+  `backend/README.md` (like `docling/README.md`) carries a Space card declaring
+  `sdk: docker` and `app_port: 7860`; deploying means pushing the contents of
+  `backend/` to the Space repo root.
 - Frontend is served as static files; the only per-deployment edit is
-  `config.js` → `MARKDOWN_API_BASE` pointing at the Space #1 URL.
+  `config.js` → `MARKDOWN_API_BASE` pointing at the Space #1 URL. It is published
+  by `.github/workflows/deploy-frontend.yml` rather than Pages' branch setting,
+  which can only serve a repository root or `/docs` — and `/docs` is this
+  documentation. That workflow rewrites the `MARKDOWN_API_BASE` assignment in the
+  *uploaded* copy when the repository variable of the same name is set, so the
+  deployed site can point at a Space with no commit and the committed default
+  stays `localhost` (ADR-023).
 - **docling-serve (Phase 6, ADR-015/018)** runs as a *second* HF Space, called
   only by the backend over `WISEAU_DOCLING_BASE` and not exposed to the public.
   Its image (`docling/Dockerfile`) is the upstream `docling-serve-cpu`, tag- and

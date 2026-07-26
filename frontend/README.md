@@ -18,6 +18,21 @@ Edit `config.js` and point it at your deployed backend:
 window.MARKDOWN_API_BASE = "https://your-user-your-space.hf.space";
 ```
 
+## Deploy to GitHub Pages
+
+`.github/workflows/deploy-frontend.yml` publishes this directory on every push
+to `main` that touches it, and on demand via **Actions → Deploy frontend → Run
+workflow**. A workflow is needed because Pages' branch setting can only serve a
+repository root or `/docs`, and `/docs` holds the project documentation.
+
+One-time setup: set **Settings → Pages → Source** to *GitHub Actions*, and set
+the `MARKDOWN_API_BASE` **repository variable** (Settings → Secrets and variables
+→ Actions → Variables) to the backend Space URL. The workflow writes that value
+into `config.js` in the uploaded copy only — the committed default stays
+`localhost`, so local development is unaffected and the deployment URL never
+needs to be committed. Leave the variable unset and the file ships exactly as
+committed. See ADR-023.
+
 ## Run locally
 
 Any static server works:

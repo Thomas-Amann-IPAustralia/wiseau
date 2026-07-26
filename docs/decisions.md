@@ -21,6 +21,43 @@ one `Superseded`.
 
 ---
 
+## ADR-023 — deployment is prepared in-repo so the remaining work is account-only
+**Date:** 2026-07-26 · **Status:** Accepted — implemented; not yet exercised against a real Space or Pages site.
+**Context:** Both open tracks (Phase 5 deployment, Phase 6's docling Space) were
+described as "needs external accounts, not code". Reading the repo against what a
+deployment actually requires found two things that *were* code, and both would
+have failed on the first attempt. (1) A Hugging Face Docker Space takes its
+configuration from YAML frontmatter in the Space repo's `README.md` —
+`docling/README.md` had a Space card, `backend/README.md` did not, so Space #1
+had no `sdk: docker` and no `app_port`. (2) GitHub Pages' branch publishing
+serves a repository root or `/docs` only, and `/docs` holds the project
+documentation; the UI lives in `frontend/`, so "activate GitHub Pages" as the
+roadmap phrased it was not a setting anyone could switch on. Separately,
+`config.js` is documented as *the* per-deployment knob, which meant pointing the
+published site at a Space required committing the Space URL — turning the last
+step of deployment back into a code change.
+**Decision:** Add the Space card frontmatter to `backend/README.md` (mirroring
+`docling/`), and publish `frontend/` with an explicit Pages workflow
+(`.github/workflows/deploy-frontend.yml`) using `upload-pages-artifact` /
+`deploy-pages`. Keep `config.js` as the committed knob and its localhost default,
+but let the workflow overwrite the assignment **in the uploaded copy only** when
+the `MARKDOWN_API_BASE` repository variable is set. An absolute-URL check fails
+the job rather than publishing a site that silently calls localhost.
+**Consequences:** Everything left to reach "operational" is account work —
+create two Spaces, push `backend/` and `docling/` to them, set the secrets, set
+one repository variable, enable Pages. Nothing left to deploy needs a commit. The
+cost is a second place where the API base can come from: the published site can
+disagree with `config.js` in the tree. That is deliberate (a public repo should
+not have to carry the deployment's URL) and the workflow logs the value it wrote,
+but a future instance debugging "the site points at the wrong backend" should
+check the repository variable before the file. Local development and any
+non-Pages host are unaffected — with the variable unset, the committed default
+ships unchanged. Neither half is proven: no Space and no Pages site exist yet, so
+the frontmatter and the workflow are written-but-unrun until someone with the
+accounts runs them.
+
+---
+
 ## ADR-022 — bound the short-page repair by the size of the *repeat*, not the document
 **Date:** 2026-07-26 · **Status:** Accepted — amends ADR-020; implemented and unit-tested.
 **Context:** ADR-020's guard rails were meant to make the repair unable to touch a
