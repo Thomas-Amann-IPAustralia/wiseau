@@ -114,11 +114,39 @@ def test_bearer_token_sent_when_configured():
 
 def test_no_auth_header_without_token(monkeypatch):
     monkeypatch.delenv("WISEAU_DOCLING_TOKEN", raising=False)
+    monkeypatch.delenv("WISEAU_DOCLING_API_KEY", raising=False)
     captured: dict = {}
     docling_client.convert_document(
         b"data", "d.pdf", base="http://docling", token="", transport=_transport(captured, body=_ok_body("x"))
     )
     assert "Authorization" not in captured["request"].headers
+    assert "X-Api-Key" not in captured["request"].headers
+
+
+def test_api_key_sent_as_x_api_key_header():
+    # docling-serve's own guard (DOCLING_SERVE_API_KEY) is a separate mechanism
+    # from the Space-gateway bearer token; both can be in play at once.
+    captured: dict = {}
+    docling_client.convert_document(
+        b"data",
+        "d.pdf",
+        base="http://docling",
+        token="gateway",
+        api_key="app-key",
+        transport=_transport(captured, body=_ok_body("x")),
+    )
+    headers = captured["request"].headers
+    assert headers["Authorization"] == "Bearer gateway"
+    assert headers["X-api-key"] == "app-key"  # urllib capitalizes header names
+
+
+def test_api_key_read_from_environment(monkeypatch):
+    monkeypatch.setenv("WISEAU_DOCLING_API_KEY", "from-env")
+    captured: dict = {}
+    docling_client.convert_document(
+        b"data", "d.pdf", base="http://docling", transport=_transport(captured, body=_ok_body("x"))
+    )
+    assert captured["request"].headers["X-api-key"] == "from-env"
 
 
 def test_explicit_timeout_is_passed_to_transport():
@@ -160,6 +188,27 @@ def test_4xx_raises_bad_document():
     with pytest.raises(docling_client.DoclingBadDocument) as excinfo:
         docling_client.convert_document(b"data", "d.pdf", base="http://docling", transport=send)
     assert "422" in str(excinfo.value)
+
+
+@pytest.mark.parametrize("code", [401, 403, 429])
+def test_auth_and_rate_limit_4xx_raise_unavailable(code):
+    # A wrong credential or a rate limit says nothing about the document — it is
+    # a deployment problem, so it must not be logged as a rejected document.
+    def send(request, timeout):
+        raise _http_error(code, "nope")
+
+    with pytest.raises(docling_client.DoclingUnavailable) as excinfo:
+        docling_client.convert_document(b"data", "d.pdf", base="http://docling", transport=send)
+    assert str(code) in str(excinfo.value)
+
+
+def test_gateway_timeout_from_max_sync_wait_raises_unavailable():
+    # docling-serve answers 504 past DOCLING_SERVE_MAX_SYNC_WAIT.
+    def send(request, timeout):
+        raise _http_error(504, "Conversion is taking too long.")
+
+    with pytest.raises(docling_client.DoclingUnavailable):
+        docling_client.convert_document(b"data", "d.pdf", base="http://docling", transport=send)
 
 
 def test_connection_error_raises_unavailable():

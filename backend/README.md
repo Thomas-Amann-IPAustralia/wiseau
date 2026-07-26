@@ -16,6 +16,23 @@ full design.
 Interactive docs and the machine-readable schema for LLM/MCP integration are
 served at `/docs` and `/openapi.json`.
 
+`/convert/url` also handles **direct-PDF links** (a `.pdf` URL, or any URL that
+serves a PDF): the bytes are downloaded through the browser's own session and run
+through the document pipeline below, rather than extracting Chrome's empty PDF
+viewer. See [`../docs/tech-spec.md`](../docs/tech-spec.md) §4 and ADR-017.
+
+## High-fidelity conversion (docling)
+
+Document conversion is **docling-first with automatic fallback**: with a
+docling-serve service configured, PDFs/DOCX/images are converted there for much
+more faithful Markdown; if it is asleep, slow, or down, the deterministic
+PyMuPDF/Mammoth parsers answer instead, so the service degrades rather than
+fails. With no `WISEAU_DOCLING_BASE` set, docling is simply skipped.
+
+The converter runs as its own service — see [`../docling/`](../docling) for the
+image and deployment steps, [`../docs/tech-spec.md`](../docs/tech-spec.md) §11
+for the selection/fallback rules, and ADR-013/014/018 for the reasoning.
+
 ## OCR (scanned & handwritten documents)
 
 Image-only PDF pages and image uploads (`.png/.jpg/.tif/...`) are OCR'd. The
@@ -75,6 +92,11 @@ docker run -p 7860:7860 markdown-engine
 | `MAX_UPLOAD_BYTES`    | `26214400`| Upload size limit (25 MB).                     |
 | `CHROME_BIN`          | —         | Path to the Chromium binary.                   |
 | `CHROMEDRIVER_PATH`   | —         | Path to chromedriver.                          |
+| `WISEAU_PDF_ENGINE`   | `docling` | `docling` (default) or `pymupdf` to force the local parser. |
+| `WISEAU_DOCLING_BASE` | —         | docling-serve base URL. Unset ⇒ docling skipped. |
+| `WISEAU_DOCLING_TOKEN`| —         | Sent as `Authorization: Bearer` (private-Space gateway). |
+| `WISEAU_DOCLING_API_KEY` | —      | Sent as `X-Api-Key` (docling-serve's `DOCLING_SERVE_API_KEY`). |
+| `WISEAU_DOCLING_TIMEOUT` | `120`  | Seconds to wait on docling before falling back. |
 
 Per-IP rate limits (`60/min`, `1000/day` default; `20/min` on convert routes)
 are configured in `main.py`.

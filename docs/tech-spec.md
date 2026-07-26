@@ -96,8 +96,8 @@ The backend is deliberately small and layered. Each module has one job.
 | ------ | -------------- | -------- |
 | `main.py` | HTTP surface: routing, validation, CORS, rate limiting, concurrency ceiling, upload limits, error → HTTP mapping. | Contain extraction logic. |
 | `parsers/__init__.py` | Public entrypoints: `url_to_markdown`, `file_to_markdown`. | — |
-| `parsers/browser.py` | Build a stealth headless Chrome driver. | Know about Markdown. |
-| `parsers/url_parser.py` | Render → Trafilatura extract → (markdownify fallback) → clean. | Contain per-site CSS selectors. |
+| `parsers/browser.py` | Build a stealth headless Chrome driver; download a URL's raw bytes *through that driver's session* (`fetch_bytes`), so WAF clearance/cookies carry over. | Know about Markdown; raise on a failed download (return `None`). |
+| `parsers/url_parser.py` | Render → Trafilatura extract → (markdownify fallback) → clean. Detect a direct-PDF response and route its bytes to the document pipeline instead. | Contain per-site CSS selectors; trust a `.pdf` URL without verifying the magic bytes. |
 | `parsers/file_parser.py` | Select the conversion engine (`WISEAU_PDF_ENGINE`): docling-first with automatic fallback to PyMuPDF4LLM (legacy mode) + per-page OCR / Mammoth. Dispatch by extension; then clean. | Hard-depend on docling; return unnormalized text; use PyMuPDF4LLM's unstable layout/OCR engine in the fallback. |
 | `parsers/docling_client.py` *(Phase 6)* | Thin HTTP client to docling-serve (`WISEAU_DOCLING_BASE`): document bytes → Markdown. Bounded timeout; typed errors so the caller can tell "docling down" from "bad document". | Contain conversion logic itself; retry forever; leak the token. |
 | `parsers/ocr.py` | Pluggable OCR engines (default MuPDF-Tesseract, opt-in EasyOCR): page image → text. Used by the *fallback* PDF path. | Introduce nondeterminism. |
@@ -105,9 +105,20 @@ The backend is deliberately small and layered. Each module has one job.
 
 ### Extraction pipelines
 
-**URL:** `initialize_driver()` renders the page (45s load timeout) → `page_source`
-→ `trafilatura.extract(..., output_format="markdown", favor_precision=True)` →
-if empty, `markdownify(html, heading_style="ATX")` → `clean_markdown()`.
+**URL (HTML):** `initialize_driver()` renders the page (45s load timeout) →
+`page_source` → `trafilatura.extract(..., output_format="markdown",
+favor_precision=True)` → if empty, `markdownify(html, heading_style="ATX")` →
+`clean_markdown()`.
+
+**URL (direct PDF):** if the rendered DOM is Chrome's PDF viewer (`<embed
+type="application/pdf">`) *or* the URL path ends in `.pdf`, `browser.fetch_bytes`
+downloads the URL from inside the already-navigated page (so the session's
+cookies/WAF clearance apply). The bytes are accepted only if they start with
+`%PDF-`; then they go through **`file_to_markdown`** — the same
+docling-first-with-fallback document pipeline as an upload — under a filename
+derived from the URL path. Bytes that aren't a PDF fall through to the HTML path;
+an unmistakable viewer whose bytes are unreachable raises (→ 502) rather than
+return the empty viewer shell. See ADR-017.
 
 **PDF:** `pymupdf.open(stream=...)` → per-page: native pages via
 `pymupdf4llm.to_markdown` (legacy mode), scanned pages via the OCR engine (§10) →
@@ -145,7 +156,8 @@ All backend configuration is via environment variables (12-factor).
 | `WISEAU_OCR_LANG` | `eng` | OCR language(s); Tesseract 639-2/T code(s), `+`-joined. |
 | `WISEAU_PDF_ENGINE` | `docling` | *(Phase 6)* Document engine: `docling` (default; via docling-serve) or `pymupdf` (force the local fallback). |
 | `WISEAU_DOCLING_BASE` | — | *(Phase 6)* Base URL of the internal docling-serve service (HF Space #2). Unset ⇒ behave as `pymupdf`. |
-| `WISEAU_DOCLING_TOKEN` | — | *(Phase 6)* Bearer token the backend sends to docling-serve; docling-serve rejects calls without it. |
+| `WISEAU_DOCLING_TOKEN` | — | *(Phase 6)* Sent as `Authorization: Bearer` — the *platform gateway* credential (an HF token when Space #2 is private). |
+| `WISEAU_DOCLING_API_KEY` | — | *(Phase 6)* Sent as `X-Api-Key` — docling-serve's *own* guard, matching its `DOCLING_SERVE_API_KEY`. A different mechanism from the bearer token; either, both, or neither may be in use (ADR-018). |
 | `WISEAU_DOCLING_TIMEOUT` | `120` | *(Phase 6)* Seconds to wait on docling before falling back (generous, to absorb cold starts). |
 
 Rate limits are code-level constants in `main.py` (`60/min` + `1000/day` default;
@@ -193,10 +205,15 @@ GitHub Pages ──HTTPS──► HF Space #1: FastAPI + Chromium ──HTTP─�
   non-root UID 1000 (Hugging Face requirement) on port 7860.
 - Frontend is served as static files; the only per-deployment edit is
   `config.js` → `MARKDOWN_API_BASE` pointing at the Space #1 URL.
-- **docling-serve (Phase 6, ADR-015)** runs as a *second* HF Space, called only by
-  the backend over `WISEAU_DOCLING_BASE` and guarded by `WISEAU_DOCLING_TOKEN`
-  (not exposed to the public). Its image pins docling-serve + a pre-downloaded
-  model revision; UID 1000, port 7860, its own low concurrency cap.
+- **docling-serve (Phase 6, ADR-015/018)** runs as a *second* HF Space, called
+  only by the backend over `WISEAU_DOCLING_BASE` and not exposed to the public.
+  Its image (`docling/Dockerfile`) is the upstream `docling-serve-cpu`, tag- and
+  digest-pinned, with the model weights already baked in; re-homed for Spaces as
+  UID 1000 on port 7860, one worker sharing one copy of the models, writable
+  state under `/tmp`. Two independent guards, both optional and both supplied at
+  deploy time: a private Space (bearer `WISEAU_DOCLING_TOKEN`) and docling-serve's
+  own `DOCLING_SERVE_API_KEY` (`WISEAU_DOCLING_API_KEY`). Deployment steps are in
+  [`docling/README.md`](../docling/README.md).
 - Cold-start is mitigated by the Space's long inactivity timeout; docling
   cold-starts are additionally absorbed by `WISEAU_DOCLING_TIMEOUT` + the automatic
   fallback (a cold docling Space yields the PyMuPDF result, not an error).
@@ -272,25 +289,29 @@ behind the same `OcrEngine` interface. Configuration: see §5
 
 ## 11. Extraction engine selection & fallback (Phase 6)
 
-> **Status: backend implemented & unit-tested (ADR-014/016) — the docling client
-> and engine-selection/fallback in `file_parser.py` are built and covered by a
-> mocked-transport suite. Still open: PDF-typed `/convert/url` routing to docling,
-> the docling-serve Space itself (ADR-015), and live verification.**
+> **Status: the whole backend half is implemented & unit-tested (ADR-014/016/017)
+> — the docling client, engine-selection/fallback in `file_parser.py`, and
+> direct-PDF `/convert/url` routing, all covered by a mocked-transport /
+> faked-driver suite. The docling Space image is written and digest-pinned
+> (ADR-018) but has never been built or deployed, so nothing below has been
+> verified against a live docling-serve.**
 
-Document conversion (`/convert/file`; PDF-typed `/convert/url` fetches are a
-planned extension) is **docling-first with automatic fallback**:
+Document conversion — `/convert/file`, and `/convert/url` when the URL serves a
+PDF (ADR-017) — is **docling-first with automatic fallback**:
 
 1. `file_parser.py` reads `WISEAU_PDF_ENGINE` (default `docling`).
 2. If `docling` **and** `WISEAU_DOCLING_BASE` is set: `docling_client.py` POSTs the
-   document bytes to docling-serve (bearer `WISEAU_DOCLING_TOKEN`), requesting `md`
-   output, within `WISEAU_DOCLING_TIMEOUT`.
+   document bytes to `POST /v1/convert/file` on docling-serve (credentials as in
+   §5), requesting `md` output, within `WISEAU_DOCLING_TIMEOUT`.
 3. **Fall back** to the local parser (PyMuPDF4LLM + OCR for PDF/image; Mammoth for
    DOCX) whenever docling is unset/`pymupdf`, times out, returns a 5xx or
-   connection error, returns empty/non-JSON, or **rejects the document** with a
-   4xx. The client raises typed errors so the two cases are logged apart —
-   `DoclingUnavailable` (infrastructure: down/asleep/timeout/5xx/empty) vs
-   `DoclingBadDocument` (a 4xx verdict on the input) — both subclass
-   `DoclingError`, which `file_parser` catches to fall back. Every fallback is
+   connection error, returns empty/non-JSON, refuses the *request* (401/403/429),
+   or **rejects the document** with another 4xx. The client raises typed errors so
+   the two cases are logged apart — `DoclingUnavailable` (infrastructure:
+   down/asleep/timeout/5xx/empty, plus auth/rate-limit refusals, which say nothing
+   about the document — ADR-018) vs `DoclingBadDocument` (a 4xx verdict on the
+   input) — both subclass `DoclingError`, which `file_parser` catches to fall
+   back. Every fallback is
    logged so silent docling outages are visible (feeds the observability backlog).
    The client is stdlib-`urllib`, not `httpx`, so the backend image gains no new
    runtime dependency and cannot fail to import if an HTTP library is absent

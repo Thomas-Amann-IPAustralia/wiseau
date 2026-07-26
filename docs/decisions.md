@@ -21,6 +21,76 @@ one `Superseded`.
 
 ---
 
+## ADR-018 — the docling Space is the *upstream* CPU image, digest-pinned, with two independent guards
+**Date:** 2026-07-26 · **Status:** Accepted — image written & digest-verified against the registry; **not built or deployed** (no Docker daemon in the build session).
+**Context:** ADR-015 put docling-serve on its own 16 GB HF Space. The roadmap left
+the *how* open: build docling-serve from source (as the backend image builds
+Chromium in) or start from the project's published image. Two facts decided it.
+(1) The upstream `docling-serve-cpu` image already bakes the **model weights** in
+(~4.4 GB); a from-source image would download them at boot, and on the free tier
+that download would land on the *first request after a cold start* — exactly the
+request that then blows past `WISEAU_DOCLING_TIMEOUT` and falls back, every wake.
+(2) Reading the upstream docs turned up two auth mechanisms that are **not** the
+same thing: docling-serve's own `DOCLING_SERVE_API_KEY` (checked as an `X-Api-Key`
+header) and the HF platform's bearer token for a private Space. ADR-015 only
+recorded the bearer token, so a deployment following it would have been open to
+anyone who guessed the Space URL.
+**Decision:** `docling/Dockerfile` starts `FROM
+ghcr.io/docling-project/docling-serve-cpu:v1.27.0@sha256:a70cd391…` — tag for
+readability, digest for immutability — and only re-homes it for Hugging Face:
+port 7860, UID 1000, writable state under `/tmp` (the baked weights are already
+world-readable, so no `chown -R` layer that would double the image size), one
+worker sharing one copy of the models, and `DOCLING_SERVE_MAX_SYNC_WAIT=100` so
+docling's own 504 lands *before* the backend's 120s client timeout. The client now
+sends **both** credentials, from separate env vars —
+`WISEAU_DOCLING_TOKEN` → `Authorization: Bearer` (gateway),
+`WISEAU_DOCLING_API_KEY` → `X-Api-Key` (docling-serve). Neither is baked into the
+image. Relatedly, 401/403/429 are re-classified as `DoclingUnavailable`, not
+`DoclingBadDocument`: a bad credential or a rate limit is a *deployment* problem,
+and logging it as "docling rejected the document" would send the next instance
+hunting the wrong bug.
+**Consequences:** Pinning the engine bounds the stochastic variation ADR-013
+accepts — output can vary run-to-run from the model, but not from an unnoticed
+`latest` bump. Upgrading docling is now a deliberate two-line edit (tag +
+digest), and the digest must be re-fetched from the registry when the tag moves.
+The image is large; expect slow first pulls and a long Space cold start (hence
+`DOCLING_SERVE_LOAD_MODELS_AT_BOOT=true`, so warm-up happens at boot rather than
+inside a request). **Unverified:** the session that wrote this had no Docker
+daemon, so the image has never been built — the digest was checked against the
+ghcr registry API, nothing more. First deployer: build it before trusting it.
+
+## ADR-017 — direct-PDF URLs are downloaded through the browser session and routed to the document pipeline
+**Date:** 2026-07-26 · **Status:** Accepted — implemented and verified live (real Chromium, locally served PDF).
+**Context:** A large share of government "pages" are not HTML — the link resolves
+straight to a PDF. Chrome renders those in its built-in PDF *viewer*, whose DOM is
+a lone `<embed type="application/pdf">` with no text, so `/convert/url` returned
+plausible-looking near-empty Markdown: the worst kind of failure, because it looks
+like a success. Meanwhile `/convert/file` gained the whole docling-first pipeline
+(ADR-014) that those documents most need. Fetching the bytes with a *second*,
+plain HTTP client was the obvious fix and the wrong one: the WAF clearance,
+cookies, and TLS handshake that got the browser in do not transfer, so precisely
+the sites that need the stealth browser would fail.
+**Decision:** After the render, if the DOM is Chrome's PDF viewer *or* the URL
+path ends in `.pdf`, download the bytes **from inside the already-navigated page**
+(`browser.fetch_bytes` runs `fetch()` via `execute_async_script` and returns
+base64), then hand them to `file_to_markdown` — the same docling-first,
+auto-fallback, `clean_markdown()`-normalized path an upload takes. The heuristics
+only decide whether to *try*; nothing is treated as a PDF unless the bytes start
+with `%PDF-`, so a `.pdf` URL that actually serves an HTML consent page falls
+through to the normal extraction path. When the viewer is unmistakably present but
+the bytes are unreachable, raise (→ 502) rather than return the empty shell.
+**Consequences:** `/convert/url` now answers direct-PDF links with real content,
+and inherits docling fidelity for them. Cost: `browser.py` grew a transport
+responsibility beyond building a driver (it downloads bytes; it still knows
+nothing about Markdown), and `url_parser` now imports `file_parser` — a one-way
+edge, no cycle. A PDF served through `/convert/url` is *not* deterministic when
+docling answers, same as an upload (ADR-013). The download runs in-page, so a site
+that blocks `fetch()` from its own origin yields `None` and, if the viewer was
+detected, a clean 502 telling the caller to upload the file instead. The one thing
+fakes could not answer — whether Chrome's PDF-viewer context can `fetch()` its own
+URL — was checked live: it can, and the second request revalidates against the
+browser cache (`304`), so the document body is not transferred twice.
+
 ## ADR-016 — docling client uses stdlib `urllib`, not `httpx`; typed errors drive fallback
 **Date:** 2026-07-26 · **Status:** Accepted
 **Context:** Implementing the Phase 6 docling client (ADR-014). The roadmap
