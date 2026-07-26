@@ -17,20 +17,27 @@ resilient default the project wants — docling is best-effort, and the caller
 Both subclass :class:`DoclingError` so ``file_parser`` can fall back on either,
 while logging which happened:
 
-* :class:`DoclingUnavailable` — connection refused, timeout, 5xx, a non-JSON or
-  empty conversion. The docling Space is asleep/overloaded/broken; a retry later
-  might succeed. This is the common free-tier case (cold starts).
-* :class:`DoclingBadDocument` — docling answered with a 4xx. It ran but rejected
-  the input (unsupported/corrupt). A retry won't help; the fallback parser may
-  still make sense of it, or surface the real error.
+* :class:`DoclingUnavailable` — connection refused, timeout, 5xx (including the
+  504 docling-serve raises past ``DOCLING_SERVE_MAX_SYNC_WAIT``), an auth or
+  rate-limit rejection (401/403/429 — a *deployment* problem, not the document's
+  fault), or a non-JSON/empty conversion. The docling Space is
+  asleep/overloaded/misconfigured; a retry later might succeed. This is the
+  common free-tier case (cold starts).
+* :class:`DoclingBadDocument` — docling answered with another 4xx. It ran but
+  rejected the input (unsupported/corrupt). A retry won't help; the fallback
+  parser may still make sense of it, or surface the real error.
 
 Configuration (all optional; when ``WISEAU_DOCLING_BASE`` is unset the client is
 "not configured" and callers skip straight to the deterministic parsers):
 
 * ``WISEAU_DOCLING_BASE``  — base URL of the docling-serve Space, e.g.
   ``https://user-docling.hf.space``. Unset ⇒ docling disabled.
-* ``WISEAU_DOCLING_TOKEN`` — shared secret sent as ``Authorization: Bearer`` so
-  only this backend can call an otherwise-private Space (ADR-015).
+* ``WISEAU_DOCLING_TOKEN`` — sent as ``Authorization: Bearer``. This is the
+  *gateway* credential: a Hugging Face token when Space #2 is private, so only
+  this backend gets past the platform (ADR-015).
+* ``WISEAU_DOCLING_API_KEY`` — sent as ``X-Api-Key``. This is docling-serve's
+  *own* app-level guard (``DOCLING_SERVE_API_KEY``); it is a different mechanism
+  from the bearer token above, and either, both, or neither may be in use.
 * ``WISEAU_DOCLING_TIMEOUT`` — per-request timeout in seconds (default 120; CPU
   inference is slow).
 * ``WISEAU_DOCLING_PATH``  — convert endpoint path (default ``/v1/convert/file``).
@@ -77,6 +84,12 @@ class DoclingBadDocument(DoclingError):
     """
 
 
+# 4xx codes that are *not* a verdict on the document: a wrong/missing credential
+# or a rate limit is a deployment problem, and logging it as "bad document"
+# would send the next instance hunting the wrong bug.
+_INFRASTRUCTURE_4XX = frozenset({401, 403, 429})
+
+
 # --- Configuration ----------------------------------------------------------
 def _base() -> str:
     return os.environ.get("WISEAU_DOCLING_BASE", "").strip().rstrip("/")
@@ -84,6 +97,10 @@ def _base() -> str:
 
 def _token() -> str:
     return os.environ.get("WISEAU_DOCLING_TOKEN", "").strip()
+
+
+def _api_key() -> str:
+    return os.environ.get("WISEAU_DOCLING_API_KEY", "").strip()
 
 
 def _timeout() -> float:
@@ -185,6 +202,7 @@ def convert_document(
     *,
     base: Optional[str] = None,
     token: Optional[str] = None,
+    api_key: Optional[str] = None,
     timeout: Optional[float] = None,
     path: Optional[str] = None,
     transport: Optional[Transport] = None,
@@ -196,14 +214,15 @@ def convert_document(
     Args:
         data: The document bytes (PDF/DOCX/image) to convert.
         filename: Original filename; forwarded so docling can sniff the format.
-        base/token/timeout/path: Override the corresponding env config (mainly
-            for tests). ``None`` ⇒ read from the environment.
+        base/token/api_key/timeout/path: Override the corresponding env config
+            (mainly for tests). ``None`` ⇒ read from the environment.
         transport: Injected request→bytes transport (mainly for tests). ``None``
             ⇒ the real ``urllib`` transport.
 
     Raises:
-        DoclingUnavailable: docling unreachable/timed out/5xx/empty/non-JSON.
-        DoclingBadDocument: docling returned a 4xx (rejected the document).
+        DoclingUnavailable: docling unreachable/timed out/5xx/401/403/429, or it
+            returned an empty or non-JSON body.
+        DoclingBadDocument: docling returned another 4xx (rejected the document).
     """
     resolved_base = base if base is not None else _base()
     if not resolved_base:
@@ -215,6 +234,9 @@ def convert_document(
     resolved_token = token if token is not None else _token()
     if resolved_token:
         headers["Authorization"] = f"Bearer {resolved_token}"
+    resolved_api_key = api_key if api_key is not None else _api_key()
+    if resolved_api_key:
+        headers["X-Api-Key"] = resolved_api_key
 
     url = resolved_base + (path if path is not None else _path())
     request = urllib.request.Request(url, data=body, headers=headers, method="POST")
@@ -225,6 +247,8 @@ def convert_document(
         raw = send(request, resolved_timeout)
     except urllib.error.HTTPError as exc:
         detail = _read_error_detail(exc)
+        if exc.code in _INFRASTRUCTURE_4XX:
+            raise DoclingUnavailable(f"docling refused the request ({exc.code}): {detail}") from exc
         if 400 <= exc.code < 500:
             raise DoclingBadDocument(f"docling rejected the document ({exc.code}): {detail}") from exc
         raise DoclingUnavailable(f"docling error {exc.code}: {detail}") from exc

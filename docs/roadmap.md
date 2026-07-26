@@ -136,22 +136,41 @@ parsers when docling is unavailable. The deploy tasks below extend Phase 5.
   — no new endpoint or entrypoint was added: docling runs inside the existing
   `file_to_markdown`, which `/convert/file` still calls inside `_job_semaphore`
   (unchanged in `main.py`). The guard wraps the new path unchanged.
-- [ ] PDF-typed **URL** fetches: when the headless browser retrieves a PDF (many
+- [x] PDF-typed **URL** fetches: when the headless browser retrieves a PDF (many
   government links are direct PDFs), route those bytes to docling too; HTML pages
-  stay on the browser-render → Trafilatura path. *(Still open — needs `browser.py`
-  to detect/return PDF bytes; deferred to keep this change coherent.)*
+  stay on the browser-render → Trafilatura path. *Done (ADR-017): Chrome's PDF
+  viewer DOM (or a `.pdf` path) triggers `browser.fetch_bytes`, which downloads
+  from inside the already-navigated page so the WAF clearance carries over; bytes
+  are accepted only if they start with `%PDF-`, then handed to `file_to_markdown`
+  (docling-first, auto-fallback, cleaned). Verified two ways: 20 tests over a faked
+  driver, **and a live run** — real headless Chromium against a locally served PDF
+  recovered its full text (reproducibly), while an HTML page on the same server
+  stayed on the Trafilatura path.*
 - [x] Isolate deps: the wiseau image needs **no torch** — the docling client is
   stdlib-only (`urllib`), so **`requirements.txt` is untouched** (no docling, no
   PyTorch, and no new `httpx` runtime dep). See ADR-016.
 
 **docling-serve — the converter Space**
-- [ ] `docling/Dockerfile` (or the official `docling-serve` image) pinning
+- [~] `docling/Dockerfile` (or the official `docling-serve` image) pinning
   docling-serve **and the model revision**; pre-download weights at build
   (`docling-tools models download`); run as UID 1000 on port 7860 (HF Spaces).
-- [ ] Own low concurrency cap (1–2) sized for 2 vCPU / 16 GB; reject/queue rather
-  than OOM. Health endpoint for the warm-ping.
-- [ ] Internal-auth check: require `WISEAU_DOCLING_TOKEN` (bearer) and/or make the
-  Space private so only the wiseau backend can call it.
+  *Written (ADR-018): `FROM ghcr.io/docling-project/docling-serve-cpu:v1.27.0@sha256:a70cd391…`
+  — the upstream CPU image already bakes the weights in, so no boot-time download.
+  Re-homed for Spaces (port 7860, UID 1000, writable state under `/tmp`).
+  **Not built** — no Docker daemon in the session that wrote it; only the digest
+  was checked against the registry.*
+- [~] Own low concurrency cap (1–2) sized for 2 vCPU / 16 GB; reject/queue rather
+  than OOM. Health endpoint for the warm-ping. *Written: one worker sharing one
+  copy of the models (`ENG_LOC_NUM_WORKERS=1`, `ENG_LOC_SHARE_MODELS=true`),
+  `LOAD_MODELS_AT_BOOT`, page/size caps, and `MAX_SYNC_WAIT=100` so docling's 504
+  precedes the backend's 120s timeout. `/health` is wired as the HEALTHCHECK.
+  Unverified until the image is built.*
+- [x] Internal-auth check: require `WISEAU_DOCLING_TOKEN` (bearer) and/or make the
+  Space private so only the wiseau backend can call it. *Both layers supported and
+  unit-tested: `WISEAU_DOCLING_TOKEN` → `Authorization: Bearer` (private-Space
+  gateway) and `WISEAU_DOCLING_API_KEY` → `X-Api-Key` (docling-serve's own
+  `DOCLING_SERVE_API_KEY`, which ADR-015 had missed). Neither secret is baked into
+  the image; 401/403/429 now classify as `DoclingUnavailable` (ADR-018).*
 
 **Tests (stay browserless + docling-serve-less in default CI)**
 - [x] `tests/test_docling_client.py` over a mocked HTTP transport: success →
@@ -162,6 +181,13 @@ parsers when docling is unavailable. The deploy tasks below extend Phase 5.
   default; skipped when unconfigured; `pymupdf` pins the local path; fallback on
   simulated docling failure (both error kinds); `clean_markdown()` still applied;
   unsupported-type 415 preserved. 6 tests.
+- [x] `tests/test_url_parser.py` over a faked driver: an HTML page keeps the
+  Trafilatura path (and is never probed for a download); Chrome's PDF-viewer DOM
+  and `.pdf` URLs route into the document pipeline; URL-fetched PDFs get the
+  docling-first treatment *and* fall back when docling is down; non-PDF bytes fall
+  through to HTML; an unreachable viewer PDF raises; download failures
+  (script error / undecodable / empty) degrade to `None`; the driver is always
+  released; filename derivation is sanitized and bounded. 20 tests.
 
 **Config, docs, deploy**
 - [x] tech-spec: env vars in §5, topology in §8, and §11 "Extraction engine
@@ -211,7 +237,15 @@ parsers when docling is unavailable. The deploy tasks below extend Phase 5.
   runner). Docker image build step is done (ADR-011).
 - [x] **Dependency pinning** across `requirements.txt`.
 - [ ] **Observability.** Structured request logging; a lightweight metric for
-  job duration/memory to tune `MAX_CONCURRENT_JOBS` against real usage.
+  job duration/memory to tune `MAX_CONCURRENT_JOBS` against real usage. Phase 6
+  adds a second reason to want this: docling-vs-fallback usage is currently only
+  visible as a log line, so a silent docling outage looks like normal operation.
+- [ ] **Trafilatura duplicates the body of very small documents.** Observed while
+  verifying ADR-017: a one-paragraph `<article>` comes back with its paragraph
+  twice — reproducible by calling `trafilatura.extract` directly with our options,
+  so it is the extractor, not our pipeline. Harmless on real pages (none seen in
+  the live Wikipedia/example.com renders), but worth pinning down before it shows
+  up in a short government notice.
 - [ ] **Abuse controls beyond rate limiting** (per-IP daily quota, optional API
   key tier) — only if fair-use limiting proves insufficient (see brief §7).
 

@@ -71,8 +71,8 @@ wiseau/
 │   ├── main.py             # routing, CORS, rate limiting, concurrency ceiling
 │   ├── mcp_server.py       # MCP tool surface (thin HTTP adapter over the API)
 │   ├── parsers/            # extraction pipeline
-│   │   ├── browser.py      # Selenium-stealth headless Chrome (WAF-bypass fetch)
-│   │   ├── url_parser.py   # Trafilatura extraction (+ markdownify fallback)
+│   │   ├── browser.py      # Selenium-stealth headless Chrome (render + in-session download)
+│   │   ├── url_parser.py   # Trafilatura extraction; direct-PDF URLs -> file_parser
 │   │   ├── file_parser.py  # engine select: docling-first, PyMuPDF/Mammoth fallback
 │   │   ├── docling_client.py  # [Phase 6] thin HTTP client to docling-serve
 │   │   ├── ocr.py          # pluggable OCR engines (Tesseract / EasyOCR)
@@ -80,7 +80,8 @@ wiseau/
 │   ├── Dockerfile          # version-locks Chromium + Python
 │   └── requirements.txt
 ├── docling/                # [Phase 6] docling-serve converter — HF Space #2
-│   └── Dockerfile          # pins docling-serve + pre-downloaded model revision
+│   ├── Dockerfile          # upstream docling-serve-cpu image, tag+digest pinned
+│   └── README.md           # HF Space card + deployment/verification steps
 └── frontend/               # static UI (GitHub Pages target)
     ├── index.html
     ├── style.css
