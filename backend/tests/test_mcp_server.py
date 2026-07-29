@@ -49,7 +49,9 @@ def test_convert_url_round_trips_contract(monkeypatch):
     result = asyncio.run(mcp_server.convert_url("https://example.com"))
 
     assert captured["path"] == "/convert/url"
-    assert captured["body"] == {"url": "https://example.com"}
+    # `auto` defers to the deployment default, so the tool adds no opinion of
+    # its own unless the agent names an engine (ADR-025).
+    assert captured["body"] == {"url": "https://example.com", "engine": "auto"}
     assert result == {"source": "https://example.com/", "markdown": "# Hi\n", "length": 5}
 
 
@@ -125,3 +127,20 @@ def _write_temp(monkeypatch) -> str:
     handle.write(b"not markdownable")
     handle.close()
     return handle.name
+
+
+def test_convert_file_forwards_a_requested_engine(monkeypatch, tmp_path):
+    """An agent can ask for fidelity (docling) or speed (pymupdf), like the UI."""
+    captured: dict = {}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        captured["body"] = request.content
+        return httpx.Response(200, json={"source": "d.pdf", "markdown": "# Hi\n", "length": 5})
+
+    pdf = tmp_path / "report.pdf"
+    pdf.write_bytes(b"%PDF-1.4 fake bytes")
+    _mock_client(monkeypatch, handler)
+    asyncio.run(mcp_server.convert_file(str(pdf), engine="docling"))
+
+    assert b'name="engine"' in captured["body"]
+    assert b"docling" in captured["body"]

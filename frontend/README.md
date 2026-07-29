@@ -5,10 +5,32 @@ Pages as-is.
 
 ## Files
 
-- `index.html` — layout (URL tab, file drop zone, output pane, status badge).
+- `index.html` — layout (URL tab, file drop zone, engine picker, progress bar,
+  output pane with Preview/Raw, download dialog, status badge).
 - `style.css` — responsive styling, light/dark aware.
 - `app.js` — state management + `fetch` calls to the backend.
+- `markdown.js` — the small, dependency-free Markdown renderer behind the
+  Preview mode (ADR-026). Escapes everything before rendering: converted content
+  is untrusted.
+- `favicon.svg` — site icon.
 - `config.js` — the one file to edit per deployment: set `MARKDOWN_API_BASE`.
+
+## What the UI does
+
+- **Engine picker** — *Auto*, *Highest fidelity* (docling), or *Fastest*
+  (PyMuPDF/Mammoth), sent as the request's `engine`. docling reads complex and
+  scanned documents far more faithfully but takes tens of seconds to minutes on
+  the free CPU tier; it falls back to the fast parser automatically if it is
+  unavailable.
+- **Progress bar** — an *approximation*. The API converts in one blocking call
+  and reports no progress, so the bar is estimated from the source type, the file
+  size, and the chosen engine; it keeps climbing rather than parking at "done",
+  and says so when a conversion runs past its estimate (ADR-026).
+- **Preview / Raw** — rendered Markdown or the exact source. Raw is what Copy and
+  Download return.
+- **Download** — opens a dialog pre-filled with the document's first `#` heading
+  (or first `##` if there is no `#`); edit the title, then *Confirm download*.
+  The title becomes the filename.
 
 ## Configure
 

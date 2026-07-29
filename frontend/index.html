@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Oh hi Mark(down)</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -39,22 +41,82 @@
         </div>
         <button id="convert-file-btn" class="btn btn--primary" disabled>Convert</button>
       </div>
+
+      <fieldset class="engine">
+        <legend class="field-label">Conversion engine</legend>
+        <div class="engine__options" role="radiogroup" aria-describedby="engine-note">
+          <label class="engine__option">
+            <input type="radio" name="engine" value="auto" checked />
+            <span class="engine__name">Auto</span>
+            <span class="engine__hint">Server's default</span>
+          </label>
+          <label class="engine__option">
+            <input type="radio" name="engine" value="docling" />
+            <span class="engine__name">Highest fidelity</span>
+            <span class="engine__hint">docling — slow</span>
+          </label>
+          <label class="engine__option">
+            <input type="radio" name="engine" value="pymupdf" />
+            <span class="engine__name">Fastest</span>
+            <span class="engine__hint">PyMuPDF / Mammoth</span>
+          </label>
+        </div>
+        <p id="engine-note" class="engine__note">
+          <strong>docling</strong> reads complex layouts — multi-column pages, tables, scans —
+          far more faithfully, but it runs an ML model on a free CPU: expect
+          <strong>tens of seconds to a few minutes</strong> per document, and longer still on the
+          first request after the service has been idle. It falls back to the fast parser
+          automatically if it is unavailable. The choice applies to documents; a URL that serves
+          an HTML page is always extracted the same way.
+        </p>
+      </fieldset>
+
+      <div id="progress" class="progress" hidden aria-live="polite">
+        <div class="progress__bar"><div id="progress-fill" class="progress__fill"></div></div>
+        <p class="progress__meta">
+          <span id="progress-label">Converting…</span>
+          <span id="progress-timer" class="progress__timer">0s</span>
+        </p>
+      </div>
     </section>
 
     <section class="panel panel--output">
       <div class="output-head">
-        <span class="field-label">Markdown</span>
+        <div class="view-toggle" role="tablist" aria-label="Markdown view">
+          <button id="view-preview-btn" class="view-toggle__btn view-toggle__btn--active" role="tab" data-view="preview">Preview</button>
+          <button id="view-raw-btn" class="view-toggle__btn" role="tab" data-view="raw">Raw</button>
+        </div>
         <div class="output-actions">
           <span id="output-meta" class="meta"></span>
           <button id="copy-btn" class="btn btn--ghost" disabled>Copy</button>
           <button id="download-btn" class="btn btn--ghost" disabled>Download</button>
         </div>
       </div>
-      <pre id="output" class="output" aria-live="polite"><span class="placeholder">Converted Markdown will appear here.</span></pre>
+      <div id="output-preview" class="output output--preview markdown-body" aria-live="polite">
+        <p class="placeholder">Converted Markdown will appear here.</p>
+      </div>
+      <pre id="output" class="output output--raw" hidden aria-live="polite"><span class="placeholder">Converted Markdown will appear here.</span></pre>
     </section>
   </main>
 
+  <dialog id="download-dialog" class="dialog">
+    <form method="dialog" class="dialog__form">
+      <h2 class="dialog__title">Download Markdown</h2>
+      <p class="dialog__hint">
+        The title comes from the document's first heading. Edit it if you like — it names the file.
+      </p>
+      <label for="download-title" class="field-label">Title</label>
+      <input id="download-title" class="dialog__input" type="text" maxlength="120" />
+      <p class="dialog__filename">Saves as <code id="download-filename">converted.md</code></p>
+      <div class="dialog__actions">
+        <button id="download-cancel" class="btn btn--ghost" value="cancel" type="submit">Cancel</button>
+        <button id="download-confirm" class="btn btn--primary" value="confirm" type="submit">Confirm download</button>
+      </div>
+    </form>
+  </dialog>
+
   <script src="config.js"></script>
+  <script src="markdown.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

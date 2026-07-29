@@ -8,6 +8,7 @@ need no committed binary files.
 
 from __future__ import annotations
 
+import base64
 import io
 import shutil
 
@@ -315,3 +316,98 @@ def test_a_scanned_pdf_is_attributed_to_ocr(fresh_metrics):
 def test_a_born_digital_pdf_is_still_attributed_to_pymupdf(fresh_metrics):
     file_to_markdown(_make_pdf("A born-digital page with a real text layer"), "doc.pdf")
     assert fresh_metrics.snapshot()["engines"] == {"pymupdf": 1}
+
+
+# --- Per-request engine choice (ADR-025) ------------------------------------
+#
+# The deployment default lives in `WISEAU_PDF_ENGINE`; a caller may override it
+# per request, because the two engines trade speed against fidelity and only the
+# caller knows which they want for *this* document.
+
+
+@pytest.mark.parametrize("requested", [None, "", "  ", "auto", "AUTO", "default"])
+def test_no_choice_defers_to_the_deployment_default(requested):
+    assert file_parser.resolve_engine(requested) is None
+
+
+@pytest.mark.parametrize(
+    ("requested", "expected"),
+    [("docling", "docling"), ("DOCLING", "docling"), ("pymupdf", "pymupdf"), (" PyMuPDF ", "pymupdf")],
+)
+def test_a_known_engine_is_normalized(requested, expected):
+    assert file_parser.resolve_engine(requested) == expected
+
+
+def test_an_unknown_engine_is_rejected():
+    with pytest.raises(ValueError) as excinfo:
+        file_parser.resolve_engine("tesseract-please")
+    # The message names what the caller may ask for instead.
+    assert "docling" in str(excinfo.value)
+    assert "pymupdf" in str(excinfo.value)
+
+
+def test_requesting_docling_overrides_a_pymupdf_deployment(monkeypatch):
+    monkeypatch.setenv("WISEAU_PDF_ENGINE", "pymupdf")
+    _enable_docling(monkeypatch, lambda data, filename, **kwargs: "# From docling\n")
+
+    result = file_to_markdown(_make_pdf("Ignored by docling"), "doc.pdf", engine="docling")
+
+    assert "From docling" in result
+
+
+def test_requesting_pymupdf_skips_a_configured_docling(monkeypatch):
+    monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)  # default is docling
+    _enable_docling(monkeypatch, lambda *a, **k: pytest.fail("docling must not be called"))
+
+    result = file_to_markdown(_make_pdf("Pinned per request"), "doc.pdf", engine="pymupdf")
+
+    assert "Pinned per request" in result
+
+
+def test_a_requested_docling_still_falls_back(monkeypatch, fresh_metrics):
+    """Choosing fidelity must not cost resilience: the fallback still applies."""
+
+    def failing_convert(data, filename, **kwargs):
+        raise docling_client.DoclingUnavailable("space asleep")
+
+    monkeypatch.setenv("WISEAU_PDF_ENGINE", "pymupdf")
+    _enable_docling(monkeypatch, failing_convert)
+
+    result = file_to_markdown(_make_pdf("Recovered by fallback"), "doc.pdf", engine="docling")
+
+    assert "Recovered by fallback" in result
+    assert fresh_metrics.snapshot()["docling"]["fallbacks"] == 1
+
+
+# --- Embedded images are not inlined as base64 (ADR-024) --------------------
+
+# A 1x1 PNG: enough for python-docx to embed a real picture part.
+_PNG_1X1 = base64.b64decode(
+    "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+)
+
+
+def _make_docx_with_image() -> bytes:
+    document = docx.Document()
+    document.add_heading("Illustrated", level=1)
+    document.add_paragraph("Text around the figure.")
+    document.add_picture(io.BytesIO(_PNG_1X1))
+    buf = io.BytesIO()
+    document.save(buf)
+    return buf.getvalue()
+
+
+def test_a_docx_image_does_not_become_a_base64_blob():
+    """Mammoth's default handler inlines pictures as data URIs; ours must not.
+
+    A screenshot in a Word document would otherwise contribute tens of thousands
+    of unreadable characters — often more than the document's own text.
+    """
+    result = file_to_markdown(_make_docx_with_image(), "illustrated.docx")
+
+    assert "base64" not in result
+    assert "iVBORw0" not in result
+    # The text around the figure is untouched, and the result stays small.
+    assert "# Illustrated" in result
+    assert "Text around the figure." in result
+    assert len(result) < 200

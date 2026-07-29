@@ -20,16 +20,22 @@ import uuid
 from contextlib import asynccontextmanager
 from typing import AsyncIterator
 
-from fastapi import FastAPI, File, HTTPException, Request, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, HttpUrl
+from pydantic import BaseModel, Field, HttpUrl
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 from slowapi.middleware import SlowAPIMiddleware
 from slowapi.util import get_remote_address
 
 from observability import configure_logging, metrics
-from parsers import BlockedUrlError, file_to_markdown, url_to_markdown
+from parsers import (
+    REQUESTABLE_ENGINES,
+    BlockedUrlError,
+    file_to_markdown,
+    resolve_engine,
+    url_to_markdown,
+)
 
 configure_logging()
 logger = logging.getLogger("markdown_engine")
@@ -65,7 +71,7 @@ app = FastAPI(
         "Deterministic conversion of web URLs, PDFs, and DOCX documents into "
         "clean, structured Markdown. Designed for both human UIs and LLM/MCP agents."
     ),
-    version="0.5.0",
+    version="0.6.0",
 )
 
 app.state.limiter = limiter
@@ -181,14 +187,39 @@ async def _job_slot() -> AsyncIterator[None]:
 
 
 # --- Schemas ----------------------------------------------------------------
+# Documented once, shared by both request shapes (JSON body and multipart form).
+_ENGINE_DESCRIPTION = (
+    "Document engine to use: 'docling' (highest fidelity, markedly slower on the "
+    "free CPU tier), 'pymupdf' (fast and deterministic), or 'auto' — the default "
+    "— for this deployment's own preference. docling always falls back to the "
+    "deterministic parser when it is unavailable, whether it was chosen or "
+    "defaulted to. On /convert/url the choice applies only when the URL serves a "
+    "PDF; HTML pages are always extracted by Trafilatura."
+)
+
+
 class UrlRequest(BaseModel):
     url: HttpUrl
+    engine: str | None = Field(default=None, description=_ENGINE_DESCRIPTION)
 
 
 class MarkdownResponse(BaseModel):
     source: str
     markdown: str
     length: int
+
+
+def _resolve_engine_or_400(requested: str | None) -> str | None:
+    """Validate a requested engine, mapping an unknown name to a 400.
+
+    Naming an engine this build cannot run is a caller mistake, not a conversion
+    failure — it must not read as a 502 (nor silently convert with something the
+    caller did not ask for). `None`/`auto` means "this deployment's default".
+    """
+    try:
+        return resolve_engine(requested)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
 # --- Upload handling --------------------------------------------------------
@@ -228,8 +259,17 @@ async def _read_upload(file: UploadFile) -> bytes:
 )
 @limiter.exempt
 async def ping(request: Request) -> dict:
-    """Liveness/readiness check for the UI status badge and background monitors."""
-    return {"status": "ok", "service": "markdown-ingestion-engine", "version": app.version}
+    """Liveness/readiness check for the UI status badge and background monitors.
+
+    Also advertises the engines this build accepts on a convert request, so a
+    client can offer the choice without hard-coding the list.
+    """
+    return {
+        "status": "ok",
+        "service": "markdown-ingestion-engine",
+        "version": app.version,
+        "engines": sorted(REQUESTABLE_ENGINES),
+    }
 
 
 @app.get(
@@ -262,9 +302,10 @@ async def read_metrics(request: Request) -> dict:
 async def convert_url(request: Request, body: UrlRequest) -> MarkdownResponse:
     """Render a URL (JS-aware) and extract its primary content as Markdown."""
     url = str(body.url)
+    engine = _resolve_engine_or_400(body.engine)
     async with _job_slot():
         try:
-            markdown = await asyncio.to_thread(url_to_markdown, url)
+            markdown = await asyncio.to_thread(url_to_markdown, url, engine)
         except BlockedUrlError as exc:
             # The caller asked for a host this deployment refuses to fetch. That
             # is a bad request, not a failed render, so it must not read as a 502.
@@ -286,15 +327,22 @@ async def convert_url(request: Request, body: UrlRequest) -> MarkdownResponse:
     summary="Convert an uploaded PDF or DOCX to Markdown",
 )
 @limiter.limit("20/minute")
-async def convert_file(request: Request, file: UploadFile = File(...)) -> MarkdownResponse:
+async def convert_file(
+    request: Request,
+    file: UploadFile = File(...),
+    engine: str | None = Form(default=None, description=_ENGINE_DESCRIPTION),
+) -> MarkdownResponse:
     """Parse an uploaded PDF or DOCX into Markdown."""
+    resolved_engine = _resolve_engine_or_400(engine)
     data = await _read_upload(file)
     if not data:
         raise HTTPException(status_code=400, detail="Empty file upload.")
 
     async with _job_slot():
         try:
-            markdown = await asyncio.to_thread(file_to_markdown, data, file.filename or "")
+            markdown = await asyncio.to_thread(
+                file_to_markdown, data, file.filename or "", resolved_engine
+            )
         except ValueError as exc:
             metrics.record_conversion("file", "error")
             raise HTTPException(status_code=415, detail=str(exc)) from exc

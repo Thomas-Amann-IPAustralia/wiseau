@@ -21,6 +21,98 @@ one `Superseded`.
 
 ---
 
+## ADR-026 — The UI approximates progress and renders Markdown itself, with no new dependency
+**Date:** 2026-07-29 · **Status:** Accepted
+**Context:** The output panel showed raw Markdown in a `<pre>` and gave no
+feedback while a conversion ran — acceptable when every conversion took a
+second, misleading now that choosing docling can mean minutes of an apparently
+frozen button. Two wants followed: a progress indicator, and a rendered
+("pretty") view alongside the raw syntax. Neither is free: the API is one
+blocking call with **no progress channel** (a conversion is a single
+`asyncio.to_thread` job behind a semaphore — adding real progress would mean job
+IDs, polling, and server-side state, i.e. a different API), and rendering
+Markdown usually means pulling in a library, which the frontend has deliberately
+avoided (no framework, no build step — ADR-004).
+**Decision:** (1) **Approximate the progress bar client-side** from what the
+client already knows — source type, file size, and the chosen engine — with an
+asymptotic curve (95% at the estimate, capped at 99%) that keeps climbing rather
+than parking at the end, plus an elapsed timer and a "still working" note past
+1.3× the estimate. The estimate is labelled as one ("about 30s"), never as
+measured progress. (2) **Ship a small renderer** (`frontend/markdown.js`, ~200
+lines, no dependency) covering the subset the engine emits: headings,
+paragraphs, fenced code, lists, blockquotes, pipe tables, rules, inline marks.
+Extracted content is untrusted, so every fragment is HTML-escaped *before* any
+markup is added (raw HTML in the Markdown displays as text), link targets are
+restricted to `http(s)`/`mailto`/relative, and `data:` images render as a
+placeholder chip instead of being loaded (ADR-024). (3) Downloads go through a
+dialog that pre-fills the title from the document's first `#` — or first `##`
+when there is no `#` — and lets the user amend it before confirming; the title
+names the file.
+**Consequences:** The UI stays a static, dependency-free bundle that GitHub
+Pages can serve as-is, and it now reads as responsive during a long docling
+conversion. The bar is an *estimate*: a cold docling Space can overshoot it
+badly, which is why it never claims to be finished. The renderer covers what
+this engine produces, not all of CommonMark — reference links, setext headings,
+and nested block quirks are out of scope; the raw view is always one click away
+and is the source of truth. If real progress is ever wanted, it needs the job-ID
+API above, not a better estimate.
+
+## ADR-025 — The conversion engine is a per-request choice, not just a deployment setting
+**Date:** 2026-07-29 · **Status:** Accepted
+**Context:** Which engine converts a document was a deployment-wide env var
+(`WISEAU_PDF_ENGINE`). But the trade-off it encodes is *per document*, not per
+deployment: docling reads a scanned, multi-column government PDF far more
+faithfully, and takes tens of seconds to minutes on free CPU to do it, where
+PyMuPDF returns a decent answer in about a second. Only the person (or agent)
+holding the document knows which they want this time, and the UI could not ask.
+**Decision:** Accept an optional `engine` on both convert endpoints —
+`docling` | `pymupdf` | `auto` (default; defer to `WISEAU_PDF_ENGINE`) — carried
+as a JSON field on `/convert/url` and a form field on `/convert/file`, and
+exposed as an argument on both MCP tools. It is validated in `main.py`
+(`resolve_engine`), so an unknown name is a **400**, never a silent substitution
+or a 502. `auto` resolves to `None` rather than to a guessed engine name, so a
+request never pins an engine it did not ask for. API `0.5.0 → 0.6.0` (additive);
+`GET /ping` now also advertises the accepted engine names so a client can offer
+the choice without hard-coding it. ADR-014's automatic fallback still applies to
+an *explicitly requested* docling: choosing fidelity must not cost resilience.
+On `/convert/url` the choice reaches the document pipeline only when the URL
+turns out to serve a PDF — an HTML page is Trafilatura's either way.
+**Consequences:** The UI can offer "highest fidelity vs fastest" with an honest
+warning about docling's cost, and agents get the same lever. `WISEAU_PDF_ENGINE`
+keeps its meaning as the *default*. The response does not (yet) report which
+engine actually ran, so a caller who asks for docling and silently gets the
+fallback cannot tell from the response alone — `GET /metrics` still holds that
+answer, and adding an `engine` field to `MarkdownResponse` remains an option
+(§3 is additive by design).
+
+## ADR-024 — Inlined base64 images are stripped: payload out, structure kept
+**Date:** 2026-07-29 · **Status:** Accepted
+**Context:** A conversion came back with an image inlined as a base64 PNG data
+URI: one unreadable string tens of thousands of characters long, dwarfing the
+document's actual text. Two paths produce it, and both are *defaults* of
+upstream tools rather than anything this pipeline asks for: Mammoth's default
+image handler (`mammoth.images.data_uri`) inlines every DOCX picture, and
+docling-serve's default `image_export_mode=embedded` returns every figure the
+same way. The product is *readable Markdown for humans and LLMs*; a base64 blob
+serves neither, and it inflates every consumer's token count and the response
+size for content nobody can read.
+**Decision:** Defend at the source and at the exit. At the source: the DOCX path
+converts images with a handler that emits no `src` at all, and the docling
+client sends `image_export_mode=placeholder` (docling then emits a short
+`<!-- image -->` marker). At the exit: `clean_markdown` — the shared normalizer
+every parser already flows through (invariant #3) — elides the payload of any
+base64 data URI that still reaches it, wherever it appears (Markdown image,
+HTML attribute, or bare text), leaving `data:image/png;base64,...`. It is
+payload-only: no image, link, or paragraph is removed, and there is no size
+heuristic, so the rule stays a normalization and stays deterministic.
+**Consequences:** An illustrated document converts to Markdown about its text's
+size again, and *where* the figures were is still recorded. The image data is
+gone — this engine extracts text, and a caller who needs the images must go to
+the source document. Rejected: stripping only "large" payloads (a threshold to
+tune, and a small blob is no more readable), and deleting the image syntax
+entirely (loses the fact that a figure was there). The frontend viewer renders
+an elided image as a placeholder chip rather than a broken-image icon.
+
 ## ADR-023 — deployment is prepared in-repo so the remaining work is account-only
 **Date:** 2026-07-26 · **Status:** Accepted — implemented; not yet exercised against a real Space or Pages site.
 **Context:** Both open tracks (Phase 5 deployment, Phase 6's docling Space) were

@@ -130,8 +130,15 @@ def _encode_multipart(filename: str, data: bytes) -> tuple[bytes, str]:
     """Encode ``data`` as a ``multipart/form-data`` body for docling-serve.
 
     Sends the document under the ``files`` field and requests Markdown output
-    (``to_formats=md``). The boundary is derived from a hash of the bytes so it
-    is deterministic yet cannot collide with the document's own content.
+    (``to_formats=md``) with images left out (``image_export_mode=placeholder``).
+    docling-serve's default is ``embedded``, which returns every figure as a
+    base64 data URI inside ``md_content`` — a scanned page then arrives as tens of
+    thousands of unreadable characters wrapped around the text we actually asked
+    for (ADR-024). ``placeholder`` emits a short ``<!-- image -->`` marker
+    instead, so the layout still records where the figures were.
+
+    The boundary is derived from a hash of the bytes so it is deterministic yet
+    cannot collide with the document's own content.
     """
     boundary = "wiseau" + hashlib.sha256(data).hexdigest()[:32]
     safe_name = filename.replace('"', "").replace("\r", "").replace("\n", "") or "document"
@@ -143,6 +150,10 @@ def _encode_multipart(filename: str, data: bytes) -> tuple[bytes, str]:
             b'Content-Disposition: form-data; name="to_formats"',
             b"",
             b"md",
+            marker,
+            b'Content-Disposition: form-data; name="image_export_mode"',
+            b"",
+            b"placeholder",
             marker,
             (
                 b'Content-Disposition: form-data; name="files"; '

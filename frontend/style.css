@@ -176,3 +176,168 @@ input[type="url"]:focus { outline: none; border-color: var(--accent); }
 }
 .output .placeholder { color: var(--muted); }
 .output.is-error { color: var(--err); }
+
+/* --- Engine selection ------------------------------------------------------ */
+.engine {
+  margin: 18px 0 0;
+  padding: 0;
+  border: none;
+}
+.engine__options { display: flex; gap: 8px; flex-wrap: wrap; }
+.engine__option {
+  flex: 1 1 130px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel-2);
+  cursor: pointer;
+  font-size: 0.86rem;
+}
+.engine__option:has(input:checked) { border-color: var(--accent); }
+.engine__option:has(input:disabled) { opacity: 0.55; cursor: not-allowed; }
+.engine__option input { position: absolute; opacity: 0; pointer-events: none; }
+.engine__name { font-weight: 600; }
+.engine__hint { font-size: 0.74rem; color: var(--muted); }
+.engine__note {
+  margin: 10px 0 0;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* --- Progress approximation ------------------------------------------------ */
+.progress { margin-top: 16px; }
+.progress__bar {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.progress__fill {
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  transition: width 0.2s linear;
+}
+.progress--done .progress__fill { background: var(--ok); }
+.progress__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 7px 0 0;
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+.progress__timer { font-variant-numeric: tabular-nums; }
+
+/* --- Output view toggle ---------------------------------------------------- */
+.view-toggle { display: flex; gap: 4px; }
+.view-toggle__btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+.view-toggle__btn--active { color: var(--text); border-color: var(--accent); }
+
+/* --- Rendered ("pretty") Markdown ------------------------------------------ */
+.output--preview {
+  white-space: normal;
+  font-family: inherit;
+  font-size: 0.92rem;
+}
+.markdown-body > :first-child { margin-top: 0; }
+.markdown-body h1, .markdown-body h2, .markdown-body h3,
+.markdown-body h4, .markdown-body h5, .markdown-body h6 {
+  margin: 1.4em 0 0.5em;
+  line-height: 1.25;
+}
+.markdown-body h1 { font-size: 1.5rem; }
+.markdown-body h2 { font-size: 1.25rem; }
+.markdown-body h3 { font-size: 1.08rem; }
+.markdown-body h4, .markdown-body h5, .markdown-body h6 { font-size: 1rem; }
+.markdown-body h1, .markdown-body h2 {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.3em;
+}
+.markdown-body p { margin: 0.75em 0; }
+.markdown-body a { color: var(--accent); }
+.markdown-body ul, .markdown-body ol { margin: 0.6em 0; padding-left: 1.5em; }
+.markdown-body li { margin: 0.25em 0; }
+.markdown-body blockquote {
+  margin: 0.8em 0;
+  padding: 0.1em 1em;
+  border-left: 3px solid var(--border);
+  color: var(--muted);
+}
+.markdown-body code {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 0.1em 0.35em;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.85em;
+}
+.markdown-body pre.md-code {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  overflow-x: auto;
+}
+.markdown-body pre.md-code code { background: none; border: none; padding: 0; }
+.markdown-body hr { border: none; border-top: 1px solid var(--border); margin: 1.4em 0; }
+.markdown-body img { max-width: 100%; border-radius: 6px; }
+.markdown-body .md-image {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: 0.82em;
+}
+.md-table-wrap { overflow-x: auto; margin: 0.9em 0; }
+.markdown-body table { border-collapse: collapse; font-size: 0.88em; }
+.markdown-body th, .markdown-body td {
+  border: 1px solid var(--border);
+  padding: 6px 10px;
+  text-align: left;
+}
+.markdown-body th { background: var(--panel); }
+
+/* --- Download dialog ------------------------------------------------------- */
+.dialog {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--text);
+  padding: 20px;
+  width: min(440px, calc(100vw - 32px));
+}
+.dialog::backdrop { background: rgba(6, 9, 13, 0.6); }
+.dialog__form { display: flex; flex-direction: column; }
+.dialog__title { margin: 0 0 6px; font-size: 1.05rem; }
+.dialog__hint { margin: 0 0 16px; font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+.dialog__input {
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+}
+.dialog__input:focus { outline: none; border-color: var(--accent); }
+.dialog__filename { margin: 10px 0 0; font-size: 0.78rem; color: var(--muted); }
+.dialog__filename code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color: var(--text);
+}
+.dialog__actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 20px; }

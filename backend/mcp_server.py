@@ -77,7 +77,7 @@ def _unwrap(response: httpx.Response) -> dict[str, Any]:
 
 # --- Tools ------------------------------------------------------------------
 @mcp.tool()
-async def convert_url(url: str) -> dict[str, Any]:
+async def convert_url(url: str, engine: str = "auto") -> dict[str, Any]:
     """Convert a web page to clean, deterministic Markdown.
 
     Renders the URL with a JavaScript-aware headless browser and extracts its
@@ -86,17 +86,20 @@ async def convert_url(url: str) -> dict[str, Any]:
 
     Args:
         url: Absolute ``http`` or ``https`` URL of the page to convert.
+        engine: Document engine, used only when the URL serves a **PDF**:
+            ``"docling"`` (highest fidelity, much slower), ``"pymupdf"`` (fast,
+            deterministic), or ``"auto"`` (the deployment's default).
 
     Returns:
         ``{"source": <url>, "markdown": <content>, "length": <char count>}``.
     """
     async with _client() as client:
-        response = await client.post("/convert/url", json={"url": url})
+        response = await client.post("/convert/url", json={"url": url, "engine": engine})
     return _unwrap(response)
 
 
 @mcp.tool()
-async def convert_file(path: str) -> dict[str, Any]:
+async def convert_file(path: str, engine: str = "auto") -> dict[str, Any]:
     """Convert a local PDF or DOCX file to clean, deterministic Markdown.
 
     Reads the file at ``path`` from the machine running this MCP server and
@@ -104,6 +107,10 @@ async def convert_file(path: str) -> dict[str, Any]:
 
     Args:
         path: Filesystem path to a local ``.pdf`` or ``.docx`` file.
+        engine: ``"docling"`` for the highest-fidelity conversion of complex or
+            scanned documents (much slower on free CPU), ``"pymupdf"`` for the
+            fast deterministic parser, or ``"auto"`` (the deployment's default).
+            docling always falls back to the fast parser if it is unavailable.
 
     Returns:
         ``{"source": <filename>, "markdown": <content>, "length": <char count>}``.
@@ -113,7 +120,7 @@ async def convert_file(path: str) -> dict[str, Any]:
     content_type = _CONTENT_TYPES.get(file_path.suffix.lower(), "application/octet-stream")
     files = {"file": (file_path.name, data, content_type)}
     async with _client() as client:
-        response = await client.post("/convert/file", files=files)
+        response = await client.post("/convert/file", files=files, data={"engine": engine})
     return _unwrap(response)
 
 
