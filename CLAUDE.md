@@ -85,7 +85,9 @@ wiseau/
 └── frontend/               # static UI (GitHub Pages target)
     ├── index.html
     ├── style.css
-    ├── app.js              # state + fetch calls
+    ├── app.js              # state + fetch calls, engine picker, progress estimate
+    ├── markdown.js         # dependency-free renderer behind the Preview mode
+    ├── favicon.svg         # site icon
     └── config.js           # per-deployment: MARKDOWN_API_BASE
 ```
 
@@ -151,6 +153,10 @@ WISEAU_LIVE_BROWSER=1 pytest    # also runs the opt-in live-Chromium tests
 - **All extracted output flows through `cleaner.clean_markdown()`.** Don't return
   Markdown from any parser (docling included) without running it through the shared
   normalizer.
+- **No machine payload in the Markdown (ADR-024).** The output is for humans and
+  LLMs to read, so no extractor may inline an image as a base64 data URI. Configure
+  the upstream tool not to produce one; the normalizer elides any that slips
+  through.
 - **The API contract is shared by humans and agents.** Both consume the same
   `MarkdownResponse` JSON. Don't fork the contract per consumer. Contract changes
   go in `tech-spec.md` and bump the API `version` in `main.py`.

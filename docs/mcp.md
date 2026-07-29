@@ -34,13 +34,21 @@ agent  ──MCP (stdio/http)──►  mcp_server.py  ──HTTP──►  Fast
 
 | Tool | Arguments | Wraps | Returns |
 | ---- | --------- | ----- | ------- |
-| `convert_url` | `url: str` (absolute http/https) | `POST /convert/url` | `{source, markdown, length}` |
-| `convert_file` | `path: str` (local `.pdf`/`.docx`) | `POST /convert/file` | `{source, markdown, length}` |
-| `ping` | — | `GET /ping` | `{status, service, version}` |
+| `convert_url` | `url: str` (absolute http/https), `engine: str = "auto"` | `POST /convert/url` | `{source, markdown, length}` |
+| `convert_file` | `path: str` (local `.pdf`/`.docx`), `engine: str = "auto"` | `POST /convert/file` | `{source, markdown, length}` |
+| `ping` | — | `GET /ping` | `{status, service, version, engines}` |
 
 `convert_file` reads the file from the machine running the MCP server (the usual
 case: the server runs locally alongside the agent) and forwards its bytes and
 filename to the backend, which dispatches parsers by extension.
+
+`engine` is the same lever the web UI offers (ADR-025): `docling` for the most
+faithful reading of a complex or scanned document (much slower — tens of seconds
+to minutes on free CPU), `pymupdf` for the fast deterministic parser, or `auto`
+to take the deployment's default. An unknown name comes back as the backend's
+400. Choosing `docling` does not disable the automatic fallback, so an agent
+that asks for fidelity still gets a result when docling is down. `ping` reports
+the accepted names in `engines`.
 
 Backend errors are surfaced verbatim: a failed tool raises with the backend's
 `detail` message and status code (e.g. `wiseau backend error 415: Unsupported

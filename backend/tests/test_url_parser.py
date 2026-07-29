@@ -150,9 +150,10 @@ def test_pdf_viewer_response_routes_to_the_document_pipeline(monkeypatch):
 
     seen: dict = {}
 
-    def fake_file_to_markdown(data: bytes, filename: str) -> str:
+    def fake_file_to_markdown(data: bytes, filename: str, engine=None) -> str:
         seen["data"] = data
         seen["filename"] = filename
+        seen["engine"] = engine
         return "# From the document pipeline\n"
 
     monkeypatch.setattr(url_parser, "file_to_markdown", fake_file_to_markdown)
@@ -171,7 +172,7 @@ def test_pdf_url_without_viewer_markup_is_still_downloaded(monkeypatch):
     # Some responses download rather than display; the `.pdf` path still probes.
     pdf = _make_pdf("Tabled Paper")
     _install_driver(monkeypatch, _FakeDriver("<html><body></body></html>", download=_b64(pdf)))
-    monkeypatch.setattr(url_parser, "file_to_markdown", lambda data, filename: f"{filename}:{len(data)}")
+    monkeypatch.setattr(url_parser, "file_to_markdown", lambda data, filename, engine=None: f"{filename}:{len(data)}")
 
     assert url_parser.url_to_markdown("https://example.gov/x/tabled.pdf?v=2") == f"tabled.pdf:{len(pdf)}"
 

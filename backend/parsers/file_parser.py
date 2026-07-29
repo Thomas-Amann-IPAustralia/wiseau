@@ -8,7 +8,9 @@ unreachable, timeout, 5xx, empty, or a rejected document — the parser **logs a
 falls back** to the deterministic parsers below. With no docling base configured
 (the common local/dev case) docling is simply skipped, so behaviour is identical
 to before Phase 6. The docling default may vary run-to-run **by design** (ADR-013);
-the fallback path stays deterministic.
+the fallback path stays deterministic. A caller may override the deployment
+default per request (`engine=`; ADR-025) — the fallback still applies, so asking
+for docling can never turn an outage into a failed conversion.
 
 The deterministic fallback: PDFs are converted with PyMuPDF4LLM (LLM-tuned
 Markdown output); DOCX files are converted to HTML with Mammoth and then to
@@ -60,6 +62,10 @@ pymupdf4llm.use_layout(False)
 
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".tif", ".tiff", ".bmp", ".webp", ".gif"}
 SUPPORTED_EXTENSIONS = {".pdf", ".docx"} | IMAGE_EXTENSIONS
+
+# Engines a caller may name on a request (ADR-025). `auto` is accepted too and
+# means "this deployment's default", i.e. whatever `WISEAU_PDF_ENGINE` says.
+REQUESTABLE_ENGINES = frozenset({"docling", "pymupdf"})
 
 # Resolution (dots per inch) for rasterizing a page before OCR. 300 DPI is the
 # accuracy sweet spot; a fixed constant (overridable via env) so the same page
@@ -182,16 +188,59 @@ def image_to_markdown(data: bytes, ext: str) -> str:
             doc.close()
 
 
+@mammoth.images.img_element
+def _image_without_payload(image) -> dict:
+    """Render an embedded DOCX image as an empty-target `<img>` (ADR-024).
+
+    Mammoth's default image handler is `mammoth.images.data_uri`, which inlines
+    every picture as a base64 data URI — one screenshot in a Word document then
+    contributes tens of thousands of unreadable characters to the Markdown, often
+    more than the document's entire text. Emitting the element without a source
+    keeps the fact of the image (and its alt text, which Mammoth attaches on its
+    own) while leaving the payload out of the string entirely. `clean_markdown`
+    catches any data URI that reaches it from another extractor; this keeps the
+    DOCX path from building one in the first place.
+    """
+    return {"src": ""}
+
+
 def docx_to_markdown(data: bytes) -> str:
     """Convert DOCX bytes to Markdown via Mammoth + Markdownify."""
     metrics.record_engine("mammoth")
-    result = mammoth.convert_to_html(io.BytesIO(data))
+    result = mammoth.convert_to_html(io.BytesIO(data), convert_image=_image_without_payload)
     return html_to_md(result.value, heading_style="ATX")
 
 
 def _pdf_engine() -> str:
     """Preferred document engine: 'docling' (default; ADR-014) or 'pymupdf'."""
     return os.environ.get("WISEAU_PDF_ENGINE", "docling").strip().lower()
+
+
+def resolve_engine(requested: str | None) -> str | None:
+    """Validate a caller-supplied engine choice (ADR-025).
+
+    The API lets a caller override this deployment's default per request — the
+    UI exposes it as "highest fidelity" vs "fastest", because docling on free CPU
+    can take a minute where the deterministic parser takes a second.
+
+    Args:
+        requested: `"docling"`, `"pymupdf"`, `"auto"`/empty (defer to
+            `WISEAU_PDF_ENGINE`), in any case.
+
+    Returns:
+        The engine name to use, or `None` for "whatever the deployment defaults
+        to" — kept distinct so a request never pins an engine it did not ask for.
+
+    Raises:
+        ValueError: the value is not one this build knows how to run.
+    """
+    value = (requested or "").strip().lower()
+    if value in {"", "auto", "default"}:
+        return None
+    if value not in REQUESTABLE_ENGINES:
+        supported = ", ".join(sorted(REQUESTABLE_ENGINES | {"auto"}))
+        raise ValueError(f"Unknown engine '{requested}'. Supported: {supported}.")
+    return value
 
 
 def _fallback_markdown(data: bytes, ext: str) -> str:
@@ -208,16 +257,18 @@ def _fallback_markdown(data: bytes, ext: str) -> str:
     return image_to_markdown(data, ext)
 
 
-def _extract_markdown(data: bytes, filename: str, ext: str) -> str:
+def _extract_markdown(data: bytes, filename: str, ext: str, engine: str | None = None) -> str:
     """Convert a supported document to Markdown, docling-first with fallback.
 
     Tries docling only when it is *selected* (`WISEAU_PDF_ENGINE=docling`, the
-    default) **and** *configured* (`WISEAU_DOCLING_BASE` set). Any docling failure
-    — infrastructure (`DoclingUnavailable`) or a rejected document
-    (`DoclingBadDocument`) — is logged and degraded to the deterministic parser,
-    so the service returns a working result rather than an error (ADR-014).
+    default, or a per-request `engine` override) **and** *configured*
+    (`WISEAU_DOCLING_BASE` set). Any docling failure — infrastructure
+    (`DoclingUnavailable`) or a rejected document (`DoclingBadDocument`) — is
+    logged and degraded to the deterministic parser, so the service returns a
+    working result rather than an error (ADR-014). That holds for an explicitly
+    requested docling too: a caller asking for fidelity still gets a result.
     """
-    selected = _pdf_engine()
+    selected = engine or _pdf_engine()
     if selected != "docling":
         metrics.record_docling_skipped("engine_not_selected")
     elif not docling_client.is_configured():
@@ -255,12 +306,20 @@ def _extract_markdown(data: bytes, filename: str, ext: str) -> str:
     return _fallback_markdown(data, ext)
 
 
-def file_to_markdown(data: bytes, filename: str) -> str:
-    """Dispatch an uploaded document to the right parser by extension."""
+def file_to_markdown(data: bytes, filename: str, engine: str | None = None) -> str:
+    """Dispatch an uploaded document to the right parser by extension.
+
+    Args:
+        data: The document bytes.
+        filename: Original filename; its extension selects the parser.
+        engine: Optional per-request engine override (`"docling"`/`"pymupdf"`);
+            `None` uses this deployment's default. Validate caller input with
+            `resolve_engine` first.
+    """
     ext = os.path.splitext(filename)[1].lower()
     if ext not in SUPPORTED_EXTENSIONS:
         supported = ", ".join(sorted(SUPPORTED_EXTENSIONS))
         raise ValueError(f"Unsupported file type '{ext or 'unknown'}'. Supported: {supported}.")
 
-    raw = _extract_markdown(data, filename, ext)
+    raw = _extract_markdown(data, filename, ext, engine)
     return clean_markdown(raw)

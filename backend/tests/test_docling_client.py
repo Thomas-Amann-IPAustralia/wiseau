@@ -100,6 +100,27 @@ def test_builds_multipart_post_to_convert_endpoint():
     assert b"the-bytes" in body
 
 
+def test_images_are_requested_as_placeholders_not_base64():
+    """docling-serve's default `image_export_mode` inlines figures as data URIs.
+
+    A scanned page would then come back as tens of thousands of unreadable
+    base64 characters wrapped around the text we asked for (ADR-024), so the
+    request pins the placeholder mode explicitly.
+    """
+    captured: dict = {}
+    docling_client.convert_document(
+        b"the-bytes",
+        "scan.pdf",
+        base="http://docling",
+        transport=_transport(captured, body=_ok_body("x")),
+    )
+
+    body = captured["request"].data
+    assert b'name="image_export_mode"' in body
+    assert b"placeholder" in body
+    assert b"embedded" not in body
+
+
 def test_bearer_token_sent_when_configured():
     captured: dict = {}
     docling_client.convert_document(

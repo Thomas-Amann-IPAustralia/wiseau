@@ -290,8 +290,16 @@ def fetch_rendered_html(url: str) -> str:
     return fetch_rendered(url).html
 
 
-def url_to_markdown(url: str) -> str:
-    """Convert a live URL into clean Markdown."""
+def url_to_markdown(url: str, engine: str | None = None) -> str:
+    """Convert a live URL into clean Markdown.
+
+    Args:
+        url: The page to render and extract.
+        engine: Optional document-engine override, forwarded to the document
+            pipeline when the URL turns out to serve a **PDF**. An HTML page is
+            extracted by Trafilatura either way, so the choice does not apply
+            there (ADR-025).
+    """
     page = fetch_rendered(url)
 
     if page.is_pdf:
@@ -302,7 +310,7 @@ def url_to_markdown(url: str) -> str:
         )
         # The document pipeline: docling-first with automatic fallback, cleaned.
         # It records its own engine attribution, so none is recorded here.
-        return file_to_markdown(page.pdf_bytes, filename)
+        return file_to_markdown(page.pdf_bytes, filename, engine)
 
     extracted = trafilatura.extract(
         page.html,

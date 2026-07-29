@@ -221,6 +221,52 @@ parsers when docling is unavailable. The deploy tasks below extend Phase 5.
 
 ---
 
+## Phase 7 — Usability pass: engine choice, progress, viewer, downloads
+
+Driven by real use of the deployed-shaped UI. Design & rationale: **ADR-024**
+(inlined base64 images), **ADR-025** (per-request engine), **ADR-026** (UI).
+
+- [x] **Per-request engine selection.** `engine` (`docling` | `pymupdf` | `auto`)
+  on both convert endpoints — JSON field on `/convert/url`, form field on
+  `/convert/file` — plus an argument on both MCP tools; `GET /ping` advertises
+  the accepted names. Unknown value ⇒ **400**, never a silent substitution.
+  `WISEAU_PDF_ENGINE` remains the deployment *default*. API `0.5.0 → 0.6.0`
+  (additive). *Verified: 14 backend tests (validation/normalization, override in
+  both directions, an explicitly requested docling still falling back, 400s
+  before any conversion starts, the OpenAPI surface, the MCP forwarding), and
+  live in the browser — the chosen engine arrives on both endpoints.*
+- [x] **Engine picker in the UI, with the slowness stated.** Three options and a
+  note that docling takes tens of seconds to minutes on free CPU (longer cold)
+  and falls back automatically. *Verified in a real browser.*
+- [x] **Loading animation.** The API has no progress channel (one blocking call),
+  so the bar is **approximated** client-side from source type, file size, and
+  engine, on an asymptotic curve that never claims to be finished, with an
+  elapsed timer and a "still working" message past 1.3× the estimate (ADR-026,
+  tech-spec §14). *Verified: the bar appears, advances, and clears on both
+  success and error.*
+- [x] **Preview / raw viewer.** `frontend/markdown.js` — a ~200-line
+  dependency-free renderer for the subset this engine emits; untrusted content is
+  escaped before any markup is added, link schemes are restricted, and `data:`
+  images render as a placeholder chip. *Verified in a real browser: headings,
+  bold, lists, tables, code blocks, blockquotes, safe links, the placeholder
+  chip, and that an embedded `<script>` renders as text and does not execute.*
+- [x] **Favicon** (`frontend/favicon.svg`, linked from `index.html`) — served by
+  the Pages workflow with the rest of `frontend/`. *Verified: fetched 200 and
+  linked from the page.*
+- [x] **Title-first download.** The Download button opens a dialog pre-filled
+  from the document's first `#` (or first `##`) heading, editable, with a live
+  filename preview and a *Confirm download*. *Verified: H1 title, H2 fallback,
+  an amended title changing the saved filename, cancel not downloading.*
+- [x] **Inlined base64 images no longer bloat the output.** Fixed at the source
+  (a DOCX image handler that emits no data URI; `image_export_mode=placeholder`
+  on docling requests) and at the exit (`clean_markdown` elides any base64
+  data-URI payload, keeping the media type). *Verified: 8 cleaner tests, a
+  DOCX-with-picture round trip, the docling request shape, and end-to-end through
+  the real backend + UI — an illustrated DOCX converts to 103 characters with no
+  payload in sight.*
+
+---
+
 ## Cross-cutting backlog (not phase-bound)
 
 - [x] **OCR for scanned / handwritten documents.** Image-only PDF pages and image

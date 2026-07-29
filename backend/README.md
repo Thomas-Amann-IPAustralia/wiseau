@@ -20,8 +20,8 @@ full design.
 | Method | Path            | Purpose                                          |
 | ------ | --------------- | ------------------------------------------------ |
 | GET    | `/ping`         | Liveness/readiness check (rate-limit exempt).    |
-| POST   | `/convert/url`  | `{ "url": "..." }` → Markdown JSON.              |
-| POST   | `/convert/file` | multipart `file` (PDF/DOCX/image) → Markdown JSON.|
+| POST   | `/convert/url`  | `{ "url": "...", "engine": "auto" }` → Markdown JSON. |
+| POST   | `/convert/file` | multipart `file` (PDF/DOCX/image) + optional `engine` → Markdown JSON.|
 | GET    | `/metrics`      | Per-process operational counters (see below).    |
 
 `/convert/url` refuses a URL that resolves to a loopback/private/link-local
@@ -29,6 +29,12 @@ address with a **400** — the endpoint is public and the fetch happens inside t
 container, so an unguarded renderer is an SSRF primitive. Set
 `WISEAU_ALLOW_PRIVATE_URLS=1` on a self-hosted deployment that converts its own
 intranet. See [`../docs/tech-spec.md`](../docs/tech-spec.md) §13 and ADR-021.
+
+Both convert endpoints take an optional **`engine`**: `docling` (highest
+fidelity, far slower on free CPU), `pymupdf` (fast, deterministic), or `auto`
+(the default — use this deployment's `WISEAU_PDF_ENGINE`). An unknown value is a
+**400**. Requesting `docling` does not disable the automatic fallback, and
+`GET /ping` lists the names this build accepts. See ADR-025.
 
 Interactive docs and the machine-readable schema for LLM/MCP integration are
 served at `/docs` and `/openapi.json`.
@@ -153,7 +159,7 @@ they reset with the process. See [`../docs/tech-spec.md`](../docs/tech-spec.md)
 | `MAX_UPLOAD_BYTES`    | `26214400`| Upload size limit (25 MB).                     |
 | `CHROME_BIN`          | —         | Path to the Chromium binary.                   |
 | `CHROMEDRIVER_PATH`   | —         | Path to chromedriver.                          |
-| `WISEAU_PDF_ENGINE`   | `docling` | `docling` (default) or `pymupdf` to force the local parser. |
+| `WISEAU_PDF_ENGINE`   | `docling` | **Default** engine: `docling` or `pymupdf` (force the local parser). A request's `engine` overrides it. |
 | `WISEAU_DOCLING_BASE` | —         | docling-serve base URL. Unset ⇒ docling skipped. |
 | `WISEAU_DOCLING_TOKEN`| —         | Sent as `Authorization: Bearer` (private-Space gateway). |
 | `WISEAU_DOCLING_API_KEY` | —      | Sent as `X-Api-Key` (docling-serve's `DOCLING_SERVE_API_KEY`). |

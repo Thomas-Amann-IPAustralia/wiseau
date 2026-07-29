@@ -45,7 +45,7 @@ def test_convert_url_requires_url_field(client):
 
 
 def test_convert_url_happy_path_is_mocked(client, monkeypatch):
-    monkeypatch.setattr(main, "url_to_markdown", lambda url: "# Rendered\n")
+    monkeypatch.setattr(main, "url_to_markdown", lambda url, engine=None: "# Rendered\n")
     resp = client.post("/convert/url", json={"url": "https://example.com"})
     assert resp.status_code == 200
     body = resp.json()
@@ -55,7 +55,7 @@ def test_convert_url_happy_path_is_mocked(client, monkeypatch):
 
 
 def test_convert_url_surfaces_worker_failure_as_502(client, monkeypatch):
-    def boom(url):
+    def boom(url, engine=None):
         raise RuntimeError("render exploded")
 
     monkeypatch.setattr(main, "url_to_markdown", boom)
@@ -115,7 +115,7 @@ def test_oversized_upload_is_refused_without_being_assembled(monkeypatch):
 def test_a_blocked_url_is_a_400_not_a_502(client, monkeypatch):
     # Asking for a host the deployment refuses is a bad request, not a failed
     # render — a 502 would read as "wiseau is broken" (ADR-021).
-    def blocked(url):
+    def blocked(url, engine=None):
         raise BlockedUrlError("Refusing to fetch 'localhost': non-public address.")
 
     monkeypatch.setattr(main, "url_to_markdown", blocked)
@@ -207,7 +207,7 @@ def test_unmatched_paths_cannot_inflate_the_route_table(client, fresh_metrics):
 
 
 def test_a_conversion_records_its_job_and_engine(client, fresh_metrics, monkeypatch):
-    monkeypatch.setattr(main, "url_to_markdown", lambda url: "# Rendered\n")
+    monkeypatch.setattr(main, "url_to_markdown", lambda url, engine=None: "# Rendered\n")
     client.post("/convert/url", json={"url": "https://example.com"})
 
     body = client.get("/metrics").json()
@@ -217,7 +217,7 @@ def test_a_conversion_records_its_job_and_engine(client, fresh_metrics, monkeypa
 
 
 def test_a_failed_conversion_is_recorded_as_such(client, fresh_metrics, monkeypatch):
-    def boom(url):
+    def boom(url, engine=None):
         raise RuntimeError("render exploded")
 
     monkeypatch.setattr(main, "url_to_markdown", boom)
@@ -274,7 +274,7 @@ def test_ping_is_exempt_from_the_default_limit(client):
 
 
 def test_convert_routes_keep_their_tighter_explicit_limit(client, monkeypatch):
-    monkeypatch.setattr(main, "url_to_markdown", lambda url: "# Rendered\n")
+    monkeypatch.setattr(main, "url_to_markdown", lambda url, engine=None: "# Rendered\n")
     codes = [
         client.post("/convert/url", json={"url": "https://example.com"}).status_code
         for _ in range(21)
@@ -295,3 +295,92 @@ def test_a_rate_limited_request_is_attributed_to_its_route(client, fresh_metrics
     assert body["requests"]["by_route"]["/openapi.json"] == 61
     assert body["requests"]["by_status"]["429"] == 1
     assert "unmatched" not in body["requests"]["by_route"]
+
+
+# --- Per-request engine choice (ADR-025) ------------------------------------
+
+
+def test_ping_advertises_the_selectable_engines(client):
+    body = client.get("/ping").json()
+    # The UI offers the choice from this list rather than hard-coding it.
+    assert body["engines"] == ["docling", "pymupdf"]
+
+
+def test_an_upload_can_name_its_engine(client, monkeypatch):
+    seen: dict = {}
+
+    def fake_convert(data, filename, engine=None):
+        seen["engine"] = engine
+        return "# Converted\n"
+
+    monkeypatch.setattr(main, "file_to_markdown", fake_convert)
+    resp = client.post(
+        "/convert/file",
+        files={"file": ("doc.pdf", b"%PDF-1.4 stub", "application/pdf")},
+        data={"engine": "docling"},
+    )
+
+    assert resp.status_code == 200
+    assert seen["engine"] == "docling"
+
+
+def test_a_url_request_can_name_its_engine(client, monkeypatch):
+    seen: dict = {}
+
+    def fake_convert(url, engine=None):
+        seen["engine"] = engine
+        return "# Converted\n"
+
+    monkeypatch.setattr(main, "url_to_markdown", fake_convert)
+    resp = client.post("/convert/url", json={"url": "https://example.com", "engine": "pymupdf"})
+
+    assert resp.status_code == 200
+    assert seen["engine"] == "pymupdf"
+
+
+def test_omitting_the_engine_leaves_the_deployment_default_in_charge(client, monkeypatch):
+    seen: dict = {}
+
+    def fake_convert(url, engine=None):
+        seen["engine"] = engine
+        return "# Converted\n"
+
+    monkeypatch.setattr(main, "url_to_markdown", fake_convert)
+    client.post("/convert/url", json={"url": "https://example.com"})
+
+    # `None`, not a guessed engine name: the request pins nothing it didn't ask for.
+    assert seen["engine"] is None
+
+
+def test_an_unknown_engine_is_a_400_not_a_502(client, monkeypatch):
+    # Naming an engine this build cannot run is a caller mistake; it must not
+    # read as "wiseau is broken", and must not silently convert with another one.
+    monkeypatch.setattr(
+        main, "url_to_markdown", lambda *a, **k: pytest.fail("no conversion may start")
+    )
+    resp = client.post("/convert/url", json={"url": "https://example.com", "engine": "magic"})
+
+    assert resp.status_code == 400
+    assert "magic" in resp.json()["detail"]
+
+
+def test_an_unknown_engine_on_an_upload_is_rejected_before_the_file_is_read(client, monkeypatch):
+    monkeypatch.setattr(
+        main, "file_to_markdown", lambda *a, **k: pytest.fail("no conversion may start")
+    )
+    resp = client.post(
+        "/convert/file",
+        files={"file": ("doc.pdf", b"%PDF-1.4 stub", "application/pdf")},
+        data={"engine": "magic"},
+    )
+
+    assert resp.status_code == 400
+
+
+def test_the_engine_field_is_documented_in_the_openapi_schema(client):
+    schema = client.get("/openapi.json").json()
+    url_body = schema["components"]["schemas"]["UrlRequest"]["properties"]
+    assert "engine" in url_body
+    # The multipart body is emitted as its own component schema.
+    form = schema["components"]["schemas"]["Body_convert_file"]["properties"]
+    assert "engine" in form

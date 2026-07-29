@@ -44,8 +44,16 @@ interactive docs are at `/docs`.
 - **Rate limit:** exempt (`@limiter.exempt`, honoured by `SlowAPIMiddleware`).
 - **200 response:**
   ```json
-  { "status": "ok", "service": "markdown-ingestion-engine", "version": "0.5.0" }
+  {
+    "status": "ok",
+    "service": "markdown-ingestion-engine",
+    "version": "0.6.0",
+    "engines": ["docling", "pymupdf"]
+  }
   ```
+  `engines` lists the names a caller may pass as `engine` on a convert request
+  (plus the always-accepted `auto`), so a client can offer the choice without
+  hard-coding it.
 
 ### `GET /metrics`
 - **Purpose:** operational counters for *this process* — request/job timings,
@@ -62,27 +70,40 @@ interactive docs are at `/docs`.
 - **Rate limit:** `20/minute` per IP.
 - **Request body:**
   ```json
-  { "url": "https://example.com/article" }
+  { "url": "https://example.com/article", "engine": "auto" }
   ```
-  `url` is validated as an `HttpUrl`.
+  `url` is validated as an `HttpUrl`. `engine` is optional (see the box below);
+  on this endpoint it applies only when the URL turns out to serve a **PDF** —
+  an HTML page is extracted by Trafilatura regardless.
 - **200 response:** `MarkdownResponse` (see §3).
 - **Errors:** `400` the URL resolves to a non-public address and this
-  deployment refuses to fetch it (§13); `422` invalid URL (FastAPI validation);
-  `429` rate limited; `502` extraction/render failure.
+  deployment refuses to fetch it (§13), or `engine` names an engine this build
+  cannot run; `422` invalid URL (FastAPI validation); `429` rate limited;
+  `502` extraction/render failure.
 
 ### `POST /convert/file`
 - **Purpose:** parse an uploaded PDF, DOCX, or image into Markdown. Scanned /
   handwritten PDFs and image uploads are OCR'd automatically (see §10).
 - **Rate limit:** `20/minute` per IP.
-- **Request:** `multipart/form-data` with a single `file` field.
+- **Request:** `multipart/form-data` with a `file` field and an optional
+  `engine` field (see the box below).
 - **Constraints:** extension must be `.pdf`, `.docx`, or an image type
   (`.png`, `.jpg`, `.jpeg`, `.tif`, `.tiff`, `.bmp`, `.webp`, `.gif`); body must
   be non-empty and ≤ `MAX_UPLOAD_BYTES` (default 25 MB). The limit is enforced
   while the part is *streamed*, so an oversized body is refused without being
   assembled in memory.
 - **200 response:** `MarkdownResponse`.
-- **Errors:** `400` empty upload; `413` too large; `415` unsupported type;
-  `429` rate limited; `502` parse failure.
+- **Errors:** `400` empty upload or an unknown `engine`; `413` too large;
+  `415` unsupported type; `429` rate limited; `502` parse failure.
+
+> **The `engine` parameter (ADR-025).** Optional on both convert endpoints:
+> `docling` (highest fidelity, far slower on free CPU), `pymupdf` (fast and
+> deterministic), or `auto` — the default — which defers to this deployment's
+> `WISEAU_PDF_ENGINE`. An unknown value is a **400**, never a silent
+> substitution. Requesting `docling` does **not** disable ADR-014's automatic
+> fallback: if docling is unavailable the deterministic parser still answers, so
+> choosing fidelity cannot cost resilience. The response does not report which
+> engine actually ran; `GET /metrics` does (§12).
 
 ---
 
@@ -109,13 +130,13 @@ The backend is deliberately small and layered. Each module has one job.
 | ------ | -------------- | -------- |
 | `main.py` | HTTP surface: routing, validation, CORS, rate limiting (decorator limits **and** `SlowAPIMiddleware` for the defaults), concurrency ceiling, streamed upload limits, error → HTTP mapping, per-request timing/logging. | Contain extraction logic; read a whole upload before checking its size. |
 | `observability.py` | Structured (JSON) log formatting and the in-process metrics registry read by `GET /metrics`. Imported by `main.py` *and* the parsers. | Affect extraction output in any way; add a runtime dependency; record URLs, filenames, or content into `/metrics`. |
-| `parsers/__init__.py` | Public entrypoints: `url_to_markdown`, `file_to_markdown`. | — |
+| `parsers/__init__.py` | Public entrypoints: `url_to_markdown`, `file_to_markdown`, `resolve_engine`. | — |
 | `parsers/browser.py` | Build a stealth headless Chrome driver; download a URL's raw bytes *through that driver's session* (`fetch_bytes`), so WAF clearance/cookies carry over. | Know about Markdown; raise on a failed download (return `None`). |
 | `parsers/url_parser.py` | Refuse non-public addresses (§13), then render → Trafilatura extract → (markdownify fallback) → clean. Detect a direct-PDF response and route its bytes to the document pipeline instead. | Contain per-site CSS selectors; trust a `.pdf` URL without verifying the magic bytes; start the browser before the address is vetted. |
-| `parsers/file_parser.py` | Select the conversion engine (`WISEAU_PDF_ENGINE`): docling-first with automatic fallback to PyMuPDF4LLM (legacy mode) + per-page OCR / Mammoth. Dispatch by extension; then clean. | Hard-depend on docling; return unnormalized text; use PyMuPDF4LLM's unstable layout/OCR engine in the fallback. |
-| `parsers/docling_client.py` *(Phase 6)* | Thin HTTP client to docling-serve (`WISEAU_DOCLING_BASE`): document bytes → Markdown. Bounded timeout; typed errors so the caller can tell "docling down" from "bad document". | Contain conversion logic itself; retry forever; leak the token. |
+| `parsers/file_parser.py` | Select the conversion engine (the request's `engine`, else `WISEAU_PDF_ENGINE`): docling-first with automatic fallback to PyMuPDF4LLM (legacy mode) + per-page OCR / Mammoth. Dispatch by extension; then clean. Validate a caller's engine choice (`resolve_engine`). | Hard-depend on docling; return unnormalized text; inline a DOCX image as a base64 data URI (ADR-024); use PyMuPDF4LLM's unstable layout/OCR engine in the fallback. |
+| `parsers/docling_client.py` *(Phase 6)* | Thin HTTP client to docling-serve (`WISEAU_DOCLING_BASE`): document bytes → Markdown, images requested as placeholders (ADR-024). Bounded timeout; typed errors so the caller can tell "docling down" from "bad document". | Contain conversion logic itself; retry forever; leak the token. |
 | `parsers/ocr.py` | Pluggable OCR engines (default MuPDF-Tesseract, opt-in EasyOCR): page image → text. Used by the *fallback* PDF path. | Introduce nondeterminism. |
-| `parsers/cleaner.py` | Deterministic Unicode/whitespace/typography normalization. | Introduce nondeterminism. |
+| `parsers/cleaner.py` | Deterministic Unicode/whitespace/typography normalization; elide base64 data-URI payloads (ADR-024). | Introduce nondeterminism; remove content (it edits payloads, not text). |
 
 ### Extraction pipelines
 
@@ -146,17 +167,31 @@ return the empty viewer shell. See ADR-017.
 assemble in page order → `clean_markdown()`. A fully digital PDF keeps the single
 whole-document `to_markdown(doc)` fast path.
 
-**DOCX:** `mammoth.convert_to_html(...)` → `markdownify(..., heading_style="ATX")`
-→ `clean_markdown()`.
+**DOCX:** `mammoth.convert_to_html(..., convert_image=<no payload>)` →
+`markdownify(..., heading_style="ATX")` → `clean_markdown()`. Mammoth's *default*
+image handler inlines every picture as a base64 data URI; ours emits the image
+element without a source, so a screenshot cannot add tens of thousands of
+unreadable characters to the output (ADR-024).
 
 **Image** (`.png`/`.jpg`/...): re-wrap as a one-page PDF → OCR engine (§10) →
 `clean_markdown()`.
 
 ### `clean_markdown()` guarantees
-Given identical input it returns identical output: NFC Unicode normalization,
-CRLF/CR → LF, smart-quotes/dashes/ellipsis/nbsp/zero-width/BOM → plain ASCII,
-trailing whitespace stripped, runs of ≥3 blank lines collapsed to one blank
-line, exactly one trailing newline.
+Given identical input it returns identical output: **base64 data-URI payloads
+elided** (see below), NFC Unicode normalization, CRLF/CR → LF,
+smart-quotes/dashes/ellipsis/nbsp/zero-width/BOM → plain ASCII, trailing
+whitespace stripped, runs of ≥3 blank lines collapsed to one blank line, exactly
+one trailing newline.
+
+**Inlined images (ADR-024).** Any `data:<media-type>;base64,<payload>` becomes
+`data:<media-type>;base64,...`, wherever it occurs — Markdown image syntax, an
+HTML attribute, or bare text. So `![Figure 1](data:image/png;base64,iVBORw0…)`
+survives as `![Figure 1](data:image/png;base64,...)`: the document still records
+that a PNG was there, without carrying a blob that can be far larger than the
+text around it. This is payload-only — no image, link, or paragraph is removed,
+and there is no size threshold, so the rule stays deterministic. Sources are
+fixed too (the DOCX handler above; `image_export_mode=placeholder` on docling
+requests), and this is the backstop for anything else.
 
 ---
 
@@ -175,7 +210,7 @@ All backend configuration is via environment variables (12-factor).
 | `WISEAU_OCR_ENGINE` | `tesseract` | OCR backend: `tesseract` (default) or `easyocr` (opt-in neural, handwriting). |
 | `WISEAU_OCR_DPI` | `300` | Rasterization DPI for OCR (fixed for reproducibility). |
 | `WISEAU_OCR_LANG` | `eng` | OCR language(s); Tesseract 639-2/T code(s), `+`-joined. |
-| `WISEAU_PDF_ENGINE` | `docling` | *(Phase 6)* Document engine: `docling` (default; via docling-serve) or `pymupdf` (force the local fallback). |
+| `WISEAU_PDF_ENGINE` | `docling` | *(Phase 6)* **Default** document engine: `docling` (via docling-serve) or `pymupdf` (force the local fallback). A request's `engine` field overrides it per conversion (ADR-025). |
 | `WISEAU_DOCLING_BASE` | — | *(Phase 6)* Base URL of the internal docling-serve service (HF Space #2). Unset ⇒ behave as `pymupdf`. |
 | `WISEAU_DOCLING_TOKEN` | — | *(Phase 6)* Sent as `Authorization: Bearer` — the *platform gateway* credential (an HF token when Space #2 is private). |
 | `WISEAU_DOCLING_API_KEY` | — | *(Phase 6)* Sent as `X-Api-Key` — docling-serve's *own* guard, matching its `DOCLING_SERVE_API_KEY`. A different mechanism from the bearer token; either, both, or neither may be in use (ADR-018). |
@@ -347,12 +382,16 @@ behind the same `OcrEngine` interface. Configuration: see §5
 Document conversion — `/convert/file`, and `/convert/url` when the URL serves a
 PDF (ADR-017) — is **docling-first with automatic fallback**:
 
-1. `file_parser.py` reads `WISEAU_PDF_ENGINE` (default `docling`).
+1. `file_parser.py` takes the request's `engine` if it named one (ADR-025),
+   otherwise `WISEAU_PDF_ENGINE` (default `docling`). A caller's value is
+   validated in `main.py` first — unknown ⇒ 400 — and `auto` resolves to "no
+   opinion" rather than to a guessed engine name.
 2. If `docling` **and** `WISEAU_DOCLING_BASE` is set: `docling_client.py` POSTs the
    document bytes to `POST /v1/convert/file` on docling-serve (credentials as in
    §5), requesting `md` output, within `WISEAU_DOCLING_TIMEOUT`.
 3. **Fall back** to the local parser (PyMuPDF4LLM + OCR for PDF/image; Mammoth for
-   DOCX) whenever docling is unset/`pymupdf`, times out, returns a 5xx or
+   DOCX) whenever docling is unset/`pymupdf` — including when the *request* asked
+   for docling explicitly; fidelity is a preference, not a promise — times out, returns a 5xx or
    connection error, returns empty/non-JSON, refuses the *request* (401/403/429),
    or **rejects the document** with another 4xx. The client raises typed errors so
    the two cases are logged apart — `DoclingUnavailable` (infrastructure:
@@ -445,3 +484,42 @@ itself, so a public URL that redirects to a private one still reaches it, and a 
 rebind between the lookup and the render wins. Closing those requires a
 proxy/egress control at the network layer, which is where it belongs. This closes
 the direct case, which is the only one a caller can trivially aim.
+
+---
+
+## 14. Frontend behaviour (ADR-026)
+
+The UI is still a static, dependency-free bundle (`index.html` + `style.css` +
+`app.js` + `markdown.js` + `config.js` + `favicon.svg`) served straight from
+GitHub Pages. No framework, no build step, no third-party script (ADR-004).
+
+**Engine picker.** Three options — *Auto* / *Highest fidelity (docling — slow)* /
+*Fastest (PyMuPDF / Mammoth)* — sent as the request's `engine` (§2). The panel
+states plainly what docling costs (tens of seconds to minutes on free CPU,
+longer on a cold Space) and that it falls back automatically. `GET /ping`
+advertises the accepted names, so the list can be checked against a deployment
+rather than assumed.
+
+**Progress is an approximation, and says so.** The API has no progress channel —
+a conversion is one blocking call — so the bar is estimated client-side from the
+source type, the file size, and the chosen engine (`ESTIMATES` in `app.js`:
+~9 s for a URL render; ~2 s + 1.5 s/MB for PyMuPDF; ~8 s + 6 s/MB when a PyMuPDF
+job is an image, i.e. OCR; ~30 s + 20 s/MB for docling, which `auto` is also
+estimated as, since that is the backend default). The fill follows
+`1 - e^(-3t/estimate)`: 95% at the estimate, capped at 99%, so it keeps moving
+instead of parking at "done"; past 1.3× the estimate the label says it is still
+working and why. The response, not the timer, ends it.
+
+**Viewer.** The output panel has *Preview* (rendered) and *Raw* (source)
+modes. Rendering is `markdown.js`, a small renderer covering what this engine
+emits. Converted content is untrusted: every fragment is HTML-escaped before any
+markup is added (so raw HTML in the Markdown shows as text), link targets are
+restricted to `http(s)`/`mailto`/relative, and `data:` images render as a
+placeholder chip rather than being fetched (ADR-024). Raw view is the source of
+truth; it is what Copy and Download return.
+
+**Download.** Opens a dialog pre-filled with the document's own title — the first
+`#` heading, or the first `##` if there is no `#`, or the source name as a last
+resort — which the user may amend before confirming. The title becomes the
+filename (path-illegal characters and whitespace → `-`, capped at 80 characters,
+`.md` appended), previewed live in the dialog.
