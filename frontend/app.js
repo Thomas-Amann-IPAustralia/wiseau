@@ -37,6 +37,7 @@ const el = {
   fileName: document.getElementById("file-name"),
   convertFileBtn: document.getElementById("convert-file-btn"),
   engineInputs: document.querySelectorAll("input[name='engine']"),
+  engineAutoHint: document.getElementById("engine-auto-hint"),
   progress: document.getElementById("progress"),
   progressFill: document.getElementById("progress-fill"),
   progressLabel: document.getElementById("progress-label"),
@@ -55,6 +56,10 @@ const el = {
 };
 
 let selectedFile = null;
+// What the backend resolves "auto" to. Assume the standard default (the fast
+// parser) until /ping says otherwise; only the estimate depends on it, so a
+// deployment that never answers /ping still converts normally.
+let serverDefaultEngine = "pymupdf";
 let lastMarkdown = "";
 let lastSource = "";
 let currentView = "preview";
@@ -76,8 +81,21 @@ async function pingBackend() {
     const res = await fetch(`${API_BASE}/ping`, { method: "GET" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     setBadge("online", "online");
+    applyServerDefaultEngine(await res.json());
   } catch {
     setBadge("offline", "offline");
+  }
+}
+
+// /ping reports which engine "auto" resolves to, so the Auto option can say what
+// it will actually do instead of guessing (ADR-027).
+function applyServerDefaultEngine(info) {
+  const reported = info && typeof info.default_engine === "string" ? info.default_engine : "";
+  if (reported !== "docling" && reported !== "pymupdf") return;
+  serverDefaultEngine = reported;
+  if (el.engineAutoHint) {
+    el.engineAutoHint.textContent =
+      reported === "docling" ? "Server's default — docling" : "Server's default — fastest";
   }
 }
 
@@ -93,19 +111,24 @@ function selectedEngine() {
 }
 
 // --- Progress approximation --------------------------------------------------
+/** The engine that will actually run: "auto" is whatever the server defaults to. */
+function effectiveEngine(engine) {
+  return engine === "auto" ? serverDefaultEngine : engine;
+}
+
 /**
  * Seconds this conversion is expected to take.
- * `auto` is estimated as docling, which is what the backend defaults to; if the
- * deployment has no docling configured the job simply finishes early, which the
- * bar handles by jumping to done.
+ * An `auto` request is estimated as the server's reported default (the fast
+ * parser unless the deployment says otherwise); if the estimate turns out long
+ * the job simply finishes early, which the bar handles by jumping to done.
  */
 function estimateSeconds(kind, file, engine) {
   if (kind === "url") return ESTIMATES.url.base;
 
   const megabytes = (file ? file.size : 0) / (1024 * 1024);
   const isImage = file && IMAGE_EXTENSIONS.some((ext) => file.name.toLowerCase().endsWith(ext));
-  let profile = ESTIMATES.docling; // "auto" and "docling"
-  if (engine === "pymupdf") profile = isImage ? ESTIMATES.ocr : ESTIMATES.pymupdf;
+  let profile = ESTIMATES.docling;
+  if (effectiveEngine(engine) === "pymupdf") profile = isImage ? ESTIMATES.ocr : ESTIMATES.pymupdf;
   return profile.base + profile.perMb * megabytes;
 }
 
@@ -113,7 +136,7 @@ let progressTimerId = null;
 
 function startProgress(estimate, engine) {
   const started = Date.now();
-  const slowEngine = engine !== "pymupdf";
+  const slowEngine = effectiveEngine(engine) === "docling";
   el.progress.hidden = false;
   el.progress.classList.remove("progress--done");
   el.progressLabel.textContent = `Converting… about ${formatSeconds(estimate)}`;

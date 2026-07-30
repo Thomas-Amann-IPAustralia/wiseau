@@ -230,8 +230,9 @@ def test_a_failed_conversion_is_recorded_as_such(client, fresh_metrics, monkeypa
 
 
 def test_an_upload_attributes_the_engine_that_served_it(client, fresh_metrics, monkeypatch):
-    # No docling base configured (the default), so the deterministic parser
-    # serves the upload and the skip is visible as such.
+    # The default engine is the deterministic parser (ADR-027), so it serves the
+    # upload and the skip is visible as a deliberate one rather than an outage.
+    monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)
     monkeypatch.delenv("WISEAU_DOCLING_BASE", raising=False)
     doc = pymupdf.open()
     doc.new_page().insert_text((72, 72), "Attribution Body")
@@ -243,7 +244,7 @@ def test_an_upload_attributes_the_engine_that_served_it(client, fresh_metrics, m
     body = client.get("/metrics").json()
     assert body["engines"]["pymupdf"] == 1
     assert body["docling"]["skipped"] == 1
-    assert body["docling"]["reasons"]["not_configured"] == 1
+    assert body["docling"]["reasons"]["engine_not_selected"] == 1
     assert body["conversions"]["file.ok"] == 1
 
 
@@ -304,6 +305,16 @@ def test_ping_advertises_the_selectable_engines(client):
     body = client.get("/ping").json()
     # The UI offers the choice from this list rather than hard-coding it.
     assert body["engines"] == ["docling", "pymupdf"]
+
+
+def test_ping_reports_the_default_engine(client, monkeypatch):
+    # "Auto" resolves server-side, so the UI has to be told what it means here —
+    # it is what the progress estimate is sized against (ADR-027).
+    monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)
+    assert client.get("/ping").json()["default_engine"] == "pymupdf"
+
+    monkeypatch.setenv("WISEAU_PDF_ENGINE", "docling")
+    assert client.get("/ping").json()["default_engine"] == "docling"
 
 
 def test_an_upload_can_name_its_engine(client, monkeypatch):

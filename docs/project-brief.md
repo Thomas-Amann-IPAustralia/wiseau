@@ -2,16 +2,23 @@
 
 > Oh hi Mark(down) — an engine that converts web pages and documents into clean, structured Markdown.
 
-> **Scope evolution (2026-07-24).** The project now prioritises **fidelity over
-> strict determinism**: the goal is the most faithful Markdown of real-world
-> documents (complex, multi-column, and scanned government PDFs). **docling**
-> becomes the *default* document parser, running as an internal microservice
-> (a second Hugging Face Space), with the original PyMuPDF/Mammoth path kept as an
-> **automatic fallback**. This is Phase 6 (§3); rationale is in ADR-013 (fidelity
-> over determinism), ADR-014 (docling default + fallback), and ADR-015 (the
-> two-Space topology). The sections below are amended to match; where they still
-> say "deterministic", read it as "faithful, and deterministic on the paths where
-> that is free."
+> **Scope evolution (2026-07-24).** The project treats **fidelity as the
+> product**: the goal is the most faithful Markdown of real-world documents
+> (complex, multi-column, and scanned government PDFs). **docling** is available
+> as a high-fidelity document parser, running as an internal microservice (a
+> second Hugging Face Space), alongside the original PyMuPDF/Mammoth path — which
+> is also docling's **automatic fallback**. This is Phase 6 (§3); rationale is in
+> ADR-013 (fidelity over determinism), ADR-014 (the docling engine + fallback),
+> and ADR-015 (the two-Space topology). The sections below are amended to match;
+> where they still say "deterministic", read it as "faithful, and deterministic on
+> the paths where that is free."
+>
+> **Amendment (2026-07-30, ADR-027).** docling is no longer the *default* engine:
+> the fast local parser is, because it converts the ordinary document in about a
+> second where free-tier docling costs tens of seconds to minutes. docling is
+> chosen deliberately — per deployment (`WISEAU_PDF_ENGINE=docling`) or per
+> request (`engine="docling"`) — and its fallback is unchanged. Speed is the
+> default; fidelity is one click or one field away.
 
 ## 1. Overview
 
@@ -34,15 +41,18 @@ Two classes of consumer drive the design:
 
 ### Design principles
 
-- **Faithful first (amended — ADR-013).** Produce the most accurate Markdown of the
-  source, even when that means a stochastic ML extractor (docling). Favour
-  algorithmic/model extraction over fragile, layout-specific CSS selectors. The
-  paths that are deterministic (the normalizer, the PyMuPDF/Mammoth fallback,
-  Trafilatura URL extraction) stay deterministic; the default docling path may vary
-  run-to-run by design.
-- **Resilient (added — ADR-014).** Document conversion is docling-first with an
-  automatic fallback to the deterministic parsers, so a cold/slow/down docling
-  service degrades to a working result instead of failing.
+- **Faithful first (amended — ADR-013/027).** Produce the most accurate Markdown of
+  the source, and make a stochastic ML extractor (docling) available when that is
+  what accuracy takes. Favour algorithmic/model extraction over fragile,
+  layout-specific CSS selectors. The default paths are deterministic (the
+  normalizer, the PyMuPDF/Mammoth parsers, Trafilatura URL extraction) and stay so;
+  the opt-in docling path may vary run-to-run by design.
+- **Fast by default (added — ADR-027).** The engine that runs when nobody chose one
+  is the one that answers in about a second. A minute of ML inference is a
+  deliberate choice, not the price of every conversion.
+- **Resilient (added — ADR-014).** When docling *is* selected, conversion falls back
+  automatically to the deterministic parsers, so a cold/slow/down docling service
+  degrades to a working result instead of failing.
 - **Decoupled layers.** A static frontend and a containerized backend communicate only
   over HTTP, keeping the UI free to evolve independently of the engine.
 - **Memory-aware.** Headless browsing and PDF extraction are memory-heavy; the compute
@@ -62,7 +72,7 @@ optimized for memory-heavy operations.
 | ------------ | ----------------------------- | ------------------------------------------------------------------------------ | ------------------------------ |
 | Frontend       | HTML5 / CSS3 / JavaScript   | Custom UI/UX, user input collection, state management, and Markdown rendering. | GitHub Pages (static, free)    |
 | Backend API    | FastAPI (Python)            | Headless browser execution (WAF-bypass fetch), engine selection, fallback parsing, and the shared contract + guards. | Hugging Face Space #1 (Docker) |
-| docling-serve  | docling (PyTorch)           | *(Phase 6)* Default high-fidelity document→Markdown converter; internal, called only by the backend. | Hugging Face Space #2 (Docker) |
+| docling-serve  | docling (PyTorch)           | *(Phase 6)* Opt-in high-fidelity document→Markdown converter; internal, called only by the backend. | Hugging Face Space #2 (Docker) |
 | Compute        | 16 GB RAM, 2 vCPU per Space | Prevents OOM during heavy PDF/ML extraction and concurrent web scraping; browser and docling live in separate Spaces so neither starves the other. | Hugging Face free tier         |
 
 ### Request flow
@@ -148,13 +158,17 @@ Automate the deployment pipeline and provision the cloud hardware.
 
 ### Phase 6 — Higher-fidelity extraction via docling (added 2026-07-24)
 
-Adopt docling as the default document parser for faithful Markdown of complex and
-scanned documents, without sacrificing availability on the free tier.
+Offer docling as a selectable document parser for faithful Markdown of complex and
+scanned documents, without sacrificing availability on the free tier. *(Amended
+2026-07-30, ADR-027: docling was originally adopted as the **default** parser;
+the default is now the fast local parser and docling is chosen per deployment or
+per request, because the free-tier cost of docling is minutes and most documents
+do not need it.)*
 
 - **docling client + engine selection.** Add `parsers/docling_client.py` (a thin
   HTTP client to docling-serve) and an engine-selection layer in `file_parser.py`
-  (`WISEAU_PDF_ENGINE`, default `docling`) that is **docling-first with automatic
-  fallback** to PyMuPDF4LLM/Mammoth. All output still passes through
+  (`WISEAU_PDF_ENGINE`, default `pymupdf`) that runs docling when selected, with
+  **automatic fallback** to PyMuPDF4LLM/Mammoth. All output still passes through
   `clean_markdown()`.
 - **docling-serve Space.** Package docling-serve in its own `Dockerfile`
   (pinned + model weights pre-downloaded at build), deployed as a second Hugging
@@ -205,8 +219,8 @@ markdown-converter/
 | FastAPI             | Async, minimal boilerplate, and native OpenAPI generation for agent integration.        |
 | Trafilatura         | Algorithmic main-content extraction that is robust across layouts — the determinism core.|
 | Selenium + Stealth  | Renders JavaScript-heavy pages and clears basic bot protection before extraction.        |
-| docling             | *(Phase 6, default)* ML layout + table-structure + OCR pipeline; the most faithful engine for complex/scanned documents. Runs as an internal microservice. |
-| PyMuPDF4LLM         | Fast, deterministic PDF-to-Markdown; now the **automatic fallback** when docling is unavailable. |
+| docling             | *(Phase 6, opt-in — ADR-027)* ML layout + table-structure + OCR pipeline; the most faithful engine for complex/scanned documents. Runs as an internal microservice. |
+| PyMuPDF4LLM         | Fast, deterministic PDF-to-Markdown; the **default** engine, and docling's automatic fallback. |
 | Mammoth             | Clean DOCX-to-Markdown conversion that preserves semantic structure.                     |
 | Markdownify         | Deterministic HTML-to-Markdown fallback for the polish stage.                            |
 | SlowAPI             | Per-IP rate limiting on FastAPI to keep the open, shared compute fair and healthy.       |

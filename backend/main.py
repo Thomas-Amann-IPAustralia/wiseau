@@ -32,6 +32,7 @@ from observability import configure_logging, metrics
 from parsers import (
     REQUESTABLE_ENGINES,
     BlockedUrlError,
+    default_engine,
     file_to_markdown,
     resolve_engine,
     url_to_markdown,
@@ -71,7 +72,7 @@ app = FastAPI(
         "Deterministic conversion of web URLs, PDFs, and DOCX documents into "
         "clean, structured Markdown. Designed for both human UIs and LLM/MCP agents."
     ),
-    version="0.6.0",
+    version="0.7.0",
 )
 
 app.state.limiter = limiter
@@ -189,10 +190,11 @@ async def _job_slot() -> AsyncIterator[None]:
 # --- Schemas ----------------------------------------------------------------
 # Documented once, shared by both request shapes (JSON body and multipart form).
 _ENGINE_DESCRIPTION = (
-    "Document engine to use: 'docling' (highest fidelity, markedly slower on the "
-    "free CPU tier), 'pymupdf' (fast and deterministic), or 'auto' — the default "
-    "— for this deployment's own preference. docling always falls back to the "
-    "deterministic parser when it is unavailable, whether it was chosen or "
+    "Document engine to use: 'pymupdf' (fast and deterministic — what a standard "
+    "deployment defaults to), 'docling' (highest fidelity on complex or scanned "
+    "documents, but markedly slower on the free CPU tier), or 'auto' — the "
+    "default — for this deployment's own preference. docling always falls back to "
+    "the deterministic parser when it is unavailable, whether it was chosen or "
     "defaulted to. On /convert/url the choice applies only when the URL serves a "
     "PDF; HTML pages are always extracted by Trafilatura."
 )
@@ -261,14 +263,16 @@ async def _read_upload(file: UploadFile) -> bytes:
 async def ping(request: Request) -> dict:
     """Liveness/readiness check for the UI status badge and background monitors.
 
-    Also advertises the engines this build accepts on a convert request, so a
-    client can offer the choice without hard-coding the list.
+    Also advertises the engines this build accepts on a convert request, and
+    which of them `auto` resolves to here, so a client can offer the choice —
+    and estimate what it will cost — without hard-coding either (ADR-027).
     """
     return {
         "status": "ok",
         "service": "markdown-ingestion-engine",
         "version": app.version,
         "engines": sorted(REQUESTABLE_ENGINES),
+        "default_engine": default_engine(),
     }
 
 

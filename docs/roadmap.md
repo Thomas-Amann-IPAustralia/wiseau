@@ -115,14 +115,21 @@ merely written. Written-but-unverified is `[~]` with a note.
   *GitHub Actions*, then run the **Deploy frontend** workflow.
 - [ ] Confirm the deployed UI talks to the deployed backend end-to-end.
 
-## Phase 6 — Higher-fidelity extraction via docling (default engine)
+## Phase 6 — Higher-fidelity extraction via docling (selectable engine)
 
-Design & rationale: **ADR-013** (fidelity now outranks strict determinism),
-**ADR-014** (docling default + automatic PyMuPDF/Mammoth fallback), **ADR-015**
-(docling-serve as an internal microservice; free two-Space topology). Goal: a
-live paste/upload → convert experience that uses docling for faithful Markdown of
-complex/scanned government documents, degrading gracefully to the existing
+Design & rationale: **ADR-013** (fidelity outranks strict determinism where
+fidelity is asked for), **ADR-014** (the docling engine + automatic
+PyMuPDF/Mammoth fallback), **ADR-015** (docling-serve as an internal
+microservice; free two-Space topology), **ADR-027** (the *default* engine is the
+fast local parser; docling is selected per deployment or per request). Goal: a
+live paste/upload → convert experience that can use docling for faithful Markdown
+of complex/scanned government documents, degrading gracefully to the existing
 parsers when docling is unavailable. The deploy tasks below extend Phase 5.
+
+> **Amended 2026-07-30 (ADR-027).** The tasks below were written when docling was
+> the default engine and are ticked as they were built; the engine layer is
+> unchanged. What changed is which engine `WISEAU_PDF_ENGINE` names when nobody
+> sets it: `pymupdf`. Read "docling-first" below as "docling when selected".
 
 **Backend — docling client + engine selection**
 - [x] `parsers/docling_client.py` — thin HTTP client to docling-serve
@@ -264,6 +271,32 @@ Driven by real use of the deployed-shaped UI. Design & rationale: **ADR-024**
   DOCX-with-picture round trip, the docling request shape, and end-to-end through
   the real backend + UI — an illustrated DOCX converts to 103 characters with no
   payload in sight.*
+
+---
+
+## Phase 8 — Fast by default (2026-07-30)
+
+Design & rationale: **ADR-027** (amends ADR-013/014).
+
+- [x] **`WISEAU_PDF_ENGINE` defaults to `pymupdf`.** The fast, deterministic local
+  parser is what an unconfigured deployment runs; docling is selected per
+  deployment (`WISEAU_PDF_ENGINE=docling`) or per request (`engine="docling"`,
+  ADR-025), with ADR-014's automatic fallback unchanged in both cases. *Verified:
+  a configured-but-unselected docling is never called (new test), the metric reads
+  `engine_not_selected`, and live through a real uvicorn with
+  `WISEAU_DOCLING_BASE` pointed at a dead port — the default upload converted
+  immediately via `pymupdf` with no docling attempt, while the same upload with
+  `engine=docling` attempted docling and fell back.*
+- [x] **`GET /ping` reports `default_engine`.** "Auto" resolves server-side, so a
+  client can no longer assume what it means; `/ping` now says which engine will
+  run, reported as behaviour (anything but `docling` ⇒ `pymupdf`). API
+  `0.6.0 → 0.7.0` (additive field; the bump also marks the behaviour change).
+  *Verified: 5 tests (the endpoint under both settings, `default_engine()` over
+  unset/`docling`/`pymupdf`/nonsense) + the live `/ping` above.*
+- [x] **The UI leads with the fast engine.** *Fastest* is listed ahead of
+  *Highest fidelity*, the note says which is the default and when to reach for
+  docling, and the *Auto* option is labelled from `/ping`'s `default_engine` —
+  which also sizes the progress estimate, instead of always assuming docling.
 
 ---
 

@@ -177,13 +177,17 @@ def test_pdf_url_without_viewer_markup_is_still_downloaded(monkeypatch):
     assert url_parser.url_to_markdown("https://example.gov/x/tabled.pdf?v=2") == f"tabled.pdf:{len(pdf)}"
 
 
-def test_pdf_bytes_go_through_the_docling_first_pipeline(monkeypatch):
-    """A URL-fetched PDF must get the same docling-first treatment as an upload."""
+def test_pdf_bytes_go_through_the_document_pipeline(monkeypatch):
+    """A URL-fetched PDF must get the same engine treatment as an upload.
+
+    Pinned with a docling deployment because that is the case a plain fallback
+    would silently satisfy: the bytes have to reach the *selected* engine.
+    """
     from parsers import docling_client
 
     pdf = _make_pdf("Ignored — docling answers")
     _install_driver(monkeypatch, _FakeDriver(_VIEWER_HTML, download=_b64(pdf)))
-    monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)  # default is docling
+    monkeypatch.setenv("WISEAU_PDF_ENGINE", "docling")
     monkeypatch.setattr(docling_client, "is_configured", lambda: True)
     monkeypatch.setattr(
         docling_client,
@@ -206,7 +210,7 @@ def test_url_pdf_falls_back_when_docling_is_unavailable(monkeypatch):
     # native path and the test needs no OCR engine.
     pdf = _make_pdf("Fallback Text read by the deterministic parser.")
     _install_driver(monkeypatch, _FakeDriver(_VIEWER_HTML, download=_b64(pdf)))
-    monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)
+    monkeypatch.setenv("WISEAU_PDF_ENGINE", "docling")
     monkeypatch.setattr(docling_client, "is_configured", lambda: True)
 
     def cold_start(data, filename, **kw):

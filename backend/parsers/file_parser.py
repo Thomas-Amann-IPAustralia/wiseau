@@ -1,21 +1,26 @@
 """Document -> Markdown extraction for PDF, DOCX, and image uploads.
 
-**Engine selection (Phase 6; ADR-014).** Document conversion is *docling-first
-with automatic fallback*. When `WISEAU_PDF_ENGINE` selects `docling` (the
-default) **and** a docling-serve Space is configured (`WISEAU_DOCLING_BASE`), the
-bytes are sent to docling for high-fidelity Markdown; on any docling failure —
-unreachable, timeout, 5xx, empty, or a rejected document — the parser **logs and
-falls back** to the deterministic parsers below. With no docling base configured
-(the common local/dev case) docling is simply skipped, so behaviour is identical
-to before Phase 6. The docling default may vary run-to-run **by design** (ADR-013);
-the fallback path stays deterministic. A caller may override the deployment
-default per request (`engine=`; ADR-025) — the fallback still applies, so asking
-for docling can never turn an outage into a failed conversion.
+**Engine selection (Phase 6; ADR-014, amended by ADR-027).** `WISEAU_PDF_ENGINE`
+picks the deployment's default engine, and that default is **`pymupdf`** — the
+fast, deterministic local parser — because most documents convert well with it in
+about a second, where docling on a free CPU Space costs tens of seconds to
+minutes. docling remains a first-class engine: set `WISEAU_PDF_ENGINE=docling` to
+make it the deployment default, or ask for it per request (`engine="docling"`;
+ADR-025) when a particular document needs the fidelity.
 
-The deterministic fallback: PDFs are converted with PyMuPDF4LLM (LLM-tuned
-Markdown output); DOCX files are converted to HTML with Mammoth and then to
-Markdown with Markdownify. Every path — docling included — finishes in the shared
-`clean_markdown` normalizer for uniform output (invariant #3).
+When docling *is* selected **and** a docling-serve Space is configured
+(`WISEAU_DOCLING_BASE`), the bytes are sent to docling for high-fidelity
+Markdown; on any docling failure — unreachable, timeout, 5xx, empty, or a
+rejected document — the parser **logs and falls back** to the deterministic
+parsers below, so asking for docling can never turn an outage into a failed
+conversion. docling's output may vary run-to-run **by design** (ADR-013); the
+default path stays deterministic.
+
+The deterministic default (and docling's fallback): PDFs are converted with
+PyMuPDF4LLM (LLM-tuned Markdown output); DOCX files are converted to HTML with
+Mammoth and then to Markdown with Markdownify. Every path — docling included —
+finishes in the shared `clean_markdown` normalizer for uniform output
+(invariant #3).
 
 **OCR.** A born-digital PDF carries a text layer that PyMuPDF4LLM reads directly.
 Scanned and handwritten PDFs do not — their pages are images. Detection is
@@ -212,8 +217,26 @@ def docx_to_markdown(data: bytes) -> str:
 
 
 def _pdf_engine() -> str:
-    """Preferred document engine: 'docling' (default; ADR-014) or 'pymupdf'."""
-    return os.environ.get("WISEAU_PDF_ENGINE", "docling").strip().lower()
+    """Preferred document engine: 'pymupdf' (default; ADR-027) or 'docling'.
+
+    The default is the fast local parser: it answers in about a second and is
+    deterministic, which is the right trade for the common document. docling's
+    fidelity is opt-in — per deployment via this variable, or per request via
+    `engine="docling"` (ADR-025).
+    """
+    return os.environ.get("WISEAU_PDF_ENGINE", "pymupdf").strip().lower()
+
+
+def default_engine() -> str:
+    """The engine an `auto` request resolves to on this deployment (ADR-027).
+
+    Reported by `GET /ping` so a client can label its "Auto" option and size its
+    progress estimate without hard-coding a default that a deployment may have
+    changed. Anything other than `docling` in `WISEAU_PDF_ENGINE` runs the local
+    parser, so that is what an unrecognized value reports too — the answer
+    describes what will actually happen, not what was typed.
+    """
+    return "docling" if _pdf_engine() == "docling" else "pymupdf"
 
 
 def resolve_engine(requested: str | None) -> str | None:
@@ -258,10 +281,11 @@ def _fallback_markdown(data: bytes, ext: str) -> str:
 
 
 def _extract_markdown(data: bytes, filename: str, ext: str, engine: str | None = None) -> str:
-    """Convert a supported document to Markdown, docling-first with fallback.
+    """Convert a supported document to Markdown, with docling when selected.
 
-    Tries docling only when it is *selected* (`WISEAU_PDF_ENGINE=docling`, the
-    default, or a per-request `engine` override) **and** *configured*
+    Tries docling only when it is *selected* (`WISEAU_PDF_ENGINE=docling`, or a
+    per-request `engine="docling"` — the default is the fast local parser,
+    ADR-027) **and** *configured*
     (`WISEAU_DOCLING_BASE` set). Any docling failure — infrastructure
     (`DoclingUnavailable`) or a rejected document (`DoclingBadDocument`) — is
     logged and degraded to the deterministic parser, so the service returns a

@@ -17,14 +17,17 @@ Pages as-is.
 
 ## What the UI does
 
-- **Engine picker** — *Auto*, *Highest fidelity* (docling), or *Fastest*
-  (PyMuPDF/Mammoth), sent as the request's `engine`. docling reads complex and
-  scanned documents far more faithfully but takes tens of seconds to minutes on
-  the free CPU tier; it falls back to the fast parser automatically if it is
-  unavailable.
+- **Engine picker** — *Auto*, *Fastest* (PyMuPDF/Mammoth), or *Highest fidelity*
+  (docling), sent as the request's `engine`. The fast parser is the default
+  (ADR-027) and answers in about a second; docling reads complex and scanned
+  documents far more faithfully but takes tens of seconds to minutes on the free
+  CPU tier, and falls back to the fast parser automatically if it is unavailable.
+  *Auto* is labelled from `/ping`'s `default_engine`, so it says what the backend
+  in front of it will actually do.
 - **Progress bar** — an *approximation*. The API converts in one blocking call
   and reports no progress, so the bar is estimated from the source type, the file
-  size, and the chosen engine; it keeps climbing rather than parking at "done",
+  size, and the engine that will run (for *Auto*, the one `/ping` reports); it
+  keeps climbing rather than parking at "done",
   and says so when a conversion runs past its estimate (ADR-026).
 - **Preview / Raw** — rendered Markdown or the exact source. Raw is what Copy and
   Download return.

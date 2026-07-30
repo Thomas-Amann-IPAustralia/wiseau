@@ -15,7 +15,7 @@ recorded in the roadmap's observability backlog:
 1. *Sizing.* Job queue-wait and run duration, peak in-flight jobs, and process
    memory are what `MAX_CONCURRENT_JOBS` should be tuned against — guessing is
    how a free-tier container gets OOM-killed.
-2. *Seeing the fallback.* Document conversion is docling-first with an automatic
+2. *Seeing the fallback.* When docling is the selected engine it has an automatic
    fallback (ADR-014), which by design turns a docling outage into a *successful*
    response. That is the point, but it also means a dead docling Space looks
    exactly like normal operation. Engine attribution — how many conversions each

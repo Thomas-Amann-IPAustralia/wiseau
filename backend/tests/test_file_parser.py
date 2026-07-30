@@ -138,12 +138,13 @@ def test_supported_extensions_include_documents_and_images():
     assert {".png", ".jpg", ".jpeg", ".tiff"} <= SUPPORTED_EXTENSIONS
 
 
-# --- Engine selection: docling-first with automatic fallback (Phase 6) ------
+# --- Engine selection: docling when selected, with automatic fallback -------
 #
-# `is_configured()` (does WISEAU_DOCLING_BASE point somewhere?) gates whether
-# docling is attempted at all. With no base set — the default in tests and local
-# dev — the deterministic parsers run exactly as before Phase 6, so every test
-# above is unaffected. These tests drive the docling branch by faking both the
+# Two gates decide whether docling runs: it must be *selected* (the default is
+# `pymupdf` — ADR-027) and *configured* (`is_configured()`: does
+# WISEAU_DOCLING_BASE point somewhere?). With neither set — the state in tests
+# and local dev — the deterministic parsers run exactly as before Phase 6, so
+# every test above is unaffected. These tests drive the docling branch by faking both the
 # "configured" check and the client's `convert_document`.
 
 
@@ -153,14 +154,46 @@ def _enable_docling(monkeypatch, converter):
     monkeypatch.setattr(docling_client, "convert_document", converter)
 
 
-def test_docling_used_by_default_when_configured(monkeypatch):
+def test_the_default_engine_is_the_fast_local_parser(monkeypatch):
+    """With no `WISEAU_PDF_ENGINE`, a configured docling is *not* used (ADR-027).
+
+    Fidelity is opt-in: the deployment default is the parser that answers in a
+    second, so a docling Space being reachable must not by itself divert every
+    conversion through a minute of ML inference.
+    """
+
+    def exploding_convert(*args, **kwargs):  # pragma: no cover - must not run
+        raise AssertionError("docling must not run unless it is asked for")
+
+    monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)
+    _enable_docling(monkeypatch, exploding_convert)
+
+    result = file_to_markdown(_make_pdf("Deterministic by default"), "gov.pdf")
+    assert "Deterministic by default" in result
+
+
+@pytest.mark.parametrize(
+    ("configured", "expected"),
+    [(None, "pymupdf"), ("docling", "docling"), ("pymupdf", "pymupdf"), ("nonsense", "pymupdf")],
+)
+def test_default_engine_reports_what_will_actually_run(monkeypatch, configured, expected):
+    # `/ping` publishes this, so it must describe behaviour, not the raw string:
+    # anything that is not `docling` runs the local parser.
+    if configured is None:
+        monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)
+    else:
+        monkeypatch.setenv("WISEAU_PDF_ENGINE", configured)
+    assert file_parser.default_engine() == expected
+
+
+def test_docling_used_when_the_deployment_selects_it(monkeypatch):
     calls = {}
 
     def fake_convert(data, filename, **kwargs):
         calls["filename"] = filename
         return "# From docling\n\nHigh-fidelity body."
 
-    monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)  # default is docling
+    monkeypatch.setenv("WISEAU_PDF_ENGINE", "docling")
     _enable_docling(monkeypatch, fake_convert)
 
     result = file_to_markdown(_make_pdf("native text layer, comfortably long"), "gov.pdf")
@@ -172,11 +205,12 @@ def test_docling_used_by_default_when_configured(monkeypatch):
 
 
 def test_docling_skipped_when_not_configured(monkeypatch):
-    # No base configured (the default): the deterministic parser runs, and the
-    # docling client is never called.
+    # Selected but with no base configured: the deterministic parser runs, and
+    # the docling client is never called.
     def exploding_convert(*args, **kwargs):  # pragma: no cover - must not run
         raise AssertionError("docling must not be called when unconfigured")
 
+    monkeypatch.setenv("WISEAU_PDF_ENGINE", "docling")
     monkeypatch.setattr(docling_client, "is_configured", lambda: False)
     monkeypatch.setattr(docling_client, "convert_document", exploding_convert)
 
@@ -185,7 +219,8 @@ def test_docling_skipped_when_not_configured(monkeypatch):
 
 
 def test_pymupdf_engine_forces_deterministic_path(monkeypatch):
-    # WISEAU_PDF_ENGINE=pymupdf pins the deterministic parser even if docling is up.
+    # WISEAU_PDF_ENGINE=pymupdf (also the default) pins the deterministic parser
+    # even if docling is up.
     def exploding_convert(*args, **kwargs):  # pragma: no cover - must not run
         raise AssertionError("docling must not be called when WISEAU_PDF_ENGINE=pymupdf")
 
@@ -201,7 +236,7 @@ def test_fallback_on_docling_unavailable(monkeypatch):
     def failing_convert(data, filename, **kwargs):
         raise docling_client.DoclingUnavailable("cold start")
 
-    monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)
+    monkeypatch.setenv("WISEAU_PDF_ENGINE", "docling")
     _enable_docling(monkeypatch, failing_convert)
 
     result = file_to_markdown(_make_pdf("Recovered by fallback"), "doc.pdf")
@@ -213,7 +248,7 @@ def test_fallback_on_bad_document(monkeypatch):
     def failing_convert(data, filename, **kwargs):
         raise docling_client.DoclingBadDocument("unsupported")
 
-    monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)
+    monkeypatch.setenv("WISEAU_PDF_ENGINE", "docling")
     _enable_docling(monkeypatch, failing_convert)
 
     result = file_to_markdown(_make_docx(), "report.docx")
@@ -248,7 +283,7 @@ def fresh_metrics():
 
 
 def test_docling_success_is_attributed_to_docling(monkeypatch, fresh_metrics):
-    monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)
+    monkeypatch.setenv("WISEAU_PDF_ENGINE", "docling")
     _enable_docling(monkeypatch, lambda data, filename, **kwargs: "# From docling\n")
 
     file_to_markdown(_make_pdf("native text layer, comfortably long"), "gov.pdf")
@@ -263,7 +298,7 @@ def test_fallback_records_the_engine_and_the_reason(monkeypatch, fresh_metrics):
     def failing_convert(data, filename, **kwargs):
         raise docling_client.DoclingUnavailable("cold start")
 
-    monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)
+    monkeypatch.setenv("WISEAU_PDF_ENGINE", "docling")
     _enable_docling(monkeypatch, failing_convert)
 
     file_to_markdown(_make_pdf("Recovered by fallback"), "doc.pdf")
@@ -278,7 +313,7 @@ def test_a_rejected_document_is_recorded_apart_from_an_outage(monkeypatch, fresh
     def rejecting_convert(data, filename, **kwargs):
         raise docling_client.DoclingBadDocument("unreadable")
 
-    monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)
+    monkeypatch.setenv("WISEAU_PDF_ENGINE", "docling")
     _enable_docling(monkeypatch, rejecting_convert)
 
     file_to_markdown(_make_pdf("Recovered by fallback"), "doc.pdf")
@@ -356,7 +391,7 @@ def test_requesting_docling_overrides_a_pymupdf_deployment(monkeypatch):
 
 
 def test_requesting_pymupdf_skips_a_configured_docling(monkeypatch):
-    monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)  # default is docling
+    monkeypatch.setenv("WISEAU_PDF_ENGINE", "docling")  # a fidelity-first deployment
     _enable_docling(monkeypatch, lambda *a, **k: pytest.fail("docling must not be called"))
 
     result = file_to_markdown(_make_pdf("Pinned per request"), "doc.pdf", engine="pymupdf")

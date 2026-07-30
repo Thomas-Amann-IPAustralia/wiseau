@@ -21,6 +21,44 @@ one `Superseded`.
 
 ---
 
+## ADR-027 — The default engine is the fast local parser; docling is opt-in
+**Date:** 2026-07-30 · **Status:** Accepted · **Amends:** ADR-013, ADR-014
+**Context:** ADR-013/014 made docling the *default* document engine, on the
+argument that fidelity outranks speed. Living with the choice inverted the
+balance. A default is the setting that applies to every document nobody thought
+about, and for the ordinary document — a born-digital PDF or a DOCX with a text
+layer — PyMuPDF/Mammoth returns good Markdown in about a second, where docling
+on a free CPU Space costs tens of seconds to minutes and can cold-start into
+minutes more. Making that the default charges every conversion the worst-case
+price for a fidelity gain only *some* documents need, and ADR-014's fallback
+does not soften it: waiting out `WISEAU_DOCLING_TIMEOUT` (120s) before falling
+back is the *slowest* possible way to produce the fast parser's output. Since
+ADR-025 the caller can name the engine per request anyway, so fidelity no longer
+has to be bought with the default.
+**Decision:** `WISEAU_PDF_ENGINE` now defaults to **`pymupdf`**. docling stays a
+first-class engine, reachable two ways: per deployment
+(`WISEAU_PDF_ENGINE=docling`) and per request (`engine="docling"`, ADR-025),
+with ADR-014's automatic fallback unchanged in both cases. Because "auto" now
+resolves differently depending on the deployment, `GET /ping` reports
+`default_engine` alongside the engine list, so the UI can label its *Auto*
+option and size its progress estimate from what the server will actually do
+rather than from a hard-coded assumption. API `0.6.0 → 0.7.0` (additive field;
+the version bump also marks the behaviour change). The UI lists *Fastest* ahead
+of *Highest fidelity* and says which one is the default.
+**Consequences:** The common case is fast again, and a deployment with no
+docling Space configured behaves identically to one with a docling Space it
+doesn't reach for — no wasted attempt, no `not_configured` skip; the metric now
+reads `engine_not_selected`. The cost is that a table-heavy or scanned document
+converts at PyMuPDF fidelity unless someone *asks* for docling — the UI's engine
+picker and the `engine` argument on both MCP tools are how they ask, and the
+picker's note explains when to. This narrows ADR-013 rather than reversing it:
+fidelity is still what docling is *for*, and its output is still allowed to vary
+run-to-run by design. What changes is that the stochastic path is now opted into
+rather than defaulted into, so a stock deployment is deterministic end-to-end. If
+free-tier docling ever gets fast enough — or a deployment runs it on paid
+hardware — flipping the default back is one env var, and that is exactly what
+`WISEAU_PDF_ENGINE=docling` is for.
+
 ## ADR-026 — The UI approximates progress and renders Markdown itself, with no new dependency
 **Date:** 2026-07-29 · **Status:** Accepted
 **Context:** The output panel showed raw Markdown in a `<pre>` and gave no
@@ -426,8 +464,8 @@ hatch for the most aggressive targets and is explicitly out of scope here. The
 WAF-bypass fetcher itself is a separate concern (a `nodriver`/`undetected-
 chromedriver` upgrade to `browser.py`), tracked independently of this ADR.
 
-## ADR-014 — docling as the default document parser; PyMuPDF/Mammoth as automatic fallback
-**Date:** 2026-07-24 · **Status:** Accepted — backend implemented 2026-07-26 (client + engine selection + fallback); docling-serve Space & live verification still pending. See ADR-016.
+## ADR-014 — docling as a document parser; PyMuPDF/Mammoth as automatic fallback
+**Date:** 2026-07-24 · **Status:** Accepted — backend implemented 2026-07-26 (client + engine selection + fallback); docling-serve Space & live verification still pending. See ADR-016. **Amended by ADR-027 (2026-07-30): docling is no longer the *default* engine — it is selected per deployment or per request. The engine layer, the fallback, and everything else below stand as written.**
 **Context:** docling (layout model + TableFormer + integrated OCR) produces
 markedly more **faithful** Markdown on complex, multi-column, and scanned
 documents — notably the government PDFs this project targets — than the legacy
@@ -459,8 +497,8 @@ deterministic now depends on which engine answered — accepted under ADR-013. T
 public `MarkdownResponse` contract is unchanged (no version bump for the shape;
 this is an engine swap behind it).
 
-## ADR-013 — Fidelity over strict determinism for the default extraction path
-**Date:** 2026-07-24 · **Status:** Accepted
+## ADR-013 — Fidelity over strict determinism for the docling extraction path
+**Date:** 2026-07-24 · **Status:** Accepted · **Amended by ADR-027 (2026-07-30):** the relaxation below applies to the docling path, which is now *opted into* rather than defaulted to; a stock deployment is deterministic end-to-end again. docling's run-to-run variation is still intended, and must not be "fixed".
 **Context:** Invariant #1 ("Determinism is the product") made byte-identical
 output the core guarantee, which drove algorithmic extraction (Trafilatura,
 ADR-001), the legacy-mode PyMuPDF pin (ADR-012), and kept ML engines opt-in

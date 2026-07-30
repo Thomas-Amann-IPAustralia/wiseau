@@ -12,16 +12,16 @@ note it in [`decisions.md`](decisions.md).
 
 ## 1. Invariants (do not break these)
 
-1. **Determinism (scoped — see ADR-013).** Fidelity now outranks strict
-   reproducibility for the default document path. The paths that *are*
-   deterministic stay so — `clean_markdown()` normalization, the PyMuPDF/Mammoth
-   fallback parsers, and Trafilatura URL extraction all yield byte-identical
-   output for a fixed input (no timestamps, no random ordering, no
-   wall-clock-dependent content). The **docling** engine (default document
-   parser, ADR-014) is ML-based and **best-effort**: its Markdown may vary
-   run-to-run, and that is intended, not a bug. Do not "fix" it. (Live web pages
-   also legitimately change; that is content drift, not a determinism violation —
-   see §7.)
+1. **Determinism (scoped — see ADR-013, amended by ADR-027).** Fidelity outranks
+   strict reproducibility *where fidelity is asked for*. The default paths are
+   deterministic and stay so — `clean_markdown()` normalization, the
+   PyMuPDF/Mammoth parsers (the **default** document engine, ADR-027), and
+   Trafilatura URL extraction all yield byte-identical output for a fixed input
+   (no timestamps, no random ordering, no wall-clock-dependent content). The
+   **docling** engine (ADR-014; selected per deployment or per request) is
+   ML-based and **best-effort**: its Markdown may vary run-to-run, and that is
+   intended, not a bug. Do not "fix" it. (Live web pages also legitimately
+   change; that is content drift, not a determinism violation — see §7.)
 2. **Single contract.** Humans and agents receive the same `MarkdownResponse`
    JSON. There is no consumer-specific response shape.
 3. **Normalization is universal.** Every Markdown-producing path ends in
@@ -47,13 +47,17 @@ interactive docs are at `/docs`.
   {
     "status": "ok",
     "service": "markdown-ingestion-engine",
-    "version": "0.6.0",
-    "engines": ["docling", "pymupdf"]
+    "version": "0.7.0",
+    "engines": ["docling", "pymupdf"],
+    "default_engine": "pymupdf"
   }
   ```
   `engines` lists the names a caller may pass as `engine` on a convert request
   (plus the always-accepted `auto`), so a client can offer the choice without
-  hard-coding it.
+  hard-coding it. `default_engine` is the one `auto` resolves to *here* — i.e.
+  this deployment's `WISEAU_PDF_ENGINE`, reported as the engine that will
+  actually run (anything but `docling` runs the local parser). A client uses it
+  to label its "auto" option and size a progress estimate (ADR-027).
 
 ### `GET /metrics`
 - **Purpose:** operational counters for *this process* — request/job timings,
@@ -97,9 +101,11 @@ interactive docs are at `/docs`.
   `415` unsupported type; `429` rate limited; `502` parse failure.
 
 > **The `engine` parameter (ADR-025).** Optional on both convert endpoints:
-> `docling` (highest fidelity, far slower on free CPU), `pymupdf` (fast and
-> deterministic), or `auto` — the default — which defers to this deployment's
-> `WISEAU_PDF_ENGINE`. An unknown value is a **400**, never a silent
+> `pymupdf` (fast and deterministic — what `WISEAU_PDF_ENGINE` defaults to,
+> ADR-027), `docling` (highest fidelity, far slower on free CPU), or `auto` —
+> the parameter's default — which defers to this deployment's
+> `WISEAU_PDF_ENGINE`. `GET /ping` reports which engine that is
+> (`default_engine`). An unknown value is a **400**, never a silent
 > substitution. Requesting `docling` does **not** disable ADR-014's automatic
 > fallback: if docling is unavailable the deterministic parser still answers, so
 > choosing fidelity cannot cost resilience. The response does not report which
@@ -130,10 +136,10 @@ The backend is deliberately small and layered. Each module has one job.
 | ------ | -------------- | -------- |
 | `main.py` | HTTP surface: routing, validation, CORS, rate limiting (decorator limits **and** `SlowAPIMiddleware` for the defaults), concurrency ceiling, streamed upload limits, error → HTTP mapping, per-request timing/logging. | Contain extraction logic; read a whole upload before checking its size. |
 | `observability.py` | Structured (JSON) log formatting and the in-process metrics registry read by `GET /metrics`. Imported by `main.py` *and* the parsers. | Affect extraction output in any way; add a runtime dependency; record URLs, filenames, or content into `/metrics`. |
-| `parsers/__init__.py` | Public entrypoints: `url_to_markdown`, `file_to_markdown`, `resolve_engine`. | — |
+| `parsers/__init__.py` | Public entrypoints: `url_to_markdown`, `file_to_markdown`, `resolve_engine`, `default_engine`. | — |
 | `parsers/browser.py` | Build a stealth headless Chrome driver; download a URL's raw bytes *through that driver's session* (`fetch_bytes`), so WAF clearance/cookies carry over. | Know about Markdown; raise on a failed download (return `None`). |
 | `parsers/url_parser.py` | Refuse non-public addresses (§13), then render → Trafilatura extract → (markdownify fallback) → clean. Detect a direct-PDF response and route its bytes to the document pipeline instead. | Contain per-site CSS selectors; trust a `.pdf` URL without verifying the magic bytes; start the browser before the address is vetted. |
-| `parsers/file_parser.py` | Select the conversion engine (the request's `engine`, else `WISEAU_PDF_ENGINE`): docling-first with automatic fallback to PyMuPDF4LLM (legacy mode) + per-page OCR / Mammoth. Dispatch by extension; then clean. Validate a caller's engine choice (`resolve_engine`). | Hard-depend on docling; return unnormalized text; inline a DOCX image as a base64 data URI (ADR-024); use PyMuPDF4LLM's unstable layout/OCR engine in the fallback. |
+| `parsers/file_parser.py` | Select the conversion engine (the request's `engine`, else `WISEAU_PDF_ENGINE`, default `pymupdf`): PyMuPDF4LLM (legacy mode) + per-page OCR / Mammoth, or docling when it is selected — with automatic fallback to the local parsers. Dispatch by extension; then clean. Validate a caller's engine choice (`resolve_engine`); report the deployment default (`default_engine`). | Hard-depend on docling; return unnormalized text; inline a DOCX image as a base64 data URI (ADR-024); use PyMuPDF4LLM's unstable layout/OCR engine in the fallback. |
 | `parsers/docling_client.py` *(Phase 6)* | Thin HTTP client to docling-serve (`WISEAU_DOCLING_BASE`): document bytes → Markdown, images requested as placeholders (ADR-024). Bounded timeout; typed errors so the caller can tell "docling down" from "bad document". | Contain conversion logic itself; retry forever; leak the token. |
 | `parsers/ocr.py` | Pluggable OCR engines (default MuPDF-Tesseract, opt-in EasyOCR): page image → text. Used by the *fallback* PDF path. | Introduce nondeterminism. |
 | `parsers/cleaner.py` | Deterministic Unicode/whitespace/typography normalization; elide base64 data-URI payloads (ADR-024). | Introduce nondeterminism; remove content (it edits payloads, not text). |
@@ -157,7 +163,7 @@ type="application/pdf">`) *or* the URL path ends in `.pdf`, `browser.fetch_bytes
 downloads the URL from inside the already-navigated page (so the session's
 cookies/WAF clearance apply). The bytes are accepted only if they start with
 `%PDF-`; then they go through **`file_to_markdown`** — the same
-docling-first-with-fallback document pipeline as an upload — under a filename
+engine-selected document pipeline as an upload — under a filename
 derived from the URL path. Bytes that aren't a PDF fall through to the HTML path;
 an unmistakable viewer whose bytes are unreachable raises (→ 502) rather than
 return the empty viewer shell. See ADR-017.
@@ -210,8 +216,8 @@ All backend configuration is via environment variables (12-factor).
 | `WISEAU_OCR_ENGINE` | `tesseract` | OCR backend: `tesseract` (default) or `easyocr` (opt-in neural, handwriting). |
 | `WISEAU_OCR_DPI` | `300` | Rasterization DPI for OCR (fixed for reproducibility). |
 | `WISEAU_OCR_LANG` | `eng` | OCR language(s); Tesseract 639-2/T code(s), `+`-joined. |
-| `WISEAU_PDF_ENGINE` | `docling` | *(Phase 6)* **Default** document engine: `docling` (via docling-serve) or `pymupdf` (force the local fallback). A request's `engine` field overrides it per conversion (ADR-025). |
-| `WISEAU_DOCLING_BASE` | — | *(Phase 6)* Base URL of the internal docling-serve service (HF Space #2). Unset ⇒ behave as `pymupdf`. |
+| `WISEAU_PDF_ENGINE` | `pymupdf` | **Default** document engine: `pymupdf` (the fast, deterministic local parser — ADR-027) or `docling` (via docling-serve, for fidelity). A request's `engine` field overrides it per conversion (ADR-025). |
+| `WISEAU_DOCLING_BASE` | — | *(Phase 6)* Base URL of the internal docling-serve service (HF Space #2). Unset ⇒ docling is skipped even when it is selected. |
 | `WISEAU_DOCLING_TOKEN` | — | *(Phase 6)* Sent as `Authorization: Bearer` — the *platform gateway* credential (an HF token when Space #2 is private). |
 | `WISEAU_DOCLING_API_KEY` | — | *(Phase 6)* Sent as `X-Api-Key` — docling-serve's *own* guard, matching its `DOCLING_SERVE_API_KEY`. A different mechanism from the bearer token; either, both, or neither may be in use (ADR-018). |
 | `WISEAU_DOCLING_TIMEOUT` | `120` | *(Phase 6)* Seconds to wait on docling before falling back (generous, to absorb cold starts). |
@@ -369,6 +375,10 @@ behind the same `OcrEngine` interface. Configuration: see §5
 
 ## 11. Extraction engine selection & fallback (Phase 6)
 
+> **Default (ADR-027):** the engine layer below is unchanged, but the *default*
+> engine is now `pymupdf`, not `docling`. docling is selected per deployment
+> (`WISEAU_PDF_ENGINE=docling`) or per request (`engine="docling"`).
+
 > **Status: the whole backend half is implemented & unit-tested (ADR-014/016/017)
 > — the docling client, engine-selection/fallback in `file_parser.py`, and
 > direct-PDF `/convert/url` routing, all covered by a mocked-transport /
@@ -380,11 +390,12 @@ behind the same `OcrEngine` interface. Configuration: see §5
 > response shape.**
 
 Document conversion — `/convert/file`, and `/convert/url` when the URL serves a
-PDF (ADR-017) — is **docling-first with automatic fallback**:
+PDF (ADR-017) — runs the **fast local parser by default**, with docling
+available on request and **automatic fallback** whenever docling is chosen:
 
 1. `file_parser.py` takes the request's `engine` if it named one (ADR-025),
-   otherwise `WISEAU_PDF_ENGINE` (default `docling`). A caller's value is
-   validated in `main.py` first — unknown ⇒ 400 — and `auto` resolves to "no
+   otherwise `WISEAU_PDF_ENGINE` (default `pymupdf` — ADR-027). A caller's value
+   is validated in `main.py` first — unknown ⇒ 400 — and `auto` resolves to "no
    opinion" rather than to a guessed engine name.
 2. If `docling` **and** `WISEAU_DOCLING_BASE` is set: `docling_client.py` POSTs the
    document bytes to `POST /v1/convert/file` on docling-serve (credentials as in
@@ -410,14 +421,16 @@ PDF (ADR-017) — is **docling-first with automatic fallback**:
    logged for observability; it is not part of the contract.)
 
 DOCX takes the same engine selection as everything else: with `docling` selected
-(the default) *and* a base configured, a DOCX goes to docling too, and falls back
-to Mammoth on any failure. Mammoth serves it whenever docling is unset,
-unreachable, or `WISEAU_PDF_ENGINE=pymupdf` pins it — which is the common local and
-dev case, and cheap and deterministic when it happens.
+*and* a base configured, a DOCX goes to docling too, and falls back to Mammoth on
+any failure. Mammoth serves it whenever docling is unselected (the default —
+ADR-027), unset, or unreachable — which is the common case, and cheap and
+deterministic when it happens.
 
-Determinism note (ADR-013): the docling path is best-effort and may vary
-run-to-run; the fallback path is deterministic. So the *same* document can yield
-different Markdown depending on which engine served it — intended, not a bug.
+Determinism note (ADR-013, as amended by ADR-027): the docling path is
+best-effort and may vary run-to-run; the default local path is deterministic. So
+the *same* document can yield different Markdown depending on which engine served
+it — intended, not a bug — but a deployment that never selects docling is
+deterministic end to end.
 Which engine served a request is visible in `GET /metrics` (§12) — the only way
 to tell a working docling from one that has been quietly falling back for weeks.
 
@@ -493,19 +506,22 @@ The UI is still a static, dependency-free bundle (`index.html` + `style.css` +
 `app.js` + `markdown.js` + `config.js` + `favicon.svg`) served straight from
 GitHub Pages. No framework, no build step, no third-party script (ADR-004).
 
-**Engine picker.** Three options — *Auto* / *Highest fidelity (docling — slow)* /
-*Fastest (PyMuPDF / Mammoth)* — sent as the request's `engine` (§2). The panel
-states plainly what docling costs (tens of seconds to minutes on free CPU,
-longer on a cold Space) and that it falls back automatically. `GET /ping`
-advertises the accepted names, so the list can be checked against a deployment
-rather than assumed.
+**Engine picker.** Three options — *Auto* / *Fastest (PyMuPDF / Mammoth)* /
+*Highest fidelity (docling — slow)* — sent as the request's `engine` (§2).
+*Fastest* is listed first because it is what a standard deployment defaults to
+(ADR-027), and the panel says so; it also states plainly what docling costs
+(tens of seconds to minutes on free CPU, longer on a cold Space) and that it
+falls back automatically. `GET /ping` advertises both the accepted names and the
+deployment's `default_engine`, so the list and the *Auto* label are read off the
+backend rather than assumed.
 
 **Progress is an approximation, and says so.** The API has no progress channel —
 a conversion is one blocking call — so the bar is estimated client-side from the
 source type, the file size, and the chosen engine (`ESTIMATES` in `app.js`:
 ~9 s for a URL render; ~2 s + 1.5 s/MB for PyMuPDF; ~8 s + 6 s/MB when a PyMuPDF
-job is an image, i.e. OCR; ~30 s + 20 s/MB for docling, which `auto` is also
-estimated as, since that is the backend default). The fill follows
+job is an image, i.e. OCR; ~30 s + 20 s/MB for docling; `auto` is estimated as
+whichever of those `/ping` reports as `default_engine`, falling back to the fast
+profile if the ping never answered). The fill follows
 `1 - e^(-3t/estimate)`: 95% at the estimate, capped at 99%, so it keeps moving
 instead of parking at "done"; past 1.3× the estimate the label says it is still
 working and why. The response, not the timer, ends it.

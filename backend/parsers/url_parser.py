@@ -11,8 +11,8 @@ in Chrome yields the PDF *viewer shell*, an empty `<embed>` document with no
 text to extract, so the old path returned near-empty Markdown. Such responses are
 now detected, downloaded as bytes **through the browser's own session** (keeping
 the WAF clearance the render just earned — see `browser.fetch_bytes`), and handed
-to `file_to_markdown`, i.e. the same docling-first-with-fallback document
-pipeline `/convert/file` uses. HTML pages are untouched: they stay on the
+to `file_to_markdown`, i.e. the same engine-selected document pipeline
+`/convert/file` uses (fast parser by default, docling on request). HTML pages are untouched: they stay on the
 render → Trafilatura → cleaner path.
 
 **Short-document repair (ADR-020).** Trafilatura duplicates the body of any page
@@ -308,7 +308,7 @@ def url_to_markdown(url: str, engine: str | None = None) -> str:
             "URL served a PDF; converting as a document",
             extra={"wiseau": {"url": url, "bytes": len(page.pdf_bytes), "filename": filename}},
         )
-        # The document pipeline: docling-first with automatic fallback, cleaned.
+        # The document pipeline: the selected engine, with fallback, cleaned.
         # It records its own engine attribution, so none is recorded here.
         return file_to_markdown(page.pdf_bytes, filename, engine)
 
