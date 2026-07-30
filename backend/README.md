@@ -30,11 +30,13 @@ container, so an unguarded renderer is an SSRF primitive. Set
 `WISEAU_ALLOW_PRIVATE_URLS=1` on a self-hosted deployment that converts its own
 intranet. See [`../docs/tech-spec.md`](../docs/tech-spec.md) §13 and ADR-021.
 
-Both convert endpoints take an optional **`engine`**: `docling` (highest
-fidelity, far slower on free CPU), `pymupdf` (fast, deterministic), or `auto`
-(the default — use this deployment's `WISEAU_PDF_ENGINE`). An unknown value is a
-**400**. Requesting `docling` does not disable the automatic fallback, and
-`GET /ping` lists the names this build accepts. See ADR-025.
+Both convert endpoints take an optional **`engine`**: `pymupdf` (fast,
+deterministic — what `WISEAU_PDF_ENGINE` defaults to), `docling` (highest
+fidelity, far slower on free CPU), or `auto` (the parameter's default — use this
+deployment's `WISEAU_PDF_ENGINE`). An unknown value is a **400**. Requesting
+`docling` does not disable the automatic fallback, and `GET /ping` lists both the
+names this build accepts and the deployment's `default_engine`. See ADR-025 and
+ADR-027.
 
 Interactive docs and the machine-readable schema for LLM/MCP integration are
 served at `/docs` and `/openapi.json`.
@@ -46,15 +48,25 @@ viewer. See [`../docs/tech-spec.md`](../docs/tech-spec.md) §4 and ADR-017.
 
 ## High-fidelity conversion (docling)
 
-Document conversion is **docling-first with automatic fallback**: with a
-docling-serve service configured, PDFs/DOCX/images are converted there for much
-more faithful Markdown; if it is asleep, slow, or down, the deterministic
-PyMuPDF/Mammoth parsers answer instead, so the service degrades rather than
-fails. With no `WISEAU_DOCLING_BASE` set, docling is simply skipped.
+Document conversion runs the **fast local parsers by default** (ADR-027) — about
+a second per document, and byte-reproducible. **docling** is the high-fidelity
+alternative: with a docling-serve service configured *and* selected, PDFs/DOCX/
+images are converted there for markedly more faithful Markdown of complex,
+multi-column, and scanned documents.
+
+Select it either way round:
+
+- **per deployment** — `WISEAU_PDF_ENGINE=docling` makes it this Space's default;
+- **per request** — `engine=docling` on a single conversion (ADR-025).
+
+Whenever docling is selected, the fallback applies: if it is asleep, slow, or
+down, the deterministic PyMuPDF/Mammoth parsers answer instead, so the service
+degrades rather than fails. With no `WISEAU_DOCLING_BASE` set, docling is skipped
+even when it is asked for.
 
 The converter runs as its own service — see [`../docling/`](../docling) for the
 image and deployment steps, [`../docs/tech-spec.md`](../docs/tech-spec.md) §11
-for the selection/fallback rules, and ADR-013/014/018 for the reasoning.
+for the selection/fallback rules, and ADR-013/014/018/027 for the reasoning.
 
 ## OCR (scanned & handwritten documents)
 
@@ -103,11 +115,11 @@ docker run -p 7860:7860 markdown-engine
    Spaces require).
 2. Optionally set any of the variables in [Configuration](#configuration) in the
    Space's settings. None is required — the defaults are the deployed defaults —
-   but a Space with no `WISEAU_DOCLING_BASE` skips docling entirely and serves
-   everything from the deterministic parsers.
+   but out of the box a Space serves everything from the deterministic parsers.
 3. To enable the high-fidelity half, deploy [`../docling/`](../docling) as Space
    #2 and set `WISEAU_DOCLING_BASE` / `WISEAU_DOCLING_API_KEY` /
-   `WISEAU_DOCLING_TOKEN` here. Steps and the live-verification order are in
+   `WISEAU_DOCLING_TOKEN` here. Callers can then ask for it per request; add
+   `WISEAU_PDF_ENGINE=docling` if you want it to be this Space's default. Steps and the live-verification order are in
    [`../docling/README.md`](../docling/README.md).
 4. Confirm the Space is live: `GET /ping` returns the API version, and after a
    conversion `GET /metrics` shows it attributed to an engine. Then point the
@@ -159,8 +171,8 @@ they reset with the process. See [`../docs/tech-spec.md`](../docs/tech-spec.md)
 | `MAX_UPLOAD_BYTES`    | `26214400`| Upload size limit (25 MB).                     |
 | `CHROME_BIN`          | —         | Path to the Chromium binary.                   |
 | `CHROMEDRIVER_PATH`   | —         | Path to chromedriver.                          |
-| `WISEAU_PDF_ENGINE`   | `docling` | **Default** engine: `docling` or `pymupdf` (force the local parser). A request's `engine` overrides it. |
-| `WISEAU_DOCLING_BASE` | —         | docling-serve base URL. Unset ⇒ docling skipped. |
+| `WISEAU_PDF_ENGINE`   | `pymupdf` | **Default** engine: `pymupdf` (the fast local parser) or `docling`. A request's `engine` overrides it. |
+| `WISEAU_DOCLING_BASE` | —         | docling-serve base URL. Unset ⇒ docling skipped even when selected. |
 | `WISEAU_DOCLING_TOKEN`| —         | Sent as `Authorization: Bearer` (private-Space gateway). |
 | `WISEAU_DOCLING_API_KEY` | —      | Sent as `X-Api-Key` (docling-serve's `DOCLING_SERVE_API_KEY`). |
 | `WISEAU_DOCLING_TIMEOUT` | `120`  | Seconds to wait on docling before falling back. |

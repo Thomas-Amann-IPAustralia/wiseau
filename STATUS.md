@@ -5,9 +5,45 @@
 > session. Keep it honest — "scaffolded but untested" is more useful than a
 > green checkmark that lies.
 
-**Last updated:** 2026-07-29
-**Updated by:** Claude Code (Phase 7: usability pass + the base64-image fix)
-**Build note (2026-07-29):** **Phase 7 — a usability pass over the UI, plus one
+**Last updated:** 2026-07-30
+**Updated by:** Claude Code (Phase 8: the fast parser is the default engine)
+**Build note (2026-07-30):** **The default document engine is now the fast local
+parser (PyMuPDF/Mammoth), not docling — ADR-027.** One ask, taken as a deliberate
+amendment to ADR-013/014 rather than a config tweak, because those ADRs made
+docling the default on purpose.
+
+*Why the reversal.* A default is what applies to every document nobody thought
+about, and for the ordinary document — a born-digital PDF, a DOCX with a text
+layer — PyMuPDF/Mammoth returns good Markdown in about a second where free-tier
+docling costs tens of seconds to minutes, plus cold starts. ADR-014's fallback
+does not soften that: waiting out `WISEAU_DOCLING_TIMEOUT` (120s) before falling
+back is the *slowest* possible route to the fast parser's output. Since ADR-025
+the engine is a per-request choice anyway, so fidelity no longer has to be bought
+with the default.
+
+*What changed.* (1) `WISEAU_PDF_ENGINE` defaults to **`pymupdf`**; docling is
+selected per deployment (`WISEAU_PDF_ENGINE=docling`) or per request
+(`engine="docling"`), with the automatic fallback unchanged in both cases. (2)
+`GET /ping` now reports **`default_engine`** — "auto" resolves server-side, so a
+client could no longer assume what it means; it is reported as *behaviour*
+(anything but `docling` ⇒ `pymupdf`). API `0.6.0 → 0.7.0` (additive field; the
+bump also marks the behaviour change). (3) The UI lists *Fastest* ahead of
+*Highest fidelity*, says which is the default and when to reach for docling, and
+labels *Auto* — and sizes its progress estimate — from `/ping` instead of always
+assuming docling.
+
+*Verified.* Suite **207 → 213 pass + 7 skipped** (run here). Live through a real
+uvicorn with `WISEAU_DOCLING_BASE` pointed at a dead port: `/ping` reports
+`default_engine: pymupdf`, a plain upload converted immediately via `pymupdf`
+with **no** docling attempt (`docling.reasons: engine_not_selected`), and the
+same upload with `engine=docling` attempted docling and fell back
+(`fallbacks: 1`, `DoclingUnavailable`). UI driven in headless Chromium against a
+stub backend: option order, the *Auto* label and estimate tracking a stub
+reporting `pymupdf` (2s) vs `docling` (30s), and *Highest fidelity* still sending
+`engine=docling` on the multipart upload — no page errors. *Not* verified (
+unchanged): anything requiring real docling-serve or a live external URL render.
+
+**The previous build note stands (2026-07-29):** **Phase 7 — a usability pass over the UI, plus one
 real output defect.** Six items, all verified in a real browser (33/33 UI checks
 against a stub backend, plus an end-to-end run against a live `uvicorn`):
 
@@ -193,16 +229,17 @@ accounts/credentials rather than code. See ADR-011.
 
 | Area | State | Notes |
 | ---- | ----- | ----- |
-| Backend API (Phase 1) | 🟢 Verified (browser-free) | Routes, CORS, rate limiting, concurrency ceiling written; app imports cleanly; `/ping`, `/convert/file` (real PDF), `/convert/url` (mocked driver) verified via `TestClient`. Rate limiting enforced on undecorated routes (`SlowAPIMiddleware`) and uploads size-checked while streaming; both verified through a real uvicorn. Both convert endpoints now take an optional **`engine`** (ADR-025) and `/ping` advertises the accepted names. API `v0.6.0`. |
+| Backend API (Phase 1) | 🟢 Verified (browser-free) | Routes, CORS, rate limiting, concurrency ceiling written; app imports cleanly; `/ping`, `/convert/file` (real PDF), `/convert/url` (mocked driver) verified via `TestClient`. Rate limiting enforced on undecorated routes (`SlowAPIMiddleware`) and uploads size-checked while streaming; both verified through a real uvicorn. Both convert endpoints now take an optional **`engine`** (ADR-025) and `/ping` advertises the accepted names **and the deployment's `default_engine`** (ADR-027). API `v0.7.0`. |
 | Scraper / extraction (Phase 2) | 🟢 Verified (incl. external URLs) | Live headless-Chrome render → Trafilatura → cleaner proven end-to-end and codified as an opt-in test; DOCX-body path covered. Fetching arbitrary **external** URLs now proven inside the Docker container (example.com, Wikipedia — deterministic across runs); ADR-011. **Direct-PDF links** now convert as documents rather than yielding the empty PDF viewer — verified live (ADR-017). **Short pages no longer come back with a duplicated body** (ADR-020), verified live before/after. |
 | OCR (scanned/handwritten) | 🟢 Verified | Image-only PDF pages + image uploads OCR'd; per-page detection assembles mixed PDFs in order. Default MuPDF-Tesseract (deterministic, in the image); opt-in neural EasyOCR for handwriting. Deterministic by pinning `pymupdf4llm` legacy mode + driving MuPDF's OCR primitive directly (ADR-012). 13 tests + HTTP round-trip verified; API `v0.3.0`. |
 | Frontend UI (Phase 3) | 🟢 Verified | Full static UI driven end-to-end with headless Chromium: status badge, URL + PDF + DOCX conversion, copy/download and error states (18/18 checks, ADR-008), plus the **Phase 7** surface — engine picker, approximated progress bar, Preview/Raw viewer, title-first download dialog, favicon (33/33 checks against a stub backend + a live-backend DOCX run). Still no build step and no third-party script (ADR-026). |
 | AI / MCP integration (Phase 4) | 🟢 Complete | MCP server (`mcp_server.py`) exposes `convert_url`/`convert_file`/`ping` as tools — thin HTTP adapter, same contract, guards intact; verified end-to-end vs a live backend + 6 unit tests. OpenAPI operation IDs/summaries cleaned (v`0.2.0`); `docs/mcp.md` written. **Autonomous-ingestion monitor** (`monitor.py`) built + verified (16 tests + real end-to-end run) — closes Phase 4. |
 | Containerization & deploy (Phase 5) | 🟡 Image proven + deploy prepared, not deployed | Image **builds and runs**: Chromium 150 launches in-container, a live external URL renders end-to-end + deterministically (ADR-011). Both deployments are now prepared in-repo — HF Space card frontmatter on `backend/README.md`, a Pages workflow for `frontend/` (ADR-023) — so what remains is account work only. Nothing deployed to Hugging Face / GitHub Pages yet. |
+| Fast by default (Phase 8) | 🟢 Verified | `WISEAU_PDF_ENGINE` defaults to `pymupdf`; docling is chosen per deployment or per request, fallback unchanged. `/ping` reports `default_engine`; API `v0.7.0`. UI leads with *Fastest* and reads *Auto* off `/ping`. ADR-027; tech-spec §1/§2/§11/§14. Verified by 6 new tests, a live uvicorn run (no docling attempt by default; explicit `engine=docling` still falls back), and the UI in headless Chromium. |
 | Usability (Phase 7) | 🟢 Verified | Per-request engine choice end-to-end (API + MCP + UI), the approximated loading bar, the Preview/Raw viewer, the title-first download dialog, the favicon, and the base64-image fix. ADR-024/025/026; tech-spec §14. Verified in a real browser; the docling half of the engine choice is still only exercised against mocks (no Space). |
-| Higher-fidelity extraction (Phase 6) | 🟡 Code complete, not deployed | docling client + docling-first engine selection with automatic fallback (ADR-014/016), **direct-PDF URL routing** (ADR-017, verified live), and the **docling Space image** `docling/Dockerfile` (ADR-018, digest-pinned but **never built**). Left: deploy Space #2 and verify against a live docling-serve. Fidelity outranks strict determinism (ADR-013). |
+| Higher-fidelity extraction (Phase 6) | 🟡 Code complete, not deployed | docling client + engine selection with automatic fallback (ADR-014/016) — **opt-in since ADR-027, not the default**; plus **direct-PDF URL routing** (ADR-017, verified live) and the **docling Space image** `docling/Dockerfile` (ADR-018, digest-pinned but **never built**). Left: deploy Space #2 and verify against a live docling-serve. Fidelity outranks strict determinism *where it is asked for* (ADR-013 as amended by ADR-027). |
 | Observability | 🟢 Verified | Structured JSON logs (one access line per request + `X-Request-ID`), `GET /metrics` with request/job timings, peak concurrency, RSS, and **engine attribution** (docling vs the fallback parsers, with typed fallback reasons). Stdlib-only, no new runtime dep. Verified live, incl. a real docling fallback and a real docling success over a socket. ADR-019, tech-spec §12. |
-| Automated tests | 🟢 Passing | **207 pass + 7 skipped** in default (browserless) runs (this sandbox, verified directly; the 7th skip is local only — no `tesseract` installed here). +31 this session (base64 payload elision, the DOCX image handler, docling's `image_export_mode`, engine validation/override/fallback, the API's engine plumbing and 400s, MCP forwarding). Previously +29 (rate-limit enforcement + exemption + route attribution, streamed upload rejection, blocked-URL 400, 12 private-address guard cases, the repair's corrected size bound, native-vs-OCR path pinning, OCR engine attribution, 4 monitor failure modes). Covers `cleaner`/PDF/**DOCX**/**OCR**/**docling client & engine selection**/**direct-PDF URL routing**/**observability**/**fair-use guards**/**fetch-target policy**/validation, the MCP tool surface, the **autonomous-ingestion monitor**, plus the live render→extract→clean pipeline. Skips *here*: 5 opt-in live-browser (`WISEAU_LIVE_BROWSER=1` — **not run this session**; they ran and passed in the 2026-07-26 session against a version-matched Chromium 141 + driver), 1 OCR-fixture test needing Pillow, and 1 OCR round-trip needing a `tesseract` binary (installed in CI and in the image, absent from this sandbox). |
+| Automated tests | 🟢 Passing | **213 pass + 7 skipped** in default (browserless) runs (this sandbox, verified directly; the 7th skip is local only — no `tesseract` installed here). +6 this session (a configured docling not running unless selected, `default_engine()` over unset/`docling`/`pymupdf`/nonsense, `/ping`'s `default_engine` under both settings). Previously +31 (base64 payload elision, the DOCX image handler, docling's `image_export_mode`, engine validation/override/fallback, the API's engine plumbing and 400s, MCP forwarding). Previously +29 (rate-limit enforcement + exemption + route attribution, streamed upload rejection, blocked-URL 400, 12 private-address guard cases, the repair's corrected size bound, native-vs-OCR path pinning, OCR engine attribution, 4 monitor failure modes). Covers `cleaner`/PDF/**DOCX**/**OCR**/**docling client & engine selection**/**direct-PDF URL routing**/**observability**/**fair-use guards**/**fetch-target policy**/validation, the MCP tool surface, the **autonomous-ingestion monitor**, plus the live render→extract→clean pipeline. Skips *here*: 5 opt-in live-browser (`WISEAU_LIVE_BROWSER=1` — **not run this session**; they ran and passed in the 2026-07-26 session against a version-matched Chromium 141 + driver), 1 OCR-fixture test needing Pillow, and 1 OCR round-trip needing a `tesseract` binary (installed in CI and in the image, absent from this sandbox). |
 | CI/CD | 🟢 Tests + Docker build | `.github/workflows/backend-tests.yml`: a `test` job runs `pytest` (browserless) and a `docker-build` job builds the image, boots it, renders a live external URL through the container, and now also asserts the **short-page repair** on that real render, the **`/metrics` attribution**, and that request logs are structured JSON. Docker-build gap closed (ADR-011). A second workflow, `deploy-frontend.yml`, publishes `frontend/` to GitHub Pages (never run — Pages is not enabled yet; ADR-023). |
 | Documentation | 🟢 Established | Brief, tech spec, roadmap, decisions, agent workflow, this file. |
 
@@ -224,8 +261,9 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   being assembled in memory. Explicit OpenAPI operation IDs
   (`ping`/`metrics`/`convert_url`/`convert_file`) + summaries. Both convert
   routes accept an optional `engine` (`docling`/`pymupdf`/`auto`), validated here
-  so an unknown name is a 400 (ADR-025); `/ping` lists the accepted names. API
-  `v0.6.0`.
+  so an unknown name is a 400 (ADR-025); `/ping` lists the accepted names **and
+  `default_engine`**, the engine `auto` resolves to on this deployment (ADR-027).
+  API `v0.7.0`.
 - `observability.py` — JSON-lines log formatter + the thread-safe in-process
   metrics registry behind `/metrics`. Stdlib only; a pure side channel that
   cannot alter extracted Markdown. ADR-019.
@@ -252,12 +290,15 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   (ADR-017). Trafilatura output passes through `_drop_repeated_run`, which undoes
   the body duplication Trafilatura emits below its 250-char threshold (ADR-020),
   bounded by the size of the *repeat* rather than of the document (ADR-022).
-- `parsers/file_parser.py` — engine selection (`WISEAU_PDF_ENGINE`, default
-  `docling`): docling-first with automatic fallback to the deterministic parsers —
-  PDF via PyMuPDF4LLM (legacy mode) with per-page OCR of scanned pages, DOCX via
-  Mammoth + markdownify, images via OCR. Each parser records its own engine
-  attribution, so a scanned PDF counts as `ocr`, not `pymupdf`. docling is attempted only when selected
-  **and** `WISEAU_DOCLING_BASE` is set; any `DoclingError` logs and falls back.
+- `parsers/file_parser.py` — engine selection (`WISEAU_PDF_ENGINE`, **default
+  `pymupdf`** — ADR-027): the deterministic parsers by default — PDF via
+  PyMuPDF4LLM (legacy mode) with per-page OCR of scanned pages, DOCX via Mammoth +
+  markdownify, images via OCR — with docling when it is selected per deployment or
+  per request, falling back to the same parsers on any failure. Each parser records
+  its own engine attribution, so a scanned PDF counts as `ocr`, not `pymupdf`.
+  docling is attempted only when selected **and** `WISEAU_DOCLING_BASE` is set; any
+  `DoclingError` logs and falls back. `default_engine()` reports what `auto`
+  resolves to, for `/ping`.
 - `parsers/docling_client.py` *(Phase 6)* — thin **stdlib-`urllib`** HTTP client
   to docling-serve (`WISEAU_DOCLING_BASE`, `WISEAU_DOCLING_TIMEOUT`, and two
   independent credentials: bearer `WISEAU_DOCLING_TOKEN` for a private Space's
@@ -374,8 +415,9 @@ URLs, which used to convert to an empty PDF-viewer shell (ADR-017).*
 ## Suggested next actions (see `docs/roadmap.md` for the full backlog)
 
 **Phase 6 has no code left in it, the cross-cutting backlog's code items are done,
-Phase 7 (the usability pass — ADR-024/025/026) is finished and verified, and both
-deployments are prepared in-repo (ADR-023).**
+Phase 7 (the usability pass — ADR-024/025/026) and Phase 8 (fast by default —
+ADR-027) are finished and verified, and both deployments are prepared in-repo
+(ADR-023).**
 Everything remaining in both open tracks needs something this chain of sessions
 hasn't had: a Docker daemon with a few GB of pull budget, or external accounts. Once deployed, `GET /metrics` is the fastest way to check the docling
 half is actually working (`engines.docling` vs `engines.pymupdf`).
@@ -389,10 +431,11 @@ half is actually working (`engines.docling` vs `engines.pymupdf`).
    as a secret, then set `WISEAU_DOCLING_BASE` + `WISEAU_DOCLING_API_KEY`
    (+ `WISEAU_DOCLING_TOKEN` for the private-Space gateway) on Space #1.
    *Needs an external account.* Steps are in `docling/README.md`.
-3. **Live verification** — a table-heavy/scanned government-PDF upload (the UI's
-   engine picker now makes the comparison a two-click job: convert the same file
-   as *Highest fidelity* and as *Fastest*), a direct-PDF **URL** through
-   `/convert/url`, and **fallback** (pause Space #2 → PyMuPDF still returns, with
+3. **Live verification** — note that docling is no longer the default (ADR-027),
+   so ask for it by name: a table-heavy/scanned government-PDF upload with
+   `engine=docling` (the UI's picker makes the comparison a two-click job: convert
+   the same file as *Highest fidelity* and as *Fastest*), a direct-PDF **URL**
+   through `/convert/url` with the same choice, and **fallback** (pause Space #2 → PyMuPDF still returns, with
    a `falling back` line in the log). While you are there, confirm real docling
    honours `image_export_mode=placeholder` and returns no data URIs (ADR-024).
 
@@ -417,6 +460,42 @@ settings:
 Newest first. One short entry per working session — what changed and what the
 next instance should know.
 
+- **2026-07-30 — Phase 8: the fast parser is the default engine (ADR-027).**
+  One ask — "use the fastest method (PyMuPDF/Mammoth) as the default rather than
+  docling" — but it reverses a decision two ADRs made deliberately, so it is
+  recorded as an **amendment** (ADR-027 amends ADR-013/014) rather than slipped in
+  as a config change. **The argument:** a default applies to every document nobody
+  thought about, and the ordinary document (born-digital PDF, DOCX with a text
+  layer) converts well in ~1s locally versus tens of seconds to minutes on
+  free-tier docling, cold starts on top. ADR-014's fallback does not rescue that —
+  waiting out the 120s `WISEAU_DOCLING_TIMEOUT` before falling back is the
+  *slowest* possible way to get the fast parser's output. And since ADR-025 the
+  engine is a per-request choice, so fidelity no longer has to be bought with the
+  default. **Changes:** (1) `_pdf_engine()` defaults to `pymupdf`; docling is
+  selected per deployment (`WISEAU_PDF_ENGINE=docling`) or per request
+  (`engine="docling"`), fallback unchanged in both. (2) New `default_engine()`,
+  published by `GET /ping` as `default_engine` — "auto" resolves server-side, so
+  the UI could no longer assume what it means; reported as *behaviour* (anything
+  but `docling` ⇒ `pymupdf`), API `0.6.0 → 0.7.0`. (3) The UI lists *Fastest*
+  before *Highest fidelity*, states which is the default and when docling is worth
+  it, and both labels *Auto* and sizes the progress estimate from `/ping` rather
+  than always assuming docling. **One behavioural detail worth knowing:** an
+  unconfigured deployment used to record the docling skip as `not_configured`;
+  it now records `engine_not_selected`, because selection is checked first.
+  **Verified:** suite **213 pass + 7 skipped** (+6, run here); live through a real
+  uvicorn with `WISEAU_DOCLING_BASE` pointed at a dead port — `/ping` reports
+  `pymupdf`, a default upload converted instantly with no docling attempt, and the
+  same upload with `engine=docling` attempted docling and fell back; and the UI
+  driven in headless Chromium against a stub backend (option order, *Auto*
+  label/estimate tracking a stub reporting `pymupdf` → 2s vs `docling` → 30s,
+  *Highest fidelity* still sending `engine=docling`, no page errors). Docs:
+  ADR-027 (+ amendment notes on ADR-013/014), CLAUDE.md (values + working rules),
+  tech-spec §1/§2/§4/§5/§11/§14, project-brief, roadmap (Phase 6 note + new Phase
+  8), `docs/mcp.md`, all three READMEs. **Next instance:** unchanged and still
+  external — build `docling/Dockerfile`, deploy both Spaces, run the live checks
+  in `docling/README.md`. Just remember docling is now opt-in: send
+  `engine=docling` (or set `WISEAU_PDF_ENGINE=docling` on Space #1) when verifying
+  the docling half, or you will verify the fallback by accident.
 - **2026-07-29 — Phase 7: usability pass, and the base64-image defect fixed.**
   Six asks, taken as one pass over how the engine is *used*. **The defect first:**
   a conversion had inlined an image as a base64 PNG data URI — tens of thousands

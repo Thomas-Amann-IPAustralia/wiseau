@@ -48,26 +48,28 @@
           <label class="engine__option">
             <input type="radio" name="engine" value="auto" checked />
             <span class="engine__name">Auto</span>
-            <span class="engine__hint">Server's default</span>
-          </label>
-          <label class="engine__option">
-            <input type="radio" name="engine" value="docling" />
-            <span class="engine__name">Highest fidelity</span>
-            <span class="engine__hint">docling — slow</span>
+            <span id="engine-auto-hint" class="engine__hint">Server's default</span>
           </label>
           <label class="engine__option">
             <input type="radio" name="engine" value="pymupdf" />
             <span class="engine__name">Fastest</span>
             <span class="engine__hint">PyMuPDF / Mammoth</span>
           </label>
+          <label class="engine__option">
+            <input type="radio" name="engine" value="docling" />
+            <span class="engine__name">Highest fidelity</span>
+            <span class="engine__hint">docling — slow</span>
+          </label>
         </div>
         <p id="engine-note" class="engine__note">
-          <strong>docling</strong> reads complex layouts — multi-column pages, tables, scans —
-          far more faithfully, but it runs an ML model on a free CPU: expect
-          <strong>tens of seconds to a few minutes</strong> per document, and longer still on the
-          first request after the service has been idle. It falls back to the fast parser
-          automatically if it is unavailable. The choice applies to documents; a URL that serves
-          an HTML page is always extracted the same way.
+          The <strong>fast</strong> parser (PyMuPDF / Mammoth) is the default: it answers in about
+          a second and returns the same Markdown every time. Choose
+          <strong>highest fidelity</strong> when a document needs it — docling reads complex
+          layouts, multi-column pages, tables and scans far more faithfully, but it runs an ML
+          model on a free CPU: expect <strong>tens of seconds to a few minutes</strong> per
+          document, and longer still on the first request after the service has been idle. It
+          falls back to the fast parser automatically if it is unavailable. The choice applies to
+          documents; a URL that serves an HTML page is always extracted the same way.
         </p>
       </fieldset>
 

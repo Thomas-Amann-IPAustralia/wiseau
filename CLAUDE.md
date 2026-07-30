@@ -14,32 +14,42 @@ a self-hosted service that converts web URLs, PDFs, DOCX, and images into clean,
 structured Markdown. It serves two consumers from one contract: humans (via a
 static web UI) and LLM/agents (via the HTTP API + OpenAPI schema).
 
-> **Direction (2026-07-24).** The project is evolving to prioritise **fidelity** —
-> the most faithful Markdown of real-world documents (complex, multi-column, and
-> scanned government PDFs) — **over strict determinism**. **docling** becomes the
-> *default* document parser, running as an internal microservice, with the
-> original PyMuPDF/Mammoth path kept as an **automatic fallback**. This is the
+> **Direction (2026-07-24, amended 2026-07-30).** The project prioritises
+> **fidelity** — the most faithful Markdown of real-world documents (complex,
+> multi-column, and scanned government PDFs) — and accepts a **stochastic** ML
+> extractor to get it. **docling** runs as an internal microservice alongside the
+> PyMuPDF/Mammoth path, which is also its **automatic fallback**. This is the
 > Phase 6 work; the decisions are on record in ADR-013/014/015 and the task list
-> is in `roadmap.md` Phase 6. The values below already reflect this.
+> is in `roadmap.md` Phase 6.
+>
+> **ADR-027 (2026-07-30) changed which engine is the *default*:** the fast local
+> parser, not docling. Free-tier docling costs tens of seconds to minutes and most
+> documents do not need it, so fidelity is now **opted into** — per deployment
+> (`WISEAU_PDF_ENGINE=docling`) or per request (`engine="docling"`, ADR-025) —
+> rather than charged to every conversion. The values below reflect this.
 
 The design values, in priority order:
 
 1. **Faithful first** — produce the most accurate Markdown of the source, even
-   when that means a *stochastic* ML extractor (docling). Determinism is no longer
-   the top goal: the paths that *are* deterministic (the normalizer, the
-   PyMuPDF/Mammoth fallback, Trafilatura URL extraction) stay so, but the default
-   docling path may vary run-to-run **by design** (ADR-013 — do not "fix" it).
-   Still favour algorithmic/model extraction over per-site CSS selectors.
-2. **Resilient** — docling on the free tier is slow and cold-starts, so document
-   conversion is docling-first with an **automatic fallback** to the deterministic
+   when that means a *stochastic* ML extractor (docling). Determinism is not the
+   top goal: the default paths (the normalizer, the PyMuPDF/Mammoth parsers,
+   Trafilatura URL extraction) stay deterministic, but the opt-in docling path may
+   vary run-to-run **by design** (ADR-013 — do not "fix" it). Still favour
+   algorithmic/model extraction over per-site CSS selectors.
+2. **Fast by default** — the engine that runs when nobody chose one is the fast
+   local parser (`WISEAU_PDF_ENGINE` defaults to `pymupdf`; ADR-027). A minute of
+   ML inference is a deliberate per-deployment or per-request choice, never the
+   price of every conversion.
+3. **Resilient** — docling on the free tier is slow and cold-starts, so whenever
+   docling *is* selected there is an **automatic fallback** to the deterministic
    parsers: the service degrades to a working result rather than failing (ADR-014).
-3. **Decoupled** — static frontend, backend, and the docling converter talk only
+4. **Decoupled** — static frontend, backend, and the docling converter talk only
    over HTTP. The backend's only knowledge of docling is `WISEAU_DOCLING_BASE`.
-4. **Memory-aware** — headless browsing and ML extraction are heavy; each service
+5. **Memory-aware** — headless browsing and ML extraction are heavy; each service
    is sized (16 GB HF Space) and rate-limited to avoid OOM. docling and the browser
    live in *separate* Spaces so neither starves the other.
-5. **Agent-native** — the API is a first-class integration surface.
-6. **Open but protected** — the API is public; fair-use rate limiting and a
+6. **Agent-native** — the API is a first-class integration surface.
+7. **Open but protected** — the API is public; fair-use rate limiting and a
    concurrency ceiling guard it, not origin locks.
 
 ## The document map
@@ -73,7 +83,7 @@ wiseau/
 │   ├── parsers/            # extraction pipeline
 │   │   ├── browser.py      # Selenium-stealth headless Chrome (render + in-session download)
 │   │   ├── url_parser.py   # Trafilatura extraction; direct-PDF URLs -> file_parser
-│   │   ├── file_parser.py  # engine select: docling-first, PyMuPDF/Mammoth fallback
+│   │   ├── file_parser.py  # engine select: PyMuPDF/Mammoth default, docling opt-in
 │   │   ├── docling_client.py  # [Phase 6] thin HTTP client to docling-serve
 │   │   ├── ocr.py          # pluggable OCR engines (Tesseract / EasyOCR)
 │   │   └── cleaner.py      # regex/Unicode normalization (always runs)
@@ -141,12 +151,14 @@ WISEAU_LIVE_BROWSER=1 pytest    # also runs the opt-in live-Chromium tests
 ## Working rules for this repo
 
 - **Fidelity is the product; determinism where it's free (ADR-013).** The goal is
-  the most faithful Markdown of the source. The default docling path is stochastic
-  **on purpose** — do not "fix" run-to-run variation there. But keep the paths that
-  *are* deterministic deterministic: never add a timestamp, random value, or
-  dict-iteration-ordered output to the normalizer, the PyMuPDF/Mammoth fallback, or
-  the URL path. Still prefer algorithmic/model extraction over per-site selectors.
-- **Document conversion is docling-first with automatic fallback (ADR-014).** A new
+  the most faithful Markdown of the source. The docling path is stochastic **on
+  purpose** — do not "fix" run-to-run variation there. But keep the paths that
+  *are* deterministic deterministic — which since ADR-027 includes the **default**
+  path: never add a timestamp, random value, or dict-iteration-ordered output to
+  the normalizer, the PyMuPDF/Mammoth parsers, or the URL path. Still prefer
+  algorithmic/model extraction over per-site selectors.
+- **Document conversion defaults to the fast local parser (ADR-027), and docling
+  always has an automatic fallback (ADR-014).** A new
   document parser slots into the engine-selection layer and must fall back cleanly
   when docling is unavailable — never make the service hard-depend on the docling
   Space.

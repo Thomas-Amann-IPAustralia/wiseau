@@ -31,11 +31,14 @@ docker run -p 7860:7860 -e DOCLING_SERVE_API_KEY=dev-key wiseau-docling
 curl localhost:7860/health
 ```
 
-Then point a local backend at it and the whole docling path is live:
+Then point a local backend at it and the whole docling path is live. docling is
+not the default engine (ADR-027), so also select it — either for the process
+(`WISEAU_PDF_ENGINE=docling`, as below) or per request (`engine=docling`):
 
 ```bash
 export WISEAU_DOCLING_BASE=http://localhost:7860
 export WISEAU_DOCLING_API_KEY=dev-key
+export WISEAU_PDF_ENGINE=docling      # or send engine=docling per conversion
 uvicorn main:app --port 7860   # from backend/, on another port
 ```
 
@@ -60,10 +63,14 @@ uvicorn main:app --port 7860   # from backend/, on another port
 
    The two credentials guard different layers — the platform gateway and
    docling-serve itself — and are independent; set whichever the deployment uses.
+   Add `WISEAU_PDF_ENGINE=docling` only if docling should be Space #1's *default*
+   engine; without it, docling serves the callers who ask for it by name
+   (`engine=docling`, which the UI's *Highest fidelity* option sends) — ADR-027.
 4. Verify, in order: `/health` responds; a table-heavy PDF upload through the
-   backend returns docling-quality Markdown; then **pause this Space** and repeat
-   the upload — it must still succeed, via the PyMuPDF fallback, with a
-   `docling conversion failed ... falling back` line in the backend log.
+   backend **with `engine=docling`** returns docling-quality Markdown; then
+   **pause this Space** and repeat the same upload — it must still succeed, via
+   the PyMuPDF fallback, with a `docling conversion failed ... falling back` line
+   in the backend log.
 
 ## Sizing
 
