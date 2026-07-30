@@ -62,6 +62,25 @@ file type '.txt'.`) rather than a stack trace.
 | -------- | ------- | ------- |
 | `WISEAU_API_BASE` | `http://localhost:7860` | Base URL of the running backend. Mirrors the frontend's single `MARKDOWN_API_BASE` knob (ADR-004). |
 | `WISEAU_MCP_TIMEOUT` | `120` | Per-request timeout (seconds); generous for slow renders. |
+| `WISEAU_MCP_TRANSPORT` | `stdio` | `stdio` or `streamable-http` (see below); overridden by `--transport`. |
+| `WISEAU_MCP_HOST` | `0.0.0.0` | Bind address, `streamable-http` only. |
+| `WISEAU_MCP_PORT` | `8080` | Bind port, `streamable-http` only. |
+| `WISEAU_MCP_ALLOWED_HOSTS` | — | Comma-separated hostnames to accept `Host` headers from, `streamable-http` only (ADR-028). |
+
+### Two transports: local process vs. hosted connector
+
+`mcp_server.py` supports both transports the `mcp` SDK offers. Pick the one that
+matches where the calling agent runs:
+
+- **`stdio` (default)** — the client spawns `mcp_server.py` itself as a
+  subprocess and talks to it over stdin/stdout. This is the standard wiring for
+  agents that live on the same machine as the server: Claude Desktop, Claude
+  Code, most IDE agents.
+- **`streamable-http`** — the server listens on a port and speaks MCP over HTTP,
+  so **any** MCP client that can reach that URL can use it as a connector — not
+  just ones that can spawn a local process. This is what makes wiseau usable from
+  claude.ai custom connectors, other hosted agent frameworks, or any LLM tooling
+  that only speaks HTTP (ADR-028).
 
 ### Running it
 
@@ -69,14 +88,26 @@ file type '.txt'.`) rather than a stack trace.
 cd backend
 pip install -r requirements.txt -r requirements-mcp.txt
 # The backend must be running and reachable at WISEAU_API_BASE.
+
+# stdio — local agent client spawns this process directly.
 WISEAU_API_BASE=http://localhost:7860 python mcp_server.py
+
+# streamable-http — serves the same tools over HTTP for remote/hosted clients.
+WISEAU_API_BASE=https://your-space.hf.space \
+WISEAU_MCP_ALLOWED_HOSTS=your-mcp-host.example.com \
+    python mcp_server.py --transport streamable-http
 ```
 
-This starts the server on the default **stdio** transport — the standard wiring
-for local agent clients. For a remote deployment, `mcp.run("streamable-http")`
-serves the same tools over HTTP.
+`streamable-http` binds `WISEAU_MCP_HOST:WISEAU_MCP_PORT` (default
+`0.0.0.0:8080`). The SDK rejects requests whose `Host` header isn't
+`localhost`/`127.0.0.1` unless you list your real hostname in
+`WISEAU_MCP_ALLOWED_HOSTS` — that guards against DNS rebinding, not against
+unauthenticated access, so put the usual network boundary (reverse proxy,
+platform access control) in front of it before exposing it publicly (ADR-028).
 
-### Wiring into an MCP client (Claude Desktop example)
+### Wiring into an MCP client
+
+**Claude Desktop / Claude Code (stdio — spawns a local process):**
 
 ```json
 {
@@ -91,6 +122,14 @@ serves the same tools over HTTP.
 ```
 
 Point `WISEAU_API_BASE` at your deployed Space (Phase 5) or a local backend.
+
+**Remote/hosted clients (streamable-http — connects to a URL):**
+
+Run the server with `--transport streamable-http` (above) somewhere reachable
+from the client, then register it as a connector by URL —
+`http://<host>:<port>/mcp` — the same way you'd add any other hosted MCP
+connector. No local process for the client to spawn; any LLM/agent that speaks
+MCP over HTTP can now call `convert_url`/`convert_file`/`ping`.
 
 ---
 

@@ -119,6 +119,46 @@ def test_tools_are_registered_with_the_server():
     assert {"convert_url", "convert_file", "ping"} <= names
 
 
+def test_remote_transport_defaults_bind_publicly(monkeypatch):
+    """streamable-http must be reachable from outside the process by default."""
+    monkeypatch.delenv("WISEAU_MCP_HOST", raising=False)
+    monkeypatch.delenv("WISEAU_MCP_PORT", raising=False)
+    monkeypatch.delenv("WISEAU_MCP_ALLOWED_HOSTS", raising=False)
+
+    mcp_server._configure_remote_transport()
+
+    assert mcp_server.mcp.settings.host == "0.0.0.0"
+    assert mcp_server.mcp.settings.port == 8080
+
+
+def test_remote_transport_honours_host_port_env(monkeypatch):
+    monkeypatch.setenv("WISEAU_MCP_HOST", "10.0.0.5")
+    monkeypatch.setenv("WISEAU_MCP_PORT", "9000")
+    monkeypatch.delenv("WISEAU_MCP_ALLOWED_HOSTS", raising=False)
+
+    mcp_server._configure_remote_transport()
+
+    assert mcp_server.mcp.settings.host == "10.0.0.5"
+    assert mcp_server.mcp.settings.port == 9000
+
+
+def test_remote_transport_widens_host_allowlist(monkeypatch):
+    monkeypatch.delenv("WISEAU_MCP_HOST", raising=False)
+    monkeypatch.delenv("WISEAU_MCP_PORT", raising=False)
+    monkeypatch.setenv("WISEAU_MCP_ALLOWED_HOSTS", "wiseau-mcp.example.com, other.example.com")
+
+    mcp_server._configure_remote_transport()
+
+    security = mcp_server.mcp.settings.transport_security
+    assert "wiseau-mcp.example.com" in security.allowed_hosts
+    assert "other.example.com" in security.allowed_hosts
+    assert "https://wiseau-mcp.example.com" in security.allowed_origins
+    assert "http://wiseau-mcp.example.com" in security.allowed_origins
+    # The original localhost entries must survive — DNS rebinding protection
+    # for local use shouldn't be lost by opting into a remote allow-list.
+    assert "localhost:*" in security.allowed_hosts
+
+
 def _write_temp(monkeypatch) -> str:
     """Materialize a throwaway file so `convert_file` has something to read."""
     import tempfile

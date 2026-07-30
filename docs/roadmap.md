@@ -85,6 +85,11 @@ merely written. Written-but-unverified is `[~]` with a note.
   concurrency guards (invariant #4). Verified: 16 unit tests plus a real end-to-end
   run against a stdlib stub server (new → unchanged → changed-with-diff → error);
   see ADR-010. This closes Phase 4.*
+- [x] *(2026-07-30 addendum)* MCP server reachable by remote/hosted clients, not
+  just local ones. — `mcp_server.py` gained `--transport streamable-http`
+  alongside the existing `stdio` default, so any MCP client that speaks HTTP —
+  not only one that can spawn the process locally — can use wiseau as a
+  connector. Same tool surface and contract; see ADR-028 and `docs/mcp.md`.
 
 ## Phase 5 — Containerization & deployment
 
