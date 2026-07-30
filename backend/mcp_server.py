@@ -136,8 +136,42 @@ async def ping() -> dict[str, Any]:
     return _unwrap(response)
 
 
+def _configure_remote_transport() -> None:
+    """Point the server at a public host/port and widen the Host-header allow-list.
+
+    FastMCP's streamable-http transport binds `127.0.0.1` and only accepts
+    requests whose `Host` header matches `localhost`/`127.0.0.1` by default (DNS
+    rebinding protection) — safe for a local process, useless for a remote
+    deployment. `WISEAU_MCP_HOST`/`WISEAU_MCP_PORT` open the bind address;
+    `WISEAU_MCP_ALLOWED_HOSTS` (comma-separated, e.g. your HF Space's hostname)
+    must be set for a remote client's requests to pass the Host check.
+    """
+    mcp.settings.host = os.environ.get("WISEAU_MCP_HOST", "0.0.0.0")
+    mcp.settings.port = int(os.environ.get("WISEAU_MCP_PORT", "8080"))
+    extra_hosts = [h.strip() for h in os.environ.get("WISEAU_MCP_ALLOWED_HOSTS", "").split(",") if h.strip()]
+    if extra_hosts:
+        security = mcp.settings.transport_security
+        security.allowed_hosts = list({*security.allowed_hosts, *extra_hosts})
+        security.allowed_origins = list(
+            {*security.allowed_origins, *(f"https://{h}" for h in extra_hosts), *(f"http://{h}" for h in extra_hosts)}
+        )
+
+
 if __name__ == "__main__":
-    # Default stdio transport — the standard wiring for local agent clients
-    # (e.g. Claude Desktop). For a remote deployment, `mcp.run("streamable-http")`
-    # serves the same tools over HTTP; see docs/mcp.md.
-    mcp.run()
+    import argparse
+
+    parser = argparse.ArgumentParser(description="wiseau MCP server — expose the ingestion engine to MCP clients.")
+    parser.add_argument(
+        "--transport",
+        choices=["stdio", "streamable-http"],
+        default=os.environ.get("WISEAU_MCP_TRANSPORT", "stdio"),
+        help="'stdio' for a local agent client (e.g. Claude Desktop, Claude Code); "
+        "'streamable-http' to serve the same tools over HTTP so any remote MCP "
+        "client (claude.ai connectors, other agents) can reach them. "
+        "Defaults to $WISEAU_MCP_TRANSPORT, then 'stdio'.",
+    )
+    args = parser.parse_args()
+
+    if args.transport == "streamable-http":
+        _configure_remote_transport()
+    mcp.run(args.transport)

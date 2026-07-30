@@ -6,8 +6,36 @@
 > green checkmark that lies.
 
 **Last updated:** 2026-07-30
-**Updated by:** Claude Code (Phase 8: the fast parser is the default engine)
-**Build note (2026-07-30):** **The default document engine is now the fast local
+**Updated by:** Claude Code (Phase 4 follow-up: MCP server gains a remote transport)
+**Build note (2026-07-30):** **`backend/mcp_server.py` can now serve any MCP
+client over HTTP, not just a locally-spawned process — ADR-028.** The user's ask
+was "make wiseau accessible to any LLM"; the MCP server already existed
+(Phase 4) but only ran on the `stdio` transport, which only local clients
+(Claude Desktop, Claude Code) that can spawn the process directly can reach.
+
+*What changed.* `mcp_server.py` takes a `--transport {stdio,streamable-http}`
+flag (default from `$WISEAU_MCP_TRANSPORT`, then `stdio` — no behaviour change
+unless you opt in). `streamable-http` binds `$WISEAU_MCP_HOST:$WISEAU_MCP_PORT`
+(default `0.0.0.0:8080`) and widens the SDK's DNS-rebinding Host-header
+allow-list via `$WISEAU_MCP_ALLOWED_HOSTS` (comma-separated hostnames) — without
+it the SDK only accepts `localhost`/`127.0.0.1` requests, so a real remote
+deployment stays unreachable until its hostname is listed. Same three tools
+(`convert_url`/`convert_file`/`ping`), same thin-adapter contract over
+`WISEAU_API_BASE` — only the transport is new. `docs/mcp.md` and
+`backend/README.md` document both transports and how to wire each into a
+client (local stdio config vs. registering a connector by URL).
+
+*Verified.* Suite **213 → 216 pass + 7 skipped** (run here; three new tests
+cover the host/port/allow-list configuration). Started the server with
+`--transport streamable-http`, confirmed it binds and answers a real HTTP
+request on `/mcp` (a 406 from a deliberately malformed test request, not a
+connection failure or a Host-header rejection — proving the bind + allow-list
+wiring works, not just that it constructs). *Not* verified: an actual external
+MCP client (e.g. a claude.ai custom connector) round-tripping a tool call
+against the streamable-http endpoint — that needs a reachable public
+deployment, which this session didn't have.
+
+**The previous build note stands (2026-07-30):** **The default document engine is now the fast local
 parser (PyMuPDF/Mammoth), not docling — ADR-027.** One ask, taken as a deliberate
 amendment to ADR-013/014 rather than a config tweak, because those ADRs made
 docling the default on purpose.

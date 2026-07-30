@@ -21,6 +21,39 @@ one `Superseded`.
 
 ---
 
+## ADR-028 — The MCP server gains a remote (streamable-http) transport, opt-in
+**Date:** 2026-07-30 · **Status:** Accepted
+**Context:** `backend/mcp_server.py` only ran on the stdio transport — a client
+has to spawn the Python process itself, so only agents on the *same machine* (or
+one that can `ssh`/exec into it) could reach the tools. That fits Claude Desktop
+and Claude Code fine, but nothing else: any LLM/agent surface that connects to a
+*hosted* MCP connector over HTTP (claude.ai custom connectors, other agent
+frameworks) had no URL to point at. The underlying `mcp` SDK already implements a
+`streamable-http` transport; it was one `mcp.run()` argument away, unused.
+**Decision:** `mcp_server.py` now takes a `--transport {stdio,streamable-http}`
+flag (default from `$WISEAU_MCP_TRANSPORT`, then `stdio` — the existing local
+wiring is unchanged unless you opt in). Choosing `streamable-http` binds
+`$WISEAU_MCP_HOST`/`$WISEAU_MCP_PORT` (default `0.0.0.0:8080`, i.e. reachable
+from outside the container/process) and widens the SDK's Host-header allow-list
+with `$WISEAU_MCP_ALLOWED_HOSTS` (comma-separated hostnames) — the SDK's DNS
+rebinding protection otherwise accepts only `localhost`/`127.0.0.1` requests, so
+a remote deployment stays unreachable until its hostname is explicitly
+allow-listed. No change to the tool surface (`convert_url`/`convert_file`/`ping`)
+or to the underlying HTTP calls: this is still the same thin adapter over
+`WISEAU_API_BASE`, now reachable by two transports instead of one.
+**Consequences:** Any MCP client that speaks streamable-http — not just
+subprocess-spawning local clients — can now use wiseau as a connector, which is
+the point: any LLM, not just ones sharing a filesystem with the server. Running
+the HTTP transport publicly means the process is a second network-facing
+surface, on top of the FastAPI backend; it does not inherit the backend's
+SlowAPI rate limiting (each tool call still does, since it's a normal HTTP
+request to the backend, but the MCP endpoint itself has no request cap of its
+own), so it should sit behind the same kind of network boundary (reverse proxy,
+firewall, or the deployment platform's own access control) the operator would
+put in front of any other public service — `WISEAU_MCP_ALLOWED_HOSTS` guards
+against DNS rebinding, not against unauthenticated access. `docs/mcp.md`
+documents both transports and how to wire each into a client.
+
 ## ADR-027 — The default engine is the fast local parser; docling is opt-in
 **Date:** 2026-07-30 · **Status:** Accepted · **Amends:** ADR-013, ADR-014
 **Context:** ADR-013/014 made docling the *default* document engine, on the
