@@ -63,6 +63,7 @@ The design values, in priority order:
 | [`docs/roadmap.md`](docs/roadmap.md) | Phased task backlog with checkboxes. | As tasks start/finish. |
 | [`docs/decisions.md`](docs/decisions.md) | ADR log — decisions and their rationale. | When a non-trivial decision is made. |
 | [`docs/mcp.md`](docs/mcp.md) | Agent integration: MCP tools + function-calling surface. | When the agent-facing surface changes. |
+| [`docs/hosting.md`](docs/hosting.md) | Click-by-click deployment + connecting an LLM to it. | When the deploy path or the hosted surface changes. |
 | [`docs/agent-workflow.md`](docs/agent-workflow.md) | How instances pick up, execute, and hand off work. | Rarely. |
 
 If you're unsure where a piece of information belongs: *facts about current
@@ -78,7 +79,8 @@ wiseau/
 ├── README.md               # public-facing one-liner
 ├── docs/                   # all project documentation (see map above)
 ├── backend/                # FastAPI microservice — HF Space #1 (backend + Chrome)
-│   ├── main.py             # routing, CORS, rate limiting, concurrency ceiling
+│   ├── main.py             # routing, CORS, rate limiting, concurrency ceiling,
+│   │                       #   and the hosted MCP endpoint at /mcp (ADR-029)
 │   ├── mcp_server.py       # MCP tool surface (thin HTTP adapter over the API)
 │   ├── parsers/            # extraction pipeline
 │   │   ├── browser.py      # Selenium-stealth headless Chrome (render + in-session download)

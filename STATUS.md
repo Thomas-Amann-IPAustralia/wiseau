@@ -6,34 +6,61 @@
 > green checkmark that lies.
 
 **Last updated:** 2026-07-30
-**Updated by:** Claude Code (Phase 4 follow-up: MCP server gains a remote transport)
-**Build note (2026-07-30):** **`backend/mcp_server.py` can now serve any MCP
-client over HTTP, not just a locally-spawned process — ADR-028.** The user's ask
-was "make wiseau accessible to any LLM"; the MCP server already existed
-(Phase 4) but only ran on the `stdio` transport, which only local clients
-(Claude Desktop, Claude Code) that can spawn the process directly can reach.
+**Updated by:** Claude Code (Phase 9: one deployable service any LLM can connect to)
+**Build note (2026-07-30):** **The backend now serves the MCP endpoint itself, so
+one free container is the whole product — ADR-029.** The ask was "make it so any
+LLM can use wiseau, cheaply, and tell me click by click how". ADR-028 had made a
+hosted connector *possible* but only as a **second process on a second port**,
+and every free tier the user has (Cloud Run, Render, HF Spaces) exposes exactly
+one port per service — so the answer would have been "deploy two services and
+wire them together", which is both more expensive and more ways to fail.
 
-*What changed.* `mcp_server.py` takes a `--transport {stdio,streamable-http}`
-flag (default from `$WISEAU_MCP_TRANSPORT`, then `stdio` — no behaviour change
-unless you opt in). `streamable-http` binds `$WISEAU_MCP_HOST:$WISEAU_MCP_PORT`
-(default `0.0.0.0:8080`) and widens the SDK's DNS-rebinding Host-header
-allow-list via `$WISEAU_MCP_ALLOWED_HOSTS` (comma-separated hostnames) — without
-it the SDK only accepts `localhost`/`127.0.0.1` requests, so a real remote
-deployment stays unreachable until its hostname is listed. Same three tools
-(`convert_url`/`convert_file`/`ping`), same thin-adapter contract over
-`WISEAU_API_BASE` — only the transport is new. `docs/mcp.md` and
-`backend/README.md` document both transports and how to wire each into a
-client (local stdio config vs. registering a connector by URL).
+*What changed.* `mcp_server.hosted_routes()` builds the streamable-HTTP endpoint;
+`main.py` grafts those routes onto the FastAPI app and drives the transport's
+session manager from the app lifespan. The deployed container answers the REST
+API **and** `POST /mcp` on one port and hostname, so **the service URL is the
+connector URL**. Details that matter:
+- **Grafted, not `mount()`ed** — a mounted sub-app only matches `/mcp/…`, so the
+  exact `/mcp` pasted into a connector would answer 307.
+- **Stateless sessions**, for scale-to-zero hosts that may answer two requests of
+  one conversation from two instances.
+- **The tools still call the API over HTTP**, now via loopback
+  (`http://127.0.0.1:$PORT`), so the rate limiter and concurrency ceiling still
+  apply (invariant #4). Known consequence, recorded rather than hidden: all MCP
+  traffic shares the loopback address's rate-limit bucket — `20/minute` across
+  all MCP callers, not each.
+- **A real defect found by testing live, not in unit tests:** slowapi identifies
+  a route by `endpoint.__name__`, which an ASGI *object* has not got, so the
+  middleware raised before checking any limit and **every MCP request was a
+  500**. `_name_endpoint_for_limiter` fixes it and a test pins it.
+- **The Host check no longer blocks a real deployment.** Unset (or `*`)
+  `WISEAU_MCP_ALLOWED_HOSTS` disables it; loopback-only was right for a local
+  process and wrong for an endpoint meant to be reached by hostname.
+- **`WISEAU_MCP_PATH`** moves the endpoint to an unguessable path — the only
+  access control every MCP client can express, since none of their connector
+  dialogs accept an auth header. Documented as obscurity, not authentication.
+- `/ping` reports **`mcp_endpoint`**; API `0.7.0 → 0.8.0`. The image installs
+  `requirements-mcp.txt` and binds `$PORT`, so Cloud Run/Render/Spaces all work
+  unchanged.
+- **`docs/hosting.md`** is the deliverable the user asked for: click-by-click
+  Cloud Run deployment (with Render and Spaces as alternatives), cost guards,
+  three ways to verify, per-client connector setup (claude.ai, Claude Code,
+  ChatGPT, anything else), and a straight account of what is and is not
+  protected.
 
-*Verified.* Suite **213 → 216 pass + 7 skipped** (run here; three new tests
-cover the host/port/allow-list configuration). Started the server with
-`--transport streamable-http`, confirmed it binds and answers a real HTTP
-request on `/mcp` (a 406 from a deliberately malformed test request, not a
-connection failure or a Host-header rejection — proving the bind + allow-list
-wiring works, not just that it constructs). *Not* verified: an actual external
-MCP client (e.g. a claude.ai custom connector) round-tripping a tool call
-against the streamable-http endpoint — that needs a reachable public
-deployment, which this session didn't have.
+*Verified.* Suite **213 → 241 pass + 7 skipped** (+28, run here). Beyond the unit
+suite: a real uvicorn on a socket, driven from outside with a public-looking
+`Host` header — MCP `initialize` at the exact `/mcp` (200, no redirect),
+`tools/list` returning all three tools, a `ping` tool call looping back through
+the REST API, a `convert_file` call converting a real PDF end-to-end, a backend
+400 surfacing verbatim through the tool, `/mcp` absent from `/openapi.json`, and
+`/mcp` attributed in `/metrics` (11/11 checks). Then the same server driven by the
+**official MCP client SDK** — a real handshake, `tools/list`, and a tool call —
+across three configurations (default path, `WISEAU_MCP_PATH=/mcp-s3cr3t`, and
+`WISEAU_MCP_MOUNT=0`). CI's `docker-build` job now runs an MCP handshake against
+the built container. *Not* verified: an actual **hosted** deployment, and
+therefore a real LLM client (a claude.ai connector) round-tripping a tool call
+against a public URL — that needs the account work `docs/hosting.md` describes.
 
 **The previous build note stands (2026-07-30):** **The default document engine is now the fast local
 parser (PyMuPDF/Mammoth), not docling — ADR-027.** One ask, taken as a deliberate
@@ -261,13 +288,18 @@ accounts/credentials rather than code. See ADR-011.
 | Scraper / extraction (Phase 2) | 🟢 Verified (incl. external URLs) | Live headless-Chrome render → Trafilatura → cleaner proven end-to-end and codified as an opt-in test; DOCX-body path covered. Fetching arbitrary **external** URLs now proven inside the Docker container (example.com, Wikipedia — deterministic across runs); ADR-011. **Direct-PDF links** now convert as documents rather than yielding the empty PDF viewer — verified live (ADR-017). **Short pages no longer come back with a duplicated body** (ADR-020), verified live before/after. |
 | OCR (scanned/handwritten) | 🟢 Verified | Image-only PDF pages + image uploads OCR'd; per-page detection assembles mixed PDFs in order. Default MuPDF-Tesseract (deterministic, in the image); opt-in neural EasyOCR for handwriting. Deterministic by pinning `pymupdf4llm` legacy mode + driving MuPDF's OCR primitive directly (ADR-012). 13 tests + HTTP round-trip verified; API `v0.3.0`. |
 | Frontend UI (Phase 3) | 🟢 Verified | Full static UI driven end-to-end with headless Chromium: status badge, URL + PDF + DOCX conversion, copy/download and error states (18/18 checks, ADR-008), plus the **Phase 7** surface — engine picker, approximated progress bar, Preview/Raw viewer, title-first download dialog, favicon (33/33 checks against a stub backend + a live-backend DOCX run). Still no build step and no third-party script (ADR-026). |
+| Hosted MCP connector (Phase 9) | 🟢 Verified locally, not deployed | The backend serves MCP at `POST /mcp` (ADR-029), so one container's URL is also the connector URL any LLM is given. Grafted route (exact `/mcp`, no redirect), stateless sessions, loopback tool calls that keep the guards, rate-limited like any other route, `WISEAU_MCP_PATH`/`WISEAU_MCP_MOUNT`/`WISEAU_MCP_ALLOWED_HOSTS`. `/ping` reports `mcp_endpoint`; API `v0.8.0`. Verified over a real socket and with the official MCP client SDK; **never verified against a real hosted deployment or a real LLM client**. Guide: `docs/hosting.md`. |
 | AI / MCP integration (Phase 4) | 🟢 Complete | MCP server (`mcp_server.py`) exposes `convert_url`/`convert_file`/`ping` as tools — thin HTTP adapter, same contract, guards intact; verified end-to-end vs a live backend + 6 unit tests. OpenAPI operation IDs/summaries cleaned (v`0.2.0`); `docs/mcp.md` written. **Autonomous-ingestion monitor** (`monitor.py`) built + verified (16 tests + real end-to-end run) — closes Phase 4. |
 | Containerization & deploy (Phase 5) | 🟡 Image proven + deploy prepared, not deployed | Image **builds and runs**: Chromium 150 launches in-container, a live external URL renders end-to-end + deterministically (ADR-011). Both deployments are now prepared in-repo — HF Space card frontmatter on `backend/README.md`, a Pages workflow for `frontend/` (ADR-023) — so what remains is account work only. Nothing deployed to Hugging Face / GitHub Pages yet. |
 | Fast by default (Phase 8) | 🟢 Verified | `WISEAU_PDF_ENGINE` defaults to `pymupdf`; docling is chosen per deployment or per request, fallback unchanged. `/ping` reports `default_engine`; API `v0.7.0`. UI leads with *Fastest* and reads *Auto* off `/ping`. ADR-027; tech-spec §1/§2/§11/§14. Verified by 6 new tests, a live uvicorn run (no docling attempt by default; explicit `engine=docling` still falls back), and the UI in headless Chromium. |
 | Usability (Phase 7) | 🟢 Verified | Per-request engine choice end-to-end (API + MCP + UI), the approximated loading bar, the Preview/Raw viewer, the title-first download dialog, the favicon, and the base64-image fix. ADR-024/025/026; tech-spec §14. Verified in a real browser; the docling half of the engine choice is still only exercised against mocks (no Space). |
 | Higher-fidelity extraction (Phase 6) | 🟡 Code complete, not deployed | docling client + engine selection with automatic fallback (ADR-014/016) — **opt-in since ADR-027, not the default**; plus **direct-PDF URL routing** (ADR-017, verified live) and the **docling Space image** `docling/Dockerfile` (ADR-018, digest-pinned but **never built**). Left: deploy Space #2 and verify against a live docling-serve. Fidelity outranks strict determinism *where it is asked for* (ADR-013 as amended by ADR-027). |
 | Observability | 🟢 Verified | Structured JSON logs (one access line per request + `X-Request-ID`), `GET /metrics` with request/job timings, peak concurrency, RSS, and **engine attribution** (docling vs the fallback parsers, with typed fallback reasons). Stdlib-only, no new runtime dep. Verified live, incl. a real docling fallback and a real docling success over a socket. ADR-019, tech-spec §12. |
-| Automated tests | 🟢 Passing | **213 pass + 7 skipped** in default (browserless) runs (this sandbox, verified directly; the 7th skip is local only — no `tesseract` installed here). +6 this session (a configured docling not running unless selected, `default_engine()` over unset/`docling`/`pymupdf`/nonsense, `/ping`'s `default_engine` under both settings). Previously +31 (base64 payload elision, the DOCX image handler, docling's `image_export_mode`, engine validation/override/fallback, the API's engine plumbing and 400s, MCP forwarding). Previously +29 (rate-limit enforcement + exemption + route attribution, streamed upload rejection, blocked-URL 400, 12 private-address guard cases, the repair's corrected size bound, native-vs-OCR path pinning, OCR engine attribution, 4 monitor failure modes). Covers `cleaner`/PDF/**DOCX**/**OCR**/**docling client & engine selection**/**direct-PDF URL routing**/**observability**/**fair-use guards**/**fetch-target policy**/validation, the MCP tool surface, the **autonomous-ingestion monitor**, plus the live render→extract→clean pipeline. Skips *here*: 5 opt-in live-browser (`WISEAU_LIVE_BROWSER=1` — **not run this session**; they ran and passed in the 2026-07-26 session against a version-matched Chromium 141 + driver), 1 OCR-fixture test needing Pillow, and 1 OCR round-trip needing a `tesseract` binary (installed in CI and in the image, absent from this sandbox). |
+| Automated tests | 🟢 Passing | **241 pass + 7 skipped** in default (browserless) runs (this sandbox, verified directly; the 7th skip is local only — no `tesseract` installed here). +28 this session (the hosted MCP endpoint: path normalisation, Host-header
+policy, the loopback base URL following `$PORT`, the mount switch, degrading
+without the SDK, the rate-limiter naming shim, `/ping`'s `mcp_endpoint`, `/mcp`'s
+absence from the OpenAPI schema, and a real `initialize` + `tools/list` handshake
+through `TestClient`). Previously +6 (a configured docling not running unless selected, `default_engine()` over unset/`docling`/`pymupdf`/nonsense, `/ping`'s `default_engine` under both settings). Previously +31 (base64 payload elision, the DOCX image handler, docling's `image_export_mode`, engine validation/override/fallback, the API's engine plumbing and 400s, MCP forwarding). Previously +29 (rate-limit enforcement + exemption + route attribution, streamed upload rejection, blocked-URL 400, 12 private-address guard cases, the repair's corrected size bound, native-vs-OCR path pinning, OCR engine attribution, 4 monitor failure modes). Covers `cleaner`/PDF/**DOCX**/**OCR**/**docling client & engine selection**/**direct-PDF URL routing**/**observability**/**fair-use guards**/**fetch-target policy**/validation, the MCP tool surface, the **autonomous-ingestion monitor**, plus the live render→extract→clean pipeline. Skips *here*: 5 opt-in live-browser (`WISEAU_LIVE_BROWSER=1` — **not run this session**; they ran and passed in the 2026-07-26 session against a version-matched Chromium 141 + driver), 1 OCR-fixture test needing Pillow, and 1 OCR round-trip needing a `tesseract` binary (installed in CI and in the image, absent from this sandbox). |
 | CI/CD | 🟢 Tests + Docker build | `.github/workflows/backend-tests.yml`: a `test` job runs `pytest` (browserless) and a `docker-build` job builds the image, boots it, renders a live external URL through the container, and now also asserts the **short-page repair** on that real render, the **`/metrics` attribution**, and that request logs are structured JSON. Docker-build gap closed (ADR-011). A second workflow, `deploy-frontend.yml`, publishes `frontend/` to GitHub Pages (never run — Pages is not enabled yet; ADR-023). |
 | Documentation | 🟢 Established | Brief, tech spec, roadmap, decisions, agent workflow, this file. |
 
@@ -290,15 +322,25 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   (`ping`/`metrics`/`convert_url`/`convert_file`) + summaries. Both convert
   routes accept an optional `engine` (`docling`/`pymupdf`/`auto`), validated here
   so an unknown name is a 400 (ADR-025); `/ping` lists the accepted names **and
-  `default_engine`**, the engine `auto` resolves to on this deployment (ADR-027).
-  API `v0.7.0`.
+  `default_engine`**, the engine `auto` resolves to on this deployment (ADR-027),
+  **and `mcp_endpoint`** (ADR-029). Also serves the **MCP endpoint** at
+  `POST /mcp`: `mcp_server`'s streamable-HTTP route grafted onto this app (not
+  mounted — a mount would 307 the exact `/mcp` a connector is given) with its
+  session manager driven from the app lifespan, so one container is both the REST
+  API and an LLM connector URL. Off via `WISEAU_MCP_MOUNT=0`, moved via
+  `WISEAU_MCP_PATH`, and absent-with-a-warning if the optional MCP SDK is not
+  installed. API `v0.8.0`.
 - `observability.py` — JSON-lines log formatter + the thread-safe in-process
   metrics registry behind `/metrics`. Stdlib only; a pure side channel that
   cannot alter extracted Markdown. ADR-019.
 - `mcp_server.py` — MCP tool surface (FastMCP): `convert_url`, `convert_file`,
-  `ping`. Thin HTTP adapter over the backend (`WISEAU_API_BASE`); reuses the
-  `MarkdownResponse` contract and inherits the rate-limit + concurrency guards.
-  Run with `python mcp_server.py` (stdio). Deps in `requirements-mcp.txt`.
+  `ping`. Thin HTTP adapter over the backend (`WISEAU_API_BASE`, defaulting to
+  `http://127.0.0.1:$PORT`); reuses the `MarkdownResponse` contract and inherits
+  the rate-limit + concurrency guards. Reaches a client three ways: **hosted**
+  (`hosted_routes()`, served by `main.py` — the deployment path, ADR-029),
+  **stdio** (`python mcp_server.py`, for a local agent), or **its own HTTP port**
+  (`--transport streamable-http`, ADR-028). Deps in `requirements-mcp.txt`, now
+  also installed into the Docker image.
 - `monitor.py` — autonomous-ingestion example (Phase 4): a **stdlib-only** thin
   HTTP client over `POST /convert/url` that snapshots each URL's Markdown and
   diffs fresh conversions against the last (`new`/`unchanged`/`changed`/`error`;
@@ -407,6 +449,12 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   clients, so their tools only work when a backend is running at
   `WISEAU_API_BASE`. Verified against a local `uvicorn`/stub; not yet exercised
   against a deployed Space.
+- **No real LLM client has ever connected.** The hosted MCP endpoint is verified
+  over a real socket and against the official MCP *client SDK* (ADR-029), which
+  is as close as a sandbox gets — but a claude.ai/ChatGPT connector round-tripping
+  a tool call against a public URL has never happened, because no public URL
+  exists. That is the single most valuable thing the next session with an account
+  can prove. Steps: `docs/hosting.md`.
 - **The base64 fix is proven on the paths that exist here, not on docling.**
   The DOCX handler and `clean_markdown`'s payload elision are verified end-to-end
   (a real DOCX with a picture, through the real backend and the UI), and the
@@ -450,7 +498,22 @@ Everything remaining in both open tracks needs something this chain of sessions
 hasn't had: a Docker daemon with a few GB of pull budget, or external accounts. Once deployed, `GET /metrics` is the fastest way to check the docling
 half is actually working (`engines.docling` vs `engines.pymupdf`).
 
-**A. Phase 6 — build and deploy the docling Space (ADR-015/018).**
+**A. Phase 9 — deploy it, and connect a real LLM (`docs/hosting.md`).** This is
+now the highest-value open item: everything else in the product is verified and
+this is the one thing that has never been proven end-to-end.
+1. Deploy `backend/` to a public host — Cloud Run is the guide's default (the
+   user has Google Cloud); Render and HF Spaces are covered too. The image binds
+   `$PORT`, so all three work unchanged.
+2. Check `GET /ping` reports `"mcp_endpoint":"/mcp"`, then run the two
+   verification steps in `hosting.md` §5 (a raw `initialize` over curl, then the
+   MCP Inspector).
+3. Add `https://<url>/mcp` as a custom connector in a real client and convert
+   something. **Record what actually happened in this file** — the click paths in
+   §9 are written from documentation, not from having done them, and are the part
+   of the guide most likely to have drifted.
+4. Set the cost guards in §6 before leaving it running.
+
+**B. Phase 6 — build and deploy the docling Space (ADR-015/018).**
 1. **Build `docling/Dockerfile`** (`docker build -t wiseau-docling docling/`) and
    boot it: `/health` must answer, and a `POST /v1/convert/file` with
    `to_formats=md` must return `document.md_content`. This is the first real test
@@ -467,8 +530,7 @@ half is actually working (`engines.docling` vs `engines.pymupdf`).
    a `falling back` line in the log). While you are there, confirm real docling
    honours `image_export_mode=placeholder` and returns no data URIs (ADR-024).
 
-**B. Phase 5 — deployment (still open; a prerequisite for the live end-to-end
-check).** Nothing here needs a commit any more (ADR-023) — only accounts and
+**C. Phase 5 — the frontend half of deployment.** Nothing here needs a commit any more (ADR-023) — only accounts and
 settings:
 1. Deploy the backend to a Hugging Face Space (free CPU tier): create a **Docker**
    Space and push the *contents of* `backend/` to its repo root (the Space card is
@@ -488,6 +550,52 @@ settings:
 Newest first. One short entry per working session — what changed and what the
 next instance should know.
 
+- **2026-07-30 — Phase 9: one deployable service any LLM can connect to (ADR-029).**
+  The ask: *"make it so any LLM can use wiseau — I think I want an MCP server with
+  a hosted connector; tell me click by click, and keep it free."* The MCP tools
+  already existed (Phase 4) and the previous session had given them an HTTP
+  transport (**ADR-028**), so the surface was there — but only as a **second
+  process on a second port**, and every free tier the user actually has (Cloud
+  Run, Render, HF Spaces) serves exactly one port per service. Writing the guide
+  honestly would have meant "deploy two services and wire them together", so the
+  architecture moved instead of the documentation. **The backend now serves the
+  MCP endpoint itself:** `mcp_server.hosted_routes()` is grafted onto the FastAPI
+  app and its session manager driven from the app lifespan, so one container
+  answers the REST API *and* `POST /mcp`, and **the service URL is the connector
+  URL**. Four decisions inside that are worth not re-deriving: grafted rather than
+  `mount()`ed (a mount only matches `/mcp/…`, so the exact URL pasted into a
+  connector would 307); stateless sessions (a scale-to-zero host may answer one
+  conversation from two instances); the tools still call `/convert/*` over
+  **loopback HTTP**, keeping invariant #4 rather than taking an in-process
+  shortcut; and the Host-header check now defaults **off** (loopback-only was
+  right for a local process and wrong for an endpoint whose whole purpose is a
+  public hostname — it answered 421 to every real client). Plus `WISEAU_MCP_PATH`
+  for an unguessable endpoint, which is the only access control every MCP client
+  can express, since none of their connector dialogs take an auth header; `/ping`
+  reports `mcp_endpoint`; API `0.7.0 → 0.8.0`; the image installs
+  `requirements-mcp.txt` and binds `$PORT` so Cloud Run/Render/Spaces all work
+  unchanged. **One real defect, found only by testing live:** slowapi identifies a
+  route by `endpoint.__name__`, which an ASGI *object* has not got — the
+  middleware raised before checking any limit and **every MCP request was a
+  500**. The unit suite would not have caught it; a socket did.
+  **`docs/hosting.md`** is the user-facing deliverable: click-by-click Cloud Run
+  (Render and Spaces as alternatives), the free-tier arithmetic and a budget
+  alert, three ways to verify, per-client connector setup, and a straight section
+  on what is *not* protected (the endpoint is unauthenticated; real auth means
+  OAuth, which this does not do). **Verified:** suite **241 pass + 7 skipped**
+  (+28, run here); a real uvicorn driven from outside over a socket with a
+  public-looking Host header (11/11 — handshake at the exact `/mcp` with no
+  redirect, `tools/list`, a `ping` tool looping back through the API, a
+  `convert_file` converting a real PDF end-to-end, a backend 400 surfacing
+  verbatim, `/mcp` absent from `/openapi.json`, `/mcp` counted in `/metrics`);
+  and the same server driven by the **official MCP client SDK** across three
+  configurations (default path, secret path, mount disabled). CI's `docker-build`
+  job now runs an MCP handshake against the built container. Docs: ADR-029,
+  `docs/hosting.md` (new), `docs/mcp.md`, tech-spec §2/§5/§8/§9, roadmap Phase 9,
+  CLAUDE.md doc map, `backend/README.md`. **Next instance:** the guide has never
+  been walked. Deploy it, connect a real client, and correct §9's click paths from
+  what you actually saw — they are written from documentation, and vendor UIs
+  move. Everything else (docling Space, Pages) is unchanged.
 - **2026-07-30 — Phase 8: the fast parser is the default engine (ADR-027).**
   One ask — "use the fastest method (PyMuPDF/Mammoth) as the default rather than
   docling" — but it reverses a decision two ADRs made deliberately, so it is

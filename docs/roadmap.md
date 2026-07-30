@@ -91,6 +91,43 @@ merely written. Written-but-unverified is `[~]` with a note.
   not only one that can spawn the process locally — can use wiseau as a
   connector. Same tool surface and contract; see ADR-028 and `docs/mcp.md`.
 
+## Phase 9 — One deployable service any LLM can connect to (2026-07-30)
+
+Design & rationale: **ADR-029** (amends ADR-028). Guide: `docs/hosting.md`.
+
+- [x] **The backend serves the MCP endpoint itself.** `mcp_server.hosted_routes()`
+  is grafted onto the FastAPI app and its session manager driven from the app
+  lifespan, so one container answers the REST API *and* `POST /mcp` on one port —
+  no second service to deploy on hosts that expose exactly one. Grafted rather
+  than mounted so the exact `/mcp` a connector is given answers instead of
+  redirecting; sessions stateless for scale-to-zero hosts; tools still call the
+  API over loopback HTTP, keeping invariant #4. *Verified: a real MCP handshake +
+  `tools/list` + a `convert_file` tool call converting a real PDF, driven over a
+  socket against a live uvicorn from a public-looking Host header, and separately
+  through the **official MCP client SDK** (default path, secret path, and mount
+  disabled). 28 new tests.*
+- [x] **The endpoint is rate-limited like any other route.** slowapi identifies a
+  route by `endpoint.__name__`, which an ASGI object lacks — without a shim the
+  middleware raised before checking any limit and every MCP request was a 500.
+  *Found by the live check, not the unit suite; now pinned by a test.*
+- [x] **The Host check no longer blocks a real deployment.** `WISEAU_MCP_ALLOWED_HOSTS`
+  unset (or `*`) disables it — loopback-only was right for a local process and
+  wrong for an endpoint meant to be reached at a public hostname; naming hosts
+  enforces them.
+- [x] **`WISEAU_MCP_PATH`** moves the endpoint to an unguessable path, the only
+  access control every MCP client can express. `GET /ping` reports it as
+  `mcp_endpoint` so a client discovers rather than guesses. API `0.7.0 → 0.8.0`.
+- [x] **The image is deployable anywhere.** It installs `requirements-mcp.txt` and
+  binds `$PORT`, so Cloud Run (8080) and Render (10000) work unchanged alongside
+  Spaces (7860). CI's `docker-build` job now runs an MCP handshake against the
+  built container.
+- [x] **`docs/hosting.md`** — click-by-click deployment (Cloud Run, with Render and
+  Spaces as alternatives), cost guards, verification, per-client connector setup,
+  and an honest account of what is and isn't protected.
+- [ ] **Deploy it.** Account work; the guide is the checklist. Then confirm a real
+  LLM client round-trips a tool call against the live URL — the one thing no
+  session so far has been able to prove.
+
 ## Phase 5 — Containerization & deployment
 
 - [x] `Dockerfile` version-locking Chromium + Python — *built and run this
@@ -111,8 +148,11 @@ merely written. Written-but-unverified is `[~]` with a note.
   publishes `frontend/` to Pages, which branch publishing cannot do (it serves a
   repo root or `/docs`, and `/docs` is the documentation). Written, not run —
   no Space and no Pages site exist yet.*
-- [ ] Deploy backend to a Hugging Face Space (free CPU tier). *Push the contents
-  of `backend/` to the Space repo root; steps in `backend/README.md`.*
+- [ ] Deploy the backend to a public host. *Any host that can build the
+  Dockerfile and give it an HTTPS URL: Cloud Run, Render, or a Hugging Face Space
+  (push the contents of `backend/` to the Space repo root). Click-by-click in
+  `docs/hosting.md`; Space-specific steps in `backend/README.md`. Since ADR-029
+  this one service also carries the MCP connector URL.*
 - [ ] Point the frontend at the live Space: set the `MARKDOWN_API_BASE`
   **repository variable** (the Pages workflow writes it into the published
   `config.js`), or edit `frontend/config.js` for a non-Pages host.
