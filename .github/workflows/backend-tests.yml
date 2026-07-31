@@ -126,6 +126,23 @@ jobs:
           print("metrics OK")
           PY
 
+      - name: Confirm the image serves the MCP connector endpoint
+        run: |
+          # The deployed container is what an LLM connects to as a connector
+          # (ADR-029), so prove the endpoint answers a real MCP handshake from
+          # *outside* the container, under a public-looking Host header — the
+          # unit suite can only reach it in-process.
+          curl -sf http://localhost:7860/ping | grep -q '"mcp_endpoint":"/mcp"' \
+            || { echo "image does not advertise an MCP endpoint"; docker logs md-engine; exit 1; }
+          body=$(curl -sf --max-time 30 -X POST http://localhost:7860/mcp \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json, text/event-stream' \
+            -H 'Host: wiseau.example.com' \
+            -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"ci","version":"0"}}}')
+          echo "$body"
+          echo "$body" | grep -q '"serverInfo"' \
+            || { echo "MCP initialize did not succeed"; docker logs md-engine; exit 1; }
+
       - name: Confirm request logs are structured JSON
         run: |
           docker logs md-engine 2>&1 | grep '"msg": "request"' | tail -3

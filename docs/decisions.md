@@ -21,8 +21,69 @@ one `Superseded`.
 
 ---
 
+## ADR-029 — The backend serves the MCP connector itself, on one container
+**Date:** 2026-07-30 · **Status:** Accepted · **Amends:** ADR-028
+**Context:** ADR-028 gave `mcp_server.py` an HTTP transport, which made a hosted
+connector *possible* — but only as a **second process on a second port**, and
+therefore a second deployment. On every free tier the user actually has (Cloud
+Run, Render, Hugging Face Spaces) a service exposes exactly one port, so
+"deploy wiseau so any LLM can use it" meant standing up and paying attention to
+two services, wiring the second one's `WISEAU_API_BASE` at the first, and
+keeping both awake. That is a lot of moving parts to hand someone new to
+networking, and each one is a way for the deploy to fail. ADR-028's own
+consequences also flagged two rough edges: the MCP endpoint had no request cap
+of its own, and its Host-header allow-list defaulted to loopback, so a real
+deployment answered `421 Misdirected Request` until its hostname was guessed
+correctly and set by hand.
+**Decision:** Serve the MCP endpoint **from the backend process**. `mcp_server`
+exposes `hosted_routes()`; `main.py` grafts those routes onto the FastAPI app and
+drives the transport's session manager from the app lifespan, so the deployed
+container answers the REST API *and* `POST /mcp` on the same port and hostname.
+Specifically:
+- **Grafted, not `mount()`ed.** A mounted sub-app only matches `/mcp/…`, so the
+  exact `/mcp` URL pasted into a connector would answer `307`. Grafting the
+  transport's own `Route` makes the pasted URL the working one.
+- **Stateless sessions.** A scale-to-zero host may answer two requests of one
+  conversation from two instances; in-memory session state would not survive it.
+- **The tools still call the API over HTTP**, now via loopback
+  (`http://127.0.0.1:$PORT`, following the port the platform injects). This keeps
+  invariant #4 — no in-process path around the rate limiter and the concurrency
+  ceiling — at the cost of one local hop.
+- **The endpoint is rate-limited like any other undecorated route.** slowapi
+  identifies a route by `endpoint.__name__`, which an ASGI *object* does not
+  have; without a shim the middleware raises before checking anything and every
+  MCP request is a 500. `main._name_endpoint_for_limiter` names it.
+- **The Host check is off unless asked for.** Loopback-only was correct for a
+  local process and wrong for an endpoint whose purpose is to be reached at a
+  public hostname. Unset (or `*`) ⇒ off, matching the API's existing
+  `allow_origins=["*"]` stance; naming hosts in `WISEAU_MCP_ALLOWED_HOSTS`
+  enforces them.
+- **`WISEAU_MCP_PATH`** can move the endpoint to an unguessable path. A
+  connector URL is the one thing every MCP client lets you set — custom auth
+  headers are not (claude.ai's connector dialog has no field for one) — so this
+  is the only access control that works everywhere. It is obscurity, not
+  authentication, and the docs say so.
+- `/ping` reports `mcp_endpoint`, so a client discovers the path instead of
+  guessing it. API `0.7.0 → 0.8.0` (additive field, new surface).
+- `WISEAU_MCP_MOUNT=0` switches it off; a checkout without the optional MCP SDK
+  logs a warning and serves no endpoint rather than failing to start.
+**Consequences:** One free container is now the whole product: a browser UI's
+API, an OpenAPI schema for function-calling, and an MCP connector URL for any
+LLM that can add one. `docs/hosting.md` is a click-by-click deploy guide built on
+that. The standalone transports (`--transport stdio|streamable-http`) still work
+and are still the right answer for a local agent; they are no longer the
+deployment path. Two things to watch. (1) **The loopback hop shares one
+rate-limit bucket**: every MCP conversion reaches `/convert/*` from `127.0.0.1`,
+so all MCP callers together are held to that route's `20/minute`, not 20 each.
+That is fine — desirable, even — for a personal deployment, and would need
+rethinking before wiseau served many independent agents. (2) **The endpoint is
+unauthenticated by default.** Anyone with the URL can convert documents on your
+quota; the real cost guards are the platform's own (a max-instance ceiling, a
+budget alert) plus the secret path. Real auth for a public deployment means
+OAuth, which is a separate decision.
+
 ## ADR-028 — The MCP server gains a remote (streamable-http) transport, opt-in
-**Date:** 2026-07-30 · **Status:** Accepted
+**Date:** 2026-07-30 · **Status:** Accepted · **Amended by:** ADR-029
 **Context:** `backend/mcp_server.py` only ran on the stdio transport — a client
 has to spawn the Python process itself, so only agents on the *same machine* (or
 one that can `ssh`/exec into it) could reach the tools. That fits Claude Desktop

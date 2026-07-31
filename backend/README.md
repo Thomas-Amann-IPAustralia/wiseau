@@ -106,7 +106,15 @@ docker build -t markdown-engine .
 docker run -p 7860:7860 markdown-engine
 ```
 
-## Deploying as a Hugging Face Space (#1)
+## Deploying
+
+Any host that can build this `Dockerfile` and give it a public HTTPS URL works —
+the container binds `$PORT`, so Cloud Run (8080), Render (10000) and Hugging Face
+Spaces (7860) all need no change. **[`../docs/hosting.md`](../docs/hosting.md) is
+the click-by-click guide**, including cost guards and how to connect an LLM to
+the resulting `/mcp` URL. The Space-specific steps follow.
+
+### As a Hugging Face Space (#1)
 
 1. Create a **Docker** Space (16 GB CPU tier) and push the contents of
    `backend/` to its repository root — a Space builds the `Dockerfile` it finds
@@ -121,18 +129,25 @@ docker run -p 7860:7860 markdown-engine
    `WISEAU_DOCLING_TOKEN` here. Callers can then ask for it per request; add
    `WISEAU_PDF_ENGINE=docling` if you want it to be this Space's default. Steps and the live-verification order are in
    [`../docling/README.md`](../docling/README.md).
-4. Confirm the Space is live: `GET /ping` returns the API version, and after a
-   conversion `GET /metrics` shows it attributed to an engine. Then point the
+4. Confirm the Space is live: `GET /ping` returns the API version and the
+   `mcp_endpoint` path, and after a conversion `GET /metrics` shows it attributed
+   to an engine. Then point the
    frontend at it — set the `MARKDOWN_API_BASE` repository variable (or edit
    `frontend/config.js`) and run the **Deploy frontend** workflow; see
    [`../frontend/README.md`](../frontend/README.md).
 
 ## Agent surfaces
 
-- **MCP server** (`mcp_server.py`) exposes the engine as Model Context Protocol
-  tools, over **stdio** (default — local clients like Claude Desktop/Code spawn
-  it directly) or **`--transport streamable-http`** (serves the same tools over
-  HTTP so any remote MCP client can register it as a connector; ADR-028). See
+- **MCP endpoint** — this app serves the Model Context Protocol tools itself at
+  `POST /mcp` (ADR-029), so a deployed backend's URL *is* a connector URL:
+  `https://<your deployment>/mcp`, pasteable into claude.ai, Claude Code,
+  ChatGPT, or any agent framework that takes a remote MCP server. `GET /ping`
+  reports the path as `mcp_endpoint` (`WISEAU_MCP_PATH` can move it;
+  `WISEAU_MCP_MOUNT=0` turns it off). Deploying one: [`../docs/hosting.md`](../docs/hosting.md).
+- **MCP server as a process** (`mcp_server.py`) — the same tools over **stdio**
+  (local clients like Claude Desktop/Code spawn it directly) or
+  **`--transport streamable-http`** on a port of its own (ADR-028). Use it for a
+  local agent; the hosted endpoint above is the deployment path. See
   [`../docs/mcp.md`](../docs/mcp.md).
 - **Autonomous ingestion** (`monitor.py`) — a stdlib-only diff-checker that
   snapshots a URL's Markdown and reports changes on a schedule:
@@ -169,7 +184,10 @@ they reset with the process. See [`../docs/tech-spec.md`](../docs/tech-spec.md)
 
 | Variable              | Default   | Purpose                                        |
 | --------------------- | --------- | ---------------------------------------------- |
-| `PORT`                | `7860`    | Listen port.                                   |
+| `PORT`                | `7860`    | Listen port. Cloud Run/Render inject their own; the image binds it. |
+| `WISEAU_MCP_MOUNT`    | `1`       | Serve the MCP endpoint from this app; `0` disables it. |
+| `WISEAU_MCP_PATH`     | `/mcp`    | Path of that endpoint — set an unguessable one to keep the connector URL secret. |
+| `WISEAU_MCP_ALLOWED_HOSTS` | —    | Hostnames the MCP endpoint accepts; unset/`*` disables the check (what a public deployment needs). |
 | `MAX_CONCURRENT_JOBS` | `4`       | Global concurrency ceiling for heavy jobs.     |
 | `MAX_UPLOAD_BYTES`    | `26214400`| Upload size limit (25 MB).                     |
 | `CHROME_BIN`          | —         | Path to the Chromium binary.                   |

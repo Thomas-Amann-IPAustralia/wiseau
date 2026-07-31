@@ -47,9 +47,10 @@ interactive docs are at `/docs`.
   {
     "status": "ok",
     "service": "markdown-ingestion-engine",
-    "version": "0.7.0",
+    "version": "0.8.0",
     "engines": ["docling", "pymupdf"],
-    "default_engine": "pymupdf"
+    "default_engine": "pymupdf",
+    "mcp_endpoint": "/mcp"
   }
   ```
   `engines` lists the names a caller may pass as `engine` on a convert request
@@ -58,6 +59,25 @@ interactive docs are at `/docs`.
   this deployment's `WISEAU_PDF_ENGINE`, reported as the engine that will
   actually run (anything but `docling` runs the local parser). A client uses it
   to label its "auto" option and size a progress estimate (ADR-027).
+  `mcp_endpoint` is the path of this deployment's MCP endpoint, or `null` if it
+  serves none — `WISEAU_MCP_PATH` may have moved it, so a client discovers the
+  connector URL rather than assuming `/mcp` (ADR-029).
+
+### `POST /mcp` — the MCP endpoint
+- **Purpose:** the agent-facing Model Context Protocol surface, served by this
+  app rather than a separate process (ADR-029), so the deployed service URL plus
+  this path *is* the connector URL any LLM is given. Speaks MCP's
+  streamable-HTTP transport (JSON-RPC), **not** the REST contract above.
+- **Path:** `WISEAU_MCP_PATH`, default `/mcp`; published by `/ping` as
+  `mcp_endpoint`. Absent entirely when `WISEAU_MCP_MOUNT=0` or the optional MCP
+  SDK is not installed.
+- **Rate limit:** the default (`60/min`, `1000/day`) — it is an undecorated
+  route like any other. The conversions it triggers are limited separately, on
+  the convert routes it calls over loopback.
+- **Not in `/openapi.json`.** The schema describes the REST contract; advertising
+  a JSON-RPC endpoint inside it would mislead a function-calling client.
+- **Tools and behaviour:** see [`mcp.md`](mcp.md). Deploying it: see
+  [`hosting.md`](hosting.md).
 
 ### `GET /metrics`
 - **Purpose:** operational counters for *this process* — request/job timings,
@@ -207,7 +227,11 @@ All backend configuration is via environment variables (12-factor).
 
 | Variable | Default | Purpose |
 | -------- | ------- | ------- |
-| `PORT` | `7860` | Listen port (matches Hugging Face Spaces). |
+| `PORT` | `7860` | Listen port. The default matches Hugging Face Spaces; Cloud Run and Render inject their own and the image binds whatever is set (ADR-029). Also the port `mcp_server`'s loopback calls target. |
+| `WISEAU_MCP_MOUNT` | `1` | Serve the MCP endpoint from this app (ADR-029). `0` leaves only the REST API; a checkout without the optional MCP SDK degrades to the same, with a warning. |
+| `WISEAU_MCP_PATH` | `/mcp` | Path of that endpoint. An unguessable value makes the connector URL a shared secret — obscurity, not authentication. |
+| `WISEAU_MCP_ALLOWED_HOSTS` | unset (check off) | Comma-separated hostnames whose `Host` header the MCP endpoint accepts. Unset or `*` disables the check, which is what a public deployment needs; naming hosts enforces them (ADR-029). |
+| `WISEAU_API_BASE` | `http://127.0.0.1:$PORT` | Where the MCP tools reach the API. The default is this process, over loopback. |
 | `MAX_CONCURRENT_JOBS` | `4` | Global concurrency ceiling for heavy jobs. |
 | `MAX_UPLOAD_BYTES` | `26214400` | Upload size limit (25 MB). |
 | `CHROME_BIN` | — | Path to Chromium binary (set in Docker image). |
@@ -272,13 +296,25 @@ Frontend configuration is the single `window.MARKDOWN_API_BASE` in
 ## 8. Deployment topology
 
 ```
-GitHub Pages ──HTTPS──► HF Space #1: FastAPI + Chromium ──HTTP──► HF Space #2: docling-serve
- static frontend         backend, WAF-bypass, guards               PyTorch converter
+GitHub Pages ──HTTPS──► service #1: FastAPI + Chromium ──HTTP──► service #2: docling-serve
+ static frontend         backend + MCP endpoint, guards            PyTorch converter
                          16 GB / 2 vCPU                            16 GB / 2 vCPU  (Phase 6)
+      any LLM ──MCP/HTTPS──►  (same URL, /mcp)
 ```
 
+Service #1 is one container serving three audiences from one port: the REST API
+the frontend calls, the OpenAPI schema a function-calling agent reads, and the
+MCP connector URL an LLM is given (ADR-029). It runs on any host that can build a
+Dockerfile and give it a public HTTPS URL — Hugging Face Spaces (the repo carries
+the Space card), Google Cloud Run, or Render. [`hosting.md`](hosting.md) is the
+click-by-click guide; the notes below are what a host has to satisfy.
+
 - Backend image version-locks Chromium + Python via the `Dockerfile`; runs as
-  non-root UID 1000 (Hugging Face requirement) on port 7860. A Docker Space takes
+  non-root UID 1000 (Hugging Face requirement) and binds `$PORT`, defaulting to
+  7860 — so a host that injects its own port (Cloud Run's 8080, Render's 10000)
+  needs no change. It also installs `requirements-mcp.txt`, because the deployed
+  container serves the MCP endpoint itself. Sizing: ~2 GiB of memory, since
+  headless Chromium plus a PDF parse will exceed 512 MB. A Docker Space takes
   its configuration from YAML frontmatter in the Space repo's `README.md`, so
   `backend/README.md` (like `docling/README.md`) carries a Space card declaring
   `sdk: docker` and `app_port: 7860`; deploying means pushing the contents of
@@ -318,6 +354,14 @@ the contract-level guarantees:
   and concurrency ceiling unchanged (invariant #4). No in-process bypass. Its
   only backend coupling is `WISEAU_API_BASE`, mirroring the frontend's
   `MARKDOWN_API_BASE` (ADR-009).
+- **How a client reaches those tools** is a transport choice, not a contract
+  change. The deployed backend serves them over HTTP at `WISEAU_MCP_PATH`
+  (default `/mcp`), so a hosted LLM gets a connector URL and there is no second
+  service to run (ADR-029); the same module also runs standalone over `stdio` for
+  an agent on the operator's own machine, or over its own HTTP port (ADR-028).
+  In the hosted case `WISEAU_API_BASE` points at loopback — the guards are
+  preserved precisely because the call is still HTTP. One consequence to know:
+  all hosted MCP traffic then shares the loopback address's rate-limit bucket.
 - **OpenAPI** is emitted at `/openapi.json` with explicit, clean operation IDs
   (`convert_url`, `convert_file`, `ping`) and per-route summaries so the schema
   reads well as a function-calling tool definition. Setting operation IDs is a

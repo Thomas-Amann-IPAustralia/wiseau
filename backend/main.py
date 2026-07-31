@@ -66,14 +66,98 @@ MAX_UPLOAD_BYTES = int(os.environ.get("MAX_UPLOAD_BYTES", str(25 * 1024 * 1024))
 # MAX_UPLOAD_BYTES to one chunk before the 413 is raised.
 _UPLOAD_CHUNK_BYTES = 256 * 1024
 
+
+# --- MCP surface (ADR-029) --------------------------------------------------
+# The agent-facing MCP endpoint is served by *this* app rather than a second
+# process, so one free-tier container gives an LLM a connector URL
+# (`https://…/mcp`) and a human the REST API. The tools still reach the engine
+# over HTTP — here, the loopback interface — so they keep inheriting the rate
+# limits and the concurrency ceiling (invariant #4; see `docs/mcp.md`).
+def _mcp_mount_enabled() -> bool:
+    """Whether to serve the MCP endpoint from this app. On unless switched off."""
+    return os.environ.get("WISEAU_MCP_MOUNT", "1").strip().lower() not in {"0", "false", "no"}
+
+
+def _load_mcp_routes() -> list:
+    """The MCP endpoint's routes, or an empty list if it is off or unavailable.
+
+    The MCP SDK lives in `requirements-mcp.txt`, not the base requirements, so a
+    checkout that installed only the latter must still start — it simply serves
+    no MCP endpoint. A missing optional dependency is a log line, not a crash.
+    """
+    if not _mcp_mount_enabled():
+        return []
+    try:
+        import mcp_server
+    except ImportError as exc:
+        logger.warning(
+            "MCP endpoint not served: %s. Install requirements-mcp.txt to enable it, "
+            "or set WISEAU_MCP_MOUNT=0 to silence this.",
+            exc,
+        )
+        return []
+    routes = mcp_server.hosted_routes()
+    for route in routes:
+        _name_endpoint_for_limiter(route)
+    logger.info("MCP endpoint served at %s (backend %s)", mcp_server.mcp_path(), mcp_server.API_BASE)
+    return routes
+
+
+def _name_endpoint_for_limiter(route) -> None:
+    """Give an ASGI-object endpoint a `__name__` so `SlowAPIMiddleware` can bind it.
+
+    slowapi identifies a route by `endpoint.__module__ + "." + endpoint.__name__`
+    to decide whether the default limits apply. Every FastAPI route's endpoint is
+    a function and has one; the MCP endpoint is an ASGI *object*, so the
+    middleware raises `AttributeError` before it checks any limit — turning every
+    MCP request into a 500. Naming it puts the endpoint back under the same
+    default per-IP limit as any other undecorated route (invariant #4).
+    """
+    endpoint = getattr(route, "endpoint", None)
+    if endpoint is not None and not hasattr(endpoint, "__name__"):
+        endpoint.__name__ = "mcp_streamable_http"
+
+
+_mcp_routes = _load_mcp_routes()
+# The path a connector should be pointed at, or None when no MCP endpoint is
+# served. Published by `/ping` so a client discovers it rather than guessing —
+# `WISEAU_MCP_PATH` may have moved it (ADR-029).
+MCP_ENDPOINT: str | None = _mcp_routes[0].path if _mcp_routes else None
+
+
+@asynccontextmanager
+async def _lifespan(app: FastAPI) -> AsyncIterator[None]:
+    """Run the MCP session manager alongside the app, when the endpoint is served.
+
+    Grafting the routes is not enough: the streamable-HTTP transport needs its
+    session manager running for the lifetime of the process, and a sub-app's own
+    lifespan does not run when its routes are hosted by another app.
+    """
+    if not _mcp_routes:
+        yield
+        return
+    import mcp_server
+
+    async with mcp_server.session_manager().run():
+        yield
+
+
 app = FastAPI(
     title="Universal Markdown Ingestion Engine",
     description=(
         "Deterministic conversion of web URLs, PDFs, and DOCX documents into "
         "clean, structured Markdown. Designed for both human UIs and LLM/MCP agents."
     ),
-    version="0.7.0",
+    version="0.8.0",
+    lifespan=_lifespan,
 )
+
+# Grafted rather than `mount()`ed: a mounted sub-app only matches `/mcp/…`, so
+# the exact `/mcp` a connector is given would answer with a redirect. These are
+# plain Starlette routes, so they stay out of the OpenAPI schema — which
+# describes the REST contract, and would only confuse a function-calling client
+# by advertising a JSON-RPC endpoint alongside it.
+app.router.routes.extend(_mcp_routes)
 
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
@@ -90,10 +174,13 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=False,
-    allow_methods=["GET", "POST"],
+    # DELETE is the MCP transport's session-termination verb; a browser-based
+    # MCP client cannot end a session cleanly without it.
+    allow_methods=["GET", "POST", "DELETE"],
     allow_headers=["*"],
-    # So a browser client can read the correlation id off its own response.
-    expose_headers=["X-Request-ID"],
+    # So a browser client can read the correlation id off its own response —
+    # and, for an MCP client, the session id the transport assigns it.
+    expose_headers=["X-Request-ID", "Mcp-Session-Id"],
 )
 
 
@@ -265,7 +352,8 @@ async def ping(request: Request) -> dict:
 
     Also advertises the engines this build accepts on a convert request, and
     which of them `auto` resolves to here, so a client can offer the choice —
-    and estimate what it will cost — without hard-coding either (ADR-027).
+    and estimate what it will cost — without hard-coding either (ADR-027) — plus
+    the path of the MCP endpoint, if this deployment serves one (ADR-029).
     """
     return {
         "status": "ok",
@@ -273,6 +361,7 @@ async def ping(request: Request) -> dict:
         "version": app.version,
         "engines": sorted(REQUESTABLE_ENGINES),
         "default_engine": default_engine(),
+        "mcp_endpoint": MCP_ENDPOINT,
     }
 
 

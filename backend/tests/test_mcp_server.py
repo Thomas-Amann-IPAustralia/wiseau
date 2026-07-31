@@ -119,35 +119,40 @@ def test_tools_are_registered_with_the_server():
     assert {"convert_url", "convert_file", "ping"} <= names
 
 
-def test_remote_transport_defaults_bind_publicly(monkeypatch):
+def test_standalone_transport_defaults_bind_publicly(monkeypatch):
     """streamable-http must be reachable from outside the process by default."""
     monkeypatch.delenv("WISEAU_MCP_HOST", raising=False)
     monkeypatch.delenv("WISEAU_MCP_PORT", raising=False)
     monkeypatch.delenv("WISEAU_MCP_ALLOWED_HOSTS", raising=False)
 
-    mcp_server._configure_remote_transport()
+    mcp_server._configure_standalone_transport()
 
     assert mcp_server.mcp.settings.host == "0.0.0.0"
     assert mcp_server.mcp.settings.port == 8080
 
 
-def test_remote_transport_honours_host_port_env(monkeypatch):
+def test_standalone_transport_honours_host_port_env(monkeypatch):
     monkeypatch.setenv("WISEAU_MCP_HOST", "10.0.0.5")
     monkeypatch.setenv("WISEAU_MCP_PORT", "9000")
     monkeypatch.delenv("WISEAU_MCP_ALLOWED_HOSTS", raising=False)
 
-    mcp_server._configure_remote_transport()
+    mcp_server._configure_standalone_transport()
 
     assert mcp_server.mcp.settings.host == "10.0.0.5"
     assert mcp_server.mcp.settings.port == 9000
 
 
-def test_remote_transport_widens_host_allowlist(monkeypatch):
+def test_standalone_transport_widens_host_allowlist(monkeypatch):
+    """Naming hosts opts the standalone server into the Host check (ADR-029).
+
+    Left unset the check is off, because a public deployment must answer its
+    own hostname; an operator who names hosts gets it enforced.
+    """
     monkeypatch.delenv("WISEAU_MCP_HOST", raising=False)
     monkeypatch.delenv("WISEAU_MCP_PORT", raising=False)
     monkeypatch.setenv("WISEAU_MCP_ALLOWED_HOSTS", "wiseau-mcp.example.com, other.example.com")
 
-    mcp_server._configure_remote_transport()
+    mcp_server._configure_standalone_transport()
 
     security = mcp_server.mcp.settings.transport_security
     assert "wiseau-mcp.example.com" in security.allowed_hosts

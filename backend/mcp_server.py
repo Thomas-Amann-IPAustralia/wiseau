@@ -12,14 +12,21 @@ reuses the exact same `MarkdownResponse` contract (`source`, `markdown`,
 the global concurrency ceiling — unchanged. There is no in-process bypass of
 those guards, per the tech-spec invariants. See `docs/mcp.md` and ADR-009.
 
-Run it (stdio transport, for local agent integration):
+There are two ways this surface reaches a client:
 
-    cd backend
-    pip install -r requirements.txt -r requirements-mcp.txt
-    WISEAU_API_BASE=http://localhost:7860 python mcp_server.py
+1. **Hosted** — `main.py` grafts `hosted_routes()` onto the FastAPI app, so the
+   deployed backend answers MCP over HTTP at `/mcp` and *any* LLM that can add a
+   remote connector by URL can use it. One container, one URL, no second service
+   to pay for (ADR-029). This is the deployment path; see `docs/hosting.md`.
+2. **Standalone** — run this module as its own process, over `stdio` (the client
+   spawns it; Claude Desktop, Claude Code) or `streamable-http`:
 
-The backend must be reachable at `WISEAU_API_BASE` (default
-``http://localhost:7860``) for the tools to work.
+       cd backend
+       pip install -r requirements.txt -r requirements-mcp.txt
+       WISEAU_API_BASE=http://localhost:7860 python mcp_server.py
+
+Either way the backend must be reachable at `WISEAU_API_BASE` (default
+``http://127.0.0.1:$PORT``, i.e. ``http://127.0.0.1:7860`` locally).
 """
 
 from __future__ import annotations
@@ -34,7 +41,17 @@ from mcp.server.fastmcp import FastMCP
 # --- Configuration ----------------------------------------------------------
 # The MCP server's only coupling to the backend is this base URL — mirroring the
 # frontend's single `MARKDOWN_API_BASE` knob (ADR-004). No build-time coupling.
-API_BASE = os.environ.get("WISEAU_API_BASE", "http://localhost:7860").rstrip("/")
+#
+# The fallback follows `$PORT` because the hosted deployment runs this surface
+# *inside* the backend process (ADR-029) and calls it back over the loopback
+# interface; `main.py` binds that same `$PORT`. With `PORT` unset the default is
+# the historical `7860`, so a local `python mcp_server.py` is unchanged.
+def _default_api_base() -> str:
+    """Where to reach the backend when `WISEAU_API_BASE` says nothing."""
+    return f"http://127.0.0.1:{os.environ.get('PORT', '7860')}"
+
+
+API_BASE = (os.environ.get("WISEAU_API_BASE") or _default_api_base()).rstrip("/")
 
 # Headless renders and PDF extraction can be slow; allow a generous per-request
 # timeout so large jobs are not cut off before the backend finishes.
@@ -136,25 +153,83 @@ async def ping() -> dict[str, Any]:
     return _unwrap(response)
 
 
-def _configure_remote_transport() -> None:
-    """Point the server at a public host/port and widen the Host-header allow-list.
+# --- Remote (HTTP) transport ------------------------------------------------
+def mcp_path() -> str:
+    """The URL path the streamable-http endpoint is served at.
 
-    FastMCP's streamable-http transport binds `127.0.0.1` and only accepts
-    requests whose `Host` header matches `localhost`/`127.0.0.1` by default (DNS
-    rebinding protection) — safe for a local process, useless for a remote
-    deployment. `WISEAU_MCP_HOST`/`WISEAU_MCP_PORT` open the bind address;
-    `WISEAU_MCP_ALLOWED_HOSTS` (comma-separated, e.g. your HF Space's hostname)
-    must be set for a remote client's requests to pass the Host check.
+    `/mcp` by default. `WISEAU_MCP_PATH` can move it to an unguessable path
+    (`/mcp-3f9c…`), which is the only access control every MCP client can use —
+    a connector URL is the one thing they all let you set, where custom auth
+    headers are not (ADR-029). That is obscurity, not authentication; the
+    backend's rate limits remain the real guard.
+    """
+    raw = os.environ.get("WISEAU_MCP_PATH", "/mcp").strip().strip("/")
+    return f"/{raw}" if raw else "/mcp"
+
+
+def configure_transport_security() -> None:
+    """Set the Host/Origin allow-list for the HTTP transport.
+
+    FastMCP defaults to accepting `localhost`/`127.0.0.1` only, as DNS-rebinding
+    protection. That is right for a server bound to loopback and wrong for one
+    whose entire purpose is to be reached at a public hostname — it answers 421
+    to every real client. So:
+
+    * `WISEAU_MCP_ALLOWED_HOSTS` unset (or `*`) — the check is off. The
+      deployment is public by design, matching the API's `allow_origins=["*"]`
+      CORS stance (ADR-029); rate limiting is what protects it.
+    * `WISEAU_MCP_ALLOWED_HOSTS=a.example.com,b.example.com` — only those hosts
+      (plus loopback) are accepted, for an operator who wants the check.
+    """
+    security = mcp.settings.transport_security
+    raw = os.environ.get("WISEAU_MCP_ALLOWED_HOSTS", "").strip()
+    hosts = [h.strip() for h in raw.split(",") if h.strip() and h.strip() != "*"]
+    if not hosts:
+        security.enable_dns_rebinding_protection = False
+        return
+    security.enable_dns_rebinding_protection = True
+    security.allowed_hosts = sorted({*security.allowed_hosts, *hosts})
+    security.allowed_origins = sorted(
+        {*security.allowed_origins, *(f"https://{h}" for h in hosts), *(f"http://{h}" for h in hosts)}
+    )
+
+
+def hosted_routes() -> list:
+    """Build the streamable-http endpoint as routes another ASGI app can serve.
+
+    Returned rather than run, so `main.py` can graft the endpoint onto the
+    FastAPI app and one container serves both the REST API and the MCP surface
+    (ADR-029) — a single free-tier service instead of two. The caller *must*
+    drive `session_manager()` from its lifespan, or requests hang.
+
+    Sessions are stateless: a scale-to-zero host may answer two requests of the
+    same conversation from two different instances, and in-memory session state
+    would not survive that.
+    """
+    mcp.settings.stateless_http = True
+    mcp.settings.streamable_http_path = mcp_path()
+    configure_transport_security()
+    # `streamable_http_app()` is what lazily constructs the session manager, so
+    # it is called for its effect as much as its routes.
+    return list(mcp.streamable_http_app().routes)
+
+
+def session_manager():
+    """The StreamableHTTP session manager; run it from the host app's lifespan."""
+    return mcp.session_manager
+
+
+def _configure_standalone_transport() -> None:
+    """Point a standalone HTTP server at a public host/port.
+
+    Only for `--transport streamable-http`, i.e. running this module as its own
+    process. `WISEAU_MCP_HOST`/`WISEAU_MCP_PORT` set the bind address.
     """
     mcp.settings.host = os.environ.get("WISEAU_MCP_HOST", "0.0.0.0")
     mcp.settings.port = int(os.environ.get("WISEAU_MCP_PORT", "8080"))
-    extra_hosts = [h.strip() for h in os.environ.get("WISEAU_MCP_ALLOWED_HOSTS", "").split(",") if h.strip()]
-    if extra_hosts:
-        security = mcp.settings.transport_security
-        security.allowed_hosts = list({*security.allowed_hosts, *extra_hosts})
-        security.allowed_origins = list(
-            {*security.allowed_origins, *(f"https://{h}" for h in extra_hosts), *(f"http://{h}" for h in extra_hosts)}
-        )
+    mcp.settings.stateless_http = True
+    mcp.settings.streamable_http_path = mcp_path()
+    configure_transport_security()
 
 
 if __name__ == "__main__":
@@ -168,10 +243,12 @@ if __name__ == "__main__":
         help="'stdio' for a local agent client (e.g. Claude Desktop, Claude Code); "
         "'streamable-http' to serve the same tools over HTTP so any remote MCP "
         "client (claude.ai connectors, other agents) can reach them. "
-        "Defaults to $WISEAU_MCP_TRANSPORT, then 'stdio'.",
+        "Defaults to $WISEAU_MCP_TRANSPORT, then 'stdio'. Note that a hosted "
+        "deployment normally needs neither: the backend serves the same endpoint "
+        "itself (ADR-029).",
     )
     args = parser.parse_args()
 
     if args.transport == "streamable-http":
-        _configure_remote_transport()
+        _configure_standalone_transport()
     mcp.run(args.transport)
