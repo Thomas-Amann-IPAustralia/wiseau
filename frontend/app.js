@@ -39,11 +39,14 @@ const el = {
   engineInputs: document.querySelectorAll("input[name='engine']"),
   engineAutoHint: document.getElementById("engine-auto-hint"),
   splitChapters: document.getElementById("split-chapters"),
-  chapters: document.getElementById("chapters"),
-  chaptersList: document.getElementById("chapters-list"),
-  chaptersMeta: document.getElementById("chapters-meta"),
-  chaptersAllBtn: document.getElementById("chapters-all-btn"),
-  chaptersZipBtn: document.getElementById("chapters-zip-btn"),
+  splitChaptersLabel: document.getElementById("split-chapters-label"),
+  splitChaptersBlocked: document.getElementById("split-chapters-blocked"),
+  results: document.getElementById("results"),
+  resultsTitle: document.getElementById("results-title"),
+  resultsList: document.getElementById("results-list"),
+  resultsMeta: document.getElementById("results-meta"),
+  resultsWholeBtn: document.getElementById("results-whole-btn"),
+  resultsZipBtn: document.getElementById("results-zip-btn"),
   progress: document.getElementById("progress"),
   progressFill: document.getElementById("progress-fill"),
   progressLabel: document.getElementById("progress-label"),
@@ -61,7 +64,7 @@ const el = {
   panes: { url: document.getElementById("tab-url"), file: document.getElementById("tab-file") },
 };
 
-let selectedFile = null;
+let selectedFiles = [];
 // What the backend resolves "auto" to. Assume the standard default (the fast
 // parser) until /ping says otherwise; only the estimate depends on it, so a
 // deployment that never answers /ping still converts normally.
@@ -69,7 +72,9 @@ let serverDefaultEngine = "pymupdf";
 let lastMarkdown = "";
 let lastSource = "";
 let currentView = "preview";
-let lastChapters = [];
+// The saveable files behind the results panel: a document's chapters, or a
+// batch's documents. Never both — they are mutually exclusive (ADR-031).
+let lastFiles = [];
 
 // --- Tab switching -----------------------------------------------------------
 el.tabs.forEach((tab) => {
@@ -119,7 +124,24 @@ function selectedEngine() {
 
 /** Whether to ask the backend for the document split into chapters (ADR-030). */
 function wantsChapters() {
-  return Boolean(el.splitChapters && el.splitChapters.checked);
+  return Boolean(el.splitChapters && el.splitChapters.checked && !el.splitChapters.disabled);
+}
+
+/**
+ * Keep the two "one file becomes many files" features apart (ADR-031).
+ * A batch cannot be split into chapters, so selecting several documents takes
+ * the option away and says why, rather than leaving a checkbox that would be
+ * quietly ignored. Unchecking it as well as disabling it matters: a checkbox
+ * that stays ticked while having no effect is how someone comes to believe they
+ * asked for chapters and got none.
+ */
+function applyChapterAvailability() {
+  if (!el.splitChapters) return;
+  const blocked = selectedFiles.length > 1;
+  if (blocked) el.splitChapters.checked = false;
+  el.splitChapters.disabled = blocked;
+  el.splitChaptersLabel.classList.toggle("check--blocked", blocked);
+  el.splitChaptersBlocked.hidden = !blocked;
 }
 
 // --- Progress approximation --------------------------------------------------
@@ -142,6 +164,16 @@ function estimateSeconds(kind, file, engine) {
   let profile = ESTIMATES.docling;
   if (effectiveEngine(engine) === "pymupdf") profile = isImage ? ESTIMATES.ocr : ESTIMATES.pymupdf;
   return profile.base + profile.perMb * megabytes;
+}
+
+/**
+ * Seconds for the whole selection: a batch converts its documents one at a
+ * time, so the estimates add up. Worth being honest about — with docling
+ * selected, ten documents is a wait measured in minutes, and a bar that implied
+ * otherwise would look broken rather than busy.
+ */
+function estimateBatchSeconds(files, engine) {
+  return files.reduce((total, file) => total + estimateSeconds("file", file, engine), 0);
 }
 
 let progressTimerId = null;
@@ -212,9 +244,9 @@ function metaFor(data) {
   return parts.join(" · ");
 }
 
-function showError(message) {
+/** Put a failure in the output panel, leaving the results list alone. */
+function showFailure(message) {
   lastMarkdown = "";
-  clearChapters();
   el.output.classList.add("is-error");
   el.outputPreview.classList.add("is-error");
   el.output.textContent = `⚠ ${message}`;
@@ -222,6 +254,11 @@ function showError(message) {
   el.outputMeta.textContent = "";
   el.copyBtn.disabled = true;
   el.downloadBtn.disabled = true;
+}
+
+function showError(message) {
+  clearResults();
+  showFailure(message);
 }
 
 function setBusy(button, busy, idleLabel) {
@@ -233,12 +270,22 @@ function setBusy(button, busy, idleLabel) {
 async function parseResponse(res) {
   const payload = await res.json().catch(() => ({}));
   if (!res.ok) {
-    throw new Error(payload.detail || `Request failed (HTTP ${res.status})`);
+    // The API reports failures as `detail`; the rate limiter is the exception —
+    // slowapi writes its own body with `error`. Worth reading both, because a
+    // batch has the tightest limit on the service (5/minute) and "Request failed
+    // (HTTP 429)" tells the user nothing about waiting a minute and retrying.
+    throw new Error(payload.detail || payload.error || `Request failed (HTTP ${res.status})`);
   }
   return payload;
 }
 
-// --- Chapters ----------------------------------------------------------------
+// --- The results panel -------------------------------------------------------
+// One list serves both features that turn a conversion into several saveable
+// files: the chapters of one document (ADR-030) and the documents of a batch
+// (ADR-031). They are mutually exclusive, so a row is a row — a title, the
+// filename it saves as, its size, and View/Save — and only the heading, the
+// caption, and the archive's name differ.
+
 // How the backend found the chapters, said plainly: a split taken from the
 // document's own contents page deserves more trust than one guessed from
 // headings, and the panel should let the reader judge before saving 30 files.
@@ -249,66 +296,119 @@ const DETECTION_LABEL = {
 };
 
 // The whole document, kept aside so that viewing one chapter is reversible.
+// A batch has no such thing, which is why "Whole document" hides for one.
 let documentView = { markdown: "", meta: "", source: "" };
+// What "Download all (.zip)" should call the archive for the current panel.
+let archiveName = "chapters.zip";
 
-function clearChapters() {
-  lastChapters = [];
-  el.chaptersList.replaceChildren();
-  el.chapters.hidden = true;
-}
-
-function showChapters(data) {
-  clearChapters();
-  lastChapters = Array.isArray(data.chapters) ? data.chapters : [];
-  if (!lastChapters.length) return;
-
-  el.chaptersMeta.textContent = DETECTION_LABEL[data.chapter_detection] || "";
-  el.chaptersList.append(...lastChapters.map(chapterRow));
-  el.chapters.hidden = false;
+function clearResults() {
+  lastFiles = [];
+  el.resultsList.replaceChildren();
+  el.results.hidden = true;
 }
 
 /**
- * One row of the chapter list.
- * Built as DOM nodes rather than markup: a chapter title is text lifted out of
- * an arbitrary document, so it is only ever assigned as `textContent`.
+ * Fill the panel.
+ * @param {{title: string, filename: string, markdown: string, length: number,
+ *          error?: string}[]} files rows to show; a row with `error` is a
+ *        failure and offers nothing to view or save.
  */
-function chapterRow(chapter, index) {
+function showResults(title, caption, files, options) {
+  clearResults();
+  lastFiles = files;
+  if (!files.length) return;
+  el.resultsTitle.textContent = title;
+  el.resultsMeta.textContent = caption;
+  el.resultsWholeBtn.hidden = !options.wholeDocument;
+  archiveName = options.archive;
+  el.resultsList.append(...files.map(resultRow));
+  el.resultsZipBtn.disabled = !files.some((file) => !file.error);
+  el.results.hidden = false;
+}
+
+/**
+ * One row of the list.
+ * Built as DOM nodes rather than markup: a chapter title is text lifted out of
+ * an arbitrary document and a document title is a filename someone else chose,
+ * so both are only ever assigned as `textContent`.
+ */
+function resultRow(file, index) {
   const item = document.createElement("li");
-  item.className = "chapter";
+  item.className = file.error ? "result result--error" : "result";
 
   const title = document.createElement("span");
-  title.className = "chapter__title";
-  title.textContent = chapter.title;
+  title.className = "result__title";
+  title.textContent = file.title;
 
   const filename = document.createElement("code");
-  filename.className = "chapter__file";
-  filename.textContent = chapter.filename;
-
-  const size = document.createElement("span");
-  size.className = "chapter__size";
-  size.textContent = `${chapter.length.toLocaleString()} chars`;
-
-  const view = document.createElement("button");
-  view.className = "btn btn--ghost btn--small";
-  view.textContent = "View";
-  view.addEventListener("click", () => viewChapter(index));
-
-  const save = document.createElement("button");
-  save.className = "btn btn--ghost btn--small";
-  save.textContent = "Save";
-  save.addEventListener("click", () => saveText(chapter.markdown, chapter.filename));
+  filename.className = "result__file";
+  filename.textContent = file.filename || "";
 
   const text = document.createElement("span");
-  text.className = "chapter__text";
+  text.className = "result__text";
   text.append(title, filename);
 
   const actions = document.createElement("span");
-  actions.className = "chapter__actions";
-  actions.append(size, view, save);
+  actions.className = "result__actions";
+
+  if (file.error) {
+    const failure = document.createElement("span");
+    failure.className = "result__error";
+    failure.textContent = file.error;
+    actions.append(failure);
+  } else {
+    const size = document.createElement("span");
+    size.className = "result__size";
+    size.textContent = `${file.length.toLocaleString()} chars`;
+
+    const view = document.createElement("button");
+    view.className = "btn btn--ghost btn--small";
+    view.textContent = "View";
+    view.addEventListener("click", () => viewResult(index));
+
+    const save = document.createElement("button");
+    save.className = "btn btn--ghost btn--small";
+    save.textContent = "Save";
+    save.addEventListener("click", () => saveText(file.markdown, file.filename));
+
+    actions.append(size, view, save);
+  }
+
   item.append(text, actions);
   return item;
 }
 
+/** Show one row's Markdown in the output panel; Copy and Download follow it. */
+function viewResult(index) {
+  const file = lastFiles[index];
+  if (!file || file.error) return;
+  showMarkdown(file.markdown, `${file.length.toLocaleString()} chars · ${file.filename}`, file.title);
+  markActiveResult(index);
+}
+
+function showWholeDocument() {
+  showMarkdown(documentView.markdown, documentView.meta, documentView.source);
+  markActiveResult(-1);
+}
+
+function markActiveResult(index) {
+  Array.from(el.resultsList.children).forEach((row, position) =>
+    row.classList.toggle("result--active", position === index)
+  );
+}
+
+el.resultsWholeBtn.addEventListener("click", showWholeDocument);
+
+el.resultsZipBtn.addEventListener("click", () => {
+  const saveable = lastFiles.filter((file) => !file.error);
+  if (!saveable.length) return;
+  const archive = window.wiseauZip.build(
+    saveable.map((file) => ({ name: file.filename, content: file.markdown }))
+  );
+  saveBlob(archive, archiveName);
+});
+
+// --- Single conversions ------------------------------------------------------
 /** Show a finished conversion: the document, then its chapters if there are any. */
 function showConverted(data, fallbackSource) {
   documentView = {
@@ -317,38 +417,47 @@ function showConverted(data, fallbackSource) {
     source: data.source || fallbackSource,
   };
   showMarkdown(documentView.markdown, documentView.meta, documentView.source);
-  showChapters(data);
-}
 
-/** Show one chapter in the output panel; Copy and Download then act on it. */
-function viewChapter(index) {
-  const chapter = lastChapters[index];
-  if (!chapter) return;
-  showMarkdown(chapter.markdown, `${chapter.length.toLocaleString()} chars · ${chapter.filename}`, chapter.title);
-  markActiveChapter(index);
-}
-
-function showWholeDocument() {
-  showMarkdown(documentView.markdown, documentView.meta, documentView.source);
-  markActiveChapter(-1);
-}
-
-function markActiveChapter(index) {
-  Array.from(el.chaptersList.children).forEach((row, position) =>
-    row.classList.toggle("chapter--active", position === index)
-  );
-}
-
-el.chaptersAllBtn.addEventListener("click", showWholeDocument);
-
-el.chaptersZipBtn.addEventListener("click", () => {
-  if (!lastChapters.length) return;
-  const archive = window.wiseauZip.build(
-    lastChapters.map((chapter) => ({ name: chapter.filename, content: chapter.markdown }))
-  );
+  const chapters = Array.isArray(data.chapters) ? data.chapters : [];
   const stem = filenameFor(titleFor(documentView.markdown, documentView.source)).replace(/\.md$/i, "");
-  saveBlob(archive, `${stem}-chapters.zip`);
-});
+  showResults("Chapters", DETECTION_LABEL[data.chapter_detection] || "", chapters, {
+    wholeDocument: true,
+    archive: `${stem}-chapters.zip`,
+  });
+}
+
+// --- Batch conversions -------------------------------------------------------
+/**
+ * Show a finished batch: one row per document, then the first one that
+ * converted, so the output panel holds a real document rather than the
+ * placeholder while the user decides what to look at.
+ */
+function showBatch(data) {
+  const results = Array.isArray(data.results) ? data.results : [];
+  const files = results.map((item) => ({
+    title: item.source,
+    filename: item.filename || "",
+    markdown: item.markdown || "",
+    length: item.length || 0,
+    error: item.error || "",
+  }));
+
+  const caption =
+    data.failed > 0
+      ? `${data.succeeded} of ${data.count} converted · ${data.failed} failed`
+      : `${data.count} document${data.count === 1 ? "" : "s"} converted`;
+  showResults("Documents", caption, files, { wholeDocument: false, archive: "converted-markdown.zip" });
+
+  const first = files.findIndex((file) => !file.error);
+  if (first >= 0) {
+    viewResult(first);
+  } else {
+    // Every document failed. The list is the useful part — it says which
+    // document failed and why — so it stays, and only the output panel reports
+    // that there is nothing to show.
+    showFailure("Nothing converted — every document in the batch failed. See the list above for why.");
+  }
+}
 
 // --- View toggle (rendered vs raw) -------------------------------------------
 el.viewButtons.forEach((button) => {
@@ -389,7 +498,7 @@ el.convertUrlBtn.addEventListener("click", async () => {
 
 // --- File selection + drag/drop ---------------------------------------------
 el.dropZone.addEventListener("click", () => el.fileInput.click());
-el.fileInput.addEventListener("change", () => setFile(el.fileInput.files[0]));
+el.fileInput.addEventListener("change", () => setFiles(el.fileInput.files));
 
 ["dragenter", "dragover"].forEach((evt) =>
   el.dropZone.addEventListener(evt, (e) => {
@@ -403,33 +512,72 @@ el.fileInput.addEventListener("change", () => setFile(el.fileInput.files[0]));
     el.dropZone.classList.remove("drop-zone--over");
   })
 );
-el.dropZone.addEventListener("drop", (e) => setFile(e.dataTransfer.files[0]));
+el.dropZone.addEventListener("drop", (e) => setFiles(e.dataTransfer.files));
 
-function setFile(file) {
-  selectedFile = file || null;
-  el.fileName.textContent = file ? file.name : "";
-  el.convertFileBtn.disabled = !file;
+/** Take a `FileList` (from the picker or a drop) as the current selection. */
+function setFiles(list) {
+  selectedFiles = Array.from(list || []);
+  el.fileName.replaceChildren(...selectionLabel(selectedFiles));
+  el.convertFileBtn.disabled = selectedFiles.length === 0;
+  el.convertFileBtn.textContent = selectedFiles.length > 1 ? `Convert ${selectedFiles.length} files` : "Convert";
+  applyChapterAvailability();
+}
+
+/**
+ * Name what is selected. Filenames are text the user's filesystem supplied, so
+ * they are set as `textContent`; a long list is truncated because the drop zone
+ * is not a file manager.
+ */
+function selectionLabel(files) {
+  const shown = files.slice(0, 4).map((file) => {
+    const line = document.createElement("span");
+    line.textContent = file.name;
+    return line;
+  });
+  if (files.length > shown.length) {
+    const more = document.createElement("span");
+    more.className = "more";
+    more.textContent = `and ${files.length - shown.length} more`;
+    shown.push(more);
+  }
+  return shown;
 }
 
 // --- File conversion ---------------------------------------------------------
+// One file goes to /convert/file and may be split into chapters; several go to
+// /convert/batch and come back as one Markdown file each (ADR-031). The two are
+// mutually exclusive, which is what keeps this a fork rather than a matrix.
 el.convertFileBtn.addEventListener("click", async () => {
-  if (!selectedFile) return;
+  if (!selectedFiles.length) return;
   const engine = selectedEngine();
-  setBusy(el.convertFileBtn, true, "Convert");
-  startProgress(estimateSeconds("file", selectedFile, engine), engine);
+  const batch = selectedFiles.length > 1;
+  const idleLabel = batch ? `Convert ${selectedFiles.length} files` : "Convert";
+  setBusy(el.convertFileBtn, true, idleLabel);
+  startProgress(
+    batch ? estimateBatchSeconds(selectedFiles, engine) : estimateSeconds("file", selectedFiles[0], engine),
+    engine
+  );
   try {
     const form = new FormData();
-    form.append("file", selectedFile);
     form.append("engine", engine);
-    form.append("split_chapters", String(wantsChapters()));
-    const res = await fetch(`${API_BASE}/convert/file`, { method: "POST", body: form });
+    if (batch) {
+      selectedFiles.forEach((file) => form.append("files", file));
+    } else {
+      form.append("file", selectedFiles[0]);
+      form.append("split_chapters", String(wantsChapters()));
+    }
+    const res = await fetch(`${API_BASE}/convert/${batch ? "batch" : "file"}`, {
+      method: "POST",
+      body: form,
+    });
     const data = await parseResponse(res);
-    showConverted(data, selectedFile.name);
+    if (batch) showBatch(data);
+    else showConverted(data, selectedFiles[0].name);
   } catch (err) {
     showError(err.message);
   } finally {
     stopProgress();
-    setBusy(el.convertFileBtn, false, "Convert");
+    setBusy(el.convertFileBtn, false, idleLabel);
   }
 });
 

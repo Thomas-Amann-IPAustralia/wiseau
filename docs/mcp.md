@@ -43,11 +43,35 @@ the guards still apply — see §1.1.
 | ---- | --------- | ----- | ------- |
 | `convert_url` | `url: str` (absolute http/https), `engine: str = "auto"`, `split_chapters: bool = False` | `POST /convert/url` | `{source, markdown, length}` (+ `chapters`, `chapter_detection`) |
 | `convert_file` | `path: str` (local `.pdf`/`.docx`), `engine: str = "auto"`, `split_chapters: bool = False` | `POST /convert/file` | `{source, markdown, length}` (+ `chapters`, `chapter_detection`) |
+| `convert_batch` | `paths: list[str]` (local `.pdf`/`.docx`), `engine: str = "auto"` | `POST /convert/batch` | `{count, succeeded, failed, results[]}` |
 | `ping` | — | `GET /ping` | `{status, service, version, engines, default_engine, mcp_endpoint}` |
 
 `convert_file` reads the file from the machine running the MCP server (the usual
 case: the server runs locally alongside the agent) and forwards its bytes and
 filename to the backend, which dispatches parsers by extension.
+
+`convert_batch` is the tool for "convert this folder" / "convert all of these"
+(ADR-031). Prefer it over a loop of `convert_file` calls: it is **one** request
+against the backend's rate limit rather than one per document, and each result
+arrives with the `filename` to save it as, already unique within the batch. Two
+behaviours are worth knowing before writing the save loop:
+
+* **One document failing does not fail the rest.** Each entry is
+  `{status, source, filename, markdown, length, error}`; a failure has
+  `status: "error"`, the message the single-document call would have returned,
+  and **no `filename`**. So "write every result that has a filename" is the
+  whole of a correct loop — an empty file can never land where a document
+  should have been. Report the failures to the user; they are usually a wrong
+  file type.
+* **An unreadable path is refused up front**, before any conversion runs, so a
+  typo in one path is reported rather than silently dropped from a batch that
+  otherwise looks like a complete success.
+
+The batch has no `split_chapters` — bulk conversion and chapter splitting are
+mutually exclusive for now (ADR-031). To split a long document into per-chapter
+files, call `convert_file` on it alone with `split_chapters=True`. Note also that
+`engine="docling"` costs tens of seconds to minutes *per document*, so a batch of
+any size wants the fast default.
 
 `engine` is the same lever the web UI offers (ADR-025): `pymupdf` for the fast
 deterministic parser, `docling` for the most faithful reading of a complex or
@@ -173,8 +197,9 @@ Point `WISEAU_API_BASE` at a local backend or at your deployment.
 
 Agents that speak OpenAI-style function/tool calling don't need the MCP server —
 `/openapi.json` already describes the endpoints with clean operation IDs
-(`convert_url`, `convert_file`, `ping`) and summaries, so it can be handed to a
-tool-calling loop directly. The agent then issues normal HTTP requests:
+(`convert_url`, `convert_file`, `convert_batch`, `ping`) and summaries, so it can
+be handed to a tool-calling loop directly. The agent then issues normal HTTP
+requests:
 
 ```bash
 curl -X POST "$WISEAU_API_BASE/convert/url" \
@@ -188,6 +213,16 @@ curl -X POST "$WISEAU_API_BASE/convert/file" \
 # -> {..., "chapter_detection":"toc",
 #     "chapters":[{"title":"Chapter 1: The Arrival","level":2,
 #                  "filename":"01-chapter-1-the-arrival.md","markdown":"...","length":3759}, ...]}
+
+# Several documents at once — one request, one Markdown file each:
+curl -X POST "$WISEAU_API_BASE/convert/batch" \
+     -F 'files=@annual-report.pdf' -F 'files=@minutes.docx' -F 'files=@notes.txt'
+# -> {"count":3,"succeeded":2,"failed":1,
+#     "results":[{"status":"ok","source":"annual-report.pdf",
+#                 "filename":"annual-report.md","markdown":"# ...","length":8214},
+#                {"status":"ok","source":"minutes.docx","filename":"minutes.md", ...},
+#                {"status":"error","source":"notes.txt","filename":null,
+#                 "error":"Unsupported file type '.txt'. ..."}]}
 ```
 
 Because both the MCP tools and direct callers hit the same routes, they observe

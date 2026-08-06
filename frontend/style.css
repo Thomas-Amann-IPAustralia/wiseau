@@ -147,6 +147,10 @@ input[type="url"]:focus { outline: none; border-color: var(--accent); }
 .drop-zone__sub { margin: 6px 0 0; font-size: 0.78rem; color: var(--muted); }
 .drop-zone .link { color: var(--accent); text-decoration: underline; }
 .drop-zone__file { margin: 10px 0 0; font-size: 0.85rem; color: var(--text); }
+/* A multi-file selection: name the files rather than only counting them, so the
+   user can see they dropped the right ones before spending a minute on them. */
+.drop-zone__file span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.drop-zone__file .more { color: var(--muted); font-size: 0.78rem; }
 
 .output-head {
   display: flex;
@@ -226,31 +230,37 @@ input[type="url"]:focus { outline: none; border-color: var(--accent); }
 .check__name { font-weight: 600; }
 .check__hint { font-size: 0.74rem; line-height: 1.5; color: var(--muted); }
 .check__hint code { font-size: 0.72rem; }
+/* A choice the current selection rules out (ADR-031), greyed but still legible
+   so the reason stays readable rather than the control just going dead. */
+.check--blocked { opacity: 0.6; cursor: not-allowed; }
+.check--blocked input { cursor: not-allowed; }
+.check__blocked { font-size: 0.74rem; line-height: 1.5; color: var(--accent); }
 
-.chapters {
+/* The saveable-files panel: a document's chapters, or a batch's documents. */
+.results {
   margin-bottom: 14px;
   padding: 12px 14px;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--panel-2);
 }
-.chapters__head {
+.results__head {
   display: flex;
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 10px;
 }
-.chapters__title { margin: 0; font-size: 0.95rem; }
-.chapters__head .meta { flex: 1 1 auto; }
-.chapters__list {
+.results__title { margin: 0; font-size: 0.95rem; }
+.results__head .meta { flex: 1 1 auto; }
+.results__list {
   margin: 0;
   padding: 0;
   list-style: none;
   max-height: 260px;
   overflow: auto;
 }
-.chapter {
+.result {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -258,18 +268,21 @@ input[type="url"]:focus { outline: none; border-color: var(--accent); }
   border-radius: 6px;
   font-size: 0.84rem;
 }
-.chapter + .chapter { border-top: 1px solid var(--border); }
-.chapter--active { background: var(--panel); box-shadow: inset 2px 0 0 var(--accent); }
-.chapter__text { display: flex; flex-direction: column; gap: 1px; flex: 1 1 auto; min-width: 0; }
-.chapter__title { font-weight: 600; }
-.chapter__title, .chapter__file { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.chapter__file {
+.result + .result { border-top: 1px solid var(--border); }
+.result--active { background: var(--panel); box-shadow: inset 2px 0 0 var(--accent); }
+.result--error { box-shadow: inset 2px 0 0 var(--err); }
+.result--error .result__title { color: var(--muted); }
+.result__text { display: flex; flex-direction: column; gap: 1px; flex: 1 1 auto; min-width: 0; }
+.result__title { font-weight: 600; }
+.result__title, .result__file { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.result__file {
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 0.72rem;
   color: var(--muted);
 }
-.chapter__actions { display: flex; align-items: center; gap: 6px; flex: 0 0 auto; }
-.chapter__size { font-size: 0.74rem; color: var(--muted); }
+.result__actions { display: flex; align-items: center; gap: 6px; flex: 0 0 auto; }
+.result__size { font-size: 0.74rem; color: var(--muted); }
+.result__error { font-size: 0.74rem; color: var(--err); text-align: right; max-width: 22ch; }
 .btn--small { padding: 4px 10px; font-size: 0.78rem; }
 
 /* --- Progress approximation ------------------------------------------------ */

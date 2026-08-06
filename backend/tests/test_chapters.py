@@ -500,9 +500,12 @@ def test_filenames_stay_sortable_past_ninety_nine_chapters():
     ],
 )
 def test_titles_become_filesystem_safe_stems(title, expected):
-    from parsers.chapters import _slug
+    # The rule itself lives in `parsers/naming.py`, shared with batch conversion
+    # (ADR-031) so both features suggest filenames the same way; these cases pin
+    # what chapter titles specifically must survive.
+    from parsers.naming import slug
 
-    assert _slug(title) == expected
+    assert slug(title) == expected
 
 
 def test_every_chapter_is_normalized_markdown():

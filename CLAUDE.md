@@ -89,7 +89,8 @@ wiseau/
 │   │   ├── docling_client.py  # [Phase 6] thin HTTP client to docling-serve
 │   │   ├── ocr.py          # pluggable OCR engines (Tesseract / EasyOCR)
 │   │   ├── cleaner.py      # regex/Unicode normalization (always runs)
-│   │   └── chapters.py     # split converted Markdown into chapters (ADR-030)
+│   │   ├── chapters.py     # split converted Markdown into chapters (ADR-030)
+│   │   └── naming.py       # the one filename rule: chapters + batches (ADR-031)
 │   ├── Dockerfile          # version-locks Chromium + Python
 │   └── requirements.txt
 ├── docling/                # [Phase 6] docling-serve converter — HF Space #2
@@ -100,7 +101,7 @@ wiseau/
     ├── style.css
     ├── app.js              # state + fetch calls, engine picker, progress estimate
     ├── markdown.js         # dependency-free renderer behind the Preview mode
-    ├── zip.js              # dependency-free ZIP writer (chapter downloads)
+    ├── zip.js              # dependency-free ZIP writer (chapters + batches)
     ├── favicon.svg         # site icon
     └── config.js           # per-deployment: MARKDOWN_API_BASE
 ```
@@ -172,6 +173,13 @@ WISEAU_LIVE_BROWSER=1 pytest    # also runs the opt-in live-Chromium tests
   partitions the document so a wrong boundary can never lose text, and it returns
   `none` when the result looks implausible. Anything similar added later should
   keep those three properties.
+- **Bulk conversion and chapter splitting are mutually exclusive — on purpose
+  (ADR-031).** Both turn one conversion into several saveable files, and there is
+  no answer yet for what an archive of twelve documents' chapters should look
+  like. The exclusion is enforced in three places — a **400** on `/convert/batch`,
+  no `split_chapters` parameter on the batch MCP tool, and a UI checkbox that
+  disables *and unticks* itself for a multi-file selection — so lifting it later
+  has to be deliberate. Never make it a silently ignored flag.
 - **All extracted output flows through `cleaner.clean_markdown()`.** Don't return
   Markdown from any parser (docling included) without running it through the shared
   normalizer.

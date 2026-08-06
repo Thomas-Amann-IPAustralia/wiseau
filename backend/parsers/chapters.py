@@ -47,6 +47,7 @@ from dataclasses import dataclass
 from difflib import SequenceMatcher
 
 from .cleaner import clean_markdown
+from .naming import slug
 
 # --- Tunables ---------------------------------------------------------------
 # A contents block has to list at least this many entries before it is treated as
@@ -156,7 +157,6 @@ _ENTRY_LINK = re.compile(
 _EMPHASIS = re.compile(r"[*_`~]+")
 _MD_LINK = re.compile(r"!?\[([^\]]*)\]\([^)]*\)")
 _NON_WORD = re.compile(r"[^\w\s]+", re.UNICODE)
-_SLUG_SEPARATOR = re.compile(r"[^\w]+", re.UNICODE)
 
 
 # --- Public shapes ----------------------------------------------------------
@@ -659,12 +659,6 @@ def _marker_split(anchors: list[_Anchor]) -> list[tuple[int, str, int]]:
 
 
 # --- Assembly ---------------------------------------------------------------
-def _slug(title: str) -> str:
-    """A filename stem from a title: lowercase, hyphenated, bounded."""
-    stem = _SLUG_SEPARATOR.sub("-", title.strip().lower()).strip("-")
-    return stem[:60].strip("-") or "section"
-
-
 def _front_matter_title(lines: list[str], fenced: list[bool], end: int) -> str:
     """Name the material before the first chapter after the document itself."""
     for index in range(min(end, len(lines))):
@@ -709,7 +703,7 @@ def _build(lines: list[str], fenced: list[bool], starts: list[tuple[int, str, in
             Chapter(
                 title=title or f"Section {number}",
                 level=level,
-                filename=f"{number:0{width}d}-{_slug(title)}.md",
+                filename=f"{number:0{width}d}-{slug(title)}.md",
                 markdown=clean_markdown(body),
             )
         )

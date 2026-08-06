@@ -21,6 +21,72 @@ one `Superseded`.
 
 ---
 
+## ADR-031 — Bulk conversion is one request with per-document results, and it excludes chapter splitting
+**Date:** 2026-08-06 · **Status:** Accepted
+**Context:** The ask: *"users may want to upload several documents at once and
+download each Markdown conversion in a zip"*, with the explicit constraint that
+**bulk processing and chapter splitting stay mutually exclusive for now**. The
+frontend could have done all of this on its own — loop over the picked files,
+call `/convert/file` once each, zip the answers with the `zip.js` written for
+ADR-030 — and that is genuinely less code. It is also wrong in three ways. It
+spends **one rate-limit token per document** against a `20/minute` route, so a
+thirty-file folder is throttled halfway through and the user is left holding a
+partial archive with no obvious way to finish it. It gives **agents nothing**:
+the MCP surface and any HTTP caller would still have no way to say "convert
+these", which is precisely the shape of request an agent asked to process a
+folder makes. And it puts **filename policy in the browser**, where the chapter
+filenames already coming from the backend would drift away from the batch's.
+**Decision:** A new endpoint, `POST /convert/batch` (`convert_batch` on the MCP
+surface), takes a repeated `files` part and returns
+`{count, succeeded, failed, results[]}`, one entry per document **in the order
+they were sent**. Each entry is a `MarkdownResponse` with three additions:
+`status`, the `error` when it failed, and the `filename` to save it as. It is not
+a new kind of conversion — each document takes exactly the path `/convert/file`
+would take it through, one at a time, **each taking its own slot** in the
+concurrency ceiling so a large batch queues fairly instead of holding the engine
+for its whole run. Filenames come from the backend via a shared
+`parsers/naming.py`, which `chapters.py` now uses too, so both features name
+files by one rule. The **ZIP is still built in the browser** by ADR-030's
+`zip.js`: the API's job is the contract, and a JSON response stays inspectable,
+diffable and directly usable by an agent, which a binary archive is not. In the
+UI, the chapters panel and the batch's document list are literally **the same
+panel** — which is what mutual exclusivity ought to look like — and selecting a
+second file disables the *Split into chapters* checkbox, **unticks it**, and says
+why. On the API the same exclusivity is a **400**, never a silently dropped flag,
+and `split_chapters` is simply absent from the batch MCP tool's signature, since
+an agent picks a tool by its parameters. API `0.9.0 → 0.10.0` (additive).
+**Consequences:** A batch is N conversions bought with one request, so it needs
+bounds of its own or it *becomes* the way around the fair-use guards: hence
+`5/minute` on the route (against `20/minute` for a single document),
+`MAX_BATCH_FILES` (20) and `MAX_BATCH_BYTES` (50 MB), with documents read and
+converted one at a time so peak memory stays one document rather than the whole
+batch. Running out of the byte budget mid-batch is a request-level **413** —
+nothing after that point could have converted either — while one outsized
+document among ordinary ones is that document's own error. **Partial success is
+the normal case, not an exception:** the response is 200 whenever the request was
+valid, and an unreadable document carries the message the single-file endpoint
+would have returned. A failed entry deliberately has **no filename**, so "write
+every result that has a filename" is the whole of a correct save loop and an
+empty file can never appear where a document should have been. What this makes
+harder, knowingly: a batch with `engine=docling` is tens of seconds to minutes
+*per document*, which will outlast an HTTP gateway's idle timeout long before it
+outlasts `MAX_BATCH_FILES` — the UI's progress estimate sums the per-file
+estimates so it at least reads honestly, but bulk work is really for the fast
+default engine, and a batch of slow conversions may need a smaller
+`MAX_BATCH_FILES` on a deployment with an aggressive proxy. `GET /metrics` grows
+a `batches` block (requested, files, failed, largest), because a batch's cost is
+invisible in a request count — thirty documents and one document are both a
+single `POST /convert/batch`. The mutual exclusion is a *product* decision with a
+real question behind it (what should an archive of twelve documents' chapters
+look like — nested folders? flat with prefixes?); it is enforced in three places
+so that lifting it later is a deliberate act, not something that half-works by
+accident. Alternatives rejected: **client-side looping** (the rate-limit,
+agent-surface and naming problems above); **a server-built ZIP** (forks the
+response contract by content type, gives an agent bytes it must unpack to read,
+and duplicates a ZIP writer that already exists in the frontend); and
+**`/convert/files` as the path** (one letter from `/convert/file`, which is a
+typo waiting to happen in a log, a metric label and a support conversation).
+
 ## ADR-030 — Chapters are found from the document's own contents page, and the split is opt-in
 **Date:** 2026-08-06 · **Status:** Accepted
 **Context:** A long PDF converts to one long Markdown string. The reader who

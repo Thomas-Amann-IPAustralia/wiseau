@@ -262,3 +262,95 @@ def test_the_split_parameter_is_advertised_to_clients():
     tools = {tool.name: tool for tool in asyncio.run(mcp_server.mcp.list_tools())}
     for name in ("convert_url", "convert_file"):
         assert "split_chapters" in tools[name].inputSchema["properties"]
+
+
+# --- Batch tool (ADR-031) ---------------------------------------------------
+def test_convert_batch_posts_every_document_in_one_request(monkeypatch, tmp_path):
+    first = tmp_path / "one.pdf"
+    first.write_bytes(b"%PDF-1.4 first")
+    second = tmp_path / "two.docx"
+    second.write_bytes(b"PK second")
+    captured: dict = {}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        captured["path"] = request.url.path
+        captured["raw"] = request.content
+        return httpx.Response(
+            200,
+            json={
+                "count": 2,
+                "succeeded": 2,
+                "failed": 0,
+                "results": [
+                    {"status": "ok", "source": "one.pdf", "filename": "one.md", "markdown": "# 1\n", "length": 4},
+                    {"status": "ok", "source": "two.docx", "filename": "two.md", "markdown": "# 2\n", "length": 4},
+                ],
+            },
+        )
+
+    _mock_client(monkeypatch, handler)
+    result = asyncio.run(mcp_server.convert_batch([str(first), str(second)]))
+
+    # One request, not one per document — that is the point of the tool.
+    assert captured["path"] == "/convert/batch"
+    assert b"one.pdf" in captured["raw"] and b"two.docx" in captured["raw"]
+    assert b"application/pdf" in captured["raw"]
+    assert result["succeeded"] == 2
+    assert [item["filename"] for item in result["results"]] == ["one.md", "two.md"]
+
+
+def test_convert_batch_forwards_the_engine(monkeypatch, tmp_path):
+    path = tmp_path / "one.pdf"
+    path.write_bytes(b"%PDF-1.4 x")
+    captured: dict = {}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        captured["raw"] = request.content
+        return httpx.Response(200, json={"count": 1, "succeeded": 1, "failed": 0, "results": []})
+
+    _mock_client(monkeypatch, handler)
+    asyncio.run(mcp_server.convert_batch([str(path)], engine="docling"))
+    assert b"docling" in captured["raw"]
+
+
+def test_convert_batch_reports_an_unreadable_path_before_converting_anything(monkeypatch, tmp_path):
+    # Failing up front is deliberate: a batch that silently dropped a path would
+    # look like a complete success, and the missing document would go unnoticed.
+    real = tmp_path / "real.pdf"
+    real.write_bytes(b"%PDF-1.4 x")
+    called = False
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        nonlocal called
+        called = True
+        return httpx.Response(200, json={})
+
+    _mock_client(monkeypatch, handler)
+    with pytest.raises(RuntimeError) as excinfo:
+        asyncio.run(mcp_server.convert_batch([str(real), str(tmp_path / "missing.pdf")]))
+
+    assert "missing.pdf" in str(excinfo.value)
+    assert called is False
+
+
+def test_convert_batch_surfaces_a_backend_error(monkeypatch, tmp_path):
+    path = tmp_path / "one.pdf"
+    path.write_bytes(b"%PDF-1.4 x")
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(400, json={"detail": "A batch is limited to 20 files; 44 were sent."})
+
+    _mock_client(monkeypatch, handler)
+    with pytest.raises(RuntimeError) as excinfo:
+        asyncio.run(mcp_server.convert_batch([str(path)]))
+    assert "limited to 20 files" in str(excinfo.value)
+
+
+def test_the_batch_tool_offers_no_chapter_splitting(monkeypatch):
+    # Mutual exclusivity (ADR-031) has to be visible in the tool's *signature*:
+    # an agent chooses a tool from its parameters, so a `split_chapters` it could
+    # pass here would be a promise the backend refuses.
+    import inspect
+
+    assert "split_chapters" not in inspect.signature(mcp_server.convert_batch).parameters
+    assert "split_chapters" in inspect.signature(mcp_server.convert_file).parameters

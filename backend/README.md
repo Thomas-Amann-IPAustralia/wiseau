@@ -22,6 +22,7 @@ full design.
 | GET    | `/ping`         | Liveness/readiness check (rate-limit exempt).    |
 | POST   | `/convert/url`  | `{ "url": "...", "engine": "auto", "split_chapters": false }` → Markdown JSON. |
 | POST   | `/convert/file` | multipart `file` (PDF/DOCX/image) + optional `engine`, `split_chapters` → Markdown JSON.|
+| POST   | `/convert/batch`| multipart `files` repeated per document + optional `engine` → one result each. |
 | GET    | `/metrics`      | Per-process operational counters (see below).    |
 
 `/convert/url` refuses a URL that resolves to a loopback/private/link-local
@@ -30,7 +31,7 @@ container, so an unguarded renderer is an SSRF primitive. Set
 `WISEAU_ALLOW_PRIVATE_URLS=1` on a self-hosted deployment that converts its own
 intranet. See [`../docs/tech-spec.md`](../docs/tech-spec.md) §13 and ADR-021.
 
-Both convert endpoints take an optional **`engine`**: `pymupdf` (fast,
+All three convert endpoints take an optional **`engine`**: `pymupdf` (fast,
 deterministic — what `WISEAU_PDF_ENGINE` defaults to), `docling` (highest
 fidelity, far slower on free CPU), or `auto` (the parameter's default — use this
 deployment's `WISEAU_PDF_ENGINE`). An unknown value is a **400**. Requesting
@@ -38,7 +39,8 @@ deployment's `WISEAU_PDF_ENGINE`). An unknown value is a **400**. Requesting
 names this build accepts and the deployment's `default_engine`. See ADR-025 and
 ADR-027.
 
-Both also take an optional **`split_chapters`** (default `false`). With it set,
+The two single-document endpoints also take an optional **`split_chapters`**
+(default `false`). With it set,
 the response carries the document *also* split into chapters — each with a title,
 its Markdown, and a numbered filename — so a long PDF can be saved one file per
 chapter:
@@ -57,6 +59,29 @@ returned whole (`"chapter_detection": "none"`). The chapters partition the
 document — concatenating them reproduces it. Left off, the response is exactly
 what it has always been. See [`../docs/tech-spec.md`](../docs/tech-spec.md) §15
 and ADR-030.
+
+`/convert/batch` converts **several documents in one request** — the `files` part
+repeated once per document — so a folder is one call rather than one per file
+against a `20/minute` limit:
+
+```bash
+curl -X POST localhost:7860/convert/batch \
+     -F 'files=@annual-report.pdf' -F 'files=@minutes.docx'
+# -> {"count": 2, "succeeded": 2, "failed": 0,
+#     "results": [{"status": "ok", "source": "annual-report.pdf",
+#                  "filename": "annual-report.md", "markdown": "# ...", ...}, ...]}
+```
+
+Results come back **in the order they were sent**, each with the filename to save
+it as (made unique within the batch). A document that cannot be converted is an
+entry with `"status": "error"` and **no filename** — one bad file never costs the
+others, and "write every result that has a filename" is a complete save loop. A
+batch is N conversions for one rate-limit token, so it has its own bounds:
+`5/minute`, `MAX_BATCH_FILES` documents, `MAX_BATCH_BYTES` in total, and one job
+slot per document rather than one for the whole run. `split_chapters` is **not**
+available here — bulk conversion and chapter splitting are mutually exclusive for
+now, and asking for both is a 400. See
+[`../docs/tech-spec.md`](../docs/tech-spec.md) §16 and ADR-031.
 
 Interactive docs and the machine-readable schema for LLM/MCP integration are
 served at `/docs` and `/openapi.json`.
@@ -196,7 +221,13 @@ curl -s localhost:7860/metrics | python -m json.tool
 # engines:  {"docling": 0, "pymupdf": 38, "ocr": 3}   <- docling has been down all week
 # chapters: {"requested": 12, "split": 11, "sections": 74,
 #            "by_method": {"toc": 9, "headings": 2, "none": 1}}
+# batches:  {"requested": 4, "files": 37, "failed": 1, "largest": 20}
 ```
+
+`batches` is there because a batch's real cost is invisible in a request count —
+thirty documents and one document are both a single `POST /convert/batch` — so
+`files` is the number that sizes `MAX_BATCH_FILES`, and a climbing `failed` means
+callers are sending something the engine cannot read.
 
 Aggregates only (no URLs, filenames, or content — the endpoint is public), and
 they reset with the process. See [`../docs/tech-spec.md`](../docs/tech-spec.md)
@@ -211,7 +242,9 @@ they reset with the process. See [`../docs/tech-spec.md`](../docs/tech-spec.md)
 | `WISEAU_MCP_PATH`     | `/mcp`    | Path of that endpoint — set an unguessable one to keep the connector URL secret. |
 | `WISEAU_MCP_ALLOWED_HOSTS` | —    | Hostnames the MCP endpoint accepts; unset/`*` disables the check (what a public deployment needs). |
 | `MAX_CONCURRENT_JOBS` | `4`       | Global concurrency ceiling for heavy jobs.     |
-| `MAX_UPLOAD_BYTES`    | `26214400`| Upload size limit (25 MB).                     |
+| `MAX_UPLOAD_BYTES`    | `26214400`| Upload size limit (25 MB), per document.       |
+| `MAX_BATCH_FILES`     | `20`      | Most documents one `/convert/batch` request may carry (ADR-031). |
+| `MAX_BATCH_BYTES`     | `52428800`| Total upload bytes one batch may carry (50 MB). |
 | `CHROME_BIN`          | —         | Path to the Chromium binary.                   |
 | `CHROMEDRIVER_PATH`   | —         | Path to chromedriver.                          |
 | `WISEAU_PDF_ENGINE`   | `pymupdf` | **Default** engine: `pymupdf` (the fast local parser) or `docling`. A request's `engine` overrides it. |

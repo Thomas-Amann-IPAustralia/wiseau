@@ -1,9 +1,9 @@
 """wiseau MCP server — the Markdown ingestion engine as MCP tools.
 
-This exposes the two conversion endpoints (`/convert/url`, `/convert/file`) and
-the health probe (`/ping`) as Model Context Protocol tools so that LLM agents
-(Claude Desktop, IDE agents, custom clients) can ingest documents the same way
-the web UI does.
+This exposes the conversion endpoints (`/convert/url`, `/convert/file`,
+`/convert/batch`) and the health probe (`/ping`) as Model Context Protocol tools
+so that LLM agents (Claude Desktop, IDE agents, custom clients) can ingest
+documents the same way the web UI does.
 
 Design: this is a **thin HTTP adapter**, not a second engine. Every tool call is
 an HTTP request to a running backend (`WISEAU_API_BASE`), so the MCP surface
@@ -157,6 +157,58 @@ async def convert_file(path: str, engine: str = "auto", split_chapters: bool = F
             files=files,
             data={"engine": engine, "split_chapters": "true" if split_chapters else "false"},
         )
+    return _unwrap(response)
+
+
+@mcp.tool()
+async def convert_batch(paths: list[str], engine: str = "auto") -> dict[str, Any]:
+    """Convert several local PDF or DOCX files to Markdown in one request.
+
+    Use this instead of calling ``convert_file`` in a loop when the user asks for
+    a folder, a list, or "all of these" — it is one request against the backend's
+    rate limit rather than one per document, and the results come back in the
+    order the paths were given, each with the filename to save it as.
+
+    One document failing does not fail the rest: its entry has
+    ``"status": "error"`` and no ``filename``. Writing every result that *has* a
+    ``filename`` is therefore the whole of a correct save loop.
+
+    Args:
+        paths: Filesystem paths to local ``.pdf`` or ``.docx`` files, on the
+            machine running this MCP server. Every path must be readable — an
+            unreadable one is reported before any conversion runs, rather than
+            after paying for the others.
+        engine: ``"docling"``, ``"pymupdf"``, or ``"auto"``, applied to every
+            document in the batch. Note that ``docling`` costs tens of seconds to
+            minutes *per document* on free CPU, so a batch of any size is a long
+            wait; ``auto`` (the fast parser on a standard deployment) is usually
+            the right choice for bulk work.
+
+    Returns:
+        ``{"count": n, "succeeded": n, "failed": n, "results": [...]}`` where each
+        result is ``{"status", "source", "filename", "markdown", "length",
+        "error"}``.
+
+    Note:
+        Chapter splitting is not available on a batch (ADR-031). To split a long
+        document into per-chapter files, call ``convert_file`` on it with
+        ``split_chapters=True``.
+    """
+    payload = []
+    for raw in paths:
+        path = Path(raw)
+        try:
+            data = path.read_bytes()
+        except OSError as exc:
+            # Fail before sending anything: a batch that silently skipped a path
+            # would look like a successful conversion of everything the agent
+            # asked for, and the missing document would go unnoticed.
+            raise RuntimeError(f"Cannot read {raw}: {exc}") from exc
+        content_type = _CONTENT_TYPES.get(path.suffix.lower(), "application/octet-stream")
+        payload.append(("files", (path.name, data, content_type)))
+
+    async with _client() as client:
+        response = await client.post("/convert/batch", files=payload, data={"engine": engine})
     return _unwrap(response)
 
 

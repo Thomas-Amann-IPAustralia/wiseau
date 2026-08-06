@@ -36,6 +36,7 @@ from parsers import (
     file_to_markdown,
     resolve_engine,
     split_into_chapters,
+    unique_filenames,
     url_to_markdown,
 )
 
@@ -66,6 +67,13 @@ MAX_UPLOAD_BYTES = int(os.environ.get("MAX_UPLOAD_BYTES", str(25 * 1024 * 1024))
 # How much of an upload to pull per `read()`. Bounds the overshoot past
 # MAX_UPLOAD_BYTES to one chunk before the 413 is raised.
 _UPLOAD_CHUNK_BYTES = 256 * 1024
+
+# Batch ceilings (ADR-031). A batch is N conversions behind one rate-limit
+# token, so it needs its own bounds or it becomes the way around the fair-use
+# guards. Files are read and converted one at a time, so the memory cost is one
+# document; these caps bound the *time* one caller can occupy the queue.
+MAX_BATCH_FILES = int(os.environ.get("MAX_BATCH_FILES", "20"))
+MAX_BATCH_BYTES = int(os.environ.get("MAX_BATCH_BYTES", str(50 * 1024 * 1024)))
 
 
 # --- MCP surface (ADR-029) --------------------------------------------------
@@ -149,7 +157,7 @@ app = FastAPI(
         "Deterministic conversion of web URLs, PDFs, and DOCX documents into "
         "clean, structured Markdown. Designed for both human UIs and LLM/MCP agents."
     ),
-    version="0.9.0",
+    version="0.10.0",
     lifespan=_lifespan,
 )
 
@@ -298,6 +306,20 @@ _SPLIT_DESCRIPTION = (
 )
 
 
+_BATCH_FILES_DESCRIPTION = (
+    "The documents to convert — repeat the `files` part once per document. Each "
+    "is converted independently and the results come back in the order they were "
+    "sent, so one unreadable document cannot cost the caller the rest of the batch."
+)
+
+
+_BATCH_SPLIT_DESCRIPTION = (
+    "Not available on a batch: sending it as true is a 400. Bulk conversion and "
+    "chapter splitting are mutually exclusive for now (ADR-031) — convert a "
+    "document on its own via POST /convert/file to split it into chapters."
+)
+
+
 class UrlRequest(BaseModel):
     url: HttpUrl
     engine: str | None = Field(default=None, description=_ENGINE_DESCRIPTION)
@@ -338,6 +360,47 @@ class MarkdownResponse(BaseModel):
         "contents page), 'headings', 'markers' (plain-text 'Chapter N' lines), "
         "'none' (no chapter structure found), or 'error' (the split failed; the "
         "conversion itself succeeded). Null when the split was not requested.",
+    )
+
+
+class BatchItem(MarkdownResponse):
+    """One document's result inside a batch (ADR-031).
+
+    A successful item *is* a `MarkdownResponse` — same fields, same meanings —
+    plus the `status` and the `filename` to save it under. A failed item carries
+    the reason in `error` and, deliberately, **no `filename`**: "write every item
+    that has a filename" is then the whole of a correct save loop, and an empty
+    file can never be written in place of a document that did not convert.
+    """
+
+    status: str = Field(description="'ok' or 'error' for this document alone.")
+    filename: str | None = Field(
+        default=None,
+        description="Suggested filename, taken from the uploaded name and made "
+        "unique within the batch ('annual-report.md'). Null when the document "
+        "failed, because there is nothing to save.",
+    )
+    error: str | None = Field(
+        default=None,
+        description="Why this document failed — the same message the equivalent "
+        "single-file request would have returned. Null on success.",
+    )
+
+
+class BatchResponse(BaseModel):
+    """The result of converting several documents in one request.
+
+    A batch is a list of independent conversions, not one big conversion, so the
+    response is always 200 when the *request* was valid: per-document failures
+    live in `results` rather than replacing the whole answer with an error the
+    caller cannot act on selectively (invariant: resilience over strictness).
+    """
+
+    count: int = Field(description="How many documents were submitted.")
+    succeeded: int
+    failed: int
+    results: list[BatchItem] = Field(
+        description="One entry per submitted document, in the order they were sent."
     )
 
 
@@ -392,18 +455,35 @@ async def _split_or_none(markdown: str, requested: bool) -> tuple[list[ChapterMo
     return chapters, split.method
 
 
+def _batch_failure(source: str, message: str) -> BatchItem:
+    """One document of a batch that could not be converted.
+
+    `markdown` is empty and `filename` stays null: a client looping over the
+    results to write files must find nothing to write here, rather than an empty
+    document under a plausible name.
+    """
+    return BatchItem(status="error", source=source, markdown="", length=0, error=message)
+
+
 # --- Upload handling --------------------------------------------------------
-async def _read_upload(file: UploadFile) -> bytes:
-    """Read an upload, refusing to assemble more than `MAX_UPLOAD_BYTES` in memory.
+async def _read_upload(file: UploadFile, ceiling: int | None = None) -> bytes:
+    """Read an upload, refusing to assemble more than the ceiling in memory.
 
     Reading the whole part first and *then* checking its size would materialize
     an arbitrarily large body in the container's RAM before rejecting it — the
     opposite of what a memory-sized free-tier box wants. Streaming in chunks
     bounds that to the limit plus one chunk.
 
+    Args:
+        file: The multipart part to read.
+        ceiling: Bytes to allow, defaulting to `MAX_UPLOAD_BYTES`. A batch passes
+            what is left of its own budget, so the same streaming guard bounds
+            both the single file and the batch as a whole.
+
     Raises:
-        HTTPException: 413 as soon as the part exceeds `MAX_UPLOAD_BYTES`.
+        HTTPException: 413 as soon as the part exceeds the ceiling.
     """
+    limit = MAX_UPLOAD_BYTES if ceiling is None else ceiling
     chunks: list[bytes] = []
     total = 0
     while True:
@@ -411,7 +491,7 @@ async def _read_upload(file: UploadFile) -> bytes:
         if not chunk:
             break
         total += len(chunk)
-        if total > MAX_UPLOAD_BYTES:
+        if total > limit:
             raise HTTPException(
                 status_code=413,
                 detail=f"File exceeds the {MAX_UPLOAD_BYTES // (1024 * 1024)} MB limit.",
@@ -540,6 +620,109 @@ async def convert_file(
         length=len(markdown),
         chapters=chapters,
         chapter_detection=detection,
+    )
+
+
+@app.post(
+    "/convert/batch",
+    response_model=BatchResponse,
+    tags=["convert"],
+    operation_id="convert_batch",
+    summary="Convert several uploaded documents in one request",
+)
+@limiter.limit("5/minute")
+async def convert_batch(
+    request: Request,
+    files: list[UploadFile] = File(..., description=_BATCH_FILES_DESCRIPTION),
+    engine: str | None = Form(default=None, description=_ENGINE_DESCRIPTION),
+    split_chapters: bool = Form(default=False, description=_BATCH_SPLIT_DESCRIPTION),
+) -> BatchResponse:
+    """Convert a set of uploaded documents, one Markdown file per document.
+
+    The batch exists because "convert these thirty reports" should not be thirty
+    requests against a `20/minute` limit, and because the client that asked for
+    them wants one archive at the end (ADR-031). It is deliberately *not* a new
+    kind of conversion: each document goes through exactly the path
+    `/convert/file` would take it through, one at a time, each taking its own
+    slot in the concurrency ceiling so a large batch queues fairly alongside
+    other callers rather than holding the engine for the whole run.
+
+    A document that fails does not fail the batch: its entry carries the error
+    the single-file endpoint would have returned, and the rest still convert.
+    """
+    if split_chapters:
+        # Mutually exclusive for now (ADR-031): chapter detection is a heuristic
+        # a reader is meant to *check* before saving 30 files, and there is no
+        # good answer yet for what a zip of twelve documents' chapters should
+        # look like. Refused rather than ignored — silently dropping a flag the
+        # caller set is how a client comes to believe it got chapters.
+        raise HTTPException(
+            status_code=400,
+            detail=(
+                "split_chapters is not available on a batch conversion. Convert a "
+                "document on its own with POST /convert/file to split it into chapters."
+            ),
+        )
+    resolved_engine = _resolve_engine_or_400(engine)
+    if not files:
+        raise HTTPException(status_code=400, detail="No files uploaded.")
+    if len(files) > MAX_BATCH_FILES:
+        raise HTTPException(
+            status_code=400,
+            detail=f"A batch is limited to {MAX_BATCH_FILES} files; {len(files)} were sent.",
+        )
+
+    results: list[BatchItem] = []
+    budget = MAX_BATCH_BYTES
+    for position, upload in enumerate(files):
+        source = upload.filename or f"upload-{position + 1}"
+        try:
+            data = await _read_upload(upload, ceiling=min(MAX_UPLOAD_BYTES, budget))
+        except HTTPException:
+            if budget < MAX_UPLOAD_BYTES:
+                # The batch as a whole ran out of room, so nothing after this
+                # point could convert either: that is a request-level refusal.
+                raise HTTPException(
+                    status_code=413,
+                    detail=f"The batch exceeds the {MAX_BATCH_BYTES // (1024 * 1024)} MB total limit.",
+                ) from None
+            results.append(_batch_failure(source, f"File exceeds the {MAX_UPLOAD_BYTES // (1024 * 1024)} MB limit."))
+            continue
+        budget -= len(data)
+
+        if not data:
+            results.append(_batch_failure(source, "Empty file upload."))
+            continue
+
+        async with _job_slot():
+            try:
+                markdown = await asyncio.to_thread(file_to_markdown, data, source, resolved_engine)
+            except ValueError as exc:
+                # Unsupported extension — the 415 of a single-file request.
+                results.append(_batch_failure(source, str(exc)))
+                continue
+            except Exception as exc:  # noqa: BLE001 - one bad document, not a bad batch
+                logger.exception("Batch conversion failed for %s", source)
+                results.append(_batch_failure(source, f"Failed to convert file: {exc}"))
+                continue
+        results.append(
+            BatchItem(status="ok", source=source, markdown=markdown, length=len(markdown))
+        )
+
+    # Named only now, and only from what succeeded, so a caller's save loop is
+    # "write every item that has a filename" and duplicate uploaded names
+    # disambiguate against the documents that actually produced Markdown.
+    converted = [item for item in results if item.status == "ok"]
+    filenames = unique_filenames(item.source for item in converted)
+    for item, filename in zip(converted, filenames):
+        item.filename = filename
+
+    for item in results:
+        metrics.record_conversion("batch", item.status)
+    failed = len(results) - len(converted)
+    metrics.record_batch(len(results), failed)
+    return BatchResponse(
+        count=len(results), succeeded=len(converted), failed=failed, results=results
     )
 
 

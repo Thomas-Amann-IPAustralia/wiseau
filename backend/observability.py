@@ -159,6 +159,7 @@ class Metrics:
             self._docling_skips: Dict[str, int] = {}
             self._chapters: Dict[str, int] = {}
             self._chapter_methods: Dict[str, int] = {}
+            self._batches: Dict[str, int] = {}
             self._docling_durations = _Durations()
             self._job_wait = _Durations()
             self._job_duration = _Durations()
@@ -226,6 +227,22 @@ class Metrics:
                 self._chapters["sections"] = self._chapters.get("sections", 0) + chapters
             self._chapter_methods[method] = self._chapter_methods.get(method, 0) + 1
 
+    def record_batch(self, files: int, failed: int) -> None:
+        """One batch conversion: how many documents it carried, how many failed.
+
+        A batch is the one request whose cost is not visible from the request
+        count — thirty documents and one document are both a single `POST
+        /convert/batch` in `requests.by_route`. `files` is what actually sizes
+        `MAX_BATCH_FILES` and the rate limit, and a `failed` count that climbs is
+        the signal that callers are sending something the engine cannot read
+        (ADR-031).
+        """
+        with self._lock:
+            self._batches["requested"] = self._batches.get("requested", 0) + 1
+            self._batches["files"] = self._batches.get("files", 0) + files
+            self._batches["failed"] = self._batches.get("failed", 0) + failed
+            self._batches["largest"] = max(self._batches.get("largest", 0), files)
+
     def record_docling_skipped(self, reason: str) -> None:
         """docling was never called (not selected, or no base configured)."""
         with self._lock:
@@ -262,6 +279,9 @@ class Metrics:
                 "chapters": {
                     **{k: self._chapters.get(k, 0) for k in ("requested", "split", "sections")},
                     "by_method": dict(sorted(self._chapter_methods.items())),
+                },
+                "batches": {
+                    k: self._batches.get(k, 0) for k in ("requested", "files", "failed", "largest")
                 },
                 "memory": _memory(),
             }

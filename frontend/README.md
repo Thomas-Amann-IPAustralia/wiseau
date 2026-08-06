@@ -5,17 +5,17 @@ Pages as-is.
 
 ## Files
 
-- `index.html` — layout (URL tab, file drop zone, engine picker, chapter-split
-  checkbox, progress bar, output pane with Preview/Raw and the chapter list,
-  download dialog, status badge).
+- `index.html` — layout (URL tab, multi-file drop zone, engine picker,
+  chapter-split checkbox, progress bar, output pane with Preview/Raw and the
+  results list, download dialog, status badge).
 - `style.css` — responsive styling, light/dark aware.
 - `app.js` — state management + `fetch` calls to the backend.
 - `markdown.js` — the small, dependency-free Markdown renderer behind the
   Preview mode (ADR-026). Escapes everything before rendering: converted content
   is untrusted.
-- `zip.js` — a ~140-line ZIP writer, so "download every chapter" is one archive
-  instead of a dozen blocked downloads (ADR-030). Stored entries, fixed
-  timestamp, no dependency.
+- `zip.js` — a ~140-line ZIP writer, so "download every chapter" — or every
+  document of a batch (ADR-031) — is one archive instead of a dozen blocked
+  downloads (ADR-030). Stored entries, fixed timestamp, no dependency.
 - `favicon.svg` — site icon.
 - `config.js` — the one file to edit per deployment: set `MARKDOWN_API_BASE`.
 
@@ -44,6 +44,14 @@ Pages as-is.
   output lists them with the filename each would be saved under and says what
   found them; *View* shows one chapter, *Save* writes it, and *Download all
   (.zip)* packs the lot. A document with no chapters is simply left whole.
+- **Bulk conversion** — drop or pick several documents and they go to
+  `POST /convert/batch` as one request, coming back as one Markdown file each
+  (ADR-031). The same panel lists them, so *Download all (.zip)* is again one
+  archive. A document that fails is shown in place with the reason and offers
+  nothing to save, while the rest still convert.
+  Selecting more than one file **disables and unticks** *Split into chapters*:
+  the two are mutually exclusive for now, and a ticked box that was quietly
+  ignored would be worse than no box at all.
 
 ## Configure
 

@@ -32,12 +32,15 @@
       </div>
 
       <div id="tab-file" class="tab-pane">
-        <label class="field-label">PDF, DOCX, or scanned image</label>
+        <label class="field-label">PDFs, DOCX files, or scanned images</label>
         <div id="drop-zone" class="drop-zone">
-          <p class="drop-zone__hint">Drop a file here, or <span class="link">browse</span></p>
-          <p class="drop-zone__sub">Scanned &amp; handwritten PDFs and images are OCR'd automatically.</p>
+          <p class="drop-zone__hint">Drop files here, or <span class="link">browse</span></p>
+          <p class="drop-zone__sub">
+            Several at once is fine — each becomes its own <code>.md</code>, downloadable as one
+            <code>.zip</code>. Scanned &amp; handwritten PDFs and images are OCR'd automatically.
+          </p>
           <p id="file-name" class="drop-zone__file"></p>
-          <input id="file-input" type="file" accept=".pdf,.docx,.png,.jpg,.jpeg,.tif,.tiff,.bmp,.webp,.gif" hidden />
+          <input id="file-input" type="file" multiple accept=".pdf,.docx,.png,.jpg,.jpeg,.tif,.tiff,.bmp,.webp,.gif" hidden />
         </div>
         <button id="convert-file-btn" class="btn btn--primary" disabled>Convert</button>
       </div>
@@ -75,7 +78,7 @@
 
       <fieldset class="engine">
         <legend class="field-label">Long documents</legend>
-        <label class="check" for="split-chapters">
+        <label class="check" id="split-chapters-label" for="split-chapters">
           <input type="checkbox" id="split-chapters" />
           <span class="check__body">
             <span class="check__name">Split into chapters</span>
@@ -83,6 +86,10 @@
               Detects chapters from the document's contents page, or from its headings, and
               offers each one as its own <code>.md</code> file (plus a single <code>.zip</code>).
               A document with no chapters is left whole.
+            </span>
+            <span id="split-chapters-blocked" class="check__blocked" hidden>
+              Unavailable while several files are selected — chapter splitting works on one
+              document at a time.
             </span>
           </span>
         </label>
@@ -109,14 +116,19 @@
           <button id="download-btn" class="btn btn--ghost" disabled>Download</button>
         </div>
       </div>
-      <section id="chapters" class="chapters" hidden>
-        <div class="chapters__head">
-          <h2 class="chapters__title">Chapters</h2>
-          <span id="chapters-meta" class="meta"></span>
-          <button id="chapters-all-btn" class="btn btn--ghost btn--small">Whole document</button>
-          <button id="chapters-zip-btn" class="btn btn--ghost btn--small">Download all (.zip)</button>
+      <!--
+        One panel, two features: a document's chapters and a batch's documents
+        are mutually exclusive (ADR-031), so they share the list rather than
+        each having one that must be hidden when the other shows.
+      -->
+      <section id="results" class="results" hidden>
+        <div class="results__head">
+          <h2 id="results-title" class="results__title">Chapters</h2>
+          <span id="results-meta" class="meta"></span>
+          <button id="results-whole-btn" class="btn btn--ghost btn--small">Whole document</button>
+          <button id="results-zip-btn" class="btn btn--ghost btn--small">Download all (.zip)</button>
         </div>
-        <ol id="chapters-list" class="chapters__list"></ol>
+        <ol id="results-list" class="results__list"></ol>
       </section>
 
       <div id="output-preview" class="output output--preview markdown-body" aria-live="polite">

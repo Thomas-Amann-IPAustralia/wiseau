@@ -6,8 +6,80 @@
 > green checkmark that lies.
 
 **Last updated:** 2026-08-06
-**Updated by:** Claude Code (Phase 10: one file per chapter)
-**Build note (2026-08-06):** **A long document can now be saved as one file per
+**Updated by:** Claude Code (Phase 11: bulk upload, one archive out)
+**Build note (2026-08-06, second session that day):** **Several documents can now
+be converted in one request and downloaded as one archive — ADR-031.** The ask:
+*"users may want to upload several documents at once and download each markdown
+conversion in a zip"*, with the constraint that **bulk processing and chapter
+splitting stay mutually exclusive for the moment.**
+
+*The interesting decision was where the loop goes.* The frontend could have done
+all of it alone — pick N files, call `/convert/file` N times, zip the answers with
+the `zip.js` ADR-030 already left behind — and that is less code. It is also
+wrong three times over: it spends **one rate-limit token per document** against a
+`20/minute` route, so a thirty-file folder is throttled halfway through and the
+user is left holding a partial archive; it gives **agents nothing**, when "convert
+this folder" is exactly the request an agent makes; and it puts **filename policy
+in the browser**, where it would drift from the chapter filenames the backend
+already produces. So the batch is a backend endpoint, and the ZIP stays in the
+browser — the API's job is a contract an agent can read, not bytes it must unpack.
+
+*What was built.* `POST /convert/batch` takes a repeated `files` part and returns
+`{count, succeeded, failed, results[]}`, one entry per document in the order sent.
+Details worth not re-deriving:
+- **It is not a new kind of conversion.** Each document takes exactly the path
+  `/convert/file` would take it through, one at a time, **each taking its own job
+  slot** — per document, not per batch, because holding the concurrency ceiling
+  for a whole twenty-file run would starve every other caller for minutes.
+- **Partial success is the normal case.** 200 whenever the *request* was valid;
+  a document that cannot be read carries the message the single-document endpoint
+  would have returned. A failed entry has **no `filename`**, which makes "write
+  every item that has a filename" the whole of a correct save loop — an empty
+  file can never land where a document should have been.
+- **A batch is N conversions for one token, so it has its own bounds** or it *is*
+  the way around the fair-use guards: `5/minute` (against `20/minute`),
+  `MAX_BATCH_FILES` (20), `MAX_BATCH_BYTES` (50 MB), documents read and converted
+  one at a time so peak memory is one document. Exhausting the byte budget
+  mid-batch is a request-level **413**; one outsized document among ordinary ones
+  is only that document's error.
+- **`parsers/naming.py` holds the one filename rule**, now shared with
+  `chapters.py`: `Annual Report 2025.pdf` → `annual-report-2025.md`, a repeat →
+  `-2`, and never a path component — the *uploader* picks that string and a client
+  writes a file under it.
+- **`convert_batch` on the MCP surface**, because an agent converting a folder
+  should make one request too. Unreadable paths are refused before any conversion
+  runs, so a typo cannot hide inside a result that otherwise looks complete.
+- **The UI**: multi-select picker and drop zone, and the chapter panel is now
+  *the same panel* the batch's documents use — which is what mutual exclusivity
+  should look like in a layout. Failures show in place with their reason and offer
+  nothing to save. **Download all (.zip)** is ADR-030's `zip.js`, unchanged.
+- **The exclusion is enforced in three places** so lifting it later is deliberate:
+  a **400** on the API, no `split_chapters` on the batch MCP tool, and a checkbox
+  that disables **and unticks** itself on a multi-file selection (a ticked box
+  that is quietly ignored is worse than no box).
+- **`GET /metrics` counts batches** (`requested`/`files`/`failed`/`largest`) —
+  thirty documents and one document are both a single request in `by_route`.
+- **One small fix the tighter limit exposed:** the UI read only `detail` off an
+  error body, but slowapi writes its own with `error`, so every 429 had been
+  showing as "Request failed (HTTP 429)". It now reads both — the batch's
+  `5/minute` is the limit a user is most likely to meet, and "Rate limit
+  exceeded: 5 per 1 minute" is the only version of that message worth showing.
+- API `0.9.0 → 0.10.0` (additive).
+
+*Verified.* Suite **283 → 321 pass + 7 skipped** (+38, run here: 19 API, 14
+naming, 5 MCP). Beyond the unit suite: three generated PDFs through a real
+uvicorn — byte-identical responses across two runs, live `400`s for
+`split_chapters=true` and for 21 files — the **MCP tool** against that live
+backend (3/3 converted, unique filenames, a missing path refused up front), and
+**the real UI against that real backend in headless Chromium: 32/32 checks**,
+including that the downloaded ZIP passes `unzip -t` and every entry is
+byte-identical to what the API returned for the same documents, that a batch
+containing an unsupported file still converts the rest, and that single-file
+chapter splitting is unchanged. *Not* verified: a batch through **docling** (no
+Space, unchanged), and the caps (`MAX_BATCH_FILES` 20, `MAX_BATCH_BYTES` 50 MB)
+against real load — they are chosen, not measured.
+
+**The previous build note stands (2026-08-06):** **A long document can now be saved as one file per
 chapter — ADR-030.** The ask: *"if the user uploads a long PDF they may want it
 separated into its distinct chapters; let them save each chapter as a separate
 file."* The interesting part was not the splitting but **what marks a chapter**,
@@ -341,19 +413,20 @@ accounts/credentials rather than code. See ADR-011.
 
 | Area | State | Notes |
 | ---- | ----- | ----- |
-| Backend API (Phase 1) | 🟢 Verified (browser-free) | Routes, CORS, rate limiting, concurrency ceiling written; app imports cleanly; `/ping`, `/convert/file` (real PDF), `/convert/url` (mocked driver) verified via `TestClient`. Rate limiting enforced on undecorated routes (`SlowAPIMiddleware`) and uploads size-checked while streaming; both verified through a real uvicorn. Both convert endpoints now take an optional **`engine`** (ADR-025) and `/ping` advertises the accepted names **and the deployment's `default_engine`** (ADR-027). Both also take **`split_chapters`** (ADR-030), returning the document as per-chapter files. API `v0.9.0`. |
+| Backend API (Phase 1) | 🟢 Verified (browser-free) | Routes, CORS, rate limiting, concurrency ceiling written; app imports cleanly; `/ping`, `/convert/file` (real PDF), `/convert/url` (mocked driver) verified via `TestClient`. Rate limiting enforced on undecorated routes (`SlowAPIMiddleware`) and uploads size-checked while streaming; both verified through a real uvicorn. Both convert endpoints now take an optional **`engine`** (ADR-025) and `/ping` advertises the accepted names **and the deployment's `default_engine`** (ADR-027). Both also take **`split_chapters`** (ADR-030), returning the document as per-chapter files. A third convert route, **`POST /convert/batch`** (ADR-031), converts several uploads in one request with per-document results. API `v0.10.0`. |
 | Scraper / extraction (Phase 2) | 🟢 Verified (incl. external URLs) | Live headless-Chrome render → Trafilatura → cleaner proven end-to-end and codified as an opt-in test; DOCX-body path covered. Fetching arbitrary **external** URLs now proven inside the Docker container (example.com, Wikipedia — deterministic across runs); ADR-011. **Direct-PDF links** now convert as documents rather than yielding the empty PDF viewer — verified live (ADR-017). **Short pages no longer come back with a duplicated body** (ADR-020), verified live before/after. |
 | OCR (scanned/handwritten) | 🟢 Verified | Image-only PDF pages + image uploads OCR'd; per-page detection assembles mixed PDFs in order. Default MuPDF-Tesseract (deterministic, in the image); opt-in neural EasyOCR for handwriting. Deterministic by pinning `pymupdf4llm` legacy mode + driving MuPDF's OCR primitive directly (ADR-012). 13 tests + HTTP round-trip verified; API `v0.3.0`. |
-| Frontend UI (Phase 3) | 🟢 Verified | Full static UI driven end-to-end with headless Chromium: status badge, URL + PDF + DOCX conversion, copy/download and error states (18/18 checks, ADR-008), plus the **Phase 7** surface — engine picker, approximated progress bar, Preview/Raw viewer, title-first download dialog, favicon (33/33 checks against a stub backend + a live-backend DOCX run). Still no build step and no third-party script (ADR-026). |
+| Frontend UI (Phase 3) | 🟢 Verified | Full static UI driven end-to-end with headless Chromium: status badge, URL + PDF + DOCX conversion, copy/download and error states (18/18 checks, ADR-008), plus the **Phase 7** surface — engine picker, approximated progress bar, Preview/Raw viewer, title-first download dialog, favicon (33/33 checks against a stub backend + a live-backend DOCX run) — and the **Phase 11** surface: multi-file selection, the shared results panel, per-document rows and the batch ZIP (32/32 checks against a *live* backend). Still no build step and no third-party script (ADR-026). |
 | Hosted MCP connector (Phase 9) | 🟢 Verified locally, not deployed | The backend serves MCP at `POST /mcp` (ADR-029), so one container's URL is also the connector URL any LLM is given. Grafted route (exact `/mcp`, no redirect), stateless sessions, loopback tool calls that keep the guards, rate-limited like any other route, `WISEAU_MCP_PATH`/`WISEAU_MCP_MOUNT`/`WISEAU_MCP_ALLOWED_HOSTS`. `/ping` reports `mcp_endpoint`; API `v0.8.0`. Verified over a real socket and with the official MCP client SDK; **never verified against a real hosted deployment or a real LLM client**. Guide: `docs/hosting.md`. |
-| AI / MCP integration (Phase 4) | 🟢 Complete | MCP server (`mcp_server.py`) exposes `convert_url`/`convert_file`/`ping` as tools — thin HTTP adapter, same contract, guards intact; verified end-to-end vs a live backend + 6 unit tests. OpenAPI operation IDs/summaries cleaned (v`0.2.0`); `docs/mcp.md` written. **Autonomous-ingestion monitor** (`monitor.py`) built + verified (16 tests + real end-to-end run) — closes Phase 4. |
+| AI / MCP integration (Phase 4) | 🟢 Complete | MCP server (`mcp_server.py`) exposes `convert_url`/`convert_file`/`convert_batch`/`ping` as tools — thin HTTP adapter, same contract, guards intact; verified end-to-end vs a live backend + 6 unit tests. OpenAPI operation IDs/summaries cleaned (v`0.2.0`); `docs/mcp.md` written. **Autonomous-ingestion monitor** (`monitor.py`) built + verified (16 tests + real end-to-end run) — closes Phase 4. |
 | Containerization & deploy (Phase 5) | 🟡 Image proven + deploy prepared, not deployed | Image **builds and runs**: Chromium 150 launches in-container, a live external URL renders end-to-end + deterministically (ADR-011). Both deployments are now prepared in-repo — HF Space card frontmatter on `backend/README.md`, a Pages workflow for `frontend/` (ADR-023) — so what remains is account work only. Nothing deployed to Hugging Face / GitHub Pages yet. |
 | Fast by default (Phase 8) | 🟢 Verified | `WISEAU_PDF_ENGINE` defaults to `pymupdf`; docling is chosen per deployment or per request, fallback unchanged. `/ping` reports `default_engine`; API `v0.7.0`. UI leads with *Fastest* and reads *Auto* off `/ping`. ADR-027; tech-spec §1/§2/§11/§14. Verified by 6 new tests, a live uvicorn run (no docling attempt by default; explicit `engine=docling` still falls back), and the UI in headless Chromium. |
 | Usability (Phase 7) | 🟢 Verified | Per-request engine choice end-to-end (API + MCP + UI), the approximated loading bar, the Preview/Raw viewer, the title-first download dialog, the favicon, and the base64-image fix. ADR-024/025/026; tech-spec §14. Verified in a real browser; the docling half of the engine choice is still only exercised against mocks (no Space). |
+| Bulk conversion (Phase 11) | 🟢 Verified | `POST /convert/batch` converts several uploads in one request — same per-document path as `/convert/file`, one job slot each, per-document results in send order, one bad document never costing the rest. Own guards: `5/minute`, `MAX_BATCH_FILES` (20), `MAX_BATCH_BYTES` (50 MB). Filenames from the shared `parsers/naming.py`; `convert_batch` on the MCP surface; `/metrics` counts batches. UI: multi-select and the same results panel the chapters use, with **Download all (.zip)**. Mutually exclusive with chapter splitting, enforced in three places. ADR-031; tech-spec §16. Verified by 38 tests, live runs through uvicorn (deterministic; the 400/413 refusals), the MCP tool against that backend, and 32 checks driving the real UI in headless Chromium — the downloaded ZIP validates and matches the API byte for byte. |
 | Chapter splitting (Phase 10) | 🟢 Verified | `parsers/chapters.py` splits converted Markdown into per-chapter files — contents page first, then headings, then plain-text markers, then `none`. Opt-in via `split_chapters` on both convert endpoints and both MCP tools; each chapter carries a numbered filename. UI: a chapter panel with per-chapter view/save and a browser-built ZIP (`frontend/zip.js`). `/metrics` counts splits by method. ADR-030; tech-spec §15. Verified by 41 tests, a real 26-page book PDF through a live uvicorn (lossless + deterministic), the MCP tool against that backend, and the real UI in headless Chromium (the downloaded ZIP validates and matches the API byte for byte). |
 | Higher-fidelity extraction (Phase 6) | 🟡 Code complete, not deployed | docling client + engine selection with automatic fallback (ADR-014/016) — **opt-in since ADR-027, not the default**; plus **direct-PDF URL routing** (ADR-017, verified live) and the **docling Space image** `docling/Dockerfile` (ADR-018, digest-pinned but **never built**). Left: deploy Space #2 and verify against a live docling-serve. Fidelity outranks strict determinism *where it is asked for* (ADR-013 as amended by ADR-027). |
 | Observability | 🟢 Verified | Structured JSON logs (one access line per request + `X-Request-ID`), `GET /metrics` with request/job timings, peak concurrency, RSS, **chapter splits by method** (ADR-030), and **engine attribution** (docling vs the fallback parsers, with typed fallback reasons). Stdlib-only, no new runtime dep. Verified live, incl. a real docling fallback and a real docling success over a socket. ADR-019, tech-spec §12. |
-| Automated tests | 🟢 Passing | **282 pass + 7 skipped** in default (browserless) runs (this sandbox, verified directly; the 7th skip is local only — no `tesseract` installed here). +41 this session (chapter detection: 30 document-shaped unit tests in `test_chapters.py` covering every signal and every must-not-split case, 6 API tests, 4 MCP tests, 1 metrics test). Previously +28 (the hosted MCP endpoint: path normalisation, Host-header
+| Automated tests | 🟢 Passing | **321 pass + 7 skipped** in default (browserless) runs (this sandbox, verified directly; the 7th skip is local only — no `tesseract` installed here). +38 this session (bulk conversion: 19 API tests for the batch endpoint — order, per-document failures, the caps, the tighter rate limit, one job slot per document, the chapter-split refusal — 14 for the shared filename rule including path traversal, and 5 for the MCP `convert_batch` tool). Previously +41 (chapter detection: 30 document-shaped unit tests in `test_chapters.py` covering every signal and every must-not-split case, 6 API tests, 4 MCP tests, 1 metrics test). Previously +28 (the hosted MCP endpoint: path normalisation, Host-header
 policy, the loopback base URL following `$PORT`, the mount switch, degrading
 without the SDK, the rate-limiter naming shim, `/ping`'s `mcp_endpoint`, `/mcp`'s
 absence from the OpenAPI schema, and a real `initialize` + `tools/list` handshake
@@ -384,7 +457,14 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   **and `mcp_endpoint`** (ADR-029). Both convert routes also take
   **`split_chapters`** (ADR-030): with it set, the response carries the document
   split into chapters, each with a numbered filename, alongside the whole
-  Markdown. Also serves the **MCP endpoint** at
+  Markdown. **`POST /convert/batch`** (ADR-031) converts several uploads in one
+  request: each document takes the same path `/convert/file` would take it
+  through, one at a time and **one job slot each**, and the response carries a
+  result per document in send order — with the filename to save it as, or the
+  reason it failed and no filename. Its own bounds (`5/minute`,
+  `MAX_BATCH_FILES`, `MAX_BATCH_BYTES`) keep a batch from being the way around
+  the per-request guards, and `split_chapters` on it is a 400. Also serves the
+  **MCP endpoint** at
   `POST /mcp`: `mcp_server`'s streamable-HTTP route grafted onto this app (not
   mounted — a mount would 307 the exact `/mcp` a connector is given) with its
   session manager driven from the app lifespan, so one container is both the REST
@@ -395,7 +475,7 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   metrics registry behind `/metrics`. Stdlib only; a pure side channel that
   cannot alter extracted Markdown. ADR-019.
 - `mcp_server.py` — MCP tool surface (FastMCP): `convert_url`, `convert_file`,
-  `ping`. Thin HTTP adapter over the backend (`WISEAU_API_BASE`, defaulting to
+  `convert_batch`, `ping`. Thin HTTP adapter over the backend (`WISEAU_API_BASE`, defaulting to
   `http://127.0.0.1:$PORT`); reuses the `MarkdownResponse` contract and inherits
   the rate-limit + concurrency guards. Reaches a client three ways: **hosted**
   (`hosted_routes()`, served by `main.py` — the deployment path, ADR-029),
@@ -452,6 +532,11 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   **"Chapter N"** lines, then **`none`**. Returns each chapter with a title,
   level, Markdown, and a zero-padded filename; the chapters partition the
   document. Stdlib only (`re` + `difflib`), deterministic, no new dependency.
+- `parsers/naming.py` *(Phase 11)* — the one filename rule, shared by chapter
+  splitting and bulk conversion (ADR-031): slug a title or an uploaded name into
+  a `.md` file, dedupe a batch's repeats in upload order, and never emit a path
+  component — the *uploader* chooses that string and a client writes a file under
+  it. Stdlib only, deterministic.
 - `Dockerfile` — Python 3.11-slim + system Chromium/chromedriver, non-root user.
 - `requirements.txt` — direct dependencies **version-pinned** to verified
   releases; `requirements-dev.txt` — `pytest` + `httpx` for the suite.
@@ -495,15 +580,21 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   stated), **approximated progress bar** (client-side estimate from source type,
   file size, and engine — the API has no progress channel), **Preview/Raw**
   output views, copy, a **download dialog** pre-filled from the document's
-  first `#`/`##` heading, and the **chapter panel** (ADR-030): a *Split into
-  chapters* checkbox, a list of the chapters with filenames and what found them,
-  per-chapter *View*/*Save*, and *Download all (.zip)*. Light/dark aware, no
-  build step.
+  first `#`/`##` heading, and the **results panel** — one panel serving two
+  mutually exclusive features. For **one** document (ADR-030): a *Split into
+  chapters* checkbox, the chapters with filenames and what found them, per-chapter
+  *View*/*Save*, and *Download all (.zip)*. For **several** (ADR-031): the picker
+  and drop zone take a multi-file selection, each document is listed with the
+  `.md` it saves as, failures show in place with their reason and offer nothing to
+  save, and the same *Download all (.zip)* packs the batch. Selecting a second
+  file disables **and unticks** the chapter checkbox and says why. Light/dark
+  aware, no build step.
 - `markdown.js` — the ~200-line dependency-free renderer behind Preview.
   Escape-first (converted content is untrusted), restricted link schemes, and a
   placeholder chip for `data:` images.
 - `zip.js` — a ~140-line dependency-free ZIP writer (stored entries, fixed
-  1980 timestamp ⇒ byte-identical archives) behind *Download all (.zip)*.
+  1980 timestamp ⇒ byte-identical archives) behind *Download all (.zip)*, for a
+  document's chapters and for a batch's documents alike.
 - `favicon.svg` — site icon, linked from `index.html`.
 - `config.js` — single per-deployment knob `MARKDOWN_API_BASE` (default
   `http://localhost:7860`).
@@ -514,6 +605,20 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
 
 ## Known gaps / not yet proven
 
+- **The batch caps are chosen, not measured.** `MAX_BATCH_FILES` (20) and
+  `MAX_BATCH_BYTES` (50 MB) were picked to bound how long one caller can occupy
+  the queue, and nothing has yet run a full-size batch on real hardware.
+  Two things to watch once it is deployed: `/metrics`'s `batches.largest` and
+  `batches.failed`, and whether a full batch outlives the host's HTTP idle
+  timeout — that is the real ceiling, and it bites hardest with
+  `engine=docling`, which costs tens of seconds to minutes *per document*. A
+  batch through docling has never been run at all (no Space).
+- **Bulk + chapters is deferred, not impossible.** The exclusion (ADR-031) is a
+  product decision with an open question behind it: what an archive of twelve
+  documents' chapters should look like — nested folders, flat with document
+  prefixes — and what it does to the response size. It is enforced in three
+  places (API 400, absent MCP parameter, UI checkbox), so lifting it is a
+  deliberate act rather than something that half-works by accident.
 - **Chapter detection has never met a real-world document.** The heuristics
   (ADR-030) are verified against generated PDFs and hand-written fixtures — a
   contents page with dot leaders, one rendered as a table, one of links, one that
@@ -582,8 +687,9 @@ URLs, which used to convert to an empty PDF-viewer shell (ADR-017).*
 
 **Phase 6 has no code left in it, the cross-cutting backlog's code items are done,
 Phase 7 (the usability pass — ADR-024/025/026), Phase 8 (fast by default —
-ADR-027) and Phase 10 (chapter splitting — ADR-030) are finished and verified,
-and both deployments are prepared in-repo (ADR-023).**
+ADR-027), Phase 10 (chapter splitting — ADR-030) and Phase 11 (bulk conversion —
+ADR-031) are finished and verified, and both deployments are prepared in-repo
+(ADR-023).**
 Everything remaining in both open tracks needs something this chain of sessions
 hasn't had: a Docker daemon with a few GB of pull budget, or external accounts. Once deployed, `GET /metrics` is the fastest way to check the docling
 half is actually working (`engines.docling` vs `engines.pymupdf`).
@@ -612,6 +718,15 @@ actually are. The dials are `_MIN_TOC_MATCH_RATIO` and
 belongs in `tests/test_chapters.py` as a fixture, not as a tweak. Worth pairing
 with a docling conversion of the same file, since a higher-fidelity contents page
 should make the `toc` path fire more often.
+
+**B2. Phase 11 — size the batch caps against real use.** No code is outstanding.
+Once there is a deployment, read `/metrics`'s `batches.largest`/`failed` and check
+whether a full 20-file batch outlives the host's HTTP idle timeout — that, not
+memory, is the real ceiling, and it bites hardest with `engine=docling` (tens of
+seconds to minutes *per document*, and never yet run as a batch). Lower
+`MAX_BATCH_FILES` if it does. The other open item is a *question*, not a task:
+what an archive of several documents' chapters should look like, which is what
+would let the mutual exclusion be lifted.
 
 **C. Phase 6 — build and deploy the docling Space (ADR-015/018).**
 1. **Build `docling/Dockerfile`** (`docker build -t wiseau-docling docling/`) and
@@ -649,6 +764,41 @@ settings:
 
 Newest first. One short entry per working session — what changed and what the
 next instance should know.
+
+- **2026-08-06 (second session) — Phase 11: bulk upload, one archive out
+  (ADR-031).** The ask: *"users may want to upload several documents at once and
+  download each markdown conversion in a zip"*, with bulk and chapter splitting to
+  **stay mutually exclusive for now**. **The decision worth not re-deriving is
+  where the loop goes.** The frontend could have done the whole thing — pick N
+  files, call `/convert/file` N times, zip the answers with ADR-030's `zip.js` —
+  and that is less code. It is wrong three times over: one **rate-limit token per
+  document** against a `20/minute` route means a thirty-file folder is throttled
+  halfway through and the user holds a partial archive; **agents get nothing**,
+  though "convert this folder" is exactly the request an agent makes; and
+  **filename policy lands in the browser**, where it drifts from the chapter
+  filenames the backend already produces. So `POST /convert/batch` is a backend
+  endpoint — while the **ZIP stays in the browser**, because the API's job is a
+  contract an agent can read, not bytes it must unpack first. Five things to know:
+  (1) it is **not a new kind of conversion** — each document takes exactly the
+  `/convert/file` path, one at a time, **one job slot each** rather than one for
+  the run, so a big batch queues fairly instead of starving everyone for minutes;
+  (2) **partial success is normal** — 200 whenever the *request* was valid, with
+  per-document errors inside, and a failed entry has **no `filename`** so "write
+  every item with a filename" is a complete save loop; (3) a batch is N
+  conversions per token, so it has **its own bounds** (`5/minute`,
+  `MAX_BATCH_FILES` 20, `MAX_BATCH_BYTES` 50 MB, read and converted one at a time)
+  or it *is* the way around the fair-use guards; (4) `parsers/naming.py` now holds
+  **one filename rule** for both features, and it can never emit a path component
+  — the uploader picks that string; (5) the **mutual exclusion is enforced in
+  three places** (API 400, no `split_chapters` on the batch MCP tool, a checkbox
+  that disables *and unticks* itself), and the UI says it structurally by making
+  the chapter list and the document list **the same panel**. API `0.9.0 →
+  0.10.0`. Verified: **321 pass + 7 skipped** (+38), plus a live uvicorn
+  (deterministic across two runs, live 400/413 refusals), the MCP tool against
+  that backend, and **32/32 UI checks in headless Chromium against the real
+  backend** — the downloaded ZIP passes `unzip -t` and matches the API byte for
+  byte. Open: the caps are chosen rather than measured, a batch through docling
+  has never run, and what bulk + chapters *should* mean is the deferred question.
 
 - **2026-08-06 — Phase 10: one file per chapter (ADR-030).** The ask: *"a long
   PDF should be separable into its distinct chapters, saved as separate files —

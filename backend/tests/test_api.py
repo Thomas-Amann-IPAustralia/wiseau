@@ -517,3 +517,240 @@ def test_a_failing_split_does_not_lose_the_conversion(client, fresh_metrics, mon
     assert body["chapters"] == []
     assert body["chapter_detection"] == "error"
     assert client.get("/metrics").json()["chapters"]["by_method"] == {"error": 1}
+
+
+# --- Batch conversion (ADR-031) ---------------------------------------------
+# A batch is N independent conversions behind one request. The properties worth
+# pinning are the ones that make it usable as "convert these and zip them":
+# every document gets an answer, one bad document does not cost the others, the
+# files are named uniquely, and it cannot be used to slip past the guards that
+# bound a single upload.
+def _pdf(text: str) -> bytes:
+    """A one-page born-digital PDF carrying `text`.
+
+    The second line is padding, not decoration: a page with fewer than 16
+    extractable characters is taken for a scan and sent to OCR (`file_parser`),
+    which would quietly make these tests depend on a `tesseract` binary instead
+    of on the batch. Short fixture titles stay readable this way.
+    """
+    doc = pymupdf.open()
+    page = doc.new_page()
+    page.insert_text((72, 72), text)
+    page.insert_text((72, 96), "A born-digital page, not a scan.")
+    data = doc.tobytes()
+    doc.close()
+    return data
+
+
+def _upload(name: str, text: str = "Body of the document") -> tuple[str, tuple[str, bytes, str]]:
+    return ("files", (name, _pdf(text), "application/pdf"))
+
+
+def test_batch_converts_every_document(client):
+    resp = client.post(
+        "/convert/batch",
+        files=[_upload("one.pdf", "First document"), _upload("two.pdf", "Second document")],
+    )
+    assert resp.status_code == 200
+    body = resp.json()
+    assert (body["count"], body["succeeded"], body["failed"]) == (2, 2, 0)
+    assert [item["source"] for item in body["results"]] == ["one.pdf", "two.pdf"]
+    assert "First document" in body["results"][0]["markdown"]
+    assert "Second document" in body["results"][1]["markdown"]
+
+
+def test_batch_results_keep_the_order_they_were_sent(client):
+    names = [f"doc-{index}.pdf" for index in range(6)]
+    resp = client.post("/convert/batch", files=[_upload(name, name) for name in names])
+    assert [item["source"] for item in resp.json()["results"]] == names
+
+
+def test_each_document_carries_the_filename_to_save_it_as(client):
+    resp = client.post(
+        "/convert/batch",
+        files=[_upload("Annual Report 2025.pdf"), _upload("Annual Report 2025.pdf")],
+    )
+    assert [item["filename"] for item in resp.json()["results"]] == [
+        "annual-report-2025.md",
+        "annual-report-2025-2.md",
+    ]
+
+
+def test_one_bad_document_does_not_fail_the_batch(client):
+    resp = client.post(
+        "/convert/batch",
+        files=[
+            _upload("good.pdf", "Readable body"),
+            ("files", ("notes.txt", b"plain text", "text/plain")),
+            _upload("also-good.pdf", "Another readable body"),
+        ],
+    )
+    assert resp.status_code == 200
+    body = resp.json()
+    assert (body["count"], body["succeeded"], body["failed"]) == (3, 2, 1)
+
+    failure = body["results"][1]
+    assert failure["status"] == "error"
+    assert "Unsupported file type" in failure["error"]
+    # No filename on a failure: "save everything with a filename" must never
+    # write an empty file where a document should have been.
+    assert failure["filename"] is None
+    assert failure["markdown"] == ""
+    assert body["results"][2]["status"] == "ok"
+
+
+def test_a_conversion_crash_is_contained_to_its_own_document(client, monkeypatch):
+    def explode_on_second(data, filename, engine=None):
+        if filename == "boom.pdf":
+            raise RuntimeError("parser exploded")
+        return "# Fine\n"
+
+    monkeypatch.setattr(main, "file_to_markdown", explode_on_second)
+    resp = client.post(
+        "/convert/batch", files=[_upload("fine.pdf"), _upload("boom.pdf"), _upload("also-fine.pdf")]
+    )
+    body = resp.json()
+    assert [item["status"] for item in body["results"]] == ["ok", "error", "ok"]
+    assert "parser exploded" in body["results"][1]["error"]
+
+
+def test_an_empty_document_in_a_batch_is_reported_not_skipped(client):
+    resp = client.post(
+        "/convert/batch",
+        files=[("files", ("empty.pdf", b"", "application/pdf")), _upload("real.pdf")],
+    )
+    body = resp.json()
+    assert body["count"] == 2
+    assert body["results"][0]["error"] == "Empty file upload."
+
+
+def test_batch_refuses_chapter_splitting(client):
+    # Mutually exclusive for now (ADR-031). Refused rather than ignored: a
+    # silently dropped flag leaves the caller believing they asked for chapters.
+    resp = client.post(
+        "/convert/batch", files=[_upload("one.pdf")], data={"split_chapters": "true"}
+    )
+    assert resp.status_code == 400
+    assert "split_chapters" in resp.json()["detail"]
+
+
+def test_batch_accepts_an_explicit_split_chapters_false(client):
+    resp = client.post(
+        "/convert/batch", files=[_upload("one.pdf")], data={"split_chapters": "false"}
+    )
+    assert resp.status_code == 200
+
+
+def test_batch_never_returns_chapters(client):
+    resp = client.post("/convert/batch", files=[_upload("one.pdf")])
+    item = resp.json()["results"][0]
+    assert item["chapters"] is None
+    assert item["chapter_detection"] is None
+
+
+def test_batch_rejects_an_unknown_engine_with_400(client):
+    resp = client.post("/convert/batch", files=[_upload("one.pdf")], data={"engine": "wishful"})
+    assert resp.status_code == 400
+
+
+def test_batch_passes_the_engine_through_to_every_document(client, monkeypatch):
+    seen = []
+
+    def record(data, filename, engine=None):
+        seen.append(engine)
+        return "# Fine\n"
+
+    monkeypatch.setattr(main, "file_to_markdown", record)
+    client.post(
+        "/convert/batch",
+        files=[_upload("one.pdf"), _upload("two.pdf")],
+        data={"engine": "pymupdf"},
+    )
+    assert seen == ["pymupdf", "pymupdf"]
+
+
+def test_batch_caps_how_many_files_one_request_may_carry(client, monkeypatch):
+    # The cap is what stops a batch being the way around the per-IP rate limit:
+    # one request must not be able to buy unbounded conversion.
+    monkeypatch.setattr(main, "MAX_BATCH_FILES", 3)
+    resp = client.post("/convert/batch", files=[_upload(f"{i}.pdf") for i in range(4)])
+    assert resp.status_code == 400
+    assert "limited to 3 files" in resp.json()["detail"]
+
+
+def test_batch_caps_its_total_size(client, monkeypatch):
+    # Running out of room mid-batch is a request-level refusal, not a per-file
+    # one: nothing after this point could have converted either.
+    monkeypatch.setattr(main, "MAX_BATCH_BYTES", 4096)
+    bulk = b"%PDF-" + b"x" * 3000
+    resp = client.post(
+        "/convert/batch",
+        files=[
+            ("files", ("a.pdf", bulk, "application/pdf")),
+            ("files", ("b.pdf", bulk, "application/pdf")),
+        ],
+    )
+    assert resp.status_code == 413
+    assert "batch exceeds" in resp.json()["detail"]
+
+
+def test_one_oversized_document_does_not_sink_the_batch(client, monkeypatch):
+    # Per-file and per-batch ceilings are different failures: too big *for the
+    # batch* means nothing after it could convert either, but one outsized
+    # document among ordinary ones is that document's problem alone.
+    monkeypatch.setattr(main, "MAX_UPLOAD_BYTES", 2048)
+    monkeypatch.setattr(main, "MAX_BATCH_BYTES", 10 * 1024 * 1024)
+    resp = client.post(
+        "/convert/batch",
+        files=[("files", ("huge.pdf", b"x" * 8192, "application/pdf")), _upload("small.pdf")],
+    )
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["results"][0]["status"] == "error"
+    assert "limit" in body["results"][0]["error"]
+    assert body["results"][1]["status"] == "ok"
+
+
+def test_batch_requires_at_least_one_file(client):
+    resp = client.post("/convert/batch", data={"engine": "auto"})
+    assert resp.status_code == 422  # the `files` part is required
+
+
+def test_batch_has_its_own_tighter_rate_limit(client, monkeypatch):
+    # A batch buys N conversions per token, so it cannot share the 20/minute a
+    # single-document request gets (invariant #4).
+    monkeypatch.setattr(main, "file_to_markdown", lambda data, filename, engine=None: "# Fine\n")
+    codes = [
+        client.post("/convert/batch", files=[_upload("one.pdf")]).status_code for _ in range(6)
+    ]
+    assert codes[:5] == [200] * 5
+    assert codes[5] == 429
+
+
+def test_a_batch_takes_one_job_slot_per_document(client, fresh_metrics, monkeypatch):
+    # Per document, not per batch: holding the ceiling for a whole 20-file run
+    # would starve every other caller for minutes.
+    monkeypatch.setattr(main, "file_to_markdown", lambda data, filename, engine=None: "# Fine\n")
+    client.post("/convert/batch", files=[_upload("a.pdf"), _upload("b.pdf"), _upload("c.pdf")])
+
+    jobs = client.get("/metrics").json()["jobs"]
+    assert jobs["duration"]["count"] == 3
+    assert jobs["in_flight"] == 0
+
+
+def test_batch_conversions_are_counted(client, fresh_metrics):
+    client.post(
+        "/convert/batch",
+        files=[_upload("a.pdf"), ("files", ("b.txt", b"x", "text/plain"))],
+    )
+    body = client.get("/metrics").json()
+    assert body["conversions"]["batch.ok"] == 1
+    assert body["conversions"]["batch.error"] == 1
+    assert body["batches"] == {"requested": 1, "files": 2, "failed": 1, "largest": 2}
+
+
+def test_batch_is_documented_in_the_openapi_schema(client):
+    schema = client.get("/openapi.json").json()
+    assert schema["paths"]["/convert/batch"]["post"]["operationId"] == "convert_batch"
+    assert "files" in schema["components"]["schemas"]["Body_convert_batch"]["properties"]
+    assert "status" in schema["components"]["schemas"]["BatchItem"]["properties"]
