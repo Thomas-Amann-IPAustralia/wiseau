@@ -208,6 +208,70 @@ input[type="url"]:focus { outline: none; border-color: var(--accent); }
   color: var(--muted);
 }
 
+/* --- Chapter splitting ----------------------------------------------------- */
+.check {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel-2);
+  cursor: pointer;
+  font-size: 0.86rem;
+}
+.check:has(input:checked) { border-color: var(--accent); }
+.check input { margin: 2px 0 0; accent-color: var(--accent); }
+.check__body { display: flex; flex-direction: column; gap: 3px; }
+.check__name { font-weight: 600; }
+.check__hint { font-size: 0.74rem; line-height: 1.5; color: var(--muted); }
+.check__hint code { font-size: 0.72rem; }
+
+.chapters {
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel-2);
+}
+.chapters__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.chapters__title { margin: 0; font-size: 0.95rem; }
+.chapters__head .meta { flex: 1 1 auto; }
+.chapters__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 260px;
+  overflow: auto;
+}
+.chapter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 8px;
+  border-radius: 6px;
+  font-size: 0.84rem;
+}
+.chapter + .chapter { border-top: 1px solid var(--border); }
+.chapter--active { background: var(--panel); box-shadow: inset 2px 0 0 var(--accent); }
+.chapter__text { display: flex; flex-direction: column; gap: 1px; flex: 1 1 auto; min-width: 0; }
+.chapter__title { font-weight: 600; }
+.chapter__title, .chapter__file { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chapter__file {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.chapter__actions { display: flex; align-items: center; gap: 6px; flex: 0 0 auto; }
+.chapter__size { font-size: 0.74rem; color: var(--muted); }
+.btn--small { padding: 4px 10px; font-size: 0.78rem; }
+
 /* --- Progress approximation ------------------------------------------------ */
 .progress { margin-top: 16px; }
 .progress__bar {

@@ -5,13 +5,17 @@ Pages as-is.
 
 ## Files
 
-- `index.html` — layout (URL tab, file drop zone, engine picker, progress bar,
-  output pane with Preview/Raw, download dialog, status badge).
+- `index.html` — layout (URL tab, file drop zone, engine picker, chapter-split
+  checkbox, progress bar, output pane with Preview/Raw and the chapter list,
+  download dialog, status badge).
 - `style.css` — responsive styling, light/dark aware.
 - `app.js` — state management + `fetch` calls to the backend.
 - `markdown.js` — the small, dependency-free Markdown renderer behind the
   Preview mode (ADR-026). Escapes everything before rendering: converted content
   is untrusted.
+- `zip.js` — a ~140-line ZIP writer, so "download every chapter" is one archive
+  instead of a dozen blocked downloads (ADR-030). Stored entries, fixed
+  timestamp, no dependency.
 - `favicon.svg` — site icon.
 - `config.js` — the one file to edit per deployment: set `MARKDOWN_API_BASE`.
 
@@ -34,6 +38,12 @@ Pages as-is.
 - **Download** — opens a dialog pre-filled with the document's first `#` heading
   (or first `##` if there is no `#`); edit the title, then *Confirm download*.
   The title becomes the filename.
+- **Split into chapters** — for a long document. Tick it before converting and
+  the backend also returns the document as chapters (found from its contents page
+  where it has one, otherwise from its headings — ADR-030). The panel above the
+  output lists them with the filename each would be saved under and says what
+  found them; *View* shows one chapter, *Save* writes it, and *Download all
+  (.zip)* packs the lot. A document with no chapters is simply left whole.
 
 ## Configure
 

@@ -47,7 +47,7 @@ interactive docs are at `/docs`.
   {
     "status": "ok",
     "service": "markdown-ingestion-engine",
-    "version": "0.8.0",
+    "version": "0.9.0",
     "engines": ["docling", "pymupdf"],
     "default_engine": "pymupdf",
     "mcp_endpoint": "/mcp"
@@ -94,11 +94,12 @@ interactive docs are at `/docs`.
 - **Rate limit:** `20/minute` per IP.
 - **Request body:**
   ```json
-  { "url": "https://example.com/article", "engine": "auto" }
+  { "url": "https://example.com/article", "engine": "auto", "split_chapters": false }
   ```
   `url` is validated as an `HttpUrl`. `engine` is optional (see the box below);
   on this endpoint it applies only when the URL turns out to serve a **PDF** —
-  an HTML page is extracted by Trafilatura regardless.
+  an HTML page is extracted by Trafilatura regardless. `split_chapters` is
+  optional and defaults to `false` (see §15).
 - **200 response:** `MarkdownResponse` (see §3).
 - **Errors:** `400` the URL resolves to a non-public address and this
   deployment refuses to fetch it (§13), or `engine` names an engine this build
@@ -109,8 +110,8 @@ interactive docs are at `/docs`.
 - **Purpose:** parse an uploaded PDF, DOCX, or image into Markdown. Scanned /
   handwritten PDFs and image uploads are OCR'd automatically (see §10).
 - **Rate limit:** `20/minute` per IP.
-- **Request:** `multipart/form-data` with a `file` field and an optional
-  `engine` field (see the box below).
+- **Request:** `multipart/form-data` with a `file` field and optional `engine`
+  and `split_chapters` fields (see the box below and §15).
 - **Constraints:** extension must be `.pdf`, `.docx`, or an image type
   (`.png`, `.jpg`, `.jpeg`, `.tif`, `.tiff`, `.bmp`, `.webp`, `.gif`); body must
   be non-empty and ≤ `MAX_UPLOAD_BYTES` (default 25 MB). The limit is enforced
@@ -142,9 +143,23 @@ interactive docs are at `/docs`.
 | `source`   | string | The URL or original filename that was converted.    |
 | `markdown` | string | The cleaned, normalized Markdown.                   |
 | `length`   | int    | `len(markdown)` — a convenience for clients.        |
+| `chapters` | array \| null | The document split into chapters, or `null` when the split was not requested; `[]` when it was and nothing chapter-like was found (§15). |
+| `chapter_detection` | string \| null | Which signal produced the chapters — `toc`, `headings`, `markers`, `none`, or `error` (the split failed; the conversion did not) — or `null` when the split was not requested. |
+
+Each element of `chapters` is a `Chapter`:
+
+| Field      | Type   | Meaning                                             |
+| ---------- | ------ | --------------------------------------------------- |
+| `title`    | string | The chapter's title as the document gives it.       |
+| `level`    | int    | Heading depth of its opening (1-6); `0` for the material before the first chapter. |
+| `filename` | string | Suggested filename, zero-padded so chapters sort in reading order (`03-the-reckoning.md`). |
+| `markdown` | string | That chapter's Markdown, normalized like any other output. |
+| `length`   | int    | `len(markdown)`.                                    |
 
 Keep this shape additive: new fields may be appended, but existing fields must
-not change type or meaning without a version bump (§6).
+not change type or meaning without a version bump (§6). `chapters` and
+`chapter_detection` are `null` unless asked for, so a client that predates them
+sees the response it always saw.
 
 ---
 
@@ -156,13 +171,14 @@ The backend is deliberately small and layered. Each module has one job.
 | ------ | -------------- | -------- |
 | `main.py` | HTTP surface: routing, validation, CORS, rate limiting (decorator limits **and** `SlowAPIMiddleware` for the defaults), concurrency ceiling, streamed upload limits, error → HTTP mapping, per-request timing/logging. | Contain extraction logic; read a whole upload before checking its size. |
 | `observability.py` | Structured (JSON) log formatting and the in-process metrics registry read by `GET /metrics`. Imported by `main.py` *and* the parsers. | Affect extraction output in any way; add a runtime dependency; record URLs, filenames, or content into `/metrics`. |
-| `parsers/__init__.py` | Public entrypoints: `url_to_markdown`, `file_to_markdown`, `resolve_engine`, `default_engine`. | — |
+| `parsers/__init__.py` | Public entrypoints: `url_to_markdown`, `file_to_markdown`, `resolve_engine`, `default_engine`, `split_into_chapters`. | — |
 | `parsers/browser.py` | Build a stealth headless Chrome driver; download a URL's raw bytes *through that driver's session* (`fetch_bytes`), so WAF clearance/cookies carry over. | Know about Markdown; raise on a failed download (return `None`). |
 | `parsers/url_parser.py` | Refuse non-public addresses (§13), then render → Trafilatura extract → (markdownify fallback) → clean. Detect a direct-PDF response and route its bytes to the document pipeline instead. | Contain per-site CSS selectors; trust a `.pdf` URL without verifying the magic bytes; start the browser before the address is vetted. |
 | `parsers/file_parser.py` | Select the conversion engine (the request's `engine`, else `WISEAU_PDF_ENGINE`, default `pymupdf`): PyMuPDF4LLM (legacy mode) + per-page OCR / Mammoth, or docling when it is selected — with automatic fallback to the local parsers. Dispatch by extension; then clean. Validate a caller's engine choice (`resolve_engine`); report the deployment default (`default_engine`). | Hard-depend on docling; return unnormalized text; inline a DOCX image as a base64 data URI (ADR-024); use PyMuPDF4LLM's unstable layout/OCR engine in the fallback. |
 | `parsers/docling_client.py` *(Phase 6)* | Thin HTTP client to docling-serve (`WISEAU_DOCLING_BASE`): document bytes → Markdown, images requested as placeholders (ADR-024). Bounded timeout; typed errors so the caller can tell "docling down" from "bad document". | Contain conversion logic itself; retry forever; leak the token. |
 | `parsers/ocr.py` | Pluggable OCR engines (default MuPDF-Tesseract, opt-in EasyOCR): page image → text. Used by the *fallback* PDF path. | Introduce nondeterminism. |
 | `parsers/cleaner.py` | Deterministic Unicode/whitespace/typography normalization; elide base64 data-URI payloads (ADR-024). | Introduce nondeterminism; remove content (it edits payloads, not text). |
+| `parsers/chapters.py` *(Phase 10)* | Split converted Markdown into chapters: read the document's contents page, else its heading structure, else plain-text chapter markers; name and number each chapter's file (§15). | Extract or convert anything; drop or duplicate content; return a split it is not confident in (say `none` instead); introduce nondeterminism. |
 
 ### Extraction pipelines
 
@@ -503,6 +519,7 @@ and `client`. The same `request_id` is returned to the caller as `X-Request-ID`
 | `conversions` | `url.ok` / `url.error` / `file.ok` / `file.error`. | Success rate per surface. |
 | `engines` | Count per engine that actually produced Markdown: `docling`, `pymupdf`, `mammoth`, `ocr`, `trafilatura`, `markdownify`. Each parser records its own, so a PDF with **any** OCR'd page counts as `ocr` rather than `pymupdf` — one engine per conversion, and the OCR path stays visible. | **Is docling serving anything?** |
 | `docling` | `attempts` / `successes` / `fallbacks` / `skipped`, `reasons` (`DoclingUnavailable`, `DoclingBadDocument`, `not_configured`, `engine_not_selected`), and call durations. | Is the Space down, misconfigured, or just slow? |
+| `chapters` | `requested` / `split` / `sections` and `by_method` (`toc`, `headings`, `markers`, `none`). | Is chapter detection actually finding chapters, and by which signal? |
 | `memory` | `peak_rss_mb` (getrusage) and `rss_mb` (Linux `/proc/self/statm`). | Headroom against the Space's limit. |
 
 Constraints that keep it honest: **aggregates only** — no URLs, filenames, or
@@ -547,8 +564,9 @@ the direct case, which is the only one a caller can trivially aim.
 ## 14. Frontend behaviour (ADR-026)
 
 The UI is still a static, dependency-free bundle (`index.html` + `style.css` +
-`app.js` + `markdown.js` + `config.js` + `favicon.svg`) served straight from
-GitHub Pages. No framework, no build step, no third-party script (ADR-004).
+`app.js` + `markdown.js` + `zip.js` + `config.js` + `favicon.svg`) served
+straight from GitHub Pages. No framework, no build step, no third-party script
+(ADR-004).
 
 **Engine picker.** Three options — *Auto* / *Fastest (PyMuPDF / Mammoth)* /
 *Highest fidelity (docling — slow)* — sent as the request's `engine` (§2).
@@ -583,3 +601,75 @@ truth; it is what Copy and Download return.
 resort — which the user may amend before confirming. The title becomes the
 filename (path-illegal characters and whitespace → `-`, capped at 80 characters,
 `.md` appended), previewed live in the dialog.
+
+**Chapters.** A *Split into chapters* checkbox sends `split_chapters` (§2). When
+the response carries chapters, a panel above the output lists them — title,
+suggested filename, size — and says which signal found them ("found on the
+document's contents page" reads differently from "found from the document's
+headings", and the reader should be able to weigh that). Each row can **View**
+the chapter in the output panel (Copy and Download then act on that chapter) or
+**Save** it as its own `.md`; *Whole document* goes back. **Download all (.zip)**
+builds the archive in the browser with `zip.js` — stored entries, no compression,
+a fixed 1980-01-01 timestamp so the same conversion yields byte-identical
+archives. One archive rather than *n* saves, because browsers block a burst of
+downloads. A requested split that found nothing says "no chapters detected" in
+the caption and leaves the document whole.
+
+---
+
+## 15. Chapter splitting (ADR-030)
+
+A long PDF converts to one long Markdown string, which is the wrong shape for the
+reader who wanted one file per chapter. `parsers/chapters.py` slices the
+*converted* Markdown — it runs after extraction and after `clean_markdown`, so it
+is engine-independent: docling, PyMuPDF, Mammoth, and OCR output all arrive the
+same way.
+
+**Opt-in.** `split_chapters` defaults to `false` on both convert endpoints and
+both MCP tools. It roughly doubles the response, and most documents have no
+chapters, so it is asked for rather than charged to everyone.
+
+**How chapters are found**, in order of how much the document itself tells us:
+
+1. **`toc` — the contents page.** A chaptered document nearly always prints its
+   chapters in a table of contents, and that page survives extraction as a run of
+   "title ..... 12" lines (or a table, or a list of links). Those entries are the
+   *author's* list of chapters, so they are tried first: parse the entries, take
+   the shallowest depth (sub-sections indent, or number as `1.1`), then find each
+   entry again in the body, strictly **forward** — each match must come after the
+   previous one. Matching is exact on a normalized title first (case, markup,
+   punctuation and leading numbering removed), then fuzzy (difflib ≥ 0.86) over
+   heading-like lines. The block is believed only if **at least half** its
+   top-level entries are found that way, and at least two. That gate is what
+   rejects a back-of-book index: its entries do not reappear in order below it.
+2. **`headings` — the heading structure.** The shallowest level occurring more
+   than once, unless a deeper level is visibly the chapter level (≥60% of its
+   headings read as "Chapter 4" / "Part II" / "Appendix A" / "3. Findings").
+3. **`markers` — plain-text chapter openings.** Scans and single-font PDFs arrive
+   with no heading markup, so a bare line reading "CHAPTER FOUR" is the last
+   signal worth using.
+4. **`none`.** Nothing chapter-like, or the result looks like fragments rather
+   than chapters (median chapter under 200 characters, or more than 500 of them).
+   The document is returned whole; an article is not a book.
+
+**Guarantees.** The chapters **partition** the document: concatenating them in
+order reproduces the input, modulo the whitespace normalization each chapter goes
+through. Nothing is dropped and nothing is duplicated — material before the first
+chapter (title page, the contents page itself) becomes a leading section at
+`level: 0`, unless it is shorter than 100 characters, in which case it opens the
+first chapter rather than becoming an almost-empty file. Filenames are
+zero-padded to the width of the largest number, so alphabetical order is reading
+order. And the split is **deterministic**: no model, only text, so the same
+Markdown always yields the same chapters, titles, and filenames (invariant #1).
+
+**Failure is contained.** The document already converted — sometimes after a
+minute of docling — and the split is an extra on top of it, so an exception in
+the heuristics returns `chapters: []` with `chapter_detection: "error"`, logs the
+traceback, and counts the method as `error`. It never turns a good conversion
+into a 502, and it is never silent.
+
+**Cost.** Line-scanning and normalization, single-pass. Measured: ~160 ms for a
+0.7 MB / 400-chapter book, ~1 s worst case (a contents page whose entries match
+nothing, over 40 000 short lines). It runs via `asyncio.to_thread` *inside* the
+job slot, so it queues behind the same concurrency ceiling as the conversion
+(invariant #4).

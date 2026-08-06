@@ -157,6 +157,8 @@ class Metrics:
             self._conversions: Dict[str, int] = {}
             self._docling: Dict[str, int] = {}
             self._docling_skips: Dict[str, int] = {}
+            self._chapters: Dict[str, int] = {}
+            self._chapter_methods: Dict[str, int] = {}
             self._docling_durations = _Durations()
             self._job_wait = _Durations()
             self._job_duration = _Durations()
@@ -208,6 +210,22 @@ class Metrics:
                 if reason:
                     self._docling_skips[reason] = self._docling_skips.get(reason, 0) + 1
 
+    def record_chapter_split(self, method: str, chapters: int) -> None:
+        """One requested chapter split, and which signal produced it (ADR-030).
+
+        Chapter detection is a heuristic, and the request that asks for it looks
+        identical whether it found six chapters or nothing at all. Counting the
+        methods is how an operator sees which one is actually carrying real
+        documents — and whether `none` is the usual answer, which would mean the
+        heuristics need work rather than that users stopped asking.
+        """
+        with self._lock:
+            self._chapters["requested"] = self._chapters.get("requested", 0) + 1
+            if chapters:
+                self._chapters["split"] = self._chapters.get("split", 0) + 1
+                self._chapters["sections"] = self._chapters.get("sections", 0) + chapters
+            self._chapter_methods[method] = self._chapter_methods.get(method, 0) + 1
+
     def record_docling_skipped(self, reason: str) -> None:
         """docling was never called (not selected, or no base configured)."""
         with self._lock:
@@ -240,6 +258,10 @@ class Metrics:
                     **{k: self._docling.get(k, 0) for k in ("attempts", "successes", "fallbacks", "skipped")},
                     "reasons": dict(sorted(self._docling_skips.items())),
                     "duration": self._docling_durations.snapshot(),
+                },
+                "chapters": {
+                    **{k: self._chapters.get(k, 0) for k in ("requested", "split", "sections")},
+                    "by_method": dict(sorted(self._chapter_methods.items())),
                 },
                 "memory": _memory(),
             }

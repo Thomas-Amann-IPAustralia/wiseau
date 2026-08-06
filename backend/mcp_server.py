@@ -94,7 +94,7 @@ def _unwrap(response: httpx.Response) -> dict[str, Any]:
 
 # --- Tools ------------------------------------------------------------------
 @mcp.tool()
-async def convert_url(url: str, engine: str = "auto") -> dict[str, Any]:
+async def convert_url(url: str, engine: str = "auto", split_chapters: bool = False) -> dict[str, Any]:
     """Convert a web page to clean, deterministic Markdown.
 
     Renders the URL with a JavaScript-aware headless browser and extracts its
@@ -106,17 +106,25 @@ async def convert_url(url: str, engine: str = "auto") -> dict[str, Any]:
         engine: Document engine, used only when the URL serves a **PDF**:
             ``"docling"`` (highest fidelity, much slower), ``"pymupdf"`` (fast,
             deterministic), or ``"auto"`` (the deployment's default).
+        split_chapters: Also return the document split into chapters, each with a
+            suggested filename — set this when the user wants one file per
+            chapter. Only worth asking for on a long, chaptered document; a web
+            article has no chapters and will come back as ``"none"``.
 
     Returns:
-        ``{"source": <url>, "markdown": <content>, "length": <char count>}``.
+        ``{"source": <url>, "markdown": <content>, "length": <char count>}``, plus
+        ``chapters`` and ``chapter_detection`` when ``split_chapters`` is set.
     """
     async with _client() as client:
-        response = await client.post("/convert/url", json={"url": url, "engine": engine})
+        response = await client.post(
+            "/convert/url",
+            json={"url": url, "engine": engine, "split_chapters": split_chapters},
+        )
     return _unwrap(response)
 
 
 @mcp.tool()
-async def convert_file(path: str, engine: str = "auto") -> dict[str, Any]:
+async def convert_file(path: str, engine: str = "auto", split_chapters: bool = False) -> dict[str, Any]:
     """Convert a local PDF or DOCX file to clean, deterministic Markdown.
 
     Reads the file at ``path`` from the machine running this MCP server and
@@ -128,16 +136,27 @@ async def convert_file(path: str, engine: str = "auto") -> dict[str, Any]:
             scanned documents (much slower on free CPU), ``"pymupdf"`` for the
             fast deterministic parser, or ``"auto"`` (the deployment's default).
             docling always falls back to the fast parser if it is unavailable.
+        split_chapters: Also return the document split into chapters. Set this
+            when the user asks for a long document to be broken up — each chapter
+            comes back with its own ``markdown`` and a numbered ``filename``, so
+            saving one file per chapter is a loop over ``chapters``.
 
     Returns:
-        ``{"source": <filename>, "markdown": <content>, "length": <char count>}``.
+        ``{"source": <filename>, "markdown": <content>, "length": <char count>}``,
+        plus ``chapters`` (``title``/``level``/``filename``/``markdown``/
+        ``length``) and ``chapter_detection`` (``toc``/``headings``/``markers``/
+        ``none``) when ``split_chapters`` is set.
     """
     file_path = Path(path)
     data = file_path.read_bytes()
     content_type = _CONTENT_TYPES.get(file_path.suffix.lower(), "application/octet-stream")
     files = {"file": (file_path.name, data, content_type)}
     async with _client() as client:
-        response = await client.post("/convert/file", files=files, data={"engine": engine})
+        response = await client.post(
+            "/convert/file",
+            files=files,
+            data={"engine": engine, "split_chapters": "true" if split_chapters else "false"},
+        )
     return _unwrap(response)
 
 

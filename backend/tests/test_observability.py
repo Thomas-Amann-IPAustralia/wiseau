@@ -183,6 +183,18 @@ def test_docling_successes_and_fallbacks_are_recorded_apart(metrics):
     assert docling["duration"]["count"] == 3
 
 
+def test_chapter_splits_are_recorded_by_method(metrics):
+    metrics.record_chapter_split("toc", 6)
+    metrics.record_chapter_split("headings", 3)
+    metrics.record_chapter_split("none", 0)
+    chapters = metrics.snapshot()["chapters"]
+    assert chapters["requested"] == 3
+    # A request that found nothing is still a request; only two produced files.
+    assert chapters["split"] == 2
+    assert chapters["sections"] == 9
+    assert chapters["by_method"] == {"headings": 1, "none": 1, "toc": 1}
+
+
 def test_snapshot_reports_zeroes_before_anything_happens(metrics):
     snapshot = metrics.snapshot()
     assert snapshot["docling"] == {
@@ -194,6 +206,7 @@ def test_snapshot_reports_zeroes_before_anything_happens(metrics):
         "duration": {"count": 0},
     }
     assert snapshot["engines"] == {}
+    assert snapshot["chapters"] == {"requested": 0, "split": 0, "sections": 0, "by_method": {}}
     assert snapshot["uptime_seconds"] >= 0
 
 
