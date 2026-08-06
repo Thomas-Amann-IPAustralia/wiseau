@@ -244,7 +244,7 @@ def test_initialize_handshake_succeeds_at_the_exact_path(live_client):
 
 @pytest.mark.skipif(main.MCP_ENDPOINT is None, reason="MCP SDK not installed")
 def test_tools_list_matches_the_documented_surface(live_client):
-    """The hosted transport exposes the same three tools as stdio — one contract."""
+    """The hosted transport exposes the same tools as stdio — one contract."""
     headers = {
         "Content-Type": "application/json",
         "Accept": "application/json, text/event-stream",
@@ -258,4 +258,4 @@ def test_tools_list_matches_the_documented_surface(live_client):
     )
 
     tools = {tool["name"] for tool in _rpc_result(response)["result"]["tools"]}
-    assert tools == {"convert_url", "convert_file", "ping"}
+    assert tools == {"convert_url", "convert_file", "convert_batch", "ping"}

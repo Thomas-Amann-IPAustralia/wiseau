@@ -402,6 +402,70 @@ Design & rationale: **ADR-030**. Contract: `tech-spec.md` §15.
 
 ---
 
+## Phase 11 — Bulk upload, one archive out (2026-08-06)
+
+Design & rationale: **ADR-031**. Contract: `tech-spec.md` §16.
+
+- [x] **`POST /convert/batch` — several documents, one request.** Repeated
+  `files` parts in, `{count, succeeded, failed, results[]}` out, one entry per
+  document **in the order they were sent**, each with the `filename` to save it
+  as. Not a new kind of conversion: every document takes exactly the path
+  `/convert/file` would take it through. API `0.9.0 → 0.10.0` (additive).
+  *Verified: 19 API tests plus a real 3-document batch through a live uvicorn,
+  byte-identical across two requests.*
+- [x] **One bad document does not fail the batch.** A document that cannot be
+  read carries the message the single-document endpoint would have returned and
+  the rest still convert; a failed entry has **no `filename`**, so "write every
+  item that has a filename" is a complete save loop and no empty file can land
+  where a document should have been. *Verified by tests for an unsupported type,
+  an empty upload, and a parser that throws mid-batch.*
+- [x] **A batch cannot be the way around the fair-use guards** (invariant #4).
+  `5/minute` on the route against `20/minute` for a single document,
+  `MAX_BATCH_FILES` (20), `MAX_BATCH_BYTES` (50 MB), and **one job slot per
+  document** rather than one for the whole run, so a large batch queues fairly
+  instead of holding the engine for minutes. Documents are read and converted one
+  at a time, so peak memory is one document. *Verified: rate-limit, file-count,
+  batch-size and per-document-slot tests, plus live 400/413 refusals.*
+- [x] **`parsers/naming.py` — one filename rule**, now shared with chapter
+  splitting: slug an uploaded name to `annual-report.md`, dedupe a batch's
+  repeats in order, and never emit a path component (the *uploader* chooses that
+  string). *Verified: 14 unit tests, including the traversal cases.*
+- [x] **`convert_batch` on the MCP surface**, so an agent asked to convert a
+  folder makes one request instead of one per file. Unreadable paths are reported
+  before any conversion runs. *Verified: 5 tests + a live call against a running
+  backend.*
+- [x] **`GET /metrics` counts batches** (`requested`/`files`/`failed`/`largest`),
+  because a batch's real cost is invisible in a request count.
+- [x] **The UI: multi-select, a document list, and a ZIP.** The picker and drop
+  zone take several files; the results panel — *the same panel* the chapters use,
+  which is what mutual exclusivity should look like — lists each document with
+  its `.md` name, View/Save per document, and **Download all (.zip)** via the
+  existing `frontend/zip.js`. Failures are shown in place with their reason and
+  offer nothing to save. *Verified: 32 checks driving the real UI against a real
+  backend in headless Chromium, including that the downloaded ZIP passes
+  `unzip -t` and every entry is byte-identical to the API's Markdown.*
+- [x] **Bulk and chapter splitting stay mutually exclusive**, enforced in three
+  places so lifting it later is deliberate: a **400** on the API, no
+  `split_chapters` parameter on the batch MCP tool, and a UI checkbox that
+  disables *and unticks* itself when a second file is selected. *Verified in the
+  API tests, an MCP signature test, and the browser.*
+- [x] **A 429 now says what it was** (not part of the feature). The UI read only
+  `detail` off an error body, but slowapi writes its own with `error`, so every
+  rate-limit rejection showed as "Request failed (HTTP 429)". The batch's
+  `5/minute` is the limit a user is likeliest to meet, so it now reads both.
+  *Verified in the browser by tripping the limit against a live backend.*
+- [ ] **Decide what bulk + chapters should mean.** Deliberately deferred, and the
+  only open question in this phase: an archive of twelve documents' chapters
+  needs a shape (nested folders? flat with document prefixes?) and a story for
+  the response size before the exclusion can be lifted.
+- [ ] **Watch `batches.largest` and `failed` against real use.** `MAX_BATCH_FILES`
+  (20) and `MAX_BATCH_BYTES` (50 MB) are chosen, not measured. A deployment
+  behind a proxy with a short idle timeout may need a lower file cap — especially
+  for batches that ask for `engine=docling`, which costs tens of seconds to
+  minutes *per document*.
+
+---
+
 ## Cross-cutting backlog (not phase-bound)
 
 - [x] **OCR for scanned / handwritten documents.** Image-only PDF pages and image

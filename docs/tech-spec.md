@@ -47,7 +47,7 @@ interactive docs are at `/docs`.
   {
     "status": "ok",
     "service": "markdown-ingestion-engine",
-    "version": "0.9.0",
+    "version": "0.10.0",
     "engines": ["docling", "pymupdf"],
     "default_engine": "pymupdf",
     "mcp_endpoint": "/mcp"
@@ -121,7 +121,28 @@ interactive docs are at `/docs`.
 - **Errors:** `400` empty upload or an unknown `engine`; `413` too large;
   `415` unsupported type; `429` rate limited; `502` parse failure.
 
-> **The `engine` parameter (ADR-025).** Optional on both convert endpoints:
+### `POST /convert/batch`
+- **Purpose:** convert several uploaded documents in one request, so "convert
+  these thirty reports" is one call rather than thirty against a `20/minute`
+  limit, and the client can offer them as one archive (§16, ADR-031).
+- **Rate limit:** `5/minute` per IP — tighter than the single-document routes,
+  because one request buys up to `MAX_BATCH_FILES` conversions.
+- **Request:** `multipart/form-data` with the `files` part **repeated once per
+  document**, plus an optional `engine`. `split_chapters` is accepted only as
+  `false`.
+- **Constraints:** at most `MAX_BATCH_FILES` documents (default 20); each
+  document ≤ `MAX_UPLOAD_BYTES`; the batch as a whole ≤ `MAX_BATCH_BYTES`
+  (default 50 MB). Documents are read and converted one at a time, so peak
+  memory is one document, not the batch.
+- **200 response:** `BatchResponse` (see §3) — returned whenever the *request*
+  was valid, even if every document in it failed.
+- **Errors:** `400` `split_chapters` was true (mutually exclusive — §16), an
+  unknown `engine`, or more than `MAX_BATCH_FILES` documents; `413` the batch
+  exceeds `MAX_BATCH_BYTES`; `422` no `files` part; `429` rate limited. A
+  *document* that cannot be converted is **not** an error status: it is an entry
+  with `status: "error"` inside a 200.
+
+> **The `engine` parameter (ADR-025).** Optional on all three convert endpoints:
 > `pymupdf` (fast and deterministic — what `WISEAU_PDF_ENGINE` defaults to,
 > ADR-027), `docling` (highest fidelity, far slower on free CPU), or `auto` —
 > the parameter's default — which defers to this deployment's
@@ -161,6 +182,27 @@ not change type or meaning without a version bump (§6). `chapters` and
 `chapter_detection` are `null` unless asked for, so a client that predates them
 sees the response it always saw.
 
+`BatchResponse` (returned by `POST /convert/batch`, ADR-031):
+
+| Field       | Type   | Meaning                                            |
+| ----------- | ------ | -------------------------------------------------- |
+| `count`     | int    | How many documents were submitted.                  |
+| `succeeded` | int    | How many converted.                                 |
+| `failed`    | int    | How many did not. `succeeded + failed == count`.    |
+| `results`   | array  | One `BatchItem` per document, **in the order they were sent**. |
+
+Each element of `results` is a `BatchItem` — a `MarkdownResponse` plus three
+fields:
+
+| Field      | Type   | Meaning                                             |
+| ---------- | ------ | --------------------------------------------------- |
+| `status`   | string | `ok` or `error`, for this document alone.           |
+| `filename` | string \| null | What to save it as, from the uploaded name and made unique within the batch (`annual-report.md`, `annual-report-2.md`). **Null on failure**, so a save loop over the items with a filename can never write an empty file in place of a document. |
+| `error`    | string \| null | Why it failed — the message the equivalent single-document request would have returned. Null on success. |
+
+A failed item carries `markdown: ""` and `length: 0`; `chapters` and
+`chapter_detection` are always `null` in a batch (§16).
+
 ---
 
 ## 4. Module responsibilities
@@ -171,7 +213,7 @@ The backend is deliberately small and layered. Each module has one job.
 | ------ | -------------- | -------- |
 | `main.py` | HTTP surface: routing, validation, CORS, rate limiting (decorator limits **and** `SlowAPIMiddleware` for the defaults), concurrency ceiling, streamed upload limits, error → HTTP mapping, per-request timing/logging. | Contain extraction logic; read a whole upload before checking its size. |
 | `observability.py` | Structured (JSON) log formatting and the in-process metrics registry read by `GET /metrics`. Imported by `main.py` *and* the parsers. | Affect extraction output in any way; add a runtime dependency; record URLs, filenames, or content into `/metrics`. |
-| `parsers/__init__.py` | Public entrypoints: `url_to_markdown`, `file_to_markdown`, `resolve_engine`, `default_engine`, `split_into_chapters`. | — |
+| `parsers/__init__.py` | Public entrypoints: `url_to_markdown`, `file_to_markdown`, `resolve_engine`, `default_engine`, `split_into_chapters`, `markdown_filename`, `unique_filenames`. | — |
 | `parsers/browser.py` | Build a stealth headless Chrome driver; download a URL's raw bytes *through that driver's session* (`fetch_bytes`), so WAF clearance/cookies carry over. | Know about Markdown; raise on a failed download (return `None`). |
 | `parsers/url_parser.py` | Refuse non-public addresses (§13), then render → Trafilatura extract → (markdownify fallback) → clean. Detect a direct-PDF response and route its bytes to the document pipeline instead. | Contain per-site CSS selectors; trust a `.pdf` URL without verifying the magic bytes; start the browser before the address is vetted. |
 | `parsers/file_parser.py` | Select the conversion engine (the request's `engine`, else `WISEAU_PDF_ENGINE`, default `pymupdf`): PyMuPDF4LLM (legacy mode) + per-page OCR / Mammoth, or docling when it is selected — with automatic fallback to the local parsers. Dispatch by extension; then clean. Validate a caller's engine choice (`resolve_engine`); report the deployment default (`default_engine`). | Hard-depend on docling; return unnormalized text; inline a DOCX image as a base64 data URI (ADR-024); use PyMuPDF4LLM's unstable layout/OCR engine in the fallback. |
@@ -179,6 +221,7 @@ The backend is deliberately small and layered. Each module has one job.
 | `parsers/ocr.py` | Pluggable OCR engines (default MuPDF-Tesseract, opt-in EasyOCR): page image → text. Used by the *fallback* PDF path. | Introduce nondeterminism. |
 | `parsers/cleaner.py` | Deterministic Unicode/whitespace/typography normalization; elide base64 data-URI payloads (ADR-024). | Introduce nondeterminism; remove content (it edits payloads, not text). |
 | `parsers/chapters.py` *(Phase 10)* | Split converted Markdown into chapters: read the document's contents page, else its heading structure, else plain-text chapter markers; name and number each chapter's file (§15). | Extract or convert anything; drop or duplicate content; return a split it is not confident in (say `none` instead); introduce nondeterminism. |
+| `parsers/naming.py` *(Phase 11)* | The one filename rule, shared by chapter splitting and bulk conversion: slug a title or an uploaded name into a `.md` file, and make a batch's names unique in order (§16). | Emit a name containing a path component; depend on anything but its input (it must stay deterministic). |
 
 ### Extraction pipelines
 
@@ -249,7 +292,9 @@ All backend configuration is via environment variables (12-factor).
 | `WISEAU_MCP_ALLOWED_HOSTS` | unset (check off) | Comma-separated hostnames whose `Host` header the MCP endpoint accepts. Unset or `*` disables the check, which is what a public deployment needs; naming hosts enforces them (ADR-029). |
 | `WISEAU_API_BASE` | `http://127.0.0.1:$PORT` | Where the MCP tools reach the API. The default is this process, over loopback. |
 | `MAX_CONCURRENT_JOBS` | `4` | Global concurrency ceiling for heavy jobs. |
-| `MAX_UPLOAD_BYTES` | `26214400` | Upload size limit (25 MB). |
+| `MAX_UPLOAD_BYTES` | `26214400` | Upload size limit (25 MB), per document. |
+| `MAX_BATCH_FILES` | `20` | Most documents one `POST /convert/batch` may carry (ADR-031). This, not memory, is what bounds how long one caller can occupy the queue — lower it on a deployment behind a proxy with a short idle timeout, especially if batches use `engine=docling`. |
+| `MAX_BATCH_BYTES` | `52428800` | Total upload bytes one batch may carry (50 MB). Exceeding it mid-batch is a request-level 413. |
 | `CHROME_BIN` | — | Path to Chromium binary (set in Docker image). |
 | `CHROMEDRIVER_PATH` | — | Path to chromedriver (set in Docker image). |
 | `WISEAU_OCR_MODE` | `auto` | `auto` (OCR pages that need it), `force` (OCR every page), or `off` (native text only). |
@@ -267,8 +312,9 @@ All backend configuration is via environment variables (12-factor).
 | `WISEAU_LOG_LEVEL` | `INFO` | Root log level. |
 
 Rate limits are code-level constants in `main.py` (`60/min` + `1000/day` default;
-`20/min` on convert routes). Promote them to env vars only if a real tuning need
-arises — record the change in `decisions.md`.
+`20/min` on the single-document convert routes, `5/min` on `/convert/batch`,
+which buys up to `MAX_BATCH_FILES` conversions per token). Promote them to env
+vars only if a real tuning need arises — record the change in `decisions.md`.
 
 > **Do not remove `SlowAPIMiddleware`.** slowapi enforces a route's decorator limit
 > from the decorator, but the `default_limits` *only* from that middleware. Without
@@ -520,6 +566,7 @@ and `client`. The same `request_id` is returned to the caller as `X-Request-ID`
 | `engines` | Count per engine that actually produced Markdown: `docling`, `pymupdf`, `mammoth`, `ocr`, `trafilatura`, `markdownify`. Each parser records its own, so a PDF with **any** OCR'd page counts as `ocr` rather than `pymupdf` — one engine per conversion, and the OCR path stays visible. | **Is docling serving anything?** |
 | `docling` | `attempts` / `successes` / `fallbacks` / `skipped`, `reasons` (`DoclingUnavailable`, `DoclingBadDocument`, `not_configured`, `engine_not_selected`), and call durations. | Is the Space down, misconfigured, or just slow? |
 | `chapters` | `requested` / `split` / `sections` and `by_method` (`toc`, `headings`, `markers`, `none`). | Is chapter detection actually finding chapters, and by which signal? |
+| `batches` | `requested` / `files` / `failed` / `largest` (ADR-031). | What bulk conversion actually costs — thirty documents and one document are both a single request in `by_route`, so `files` is what sizes `MAX_BATCH_FILES`, and a climbing `failed` means callers are sending something unreadable. |
 | `memory` | `peak_rss_mb` (getrusage) and `rss_mb` (Linux `/proc/self/statm`). | Headroom against the Space's limit. |
 
 Constraints that keep it honest: **aggregates only** — no URLs, filenames, or
@@ -625,9 +672,11 @@ reader who wanted one file per chapter. `parsers/chapters.py` slices the
 is engine-independent: docling, PyMuPDF, Mammoth, and OCR output all arrive the
 same way.
 
-**Opt-in.** `split_chapters` defaults to `false` on both convert endpoints and
-both MCP tools. It roughly doubles the response, and most documents have no
-chapters, so it is asked for rather than charged to everyone.
+**Opt-in.** `split_chapters` defaults to `false` on `/convert/url` and
+`/convert/file` and on their two MCP tools. It roughly doubles the response, and
+most documents have no chapters, so it is asked for rather than charged to
+everyone. It is **not available on `/convert/batch`** at all — bulk conversion
+and chapter splitting are mutually exclusive for now (§16, ADR-031).
 
 **How chapters are found**, in order of how much the document itself tells us:
 
@@ -673,3 +722,70 @@ into a 502, and it is never silent.
 nothing, over 40 000 short lines). It runs via `asyncio.to_thread` *inside* the
 job slot, so it queues behind the same concurrency ceiling as the conversion
 (invariant #4).
+
+---
+
+## 16. Bulk conversion (ADR-031)
+
+Converting a folder of documents through `/convert/file` costs one rate-limit
+token each, so a thirty-file job is throttled halfway through and the user is
+left with a partial result. `POST /convert/batch` is the same conversion, N times,
+behind one request — and the client turns the answer into one archive.
+
+**It is not a new kind of conversion.** Each document takes exactly the path
+`/convert/file` would take it through — same parsers, same engine selection, same
+`clean_markdown` (invariant #3) — one at a time, **each taking its own slot** in
+the concurrency ceiling. Per document rather than per batch is deliberate:
+holding the ceiling for a whole twenty-file run would starve every other caller
+for minutes, so a large batch queues fairly alongside them (invariant #4).
+
+**Partial success is the normal case.** The response is 200 whenever the
+*request* was valid, with per-document outcomes inside it. A document that cannot
+be read carries the message the single-document endpoint would have returned
+(unsupported type, empty upload, a parse failure) and the rest still convert —
+one bad file in a folder must not cost the other twenty-nine. A failed item has
+**no `filename`**, which makes "write every item that has a filename" the whole
+of a correct save loop.
+
+**Filenames** come from the backend, via `parsers/naming.py`, which chapter
+splitting uses too — one rule, one place. An uploaded `Annual Report 2025.pdf`
+becomes `annual-report-2025.md`; a second document of the same name becomes
+`annual-report-2025-2.md`, deduplicated in upload order so the naming stays
+deterministic. Directory components are stripped and every non-word character
+becomes a hyphen, so a suggested filename can never be a path: the *uploader*
+chooses that string and the client writes a file under it.
+
+**The ZIP is built by the client**, not the API (`frontend/zip.js`, from ADR-030).
+The API's job is the contract: a JSON response is inspectable, diffable, and
+directly usable by an agent, where an archive is bytes that must be unpacked
+before anything can read them. The browser already had a deterministic ZIP writer
+for chapters, and a batch is the same list-of-files problem.
+
+**Bounds.** One request buys up to `MAX_BATCH_FILES` conversions, so the batch
+needs guards of its own or it *is* the way around the fair-use limits:
+`5/minute` per IP, at most `MAX_BATCH_FILES` (20) documents, at most
+`MAX_BATCH_BYTES` (50 MB) in total, each document still under
+`MAX_UPLOAD_BYTES`. Documents are read and converted one at a time, so peak
+memory is one document. Exhausting the batch budget is a request-level **413**
+(nothing after that point could have converted either); one outsized document
+among ordinary ones is that document's own error.
+
+### Mutually exclusive with chapter splitting
+
+Bulk conversion and chapter splitting (§15) **cannot be combined** — for now, by
+decision rather than by accident, because there is no good answer yet to what an
+archive of twelve documents' chapters should look like. It is enforced in three
+places, so lifting it later has to be deliberate:
+
+- **API** — `split_chapters=true` on `/convert/batch` is a **400**, never a
+  silently dropped flag. `chapters` and `chapter_detection` are always `null` in
+  a batch result.
+- **MCP** — `convert_batch` has no `split_chapters` parameter at all. An agent
+  chooses a tool by its parameters, so offering one the backend refuses would be
+  a promise it cannot keep.
+- **UI** — selecting a second file disables the *Split into chapters* checkbox,
+  **unticks** it, and says why. A checkbox left ticked while being ignored is how
+  a user comes to believe they asked for chapters and got none.
+
+The UI expresses the same thing structurally: the chapter list and the batch's
+document list are **one panel**, because only one of them can ever be showing.
