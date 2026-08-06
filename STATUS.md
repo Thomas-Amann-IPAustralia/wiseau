@@ -691,7 +691,17 @@ next instance should know.
   headless Chromium, where the downloaded ZIP passes `unzip -t` and every entry is
   byte-identical to the API's chapter — plus 25 UI checks against a stub. Docs:
   ADR-030, tech-spec §2/§3/§4/§12/§14 + new §15, roadmap Phase 10, `docs/mcp.md`,
-  both READMEs, CLAUDE.md. **Next instance:** the heuristics are tuned on
+  both READMEs, CLAUDE.md. **Also fixed, unrelated to the feature:** CI's
+  `docker-build` job had been red on `main` since 2026-07-31. Its ADR-020
+  regression check counted the literal phrase *"illustrative examples"* in the
+  live render of `example.com` — and example.com **rewrote its copy**, so the
+  count went to 0 and every branch failed, reporting a duplication bug when what
+  had changed was somebody else's website. The check now takes the paragraph to
+  count out of the *response itself*, which is what ADR-020 actually asserts (the
+  body appears once, whatever the page says). *Verified by extracting the step
+  from the YAML and running it against three payloads: today's real response
+  (passes), a duplicated body (fails, "2 copies"), and a body-less extraction
+  (fails).* **Next instance:** the heuristics are tuned on
   generated and hand-written fixtures, never on a real scanned government PDF.
   When you have one, split it and check `/metrics`'s `by_method` — if `none` is
   the usual answer, `_MIN_TOC_MATCH_RATIO` and `_MIN_MEDIAN_CHAPTER_CHARS` in

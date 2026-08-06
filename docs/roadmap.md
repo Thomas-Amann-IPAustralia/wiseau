@@ -389,6 +389,11 @@ Design & rationale: **ADR-030**. Contract: `tech-spec.md` §15.
   stub, then the real UI against a live backend uploading the 26-page book — the
   downloaded ZIP passes `unzip -t` and every entry is byte-identical to the API's
   chapter.*
+- [x] **Unblocked CI** (not part of the feature). The `docker-build` job's
+  ADR-020 regression check counted a phrase from `example.com`'s old copy; the
+  site rewrote it, so the job had been failing on `main` since 2026-07-31. It now
+  counts a paragraph taken from the response itself. *Verified by running the
+  step's script against a real response, a duplicated one, and an empty one.*
 - [ ] **Watch it against real documents.** The heuristics are tuned on generated
   and hand-written fixtures. The next instance with real scanned government PDFs
   should check `/metrics`'s `by_method` against what those documents actually

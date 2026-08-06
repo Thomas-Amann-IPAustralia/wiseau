@@ -105,7 +105,25 @@ jobs:
           # example.com extracts to well under Trafilatura's 250-character
           # threshold, so it is exactly the shape that used to come back with its
           # body duplicated (ADR-020). One copy, on a real page, in the image.
-          count=$(printf '%s' "$body" | python3 -c 'import json,sys; print(json.load(sys.stdin)["markdown"].count("illustrative examples"))')
+          #
+          # The paragraph to count comes out of the *response*, not out of a
+          # literal pinned here: example.com rewrote its copy in July 2026 and
+          # this step then failed on every branch for a week, reporting a
+          # duplication bug when what had actually changed was somebody else's
+          # website. What ADR-020 asserts is that the body appears once, and
+          # that holds whatever the page happens to say.
+          count=$(printf '%s' "$body" | python3 -c '
+          import json, sys
+          markdown = json.load(sys.stdin)["markdown"]
+          paragraph = next(
+              (line for line in markdown.splitlines()
+               if len(line.strip()) > 30 and not line.startswith(("#", "[", "!"))),
+              "",
+          )
+          if not paragraph:
+              sys.exit("no body paragraph in the extracted Markdown")
+          print(markdown.count(paragraph))
+          ')
           [ "$count" = "1" ] || { echo "short-page body duplicated ($count copies)"; exit 1; }
 
       - name: Confirm the metrics surface reflects the work just done
