@@ -395,3 +395,125 @@ def test_the_engine_field_is_documented_in_the_openapi_schema(client):
     # The multipart body is emitted as its own component schema.
     form = schema["components"]["schemas"]["Body_convert_file"]["properties"]
     assert "engine" in form
+
+
+# --- Chapter splitting (ADR-030) --------------------------------------------
+# A chaptered document, small enough to convert instantly. The URL worker is
+# mocked in these, so what is under test is the endpoint's plumbing: the flag on
+# the way in, the two extra fields on the way out, and the counters.
+CHAPTERED = """# The Ledger
+
+## Contents
+
+Chapter 1: The Arrival ....... 3
+Chapter 2: The Ledger ........ 45
+Chapter 3: The Reckoning ..... 88
+
+## Chapter 1: The Arrival
+
+It began, as these things do, with a misplaced decimal point in a spreadsheet.
+The auditors arrived on a Tuesday and stayed until the following spring, and by
+then the office had learned to answer the telephone in a particular careful way.
+
+## Chapter 2: The Ledger
+
+Nobody in the office admitted to having touched the ledger that quarter.
+By the time anyone checked the archive the paper trail had gone entirely cold,
+which is the sort of thing that reads as carelessness and is almost never that.
+
+## Chapter 3: The Reckoning
+
+The report ran to nine hundred pages and named nobody at all.
+It was filed on a Friday afternoon and read, as far as anyone knows, by no one,
+and the decimal point stayed exactly where somebody had once decided to put it.
+"""
+
+
+def test_a_conversion_returns_no_chapters_unless_asked(client, monkeypatch):
+    # The split roughly doubles the response, so an existing client must see
+    # exactly the response it always saw (ADR-003: one contract, not a fork).
+    monkeypatch.setattr(main, "url_to_markdown", lambda url, engine=None: CHAPTERED)
+    body = client.post("/convert/url", json={"url": "https://example.com"}).json()
+
+    assert body["chapters"] is None
+    assert body["chapter_detection"] is None
+
+
+def test_a_url_conversion_can_ask_for_chapters(client, monkeypatch):
+    monkeypatch.setattr(main, "url_to_markdown", lambda url, engine=None: CHAPTERED)
+    body = client.post(
+        "/convert/url", json={"url": "https://example.com", "split_chapters": True}
+    ).json()
+
+    assert body["chapter_detection"] == "toc"
+    assert [chapter["title"] for chapter in body["chapters"]][1:] == [
+        "Chapter 1: The Arrival",
+        "Chapter 2: The Ledger",
+        "Chapter 3: The Reckoning",
+    ]
+    # The whole document is still returned; chapters are additional, not instead.
+    assert body["markdown"] == CHAPTERED
+
+
+def test_an_upload_can_ask_for_chapters(client, monkeypatch):
+    monkeypatch.setattr(main, "file_to_markdown", lambda data, name, engine=None: CHAPTERED)
+    resp = client.post(
+        "/convert/file",
+        files={"file": ("ledger.pdf", b"%PDF-1.4 stub", "application/pdf")},
+        data={"split_chapters": "true"},
+    )
+
+    assert resp.status_code == 200
+    chapters = resp.json()["chapters"]
+    assert len(chapters) == 4
+    # Each chapter arrives ready to be written to disk.
+    assert chapters[1]["filename"] == "01-chapter-1-the-arrival.md"
+    assert chapters[1]["length"] == len(chapters[1]["markdown"])
+    assert chapters[1]["level"] == 2
+
+
+def test_a_document_without_chapters_says_so_rather_than_inventing_them(client, monkeypatch):
+    monkeypatch.setattr(main, "url_to_markdown", lambda url, engine=None: "# An Article\n\nOne idea, told once.\n")
+    body = client.post(
+        "/convert/url", json={"url": "https://example.com", "split_chapters": True}
+    ).json()
+
+    assert body["chapters"] == []
+    assert body["chapter_detection"] == "none"
+
+
+def test_chapter_splits_are_counted_by_method(client, fresh_metrics, monkeypatch):
+    monkeypatch.setattr(main, "url_to_markdown", lambda url, engine=None: CHAPTERED)
+    client.post("/convert/url", json={"url": "https://example.com", "split_chapters": True})
+    client.post("/convert/url", json={"url": "https://example.com"})  # not requested
+
+    chapters = client.get("/metrics").json()["chapters"]
+    assert chapters["requested"] == 1
+    assert chapters["split"] == 1
+    assert chapters["sections"] == 4
+    assert chapters["by_method"] == {"toc": 1}
+
+
+def test_the_split_flag_is_documented_in_the_openapi_schema(client):
+    schema = client.get("/openapi.json").json()
+    assert "split_chapters" in schema["components"]["schemas"]["UrlRequest"]["properties"]
+    assert "split_chapters" in schema["components"]["schemas"]["Body_convert_file"]["properties"]
+    assert "chapters" in schema["components"]["schemas"]["MarkdownResponse"]["properties"]
+
+
+def test_a_failing_split_does_not_lose_the_conversion(client, fresh_metrics, monkeypatch):
+    # The document converted — possibly after a minute of docling. A bug in the
+    # chapter heuristics is not a reason to throw that away, but it must not be
+    # silent either: the caller is told, and the traceback is logged.
+    monkeypatch.setattr(main, "url_to_markdown", lambda url, engine=None: CHAPTERED)
+    monkeypatch.setattr(
+        main, "split_into_chapters", lambda markdown: (_ for _ in ()).throw(RuntimeError("boom"))
+    )
+    resp = client.post("/convert/url", json={"url": "https://example.com", "split_chapters": True})
+
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["markdown"] == CHAPTERED
+    assert body["chapters"] == []
+    assert body["chapter_detection"] == "error"
+    assert client.get("/metrics").json()["chapters"]["by_method"] == {"error": 1}

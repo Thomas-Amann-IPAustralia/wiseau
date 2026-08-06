@@ -88,7 +88,8 @@ wiseau/
 │   │   ├── file_parser.py  # engine select: PyMuPDF/Mammoth default, docling opt-in
 │   │   ├── docling_client.py  # [Phase 6] thin HTTP client to docling-serve
 │   │   ├── ocr.py          # pluggable OCR engines (Tesseract / EasyOCR)
-│   │   └── cleaner.py      # regex/Unicode normalization (always runs)
+│   │   ├── cleaner.py      # regex/Unicode normalization (always runs)
+│   │   └── chapters.py     # split converted Markdown into chapters (ADR-030)
 │   ├── Dockerfile          # version-locks Chromium + Python
 │   └── requirements.txt
 ├── docling/                # [Phase 6] docling-serve converter — HF Space #2
@@ -99,6 +100,7 @@ wiseau/
     ├── style.css
     ├── app.js              # state + fetch calls, engine picker, progress estimate
     ├── markdown.js         # dependency-free renderer behind the Preview mode
+    ├── zip.js              # dependency-free ZIP writer (chapter downloads)
     ├── favicon.svg         # site icon
     └── config.js           # per-deployment: MARKDOWN_API_BASE
 ```
@@ -164,6 +166,12 @@ WISEAU_LIVE_BROWSER=1 pytest    # also runs the opt-in live-Chromium tests
   document parser slots into the engine-selection layer and must fall back cleanly
   when docling is unavailable — never make the service hard-depend on the docling
   Space.
+- **A heuristic says how sure it is, and refuses rather than guesses (ADR-030).**
+  Chapter detection is the first feature here that *infers* structure rather than
+  extracting it. It reports which signal fired (`chapter_detection`), its output
+  partitions the document so a wrong boundary can never lose text, and it returns
+  `none` when the result looks implausible. Anything similar added later should
+  keep those three properties.
 - **All extracted output flows through `cleaner.clean_markdown()`.** Don't return
   Markdown from any parser (docling included) without running it through the shared
   normalizer.

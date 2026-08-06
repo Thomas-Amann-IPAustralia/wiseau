@@ -35,6 +35,7 @@ from parsers import (
     default_engine,
     file_to_markdown,
     resolve_engine,
+    split_into_chapters,
     url_to_markdown,
 )
 
@@ -148,7 +149,7 @@ app = FastAPI(
         "Deterministic conversion of web URLs, PDFs, and DOCX documents into "
         "clean, structured Markdown. Designed for both human UIs and LLM/MCP agents."
     ),
-    version="0.8.0",
+    version="0.9.0",
     lifespan=_lifespan,
 )
 
@@ -287,15 +288,57 @@ _ENGINE_DESCRIPTION = (
 )
 
 
+_SPLIT_DESCRIPTION = (
+    "Also return the document split into chapters, for saving each one as its own "
+    "file (ADR-030). Chapters are found from the document's own contents page "
+    "where it has one, otherwise from its heading structure. Off by default: it "
+    "roughly doubles the response size, and most documents have no chapters. When "
+    "no chapter structure is found the document is returned whole and "
+    "`chapter_detection` is 'none'."
+)
+
+
 class UrlRequest(BaseModel):
     url: HttpUrl
     engine: str | None = Field(default=None, description=_ENGINE_DESCRIPTION)
+    split_chapters: bool = Field(default=False, description=_SPLIT_DESCRIPTION)
+
+
+class ChapterModel(BaseModel):
+    """One chapter of a split document — the shape a caller writes to a file."""
+
+    title: str = Field(description="The chapter's title, as the document gives it.")
+    level: int = Field(
+        description="Heading depth of the chapter's opening (1-6); 0 for the "
+        "material that precedes the first chapter, such as a title or contents page."
+    )
+    filename: str = Field(
+        description="Suggested filename, numbered so the chapters sort in reading "
+        "order (e.g. '03-the-reckoning.md')."
+    )
+    markdown: str
+    length: int
 
 
 class MarkdownResponse(BaseModel):
     source: str
     markdown: str
     length: int
+    # Both are null unless `split_chapters` was requested, so an existing client
+    # sees exactly the response it saw before (ADR-003: one contract, not a fork).
+    chapters: list[ChapterModel] | None = Field(
+        default=None,
+        description="The document as an ordered list of chapters. Concatenating "
+        "them reproduces `markdown`; nothing is dropped or duplicated. Null when "
+        "the split was not requested, empty when nothing chapter-like was found.",
+    )
+    chapter_detection: str | None = Field(
+        default=None,
+        description="Which signal produced the chapters: 'toc' (the document's "
+        "contents page), 'headings', 'markers' (plain-text 'Chapter N' lines), "
+        "'none' (no chapter structure found), or 'error' (the split failed; the "
+        "conversion itself succeeded). Null when the split was not requested.",
+    )
 
 
 def _resolve_engine_or_400(requested: str | None) -> str | None:
@@ -309,6 +352,44 @@ def _resolve_engine_or_400(requested: str | None) -> str | None:
         return resolve_engine(requested)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+async def _split_or_none(markdown: str, requested: bool) -> tuple[list[ChapterModel] | None, str | None]:
+    """Split converted Markdown into chapters, when the caller asked for it.
+
+    Runs off the event loop: the split is pure text work, but a book-sized
+    document is a lot of text and the loop has other requests to serve. Called
+    from inside the job slot, so it queues behind the same concurrency ceiling as
+    the conversion itself (invariant #4). Returns `(None, None)` when the split
+    was not requested, so the response is byte-for-byte what it has always been
+    for callers that know nothing about chapters.
+
+    A failure here does **not** fail the conversion. The document converted
+    successfully — often after a minute of docling — and chapter detection is an
+    extra on top of it, so a bug in the heuristics reports itself
+    (`chapter_detection: "error"`, plus a logged traceback and a counted method)
+    rather than throwing away a result the caller can use.
+    """
+    if not requested:
+        return None, None
+    try:
+        split = await asyncio.to_thread(split_into_chapters, markdown)
+    except Exception:  # noqa: BLE001 - never lose a good conversion to this
+        metrics.record_chapter_split("error", 0)
+        logger.exception("chapter splitting failed; returning the document whole")
+        return [], "error"
+    metrics.record_chapter_split(split.method, len(split.chapters))
+    chapters = [
+        ChapterModel(
+            title=chapter.title,
+            level=chapter.level,
+            filename=chapter.filename,
+            markdown=chapter.markdown,
+            length=chapter.length,
+        )
+        for chapter in split.chapters
+    ]
+    return chapters, split.method
 
 
 # --- Upload handling --------------------------------------------------------
@@ -408,8 +489,15 @@ async def convert_url(request: Request, body: UrlRequest) -> MarkdownResponse:
             metrics.record_conversion("url", "error")
             logger.exception("URL conversion failed for %s", url)
             raise HTTPException(status_code=502, detail=f"Failed to convert URL: {exc}") from exc
+        chapters, detection = await _split_or_none(markdown, body.split_chapters)
     metrics.record_conversion("url", "ok")
-    return MarkdownResponse(source=url, markdown=markdown, length=len(markdown))
+    return MarkdownResponse(
+        source=url,
+        markdown=markdown,
+        length=len(markdown),
+        chapters=chapters,
+        chapter_detection=detection,
+    )
 
 
 @app.post(
@@ -424,6 +512,7 @@ async def convert_file(
     request: Request,
     file: UploadFile = File(...),
     engine: str | None = Form(default=None, description=_ENGINE_DESCRIPTION),
+    split_chapters: bool = Form(default=False, description=_SPLIT_DESCRIPTION),
 ) -> MarkdownResponse:
     """Parse an uploaded PDF or DOCX into Markdown."""
     resolved_engine = _resolve_engine_or_400(engine)
@@ -443,8 +532,15 @@ async def convert_file(
             metrics.record_conversion("file", "error")
             logger.exception("File conversion failed for %s", file.filename)
             raise HTTPException(status_code=502, detail=f"Failed to convert file: {exc}") from exc
+        chapters, detection = await _split_or_none(markdown, split_chapters)
     metrics.record_conversion("file", "ok")
-    return MarkdownResponse(source=file.filename or "upload", markdown=markdown, length=len(markdown))
+    return MarkdownResponse(
+        source=file.filename or "upload",
+        markdown=markdown,
+        length=len(markdown),
+        chapters=chapters,
+        chapter_detection=detection,
+    )
 
 
 if __name__ == "__main__":

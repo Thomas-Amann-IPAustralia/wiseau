@@ -38,6 +38,12 @@ const el = {
   convertFileBtn: document.getElementById("convert-file-btn"),
   engineInputs: document.querySelectorAll("input[name='engine']"),
   engineAutoHint: document.getElementById("engine-auto-hint"),
+  splitChapters: document.getElementById("split-chapters"),
+  chapters: document.getElementById("chapters"),
+  chaptersList: document.getElementById("chapters-list"),
+  chaptersMeta: document.getElementById("chapters-meta"),
+  chaptersAllBtn: document.getElementById("chapters-all-btn"),
+  chaptersZipBtn: document.getElementById("chapters-zip-btn"),
   progress: document.getElementById("progress"),
   progressFill: document.getElementById("progress-fill"),
   progressLabel: document.getElementById("progress-label"),
@@ -63,6 +69,7 @@ let serverDefaultEngine = "pymupdf";
 let lastMarkdown = "";
 let lastSource = "";
 let currentView = "preview";
+let lastChapters = [];
 
 // --- Tab switching -----------------------------------------------------------
 el.tabs.forEach((tab) => {
@@ -108,6 +115,11 @@ function setBadge(state, text) {
 function selectedEngine() {
   const chosen = Array.from(el.engineInputs).find((input) => input.checked);
   return chosen ? chosen.value : "auto";
+}
+
+/** Whether to ask the backend for the document split into chapters (ADR-030). */
+function wantsChapters() {
+  return Boolean(el.splitChapters && el.splitChapters.checked);
 }
 
 // --- Progress approximation --------------------------------------------------
@@ -189,8 +201,20 @@ function showMarkdown(markdown, meta, source) {
   el.downloadBtn.disabled = !markdown;
 }
 
+/** The output panel's caption: size, and what the chapter split found. */
+function metaFor(data) {
+  const parts = [`${(data.length || 0).toLocaleString()} chars`];
+  if (data.chapters && data.chapters.length) {
+    parts.push(`${data.chapters.length} chapters`);
+  } else if (data.chapter_detection === "none") {
+    parts.push("no chapters detected");
+  }
+  return parts.join(" · ");
+}
+
 function showError(message) {
   lastMarkdown = "";
+  clearChapters();
   el.output.classList.add("is-error");
   el.outputPreview.classList.add("is-error");
   el.output.textContent = `⚠ ${message}`;
@@ -213,6 +237,118 @@ async function parseResponse(res) {
   }
   return payload;
 }
+
+// --- Chapters ----------------------------------------------------------------
+// How the backend found the chapters, said plainly: a split taken from the
+// document's own contents page deserves more trust than one guessed from
+// headings, and the panel should let the reader judge before saving 30 files.
+const DETECTION_LABEL = {
+  toc: "found on the document's contents page",
+  headings: "found from the document's headings",
+  markers: "found from “Chapter N” lines in the text",
+};
+
+// The whole document, kept aside so that viewing one chapter is reversible.
+let documentView = { markdown: "", meta: "", source: "" };
+
+function clearChapters() {
+  lastChapters = [];
+  el.chaptersList.replaceChildren();
+  el.chapters.hidden = true;
+}
+
+function showChapters(data) {
+  clearChapters();
+  lastChapters = Array.isArray(data.chapters) ? data.chapters : [];
+  if (!lastChapters.length) return;
+
+  el.chaptersMeta.textContent = DETECTION_LABEL[data.chapter_detection] || "";
+  el.chaptersList.append(...lastChapters.map(chapterRow));
+  el.chapters.hidden = false;
+}
+
+/**
+ * One row of the chapter list.
+ * Built as DOM nodes rather than markup: a chapter title is text lifted out of
+ * an arbitrary document, so it is only ever assigned as `textContent`.
+ */
+function chapterRow(chapter, index) {
+  const item = document.createElement("li");
+  item.className = "chapter";
+
+  const title = document.createElement("span");
+  title.className = "chapter__title";
+  title.textContent = chapter.title;
+
+  const filename = document.createElement("code");
+  filename.className = "chapter__file";
+  filename.textContent = chapter.filename;
+
+  const size = document.createElement("span");
+  size.className = "chapter__size";
+  size.textContent = `${chapter.length.toLocaleString()} chars`;
+
+  const view = document.createElement("button");
+  view.className = "btn btn--ghost btn--small";
+  view.textContent = "View";
+  view.addEventListener("click", () => viewChapter(index));
+
+  const save = document.createElement("button");
+  save.className = "btn btn--ghost btn--small";
+  save.textContent = "Save";
+  save.addEventListener("click", () => saveText(chapter.markdown, chapter.filename));
+
+  const text = document.createElement("span");
+  text.className = "chapter__text";
+  text.append(title, filename);
+
+  const actions = document.createElement("span");
+  actions.className = "chapter__actions";
+  actions.append(size, view, save);
+  item.append(text, actions);
+  return item;
+}
+
+/** Show a finished conversion: the document, then its chapters if there are any. */
+function showConverted(data, fallbackSource) {
+  documentView = {
+    markdown: data.markdown,
+    meta: metaFor(data),
+    source: data.source || fallbackSource,
+  };
+  showMarkdown(documentView.markdown, documentView.meta, documentView.source);
+  showChapters(data);
+}
+
+/** Show one chapter in the output panel; Copy and Download then act on it. */
+function viewChapter(index) {
+  const chapter = lastChapters[index];
+  if (!chapter) return;
+  showMarkdown(chapter.markdown, `${chapter.length.toLocaleString()} chars · ${chapter.filename}`, chapter.title);
+  markActiveChapter(index);
+}
+
+function showWholeDocument() {
+  showMarkdown(documentView.markdown, documentView.meta, documentView.source);
+  markActiveChapter(-1);
+}
+
+function markActiveChapter(index) {
+  Array.from(el.chaptersList.children).forEach((row, position) =>
+    row.classList.toggle("chapter--active", position === index)
+  );
+}
+
+el.chaptersAllBtn.addEventListener("click", showWholeDocument);
+
+el.chaptersZipBtn.addEventListener("click", () => {
+  if (!lastChapters.length) return;
+  const archive = window.wiseauZip.build(
+    lastChapters.map((chapter) => ({ name: chapter.filename, content: chapter.markdown }))
+  );
+  const stem = filenameFor(titleFor(documentView.markdown, documentView.source)).replace(/\.md$/i, "");
+  saveBlob(archive, `${stem}-chapters.zip`);
+});
 
 // --- View toggle (rendered vs raw) -------------------------------------------
 el.viewButtons.forEach((button) => {
@@ -239,10 +375,10 @@ el.convertUrlBtn.addEventListener("click", async () => {
     const res = await fetch(`${API_BASE}/convert/url`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ url, engine }),
+      body: JSON.stringify({ url, engine, split_chapters: wantsChapters() }),
     });
     const data = await parseResponse(res);
-    showMarkdown(data.markdown, `${data.length.toLocaleString()} chars`, data.source || url);
+    showConverted(data, url);
   } catch (err) {
     showError(err.message);
   } finally {
@@ -285,9 +421,10 @@ el.convertFileBtn.addEventListener("click", async () => {
     const form = new FormData();
     form.append("file", selectedFile);
     form.append("engine", engine);
+    form.append("split_chapters", String(wantsChapters()));
     const res = await fetch(`${API_BASE}/convert/file`, { method: "POST", body: form });
     const data = await parseResponse(res);
-    showMarkdown(data.markdown, `${data.length.toLocaleString()} chars`, data.source || selectedFile.name);
+    showConverted(data, selectedFile.name);
   } catch (err) {
     showError(err.message);
   } finally {
@@ -305,14 +442,19 @@ el.copyBtn.addEventListener("click", async () => {
 });
 
 // --- Download (title-first) --------------------------------------------------
-/** The document's own title: first `#`, else first `##`, else the source name. */
-function suggestedTitle() {
-  const heading = window.wiseauMarkdown.firstHeading(lastMarkdown);
+/** A document's own title: first `#`, else first `##`, else its source name. */
+function titleFor(markdown, source) {
+  const heading = window.wiseauMarkdown.firstHeading(markdown);
   if (heading) return heading;
-  if (!lastSource) return "converted";
-  const trimmed = lastSource.replace(/[?#].*$/, "").replace(/\/+$/, "");
+  if (!source) return "converted";
+  const trimmed = source.replace(/[?#].*$/, "").replace(/\/+$/, "");
   const tail = trimmed.split("/").pop() || trimmed;
   return tail.replace(/\.[a-z0-9]{1,5}$/i, "") || "converted";
+}
+
+/** The title of whatever the output panel is currently showing. */
+function suggestedTitle() {
+  return titleFor(lastMarkdown, lastSource);
 }
 
 /** Turn a human title into a filename that every OS will accept. */
@@ -330,13 +472,20 @@ function filenameFor(title) {
   return /\.md$/i.test(stem) ? stem : `${stem}.md`;
 }
 
-function saveMarkdown(filename) {
-  const blob = new Blob([lastMarkdown], { type: "text/markdown" });
+function saveBlob(blob, filename) {
   const link = document.createElement("a");
   link.href = URL.createObjectURL(blob);
   link.download = filename;
   link.click();
   URL.revokeObjectURL(link.href);
+}
+
+function saveText(text, filename) {
+  saveBlob(new Blob([text], { type: "text/markdown" }), filename);
+}
+
+function saveMarkdown(filename) {
+  saveText(lastMarkdown, filename);
 }
 
 el.downloadTitle.addEventListener("input", () => {

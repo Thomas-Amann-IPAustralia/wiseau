@@ -5,9 +5,66 @@
 > session. Keep it honest — "scaffolded but untested" is more useful than a
 > green checkmark that lies.
 
-**Last updated:** 2026-07-30
-**Updated by:** Claude Code (Phase 9: one deployable service any LLM can connect to)
-**Build note (2026-07-30):** **The backend now serves the MCP endpoint itself, so
+**Last updated:** 2026-08-06
+**Updated by:** Claude Code (Phase 10: one file per chapter)
+**Build note (2026-08-06):** **A long document can now be saved as one file per
+chapter — ADR-030.** The ask: *"if the user uploads a long PDF they may want it
+separated into its distinct chapters; let them save each chapter as a separate
+file."* The interesting part was not the splitting but **what marks a chapter**,
+because extraction flattens exactly the signals a human reads: an 18pt chapter
+opening becomes `###`, or `**bold**`, or — in a scan — a plain line no different
+from body text. Heading structure alone splits a report at its sub-sections and
+misses a single-font novel entirely. The user's own hint was the way through: *a
+document with chapters almost certainly has a contents page*, and that page
+survives extraction well.
+
+*What was built.* `backend/parsers/chapters.py` splits **converted** Markdown
+(post-`clean_markdown`, so it is engine-independent) with a cascade — the
+**contents page**, then **heading structure**, then plain-text **"Chapter N"
+markers**, then **nothing**. Details worth not re-deriving:
+- **The contents page is matched forward.** Entries are parsed (dot leaders,
+  tables, links, bare lists), the shallowest depth is taken as the chapter level,
+  and each entry is then found again *below* the block, each match after the
+  previous one. It is believed only at **≥50% coverage**. That single rule is what
+  rejects a **back-of-book index** — its entries never reappear in order.
+- **Exact-title lookup over every short line**, not just headings, because a
+  single-font PDF's chapter openings carry no markup at all; fuzzy matching stays
+  restricted to heading-like lines so it cannot run away.
+- **The chapters partition the document.** Concatenation reproduces the input, so
+  a wrong boundary can misplace text but never lose it. Front matter (title page
+  + contents) is its own leading file unless it is a bare title line.
+- **It refuses rather than guesses.** A result that looks like fragments (median
+  chapter < 200 chars) comes back as `none`, and `chapter_detection` always says
+  which signal fired, so a caller can weigh `toc` against `headings`. A *failure*
+  in the splitter reports `error` and returns the document intact — the
+  conversion is what the caller paid for; a heuristic bug must not cost it.
+- **Opt-in** (`split_chapters`, default false, on both convert endpoints and both
+  MCP tools): it roughly doubles the response and most documents have no chapters.
+  `chapters`/`chapter_detection` are `null` unless asked for, so an existing client
+  sees an unchanged response. API `0.8.0 → 0.9.0`.
+- **The UI** gets a *Split into chapters* checkbox and a panel listing every
+  chapter with its filename, size, and what found it — **View** one, **Save** one,
+  or **Download all (.zip)**. The archive is built in the browser by a new
+  dependency-free `frontend/zip.js` (stored entries, fixed 1980 timestamp ⇒
+  byte-identical archives), keeping ADR-004's no-build-step rule.
+- **`GET /metrics` counts splits by method**, because a heuristic that quietly
+  stops finding anything looks exactly like nobody asking.
+
+*Verified.* Suite **241 → 282 pass + 7 skipped** (+41, run here). Beyond the unit
+suite: a generated **26-page book PDF** (title page, contents page with dot
+leaders, 8 chapters over 24 pages) through a real uvicorn — 9 chapters via `toc`,
+the partition lossless, byte-identical across two requests, `/metrics` counting
+`{"toc": 2}`; the same file through the **MCP tool** against that live backend;
+and the **real UI against that real backend** in headless Chromium, where the
+downloaded ZIP passes `unzip -t` and every entry is byte-identical to the API's
+chapter. Plus 25 UI checks against a stub (the flag on the wire in both request
+shapes, the panel, View/Save/Whole-document, a `<script>`-shaped chapter title
+rendered as text, and the "no chapters detected" case). *Not* verified: real-world
+scanned government PDFs — the heuristics are tuned on generated and hand-written
+fixtures, and `/metrics`'s `by_method` is the thing to check against real
+documents.
+
+**The previous build note stands (2026-07-30):** **The backend now serves the MCP endpoint itself, so
 one free container is the whole product — ADR-029.** The ask was "make it so any
 LLM can use wiseau, cheaply, and tell me click by click how". ADR-028 had made a
 hosted connector *possible* but only as a **second process on a second port**,
@@ -284,7 +341,7 @@ accounts/credentials rather than code. See ADR-011.
 
 | Area | State | Notes |
 | ---- | ----- | ----- |
-| Backend API (Phase 1) | 🟢 Verified (browser-free) | Routes, CORS, rate limiting, concurrency ceiling written; app imports cleanly; `/ping`, `/convert/file` (real PDF), `/convert/url` (mocked driver) verified via `TestClient`. Rate limiting enforced on undecorated routes (`SlowAPIMiddleware`) and uploads size-checked while streaming; both verified through a real uvicorn. Both convert endpoints now take an optional **`engine`** (ADR-025) and `/ping` advertises the accepted names **and the deployment's `default_engine`** (ADR-027). API `v0.7.0`. |
+| Backend API (Phase 1) | 🟢 Verified (browser-free) | Routes, CORS, rate limiting, concurrency ceiling written; app imports cleanly; `/ping`, `/convert/file` (real PDF), `/convert/url` (mocked driver) verified via `TestClient`. Rate limiting enforced on undecorated routes (`SlowAPIMiddleware`) and uploads size-checked while streaming; both verified through a real uvicorn. Both convert endpoints now take an optional **`engine`** (ADR-025) and `/ping` advertises the accepted names **and the deployment's `default_engine`** (ADR-027). Both also take **`split_chapters`** (ADR-030), returning the document as per-chapter files. API `v0.9.0`. |
 | Scraper / extraction (Phase 2) | 🟢 Verified (incl. external URLs) | Live headless-Chrome render → Trafilatura → cleaner proven end-to-end and codified as an opt-in test; DOCX-body path covered. Fetching arbitrary **external** URLs now proven inside the Docker container (example.com, Wikipedia — deterministic across runs); ADR-011. **Direct-PDF links** now convert as documents rather than yielding the empty PDF viewer — verified live (ADR-017). **Short pages no longer come back with a duplicated body** (ADR-020), verified live before/after. |
 | OCR (scanned/handwritten) | 🟢 Verified | Image-only PDF pages + image uploads OCR'd; per-page detection assembles mixed PDFs in order. Default MuPDF-Tesseract (deterministic, in the image); opt-in neural EasyOCR for handwriting. Deterministic by pinning `pymupdf4llm` legacy mode + driving MuPDF's OCR primitive directly (ADR-012). 13 tests + HTTP round-trip verified; API `v0.3.0`. |
 | Frontend UI (Phase 3) | 🟢 Verified | Full static UI driven end-to-end with headless Chromium: status badge, URL + PDF + DOCX conversion, copy/download and error states (18/18 checks, ADR-008), plus the **Phase 7** surface — engine picker, approximated progress bar, Preview/Raw viewer, title-first download dialog, favicon (33/33 checks against a stub backend + a live-backend DOCX run). Still no build step and no third-party script (ADR-026). |
@@ -293,9 +350,10 @@ accounts/credentials rather than code. See ADR-011.
 | Containerization & deploy (Phase 5) | 🟡 Image proven + deploy prepared, not deployed | Image **builds and runs**: Chromium 150 launches in-container, a live external URL renders end-to-end + deterministically (ADR-011). Both deployments are now prepared in-repo — HF Space card frontmatter on `backend/README.md`, a Pages workflow for `frontend/` (ADR-023) — so what remains is account work only. Nothing deployed to Hugging Face / GitHub Pages yet. |
 | Fast by default (Phase 8) | 🟢 Verified | `WISEAU_PDF_ENGINE` defaults to `pymupdf`; docling is chosen per deployment or per request, fallback unchanged. `/ping` reports `default_engine`; API `v0.7.0`. UI leads with *Fastest* and reads *Auto* off `/ping`. ADR-027; tech-spec §1/§2/§11/§14. Verified by 6 new tests, a live uvicorn run (no docling attempt by default; explicit `engine=docling` still falls back), and the UI in headless Chromium. |
 | Usability (Phase 7) | 🟢 Verified | Per-request engine choice end-to-end (API + MCP + UI), the approximated loading bar, the Preview/Raw viewer, the title-first download dialog, the favicon, and the base64-image fix. ADR-024/025/026; tech-spec §14. Verified in a real browser; the docling half of the engine choice is still only exercised against mocks (no Space). |
+| Chapter splitting (Phase 10) | 🟢 Verified | `parsers/chapters.py` splits converted Markdown into per-chapter files — contents page first, then headings, then plain-text markers, then `none`. Opt-in via `split_chapters` on both convert endpoints and both MCP tools; each chapter carries a numbered filename. UI: a chapter panel with per-chapter view/save and a browser-built ZIP (`frontend/zip.js`). `/metrics` counts splits by method. ADR-030; tech-spec §15. Verified by 41 tests, a real 26-page book PDF through a live uvicorn (lossless + deterministic), the MCP tool against that backend, and the real UI in headless Chromium (the downloaded ZIP validates and matches the API byte for byte). |
 | Higher-fidelity extraction (Phase 6) | 🟡 Code complete, not deployed | docling client + engine selection with automatic fallback (ADR-014/016) — **opt-in since ADR-027, not the default**; plus **direct-PDF URL routing** (ADR-017, verified live) and the **docling Space image** `docling/Dockerfile` (ADR-018, digest-pinned but **never built**). Left: deploy Space #2 and verify against a live docling-serve. Fidelity outranks strict determinism *where it is asked for* (ADR-013 as amended by ADR-027). |
-| Observability | 🟢 Verified | Structured JSON logs (one access line per request + `X-Request-ID`), `GET /metrics` with request/job timings, peak concurrency, RSS, and **engine attribution** (docling vs the fallback parsers, with typed fallback reasons). Stdlib-only, no new runtime dep. Verified live, incl. a real docling fallback and a real docling success over a socket. ADR-019, tech-spec §12. |
-| Automated tests | 🟢 Passing | **241 pass + 7 skipped** in default (browserless) runs (this sandbox, verified directly; the 7th skip is local only — no `tesseract` installed here). +28 this session (the hosted MCP endpoint: path normalisation, Host-header
+| Observability | 🟢 Verified | Structured JSON logs (one access line per request + `X-Request-ID`), `GET /metrics` with request/job timings, peak concurrency, RSS, **chapter splits by method** (ADR-030), and **engine attribution** (docling vs the fallback parsers, with typed fallback reasons). Stdlib-only, no new runtime dep. Verified live, incl. a real docling fallback and a real docling success over a socket. ADR-019, tech-spec §12. |
+| Automated tests | 🟢 Passing | **282 pass + 7 skipped** in default (browserless) runs (this sandbox, verified directly; the 7th skip is local only — no `tesseract` installed here). +41 this session (chapter detection: 30 document-shaped unit tests in `test_chapters.py` covering every signal and every must-not-split case, 6 API tests, 4 MCP tests, 1 metrics test). Previously +28 (the hosted MCP endpoint: path normalisation, Host-header
 policy, the loopback base URL following `$PORT`, the mount switch, degrading
 without the SDK, the rate-limiter naming shim, `/ping`'s `mcp_endpoint`, `/mcp`'s
 absence from the OpenAPI schema, and a real `initialize` + `tools/list` handshake
@@ -323,7 +381,10 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   routes accept an optional `engine` (`docling`/`pymupdf`/`auto`), validated here
   so an unknown name is a 400 (ADR-025); `/ping` lists the accepted names **and
   `default_engine`**, the engine `auto` resolves to on this deployment (ADR-027),
-  **and `mcp_endpoint`** (ADR-029). Also serves the **MCP endpoint** at
+  **and `mcp_endpoint`** (ADR-029). Both convert routes also take
+  **`split_chapters`** (ADR-030): with it set, the response carries the document
+  split into chapters, each with a numbered filename, alongside the whole
+  Markdown. Also serves the **MCP endpoint** at
   `POST /mcp`: `mcp_server`'s streamable-HTTP route grafted onto this app (not
   mounted — a mount would 307 the exact `/mcp` a connector is given) with its
   session manager driven from the app lifespan, so one container is both the REST
@@ -382,6 +443,15 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   deterministic), opt-in EasyOCR (neural, handwriting; `WISEAU_OCR_ENGINE=easyocr`).
 - `parsers/cleaner.py` — deterministic Unicode/whitespace/typography normalizer;
   also elides base64 data-URI payloads, keeping the media type (ADR-024).
+- `parsers/chapters.py` *(Phase 10)* — chapter detection over **converted**
+  Markdown, so it is engine-independent. Cascade: the document's **contents
+  page** (entries parsed from dot leaders / tables / links / lists, then matched
+  *forward* into the body and believed only at ≥50% coverage — the rule that
+  rejects a back-of-book index), then **heading structure** (shallowest repeated
+  level, unless a deeper one visibly reads as chapters), then plain-text
+  **"Chapter N"** lines, then **`none`**. Returns each chapter with a title,
+  level, Markdown, and a zero-padded filename; the chapters partition the
+  document. Stdlib only (`re` + `difflib`), deterministic, no new dependency.
 - `Dockerfile` — Python 3.11-slim + system Chromium/chromedriver, non-root user.
 - `requirements.txt` — direct dependencies **version-pinned** to verified
   releases; `requirements-dev.txt` — `pytest` + `httpx` for the suite.
@@ -389,9 +459,10 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   `test_cleaner.py`, `test_file_parser.py` (incl. Phase-6 engine selection),
   `test_docling_client.py`, `test_url_parser.py` (direct-PDF routing over a faked
   driver), `test_api.py`, `test_mcp_server.py`, `test_monitor.py`, `test_ocr.py`,
-  `test_ocr_engine.py`, `test_observability.py`, and the opt-in
-  `test_browser_live.py` (now also covering a loopback-served PDF URL) — 147 pass
-  + 5 skipped in browserless runs.
+  `test_ocr_engine.py`, `test_observability.py`, **`test_chapters.py`** (30
+  document-shaped tests for chapter detection), and the opt-in
+  `test_browser_live.py` (also covering a loopback-served PDF URL) — 282 pass
+  + 7 skipped in browserless runs.
 
 **CI** (`.github/`)
 - `workflows/backend-tests.yml` — two jobs on any `backend/**` change:
@@ -423,11 +494,16 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   badge, **engine picker** (Auto / Highest fidelity / Fastest, with docling's cost
   stated), **approximated progress bar** (client-side estimate from source type,
   file size, and engine — the API has no progress channel), **Preview/Raw**
-  output views, copy, and a **download dialog** pre-filled from the document's
-  first `#`/`##` heading. Light/dark aware, no build step.
+  output views, copy, a **download dialog** pre-filled from the document's
+  first `#`/`##` heading, and the **chapter panel** (ADR-030): a *Split into
+  chapters* checkbox, a list of the chapters with filenames and what found them,
+  per-chapter *View*/*Save*, and *Download all (.zip)*. Light/dark aware, no
+  build step.
 - `markdown.js` — the ~200-line dependency-free renderer behind Preview.
   Escape-first (converted content is untrusted), restricted link schemes, and a
   placeholder chip for `data:` images.
+- `zip.js` — a ~140-line dependency-free ZIP writer (stored entries, fixed
+  1980 timestamp ⇒ byte-identical archives) behind *Download all (.zip)*.
 - `favicon.svg` — site icon, linked from `index.html`.
 - `config.js` — single per-deployment knob `MARKDOWN_API_BASE` (default
   `http://localhost:7860`).
@@ -438,6 +514,20 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
 
 ## Known gaps / not yet proven
 
+- **Chapter detection has never met a real-world document.** The heuristics
+  (ADR-030) are verified against generated PDFs and hand-written fixtures — a
+  contents page with dot leaders, one rendered as a table, one of links, one that
+  lost its heading, chapter openings with no markup — and against the cases that
+  must *not* split (an article, a back-of-book index, a code fence, a page of
+  fragments). What no session has tried is the documents this project actually
+  cares about: a scanned government PDF, a multi-column report, a real book.
+  `GET /metrics`'s `chapters.by_method` is the fastest read on whether `toc` is
+  carrying them or everything falls through to `none`. Known limits, from the
+  design rather than from a failure: a contents page worded differently from the
+  body headings loses coverage and drops to the heading path; running page
+  headers can match a chapter a page early; and the *marker* path only knows
+  Latin-script "Chapter/Part/Appendix" vocabulary (the contents-page path is
+  language-agnostic, since it matches the document's own titles).
 - **No deployment** — no live Hugging Face Space, no GitHub Pages activation,
   so `MARKDOWN_API_BASE` still points at localhost. The container is *proven
   deploy-ready* (ADR-011) and both deployments are now prepared in-repo
@@ -491,9 +581,9 @@ URLs, which used to convert to an empty PDF-viewer shell (ADR-017).*
 ## Suggested next actions (see `docs/roadmap.md` for the full backlog)
 
 **Phase 6 has no code left in it, the cross-cutting backlog's code items are done,
-Phase 7 (the usability pass — ADR-024/025/026) and Phase 8 (fast by default —
-ADR-027) are finished and verified, and both deployments are prepared in-repo
-(ADR-023).**
+Phase 7 (the usability pass — ADR-024/025/026), Phase 8 (fast by default —
+ADR-027) and Phase 10 (chapter splitting — ADR-030) are finished and verified,
+and both deployments are prepared in-repo (ADR-023).**
 Everything remaining in both open tracks needs something this chain of sessions
 hasn't had: a Docker daemon with a few GB of pull budget, or external accounts. Once deployed, `GET /metrics` is the fastest way to check the docling
 half is actually working (`engines.docling` vs `engines.pymupdf`).
@@ -513,7 +603,17 @@ this is the one thing that has never been proven end-to-end.
    of the guide most likely to have drifted.
 4. Set the cost guards in §6 before leaving it running.
 
-**B. Phase 6 — build and deploy the docling Space (ADR-015/018).**
+**B. Phase 10 — check chapter detection against real documents.** No code is
+outstanding, but the heuristics have only ever seen fixtures. Split a real
+scanned or government PDF with `split_chapters=true`, read `chapter_detection`,
+and compare `/metrics`'s `chapters.by_method` against what those documents
+actually are. The dials are `_MIN_TOC_MATCH_RATIO` and
+`_MIN_MEDIAN_CHAPTER_CHARS` in `parsers/chapters.py`; a new document *shape*
+belongs in `tests/test_chapters.py` as a fixture, not as a tweak. Worth pairing
+with a docling conversion of the same file, since a higher-fidelity contents page
+should make the `toc` path fire more often.
+
+**C. Phase 6 — build and deploy the docling Space (ADR-015/018).**
 1. **Build `docling/Dockerfile`** (`docker build -t wiseau-docling docling/`) and
    boot it: `/health` must answer, and a `POST /v1/convert/file` with
    `to_formats=md` must return `document.md_content`. This is the first real test
@@ -530,7 +630,7 @@ this is the one thing that has never been proven end-to-end.
    a `falling back` line in the log). While you are there, confirm real docling
    honours `image_export_mode=placeholder` and returns no data URIs (ADR-024).
 
-**C. Phase 5 — the frontend half of deployment.** Nothing here needs a commit any more (ADR-023) — only accounts and
+**D. Phase 5 — the frontend half of deployment.** Nothing here needs a commit any more (ADR-023) — only accounts and
 settings:
 1. Deploy the backend to a Hugging Face Space (free CPU tier): create a **Docker**
    Space and push the *contents of* `backend/` to its repo root (the Space card is
@@ -550,6 +650,63 @@ settings:
 Newest first. One short entry per working session — what changed and what the
 next instance should know.
 
+- **2026-08-06 — Phase 10: one file per chapter (ADR-030).** The ask: *"a long
+  PDF should be separable into its distinct chapters, saved as separate files —
+  use whatever NLP or heuristics you need; if it has chapters it probably has a
+  contents page too."* That last clause was the design. **The hard part is not
+  splitting, it is knowing what a chapter is:** extraction flattens the very
+  signals a human reads — an 18pt chapter opening becomes `###`, or `**bold**`,
+  or (in a scan) a plain line identical to body text — so heading structure alone
+  splits a report at its sub-sections and misses a single-font novel completely.
+  A contents page, though, survives extraction as a run of "title ..... 88" lines,
+  and it is the *author's own* list of chapters, which beats any structural guess.
+  So `parsers/chapters.py` cascades: **contents page → headings → plain-text
+  "Chapter N" markers → nothing**, over *converted* Markdown (post-cleaner), which
+  makes it engine-independent — docling, PyMuPDF, Mammoth, and OCR output all
+  arrive the same way. **Five decisions worth not re-deriving.** (1) Contents
+  entries are matched **forward** into the body — each after the previous — and
+  the block is believed only at **≥50% coverage**; that one rule is what rejects a
+  **back-of-book index**, whose entries never reappear in order. (2) Exact-title
+  lookup runs over *every* short line, not just headings, because a single-font
+  PDF's chapter openings carry no markup at all — with fuzzy matching restricted
+  to heading-like lines so it cannot run away (an index over the wide candidate
+  set keeps that ~300 ms on a 30 000-line document). (3) The chapters
+  **partition** the document, so a wrong boundary can misplace text but never
+  lose it, and front matter (title page + contents) is its own file unless it is
+  a bare title line. (4) It **refuses rather than guesses**: fragments (median
+  chapter < 200 chars) come back as `none`, and `chapter_detection` always reports
+  which signal fired. (5) **Opt-in** — `split_chapters` defaults to false on both
+  endpoints and both MCP tools, and the two new response fields are `null` unless
+  asked for, so an existing client's response is unchanged. API `0.8.0 → 0.9.0`.
+  The UI gets a checkbox, a chapter panel (View / Save / *Download all (.zip)*),
+  and a new **`frontend/zip.js`** — ~140 lines of ZIP writer rather than JSZip,
+  because ADR-004 still says no build step and no third-party script; stored
+  entries with a fixed 1980 timestamp, so the archive is byte-identical run to
+  run. `/metrics` counts splits by method, since a heuristic that stops finding
+  anything looks exactly like nobody asking. **Verified:** suite **282 pass + 7
+  skipped** (+41, run here); a generated **26-page book PDF** through a real
+  uvicorn (9 chapters via `toc`, partition lossless, byte-identical across two
+  requests, `/metrics` counting it); the same file through the **MCP tool**
+  against that live backend; and the **real UI against that real backend** in
+  headless Chromium, where the downloaded ZIP passes `unzip -t` and every entry is
+  byte-identical to the API's chapter — plus 25 UI checks against a stub. Docs:
+  ADR-030, tech-spec §2/§3/§4/§12/§14 + new §15, roadmap Phase 10, `docs/mcp.md`,
+  both READMEs, CLAUDE.md. **Also fixed, unrelated to the feature:** CI's
+  `docker-build` job had been red on `main` since 2026-07-31. Its ADR-020
+  regression check counted the literal phrase *"illustrative examples"* in the
+  live render of `example.com` — and example.com **rewrote its copy**, so the
+  count went to 0 and every branch failed, reporting a duplication bug when what
+  had changed was somebody else's website. The check now takes the paragraph to
+  count out of the *response itself*, which is what ADR-020 actually asserts (the
+  body appears once, whatever the page says). *Verified by extracting the step
+  from the YAML and running it against three payloads: today's real response
+  (passes), a duplicated body (fails, "2 copies"), and a body-less extraction
+  (fails).* **Next instance:** the heuristics are tuned on
+  generated and hand-written fixtures, never on a real scanned government PDF.
+  When you have one, split it and check `/metrics`'s `by_method` — if `none` is
+  the usual answer, `_MIN_TOC_MATCH_RATIO` and `_MIN_MEDIAN_CHAPTER_CHARS` in
+  `parsers/chapters.py` are the two dials, and the fixtures in
+  `tests/test_chapters.py` are where a new document shape belongs.
 - **2026-07-30 — Phase 9: one deployable service any LLM can connect to (ADR-029).**
   The ask: *"make it so any LLM can use wiseau — I think I want an MCP server with
   a hosted connector; tell me click by click, and keep it free."* The MCP tools

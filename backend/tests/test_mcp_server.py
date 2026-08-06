@@ -51,7 +51,11 @@ def test_convert_url_round_trips_contract(monkeypatch):
     assert captured["path"] == "/convert/url"
     # `auto` defers to the deployment default, so the tool adds no opinion of
     # its own unless the agent names an engine (ADR-025).
-    assert captured["body"] == {"url": "https://example.com", "engine": "auto"}
+    assert captured["body"] == {
+        "url": "https://example.com",
+        "engine": "auto",
+        "split_chapters": False,
+    }
     assert result == {"source": "https://example.com/", "markdown": "# Hi\n", "length": 5}
 
 
@@ -189,3 +193,72 @@ def test_convert_file_forwards_a_requested_engine(monkeypatch, tmp_path):
 
     assert b'name="engine"' in captured["body"]
     assert b"docling" in captured["body"]
+
+
+# --- Chapter splitting (ADR-030) --------------------------------------------
+def test_convert_url_can_request_the_chapter_split(monkeypatch):
+    captured: dict = {}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        captured["body"] = json.loads(request.content)
+        return httpx.Response(
+            200,
+            json={
+                "source": "https://example.com/",
+                "markdown": "# Hi\n",
+                "length": 5,
+                "chapters": [
+                    {"title": "One", "level": 1, "filename": "01-one.md", "markdown": "# One\n", "length": 6}
+                ],
+                "chapter_detection": "headings",
+            },
+        )
+
+    _mock_client(monkeypatch, handler)
+    result = asyncio.run(mcp_server.convert_url("https://example.com", split_chapters=True))
+
+    assert captured["body"]["split_chapters"] is True
+    # The agent gets the chapters verbatim — filename included, so "save each
+    # chapter as its own file" is a loop, not a naming decision.
+    assert result["chapter_detection"] == "headings"
+    assert result["chapters"][0]["filename"] == "01-one.md"
+
+
+def test_convert_file_sends_the_split_flag_as_form_data(monkeypatch, tmp_path):
+    pdf = tmp_path / "book.pdf"
+    pdf.write_bytes(b"%PDF-1.4 fake bytes")
+    captured: dict = {}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        captured["raw"] = request.content
+        return httpx.Response(200, json={"source": "book.pdf", "markdown": "# B\n", "length": 4})
+
+    _mock_client(monkeypatch, handler)
+    asyncio.run(mcp_server.convert_file(str(pdf), split_chapters=True))
+
+    # Multipart carries strings, and the backend parses "true"/"false" — sending
+    # Python's "True" would be read as an invalid boolean and 422 the request.
+    assert b'name="split_chapters"' in captured["raw"]
+    assert b"true" in captured["raw"]
+    assert b"True" not in captured["raw"]
+
+
+def test_the_split_is_off_unless_the_agent_asks(monkeypatch, tmp_path):
+    pdf = tmp_path / "book.pdf"
+    pdf.write_bytes(b"%PDF-1.4 fake bytes")
+    captured: dict = {}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        captured["raw"] = request.content
+        return httpx.Response(200, json={"source": "book.pdf", "markdown": "# B\n", "length": 4})
+
+    _mock_client(monkeypatch, handler)
+    asyncio.run(mcp_server.convert_file(str(pdf)))
+
+    assert b"false" in captured["raw"]
+
+
+def test_the_split_parameter_is_advertised_to_clients():
+    tools = {tool.name: tool for tool in asyncio.run(mcp_server.mcp.list_tools())}
+    for name in ("convert_url", "convert_file"):
+        assert "split_chapters" in tools[name].inputSchema["properties"]

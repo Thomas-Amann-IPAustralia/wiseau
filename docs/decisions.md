@@ -21,6 +21,66 @@ one `Superseded`.
 
 ---
 
+## ADR-030 — Chapters are found from the document's own contents page, and the split is opt-in
+**Date:** 2026-08-06 · **Status:** Accepted
+**Context:** A long PDF converts to one long Markdown string. The reader who
+uploaded a 300-page book usually wants it *as chapters* — one file each — and
+today has to cut it up by hand. Two questions had to be answered before writing
+any code. First, **what marks a chapter?** Extraction flattens exactly the
+signals a human uses: a chapter opening set in 18pt becomes `###`, or `**bold**`,
+or (in a scan) a plain line indistinguishable from body text. Heading structure
+alone is unreliable — it splits a report at its sub-sections and misses a
+single-font novel entirely. But a document that *has* chapters nearly always
+prints them in a **table of contents**, and that page survives extraction well:
+"The Reckoning ........ 88" is a shape that regexes read easily. That is the
+author's own list of chapters, which beats any structural guess. Second, **who
+does the splitting?** Doing it in the browser would duplicate the heuristics in
+JavaScript and give agents nothing; doing it in the backend serves the UI and the
+MCP tools from one implementation, which is what ADR-003's single contract is
+for.
+**Decision:** A new deterministic module, `parsers/chapters.py`, splits
+*converted* Markdown (post-`clean_markdown`, so it is engine-independent) using a
+cascade: **contents page** → **heading structure** → **plain-text "Chapter N"
+markers** → **nothing**. The contents page is only believed when at least half
+its top-level entries are found again in the body **in document order** — the
+gate that rejects a back-of-book index, whose entries never reappear forward.
+Each chapter comes back with a title, a heading level, its Markdown, and a
+zero-padded **filename**, so "save each chapter as a file" is a loop for the UI
+and for an agent alike. The split is **opt-in** (`split_chapters`, default
+false, on both convert endpoints and both MCP tools): it roughly doubles the
+response and most documents have no chapters. `chapters`/`chapter_detection` are
+`null` unless requested, so an existing client sees an unchanged response. API
+`0.8.0 → 0.9.0` (additive). The browser builds the multi-chapter download as a
+ZIP with a ~140-line `frontend/zip.js` rather than a library, keeping ADR-004's
+no-build-step, no-third-party-script rule; entries are stored (uncompressed) with
+a fixed 1980-01-01 timestamp so the archive is byte-identical run to run.
+**Consequences:** Detection is a heuristic and will sometimes be wrong, so the
+design makes that survivable rather than pretending otherwise: the chapters
+**partition** the document (concatenating them reproduces it, so nothing can be
+silently lost), `chapter_detection` reports *which* signal fired so a caller can
+weigh it, the UI shows the list and lets a chapter be viewed before anything is
+saved, and a result that looks like fragments (median chapter under 200
+characters) is discarded in favour of `none` — refusing to split is a much
+cheaper error than shredding a document. A failure in the splitter returns
+`chapter_detection: "error"` with the document intact rather than a 502 — the
+conversion is the thing the caller paid for, and a heuristic bug must not cost
+it — while still logging a traceback and counting the method, so it cannot hide.
+`GET /metrics` counts splits by method,
+so an operator can see whether `toc` is actually carrying real documents or
+everything is falling through to `none`. Known limits, written down rather than
+discovered later: a contents page whose entries are worded quite differently from
+the body headings loses coverage and falls back to headings; a document with
+running page headers may match a chapter one page early; and only Latin-script
+"Chapter/Part/Appendix" vocabulary is recognized for the marker path — the
+contents-page path is language-agnostic, since it matches the document's own
+titles. Alternatives rejected: an LLM/NLP model for boundary detection (a network
+dependency and a stochastic default, against invariant #1 for a job that regexes
+do well); PDF outline/bookmark metadata (would work only for PDFs that have it,
+and not at all for the scanned government documents this project cares about,
+which is also why the chapter code sees Markdown rather than the source file);
+and a separate `POST /split` endpoint (a second surface for what is one flag on
+an existing one).
+
 ## ADR-029 — The backend serves the MCP connector itself, on one container
 **Date:** 2026-07-30 · **Status:** Accepted · **Amends:** ADR-028
 **Context:** ADR-028 gave `mcp_server.py` an HTTP transport, which made a hosted

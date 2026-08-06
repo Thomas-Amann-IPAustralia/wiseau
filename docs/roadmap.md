@@ -345,6 +345,63 @@ Design & rationale: **ADR-027** (amends ADR-013/014).
 
 ---
 
+## Phase 10 — One file per chapter (2026-08-06)
+
+Design & rationale: **ADR-030**. Contract: `tech-spec.md` §15.
+
+- [x] **`parsers/chapters.py` — chapter detection.** Splits *converted* Markdown
+  (so it works the same for docling, PyMuPDF, Mammoth, and OCR output) with a
+  cascade: the document's **contents page** first — the author's own list of
+  chapters, matched forward into the body and believed only at ≥50% coverage —
+  then **heading structure**, then plain-text **"Chapter N" markers**, then
+  **nothing**. Deterministic: regexes and difflib, no model. *Verified: 30 unit
+  tests, one per document shape, including the ones that must **not** split (an
+  article, a back-of-book index, headings inside a code fence, a page of
+  fragments).*
+- [x] **The chapters partition the document.** Concatenating them reproduces the
+  input, so a wrong boundary can misplace text but never lose it; front matter
+  (title page + contents) is its own leading section unless it is a bare title
+  line. *Verified: a partition test in the unit suite and again on a real
+  26-page book PDF through a live server.*
+- [x] **`split_chapters` on both convert endpoints** (default false; `chapters` +
+  `chapter_detection` are `null` unless asked for, so an existing client sees an
+  unchanged response). Each chapter carries a zero-padded `filename`, so saving
+  one file per chapter is a loop. API `0.8.0 → 0.9.0` (additive). *Verified: 6
+  API tests + a real 26-page PDF through uvicorn — 9 chapters via `toc`, lossless,
+  byte-identical across two requests.*
+- [x] **The same flag on both MCP tools**, so an agent asked to "split this book
+  into files" gets the chapters and their filenames rather than having to invent
+  boundaries. *Verified: 4 tests + a live call against a running backend.*
+- [x] **A broken split cannot lose a good conversion.** An exception in the
+  heuristics returns the document with `chapter_detection: "error"` (logged,
+  counted) instead of a 502, and the split runs inside the job slot so it queues
+  behind the same concurrency ceiling as the conversion. *Verified by a test that
+  makes the splitter throw.*
+- [x] **`GET /metrics` counts splits by method** (`toc`/`headings`/`markers`/
+  `none`), because a heuristic that quietly stops finding anything looks exactly
+  like nobody asking.
+- [x] **The UI: a chapter panel and a ZIP.** *Split into chapters* checkbox; a
+  panel listing every chapter with its filename, size, and what found it; **View** a
+  chapter (Copy/Download then act on it), **Save** one, or **Download all
+  (.zip)**. The archive is built in the browser by a new dependency-free
+  `frontend/zip.js` (stored entries, fixed 1980 timestamp ⇒ byte-identical
+  archives), keeping ADR-004. *Verified: 25 checks in headless Chromium against a
+  stub, then the real UI against a live backend uploading the 26-page book — the
+  downloaded ZIP passes `unzip -t` and every entry is byte-identical to the API's
+  chapter.*
+- [x] **Unblocked CI** (not part of the feature). The `docker-build` job's
+  ADR-020 regression check counted a phrase from `example.com`'s old copy; the
+  site rewrote it, so the job had been failing on `main` since 2026-07-31. It now
+  counts a paragraph taken from the response itself. *Verified by running the
+  step's script against a real response, a duplicated one, and an empty one.*
+- [ ] **Watch it against real documents.** The heuristics are tuned on generated
+  and hand-written fixtures. The next instance with real scanned government PDFs
+  should check `/metrics`'s `by_method` against what those documents actually
+  are, and tune `_MIN_TOC_MATCH_RATIO` / `_MIN_MEDIAN_CHAPTER_CHARS` if `none` is
+  the usual answer.
+
+---
+
 ## Cross-cutting backlog (not phase-bound)
 
 - [x] **OCR for scanned / handwritten documents.** Image-only PDF pages and image

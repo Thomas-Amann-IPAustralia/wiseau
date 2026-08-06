@@ -41,8 +41,8 @@ the guards still apply — see §1.1.
 
 | Tool | Arguments | Wraps | Returns |
 | ---- | --------- | ----- | ------- |
-| `convert_url` | `url: str` (absolute http/https), `engine: str = "auto"` | `POST /convert/url` | `{source, markdown, length}` |
-| `convert_file` | `path: str` (local `.pdf`/`.docx`), `engine: str = "auto"` | `POST /convert/file` | `{source, markdown, length}` |
+| `convert_url` | `url: str` (absolute http/https), `engine: str = "auto"`, `split_chapters: bool = False` | `POST /convert/url` | `{source, markdown, length}` (+ `chapters`, `chapter_detection`) |
+| `convert_file` | `path: str` (local `.pdf`/`.docx`), `engine: str = "auto"`, `split_chapters: bool = False` | `POST /convert/file` | `{source, markdown, length}` (+ `chapters`, `chapter_detection`) |
 | `ping` | — | `GET /ping` | `{status, service, version, engines, default_engine, mcp_endpoint}` |
 
 `convert_file` reads the file from the machine running the MCP server (the usual
@@ -58,6 +58,19 @@ Choosing `docling` does not disable the automatic fallback, so an agent that ask
 for fidelity still gets a result when docling is down. `ping` reports the
 accepted names in `engines` and the deployment's default in `default_engine` — an
 agent that cares about latency should read it before sending `auto`.
+
+`split_chapters` asks for the document *also* split into chapters (ADR-030) —
+set it when the task is "break this book into files". Each chapter comes back as
+`{title, level, filename, markdown, length}` with `filename` already numbered
+(`03-the-reckoning.md`), so writing one file per chapter is a loop over
+`chapters` and never a naming decision. `chapter_detection` says which signal
+found them — `toc` (the document's own contents page, the most trustworthy),
+`headings`, `markers`, `none`, or `error` (detection failed; the Markdown is
+still good) — which is worth reporting to the user when the answer is one of the
+weaker ones. A document with no chapter structure comes back
+with `chapters: []` and `chapter_detection: "none"`; the full `markdown` is
+always there either way. Leave it off for an ordinary page or a short document:
+it roughly doubles the response for nothing.
 
 Backend errors are surfaced verbatim: a failed tool raises with the backend's
 `detail` message and status code (e.g. `wiseau backend error 415: Unsupported
@@ -168,6 +181,13 @@ curl -X POST "$WISEAU_API_BASE/convert/url" \
      -H 'Content-Type: application/json' \
      -d '{"url":"https://example.com/article"}'
 # -> {"source":"https://example.com/article","markdown":"# ...","length":1234}
+
+# A long, chaptered document, split into per-chapter files:
+curl -X POST "$WISEAU_API_BASE/convert/file" \
+     -F 'file=@book.pdf' -F 'split_chapters=true'
+# -> {..., "chapter_detection":"toc",
+#     "chapters":[{"title":"Chapter 1: The Arrival","level":2,
+#                  "filename":"01-chapter-1-the-arrival.md","markdown":"...","length":3759}, ...]}
 ```
 
 Because both the MCP tools and direct callers hit the same routes, they observe

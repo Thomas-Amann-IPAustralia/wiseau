@@ -20,8 +20,8 @@ full design.
 | Method | Path            | Purpose                                          |
 | ------ | --------------- | ------------------------------------------------ |
 | GET    | `/ping`         | Liveness/readiness check (rate-limit exempt).    |
-| POST   | `/convert/url`  | `{ "url": "...", "engine": "auto" }` → Markdown JSON. |
-| POST   | `/convert/file` | multipart `file` (PDF/DOCX/image) + optional `engine` → Markdown JSON.|
+| POST   | `/convert/url`  | `{ "url": "...", "engine": "auto", "split_chapters": false }` → Markdown JSON. |
+| POST   | `/convert/file` | multipart `file` (PDF/DOCX/image) + optional `engine`, `split_chapters` → Markdown JSON.|
 | GET    | `/metrics`      | Per-process operational counters (see below).    |
 
 `/convert/url` refuses a URL that resolves to a loopback/private/link-local
@@ -37,6 +37,26 @@ deployment's `WISEAU_PDF_ENGINE`). An unknown value is a **400**. Requesting
 `docling` does not disable the automatic fallback, and `GET /ping` lists both the
 names this build accepts and the deployment's `default_engine`. See ADR-025 and
 ADR-027.
+
+Both also take an optional **`split_chapters`** (default `false`). With it set,
+the response carries the document *also* split into chapters — each with a title,
+its Markdown, and a numbered filename — so a long PDF can be saved one file per
+chapter:
+
+```bash
+curl -X POST localhost:7860/convert/file -F 'file=@book.pdf' -F 'split_chapters=true'
+# -> {..., "chapter_detection": "toc",
+#     "chapters": [{"title": "Chapter 1: The Arrival", "level": 2,
+#                   "filename": "01-chapter-1-the-arrival.md", ...}, ...]}
+```
+
+Chapters are found from the document's own contents page where it has one,
+otherwise from its heading structure, otherwise from plain-text "Chapter N"
+lines; `chapter_detection` says which. A document with no chapter structure is
+returned whole (`"chapter_detection": "none"`). The chapters partition the
+document — concatenating them reproduces it. Left off, the response is exactly
+what it has always been. See [`../docs/tech-spec.md`](../docs/tech-spec.md) §15
+and ADR-030.
 
 Interactive docs and the machine-readable schema for LLM/MCP integration are
 served at `/docs` and `/openapi.json`.
@@ -173,7 +193,9 @@ fallback makes a docling outage look like success:
 
 ```bash
 curl -s localhost:7860/metrics | python -m json.tool
-# engines: {"docling": 0, "pymupdf": 38, "ocr": 3}  <- docling has been down all week
+# engines:  {"docling": 0, "pymupdf": 38, "ocr": 3}   <- docling has been down all week
+# chapters: {"requested": 12, "split": 11, "sections": 74,
+#            "by_method": {"toc": 9, "headings": 2, "none": 1}}
 ```
 
 Aggregates only (no URLs, filenames, or content — the endpoint is public), and

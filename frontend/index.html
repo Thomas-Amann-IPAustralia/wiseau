@@ -73,6 +73,21 @@
         </p>
       </fieldset>
 
+      <fieldset class="engine">
+        <legend class="field-label">Long documents</legend>
+        <label class="check" for="split-chapters">
+          <input type="checkbox" id="split-chapters" />
+          <span class="check__body">
+            <span class="check__name">Split into chapters</span>
+            <span class="check__hint">
+              Detects chapters from the document's contents page, or from its headings, and
+              offers each one as its own <code>.md</code> file (plus a single <code>.zip</code>).
+              A document with no chapters is left whole.
+            </span>
+          </span>
+        </label>
+      </fieldset>
+
       <div id="progress" class="progress" hidden aria-live="polite">
         <div class="progress__bar"><div id="progress-fill" class="progress__fill"></div></div>
         <p class="progress__meta">
@@ -94,6 +109,16 @@
           <button id="download-btn" class="btn btn--ghost" disabled>Download</button>
         </div>
       </div>
+      <section id="chapters" class="chapters" hidden>
+        <div class="chapters__head">
+          <h2 class="chapters__title">Chapters</h2>
+          <span id="chapters-meta" class="meta"></span>
+          <button id="chapters-all-btn" class="btn btn--ghost btn--small">Whole document</button>
+          <button id="chapters-zip-btn" class="btn btn--ghost btn--small">Download all (.zip)</button>
+        </div>
+        <ol id="chapters-list" class="chapters__list"></ol>
+      </section>
+
       <div id="output-preview" class="output output--preview markdown-body" aria-live="polite">
         <p class="placeholder">Converted Markdown will appear here.</p>
       </div>
@@ -119,6 +144,7 @@
 
   <script src="config.js"></script>
   <script src="markdown.js"></script>
+  <script src="zip.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
