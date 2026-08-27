@@ -1,9 +1,10 @@
 """wiseau MCP server — the Markdown ingestion engine as MCP tools.
 
 This exposes the conversion endpoints (`/convert/url`, `/convert/file`,
-`/convert/batch`), keyword extraction (`/keywords`) and the health probe
-(`/ping`) as Model Context Protocol tools so that LLM agents (Claude Desktop,
-IDE agents, custom clients) can ingest documents the same way the web UI does.
+`/convert/batch`), keyword extraction (`/keywords`, `/keywords/batch`) and the
+health probe (`/ping`) as Model Context Protocol tools so that LLM agents
+(Claude Desktop, IDE agents, custom clients) can ingest documents the same way
+the web UI does.
 
 Design: this is a **thin HTTP adapter**, not a second engine. Every tool call is
 an HTTP request to a running backend (`WISEAU_API_BASE`), so the MCP surface
@@ -273,6 +274,79 @@ async def extract_keywords(
         payload["source"] = source
     async with _client() as client:
         response = await client.post("/keywords", json=payload)
+    return _unwrap(response)
+
+
+@mcp.tool()
+async def extract_keywords_batch(
+    documents: list[dict[str, str]],
+    methods: list[str] | None = None,
+    top_k: int = 20,
+    language: str | None = None,
+    prepend_table: bool = False,
+) -> dict[str, Any]:
+    """Extract keywords from several documents in one request.
+
+    The companion to ``convert_batch``: having converted a folder, use this
+    rather than calling ``extract_keywords`` once per document — it is **one**
+    request against the backend's rate limit instead of one each, and the
+    results come back in the order sent, each with the ``.md`` filename its
+    keywords belong to.
+
+    The natural chain is ``convert_batch(paths)`` → this, passing each result's
+    ``markdown`` and its ``filename`` as ``source``: the filenames then match
+    across both sets of results, so writing each document's table into its own
+    file, or collecting the lot into one JSON sidecar, is a plain zip of the two
+    lists.
+
+    One document failing does not fail the rest: its entry has
+    ``"status": "error"`` and no ``filename``.
+
+    Args:
+        documents: One entry per document, each ``{"markdown": "...",
+            "source": "annual-report.md"}``. ``source`` is a label used to derive
+            the result's ``filename``; it is never fetched.
+        methods: As for ``extract_keywords``, applied to every document. Note
+            that ``keybert`` costs tens of seconds *per document* on free CPU, so
+            a batch of any size wants the default fast methods.
+        top_k: How many keywords per document (1-100).
+        language: Language code for the language-aware methods.
+        prepend_table: Also return each document with its own keyword table
+            prepended, in that result's ``markdown``. Off by default — on a
+            twenty-document batch it sends every document back.
+
+    Returns:
+        ``{"count": n, "succeeded": n, "failed": n, "results": [...]}`` where each
+        result is an ``extract_keywords`` answer plus ``status``, ``filename``
+        and ``error``.
+    """
+    payload: list[dict[str, str]] = []
+    for position, document in enumerate(documents):
+        markdown = document.get("markdown") if isinstance(document, dict) else None
+        if not isinstance(markdown, str) or not markdown.strip():
+            # Refused before anything is sent: a batch that silently skipped a
+            # document would look like a complete answer with one missing.
+            raise RuntimeError(
+                f"documents[{position}] has no 'markdown' — each entry must be "
+                '{"markdown": "...", "source": "..."}.'
+            )
+        entry: dict[str, str] = {"markdown": markdown}
+        source = document.get("source")
+        if isinstance(source, str) and source.strip():
+            entry["source"] = source
+        payload.append(entry)
+
+    body: dict[str, Any] = {
+        "documents": payload,
+        "top_k": top_k,
+        "prepend_table": prepend_table,
+    }
+    if methods:
+        body["methods"] = methods
+    if language:
+        body["language"] = language
+    async with _client() as client:
+        response = await client.post("/keywords/batch", json=body)
     return _unwrap(response)
 
 

@@ -86,6 +86,14 @@ MAX_BATCH_BYTES = int(os.environ.get("MAX_BATCH_BYTES", str(50 * 1024 * 1024)))
 # payload is text the caller already holds.
 MAX_KEYWORD_CHARS = int(os.environ.get("MAX_KEYWORD_CHARS", str(2_000_000)))
 
+# Batch keyword ceilings (ADR-033). A batch is N extractions behind one
+# rate-limit token, so it needs bounds of its own for the same reason
+# `/convert/batch` does. `MAX_KEYWORD_BATCH_CHARS` bounds the *work* one caller
+# can ask for, not the memory: unlike an upload, a JSON body is already parsed
+# by the time this code runs, so there is no streaming guard to lean on here.
+MAX_KEYWORD_BATCH_DOCS = int(os.environ.get("MAX_KEYWORD_BATCH_DOCS", "20"))
+MAX_KEYWORD_BATCH_CHARS = int(os.environ.get("MAX_KEYWORD_BATCH_CHARS", str(8_000_000)))
+
 
 # --- MCP surface (ADR-029) --------------------------------------------------
 # The agent-facing MCP endpoint is served by *this* app rather than a second
@@ -168,7 +176,7 @@ app = FastAPI(
         "Deterministic conversion of web URLs, PDFs, and DOCX documents into "
         "clean, structured Markdown. Designed for both human UIs and LLM/MCP agents."
     ),
-    version="0.11.0",
+    version="0.12.0",
     lifespan=_lifespan,
 )
 
@@ -477,6 +485,39 @@ class KeywordResponse(BaseModel):
     )
 
 
+class KeywordDocument(BaseModel):
+    """One document in a keyword batch."""
+
+    markdown: str = Field(description="The document to analyse, as the engine returned it.")
+    source: str | None = Field(
+        default=None,
+        description="What the document is — normally the filename the matching "
+        "conversion reported. It is what the result's `filename` is derived "
+        "from, so passing the same names `/convert/batch` returned lines the two "
+        "sets of results up exactly.",
+    )
+
+
+class KeywordBatchRequest(BaseModel):
+    """Ask for the keywords of several documents in one request (ADR-033)."""
+
+    documents: list[KeywordDocument] = Field(
+        description="The documents to analyse. Results come back in the order "
+        "they were sent, so one unreadable document cannot cost the caller the rest."
+    )
+    methods: list[str] | None = Field(default=None, description=_METHODS_DESCRIPTION)
+    top_k: int = Field(default=20, ge=1, le=100, description="How many keywords per document.")
+    language: str | None = Field(
+        default=None, description="Language code for the language-aware methods."
+    )
+    prepend_table: bool = Field(
+        default=False,
+        description="Also return each document with its own keyword table "
+        "prepended, in that result's `markdown`. Off by default — it sends every "
+        "document back, which on a twenty-document batch is the whole payload twice.",
+    )
+
+
 class BatchItem(MarkdownResponse):
     """One document's result inside a batch (ADR-031).
 
@@ -498,6 +539,45 @@ class BatchItem(MarkdownResponse):
         default=None,
         description="Why this document failed — the same message the equivalent "
         "single-file request would have returned. Null on success.",
+    )
+
+
+class KeywordBatchItem(KeywordResponse):
+    """One document's keywords inside a batch (ADR-033).
+
+    A successful item *is* a `KeywordResponse` — same fields, same meanings —
+    plus the `status` and the `filename` it belongs to. A failed item carries the
+    reason in `error` and, deliberately, **no `filename`**, so a client writing
+    files or building a sidecar has nothing to attach it to and cannot emit an
+    empty keyword list under a plausible name.
+    """
+
+    status: str = Field(description="'ok' or 'error' for this document alone.")
+    filename: str | None = Field(
+        default=None,
+        description="The `.md` this document's keywords belong to, derived from "
+        "`source` by the same rule `/convert/batch` uses — so the two sets of "
+        "results line up by filename. Null when the document failed.",
+    )
+    error: str | None = Field(
+        default=None,
+        description="Why this document failed. Null on success.",
+    )
+
+
+class KeywordBatchResponse(BaseModel):
+    """The keywords of several documents, one entry each (ADR-033).
+
+    Like a batch conversion, this is a list of independent extractions rather
+    than one big extraction: the response is 200 whenever the *request* was
+    valid, and per-document failures live in `results`.
+    """
+
+    count: int = Field(description="How many documents were submitted.")
+    succeeded: int
+    failed: int
+    results: list[KeywordBatchItem] = Field(
+        description="One entry per submitted document, in the order they were sent."
     )
 
 
@@ -529,6 +609,29 @@ def _resolve_engine_or_400(requested: str | None) -> str | None:
         return resolve_engine(requested)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+def _keyword_models(result) -> list[KeywordModel]:
+    """Turn one extraction's keywords into the wire shape, evidence and all.
+
+    Shared by the single-document and batch routes so a batch entry is the same
+    object a single request returns — one contract, not a fork (invariant #2).
+    """
+    return [
+        KeywordModel(
+            term=keyword.term,
+            score=keyword.score,
+            rank=keyword.rank,
+            kind=keyword.kind,
+            occurrences=keyword.occurrences,
+            agreement=keyword.agreement,
+            methods={
+                name: KeywordMethodScore(rank=score.rank, score=score.score)
+                for name, score in keyword.methods.items()
+            },
+        )
+        for keyword in result.keywords
+    ]
 
 
 def _resolve_methods_or_400(requested: list[str] | None) -> list[str] | None:
@@ -592,6 +695,25 @@ def _batch_failure(source: str, message: str) -> BatchItem:
     document under a plausible name.
     """
     return BatchItem(status="error", source=source, markdown="", length=0, error=message)
+
+
+def _keyword_failure(source: str, message: str) -> KeywordBatchItem:
+    """One document of a keyword batch that could not be analysed.
+
+    `keywords` is empty and `filename` stays null: a client collecting sidecars
+    or writing tables into files must find nothing to attach here, rather than an
+    empty keyword list under a plausible name.
+    """
+    return KeywordBatchItem(
+        status="error",
+        source=source,
+        keyword_count=0,
+        keywords=[],
+        methods_used=[],
+        methods_skipped={},
+        language="",
+        error=message,
+    )
 
 
 # --- Upload handling --------------------------------------------------------
@@ -923,26 +1045,119 @@ async def keywords(request: Request, body: KeywordRequest) -> KeywordResponse:
     return KeywordResponse(
         source=body.source or "document",
         keyword_count=len(result.keywords),
-        keywords=[
-            KeywordModel(
-                term=keyword.term,
-                score=keyword.score,
-                rank=keyword.rank,
-                kind=keyword.kind,
-                occurrences=keyword.occurrences,
-                agreement=keyword.agreement,
-                methods={
-                    name: KeywordMethodScore(rank=score.rank, score=score.score)
-                    for name, score in keyword.methods.items()
-                },
-            )
-            for keyword in result.keywords
-        ],
+        keywords=_keyword_models(result),
         methods_used=list(result.methods_used),
         methods_skipped=result.methods_skipped,
         language=result.language,
         note=result.note or None,
         markdown=annotated,
+    )
+
+
+@app.post(
+    "/keywords/batch",
+    response_model=KeywordBatchResponse,
+    tags=["analyse"],
+    operation_id="extract_keywords_batch",
+    summary="Extract ranked keywords from several converted documents",
+)
+@limiter.limit("5/minute")
+async def keywords_batch(request: Request, body: KeywordBatchRequest) -> KeywordBatchResponse:
+    """Rank what each of several already-converted documents is *about* (ADR-033).
+
+    The companion to `POST /convert/batch`: having converted a folder in one
+    request, "and what are they about?" should also be one request, not one per
+    document against a `20/minute` limit. Each document is analysed exactly the
+    way `POST /keywords` would analyse it, one at a time and **each taking its own
+    job slot**, so a twenty-document batch queues fairly alongside other callers
+    rather than holding the engine for its whole run.
+
+    A document that fails does not fail the batch: its entry carries the reason
+    and no `filename`, and the rest still come back. Filenames are derived from
+    each `source` by the same rule `/convert/batch` uses, so the two sets of
+    results line up — which is what lets a client write each document's table
+    into its own Markdown file, or collect the lot into one JSON sidecar.
+    """
+    documents = body.documents
+    if not documents:
+        raise HTTPException(status_code=400, detail="No documents supplied.")
+    if len(documents) > MAX_KEYWORD_BATCH_DOCS:
+        raise HTTPException(
+            status_code=400,
+            detail=f"A batch is limited to {MAX_KEYWORD_BATCH_DOCS} documents; {len(documents)} were sent.",
+        )
+    total = sum(len(document.markdown) for document in documents)
+    if total > MAX_KEYWORD_BATCH_CHARS:
+        raise HTTPException(
+            status_code=413,
+            detail=f"The batch exceeds the {MAX_KEYWORD_BATCH_CHARS:,}-character total limit for keyword extraction.",
+        )
+    methods = _resolve_methods_or_400(body.methods)
+
+    results: list[KeywordBatchItem] = []
+    for position, document in enumerate(documents):
+        source = document.source or f"document-{position + 1}"
+        markdown = document.markdown
+        if not markdown.strip():
+            results.append(_keyword_failure(source, "No markdown supplied."))
+            continue
+        if len(markdown) > MAX_KEYWORD_CHARS:
+            results.append(
+                _keyword_failure(
+                    source,
+                    f"Document exceeds the {MAX_KEYWORD_CHARS:,}-character limit for keyword extraction.",
+                )
+            )
+            continue
+
+        async with _job_slot():
+            try:
+                result = await asyncio.to_thread(
+                    extract_keywords,
+                    markdown,
+                    methods=methods,
+                    top_k=body.top_k,
+                    language=body.language,
+                )
+                annotated = (
+                    await asyncio.to_thread(prepend_keyword_table, markdown, result)
+                    if body.prepend_table
+                    else None
+                )
+            except Exception as exc:  # noqa: BLE001 - one bad document, not a bad batch
+                metrics.record_keyword_extraction((), 0)
+                logger.exception("Batch keyword extraction failed for %s", source)
+                results.append(_keyword_failure(source, f"Failed to extract keywords: {exc}"))
+                continue
+
+        metrics.record_keyword_extraction(
+            result.methods_used, len(result.keywords), result.methods_skipped
+        )
+        results.append(
+            KeywordBatchItem(
+                status="ok",
+                source=source,
+                keyword_count=len(result.keywords),
+                keywords=_keyword_models(result),
+                methods_used=list(result.methods_used),
+                methods_skipped=result.methods_skipped,
+                language=result.language,
+                note=result.note or None,
+                markdown=annotated,
+            )
+        )
+
+    # Named only now, and only from what succeeded, so duplicate source names
+    # disambiguate against the documents that actually produced keywords — the
+    # same rule, in the same order, that `/convert/batch` applied to them.
+    extracted = [item for item in results if item.status == "ok"]
+    for item, filename in zip(extracted, unique_filenames(item.source for item in extracted)):
+        item.filename = filename
+
+    failed = len(results) - len(extracted)
+    metrics.record_keyword_batch(len(results), failed)
+    return KeywordBatchResponse(
+        count=len(results), succeeded=len(extracted), failed=failed, results=results
     )
 
 

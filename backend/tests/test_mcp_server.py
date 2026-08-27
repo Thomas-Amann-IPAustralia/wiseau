@@ -449,3 +449,103 @@ def test_the_keyword_tool_is_advertised_to_clients():
     # The agent has to be told which methods are slow, or it will reach for the
     # best one on every document (ADR-032).
     assert "keybert" in (tool.description or "")
+
+
+# --- Batch keyword tool (ADR-033) -------------------------------------------
+KEYWORD_BATCH_RESPONSE = {
+    "count": 2,
+    "succeeded": 2,
+    "failed": 0,
+    "results": [
+        {**KEYWORD_RESPONSE, "status": "ok", "filename": "coastal.md", "error": None},
+        {**KEYWORD_RESPONSE, "status": "ok", "filename": "patents.md", "error": None},
+    ],
+}
+
+
+def test_extract_keywords_batch_posts_every_document_in_one_request(monkeypatch):
+    captured: dict = {}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        captured["path"] = request.url.path
+        captured["body"] = json.loads(request.content)
+        return httpx.Response(200, json=KEYWORD_BATCH_RESPONSE)
+
+    _mock_client(monkeypatch, handler)
+    result = asyncio.run(
+        mcp_server.extract_keywords_batch(
+            [
+                {"markdown": "# Coastal\n\nInundation.\n", "source": "coastal.md"},
+                {"markdown": "# Patents\n\nBacklog.\n", "source": "patents.md"},
+            ]
+        )
+    )
+
+    assert captured["path"] == "/keywords/batch"
+    assert captured["body"] == {
+        "documents": [
+            {"markdown": "# Coastal\n\nInundation.\n", "source": "coastal.md"},
+            {"markdown": "# Patents\n\nBacklog.\n", "source": "patents.md"},
+        ],
+        "top_k": 20,
+        "prepend_table": False,
+    }
+    assert result == KEYWORD_BATCH_RESPONSE
+
+
+def test_the_batch_keyword_tool_sends_only_the_options_the_agent_chose(monkeypatch):
+    captured: dict = {}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        captured["body"] = json.loads(request.content)
+        return httpx.Response(200, json=KEYWORD_BATCH_RESPONSE)
+
+    _mock_client(monkeypatch, handler)
+    asyncio.run(
+        mcp_server.extract_keywords_batch(
+            [{"markdown": "# A\n\nText.\n"}],
+            methods=["frequency"],
+            top_k=5,
+            language="de",
+            prepend_table=True,
+        )
+    )
+
+    assert captured["body"] == {
+        "documents": [{"markdown": "# A\n\nText.\n"}],
+        "top_k": 5,
+        "prepend_table": True,
+        "methods": ["frequency"],
+        "language": "de",
+    }
+
+
+def test_a_document_with_no_markdown_is_refused_before_anything_is_sent(monkeypatch):
+    """A silently dropped document would look like a complete answer with one
+    missing — the same reason `convert_batch` checks its paths up front."""
+    sent = {"n": 0}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        sent["n"] += 1
+        return httpx.Response(200, json=KEYWORD_BATCH_RESPONSE)
+
+    _mock_client(monkeypatch, handler)
+    with pytest.raises(RuntimeError) as excinfo:
+        asyncio.run(
+            mcp_server.extract_keywords_batch(
+                [{"markdown": "# A\n\nText.\n"}, {"source": "b.md"}]
+            )
+        )
+
+    assert "documents[1]" in str(excinfo.value)
+    assert sent["n"] == 0
+
+
+def test_the_batch_keyword_tool_is_advertised_to_clients():
+    tools = asyncio.run(mcp_server.mcp.list_tools())
+    tool = next(tool for tool in tools if tool.name == "extract_keywords_batch")
+
+    assert {"documents", "methods", "top_k", "prepend_table"} <= set(tool.inputSchema["properties"])
+    # An agent must be steered off a loop of single calls, which is the whole
+    # reason this tool exists (ADR-033).
+    assert "convert_batch" in (tool.description or "")

@@ -163,6 +163,7 @@ class Metrics:
             self._keywords: Dict[str, int] = {}
             self._keyword_methods: Dict[str, int] = {}
             self._keyword_skips: Dict[str, int] = {}
+            self._keyword_batches: Dict[str, int] = {}
             self._docling_durations = _Durations()
             self._job_wait = _Durations()
             self._job_duration = _Durations()
@@ -267,6 +268,22 @@ class Metrics:
             for method in skipped:
                 self._keyword_skips[method] = self._keyword_skips.get(method, 0) + 1
 
+    def record_keyword_batch(self, documents: int, failed: int) -> None:
+        """One batch keyword extraction: how many documents, how many failed.
+
+        Same blind spot `record_batch` covers for conversion (ADR-031): twenty
+        documents and one document are both a single `POST /keywords/batch` in
+        `requests.by_route`, so `documents` is what actually sizes
+        `MAX_KEYWORD_BATCH_DOCS` and the rate limit.
+        """
+        with self._lock:
+            self._keyword_batches["requested"] = self._keyword_batches.get("requested", 0) + 1
+            self._keyword_batches["documents"] = self._keyword_batches.get("documents", 0) + documents
+            self._keyword_batches["failed"] = self._keyword_batches.get("failed", 0) + failed
+            self._keyword_batches["largest"] = max(
+                self._keyword_batches.get("largest", 0), documents
+            )
+
     def record_docling_skipped(self, reason: str) -> None:
         """docling was never called (not selected, or no base configured)."""
         with self._lock:
@@ -311,6 +328,10 @@ class Metrics:
                     **{k: self._keywords.get(k, 0) for k in ("requested", "keywords", "empty")},
                     "by_method": dict(sorted(self._keyword_methods.items())),
                     "skipped": dict(sorted(self._keyword_skips.items())),
+                    "batches": {
+                        k: self._keyword_batches.get(k, 0)
+                        for k in ("requested", "documents", "failed", "largest")
+                    },
                 },
                 "memory": _memory(),
             }

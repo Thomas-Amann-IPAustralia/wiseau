@@ -173,6 +173,34 @@ jobs:
           print("keywords OK:", [k["term"] for k in d["keywords"]])
           PY
 
+      - name: Confirm the image extracts a batch's keywords in one request
+        run: |
+          # The companion to the check above (ADR-033): one request, one result
+          # per document, each carrying the .md filename its keywords belong to,
+          # and one unusable document costing only itself.
+          curl -sf --max-time 90 -X POST http://localhost:7860/keywords/batch \
+            -H 'Content-Type: application/json' \
+            -d @backend/tests/fixtures/ci-keywords-batch-request.json \
+            -o /tmp/keywords-batch.json
+          cat /tmp/keywords-batch.json
+          python3 - <<'PY'
+          import json
+
+          with open("/tmp/keywords-batch.json") as handle:
+              d = json.load(handle)
+          assert d["count"] == 3 and d["succeeded"] == 2 and d["failed"] == 1, d
+          ok = [item for item in d["results"] if item["status"] == "ok"]
+          assert [item["filename"] for item in ok] == ["coastal.md", "patents.md"], ok
+          assert all("## Keywords" in item["markdown"] for item in ok), "no table prepended"
+          # Each document gets its own subject, not a shared one.
+          assert ok[0]["keywords"][0]["term"] != ok[1]["keywords"][0]["term"], ok
+          # A failed document has no filename, so a save loop cannot file an
+          # empty keyword list under a real document's name.
+          bad = [item for item in d["results"] if item["status"] == "error"]
+          assert bad and bad[0]["filename"] is None, bad
+          print("keyword batch OK:", {i["filename"]: [k["term"] for k in i["keywords"][:3]] for i in ok})
+          PY
+
       - name: Confirm the image serves the MCP connector endpoint
         run: |
           # The deployed container is what an LLM connects to as a connector

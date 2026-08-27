@@ -1,0 +1,18 @@
+{
+  "documents": [
+    {
+      "markdown": "# Coastal Inundation and Adaptation Funding\n\n## Executive summary\n\nAdaptation funding has not kept pace with coastal inundation across the Pacific island states. The Green Climate Fund disbursed less than a third of its committed adaptation funding in the last reporting period.\n\n## Findings\n\nCoastal inundation now affects settlements previously considered safe, and adaptation funding decisions are made without reference to the inundation modelling produced by the Bureau of Meteorology.\n",
+      "source": "coastal.pdf"
+    },
+    {
+      "markdown": "# Patent Examination Backlog Review\n\n## Executive summary\n\nThe patent examination backlog has grown for six consecutive quarters. Examiner recruitment has not matched attrition, and the average pendency of a patent application now exceeds thirty months.\n\n## Findings\n\nPatent examiners report that the classification system is the largest single source of delay. Applications in the biotechnology classes wait longest, and the patent office has no triage process.\n",
+      "source": "patents.pdf"
+    },
+    {
+      "markdown": "   ",
+      "source": "empty.pdf"
+    }
+  ],
+  "top_k": 5,
+  "prepend_table": true
+}

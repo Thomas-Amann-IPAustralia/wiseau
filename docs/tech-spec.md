@@ -167,6 +167,25 @@ interactive docs are at `/docs`.
   heard of; `413` past `MAX_KEYWORD_CHARS`; `422` `top_k` out of range or no
   `markdown` field; `429` rate limited; `502` the extraction itself failed.
 
+### `POST /keywords/batch`
+- **Purpose:** the keywords of several already-converted documents in one
+  request (§18, ADR-033) — the companion to `POST /convert/batch`.
+- **Rate limit:** `5/minute` per IP — tighter than the single-document route,
+  because one request buys up to `MAX_KEYWORD_BATCH_DOCS` extractions. Each
+  document takes its own job slot.
+- **Request:** JSON — `documents` (a list of `{markdown, source}`), plus the same
+  optional `methods`, `top_k`, `language` and `prepend_table` as `/keywords`.
+- **Constraints:** at most `MAX_KEYWORD_BATCH_DOCS` documents (default 20); each
+  document ≤ `MAX_KEYWORD_CHARS`; the batch as a whole ≤
+  `MAX_KEYWORD_BATCH_CHARS` (default 8 000 000 characters).
+- **200 response:** `KeywordBatchResponse` (see §3) — returned whenever the
+  *request* was valid, even if every document in it failed.
+- **Errors:** `400` no documents, more than `MAX_KEYWORD_BATCH_DOCS`, or an
+  unknown `methods` name; `413` the batch exceeds `MAX_KEYWORD_BATCH_CHARS`;
+  `422` no `documents` field or `top_k` out of range; `429` rate limited. A
+  *document* that cannot be analysed is **not** an error status: it is an entry
+  with `status: "error"` inside a 200.
+
 > **The `methods` parameter (ADR-032).** Any of `frequency` (built in, always
 > available), `yake`, `spacy`, `keybert` — or `["auto"]`/omitted for this
 > deployment's `WISEAU_KEYWORD_METHODS`, or `["all"]` for everything it can run.
@@ -176,7 +195,7 @@ interactive docs are at `/docs`.
 > caller mistake, like an unknown `engine`), while a name it knows but cannot run
 > — an optional package that is not installed, or a method that raised — is
 > reported in `methods_skipped` and the rest still answer. Read `methods_used`,
-> never assume.
+> never assume. It applies identically to `POST /keywords/batch`.
 
 ---
 
@@ -263,6 +282,24 @@ Each element of `keywords` is a `Keyword`:
 | `agreement`   | int    | How many of the methods that ran found this term — the confidence signal. |
 | `methods`     | object | Method name → `{rank, score}`: where that method placed the term and what it scored it **on its own scale** (a YAKE cost, a cosine similarity, a weighted count). |
 
+`KeywordBatchResponse` (returned by `POST /keywords/batch`, ADR-033):
+
+| Field       | Type   | Meaning                                            |
+| ----------- | ------ | -------------------------------------------------- |
+| `count`     | int    | How many documents were submitted.                  |
+| `succeeded` | int    | How many were analysed.                             |
+| `failed`    | int    | How many were not. `succeeded + failed == count`.   |
+| `results`   | array  | One `KeywordBatchItem` per document, **in the order they were sent**. |
+
+Each element of `results` is a `KeywordBatchItem` — a `KeywordResponse` plus
+three fields:
+
+| Field      | Type   | Meaning                                             |
+| ---------- | ------ | --------------------------------------------------- |
+| `status`   | string | `ok` or `error`, for this document alone.           |
+| `filename` | string \| null | The `.md` these keywords belong to, derived from `source` by the rule `/convert/batch` uses — so the two sets of results line up by filename. **Null on failure**, so a client pairing them can never file an empty keyword list under a real document's name. |
+| `error`    | string \| null | Why it failed. Null on success.                |
+
 A failed item carries `markdown: ""` and `length: 0`; `chapters` and
 `chapter_detection` are always `null` in a batch (§16).
 
@@ -285,7 +322,7 @@ The backend is deliberately small and layered. Each module has one job.
 | `parsers/cleaner.py` | Deterministic Unicode/whitespace/typography normalization; elide base64 data-URI payloads (ADR-024). | Introduce nondeterminism; remove content (it edits payloads, not text). |
 | `parsers/chapters.py` *(Phase 10)* | Split converted Markdown into chapters: read the document's contents page, else its heading structure, else plain-text chapter markers; name and number each chapter's file (§15). | Extract or convert anything; drop or duplicate content; return a split it is not confident in (say `none` instead); introduce nondeterminism. |
 | `parsers/keywords.py` *(Phase 12)* | Rank the keywords of already-converted Markdown across four methods and fuse the rankings; render the result as a Markdown table and prepend it to a document (§17). | Convert or extract anything; hard-depend on an optional method; let one method's failure fail the request; return a ranking for a document too short to characterise. |
-| `parsers/naming.py` *(Phase 11)* | The one filename rule, shared by chapter splitting and bulk conversion: slug a title or an uploaded name into a `.md` file, and make a batch's names unique in order (§16). | Emit a name containing a path component; depend on anything but its input (it must stay deterministic). |
+| `parsers/naming.py` *(Phase 11)* | The one filename rule, shared by chapter splitting, bulk conversion and batch keyword extraction: slug a title or an uploaded name into a `.md` file, and make a batch's names unique in order (§16). | Emit a name containing a path component; depend on anything but its input (it must stay deterministic). |
 
 ### Extraction pipelines
 
@@ -372,6 +409,8 @@ All backend configuration is via environment variables (12-factor).
 | `WISEAU_DOCLING_TIMEOUT` | `120` | *(Phase 6)* Seconds to wait on docling before falling back (generous, to absorb cold starts). |
 | `WISEAU_DOCLING_PATH` | `/v1/convert/file` | *(Phase 6)* docling-serve convert endpoint path; override only if a server version moves it. |
 | `MAX_KEYWORD_CHARS` | `2000000` | Longest document `POST /keywords` accepts, in characters (ADR-032). The body is text in JSON, not an upload, so the streaming upload guard cannot bound it. Exceeding it is a 413. |
+| `MAX_KEYWORD_BATCH_DOCS` | `20` | Most documents one `POST /keywords/batch` may carry (ADR-033). |
+| `MAX_KEYWORD_BATCH_CHARS` | `8000000` | Total characters one keyword batch may carry. Bounds the *work*, not the memory — a JSON body is already parsed by the time the route runs. |
 | `WISEAU_KEYWORD_METHODS` | unset (`frequency,yake`) | Default keyword methods for this deployment: a comma-separated list, `auto` (the cheap pair), or `all` (everything installed). A request's `methods` overrides it. Names that are not installed are dropped; if nothing is left, `frequency` runs. |
 | `WISEAU_KEYWORD_LANG` | `en` | Language code the language-aware methods assume when a request names none. |
 | `WISEAU_KEYWORD_MAX_CHARS` | `400000` | How much of a document any keyword method reads. A cap, not a refusal: a longer document still extracts, and the response's `note` says it was truncated. |
@@ -383,8 +422,8 @@ All backend configuration is via environment variables (12-factor).
 
 Rate limits are code-level constants in `main.py` (`60/min` + `1000/day` default;
 `20/min` on the single-document convert routes and on `/keywords`, `5/min` on
-`/convert/batch`, which buys up to `MAX_BATCH_FILES` conversions per token).
-Promote them to env
+`/convert/batch` and `/keywords/batch`, each of which buys up to its own
+document cap per token). Promote them to env
 vars only if a real tuning need arises — record the change in `decisions.md`.
 
 > **Do not remove `SlowAPIMiddleware`.** slowapi enforces a route's decorator limit
@@ -638,7 +677,7 @@ and `client`. The same `request_id` is returned to the caller as `X-Request-ID`
 | `docling` | `attempts` / `successes` / `fallbacks` / `skipped`, `reasons` (`DoclingUnavailable`, `DoclingBadDocument`, `not_configured`, `engine_not_selected`), and call durations. | Is the Space down, misconfigured, or just slow? |
 | `chapters` | `requested` / `split` / `sections` and `by_method` (`toc`, `headings`, `markers`, `none`). | Is chapter detection actually finding chapters, and by which signal? |
 | `batches` | `requested` / `files` / `failed` / `largest` (ADR-031). | What bulk conversion actually costs — thirty documents and one document are both a single request in `by_route`, so `files` is what sizes `MAX_BATCH_FILES`, and a climbing `failed` means callers are sending something unreadable. |
-| `keywords` | `requested` / `keywords` / `empty`, plus `by_method` and `skipped` (ADR-032). | Which methods are *actually* running — a deployment that installed the optional extras but never set `WISEAU_KEYWORD_METHODS` looks busy while only ever running the cheap pair. `skipped` is the only place a missing optional package shows, since it degrades the answer silently by design. |
+| `keywords` | `requested` / `keywords` / `empty`, plus `by_method`, `skipped`, and `batches` (`requested`/`documents`/`failed`/`largest`, ADR-033). | Which methods are *actually* running — a deployment that installed the optional extras but never set `WISEAU_KEYWORD_METHODS` looks busy while only ever running the cheap pair. `skipped` is the only place a missing optional package shows, since it degrades the answer silently by design. |
 | `memory` | `peak_rss_mb` (getrusage) and `rss_mb` (Linux `/proc/self/statm`). | Headroom against the Space's limit. |
 
 Constraints that keep it honest: **aggregates only** — no URLs, filenames, or
@@ -749,8 +788,15 @@ pins its dates. **Add to Markdown** swaps in the annotated document the same
 response already carried (`prepend_table` is always requested, so the button
 costs no round-trip), and becomes **Remove from Markdown**; Copy, Download, a
 chapter's Save and the archive all follow it. Because keywords describe the
-*shown* document, switching chapter, batch document, or conversion clears the
-panel rather than leaving a stale ranking attached to something else.
+*shown* document, switching chapter or conversion clears the panel rather than
+leaving a stale ranking attached to something else.
+
+When the panel is showing a **batch**, the button instead reads *Keywords (12)*
+and extracts for every document in one request (§18). The table then follows the
+document selected in the results list — clicking another switches it with no
+further request — while *Download all .json* saves one combined sidecar and *Add
+to Markdown* rewrites every document, so the archive and each row's *Save* carry
+their own table.
 
 ---
 
@@ -994,8 +1040,62 @@ behind the same concurrency ceiling as a conversion (invariant #4), under
 `20/minute`, with `MAX_KEYWORD_CHARS` as a 413 and `WISEAU_KEYWORD_MAX_CHARS` as
 the analysis ceiling.
 
-**No batch form.** A folder of twenty documents is twenty calls against a
-`20/minute` limit — the same problem ADR-031 solved for conversion, deliberately
-left open here rather than guessed at. In the UI, keywords describe **whatever
-the output panel is currently showing**: the whole document, one chapter, or one
-document of a batch. Switching what is shown clears the panel.
+**In the UI**, keywords describe **whatever the output panel is currently
+showing**: the whole document, one chapter, or — for a batch — every document at
+once (§18). Switching what is shown clears the panel, unless the extraction
+already covers what was switched to.
+
+---
+
+## 18. Batch keyword extraction (ADR-033)
+
+Having converted a folder in one request (§16), "and what are these about?"
+should also be one request. `POST /keywords/batch` is `POST /keywords`, N times,
+behind one token — the same relationship `/convert/batch` has to `/convert/file`.
+
+**It is not a new kind of extraction.** Each document takes exactly the path
+`POST /keywords` would take it through — same methods, same fusion, same
+refusals — one at a time, **each taking its own slot** in the concurrency
+ceiling. Per document rather than per batch, for the ADR-031 reason: holding the
+ceiling for a twenty-document run would starve every other caller.
+
+**Partial success is the normal case.** 200 whenever the *request* was valid,
+with per-document outcomes inside. A document that cannot be analysed carries the
+message the single-document endpoint would have returned and the rest still come
+back. A failed item has **no `filename`**.
+
+**Filenames are the join.** Each result's `filename` is derived from its `source`
+by `parsers/naming.py` — the rule `/convert/batch` already uses. Pass back the
+filenames a batch conversion returned and the two sets of results line up
+one-to-one, which is what makes "write each document's table into its own file"
+and "collect the lot into one sidecar" both a plain zip of two lists.
+
+**Two outputs, per the ask.** `prepend_table` puts each document's *own* table
+into that document. The JSON sidecar is **one file** (`keywords.json`), an array
+of entries each keyed by the `.md` it describes — a twenty-document run should be
+one click and one thing to open, and each entry already names its file. The
+sidecars are deliberately *not* put inside the `.zip`: that archive is the
+documents, and mixing metadata into it means a client unpacking Markdown has to
+filter.
+
+**In the UI**, the *Keywords* button reads "Keywords (12)" when a batch is
+showing and extracts for all of them in one request. The panel then shows the
+keywords of whichever document is selected in the results list, and clicking
+another document switches the table with **no further request**. *Add to
+Markdown* rewrites every document, so **Download all (.zip)** and each row's own
+*Save* carry their own table.
+
+**Chapters are deliberately unchanged.** A chaptered document is one document
+split up, and "keywords for this book" is what a reader wants there — not twelve
+per-chapter rankings. The button keeps acting on whatever the panel is showing.
+
+**Bounds.** `5/minute` per IP (against `20/minute` for one document), at most
+`MAX_KEYWORD_BATCH_DOCS` (20) documents, at most `MAX_KEYWORD_BATCH_CHARS`
+(8 000 000) characters in total, each document still under `MAX_KEYWORD_CHARS`.
+That total bounds the *work*, not the memory: unlike an upload, a JSON body is
+already parsed by the time the route runs, so there is no streaming guard to lean
+on — a deployment that cares should bound the request body at its proxy. With
+`keybert` selected a batch is tens of seconds *per document*, which will outlast
+a gateway's idle timeout long before it outlasts the document cap; the UI's
+progress estimate sums the per-document estimates so it at least reads honestly,
+but bulk keyword work wants the fast default methods.

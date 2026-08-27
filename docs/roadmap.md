@@ -531,10 +531,29 @@ Design & rationale: **ADR-032**. Contract: `tech-spec.md` §17.
   document. `GET /metrics` grows a `keywords` block (`requested`/`keywords`/
   `empty`, `by_method`, `skipped`) — which methods are *actually* running is
   invisible in a request count.
-- [ ] **Bulk keyword extraction.** Twenty documents is twenty calls against a
-  `20/minute` limit — the problem ADR-031 solved for conversion, deliberately
-  left open here rather than guessed at. Needs the same shape: one request, one
-  result per document.
+- [x] **Bulk keyword extraction (ADR-033).** `POST /keywords/batch` takes
+  `{documents: [{markdown, source}], …}` and returns one result per document in
+  send order, each with the `.md` **filename** its keywords belong to — derived
+  by the same rule `/convert/batch` uses, so passing back a batch conversion's
+  filenames makes the two sets line up one-to-one. Not a new kind of extraction:
+  each document takes the `/keywords` path, one at a time, **one job slot each**.
+  Own bounds: `5/minute`, `MAX_KEYWORD_BATCH_DOCS` (20), `MAX_KEYWORD_BATCH_CHARS`
+  (8 000 000). API `0.11.0 → 0.12.0`. *Verified: 16 API tests plus live runs.*
+- [x] **Both outputs, per document.** `prepend_table` puts each document's *own*
+  table into that document, so the existing archive and each row's Save carry it;
+  the JSON sidecar is **one** combined `keywords.json`, each entry keyed by the
+  `.md` it describes — a twenty-document run should be one click and one thing to
+  open. Sidecars stay *out* of the `.zip`: that archive is the documents.
+- [x] **UI: one button, one request.** The *Keywords* button reads
+  *Keywords (12)* when a batch is showing and extracts for all of them at once.
+  The table follows the document selected in the results list, switching with **no
+  further request**. Chapters are deliberately unchanged — a chaptered document is
+  one document split up, so "keywords for this book" is what a reader wants there.
+  *Verified: 27 assertions driving the real UI against a live backend, including
+  the downloaded archive and sidecar.*
+- [x] **`extract_keywords_batch` on the MCP surface**, with the
+  `convert_batch` → `extract_keywords_batch` chain spelled out in its docstring
+  and an entry with no `markdown` refused *before* anything is sent.
 - [ ] **Language detection.** `language` is a parameter with an `en` default;
   nothing infers it. A non-English document extracts with English stopwords in
   `frequency` unless the caller says otherwise.

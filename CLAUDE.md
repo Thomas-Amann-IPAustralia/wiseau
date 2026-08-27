@@ -90,7 +90,7 @@ wiseau/
 │   │   ├── ocr.py          # pluggable OCR engines (Tesseract / EasyOCR)
 │   │   ├── cleaner.py      # regex/Unicode normalization (always runs)
 │   │   ├── chapters.py     # split converted Markdown into chapters (ADR-030)
-│   │   ├── keywords.py     # rank a document's keywords across methods (ADR-032)
+│   │   ├── keywords.py     # rank a document's keywords across methods (ADR-032/033)
 │   │   └── naming.py       # the one filename rule: chapters + batches (ADR-031)
 │   ├── Dockerfile          # version-locks Chromium + Python
 │   ├── requirements.txt
@@ -195,7 +195,10 @@ pip install -r requirements-keywords.txt
   classification) should hang the same way, and should follow the same three
   rules: report what actually ran (`methods_used` / `methods_skipped`), never
   hard-depend on an optional package, and combine incomparable signals by rank
-  rather than by inventing a shared scale.
+  rather than by inventing a shared scale. **And it gets a batch form the same
+  shape as `/convert/batch` (ADR-033)** — one request, one result per document in
+  send order, each carrying the `.md` filename it belongs to via
+  `parsers/naming.py`, so the two sets of results always line up.
 - **All extracted output flows through `cleaner.clean_markdown()`.** Don't return
   Markdown from any parser (docling included) without running it through the shared
   normalizer.

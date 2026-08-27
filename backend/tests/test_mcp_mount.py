@@ -258,4 +258,11 @@ def test_tools_list_matches_the_documented_surface(live_client):
     )
 
     tools = {tool["name"] for tool in _rpc_result(response)["result"]["tools"]}
-    assert tools == {"convert_url", "convert_file", "convert_batch", "extract_keywords", "ping"}
+    assert tools == {
+        "convert_url",
+        "convert_file",
+        "convert_batch",
+        "extract_keywords",
+        "extract_keywords_batch",
+        "ping",
+    }

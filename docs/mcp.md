@@ -45,6 +45,7 @@ the guards still apply — see §1.1.
 | `convert_file` | `path: str` (local `.pdf`/`.docx`), `engine: str = "auto"`, `split_chapters: bool = False` | `POST /convert/file` | `{source, markdown, length}` (+ `chapters`, `chapter_detection`) |
 | `convert_batch` | `paths: list[str]` (local `.pdf`/`.docx`), `engine: str = "auto"` | `POST /convert/batch` | `{count, succeeded, failed, results[]}` |
 | `extract_keywords` | `markdown: str`, `methods: list[str] \| None = None`, `top_k: int = 20`, `language: str \| None = None`, `prepend_table: bool = False`, `source: str \| None = None` | `POST /keywords` | `{source, keyword_count, keywords[], methods_used, methods_skipped, language, note, markdown}` |
+| `extract_keywords_batch` | `documents: list[{markdown, source}]`, `methods`, `top_k: int = 20`, `language`, `prepend_table: bool = False` | `POST /keywords/batch` | `{count, succeeded, failed, results[]}` |
 | `ping` | — | `GET /ping` | `{status, service, version, engines, default_engine, mcp_endpoint, keyword_methods, default_keyword_methods}` |
 
 `convert_file` reads the file from the machine running the MCP server (the usual
@@ -132,6 +133,24 @@ whole document back. Running it twice replaces the table rather than stacking
 one, and extracting from an already-annotated document analyses the document, so
 neither is something to work around. An empty `keywords` list is not a failure:
 `note` says why (usually a document too short to characterise).
+
+`extract_keywords_batch` is the tool for "and what are all of these about?"
+(ADR-033). Prefer it over a loop of `extract_keywords` calls for the same reason
+`convert_batch` beats a loop of `convert_file`: one request against the rate
+limit rather than one per document. The natural chain is
+
+```
+convert_batch(paths)  ->  extract_keywords_batch(
+    [{"markdown": r["markdown"], "source": r["filename"]} for r in results]
+)
+```
+
+passing each conversion's `filename` back as `source`. The keyword results then
+carry the *same* filenames, so pairing the two lists — to write each document's
+table into its own file, or to collect the lot into one sidecar — is a plain zip.
+One document failing does not fail the rest: its entry has `"status": "error"`
+and no `filename`. An entry with no `markdown` is refused before anything is
+sent, so a typo cannot silently shrink the batch.
 
 Backend errors are surfaced verbatim: a failed tool raises with the backend's
 `detail` message and status code (e.g. `wiseau backend error 415: Unsupported
@@ -234,8 +253,8 @@ Point `WISEAU_API_BASE` at a local backend or at your deployment.
 
 Agents that speak OpenAI-style function/tool calling don't need the MCP server —
 `/openapi.json` already describes the endpoints with clean operation IDs
-(`convert_url`, `convert_file`, `convert_batch`, `extract_keywords`, `ping`) and
-summaries, so it can
+(`convert_url`, `convert_file`, `convert_batch`, `extract_keywords`,
+`extract_keywords_batch`, `ping`) and summaries, so it can
 be handed to a tool-calling loop directly. The agent then issues normal HTTP
 requests:
 

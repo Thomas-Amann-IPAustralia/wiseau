@@ -21,6 +21,70 @@ one `Superseded`.
 
 ---
 
+## ADR-033 — A batch's keywords are one request, one combined sidecar, and a table in each document
+**Date:** 2026-08-27 · **Status:** Accepted
+**Context:** ADR-032 deliberately left batch keyword extraction open, because the
+question behind it had no obvious answer: a folder of twenty documents is twenty
+calls against a `20/minute` limit — the exact problem ADR-031 solved for
+conversion — but *what the answer looks like* was the part worth asking about.
+The user settled it: **"if the user is batch processing stuff they should be able
+to create keywords for every document being processed. The user should then have
+the option to prepend the keywords to their respective markdown files and/or
+download the metadata as a separate JSON."** That is the same two outputs ADR-032
+gives a single document, applied per document — which leaves three real
+decisions: how the batch is requested, how the sidecar is shaped, and what the UI
+does with a panel that can only show one table at a time.
+**Decision:** `POST /keywords/batch` (`extract_keywords_batch` on the MCP surface)
+takes `{documents: [{markdown, source}], methods, top_k, language, prepend_table}`
+and returns `{count, succeeded, failed, results[]}`, one entry per document **in
+the order they were sent**. Each entry is a `KeywordResponse` plus `status`,
+`error`, and the **`filename`** its keywords belong to — derived from `source` by
+`parsers/naming.py`, the same rule `/convert/batch` uses, so passing back the
+filenames a batch conversion returned makes the two sets of results line up
+exactly. It is not a new kind of extraction: each document takes the path
+`POST /keywords` would take it through, one at a time, **each taking its own job
+slot**. `prepend_table` puts each document's *own* table into that document.
+The **sidecar is one file, not one per document**: `keywords.json`, an array of
+entries each keyed by the `.md` filename it describes. A twenty-document run
+should be one click and one thing to open, and every entry already names the file
+it belongs to. In the UI, the *Keywords* button reads **"Keywords (12)"** when a
+batch is showing and extracts for all of them in one request; the panel then
+shows the keywords of **whichever document is selected in the results list**, and
+clicking another document switches the table with no further request. *Add to
+Markdown* rewrites every document, so the existing **Download all (.zip)** and
+each row's own *Save* carry their own table. API `0.11.0 → 0.12.0` (additive).
+**Consequences:** The exclusion ADR-032 recorded ("no batch form") is now
+**resolved**, and the shape matches ADR-031's so a client that already handles a
+batch conversion handles this one: 200 whenever the *request* was valid,
+per-document failures inside, and a failed entry with **no `filename`** — so
+"write every entry that has a filename" remains the whole of a correct loop and
+an empty keyword list can never be filed under a real document's name. A batch is
+N extractions per token, so it gets its own bounds: `5/minute` against
+`20/minute` for one document, `MAX_KEYWORD_BATCH_DOCS` (20), and
+`MAX_KEYWORD_BATCH_CHARS` (8 000 000). That last one bounds the *work*, not the
+memory — unlike an upload, a JSON body is already parsed by the time the route
+runs, so there is no streaming guard to lean on; a deployment that cares should
+bound the request body at its proxy. What this makes harder, knowingly: with
+`keybert` selected a batch is tens of seconds *per document*, which will outlast
+an HTTP gateway's idle timeout long before it outlasts `MAX_KEYWORD_BATCH_DOCS` —
+the UI's progress estimate sums the per-document estimates so it at least reads
+honestly, but bulk keyword work wants the fast default methods. `GET /metrics`
+grows `keywords.batches` (requested, documents, failed, largest), because a
+batch's cost is invisible in a request count. The **chapters** case is
+deliberately unchanged: a chaptered document is one document split up, and
+"keywords for this book" is what a reader wants there, not twelve per-chapter
+rankings — so the button keeps acting on whatever the panel is showing.
+Alternatives rejected: **a loop of single calls in the frontend** (one rate-limit
+token per document, so a thirty-file folder gets keywords for the first half —
+and it gives agents nothing, when "summarize this folder" is exactly the request
+an agent makes); **one sidecar per document** (twenty downloads a browser would
+block, or twenty entries in the archive that are harder to read than one list);
+**putting the sidecars inside the `.zip`** (the archive is the *documents*, and
+mixing metadata into it means a client unpacking Markdown has to filter);
+and **a `keywords` flag on `/convert/batch`** (the ADR-032 argument, unchanged —
+it would price extraction into every bulk conversion and force a re-convert to
+change the method set).
+
 ## ADR-032 — Keyword extraction is a second call over converted Markdown, fused across methods by rank
 **Date:** 2026-08-27 · **Status:** Accepted
 **Context:** The ask: *"a keyword extraction methodology … as an extra option
@@ -98,9 +162,9 @@ which methods are *actually* running is invisible in a request count — a
 deployment that installed the extras but never set `WISEAU_KEYWORD_METHODS` looks
 busy while only ever running the cheap pair. Knowingly harder: sending the
 document back up costs a round-trip of bandwidth that a convert-time flag would
-not, and there is **no batch keyword extraction** — a folder of twenty documents
-is twenty calls against a `20/minute` limit, which is exactly the problem ADR-031
-solved for conversion and will need the same answer if it comes up.
+not, and — as first shipped — there was **no batch keyword extraction**: a
+folder of twenty documents was twenty calls against a `20/minute` limit, the same
+problem ADR-031 solved for conversion. That gap is closed by **ADR-033**.
 Alternatives rejected: **a flag on the convert routes** (re-converts to change
 your mind, and prices keywords into every conversion); **normalizing the four
 scores onto a common scale** (invents a relationship between a cosine and a
