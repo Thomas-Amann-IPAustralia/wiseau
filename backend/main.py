@@ -32,9 +32,14 @@ from observability import configure_logging, metrics
 from parsers import (
     REQUESTABLE_ENGINES,
     BlockedUrlError,
+    available_methods,
     default_engine,
+    default_methods,
+    extract_keywords,
     file_to_markdown,
+    prepend_keyword_table,
     resolve_engine,
+    resolve_methods,
     split_into_chapters,
     unique_filenames,
     url_to_markdown,
@@ -74,6 +79,12 @@ _UPLOAD_CHUNK_BYTES = 256 * 1024
 # document; these caps bound the *time* one caller can occupy the queue.
 MAX_BATCH_FILES = int(os.environ.get("MAX_BATCH_FILES", "20"))
 MAX_BATCH_BYTES = int(os.environ.get("MAX_BATCH_BYTES", str(50 * 1024 * 1024)))
+
+# Longest document `POST /keywords` will analyse, in characters (ADR-032). The
+# body is Markdown in JSON rather than an upload, so `_read_upload`'s streaming
+# guard cannot bound it; this is the equivalent ceiling for the one route whose
+# payload is text the caller already holds.
+MAX_KEYWORD_CHARS = int(os.environ.get("MAX_KEYWORD_CHARS", str(2_000_000)))
 
 
 # --- MCP surface (ADR-029) --------------------------------------------------
@@ -157,7 +168,7 @@ app = FastAPI(
         "Deterministic conversion of web URLs, PDFs, and DOCX documents into "
         "clean, structured Markdown. Designed for both human UIs and LLM/MCP agents."
     ),
-    version="0.10.0",
+    version="0.11.0",
     lifespan=_lifespan,
 )
 
@@ -320,6 +331,25 @@ _BATCH_SPLIT_DESCRIPTION = (
 )
 
 
+_METHODS_DESCRIPTION = (
+    "Which keyword methods to run, from 'frequency' (built-in, always "
+    "available), 'yake' (statistical), 'spacy' (noun chunks and named "
+    "entities), and 'keybert' (semantic — accurate but slow, and heavy to "
+    "install). Omit, or send ['auto'], for this deployment's default; send "
+    "['all'] for every method it has. A method this build has never heard of is "
+    "a 400; one it knows but cannot run is reported in `methods_skipped` and the "
+    "rest still answer."
+)
+
+
+_PREPEND_DESCRIPTION = (
+    "Also return the document with the keywords rendered as a Markdown table at "
+    "the top, in `markdown`. Off by default — the ranked list in `keywords` is "
+    "the machine-readable answer, and a caller that only wants a JSON sidecar "
+    "should not pay to have the whole document sent back."
+)
+
+
 class UrlRequest(BaseModel):
     url: HttpUrl
     engine: str | None = Field(default=None, description=_ENGINE_DESCRIPTION)
@@ -360,6 +390,90 @@ class MarkdownResponse(BaseModel):
         "contents page), 'headings', 'markers' (plain-text 'Chapter N' lines), "
         "'none' (no chapter structure found), or 'error' (the split failed; the "
         "conversion itself succeeded). Null when the split was not requested.",
+    )
+
+
+class KeywordRequest(BaseModel):
+    """Ask for the keywords of Markdown the caller already has (ADR-032).
+
+    Deliberately takes the *document*, not a URL or an upload: keyword
+    extraction is a second look at a conversion that already happened, so it
+    must not re-render a page or re-run a minute of docling to answer.
+    """
+
+    markdown: str = Field(description="The document to analyse, as the engine returned it.")
+    source: str | None = Field(
+        default=None,
+        description="What the document is, echoed back in `source` — a filename "
+        "or URL. Labelling only; it is never fetched.",
+    )
+    methods: list[str] | None = Field(default=None, description=_METHODS_DESCRIPTION)
+    top_k: int = Field(default=20, ge=1, le=100, description="How many keywords to return.")
+    language: str | None = Field(
+        default=None,
+        description="Language code for the language-aware methods (e.g. 'en', "
+        "'de', 'pt'). Defaults to the deployment's WISEAU_KEYWORD_LANG.",
+    )
+    prepend_table: bool = Field(default=False, description=_PREPEND_DESCRIPTION)
+
+
+class KeywordMethodScore(BaseModel):
+    """Where one method placed a keyword, and what it scored it natively."""
+
+    rank: int = Field(description="1-based position in that method's own ranking.")
+    score: float = Field(
+        description="That method's own score, on its own scale — a YAKE cost "
+        "(lower is better), a cosine similarity, a weighted occurrence count. "
+        "Reported for transparency; the ranking is fused from `rank`, not from these."
+    )
+
+
+class KeywordModel(BaseModel):
+    """One extracted keyword and the evidence behind it."""
+
+    term: str = Field(description="The keyword, in the form the document uses.")
+    score: float = Field(
+        description="Relative weight, 0-1, where the top-ranked keyword is 1.0. "
+        "Fused across methods by rank (Reciprocal Rank Fusion), because the "
+        "methods' own scores are on incomparable scales."
+    )
+    rank: int = Field(description="1-based position in the fused ranking.")
+    kind: str = Field(description="'entity' when a method recognized it as a named entity, else 'phrase'.")
+    occurrences: int = Field(description="How often the term occurs in the document.")
+    agreement: int = Field(
+        description="How many of the methods that ran found this term — the "
+        "confidence signal. A term all four agree on is a different thing from "
+        "one a single method liked."
+    )
+    methods: dict[str, KeywordMethodScore] = Field(
+        description="Per-method evidence, keyed by method name."
+    )
+
+
+class KeywordResponse(BaseModel):
+    """The ranked keywords of one document, and how they were arrived at."""
+
+    source: str
+    keyword_count: int
+    keywords: list[KeywordModel]
+    methods_used: list[str] = Field(description="The methods that actually ran, in canonical order.")
+    methods_skipped: dict[str, str] = Field(
+        description="Requested methods that did not run, and why — a missing "
+        "optional package, or a method that raised. The request still succeeds: "
+        "a degraded answer beats no answer (ADR-014's rule)."
+    )
+    language: str
+    note: str | None = Field(
+        default=None,
+        description="Why the answer looks the way it does when that is not "
+        "obvious from the list: a document too short to characterise, one "
+        "truncated at the analysis ceiling, or nothing that ranked. Null otherwise.",
+    )
+    markdown: str | None = Field(
+        default=None,
+        description="The document with the keyword table prepended. Null unless "
+        "`prepend_table` was requested, so a caller that did not ask is sent "
+        "exactly the response it saw before.",
     )
 
 
@@ -413,6 +527,21 @@ def _resolve_engine_or_400(requested: str | None) -> str | None:
     """
     try:
         return resolve_engine(requested)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+def _resolve_methods_or_400(requested: list[str] | None) -> list[str] | None:
+    """Validate a requested method set, mapping an unknown name to a 400.
+
+    The same split `_resolve_engine_or_400` makes: a name this build has never
+    heard of is a caller mistake and must not read as a failed extraction. A
+    name it *knows* but cannot run is not an error at all — it is skipped and
+    said so, because the alternative is refusing a request three other methods
+    could have answered.
+    """
+    try:
+        return resolve_methods(requested)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
@@ -514,7 +643,11 @@ async def ping(request: Request) -> dict:
     Also advertises the engines this build accepts on a convert request, and
     which of them `auto` resolves to here, so a client can offer the choice —
     and estimate what it will cost — without hard-coding either (ADR-027) — plus
-    the path of the MCP endpoint, if this deployment serves one (ADR-029).
+    the path of the MCP endpoint, if this deployment serves one (ADR-029), and
+    the same pair for keyword methods (ADR-032): which ones this build can run,
+    and which of them run when a request names none. `keyword_methods` is the
+    installed set, so a UI offers only the choices that will actually work
+    instead of a checkbox that reports itself skipped.
     """
     return {
         "status": "ok",
@@ -523,6 +656,8 @@ async def ping(request: Request) -> dict:
         "engines": sorted(REQUESTABLE_ENGINES),
         "default_engine": default_engine(),
         "mcp_endpoint": MCP_ENDPOINT,
+        "keyword_methods": available_methods(),
+        "default_keyword_methods": default_methods(),
     }
 
 
@@ -723,6 +858,91 @@ async def convert_batch(
     metrics.record_batch(len(results), failed)
     return BatchResponse(
         count=len(results), succeeded=len(converted), failed=failed, results=results
+    )
+
+
+@app.post(
+    "/keywords",
+    response_model=KeywordResponse,
+    tags=["analyse"],
+    operation_id="extract_keywords",
+    summary="Extract ranked keywords from converted Markdown",
+)
+@limiter.limit("20/minute")
+async def keywords(request: Request, body: KeywordRequest) -> KeywordResponse:
+    """Rank what a converted document is *about*, with the evidence for each term.
+
+    A second call rather than a flag on the convert routes (ADR-032). Keyword
+    extraction is something a reader decides they want *after* seeing the
+    Markdown, and making it a flag would mean re-converting — a minute of docling
+    on a scanned report — every time someone changed their mind about the method
+    set. Taking the document as the request body instead means the choice can be
+    revisited, with different methods, for the cost of the extraction alone.
+
+    The answer is a ranked list where each term carries the rank and native score
+    every method gave it, so a caller can see whether four methods agreed or one
+    method guessed. `prepend_table` additionally returns the document with the
+    keywords as a Markdown table at the top.
+    """
+    markdown = body.markdown
+    if not markdown.strip():
+        raise HTTPException(status_code=400, detail="No markdown supplied.")
+    if len(markdown) > MAX_KEYWORD_CHARS:
+        raise HTTPException(
+            status_code=413,
+            detail=f"Document exceeds the {MAX_KEYWORD_CHARS:,}-character limit for keyword extraction.",
+        )
+    methods = _resolve_methods_or_400(body.methods)
+
+    async with _job_slot():
+        # Off the event loop and inside the job slot: `keybert` is minutes of CPU
+        # inference on a free tier, and even the cheap methods scan the whole
+        # document. It queues behind the same ceiling as a conversion
+        # (invariant #4) rather than running beside four of them.
+        try:
+            result = await asyncio.to_thread(
+                extract_keywords,
+                markdown,
+                methods=methods,
+                top_k=body.top_k,
+                language=body.language,
+            )
+        except Exception as exc:  # noqa: BLE001 - surface a clean 502
+            metrics.record_keyword_extraction((), 0)
+            logger.exception("Keyword extraction failed for %s", body.source or "document")
+            raise HTTPException(status_code=502, detail=f"Failed to extract keywords: {exc}") from exc
+        annotated = (
+            await asyncio.to_thread(prepend_keyword_table, markdown, result)
+            if body.prepend_table
+            else None
+        )
+
+    metrics.record_keyword_extraction(
+        result.methods_used, len(result.keywords), result.methods_skipped
+    )
+    return KeywordResponse(
+        source=body.source or "document",
+        keyword_count=len(result.keywords),
+        keywords=[
+            KeywordModel(
+                term=keyword.term,
+                score=keyword.score,
+                rank=keyword.rank,
+                kind=keyword.kind,
+                occurrences=keyword.occurrences,
+                agreement=keyword.agreement,
+                methods={
+                    name: KeywordMethodScore(rank=score.rank, score=score.score)
+                    for name, score in keyword.methods.items()
+                },
+            )
+            for keyword in result.keywords
+        ],
+        methods_used=list(result.methods_used),
+        methods_skipped=result.methods_skipped,
+        language=result.language,
+        note=result.note or None,
+        markdown=annotated,
     )
 
 

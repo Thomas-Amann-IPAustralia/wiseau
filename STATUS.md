@@ -5,8 +5,49 @@
 > session. Keep it honest — "scaffolded but untested" is more useful than a
 > green checkmark that lies.
 
-**Last updated:** 2026-08-06
-**Updated by:** Claude Code (Phase 11: bulk upload, one archive out)
+**Last updated:** 2026-08-27
+**Updated by:** Claude Code (Phase 12: keywords, after the fact)
+**Build note (2026-08-27):** **A document's keywords can now be extracted from the
+Markdown after it exists, ranked across several methods — ADR-032.** The ask:
+*"a keyword extraction methodology … as an extra option **after** the markdown was
+created"*, mixing YAKE, spaCy and KeyBERT, with weights, a downloadable JSON
+sidecar, and/or the keywords prepended to the document as a Markdown table.
+
+*Two decisions are worth not re-deriving.* **Where it hangs.** The obvious shape
+was a `keywords: true` flag on the convert routes, mirroring `split_chapters`
+(ADR-030) — and the word *after* is why it is wrong. Chapters have to be asked
+for up front because the answer depends on the document arriving; keywords are
+something a reader decides they want having *seen* the Markdown, and a flag would
+mean **re-converting** — up to a minute of docling on a scanned report — every
+time someone changed their mind about which methods to run. So `POST /keywords`
+takes **the document itself**, and a second opinion costs the extraction alone.
+**How four extractors become one list.** Their scores are mutually incomparable:
+YAKE's is a *cost* on an unbounded scale, KeyBERT's a cosine in 0-1, spaCy's a
+count, the built-in method's a weighted frequency. Averaging or min-max
+normalizing them invents a relationship that does not exist. So only the
+**orders** are used, combined by Reciprocal Rank Fusion — scale-free, needs no
+tuning, and a method that is unavailable simply contributes nothing.
+
+*What that buys.* Every keyword reports `agreement` (how many methods found it)
+and the rank *and native score* each one gave it, so a ranking with no ground
+truth is judgeable rather than merely presented. On a real report, 7 of the top
+10 terms had all four methods agreeing.
+
+*Two bugs found by reading real output, not by tests.* KeyBERT's default
+`CountVectorizer` lowercases the document but **not** the supplied vocabulary,
+defaults to unigrams, and strips stopwords before forming n-grams — so every
+capitalized term, every phrase and every "X of Y" was being dropped **silently**,
+producing a shorter list rather than an error. And its document embedding
+truncates at a few hundred tokens, so the obvious call ranks every candidate
+against the report's cover page; it is now meaned across the whole document.
+
+*Two more found by driving real PDFs.* A single newline is a **wrap**, not a
+phrase boundary — treating it as one reported nought occurrences for "Green
+Climate Fund" and kept `frequency` from proposing the one entity the document was
+about. And every block-final line is now terminated, because a blank line is not
+a sentence boundary to these tokenizers: a bare "Executive summary" ran into the
+paragraph below and YAKE returned "Pacific Executive summary" as a top keyword.
+Both are regression-tested.
 **Build note (2026-08-06, second session that day):** **Several documents can now
 be converted in one request and downloaded as one archive — ADR-031.** The ask:
 *"users may want to upload several documents at once and download each markdown
@@ -413,24 +454,21 @@ accounts/credentials rather than code. See ADR-011.
 
 | Area | State | Notes |
 | ---- | ----- | ----- |
-| Backend API (Phase 1) | 🟢 Verified (browser-free) | Routes, CORS, rate limiting, concurrency ceiling written; app imports cleanly; `/ping`, `/convert/file` (real PDF), `/convert/url` (mocked driver) verified via `TestClient`. Rate limiting enforced on undecorated routes (`SlowAPIMiddleware`) and uploads size-checked while streaming; both verified through a real uvicorn. Both convert endpoints now take an optional **`engine`** (ADR-025) and `/ping` advertises the accepted names **and the deployment's `default_engine`** (ADR-027). Both also take **`split_chapters`** (ADR-030), returning the document as per-chapter files. A third convert route, **`POST /convert/batch`** (ADR-031), converts several uploads in one request with per-document results. API `v0.10.0`. |
+| Backend API (Phase 1) | 🟢 Verified (browser-free) | Routes, CORS, rate limiting, concurrency ceiling written; app imports cleanly; `/ping`, `/convert/file` (real PDF), `/convert/url` (mocked driver) verified via `TestClient`. Rate limiting enforced on undecorated routes (`SlowAPIMiddleware`) and uploads size-checked while streaming; both verified through a real uvicorn. Both convert endpoints now take an optional **`engine`** (ADR-025) and `/ping` advertises the accepted names **and the deployment's `default_engine`** (ADR-027). Both also take **`split_chapters`** (ADR-030), returning the document as per-chapter files. A third convert route, **`POST /convert/batch`** (ADR-031), converts several uploads in one request with per-document results. A fifth route, **`POST /keywords`** (ADR-032), ranks the keywords of Markdown a conversion already produced. API `v0.11.0`. |
 | Scraper / extraction (Phase 2) | 🟢 Verified (incl. external URLs) | Live headless-Chrome render → Trafilatura → cleaner proven end-to-end and codified as an opt-in test; DOCX-body path covered. Fetching arbitrary **external** URLs now proven inside the Docker container (example.com, Wikipedia — deterministic across runs); ADR-011. **Direct-PDF links** now convert as documents rather than yielding the empty PDF viewer — verified live (ADR-017). **Short pages no longer come back with a duplicated body** (ADR-020), verified live before/after. |
 | OCR (scanned/handwritten) | 🟢 Verified | Image-only PDF pages + image uploads OCR'd; per-page detection assembles mixed PDFs in order. Default MuPDF-Tesseract (deterministic, in the image); opt-in neural EasyOCR for handwriting. Deterministic by pinning `pymupdf4llm` legacy mode + driving MuPDF's OCR primitive directly (ADR-012). 13 tests + HTTP round-trip verified; API `v0.3.0`. |
-| Frontend UI (Phase 3) | 🟢 Verified | Full static UI driven end-to-end with headless Chromium: status badge, URL + PDF + DOCX conversion, copy/download and error states (18/18 checks, ADR-008), plus the **Phase 7** surface — engine picker, approximated progress bar, Preview/Raw viewer, title-first download dialog, favicon (33/33 checks against a stub backend + a live-backend DOCX run) — and the **Phase 11** surface: multi-file selection, the shared results panel, per-document rows and the batch ZIP (32/32 checks against a *live* backend). Still no build step and no third-party script (ADR-026). |
+| Frontend UI (Phase 3) | 🟢 Verified | Full static UI driven end-to-end with headless Chromium: status badge, URL + PDF + DOCX conversion, copy/download and error states (18/18 checks, ADR-008), plus the **Phase 7** surface — engine picker, approximated progress bar, Preview/Raw viewer, title-first download dialog, favicon (33/33 checks against a stub backend + a live-backend DOCX run) — and the **Phase 11** surface: multi-file selection, the shared results panel, per-document rows and the batch ZIP (32/32 checks against a *live* backend) — and the **Phase 12** surface: the post-conversion *Keywords* panel, its method chips, the JSON sidecar and *Add to Markdown* (26/26 checks against a live backend, light and dark). Still no build step and no third-party script (ADR-026). |
 | Hosted MCP connector (Phase 9) | 🟢 Verified locally, not deployed | The backend serves MCP at `POST /mcp` (ADR-029), so one container's URL is also the connector URL any LLM is given. Grafted route (exact `/mcp`, no redirect), stateless sessions, loopback tool calls that keep the guards, rate-limited like any other route, `WISEAU_MCP_PATH`/`WISEAU_MCP_MOUNT`/`WISEAU_MCP_ALLOWED_HOSTS`. `/ping` reports `mcp_endpoint`; API `v0.8.0`. Verified over a real socket and with the official MCP client SDK; **never verified against a real hosted deployment or a real LLM client**. Guide: `docs/hosting.md`. |
-| AI / MCP integration (Phase 4) | 🟢 Complete | MCP server (`mcp_server.py`) exposes `convert_url`/`convert_file`/`convert_batch`/`ping` as tools — thin HTTP adapter, same contract, guards intact; verified end-to-end vs a live backend + 6 unit tests. OpenAPI operation IDs/summaries cleaned (v`0.2.0`); `docs/mcp.md` written. **Autonomous-ingestion monitor** (`monitor.py`) built + verified (16 tests + real end-to-end run) — closes Phase 4. |
+| AI / MCP integration (Phase 4) | 🟢 Complete | MCP server (`mcp_server.py`) exposes `convert_url`/`convert_file`/`convert_batch`/`extract_keywords`/`ping` as tools — thin HTTP adapter, same contract, guards intact; verified end-to-end vs a live backend + 6 unit tests. OpenAPI operation IDs/summaries cleaned (v`0.2.0`); `docs/mcp.md` written. **Autonomous-ingestion monitor** (`monitor.py`) built + verified (16 tests + real end-to-end run) — closes Phase 4. |
 | Containerization & deploy (Phase 5) | 🟡 Image proven + deploy prepared, not deployed | Image **builds and runs**: Chromium 150 launches in-container, a live external URL renders end-to-end + deterministically (ADR-011). Both deployments are now prepared in-repo — HF Space card frontmatter on `backend/README.md`, a Pages workflow for `frontend/` (ADR-023) — so what remains is account work only. Nothing deployed to Hugging Face / GitHub Pages yet. |
 | Fast by default (Phase 8) | 🟢 Verified | `WISEAU_PDF_ENGINE` defaults to `pymupdf`; docling is chosen per deployment or per request, fallback unchanged. `/ping` reports `default_engine`; API `v0.7.0`. UI leads with *Fastest* and reads *Auto* off `/ping`. ADR-027; tech-spec §1/§2/§11/§14. Verified by 6 new tests, a live uvicorn run (no docling attempt by default; explicit `engine=docling` still falls back), and the UI in headless Chromium. |
 | Usability (Phase 7) | 🟢 Verified | Per-request engine choice end-to-end (API + MCP + UI), the approximated loading bar, the Preview/Raw viewer, the title-first download dialog, the favicon, and the base64-image fix. ADR-024/025/026; tech-spec §14. Verified in a real browser; the docling half of the engine choice is still only exercised against mocks (no Space). |
 | Bulk conversion (Phase 11) | 🟢 Verified | `POST /convert/batch` converts several uploads in one request — same per-document path as `/convert/file`, one job slot each, per-document results in send order, one bad document never costing the rest. Own guards: `5/minute`, `MAX_BATCH_FILES` (20), `MAX_BATCH_BYTES` (50 MB). Filenames from the shared `parsers/naming.py`; `convert_batch` on the MCP surface; `/metrics` counts batches. UI: multi-select and the same results panel the chapters use, with **Download all (.zip)**. Mutually exclusive with chapter splitting, enforced in three places. ADR-031; tech-spec §16. Verified by 38 tests, live runs through uvicorn (deterministic; the 400/413 refusals), the MCP tool against that backend, and 32 checks driving the real UI in headless Chromium — the downloaded ZIP validates and matches the API byte for byte. |
+| Keyword extraction (Phase 12) | 🟢 Verified | `POST /keywords` ranks what an already-converted document is *about* — a **second call** over the Markdown, not a flag on conversion, because keywords are asked for after seeing the result. Four methods, different in kind: `frequency` (built in, structural, no dependency), `yake` (base requirements), `spacy` and `keybert` (opt-in via `requirements-keywords.txt`). Their scores are incomparable, so the **rankings** are fused by RRF and every keyword carries `agreement` plus each method's own rank and score. Refuses on a document too short to characterise; a named-but-uninstalled method is *skipped and reported*, never an error. `prepend_table` returns the document with a keyword table under its own title, fenced in HTML comments so it is idempotent. `extract_keywords` on the MCP surface; `/metrics` counts methods and skips. UI: a *Keywords* button beside Copy/Download, a ranked table, method chips from `/ping`, **Download .json** and **Add to Markdown**. ADR-032; tech-spec §17. Verified by 62 tests, live requests through uvicorn (all four methods, deterministic across runs), the whole suite passing in a venv with *neither* optional package, and 26 checks driving the real UI in headless Chromium against a live backend. |
 | Chapter splitting (Phase 10) | 🟢 Verified | `parsers/chapters.py` splits converted Markdown into per-chapter files — contents page first, then headings, then plain-text markers, then `none`. Opt-in via `split_chapters` on both convert endpoints and both MCP tools; each chapter carries a numbered filename. UI: a chapter panel with per-chapter view/save and a browser-built ZIP (`frontend/zip.js`). `/metrics` counts splits by method. ADR-030; tech-spec §15. Verified by 41 tests, a real 26-page book PDF through a live uvicorn (lossless + deterministic), the MCP tool against that backend, and the real UI in headless Chromium (the downloaded ZIP validates and matches the API byte for byte). |
 | Higher-fidelity extraction (Phase 6) | 🟡 Code complete, not deployed | docling client + engine selection with automatic fallback (ADR-014/016) — **opt-in since ADR-027, not the default**; plus **direct-PDF URL routing** (ADR-017, verified live) and the **docling Space image** `docling/Dockerfile` (ADR-018, digest-pinned but **never built**). Left: deploy Space #2 and verify against a live docling-serve. Fidelity outranks strict determinism *where it is asked for* (ADR-013 as amended by ADR-027). |
-| Observability | 🟢 Verified | Structured JSON logs (one access line per request + `X-Request-ID`), `GET /metrics` with request/job timings, peak concurrency, RSS, **chapter splits by method** (ADR-030), and **engine attribution** (docling vs the fallback parsers, with typed fallback reasons). Stdlib-only, no new runtime dep. Verified live, incl. a real docling fallback and a real docling success over a socket. ADR-019, tech-spec §12. |
-| Automated tests | 🟢 Passing | **321 pass + 7 skipped** in default (browserless) runs (this sandbox, verified directly; the 7th skip is local only — no `tesseract` installed here). +38 this session (bulk conversion: 19 API tests for the batch endpoint — order, per-document failures, the caps, the tighter rate limit, one job slot per document, the chapter-split refusal — 14 for the shared filename rule including path traversal, and 5 for the MCP `convert_batch` tool). Previously +41 (chapter detection: 30 document-shaped unit tests in `test_chapters.py` covering every signal and every must-not-split case, 6 API tests, 4 MCP tests, 1 metrics test). Previously +28 (the hosted MCP endpoint: path normalisation, Host-header
-policy, the loopback base URL following `$PORT`, the mount switch, degrading
-without the SDK, the rate-limiter naming shim, `/ping`'s `mcp_endpoint`, `/mcp`'s
-absence from the OpenAPI schema, and a real `initialize` + `tools/list` handshake
-through `TestClient`). Previously +6 (a configured docling not running unless selected, `default_engine()` over unset/`docling`/`pymupdf`/nonsense, `/ping`'s `default_engine` under both settings). Previously +31 (base64 payload elision, the DOCX image handler, docling's `image_export_mode`, engine validation/override/fallback, the API's engine plumbing and 400s, MCP forwarding). Previously +29 (rate-limit enforcement + exemption + route attribution, streamed upload rejection, blocked-URL 400, 12 private-address guard cases, the repair's corrected size bound, native-vs-OCR path pinning, OCR engine attribution, 4 monitor failure modes). Covers `cleaner`/PDF/**DOCX**/**OCR**/**docling client & engine selection**/**direct-PDF URL routing**/**observability**/**fair-use guards**/**fetch-target policy**/validation, the MCP tool surface, the **autonomous-ingestion monitor**, plus the live render→extract→clean pipeline. Skips *here*: 5 opt-in live-browser (`WISEAU_LIVE_BROWSER=1` — **not run this session**; they ran and passed in the 2026-07-26 session against a version-matched Chromium 141 + driver), 1 OCR-fixture test needing Pillow, and 1 OCR round-trip needing a `tesseract` binary (installed in CI and in the image, absent from this sandbox). |
+| Observability | 🟢 Verified | Structured JSON logs (one access line per request + `X-Request-ID`), `GET /metrics` with request/job timings, peak concurrency, RSS, **chapter splits by method** (ADR-030), **keyword extractions by method and skips** (ADR-032), and **engine attribution** (docling vs the fallback parsers, with typed fallback reasons). Stdlib-only, no new runtime dep. Verified live, incl. a real docling fallback and a real docling success over a socket. ADR-019, tech-spec §12. |
+| Automated tests | 🟢 Passing | **383 pass + 7 skipped** in default (browserless) runs (this sandbox, verified directly; the 7th skip is local only — no `tesseract` installed here). **+62 this session** (keyword extraction: 41 in `test_keywords.py` — the always-available floor, structural weighting, the refusals, method resolution, fusion and agreement, canonical merging, subsumption, determinism, the table, and idempotent annotation, plus regressions for the line-wrap and block-termination bugs; 17 API tests for `/keywords` — the ranked shape, the evidence per keyword, `prepend_table`, the 400/413/422/502s, a skipped method, the job slot, the metrics and the tighter rate limit; 4 for the MCP `extract_keywords` tool). **The suite also passes in a venv with neither optional keyword package installed** — only the three optional-method tests skip, which is exactly the degradation ADR-032 promises. Previously +38 (bulk conversion), +41 (chapter detection), +28 (the hosted MCP endpoint), +6 (engine defaults), +31 (base64/engine plumbing), +29 (guards, SSRF, monitor). Covers `cleaner`/PDF/**DOCX**/**OCR**/**docling client & engine selection**/**direct-PDF URL routing**/**keyword extraction**/**observability**/**fair-use guards**/**fetch-target policy**/validation, the MCP tool surface, the **autonomous-ingestion monitor**, plus the live render→extract→clean pipeline. Skips *here*: 5 opt-in live-browser (`WISEAU_LIVE_BROWSER=1` — **not run this session**; they ran and passed in the 2026-07-26 session against a version-matched Chromium 141 + driver), 1 OCR-fixture test needing Pillow, and 1 OCR round-trip needing a `tesseract` binary (installed in CI and in the image, absent from this sandbox). |
 | CI/CD | 🟢 Tests + Docker build | `.github/workflows/backend-tests.yml`: a `test` job runs `pytest` (browserless) and a `docker-build` job builds the image, boots it, renders a live external URL through the container, and now also asserts the **short-page repair** on that real render, the **`/metrics` attribution**, and that request logs are structured JSON. Docker-build gap closed (ADR-011). A second workflow, `deploy-frontend.yml`, publishes `frontend/` to GitHub Pages (never run — Pages is not enabled yet; ADR-023). |
 | Documentation | 🟢 Established | Brief, tech spec, roadmap, decisions, agent workflow, this file. |
 
@@ -463,7 +501,13 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   result per document in send order — with the filename to save it as, or the
   reason it failed and no filename. Its own bounds (`5/minute`,
   `MAX_BATCH_FILES`, `MAX_BATCH_BYTES`) keep a batch from being the way around
-  the per-request guards, and `split_chapters` on it is a 400. Also serves the
+  the per-request guards, and `split_chapters` on it is a 400. **`POST /keywords`**
+  (ADR-032) ranks the keywords of Markdown a conversion already produced — a
+  second call rather than a flag, so changing your mind about the method set
+  never re-converts; `methods`/`top_k`/`language`/`prepend_table` in, a ranked
+  list with per-method evidence out, bounded by `MAX_KEYWORD_CHARS` and its own
+  job slot. `/ping` also reports `keyword_methods` and `default_keyword_methods`.
+  Also serves the
   **MCP endpoint** at
   `POST /mcp`: `mcp_server`'s streamable-HTTP route grafted onto this app (not
   mounted — a mount would 307 the exact `/mcp` a connector is given) with its
@@ -532,6 +576,20 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   **"Chapter N"** lines, then **`none`**. Returns each chapter with a title,
   level, Markdown, and a zero-padded filename; the chapters partition the
   document. Stdlib only (`re` + `difflib`), deterministic, no new dependency.
+- `parsers/keywords.py` *(Phase 12)* — keyword extraction over **converted**
+  Markdown (ADR-032). Four methods chosen to be *different in kind* —
+  `frequency` (built in, no dependency, and the only one that reads the
+  document's structure: a term in the title or a heading outweighs the same term
+  in a paragraph), `yake` (statistical, base requirements), `spacy` (noun chunks
+  + named entities) and `keybert` (semantic, a bounded re-ranker over the pooled
+  candidates) — whose **rankings**, not scores, are fused by Reciprocal Rank
+  Fusion, because a YAKE cost, a cosine and an occurrence count cannot be
+  averaged. Canonical matching merges four phrasings of one idea while the
+  *display* term stays as the document writes it. Also renders the result as a
+  Markdown table and prepends it under the document's own opening heading, fenced
+  in HTML comments so the operation is idempotent. Deterministic throughout,
+  `keybert` included; `frequency` is the floor that makes the endpoint answer on
+  a deployment with no optional package installed.
 - `parsers/naming.py` *(Phase 11)* — the one filename rule, shared by chapter
   splitting and bulk conversion (ADR-031): slug a title or an uploaded name into
   a `.md` file, dedupe a batch's repeats in upload order, and never emit a path
@@ -539,15 +597,21 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   it. Stdlib only, deterministic.
 - `Dockerfile` — Python 3.11-slim + system Chromium/chromedriver, non-root user.
 - `requirements.txt` — direct dependencies **version-pinned** to verified
-  releases; `requirements-dev.txt` — `pytest` + `httpx` for the suite.
+  releases; `requirements-dev.txt` — `pytest` + `httpx` for the suite;
+  `requirements-keywords.txt` — the opt-in keyword methods (spaCy + its model,
+  KeyBERT + sentence-transformers), deliberately *not* in the dev requirements so
+  the suite proves the endpoint still works without them.
 - `conftest.py` + `pytest.ini` — put `backend/` on `sys.path`; `tests/` dir holds
   `test_cleaner.py`, `test_file_parser.py` (incl. Phase-6 engine selection),
   `test_docling_client.py`, `test_url_parser.py` (direct-PDF routing over a faked
   driver), `test_api.py`, `test_mcp_server.py`, `test_monitor.py`, `test_ocr.py`,
   `test_ocr_engine.py`, `test_observability.py`, **`test_chapters.py`** (30
-  document-shaped tests for chapter detection), and the opt-in
-  `test_browser_live.py` (also covering a loopback-served PDF URL) — 282 pass
-  + 7 skipped in browserless runs.
+  document-shaped tests for chapter detection), **`test_keywords.py`** (41 for
+  extraction, fusion, the refusals and the annotation), `test_naming.py`,
+  `test_mcp_mount.py`, and the opt-in `test_browser_live.py` (also covering a
+  loopback-served PDF URL) — **383 pass + 7 skipped** in browserless runs, and
+  the same suite passes with neither optional keyword package installed (three
+  more skips).
 
 **CI** (`.github/`)
 - `workflows/backend-tests.yml` — two jobs on any `backend/**` change:
@@ -587,11 +651,19 @@ Legend: 🟢 done & verified · 🟡 written but not verified · 🔴 not starte
   and drop zone take a multi-file selection, each document is listed with the
   `.md` it saves as, failures show in place with their reason and offer nothing to
   save, and the same *Download all (.zip)* packs the batch. Selecting a second
-  file disables **and unticks** the chapter checkbox and says why. Light/dark
+  file disables **and unticks** the chapter checkbox and says why. Plus the
+  **keywords panel** (ADR-032): a *Keywords* button beside Copy/Download, enabled
+  only once Markdown exists, which extracts for whatever the output panel is
+  showing and lists the terms with weight, occurrences and the methods that found
+  them; method chips built from `/ping` re-extract on change; **Download .json**
+  saves the API's own answer as a sidecar (no timestamp) and **Add to Markdown**
+  swaps in the annotated document the same response already carried. Light/dark
   aware, no build step.
 - `markdown.js` — the ~200-line dependency-free renderer behind Preview.
-  Escape-first (converted content is untrusted), restricted link schemes, and a
-  placeholder chip for `data:` images.
+  Escape-first (converted content is untrusted), restricted link schemes, a
+  placeholder chip for `data:` images, and **HTML comments skipped at block
+  level** (a comment ends a paragraph, so the keyword block's own markers are
+  never displayed) while a comment inside a code fence still renders as code.
 - `zip.js` — a ~140-line dependency-free ZIP writer (stored entries, fixed
   1980 timestamp ⇒ byte-identical archives) behind *Download all (.zip)*, for a
   document's chapters and for a batch's documents alike.
@@ -687,9 +759,9 @@ URLs, which used to convert to an empty PDF-viewer shell (ADR-017).*
 
 **Phase 6 has no code left in it, the cross-cutting backlog's code items are done,
 Phase 7 (the usability pass — ADR-024/025/026), Phase 8 (fast by default —
-ADR-027), Phase 10 (chapter splitting — ADR-030) and Phase 11 (bulk conversion —
-ADR-031) are finished and verified, and both deployments are prepared in-repo
-(ADR-023).**
+ADR-027), Phase 10 (chapter splitting — ADR-030), Phase 11 (bulk conversion —
+ADR-031) and Phase 12 (keyword extraction — ADR-032) are finished and verified,
+and both deployments are prepared in-repo (ADR-023).**
 Everything remaining in both open tracks needs something this chain of sessions
 hasn't had: a Docker daemon with a few GB of pull budget, or external accounts. Once deployed, `GET /metrics` is the fastest way to check the docling
 half is actually working (`engines.docling` vs `engines.pymupdf`).
@@ -709,7 +781,22 @@ this is the one thing that has never been proven end-to-end.
    of the guide most likely to have drifted.
 4. Set the cost guards in §6 before leaving it running.
 
-**B. Phase 10 — check chapter detection against real documents.** No code is
+**B. Phase 12 — check keyword quality against real documents, and decide about
+the extras.** No code is outstanding, but two questions need real corpora rather
+than fixtures. *Quality:* run `/keywords` with `methods=["all"]` over a set of
+documents someone can judge, and look at where `agreement` is low — a term three
+methods found and one missed is usually fine, a top-ranked term only one method
+saw is the signal that a dial is wrong. The dials are `_RRF_K`, the prominence
+weights in `_run_frequency`, and `_MIN_DOCUMENT_CHARS` in `parsers/keywords.py`;
+a new *document shape* belongs in `tests/test_keywords.py` as a fixture, not as a
+tweak. *Deployment:* decide whether `requirements-keywords.txt` goes into the
+image. It should not by default — `keybert` pulls PyTorch, which is a much larger
+image and tens of seconds per request on free CPU — but `spacy` alone is cheap and
+adds named entities, which is the signal a statistical method misses most. If it
+goes in, set `WISEAU_KEYWORD_METHODS` accordingly and watch `/metrics`'s
+`keywords.by_method`.
+
+**C. Phase 10 — check chapter detection against real documents.** No code is
 outstanding, but the heuristics have only ever seen fixtures. Split a real
 scanned or government PDF with `split_chapters=true`, read `chapter_detection`,
 and compare `/metrics`'s `chapters.by_method` against what those documents
@@ -728,7 +815,7 @@ seconds to minutes *per document*, and never yet run as a batch). Lower
 what an archive of several documents' chapters should look like, which is what
 would let the mutual exclusion be lifted.
 
-**C. Phase 6 — build and deploy the docling Space (ADR-015/018).**
+**D. Phase 6 — build and deploy the docling Space (ADR-015/018).**
 1. **Build `docling/Dockerfile`** (`docker build -t wiseau-docling docling/`) and
    boot it: `/health` must answer, and a `POST /v1/convert/file` with
    `to_formats=md` must return `document.md_content`. This is the first real test
@@ -745,7 +832,7 @@ would let the mutual exclusion be lifted.
    a `falling back` line in the log). While you are there, confirm real docling
    honours `image_export_mode=placeholder` and returns no data URIs (ADR-024).
 
-**D. Phase 5 — the frontend half of deployment.** Nothing here needs a commit any more (ADR-023) — only accounts and
+**E. Phase 5 — the frontend half of deployment.** Nothing here needs a commit any more (ADR-023) — only accounts and
 settings:
 1. Deploy the backend to a Hugging Face Space (free CPU tier): create a **Docker**
    Space and push the *contents of* `backend/` to its repo root (the Space card is
@@ -764,6 +851,80 @@ settings:
 
 Newest first. One short entry per working session — what changed and what the
 next instance should know.
+
+- **2026-08-27 — Phase 12: keywords, after the fact (ADR-032).** The ask: *"a
+  keyword extraction methodology … as an extra option **after** the markdown was
+  created"*, mixing YAKE, spaCy and KeyBERT, with weights, a JSON download, and/or
+  the keywords prepended to the document as a Markdown table. **The decision worth
+  not re-deriving is where it hangs.** The obvious shape was a `keywords: true`
+  flag on the convert routes, mirroring `split_chapters` — and the word *after* is
+  why it is wrong. Chapters must be asked for up front because the answer depends
+  on the document arriving; keywords are decided on having *seen* the Markdown, so
+  a flag would mean **re-converting** — up to a minute of docling on a scan —
+  every time someone changed their mind about the method set. `POST /keywords`
+  takes the document itself, so a second opinion costs the extraction alone, and
+  it works on any Markdown, not only this engine's. **The second is how four
+  extractors become one list.** Their scores are mutually incomparable (a YAKE
+  *cost*, a cosine, a count, a weighted frequency); averaging or min-max
+  normalizing them invents a relationship that is not there. So only the **orders**
+  are combined, by Reciprocal Rank Fusion — scale-free, no tuning, and an
+  unavailable method contributes nothing while the rest still rank. That is what
+  makes `agreement` meaningful: every keyword says how many methods found it and
+  where each placed it, which is the only honest way to present a ranking with no
+  ground truth.
+
+  Seven things a later instance should not have to re-learn:
+  (1) **`frequency` is the floor.** It is built in, needs no package, and is the
+  only method that reads the document's *structure* — a term in the title or a
+  heading outweighs the same term in a paragraph. It is why the endpoint answers
+  on the leanest deployment, and why a missing optional package can be *reported*
+  rather than fatal (ADR-014's rule).
+  (2) **Two failure modes are deliberately different.** A method name this build
+  has never heard of is a **400** (a caller mistake, `resolve_engine`'s split); a
+  name it knows but cannot run is `methods_skipped` and the others still answer.
+  So a caller reads `methods_used`, never assumes — and `/ping` publishes
+  `keyword_methods`/`default_keyword_methods` so the UI offers only what works.
+  (3) **KeyBERT's default `CountVectorizer` was silently eating the input.** It
+  lowercases the document but not the supplied vocabulary, defaults to unigrams,
+  and strips English stopwords before forming n-grams — so every capitalized
+  term, every phrase and every "X of Y" vanished, producing a shorter list rather
+  than an error. It is now given an explicit vectorizer. **Do not simplify that
+  back.**
+  (4) **Its document embedding is meaned across the whole document**, because a
+  sentence-transformer truncates at a few hundred tokens and the obvious call
+  ranks every candidate against the report's cover page.
+  (5) **Two text-preparation rules were found by driving real PDFs, not by
+  tests.** A single newline is a *wrap*, not a phrase boundary — treating it as
+  one reported nought occurrences for "Green Climate Fund" and kept `frequency`
+  from proposing the one entity the document was about. And every block-final
+  line is terminated with a full stop, because a blank line is not a sentence
+  boundary to these tokenizers: a bare "Executive summary" ran into the paragraph
+  below and YAKE returned "Pacific Executive summary" as a top keyword. Both are
+  regression-tested; both matter most for scanned and single-font PDFs, which
+  extract with no heading markup at all.
+  (6) **One curated list earns its place.** A document's own section names
+  ("Executive summary", "Findings", "Recommendations") get no heading
+  prominence, because they head every report whatever it is about — the CI
+  fixture's top keywords were "Executive summary" and "Findings" until they did
+  not. They still rank on genuine repetition in the body.
+  (7) **The annotation is idempotent by construction.** The table is fenced in
+  `<!-- wiseau:keywords -->` markers, so prepending twice replaces the block and
+  extracting from an annotated document analyses the document. It goes *under*
+  the document's own opening heading, because a file whose first line is
+  `## Keywords` has lost its title to a summary of itself. `markdown.js` now
+  skips HTML comments at block level (and a comment ends a paragraph — without
+  that the closing marker was rendered as the caption's last words).
+
+  Verified: 390 tests (0 failures, 7 skipped) — 62 new; the same suite passing in
+  a venv with **neither** optional package installed, where only the three
+  optional-method tests skip; live requests through uvicorn with all four methods
+  (4.7s warm, deterministic across runs, 7 of the top 10 terms agreed on by all
+  four); and 26 assertions driving the real UI in headless Chromium against that
+  backend, in light and dark. Not verified: nothing here has run against a
+  deployed instance, and `language` is still a parameter with an `en` default —
+  nothing infers it. API `0.10.0 → 0.11.0`. Left open on purpose: **bulk keyword
+  extraction** — twenty documents is twenty calls against a `20/minute` limit,
+  the same problem ADR-031 solved for conversion, deliberately not guessed at.
 
 - **2026-08-06 (second session) — Phase 11: bulk upload, one archive out
   (ADR-031).** The ask: *"users may want to upload several documents at once and

@@ -1,0 +1,9 @@
+{
+  "markdown": "# Coastal Inundation and Adaptation Funding\n\n## Executive summary\n\nAdaptation funding has not kept pace with coastal inundation across the Pacific island states. The Green Climate Fund disbursed less than a third of its committed adaptation funding in the last reporting period.\n\n## Findings\n\nCoastal inundation now affects settlements previously considered safe, and adaptation funding decisions are made without reference to the inundation modelling produced by the Bureau of Meteorology.\n",
+  "source": "ci-fixture.md",
+  "methods": [
+    "all"
+  ],
+  "top_k": 5,
+  "prepend_table": true
+}

@@ -21,6 +21,13 @@ pymupdf4llm==1.28.0        # PDF -> Markdown (pulls in pymupdf/fitz)
 pymupdf==1.28.0            # imported directly in file_parser; pin to match pymupdf4llm
 mammoth==1.12.0            # DOCX -> HTML
 
+# Keyword extraction (ADR-032). YAKE is pure Python with no model download and
+# stopword lists for many languages, so it ships by default and the keyword
+# endpoint is useful out of the box. The heavier methods (spaCy, KeyBERT) are
+# opt-in via requirements-keywords.txt; the built-in `frequency` method needs
+# nothing at all, so extraction never hard-depends on any of them.
+yake==0.7.3
+
 # OCR for scanned / image-only PDF pages and image uploads uses MuPDF's built-in
 # Tesseract (driven directly for determinism — see parsers/ocr.py / ADR-012). It
 # needs no extra Python package here, only the system `tesseract` binary +

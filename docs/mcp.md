@@ -44,7 +44,8 @@ the guards still apply — see §1.1.
 | `convert_url` | `url: str` (absolute http/https), `engine: str = "auto"`, `split_chapters: bool = False` | `POST /convert/url` | `{source, markdown, length}` (+ `chapters`, `chapter_detection`) |
 | `convert_file` | `path: str` (local `.pdf`/`.docx`), `engine: str = "auto"`, `split_chapters: bool = False` | `POST /convert/file` | `{source, markdown, length}` (+ `chapters`, `chapter_detection`) |
 | `convert_batch` | `paths: list[str]` (local `.pdf`/`.docx`), `engine: str = "auto"` | `POST /convert/batch` | `{count, succeeded, failed, results[]}` |
-| `ping` | — | `GET /ping` | `{status, service, version, engines, default_engine, mcp_endpoint}` |
+| `extract_keywords` | `markdown: str`, `methods: list[str] \| None = None`, `top_k: int = 20`, `language: str \| None = None`, `prepend_table: bool = False`, `source: str \| None = None` | `POST /keywords` | `{source, keyword_count, keywords[], methods_used, methods_skipped, language, note, markdown}` |
+| `ping` | — | `GET /ping` | `{status, service, version, engines, default_engine, mcp_endpoint, keyword_methods, default_keyword_methods}` |
 
 `convert_file` reads the file from the machine running the MCP server (the usual
 case: the server runs locally alongside the agent) and forwards its bytes and
@@ -95,6 +96,42 @@ weaker ones. A document with no chapter structure comes back
 with `chapters: []` and `chapter_detection: "none"`; the full `markdown` is
 always there either way. Leave it off for an ordinary page or a short document:
 it roughly doubles the response for nothing.
+
+`extract_keywords` is the tool to reach for **after** a conversion, on the
+Markdown one of the `convert_*` tools just returned (ADR-032) — it takes the
+document itself, so answering costs the extraction alone rather than a second
+conversion. It works just as well on any Markdown the user supplies.
+
+Three things make its output usable rather than merely present:
+
+* **`agreement` is the confidence signal.** Several independent methods rank the
+  document's terms and the rankings are fused, so each keyword reports how many
+  found it and where each one placed it. Prefer a term three methods agree on
+  over one a single method ranked first, and say so when summarizing.
+* **`score` is relative, not absolute.** The top keyword is always `1.00`; the
+  rest say how far behind. It is fused from ranks, because the methods' own
+  scores are on incomparable scales — those are in each keyword's `methods`
+  object if you need them.
+* **Read `methods_used`, never assume.** `methods` names what you *want*; a
+  method this deployment has not installed is reported in `methods_skipped` and
+  the others still answer. A method name the backend has never heard of is a
+  400. `ping` reports the runnable set in `keyword_methods` and the deployment's
+  default in `default_keyword_methods`.
+
+`methods` accepts `frequency` (built in, always available), `yake`
+(statistical), `spacy` (noun chunks and named entities) and `keybert`
+(semantic). **`keybert` can take tens of seconds on free CPU**, plus a one-off
+model download, so ask for it when the user wants the best answer and leave it
+out otherwise; omitting `methods` entirely takes the deployment's default, which
+is the fast pair unless it says otherwise.
+
+`prepend_table` returns the document with the keywords as a Markdown table at the
+top, in `markdown` — set it when the user wants the keywords saved *into* the
+document, and leave it off when they want the list alone, since it sends the
+whole document back. Running it twice replaces the table rather than stacking
+one, and extracting from an already-annotated document analyses the document, so
+neither is something to work around. An empty `keywords` list is not a failure:
+`note` says why (usually a document too short to characterise).
 
 Backend errors are surfaced verbatim: a failed tool raises with the backend's
 `detail` message and status code (e.g. `wiseau backend error 415: Unsupported
@@ -197,7 +234,8 @@ Point `WISEAU_API_BASE` at a local backend or at your deployment.
 
 Agents that speak OpenAI-style function/tool calling don't need the MCP server —
 `/openapi.json` already describes the endpoints with clean operation IDs
-(`convert_url`, `convert_file`, `convert_batch`, `ping`) and summaries, so it can
+(`convert_url`, `convert_file`, `convert_batch`, `extract_keywords`, `ping`) and
+summaries, so it can
 be handed to a tool-calling loop directly. The agent then issues normal HTTP
 requests:
 
@@ -223,6 +261,17 @@ curl -X POST "$WISEAU_API_BASE/convert/batch" \
 #                {"status":"ok","source":"minutes.docx","filename":"minutes.md", ...},
 #                {"status":"error","source":"notes.txt","filename":null,
 #                 "error":"Unsupported file type '.txt'. ..."}]}
+
+# What a document is *about*, from Markdown you already have (ADR-032):
+curl -X POST "$WISEAU_API_BASE/keywords" \
+     -H 'Content-Type: application/json' \
+     -d '{"markdown":"# Coastal Inundation...","methods":["all"],"top_k":5}'
+# -> {"keyword_count":5,"methods_used":["frequency","yake","spacy","keybert"],
+#     "methods_skipped":{},"language":"en","note":null,"markdown":null,
+#     "keywords":[{"term":"Adaptation funding","score":1.0,"rank":1,
+#                  "kind":"phrase","occurrences":6,"agreement":4,
+#                  "methods":{"frequency":{"rank":1,"score":8.4},
+#                             "yake":{"rank":1,"score":0.0298}, ...}}, ...]}
 ```
 
 Because both the MCP tools and direct callers hit the same routes, they observe

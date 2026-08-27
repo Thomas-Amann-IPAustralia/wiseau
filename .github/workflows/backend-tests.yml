@@ -144,6 +144,35 @@ jobs:
           print("metrics OK")
           PY
 
+      - name: Confirm the image extracts keywords
+        run: |
+          # Proves the keyword path in the *production image*: `yake` is in the
+          # base requirements (ADR-032), so the default method pair must run
+          # here, and the two optional methods must be *reported as skipped*
+          # rather than failing the request — that degradation is the contract.
+          curl -sf --max-time 60 -X POST http://localhost:7860/keywords \
+            -H 'Content-Type: application/json' \
+            -d @backend/tests/fixtures/ci-keywords-request.json \
+            -o /tmp/keywords.json
+          cat /tmp/keywords.json
+          python3 - <<'PY'
+          import json
+
+          with open("/tmp/keywords.json") as handle:
+              d = json.load(handle)
+          assert "frequency" in d["methods_used"], d["methods_used"]
+          assert "yake" in d["methods_used"], "yake ships in requirements.txt"
+          assert d["keywords"], "a document about something produced no keywords"
+          assert d["keywords"][0]["score"] == 1.0, d["keywords"][0]
+          assert d["keywords"][0]["methods"], "no per-method evidence"
+          assert "## Keywords" in d["markdown"], "prepend_table returned no table"
+          # Whatever is not installed must be *named*, not silently dropped.
+          assert set(d["methods_used"]) | set(d["methods_skipped"]) == {
+              "frequency", "yake", "spacy", "keybert"
+          }, (d["methods_used"], d["methods_skipped"])
+          print("keywords OK:", [k["term"] for k in d["keywords"]])
+          PY
+
       - name: Confirm the image serves the MCP connector endpoint
         run: |
           # The deployed container is what an LLM connects to as a connector

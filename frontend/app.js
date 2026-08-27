@@ -24,6 +24,12 @@ const ESTIMATES = {
   docling: { base: 30, perMb: 20 },
 };
 
+// Keyword extraction is not a conversion, so it gets its own two estimates
+// (ADR-032): the statistical methods scan text and answer in under a second,
+// while KeyBERT runs a transformer on free CPU and may also be loading its
+// weights for the first time.
+const KEYWORD_ESTIMATES = { fast: 3, semantic: 45 };
+
 const IMAGE_EXTENSIONS = [".png", ".jpg", ".jpeg", ".tif", ".tiff", ".bmp", ".webp", ".gif"];
 
 // --- Element references ------------------------------------------------------
@@ -55,6 +61,14 @@ const el = {
   outputPreview: document.getElementById("output-preview"),
   viewButtons: document.querySelectorAll(".view-toggle__btn"),
   outputMeta: document.getElementById("output-meta"),
+  keywordsBtn: document.getElementById("keywords-btn"),
+  keywords: document.getElementById("keywords"),
+  keywordsMeta: document.getElementById("keywords-meta"),
+  keywordsMethods: document.getElementById("keywords-methods"),
+  keywordsNote: document.getElementById("keywords-note"),
+  keywordsRows: document.getElementById("keywords-rows"),
+  keywordsJsonBtn: document.getElementById("keywords-json-btn"),
+  keywordsApplyBtn: document.getElementById("keywords-apply-btn"),
   copyBtn: document.getElementById("copy-btn"),
   downloadBtn: document.getElementById("download-btn"),
   downloadDialog: document.getElementById("download-dialog"),
@@ -75,6 +89,24 @@ let currentView = "preview";
 // The saveable files behind the results panel: a document's chapters, or a
 // batch's documents. Never both — they are mutually exclusive (ADR-031).
 let lastFiles = [];
+// Which results row the output panel is showing, or -1 for the whole document.
+// Applying keywords writes back into that row, so the row's own Save and the
+// archive carry the table too.
+let activeResult = -1;
+
+// The keyword methods this deployment can actually run, and the ones it uses
+// when a request names none — both from /ping, so the panel offers only choices
+// that will work rather than a checkbox that reports itself skipped (ADR-032).
+let keywordMethods = ["frequency"];
+let keywordDefaults = ["frequency"];
+// The current extraction: the API response, the annotated document it produced,
+// and whether that annotation is what the output panel is showing.
+let keywordState = null;
+// Whether the user has touched the method chips. Until they have, the ticks
+// follow the server's default — otherwise the one chip rendered before /ping
+// answers becomes the whole selection, and the deployment's default never
+// applies (found by driving the UI).
+let keywordMethodsTouched = false;
 
 // --- Tab switching -----------------------------------------------------------
 el.tabs.forEach((tab) => {
@@ -93,7 +125,9 @@ async function pingBackend() {
     const res = await fetch(`${API_BASE}/ping`, { method: "GET" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     setBadge("online", "online");
-    applyServerDefaultEngine(await res.json());
+    const info = await res.json();
+    applyServerDefaultEngine(info);
+    applyKeywordMethods(info);
   } catch {
     setBadge("offline", "offline");
   }
@@ -109,6 +143,21 @@ function applyServerDefaultEngine(info) {
     el.engineAutoHint.textContent =
       reported === "docling" ? "Server's default — docling" : "Server's default — fastest";
   }
+}
+
+// /ping also reports which keyword methods this build can run and which of them
+// it defaults to, so the panel offers exactly the choices that will work — the
+// same contract the engine picker uses (ADR-027/032). A deployment that never
+// answers /ping keeps the built-in method, which needs nothing.
+function applyKeywordMethods(info) {
+  if (!info) return;
+  if (Array.isArray(info.keyword_methods) && info.keyword_methods.length) {
+    keywordMethods = info.keyword_methods.filter((name) => typeof name === "string");
+  }
+  if (Array.isArray(info.default_keyword_methods) && info.default_keyword_methods.length) {
+    keywordDefaults = info.default_keyword_methods.filter((name) => keywordMethods.includes(name));
+  }
+  renderKeywordMethods();
 }
 
 function setBadge(state, text) {
@@ -231,6 +280,7 @@ function showMarkdown(markdown, meta, source) {
   el.outputMeta.textContent = meta || "";
   el.copyBtn.disabled = !markdown;
   el.downloadBtn.disabled = !markdown;
+  el.keywordsBtn.disabled = !markdown;
 }
 
 /** The output panel's caption: size, and what the chapter split found. */
@@ -254,6 +304,8 @@ function showFailure(message) {
   el.outputMeta.textContent = "";
   el.copyBtn.disabled = true;
   el.downloadBtn.disabled = true;
+  el.keywordsBtn.disabled = true;
+  clearKeywords();
 }
 
 function showError(message) {
@@ -382,16 +434,19 @@ function resultRow(file, index) {
 function viewResult(index) {
   const file = lastFiles[index];
   if (!file || file.error) return;
+  clearKeywords();
   showMarkdown(file.markdown, `${file.length.toLocaleString()} chars · ${file.filename}`, file.title);
   markActiveResult(index);
 }
 
 function showWholeDocument() {
+  clearKeywords();
   showMarkdown(documentView.markdown, documentView.meta, documentView.source);
   markActiveResult(-1);
 }
 
 function markActiveResult(index) {
+  activeResult = index;
   Array.from(el.resultsList.children).forEach((row, position) =>
     row.classList.toggle("result--active", position === index)
   );
@@ -411,12 +466,14 @@ el.resultsZipBtn.addEventListener("click", () => {
 // --- Single conversions ------------------------------------------------------
 /** Show a finished conversion: the document, then its chapters if there are any. */
 function showConverted(data, fallbackSource) {
+  clearKeywords();
   documentView = {
     markdown: data.markdown,
     meta: metaFor(data),
     source: data.source || fallbackSource,
   };
   showMarkdown(documentView.markdown, documentView.meta, documentView.source);
+  markActiveResult(-1);
 
   const chapters = Array.isArray(data.chapters) ? data.chapters : [];
   const stem = filenameFor(titleFor(documentView.markdown, documentView.source)).replace(/\.md$/i, "");
@@ -581,6 +638,241 @@ el.convertFileBtn.addEventListener("click", async () => {
   }
 });
 
+// --- Keywords (ADR-032) ------------------------------------------------------
+// Extraction is a *second* call, made after the Markdown exists, on whatever the
+// output panel is currently showing. That is why there is no checkbox in the
+// input column: nobody knows they want keywords until they have seen the
+// document, and asking afterwards costs the extraction rather than a second
+// conversion — which, with docling, is a minute.
+
+// How each method reads in the panel. The hint is the honest trade-off, because
+// the choice a user makes here is a cost/quality one and nothing else in the UI
+// will tell them.
+const KEYWORD_METHOD_LABELS = {
+  frequency: { name: "Frequency", hint: "built in, structural" },
+  yake: { name: "YAKE", hint: "statistical" },
+  spacy: { name: "spaCy", hint: "entities & phrases" },
+  keybert: { name: "KeyBERT", hint: "semantic — slow", slow: true },
+};
+
+function renderKeywordMethods() {
+  if (!el.keywordsMethods) return;
+  const chosen = new Set(keywordMethodsTouched ? selectedKeywordMethods() : []);
+  el.keywordsMethods.replaceChildren(
+    ...keywordMethods.map((method) => {
+      const meta = KEYWORD_METHOD_LABELS[method] || { name: method, hint: "" };
+      const label = document.createElement("label");
+      label.className = "keywords__method";
+      label.title = meta.hint;
+
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.value = method;
+      input.checked = chosen.size ? chosen.has(method) : keywordDefaults.includes(method);
+      input.addEventListener("change", () => {
+        // Unticking the last method would ask the backend for nothing, so the
+        // built-in method is what a cleared selection falls back to.
+        if (!selectedKeywordMethods().length) input.checked = true;
+        keywordMethodsTouched = true;
+        runKeywordExtraction();
+      });
+
+      const name = document.createElement("span");
+      name.textContent = meta.name;
+      if (meta.slow) name.className = "slow";
+
+      label.append(input, name);
+      return label;
+    })
+  );
+}
+
+/** The methods currently ticked, or the deployment's default before any render. */
+function selectedKeywordMethods() {
+  if (!el.keywordsMethods) return [];
+  const ticked = Array.from(el.keywordsMethods.querySelectorAll("input:checked")).map((i) => i.value);
+  // Before the chips exist, ask for nothing and let the deployment decide —
+  // sending a method set the user never chose would override its default.
+  return ticked;
+}
+
+function clearKeywords() {
+  keywordState = null;
+  if (!el.keywords) return;
+  el.keywords.hidden = true;
+  el.keywordsRows.replaceChildren();
+  el.keywordsNote.hidden = true;
+  el.keywordsApplyBtn.textContent = "Add to Markdown";
+}
+
+/** Ask the backend for the keywords of whatever the output panel is showing. */
+async function runKeywordExtraction() {
+  if (!lastMarkdown) return;
+  // The document as it was *before* any table was added, so re-running with a
+  // different method set never analyses the previous run's own output.
+  const document_ = keywordState ? keywordState.document : lastMarkdown;
+  const methods = selectedKeywordMethods();
+  const wasApplied = Boolean(keywordState && keywordState.applied);
+  const slow = methods.includes("keybert");
+
+  el.keywordsBtn.disabled = true;
+  el.keywordsBtn.textContent = "Extracting…";
+  startProgress(slow ? KEYWORD_ESTIMATES.semantic : KEYWORD_ESTIMATES.fast, "pymupdf");
+  el.progressLabel.textContent = slow
+    ? "Extracting keywords — KeyBERT may be loading its model."
+    : "Extracting keywords…";
+  try {
+    const res = await fetch(`${API_BASE}/keywords`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        markdown: document_,
+        source: lastSource || undefined,
+        // Always ask for the annotated document: it is what "Add to Markdown"
+        // pastes in, and getting it now means that button costs no round-trip.
+        prepend_table: true,
+        top_k: 25,
+        methods: methods.length ? methods : undefined,
+      }),
+    });
+    const data = await parseResponse(res);
+    keywordState = {
+      data,
+      document: document_,
+      annotated: data.markdown || document_,
+      applied: false,
+    };
+    showKeywords(data);
+    // A re-run while the table was showing keeps it showing, now updated.
+    if (wasApplied) applyKeywords(true);
+  } catch (err) {
+    clearKeywords();
+    el.keywords.hidden = false;
+    el.keywordsMeta.textContent = "";
+    setKeywordNote(`⚠ ${err.message}`);
+  } finally {
+    stopProgress();
+    el.keywordsBtn.disabled = !lastMarkdown;
+    el.keywordsBtn.textContent = "Keywords";
+  }
+}
+
+function showKeywords(data) {
+  const keywords = Array.isArray(data.keywords) ? data.keywords : [];
+  el.keywordsMeta.textContent = keywords.length
+    ? `${keywords.length} keyword${keywords.length === 1 ? "" : "s"} · ${(data.methods_used || []).join(", ")}`
+    : "nothing ranked";
+
+  // A method that was asked for and could not run has to be said out loud: the
+  // request succeeds either way, so silence would read as "spaCy ran".
+  const skipped = Object.keys(data.methods_skipped || {});
+  const notes = [];
+  if (data.note) notes.push(data.note);
+  if (skipped.length) notes.push(`Not run: ${skipped.map((m) => `${m} (${data.methods_skipped[m]})`).join("; ")}`);
+  setKeywordNote(notes.join(" "));
+
+  el.keywordsRows.replaceChildren(...keywords.map(keywordRow));
+  el.keywordsJsonBtn.disabled = !keywords.length;
+  el.keywordsApplyBtn.disabled = !keywords.length;
+  el.keywords.hidden = false;
+}
+
+function setKeywordNote(text) {
+  el.keywordsNote.textContent = text || "";
+  el.keywordsNote.hidden = !text;
+}
+
+/**
+ * One row of the table.
+ * Built as DOM nodes, not markup: a keyword is a phrase lifted out of an
+ * arbitrary document, so it is only ever assigned as `textContent`.
+ */
+function keywordRow(keyword) {
+  const row = document.createElement("tr");
+
+  const term = document.createElement("td");
+  const label = document.createElement("span");
+  label.className = "keywords__term";
+  label.textContent = keyword.term;
+  term.append(label);
+  if (keyword.kind === "entity") {
+    const tag = document.createElement("span");
+    tag.className = "keywords__entity";
+    tag.textContent = "entity";
+    term.append(tag);
+  }
+
+  const weight = document.createElement("td");
+  weight.className = "num";
+  const wrap = document.createElement("span");
+  wrap.className = "keywords__weight";
+  const bar = document.createElement("span");
+  bar.className = "keywords__bar";
+  bar.style.width = `${Math.max(2, Math.round((keyword.score || 0) * 34))}px`;
+  const value = document.createElement("span");
+  value.textContent = (keyword.score || 0).toFixed(2);
+  wrap.append(bar, value);
+  weight.append(wrap);
+
+  const count = document.createElement("td");
+  count.className = "num";
+  count.textContent = (keyword.occurrences || 0).toLocaleString();
+
+  const found = document.createElement("td");
+  found.className = "keywords__found";
+  const methods = Object.keys(keyword.methods || {});
+  found.textContent = methods.join(", ");
+  // The agreement count is the confidence signal, so it is the row's tooltip
+  // rather than another column: four methods agreeing is a different thing
+  // from one method's first place.
+  found.title = methods
+    .map((name) => `${name}: rank ${keyword.methods[name].rank} (score ${keyword.methods[name].score})`)
+    .join("\n");
+
+  row.append(term, weight, count, found);
+  return row;
+}
+
+/** The keywords as a JSON sidecar — the API's own answer, minus the document. */
+el.keywordsJsonBtn.addEventListener("click", () => {
+  if (!keywordState) return;
+  const { markdown, ...sidecar } = keywordState.data;
+  // No timestamp: two extractions of the same document must produce identical
+  // files, the same reason the ZIP writer pins its dates (ADR-030).
+  const stem = filenameFor(suggestedTitle()).replace(/\.md$/i, "");
+  saveBlob(
+    new Blob([`${JSON.stringify(sidecar, null, 2)}\n`], { type: "application/json" }),
+    `${stem}.keywords.json`
+  );
+});
+
+el.keywordsApplyBtn.addEventListener("click", () => applyKeywords(!keywordState || !keywordState.applied));
+
+/**
+ * Put the keyword table into the document the output panel is showing, or take
+ * it back out. The table is the backend's (`prepend_table`), not a second
+ * renderer here, so what a user saves is byte-for-byte what an agent asking the
+ * same question receives.
+ */
+function applyKeywords(apply) {
+  if (!keywordState) return;
+  keywordState.applied = apply;
+  const markdown = apply ? keywordState.annotated : keywordState.document;
+  const meta = el.outputMeta.textContent;
+  showMarkdown(markdown, meta, lastSource);
+  // Write it back into the chapter or batch document it came from, so that
+  // row's own Save — and the archive — carry the table too.
+  if (activeResult >= 0 && lastFiles[activeResult]) {
+    lastFiles[activeResult].markdown = markdown;
+    lastFiles[activeResult].length = markdown.length;
+  } else {
+    documentView.markdown = markdown;
+  }
+  el.keywordsApplyBtn.textContent = apply ? "Remove from Markdown" : "Add to Markdown";
+}
+
+el.keywordsBtn.addEventListener("click", runKeywordExtraction);
+
 // --- Copy --------------------------------------------------------------------
 el.copyBtn.addEventListener("click", async () => {
   if (!lastMarkdown) return;
@@ -667,4 +959,5 @@ el.downloadBtn.addEventListener("click", () => {
 
 // --- Init --------------------------------------------------------------------
 setView(currentView);
+renderKeywordMethods();
 pingBackend();

@@ -1,9 +1,9 @@
 """wiseau MCP server — the Markdown ingestion engine as MCP tools.
 
 This exposes the conversion endpoints (`/convert/url`, `/convert/file`,
-`/convert/batch`) and the health probe (`/ping`) as Model Context Protocol tools
-so that LLM agents (Claude Desktop, IDE agents, custom clients) can ingest
-documents the same way the web UI does.
+`/convert/batch`), keyword extraction (`/keywords`) and the health probe
+(`/ping`) as Model Context Protocol tools so that LLM agents (Claude Desktop,
+IDE agents, custom clients) can ingest documents the same way the web UI does.
 
 Design: this is a **thin HTTP adapter**, not a second engine. Every tool call is
 an HTTP request to a running backend (`WISEAU_API_BASE`), so the MCP surface
@@ -213,11 +213,76 @@ async def convert_batch(paths: list[str], engine: str = "auto") -> dict[str, Any
 
 
 @mcp.tool()
+async def extract_keywords(
+    markdown: str,
+    methods: list[str] | None = None,
+    top_k: int = 20,
+    language: str | None = None,
+    prepend_table: bool = False,
+    source: str | None = None,
+) -> dict[str, Any]:
+    """Extract ranked, weighted keywords from Markdown you already have.
+
+    Use this **after** a conversion, on the Markdown one of the ``convert_*``
+    tools returned — it takes the document itself, so answering costs only the
+    extraction, not a second conversion. It works equally well on any Markdown
+    the user supplies.
+
+    Several independent methods rank the document's terms and the rankings are
+    fused, so every keyword reports how many methods found it (``agreement``)
+    and where each one placed it. Prefer a term three methods agree on over one
+    a single method ranked first.
+
+    Args:
+        markdown: The document to analyse.
+        methods: Which methods to run — any of ``"frequency"`` (built-in,
+            always available), ``"yake"`` (statistical), ``"spacy"`` (noun
+            chunks and named entities), ``"keybert"`` (semantic; accurate but
+            can take **tens of seconds on free CPU**, so ask for it only when
+            the user wants the best answer). Omit for the deployment's default;
+            ``["all"]`` for everything it can run. A method that is not
+            installed is reported in ``methods_skipped`` and the rest still
+            answer — check that field before telling the user which ran.
+        top_k: How many keywords to return (1-100).
+        language: Language code for the language-aware methods, e.g. ``"en"``.
+        prepend_table: Also return the document with the keywords rendered as a
+            Markdown table at the top, in ``markdown``. Set this when the user
+            wants the keywords saved *into* the document; leave it off when they
+            want the list alone, since it sends the whole document back.
+        source: A label for the document (filename or URL), echoed as ``source``.
+
+    Returns:
+        ``{"source", "keyword_count", "keywords": [...], "methods_used",
+        "methods_skipped", "language", "note", "markdown"}``. Each keyword is
+        ``{"term", "score", "rank", "kind", "occurrences", "agreement",
+        "methods": {<name>: {"rank", "score"}}}``, where ``score`` is a relative
+        weight with the top keyword at 1.0. ``note`` explains an empty or
+        partial answer (a document too short to characterise, or one truncated
+        at the analysis ceiling); ``markdown`` is null unless ``prepend_table``.
+    """
+    payload: dict[str, Any] = {
+        "markdown": markdown,
+        "top_k": top_k,
+        "prepend_table": prepend_table,
+    }
+    if methods:
+        payload["methods"] = methods
+    if language:
+        payload["language"] = language
+    if source:
+        payload["source"] = source
+    async with _client() as client:
+        response = await client.post("/keywords", json=payload)
+    return _unwrap(response)
+
+
+@mcp.tool()
 async def ping() -> dict[str, Any]:
     """Check that the backend is reachable and report its service version.
 
     Returns:
-        ``{"status": "ok", "service": ..., "version": ...}``.
+        ``{"status": "ok", "service": ..., "version": ...}``, plus the engines
+        and keyword methods this deployment can run and the ones it defaults to.
     """
     async with _client() as client:
         response = await client.get("/ping")

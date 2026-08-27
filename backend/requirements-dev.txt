@@ -9,3 +9,8 @@ pytest==9.1.1
 httpx==0.28.1              # required by fastapi.testclient.TestClient AND the MCP server
 python-docx==1.2.0         # synthesizes DOCX fixtures for the docx round-trip tests
 mcp==1.28.1                # MCP SDK — so the suite can import and test mcp_server.py
+
+# The optional keyword methods (requirements-keywords.txt) are deliberately NOT
+# installed here: `test_keywords.py` covers the always-available path and skips
+# the methods a checkout does not have, which is exactly the degradation the
+# endpoint promises. Install them locally to exercise `spacy`/`keybert` too.

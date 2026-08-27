@@ -116,11 +116,11 @@ def test_non_json_error_body_falls_back_to_text(monkeypatch):
 
 
 def test_tools_are_registered_with_the_server():
-    # FastMCP exposes registered tools asynchronously; the three we defined
-    # must be discoverable by an MCP client.
+    # FastMCP exposes registered tools asynchronously; the ones we defined must
+    # be discoverable by an MCP client.
     tools = asyncio.run(mcp_server.mcp.list_tools())
     names = {tool.name for tool in tools}
-    assert {"convert_url", "convert_file", "ping"} <= names
+    assert {"convert_url", "convert_file", "extract_keywords", "ping"} <= names
 
 
 def test_standalone_transport_defaults_bind_publicly(monkeypatch):
@@ -354,3 +354,98 @@ def test_the_batch_tool_offers_no_chapter_splitting(monkeypatch):
 
     assert "split_chapters" not in inspect.signature(mcp_server.convert_batch).parameters
     assert "split_chapters" in inspect.signature(mcp_server.convert_file).parameters
+
+
+# --- Keyword tool (ADR-032) -------------------------------------------------
+KEYWORD_RESPONSE = {
+    "source": "report.pdf",
+    "keyword_count": 1,
+    "keywords": [
+        {
+            "term": "adaptation funding",
+            "score": 1.0,
+            "rank": 1,
+            "kind": "phrase",
+            "occurrences": 6,
+            "agreement": 2,
+            "methods": {"frequency": {"rank": 1, "score": 33.6}, "yake": {"rank": 1, "score": 0.03}},
+        }
+    ],
+    "methods_used": ["frequency", "yake"],
+    "methods_skipped": {},
+    "language": "en",
+    "note": None,
+    "markdown": None,
+}
+
+
+def test_extract_keywords_posts_the_document_and_round_trips_the_contract(monkeypatch):
+    captured: dict = {}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        captured["path"] = request.url.path
+        captured["body"] = json.loads(request.content)
+        return httpx.Response(200, json=KEYWORD_RESPONSE)
+
+    _mock_client(monkeypatch, handler)
+    result = asyncio.run(mcp_server.extract_keywords("# Report\n\nAdaptation funding.\n"))
+
+    assert captured["path"] == "/keywords"
+    assert captured["body"] == {
+        "markdown": "# Report\n\nAdaptation funding.\n",
+        "top_k": 20,
+        "prepend_table": False,
+    }
+    assert result == KEYWORD_RESPONSE
+
+
+def test_the_keyword_tool_sends_only_the_options_the_agent_chose(monkeypatch):
+    """An omitted option must defer to the deployment, not pin a value."""
+    captured: dict = {}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        captured["body"] = json.loads(request.content)
+        return httpx.Response(200, json=KEYWORD_RESPONSE)
+
+    _mock_client(monkeypatch, handler)
+    asyncio.run(
+        mcp_server.extract_keywords(
+            "# Report\n\nAdaptation funding.\n",
+            methods=["frequency", "keybert"],
+            top_k=5,
+            language="de",
+            prepend_table=True,
+            source="report.pdf",
+        )
+    )
+
+    assert captured["body"] == {
+        "markdown": "# Report\n\nAdaptation funding.\n",
+        "top_k": 5,
+        "prepend_table": True,
+        "methods": ["frequency", "keybert"],
+        "language": "de",
+        "source": "report.pdf",
+    }
+
+
+def test_the_keyword_tool_surfaces_a_backend_error(monkeypatch):
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(400, json={"detail": "Unknown keyword method 'tf-idf'."})
+
+    _mock_client(monkeypatch, handler)
+    with pytest.raises(RuntimeError) as excinfo:
+        asyncio.run(mcp_server.extract_keywords("# Report\n\nText.\n", methods=["tf-idf"]))
+
+    assert "tf-idf" in str(excinfo.value)
+
+
+def test_the_keyword_tool_is_advertised_to_clients():
+    tools = asyncio.run(mcp_server.mcp.list_tools())
+    tool = next(tool for tool in tools if tool.name == "extract_keywords")
+    properties = tool.inputSchema["properties"]
+
+    assert {"markdown", "methods", "top_k", "language", "prepend_table"} <= set(properties)
+    # The agent has to be told which methods are slow, or it will reach for the
+    # best one on every document (ADR-032).
+    assert "keybert" in (tool.description or "")

@@ -112,6 +112,7 @@
         </div>
         <div class="output-actions">
           <span id="output-meta" class="meta"></span>
+          <button id="keywords-btn" class="btn btn--ghost" disabled>Keywords</button>
           <button id="copy-btn" class="btn btn--ghost" disabled>Copy</button>
           <button id="download-btn" class="btn btn--ghost" disabled>Download</button>
         </div>
@@ -129,6 +130,31 @@
           <button id="results-zip-btn" class="btn btn--ghost btn--small">Download all (.zip)</button>
         </div>
         <ol id="results-list" class="results__list"></ol>
+      </section>
+
+      <!--
+        Keyword extraction is a second look at a conversion that already
+        happened (ADR-032), so this panel only appears once someone asks for it,
+        and it describes whatever the output panel is currently showing — the
+        whole document, one chapter, or one document of a batch.
+      -->
+      <section id="keywords" class="keywords" hidden>
+        <div class="keywords__head">
+          <h2 class="keywords__title">Keywords</h2>
+          <span id="keywords-meta" class="meta"></span>
+          <button id="keywords-json-btn" class="btn btn--ghost btn--small">Download .json</button>
+          <button id="keywords-apply-btn" class="btn btn--ghost btn--small">Add to Markdown</button>
+        </div>
+        <div id="keywords-methods" class="keywords__methods" role="group" aria-label="Extraction methods"></div>
+        <p id="keywords-note" class="keywords__note" hidden></p>
+        <div class="keywords__scroll">
+          <table class="keywords__table">
+            <thead>
+              <tr><th>Keyword</th><th class="num">Weight</th><th class="num">Count</th><th>Found by</th></tr>
+            </thead>
+            <tbody id="keywords-rows"></tbody>
+          </table>
+        </div>
       </section>
 
       <div id="output-preview" class="output output--preview markdown-body" aria-live="polite">

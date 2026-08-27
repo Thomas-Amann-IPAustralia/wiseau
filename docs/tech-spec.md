@@ -50,7 +50,9 @@ interactive docs are at `/docs`.
     "version": "0.10.0",
     "engines": ["docling", "pymupdf"],
     "default_engine": "pymupdf",
-    "mcp_endpoint": "/mcp"
+    "mcp_endpoint": "/mcp",
+    "keyword_methods": ["frequency", "yake"],
+    "default_keyword_methods": ["frequency", "yake"]
   }
   ```
   `engines` lists the names a caller may pass as `engine` on a convert request
@@ -62,6 +64,10 @@ interactive docs are at `/docs`.
   `mcp_endpoint` is the path of this deployment's MCP endpoint, or `null` if it
   serves none — `WISEAU_MCP_PATH` may have moved it, so a client discovers the
   connector URL rather than assuming `/mcp` (ADR-029).
+  `keyword_methods` is the set of keyword methods this build can actually run
+  (the optional ones are absent unless installed) and `default_keyword_methods`
+  is what `POST /keywords` runs when a request names none — the same
+  offer-what-works contract, applied to §17 (ADR-032).
 
 ### `POST /mcp` — the MCP endpoint
 - **Purpose:** the agent-facing Model Context Protocol surface, served by this
@@ -142,6 +148,38 @@ interactive docs are at `/docs`.
   *document* that cannot be converted is **not** an error status: it is an entry
   with `status: "error"` inside a 200.
 
+### `POST /keywords`
+- **Purpose:** rank what an already-converted document is *about*, with the
+  evidence behind each term (§17, ADR-032). A **second call**, not a flag on the
+  convert routes: keywords are decided on after seeing the Markdown, so asking
+  must not mean re-converting.
+- **Rate limit:** `20/minute` per IP. Takes a job slot like any heavy work —
+  `keybert` is CPU inference (invariant #4).
+- **Request:** JSON — `markdown` (required), plus optional `source` (a label,
+  echoed back; never fetched), `methods`, `top_k` (1-100, default 20),
+  `language`, and `prepend_table`.
+- **Constraints:** `markdown` ≤ `MAX_KEYWORD_CHARS` (default 2 000 000). Beyond
+  `WISEAU_KEYWORD_MAX_CHARS` (400 000) only the leading portion is *analysed*,
+  and the response's `note` says so.
+- **200 response:** `KeywordResponse` (see §3). Returned even when nothing
+  ranked — an empty list with a `note` is an answer a caller can act on.
+- **Errors:** `400` empty `markdown`, or a `methods` name this build has never
+  heard of; `413` past `MAX_KEYWORD_CHARS`; `422` `top_k` out of range or no
+  `markdown` field; `429` rate limited; `502` the extraction itself failed.
+
+> **The `methods` parameter (ADR-032).** Any of `frequency` (built in, always
+> available), `yake`, `spacy`, `keybert` — or `["auto"]`/omitted for this
+> deployment's `WISEAU_KEYWORD_METHODS`, or `["all"]` for everything it can run.
+> `GET /ping` reports both (`keyword_methods`, `default_keyword_methods`), so a
+> client offers only the choices that will work. Two failure modes are
+> deliberately **different**: a name this build does not know is a **400** (a
+> caller mistake, like an unknown `engine`), while a name it knows but cannot run
+> — an optional package that is not installed, or a method that raised — is
+> reported in `methods_skipped` and the rest still answer. Read `methods_used`,
+> never assume.
+
+---
+
 > **The `engine` parameter (ADR-025).** Optional on all three convert endpoints:
 > `pymupdf` (fast and deterministic — what `WISEAU_PDF_ENGINE` defaults to,
 > ADR-027), `docling` (highest fidelity, far slower on free CPU), or `auto` —
@@ -200,6 +238,31 @@ fields:
 | `filename` | string \| null | What to save it as, from the uploaded name and made unique within the batch (`annual-report.md`, `annual-report-2.md`). **Null on failure**, so a save loop over the items with a filename can never write an empty file in place of a document. |
 | `error`    | string \| null | Why it failed — the message the equivalent single-document request would have returned. Null on success. |
 
+`KeywordResponse` (returned by `POST /keywords`, ADR-032):
+
+| Field             | Type   | Meaning                                       |
+| ----------------- | ------ | --------------------------------------------- |
+| `source`          | string | The label the caller sent, or `"document"`.   |
+| `keyword_count`   | int    | `len(keywords)`.                              |
+| `keywords`        | array  | The ranked keywords, best first.              |
+| `methods_used`    | array  | The methods that **actually ran**, in canonical order. Read this rather than assuming the requested set ran. |
+| `methods_skipped` | object | Requested method → why it did not run (not installed, or it raised). The request still succeeds. |
+| `language`        | string | The language code the language-aware methods used. |
+| `note`            | string \| null | Why the answer looks as it does when the list alone does not say: the document was too short to characterise, it was truncated at the analysis ceiling, or nothing ranked. Null otherwise. |
+| `markdown`        | string \| null | The document with the keyword table prepended. **Null unless `prepend_table`** — a caller that did not ask gets the response it always got. |
+
+Each element of `keywords` is a `Keyword`:
+
+| Field         | Type   | Meaning                                           |
+| ------------- | ------ | ------------------------------------------------- |
+| `term`        | string | The keyword, in the form the document writes it (not its stemmed matching key). |
+| `score`       | float  | Relative weight in `(0, 1]`, where the top-ranked keyword is exactly `1.0`. Fused across methods **by rank**, because their own scores are on incomparable scales. |
+| `rank`        | int    | 1-based position in the fused ranking.            |
+| `kind`        | string | `entity` when a method recognized it as a named entity, else `phrase`. |
+| `occurrences` | int    | How often the term occurs in the document. Can be `0` for a term a method inferred rather than counted. |
+| `agreement`   | int    | How many of the methods that ran found this term — the confidence signal. |
+| `methods`     | object | Method name → `{rank, score}`: where that method placed the term and what it scored it **on its own scale** (a YAKE cost, a cosine similarity, a weighted count). |
+
 A failed item carries `markdown: ""` and `length: 0`; `chapters` and
 `chapter_detection` are always `null` in a batch (§16).
 
@@ -213,7 +276,7 @@ The backend is deliberately small and layered. Each module has one job.
 | ------ | -------------- | -------- |
 | `main.py` | HTTP surface: routing, validation, CORS, rate limiting (decorator limits **and** `SlowAPIMiddleware` for the defaults), concurrency ceiling, streamed upload limits, error → HTTP mapping, per-request timing/logging. | Contain extraction logic; read a whole upload before checking its size. |
 | `observability.py` | Structured (JSON) log formatting and the in-process metrics registry read by `GET /metrics`. Imported by `main.py` *and* the parsers. | Affect extraction output in any way; add a runtime dependency; record URLs, filenames, or content into `/metrics`. |
-| `parsers/__init__.py` | Public entrypoints: `url_to_markdown`, `file_to_markdown`, `resolve_engine`, `default_engine`, `split_into_chapters`, `markdown_filename`, `unique_filenames`. | — |
+| `parsers/__init__.py` | Public entrypoints: `url_to_markdown`, `file_to_markdown`, `resolve_engine`, `default_engine`, `split_into_chapters`, `markdown_filename`, `unique_filenames`, `extract_keywords`, `resolve_methods`, `default_methods`, `available_methods`, `keyword_table`, `prepend_keyword_table`. | — |
 | `parsers/browser.py` | Build a stealth headless Chrome driver; download a URL's raw bytes *through that driver's session* (`fetch_bytes`), so WAF clearance/cookies carry over. | Know about Markdown; raise on a failed download (return `None`). |
 | `parsers/url_parser.py` | Refuse non-public addresses (§13), then render → Trafilatura extract → (markdownify fallback) → clean. Detect a direct-PDF response and route its bytes to the document pipeline instead. | Contain per-site CSS selectors; trust a `.pdf` URL without verifying the magic bytes; start the browser before the address is vetted. |
 | `parsers/file_parser.py` | Select the conversion engine (the request's `engine`, else `WISEAU_PDF_ENGINE`, default `pymupdf`): PyMuPDF4LLM (legacy mode) + per-page OCR / Mammoth, or docling when it is selected — with automatic fallback to the local parsers. Dispatch by extension; then clean. Validate a caller's engine choice (`resolve_engine`); report the deployment default (`default_engine`). | Hard-depend on docling; return unnormalized text; inline a DOCX image as a base64 data URI (ADR-024); use PyMuPDF4LLM's unstable layout/OCR engine in the fallback. |
@@ -221,6 +284,7 @@ The backend is deliberately small and layered. Each module has one job.
 | `parsers/ocr.py` | Pluggable OCR engines (default MuPDF-Tesseract, opt-in EasyOCR): page image → text. Used by the *fallback* PDF path. | Introduce nondeterminism. |
 | `parsers/cleaner.py` | Deterministic Unicode/whitespace/typography normalization; elide base64 data-URI payloads (ADR-024). | Introduce nondeterminism; remove content (it edits payloads, not text). |
 | `parsers/chapters.py` *(Phase 10)* | Split converted Markdown into chapters: read the document's contents page, else its heading structure, else plain-text chapter markers; name and number each chapter's file (§15). | Extract or convert anything; drop or duplicate content; return a split it is not confident in (say `none` instead); introduce nondeterminism. |
+| `parsers/keywords.py` *(Phase 12)* | Rank the keywords of already-converted Markdown across four methods and fuse the rankings; render the result as a Markdown table and prepend it to a document (§17). | Convert or extract anything; hard-depend on an optional method; let one method's failure fail the request; return a ranking for a document too short to characterise. |
 | `parsers/naming.py` *(Phase 11)* | The one filename rule, shared by chapter splitting and bulk conversion: slug a title or an uploaded name into a `.md` file, and make a batch's names unique in order (§16). | Emit a name containing a path component; depend on anything but its input (it must stay deterministic). |
 
 ### Extraction pipelines
@@ -307,13 +371,20 @@ All backend configuration is via environment variables (12-factor).
 | `WISEAU_DOCLING_API_KEY` | — | *(Phase 6)* Sent as `X-Api-Key` — docling-serve's *own* guard, matching its `DOCLING_SERVE_API_KEY`. A different mechanism from the bearer token; either, both, or neither may be in use (ADR-018). |
 | `WISEAU_DOCLING_TIMEOUT` | `120` | *(Phase 6)* Seconds to wait on docling before falling back (generous, to absorb cold starts). |
 | `WISEAU_DOCLING_PATH` | `/v1/convert/file` | *(Phase 6)* docling-serve convert endpoint path; override only if a server version moves it. |
+| `MAX_KEYWORD_CHARS` | `2000000` | Longest document `POST /keywords` accepts, in characters (ADR-032). The body is text in JSON, not an upload, so the streaming upload guard cannot bound it. Exceeding it is a 413. |
+| `WISEAU_KEYWORD_METHODS` | unset (`frequency,yake`) | Default keyword methods for this deployment: a comma-separated list, `auto` (the cheap pair), or `all` (everything installed). A request's `methods` overrides it. Names that are not installed are dropped; if nothing is left, `frequency` runs. |
+| `WISEAU_KEYWORD_LANG` | `en` | Language code the language-aware methods assume when a request names none. |
+| `WISEAU_KEYWORD_MAX_CHARS` | `400000` | How much of a document any keyword method reads. A cap, not a refusal: a longer document still extracts, and the response's `note` says it was truncated. |
+| `WISEAU_SPACY_MODEL` | `en_core_web_sm` | spaCy pipeline for the `spacy` method. Must be installed (`requirements-keywords.txt`). |
+| `WISEAU_KEYBERT_MODEL` | `all-MiniLM-L6-v2` | Sentence-transformer for the `keybert` method. Weights download on first use. |
 | `WISEAU_ALLOW_PRIVATE_URLS` | unset (off) | Allow `/convert/url` to fetch loopback/private/link-local addresses. Off by default (ADR-021); set to `1` for a self-hosted deployment that converts its own intranet. |
 | `WISEAU_LOG_FORMAT` | `json` | Log rendering: `json` (one object per line, for aggregators) or `text` (human-readable, for local work). |
 | `WISEAU_LOG_LEVEL` | `INFO` | Root log level. |
 
 Rate limits are code-level constants in `main.py` (`60/min` + `1000/day` default;
-`20/min` on the single-document convert routes, `5/min` on `/convert/batch`,
-which buys up to `MAX_BATCH_FILES` conversions per token). Promote them to env
+`20/min` on the single-document convert routes and on `/keywords`, `5/min` on
+`/convert/batch`, which buys up to `MAX_BATCH_FILES` conversions per token).
+Promote them to env
 vars only if a real tuning need arises — record the change in `decisions.md`.
 
 > **Do not remove `SlowAPIMiddleware`.** slowapi enforces a route's decorator limit
@@ -567,6 +638,7 @@ and `client`. The same `request_id` is returned to the caller as `X-Request-ID`
 | `docling` | `attempts` / `successes` / `fallbacks` / `skipped`, `reasons` (`DoclingUnavailable`, `DoclingBadDocument`, `not_configured`, `engine_not_selected`), and call durations. | Is the Space down, misconfigured, or just slow? |
 | `chapters` | `requested` / `split` / `sections` and `by_method` (`toc`, `headings`, `markers`, `none`). | Is chapter detection actually finding chapters, and by which signal? |
 | `batches` | `requested` / `files` / `failed` / `largest` (ADR-031). | What bulk conversion actually costs — thirty documents and one document are both a single request in `by_route`, so `files` is what sizes `MAX_BATCH_FILES`, and a climbing `failed` means callers are sending something unreadable. |
+| `keywords` | `requested` / `keywords` / `empty`, plus `by_method` and `skipped` (ADR-032). | Which methods are *actually* running — a deployment that installed the optional extras but never set `WISEAU_KEYWORD_METHODS` looks busy while only ever running the cheap pair. `skipped` is the only place a missing optional package shows, since it degrades the answer silently by design. |
 | `memory` | `peak_rss_mb` (getrusage) and `rss_mb` (Linux `/proc/self/statm`). | Headroom against the Space's limit. |
 
 Constraints that keep it honest: **aggregates only** — no URLs, filenames, or
@@ -661,6 +733,24 @@ a fixed 1980-01-01 timestamp so the same conversion yields byte-identical
 archives. One archive rather than *n* saves, because browsers block a burst of
 downloads. A requested split that found nothing says "no chapters detected" in
 the caption and leaves the document whole.
+
+**Keywords.** A *Keywords* button sits with Copy and Download, and is enabled
+only once there is Markdown — the feature is deliberately post-conversion
+(§17), so there is nothing about it in the input column. Clicking it calls
+`POST /keywords` for whatever the output panel is showing and opens a panel with
+the ranked table: term, weight (as a number and a bar), occurrences, and the
+methods that found it, with each row's tooltip carrying every method's own rank
+and score. Method chips are built from `/ping`'s `keyword_methods`, ticked from
+`default_keyword_methods`, and re-extract on change; unticking the last one is
+refused rather than sending an empty set. **Download .json** saves the API's own
+answer minus the document as `<title>.keywords.json` — no timestamp, so two
+extractions of a document produce identical files, the same reason `zip.js`
+pins its dates. **Add to Markdown** swaps in the annotated document the same
+response already carried (`prepend_table` is always requested, so the button
+costs no round-trip), and becomes **Remove from Markdown**; Copy, Download, a
+chapter's Save and the archive all follow it. Because keywords describe the
+*shown* document, switching chapter, batch document, or conversion clears the
+panel rather than leaving a stale ranking attached to something else.
 
 ---
 
@@ -789,3 +879,123 @@ places, so lifting it later has to be deliberate:
 
 The UI expresses the same thing structurally: the chapter list and the batch's
 document list are **one panel**, because only one of them can ever be showing.
+
+---
+
+## 17. Keyword extraction (ADR-032)
+
+A conversion says what a document *contains*; `parsers/keywords.py` says what it
+is *about*. It runs on already-extracted Markdown, after `clean_markdown`, so it
+is engine-independent — docling, PyMuPDF, Mammoth, OCR and Trafilatura output
+all arrive the same way, exactly like chapter splitting (§15).
+
+**A second call, not a flag.** `POST /keywords` takes the Markdown itself. That
+is the whole design: keywords are something a reader wants having *seen* the
+document, so a `keywords: true` on the convert routes would mean re-converting —
+up to a minute of docling on a scanned report — every time someone changed their
+mind about the method set. Taking the document instead means a second opinion
+costs the extraction alone, and works equally on Markdown from anywhere.
+
+**Four methods, different in kind.** The point is not to pick a winner; it is to
+see where independent signals agree.
+
+| Method | What it sees | Ships in | Cost |
+| ------ | ------------ | -------- | ---- |
+| `frequency` | Candidate phrases between stopwords, weighted by **where** they appear — the title and headings outweigh a paragraph. The only method that reads the document's structure. | built in, no dependency | milliseconds |
+| `yake` | YAKE!'s statistical features: casing, position, dispersion. Score is a **cost** — lower is better. | `requirements.txt` | milliseconds |
+| `spacy` | Noun chunks and **named entities** — people, organisations, statutes, places: the terms a frequency count under-ranks because they are rare. | `requirements-keywords.txt` | ~1s + model load |
+| `keybert` | Semantic relevance: cosine similarity between a candidate and the document's own embedding. The only method that can rank a term the document barely repeats but is entirely about. | `requirements-keywords.txt` | seconds to a minute on free CPU, plus a first-use model download |
+
+`frequency` is the floor: it needs nothing, so the endpoint always answers even
+on the leanest deployment (ADR-014's rule — never hard-depend on an optional
+component). `WISEAU_KEYWORD_METHODS` sets the deployment default; a request's
+`methods` overrides it (ADR-025's shape).
+
+**Fusion is by rank, never by score.** The four scores are mutually
+incomparable — a YAKE cost of 0.04, a cosine of 0.61 and a count of 17 cannot be
+averaged, and normalizing them against each other invents a relationship that is
+not there. So each method's output is used only for the **order** it produces,
+and the orders combine by Reciprocal Rank Fusion: a term scores
+`Σ 1/(60 + rank)` over the methods that ranked it. Scale-free, needs no tuning,
+and a method that is unavailable contributes nothing while the rest still rank.
+The reported `score` divides that sum by the winner's, so the top term is `1.00`
+and the rest read as relative weights. Ties break on the term itself.
+
+**Terms are matched canonically, displayed as written.** `"The Climate Changes"`
+and `"climate change"` key to the same term — lowercased, boundary words
+trimmed, plurals folded by a conservative S-stemmer — so four phrasings of one
+idea fuse into one keyword instead of competing for four rows. What is
+*displayed* is the surface form the document actually uses, so a document about
+"Analytics" never shows "analytic". A single word whose every occurrence sits
+inside a better-ranked phrase is dropped ("climate" under "climate change");
+one that also stands alone keeps its row. A **document's own section names** — "Executive summary",
+"Findings", "Recommendations" — get no heading prominence: they appear in
+headings in every report regardless of subject, so crediting them there makes
+them the top keywords of everything. They can still rank on genuine repetition
+in the body, which is what a document actually *about* its recommendations
+supplies.
+
+**Two text-preparation rules earn their place**, both found by driving real PDFs:
+
+- A **single newline is not a phrase boundary.** Extracted PDF text is
+  hard-wrapped, so "the Green\nClimate Fund" is one phrase crossing a line.
+  Treating every line end as a break reported zero occurrences for it and kept
+  `frequency` from proposing the one entity the document was about. Only
+  punctuation and **blank** lines separate phrases.
+- **Every block-final line is terminated with a full stop.** A blank line is not
+  a sentence boundary to the tokenizers these methods use, and most scanned or
+  single-font PDFs extract with no heading markup — so a bare "Executive
+  summary" ran into the paragraph below it and YAKE returned "Pacific Executive
+  summary" as a top keyword. Headings, list items and one-line paragraphs are
+  closed; a wrapped paragraph's interior line breaks are left alone.
+
+**`keybert` is a re-ranker, not a fifth candidate generator.** It receives the
+candidates the other methods pooled, so the fusion measures agreement over a
+shared vocabulary rather than comparing disjoint lists, and scoring a bounded
+candidate set is a bounded amount of inference. Two things about it are not
+obvious and must not be "simplified" back:
+
+- It is given an **explicit `CountVectorizer`**. KeyBERT's default one lowercases
+  the document but not the supplied vocabulary, defaults to unigrams, and strips
+  English stopwords before forming n-grams — so every capitalized term, every
+  phrase, and every "X of Y" was dropped *silently*, producing a shorter list
+  rather than an error.
+- Its **document embedding is the mean of embeddings sampled across the whole
+  document**. A sentence-transformer truncates at a few hundred tokens, so the
+  obvious call ranks every candidate against the report's cover page.
+
+**It says how sure it is, and refuses rather than guesses** (§15's rule). Every
+keyword carries `agreement` and the rank and native score each method gave it, so
+a term all four found is visibly different from one a single method liked. A
+document under 200 characters of text returns **no** keywords and a `note`
+saying why, rather than promoting whichever noun occurred twice. A method that
+is not installed, or that raises, is reported in `methods_skipped` while the
+others still answer — so a caller reads `methods_used`, never assumes.
+
+**Deterministic** (invariant #1). Every method is deterministic for fixed inputs,
+`keybert` included: fixed weights, CPU inference, pinned seed — the bargain
+`ocr.py` strikes for EasyOCR. Nothing here is ordered by a dict.
+
+**Annotating the document.** `prepend_table` returns the document with the
+keywords as a Markdown table, inserted **after its own opening heading** where it
+has one and at the very top otherwise — a file whose first line is `## Keywords`
+has lost its title to a summary of itself, and every downstream reader takes the
+first heading as what the document *is*. The block is fenced in HTML comments
+(`<!-- wiseau:keywords -->`), with blank lines around the table so it is
+well-formed Markdown in its own right. Those markers make the operation
+**idempotent**: prepending twice replaces the block, and extraction run on an
+annotated document analyses the document rather than its own output. The
+frontend's renderer skips HTML comments, so the markers are never displayed.
+
+**Cost and bounds.** `frequency` + `yake` answer a report in tens of
+milliseconds; all four, warm, in a few seconds; `keybert` cold pays a model
+download. It runs via `asyncio.to_thread` *inside* the job slot, so it queues
+behind the same concurrency ceiling as a conversion (invariant #4), under
+`20/minute`, with `MAX_KEYWORD_CHARS` as a 413 and `WISEAU_KEYWORD_MAX_CHARS` as
+the analysis ceiling.
+
+**No batch form.** A folder of twenty documents is twenty calls against a
+`20/minute` limit — the same problem ADR-031 solved for conversion, deliberately
+left open here rather than guessed at. In the UI, keywords describe **whatever
+the output panel is currently showing**: the whole document, one chapter, or one
+document of a batch. Switching what is shown clears the panel.
