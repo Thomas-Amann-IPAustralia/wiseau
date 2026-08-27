@@ -21,6 +21,160 @@ one `Superseded`.
 
 ---
 
+## ADR-033 — A batch's keywords are one request, one combined sidecar, and a table in each document
+**Date:** 2026-08-27 · **Status:** Accepted
+**Context:** ADR-032 deliberately left batch keyword extraction open, because the
+question behind it had no obvious answer: a folder of twenty documents is twenty
+calls against a `20/minute` limit — the exact problem ADR-031 solved for
+conversion — but *what the answer looks like* was the part worth asking about.
+The user settled it: **"if the user is batch processing stuff they should be able
+to create keywords for every document being processed. The user should then have
+the option to prepend the keywords to their respective markdown files and/or
+download the metadata as a separate JSON."** That is the same two outputs ADR-032
+gives a single document, applied per document — which leaves three real
+decisions: how the batch is requested, how the sidecar is shaped, and what the UI
+does with a panel that can only show one table at a time.
+**Decision:** `POST /keywords/batch` (`extract_keywords_batch` on the MCP surface)
+takes `{documents: [{markdown, source}], methods, top_k, language, prepend_table}`
+and returns `{count, succeeded, failed, results[]}`, one entry per document **in
+the order they were sent**. Each entry is a `KeywordResponse` plus `status`,
+`error`, and the **`filename`** its keywords belong to — derived from `source` by
+`parsers/naming.py`, the same rule `/convert/batch` uses, so passing back the
+filenames a batch conversion returned makes the two sets of results line up
+exactly. It is not a new kind of extraction: each document takes the path
+`POST /keywords` would take it through, one at a time, **each taking its own job
+slot**. `prepend_table` puts each document's *own* table into that document.
+The **sidecar is one file, not one per document**: `keywords.json`, an array of
+entries each keyed by the `.md` filename it describes. A twenty-document run
+should be one click and one thing to open, and every entry already names the file
+it belongs to. In the UI, the *Keywords* button reads **"Keywords (12)"** when a
+batch is showing and extracts for all of them in one request; the panel then
+shows the keywords of **whichever document is selected in the results list**, and
+clicking another document switches the table with no further request. *Add to
+Markdown* rewrites every document, so the existing **Download all (.zip)** and
+each row's own *Save* carry their own table. API `0.11.0 → 0.12.0` (additive).
+**Consequences:** The exclusion ADR-032 recorded ("no batch form") is now
+**resolved**, and the shape matches ADR-031's so a client that already handles a
+batch conversion handles this one: 200 whenever the *request* was valid,
+per-document failures inside, and a failed entry with **no `filename`** — so
+"write every entry that has a filename" remains the whole of a correct loop and
+an empty keyword list can never be filed under a real document's name. A batch is
+N extractions per token, so it gets its own bounds: `5/minute` against
+`20/minute` for one document, `MAX_KEYWORD_BATCH_DOCS` (20), and
+`MAX_KEYWORD_BATCH_CHARS` (8 000 000). That last one bounds the *work*, not the
+memory — unlike an upload, a JSON body is already parsed by the time the route
+runs, so there is no streaming guard to lean on; a deployment that cares should
+bound the request body at its proxy. What this makes harder, knowingly: with
+`keybert` selected a batch is tens of seconds *per document*, which will outlast
+an HTTP gateway's idle timeout long before it outlasts `MAX_KEYWORD_BATCH_DOCS` —
+the UI's progress estimate sums the per-document estimates so it at least reads
+honestly, but bulk keyword work wants the fast default methods. `GET /metrics`
+grows `keywords.batches` (requested, documents, failed, largest), because a
+batch's cost is invisible in a request count. The **chapters** case is
+deliberately unchanged: a chaptered document is one document split up, and
+"keywords for this book" is what a reader wants there, not twelve per-chapter
+rankings — so the button keeps acting on whatever the panel is showing.
+Alternatives rejected: **a loop of single calls in the frontend** (one rate-limit
+token per document, so a thirty-file folder gets keywords for the first half —
+and it gives agents nothing, when "summarize this folder" is exactly the request
+an agent makes); **one sidecar per document** (twenty downloads a browser would
+block, or twenty entries in the archive that are harder to read than one list);
+**putting the sidecars inside the `.zip`** (the archive is the *documents*, and
+mixing metadata into it means a client unpacking Markdown has to filter);
+and **a `keywords` flag on `/convert/batch`** (the ADR-032 argument, unchanged —
+it would price extraction into every bulk conversion and force a re-convert to
+change the method set).
+
+## ADR-032 — Keyword extraction is a second call over converted Markdown, fused across methods by rank
+**Date:** 2026-08-27 · **Status:** Accepted
+**Context:** The ask: *"a keyword extraction methodology … as an extra option
+**after** the markdown was created"*, using *"a mix of a few methods like YAKE,
+spaCy and KeyBERT"*, with weights reported, downloadable as a JSON sidecar
+and/or prependable to the document as a Markdown table. Two design questions
+fell out of that. **Where does it hang?** The obvious move — a `keywords: true`
+flag on the convert routes, mirroring `split_chapters` (ADR-030) — is wrong
+here, and the word *after* is why. Chapter splitting has to be asked for up
+front because the answer depends on the document arriving; keywords are
+something a reader decides they want having *seen* the Markdown, and a flag
+would mean re-converting to get them — up to a minute of docling on a scanned
+report — every time someone changed their mind about which methods to run.
+**How do four extractors become one list?** Their scores are mutually
+incomparable: YAKE's is a *cost* on an unbounded scale (lower is better),
+KeyBERT's is a cosine similarity in 0-1, spaCy's is an occurrence count, and the
+built-in method's is a weighted frequency. Averaging them, or min-max
+normalizing them against each other, invents a relationship that does not exist.
+**Decision:** A separate endpoint, `POST /keywords` (`extract_keywords` on the
+MCP surface), takes **the Markdown itself** plus `methods`, `top_k`, `language`
+and `prepend_table`, and returns a ranked list in which every keyword carries
+the rank and native score *each* method gave it, plus `agreement` — how many
+methods found it. Rankings are combined by **Reciprocal Rank Fusion**
+(`Σ 1/(60 + rank)`), which is scale-free, needs no tuning, and contributes
+nothing for a method that did not run. The reported `score` is that sum divided
+by the winner's, so the top term is `1.00` and the rest read as relative weights
+rather than as an arbitrary small number. Four methods ship, chosen to be
+*different in kind* rather than to be four of the same thing: **`frequency`**
+(built into the engine, no dependency, and the only one that reads the
+document's structure — a term in the title or a heading outweighs the same term
+in a paragraph), **`yake`** (statistical; in the base requirements because it is
+pure Python with no model download and carries stopword lists for many
+languages), **`spacy`** (noun chunks and **named entities** — the terms a
+frequency count under-ranks), and **`keybert`** (semantic relevance). The last
+two are opt-in via `requirements-keywords.txt`, the bargain `ocr.py` already
+strikes for EasyOCR (ADR-012). `prepend_table` returns the document with the
+table inserted **under its own opening heading**, fenced in HTML comments so
+re-running replaces the block instead of stacking one, and so extraction on an
+annotated document analyses the document rather than its own output. API
+`0.10.0 → 0.11.0` (additive).
+**Consequences:** *The endpoint always answers.* `frequency` needs nothing, so a
+lean deployment still extracts; a **named but uninstalled** method is reported in
+`methods_skipped` and the others still rank (ADR-014's rule), while a method name
+this build has never heard of is a **400**, the same split `resolve_engine`
+makes. That means a caller must read `methods_used` rather than assume the
+methods it asked for ran — which is also why `/ping` publishes `keyword_methods`
+and `default_keyword_methods`, so the UI offers only choices that will work
+(ADR-027's contract). *It says how sure it is, and refuses rather than guesses*
+(ADR-030's rule): a document under 200 characters of text returns **no** keywords
+with a `note` saying why, rather than promoting whichever noun occurred twice.
+One curated list earns its place alongside the stopwords: a document's own
+**section names** ("Executive summary", "Findings", "Recommendations") get no
+heading prominence, because they appear in headings in every report whatever it
+is about — without that, a report's top keywords are true of every report and
+therefore say nothing about this one. They still rank on genuine repetition in
+the body, so a document actually about its recommendations keeps them.
+*Determinism holds* (invariant #1) — every method is deterministic for fixed
+inputs, `keybert` included, on fixed weights and CPU inference with a pinned
+seed; ties break on the term, never on dict order; and the JSON sidecar the UI
+saves carries **no timestamp**, the same reason `zip.js` pins its dates.
+Two implementation choices are worth not re-deriving. **KeyBERT runs as a
+re-ranker over the candidates the other methods pooled**, with an explicit
+`CountVectorizer`: its default one lowercases the document but not the supplied
+vocabulary, defaults to unigrams, and strips English stopwords before forming
+n-grams, so every capitalized term, every phrase, and every "X of Y" was being
+dropped *silently* — a shorter list, never an error. And its **document embedding
+is the mean of embeddings sampled across the whole document**, because a
+sentence-transformer truncates at a few hundred tokens, so the obvious call
+ranks every candidate against the report's cover page. Both were caught by
+reading real output, not by a test. Bounds: `20/minute`, a job slot like any
+heavy work (invariant #4), `MAX_KEYWORD_CHARS` (2 000 000) as a 413, and
+`WISEAU_KEYWORD_MAX_CHARS` (400 000) as the analysis ceiling past which the
+answer says it was truncated. `GET /metrics` grows a `keywords` block, because
+which methods are *actually* running is invisible in a request count — a
+deployment that installed the extras but never set `WISEAU_KEYWORD_METHODS` looks
+busy while only ever running the cheap pair. Knowingly harder: sending the
+document back up costs a round-trip of bandwidth that a convert-time flag would
+not, and — as first shipped — there was **no batch keyword extraction**: a
+folder of twenty documents was twenty calls against a `20/minute` limit, the same
+problem ADR-031 solved for conversion. That gap is closed by **ADR-033**.
+Alternatives rejected: **a flag on the convert routes** (re-converts to change
+your mind, and prices keywords into every conversion); **normalizing the four
+scores onto a common scale** (invents a relationship between a cosine and a
+cost); **one method** (a single extractor's ranking has no confidence signal at
+all — `agreement` is the whole point of running several); **YAML front matter**
+instead of a table (asked for as a table, and a table is what a human reading the
+Markdown can actually use); and **building the table in the frontend** (would
+drift from what an agent asking the same question receives — the same reasoning
+that put batch filenames in the backend, ADR-031).
+
 ## ADR-031 — Bulk conversion is one request with per-document results, and it excludes chapter splitting
 **Date:** 2026-08-06 · **Status:** Accepted
 **Context:** The ask: *"users may want to upload several documents at once and

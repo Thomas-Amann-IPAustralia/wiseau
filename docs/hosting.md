@@ -275,6 +275,7 @@ service (or as environment variables on any other host). None are required.
 | `MAX_CONCURRENT_JOBS` | `4` | How many conversions run at once in one container. Lower it if you see out-of-memory restarts. |
 | `MAX_UPLOAD_BYTES` | `26214400` (25 MB) | Upload size ceiling. |
 | `WISEAU_PDF_ENGINE` | `pymupdf` | `docling` makes the slow, high-fidelity engine the default. Needs `WISEAU_DOCLING_BASE` too, and a second service to run docling — see `docling/README.md`. Leave it alone for now. |
+| `WISEAU_KEYWORD_METHODS` | unset (`frequency,yake`) | Which keyword methods `POST /keywords` runs by default (ADR-032). The default pair needs nothing beyond the image. Set it to `all` **only** after installing `requirements-keywords.txt` in the Dockerfile — `spacy` adds a model download and `keybert` pulls PyTorch, which is a much bigger image and tens of seconds per request on free CPU. A caller can always name the slow methods per request without you changing this. |
 | `WISEAU_ALLOW_PRIVATE_URLS` | *(unset)* | Leave unset. Setting it lets callers make your server fetch private/internal addresses (ADR-021). |
 
 After changing any of these, Cloud Run deploys a new revision automatically —

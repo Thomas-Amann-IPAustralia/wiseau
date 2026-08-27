@@ -1,9 +1,10 @@
 """wiseau MCP server — the Markdown ingestion engine as MCP tools.
 
 This exposes the conversion endpoints (`/convert/url`, `/convert/file`,
-`/convert/batch`) and the health probe (`/ping`) as Model Context Protocol tools
-so that LLM agents (Claude Desktop, IDE agents, custom clients) can ingest
-documents the same way the web UI does.
+`/convert/batch`), keyword extraction (`/keywords`, `/keywords/batch`) and the
+health probe (`/ping`) as Model Context Protocol tools so that LLM agents
+(Claude Desktop, IDE agents, custom clients) can ingest documents the same way
+the web UI does.
 
 Design: this is a **thin HTTP adapter**, not a second engine. Every tool call is
 an HTTP request to a running backend (`WISEAU_API_BASE`), so the MCP surface
@@ -213,11 +214,149 @@ async def convert_batch(paths: list[str], engine: str = "auto") -> dict[str, Any
 
 
 @mcp.tool()
+async def extract_keywords(
+    markdown: str,
+    methods: list[str] | None = None,
+    top_k: int = 20,
+    language: str | None = None,
+    prepend_table: bool = False,
+    source: str | None = None,
+) -> dict[str, Any]:
+    """Extract ranked, weighted keywords from Markdown you already have.
+
+    Use this **after** a conversion, on the Markdown one of the ``convert_*``
+    tools returned — it takes the document itself, so answering costs only the
+    extraction, not a second conversion. It works equally well on any Markdown
+    the user supplies.
+
+    Several independent methods rank the document's terms and the rankings are
+    fused, so every keyword reports how many methods found it (``agreement``)
+    and where each one placed it. Prefer a term three methods agree on over one
+    a single method ranked first.
+
+    Args:
+        markdown: The document to analyse.
+        methods: Which methods to run — any of ``"frequency"`` (built-in,
+            always available), ``"yake"`` (statistical), ``"spacy"`` (noun
+            chunks and named entities), ``"keybert"`` (semantic; accurate but
+            can take **tens of seconds on free CPU**, so ask for it only when
+            the user wants the best answer). Omit for the deployment's default;
+            ``["all"]`` for everything it can run. A method that is not
+            installed is reported in ``methods_skipped`` and the rest still
+            answer — check that field before telling the user which ran.
+        top_k: How many keywords to return (1-100).
+        language: Language code for the language-aware methods, e.g. ``"en"``.
+        prepend_table: Also return the document with the keywords rendered as a
+            Markdown table at the top, in ``markdown``. Set this when the user
+            wants the keywords saved *into* the document; leave it off when they
+            want the list alone, since it sends the whole document back.
+        source: A label for the document (filename or URL), echoed as ``source``.
+
+    Returns:
+        ``{"source", "keyword_count", "keywords": [...], "methods_used",
+        "methods_skipped", "language", "note", "markdown"}``. Each keyword is
+        ``{"term", "score", "rank", "kind", "occurrences", "agreement",
+        "methods": {<name>: {"rank", "score"}}}``, where ``score`` is a relative
+        weight with the top keyword at 1.0. ``note`` explains an empty or
+        partial answer (a document too short to characterise, or one truncated
+        at the analysis ceiling); ``markdown`` is null unless ``prepend_table``.
+    """
+    payload: dict[str, Any] = {
+        "markdown": markdown,
+        "top_k": top_k,
+        "prepend_table": prepend_table,
+    }
+    if methods:
+        payload["methods"] = methods
+    if language:
+        payload["language"] = language
+    if source:
+        payload["source"] = source
+    async with _client() as client:
+        response = await client.post("/keywords", json=payload)
+    return _unwrap(response)
+
+
+@mcp.tool()
+async def extract_keywords_batch(
+    documents: list[dict[str, str]],
+    methods: list[str] | None = None,
+    top_k: int = 20,
+    language: str | None = None,
+    prepend_table: bool = False,
+) -> dict[str, Any]:
+    """Extract keywords from several documents in one request.
+
+    The companion to ``convert_batch``: having converted a folder, use this
+    rather than calling ``extract_keywords`` once per document — it is **one**
+    request against the backend's rate limit instead of one each, and the
+    results come back in the order sent, each with the ``.md`` filename its
+    keywords belong to.
+
+    The natural chain is ``convert_batch(paths)`` → this, passing each result's
+    ``markdown`` and its ``filename`` as ``source``: the filenames then match
+    across both sets of results, so writing each document's table into its own
+    file, or collecting the lot into one JSON sidecar, is a plain zip of the two
+    lists.
+
+    One document failing does not fail the rest: its entry has
+    ``"status": "error"`` and no ``filename``.
+
+    Args:
+        documents: One entry per document, each ``{"markdown": "...",
+            "source": "annual-report.md"}``. ``source`` is a label used to derive
+            the result's ``filename``; it is never fetched.
+        methods: As for ``extract_keywords``, applied to every document. Note
+            that ``keybert`` costs tens of seconds *per document* on free CPU, so
+            a batch of any size wants the default fast methods.
+        top_k: How many keywords per document (1-100).
+        language: Language code for the language-aware methods.
+        prepend_table: Also return each document with its own keyword table
+            prepended, in that result's ``markdown``. Off by default — on a
+            twenty-document batch it sends every document back.
+
+    Returns:
+        ``{"count": n, "succeeded": n, "failed": n, "results": [...]}`` where each
+        result is an ``extract_keywords`` answer plus ``status``, ``filename``
+        and ``error``.
+    """
+    payload: list[dict[str, str]] = []
+    for position, document in enumerate(documents):
+        markdown = document.get("markdown") if isinstance(document, dict) else None
+        if not isinstance(markdown, str) or not markdown.strip():
+            # Refused before anything is sent: a batch that silently skipped a
+            # document would look like a complete answer with one missing.
+            raise RuntimeError(
+                f"documents[{position}] has no 'markdown' — each entry must be "
+                '{"markdown": "...", "source": "..."}.'
+            )
+        entry: dict[str, str] = {"markdown": markdown}
+        source = document.get("source")
+        if isinstance(source, str) and source.strip():
+            entry["source"] = source
+        payload.append(entry)
+
+    body: dict[str, Any] = {
+        "documents": payload,
+        "top_k": top_k,
+        "prepend_table": prepend_table,
+    }
+    if methods:
+        body["methods"] = methods
+    if language:
+        body["language"] = language
+    async with _client() as client:
+        response = await client.post("/keywords/batch", json=body)
+    return _unwrap(response)
+
+
+@mcp.tool()
 async def ping() -> dict[str, Any]:
     """Check that the backend is reachable and report its service version.
 
     Returns:
-        ``{"status": "ok", "service": ..., "version": ...}``.
+        ``{"status": "ok", "service": ..., "version": ...}``, plus the engines
+        and keyword methods this deployment can run and the ones it defaults to.
     """
     async with _client() as client:
         response = await client.get("/ping")

@@ -23,6 +23,8 @@ full design.
 | POST   | `/convert/url`  | `{ "url": "...", "engine": "auto", "split_chapters": false }` → Markdown JSON. |
 | POST   | `/convert/file` | multipart `file` (PDF/DOCX/image) + optional `engine`, `split_chapters` → Markdown JSON.|
 | POST   | `/convert/batch`| multipart `files` repeated per document + optional `engine` → one result each. |
+| POST   | `/keywords`     | `{ "markdown": "...", "methods": [...], "top_k": 20, "prepend_table": false }` → ranked keywords. |
+| POST   | `/keywords/batch`| `{ "documents": [{ "markdown": "...", "source": "..." }], ... }` → one keyword result each. |
 | GET    | `/metrics`      | Per-process operational counters (see below).    |
 
 `/convert/url` refuses a URL that resolves to a loopback/private/link-local
@@ -82,6 +84,46 @@ slot per document rather than one for the whole run. `split_chapters` is **not**
 available here — bulk conversion and chapter splitting are mutually exclusive for
 now, and asking for both is a 400. See
 [`../docs/tech-spec.md`](../docs/tech-spec.md) §16 and ADR-031.
+
+`/keywords` ranks what an already-converted document is **about**. It takes the
+Markdown itself rather than a URL or an upload, because keyword extraction is
+something a reader asks for *after* seeing the conversion — a flag on the convert
+routes would mean re-converting to change your mind about the methods:
+
+```bash
+curl -X POST localhost:7860/keywords \
+     -H 'Content-Type: application/json' \
+     -d '{"markdown":"# Coastal Inundation ...","methods":["all"],"top_k":10}'
+```
+
+Several methods rank the terms independently and the **rankings** are fused (their
+scores are on incomparable scales), so every keyword reports `agreement` — how
+many methods found it — plus the rank and native score each one gave it.
+`frequency` is built in and always available; `yake` ships in `requirements.txt`;
+`spacy` and `keybert` are opt-in via `requirements-keywords.txt` and are reported
+in `methods_skipped` when they are not installed, rather than failing the request.
+`prepend_table: true` also returns the document with the keywords as a Markdown
+table at the top. See [`../docs/tech-spec.md`](../docs/tech-spec.md) §17 and
+ADR-032.
+
+`/keywords/batch` does the same for **several documents in one request** — the
+companion to `/convert/batch`, so a folder is one call rather than one per
+document against a `20/minute` limit:
+
+```bash
+curl -X POST localhost:7860/keywords/batch \
+     -H 'Content-Type: application/json' \
+     -d '{"documents":[{"markdown":"# A ...","source":"a.pdf"},
+                       {"markdown":"# B ...","source":"b.pdf"}],
+          "prepend_table":true}'
+```
+
+Each result carries the `.md` **filename** its keywords belong to, derived by the
+same rule `/convert/batch` uses — so passing back the filenames a batch
+conversion returned lines the two sets of results up one-to-one. One document
+failing does not fail the rest: its entry has `"status": "error"` and no
+`filename`. Own bounds: `5/minute`, `MAX_KEYWORD_BATCH_DOCS`,
+`MAX_KEYWORD_BATCH_CHARS`. See §18 and ADR-033.
 
 Interactive docs and the machine-readable schema for LLM/MCP integration are
 served at `/docs` and `/openapi.json`.
@@ -222,6 +264,10 @@ curl -s localhost:7860/metrics | python -m json.tool
 # chapters: {"requested": 12, "split": 11, "sections": 74,
 #            "by_method": {"toc": 9, "headings": 2, "none": 1}}
 # batches:  {"requested": 4, "files": 37, "failed": 1, "largest": 20}
+# keywords: {"requested": 9, "keywords": 178, "empty": 1,
+#            "by_method": {"frequency": 9, "yake": 9},   <- the extras are installed
+#            "skipped": {"keybert": 2},                    but nobody asks for them
+#            "batches": {"requested": 2, "documents": 23, "failed": 0, "largest": 20}}
 ```
 
 `batches` is there because a batch's real cost is invisible in a request count —
@@ -253,6 +299,14 @@ they reset with the process. See [`../docs/tech-spec.md`](../docs/tech-spec.md)
 | `WISEAU_DOCLING_API_KEY` | —      | Sent as `X-Api-Key` (docling-serve's `DOCLING_SERVE_API_KEY`). |
 | `WISEAU_DOCLING_TIMEOUT` | `120`  | Seconds to wait on docling before falling back. |
 | `WISEAU_DOCLING_PATH` | `/v1/convert/file` | docling-serve convert endpoint path. |
+| `MAX_KEYWORD_CHARS`   | `2000000` | Longest document `/keywords` accepts (ADR-032); past it, a 413. |
+| `WISEAU_KEYWORD_METHODS` | unset  | Default keyword methods: a comma list, `auto` (`frequency,yake`), or `all`. Set `all` only after installing `requirements-keywords.txt`. |
+| `MAX_KEYWORD_BATCH_DOCS` | `20`   | Most documents one `/keywords/batch` request may carry (ADR-033). |
+| `MAX_KEYWORD_BATCH_CHARS` | `8000000` | Total characters one keyword batch may carry. |
+| `WISEAU_KEYWORD_LANG` | `en`      | Language the language-aware keyword methods assume. |
+| `WISEAU_KEYWORD_MAX_CHARS` | `400000` | How much of a document any keyword method reads; beyond it the answer says it was truncated. |
+| `WISEAU_SPACY_MODEL`  | `en_core_web_sm` | spaCy pipeline for the `spacy` method. |
+| `WISEAU_KEYBERT_MODEL`| `all-MiniLM-L6-v2` | Sentence-transformer for the `keybert` method. |
 | `WISEAU_ALLOW_PRIVATE_URLS` | unset | Allow `/convert/url` to fetch non-public addresses (ADR-021). |
 | `WISEAU_LOG_FORMAT`   | `json`    | `json` (one object per line) or `text` (human-readable). |
 | `WISEAU_LOG_LEVEL`    | `INFO`    | Root log level.                                |

@@ -90,9 +90,11 @@ wiseau/
 │   │   ├── ocr.py          # pluggable OCR engines (Tesseract / EasyOCR)
 │   │   ├── cleaner.py      # regex/Unicode normalization (always runs)
 │   │   ├── chapters.py     # split converted Markdown into chapters (ADR-030)
+│   │   ├── keywords.py     # rank a document's keywords across methods (ADR-032/033)
 │   │   └── naming.py       # the one filename rule: chapters + batches (ADR-031)
 │   ├── Dockerfile          # version-locks Chromium + Python
-│   └── requirements.txt
+│   ├── requirements.txt
+│   └── requirements-keywords.txt  # opt-in keyword methods: spaCy, KeyBERT
 ├── docling/                # [Phase 6] docling-serve converter — HF Space #2
 │   ├── Dockerfile          # upstream docling-serve-cpu image, tag+digest pinned
 │   └── README.md           # HF Space card + deployment/verification steps
@@ -145,6 +147,11 @@ cd backend
 pip install -r requirements-dev.txt
 pytest                          # browserless suite (URL worker mocked)
 WISEAU_LIVE_BROWSER=1 pytest    # also runs the opt-in live-Chromium tests
+
+# The optional keyword methods are not in requirements-dev.txt on purpose: the
+# suite must pass without them (that is the degradation ADR-032 promises), and
+# their tests skip themselves. Install them to exercise those three tests too:
+pip install -r requirements-keywords.txt
 ```
 
 > **Note:** CI (`.github/workflows/backend-tests.yml`) runs the browserless suite
@@ -180,6 +187,18 @@ WISEAU_LIVE_BROWSER=1 pytest    # also runs the opt-in live-Chromium tests
   no `split_chapters` parameter on the batch MCP tool, and a UI checkbox that
   disables *and unticks* itself for a multi-file selection — so lifting it later
   has to be deliberate. Never make it a silently ignored flag.
+- **Analysis is a second call over converted Markdown, not a flag on conversion
+  (ADR-032).** Keyword extraction takes the document as its *input* rather than
+  re-running the conversion, because it is something a reader asks for having
+  seen the result — and because a flag would price it into every conversion.
+  Anything else that *reads* an already-converted document (summaries, entities,
+  classification) should hang the same way, and should follow the same three
+  rules: report what actually ran (`methods_used` / `methods_skipped`), never
+  hard-depend on an optional package, and combine incomparable signals by rank
+  rather than by inventing a shared scale. **And it gets a batch form the same
+  shape as `/convert/batch` (ADR-033)** — one request, one result per document in
+  send order, each carrying the `.md` filename it belongs to via
+  `parsers/naming.py`, so the two sets of results always line up.
 - **All extracted output flows through `cleaner.clean_markdown()`.** Don't return
   Markdown from any parser (docling included) without running it through the shared
   normalizer.

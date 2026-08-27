@@ -1,0 +1,31 @@
+# Optional keyword-extraction methods (ADR-032).
+#
+# By default `POST /keywords` runs `frequency` (built into the engine, no
+# dependency) and `yake` (in requirements.txt: pure Python, no model download).
+# Both are fast enough to run on every request. The two methods here are not:
+# they download models and, in KeyBERT's case, pull PyTorch — the same reason
+# EasyOCR is kept out of the default image (requirements-ocr.txt / ADR-012).
+# The free-tier Space stays lean unless you opt in.
+#
+# To enable:
+#   pip install -r requirements-keywords.txt
+#   export WISEAU_KEYWORD_METHODS=all      # or e.g. "frequency,yake,spacy"
+# then rebuild/redeploy. A request can also name them individually
+# (`methods: ["keybert"]`) without changing the deployment default.
+#
+# Either method may also be installed on its own — a deployment that wants
+# entity recognition but not a neural re-ranker installs spaCy and its model and
+# skips the last two lines. A method that is not installed is *skipped and
+# reported*, never an error, so nothing here is load-bearing.
+
+# Noun chunks + named entities. The model is a separate download; pin it to the
+# spaCy minor version it was trained against, or loading it warns and may fail.
+spacy==3.8.16
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
+
+# Semantic re-ranking. Pulls sentence-transformers and PyTorch (large). Model
+# weights (`all-MiniLM-L6-v2`, ~90 MB) download on first use; in a container,
+# pre-warm or bake them so the first request does not pay the download. Fixed
+# weights on CPU keep output reproducible (invariant #1).
+keybert==0.9.0
+sentence-transformers==5.1.2

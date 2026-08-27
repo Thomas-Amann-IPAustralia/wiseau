@@ -466,6 +466,100 @@ Design & rationale: **ADR-031**. Contract: `tech-spec.md` §16.
 
 ---
 
+## Phase 12 — Keywords, after the fact (2026-08-27)
+
+Design & rationale: **ADR-032**. Contract: `tech-spec.md` §17.
+
+- [x] **`POST /keywords` — a second call, not a flag.** Takes the Markdown a
+  conversion already produced, plus `methods`, `top_k`, `language` and
+  `prepend_table`; returns a ranked list where every keyword carries `score`,
+  `rank`, `kind`, `occurrences`, `agreement`, and the rank *and native score*
+  each method gave it. A flag on the convert routes was the obvious shape and is
+  the wrong one: keywords are decided on after seeing the document, so it would
+  mean re-converting — a minute of docling on a scan — to change your mind about
+  the method set. API `0.10.0 → 0.11.0` (additive). *Verified: 17 API tests plus
+  live requests through uvicorn.*
+- [x] **Four methods, different in kind, fused by rank.** `frequency` (built in,
+  structural, no dependency), `yake` (statistical, in the base requirements),
+  `spacy` (noun chunks + named entities) and `keybert` (semantic) — the last two
+  opt-in via `requirements-keywords.txt`, the bargain `ocr.py` strikes for
+  EasyOCR. Their scores are incomparable (a cost, a cosine, a count), so only
+  the **orders** are combined, by Reciprocal Rank Fusion; the reported weight is
+  relative to the top term. *Verified: on a real report, 7 of the top 10 terms
+  had all four methods agreeing.*
+- [x] **It always answers, and says what it actually did.** `frequency` needs
+  nothing, so a lean deployment still extracts. A named-but-uninstalled method
+  is reported in `methods_skipped` and the rest still rank (ADR-014's rule); a
+  method name this build has never heard of is a **400** (`resolve_engine`'s
+  split). `/ping` publishes `keyword_methods` and `default_keyword_methods` so a
+  client offers only what works. *Verified: the whole suite passes in a venv with
+  neither optional package installed — only the three optional-method tests skip.*
+- [x] **It refuses rather than guesses** (ADR-030's rule). Under 200 characters
+  of text returns no keywords and a `note` saying why. A single word whose every
+  occurrence sits inside a better-ranked phrase is dropped. And a document's own
+  section names ("Executive summary", "Findings") get no heading prominence —
+  they head every report whatever it is about — so they rank only on genuine
+  repetition in the body.
+- [x] **Two text-preparation fixes found by driving real PDFs.** A single newline
+  is a *wrap*, not a phrase boundary — treating it as one reported zero
+  occurrences for "Green Climate Fund" and kept `frequency` from proposing the
+  one entity the document was about. And every block-final line is terminated,
+  because a blank line is not a sentence boundary to these tokenizers, so a bare
+  "Executive summary" ran into the paragraph below and YAKE returned "Pacific
+  Executive summary" as a top keyword. *Both regression-tested.*
+- [x] **`keybert` is a bounded re-ranker over the pooled candidates.** With an
+  explicit `CountVectorizer` (its default lowercases the document but not the
+  vocabulary, defaults to unigrams, and strips stopwords before forming n-grams —
+  dropping every capitalized term, every phrase and every "X of Y" *silently*),
+  and a document embedding meaned across the whole document (an encoder truncates
+  at a few hundred tokens, so the obvious call ranks against the cover page).
+  *Regression-tested.*
+- [x] **JSON sidecar and/or a table in the document.** `prepend_table` returns
+  the document with the table under its own opening heading, fenced in HTML
+  comments so re-running replaces the block and extraction on an annotated
+  document analyses the document. `markdown.js` now skips HTML comments, so the
+  markers never render. *Verified by driving the real UI.*
+- [x] **UI: an extra option after the conversion.** A *Keywords* button beside
+  Copy/Download, enabled only once Markdown exists; a panel with the ranked
+  table, method chips built from `/ping`, **Download .json** (no timestamp — the
+  `zip.js` rule) and **Add to Markdown** / **Remove from Markdown**. Keywords
+  describe whatever the output panel is showing, so switching chapter, batch
+  document or conversion clears the panel. *Verified: 26 assertions driving the
+  real UI in Chromium against a live backend, in light and dark.*
+- [x] **MCP + observability.** `extract_keywords` on the agent surface, with the
+  slow method flagged in its docstring so an agent does not reach for it on every
+  document. `GET /metrics` grows a `keywords` block (`requested`/`keywords`/
+  `empty`, `by_method`, `skipped`) — which methods are *actually* running is
+  invisible in a request count.
+- [x] **Bulk keyword extraction (ADR-033).** `POST /keywords/batch` takes
+  `{documents: [{markdown, source}], …}` and returns one result per document in
+  send order, each with the `.md` **filename** its keywords belong to — derived
+  by the same rule `/convert/batch` uses, so passing back a batch conversion's
+  filenames makes the two sets line up one-to-one. Not a new kind of extraction:
+  each document takes the `/keywords` path, one at a time, **one job slot each**.
+  Own bounds: `5/minute`, `MAX_KEYWORD_BATCH_DOCS` (20), `MAX_KEYWORD_BATCH_CHARS`
+  (8 000 000). API `0.11.0 → 0.12.0`. *Verified: 16 API tests plus live runs.*
+- [x] **Both outputs, per document.** `prepend_table` puts each document's *own*
+  table into that document, so the existing archive and each row's Save carry it;
+  the JSON sidecar is **one** combined `keywords.json`, each entry keyed by the
+  `.md` it describes — a twenty-document run should be one click and one thing to
+  open. Sidecars stay *out* of the `.zip`: that archive is the documents.
+- [x] **UI: one button, one request.** The *Keywords* button reads
+  *Keywords (12)* when a batch is showing and extracts for all of them at once.
+  The table follows the document selected in the results list, switching with **no
+  further request**. Chapters are deliberately unchanged — a chaptered document is
+  one document split up, so "keywords for this book" is what a reader wants there.
+  *Verified: 27 assertions driving the real UI against a live backend, including
+  the downloaded archive and sidecar.*
+- [x] **`extract_keywords_batch` on the MCP surface**, with the
+  `convert_batch` → `extract_keywords_batch` chain spelled out in its docstring
+  and an entry with no `markdown` refused *before* anything is sent.
+- [ ] **Language detection.** `language` is a parameter with an `en` default;
+  nothing infers it. A non-English document extracts with English stopwords in
+  `frequency` unless the caller says otherwise.
+
+---
+
 ## Cross-cutting backlog (not phase-bound)
 
 - [x] **OCR for scanned / handwritten documents.** Image-only PDF pages and image

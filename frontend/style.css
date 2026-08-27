@@ -418,3 +418,88 @@ input[type="url"]:focus { outline: none; border-color: var(--accent); }
   color: var(--text);
 }
 .dialog__actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 20px; }
+
+
+/* --- Keywords (ADR-032) ----------------------------------------------------
+   Sits between the results list and the output, because it describes whatever
+   the output is currently showing. The table is the same evidence the API
+   returns: the term, its relative weight, how often it occurs, and which
+   methods found it — that last column is what makes a ranking with no ground
+   truth judgeable rather than merely presented. */
+.keywords {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel-2);
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+
+.keywords__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.keywords__title { margin: 0; font-size: 0.95rem; font-weight: 700; }
+.keywords__head .meta { margin-right: auto; }
+
+.keywords__methods { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+
+.keywords__method {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 9px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.74rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.keywords__method:has(input:checked) { border-color: var(--accent); color: var(--text); }
+.keywords__method input { margin: 0; accent-color: var(--accent); }
+.keywords__method .slow { color: var(--accent); }
+
+.keywords__note {
+  margin: 0 0 10px;
+  font-size: 0.74rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* The table is the one piece of output that can be genuinely wide (a long
+   phrase plus four method names), so it scrolls inside its own box rather than
+   pushing the panel out. */
+.keywords__scroll { overflow-x: auto; max-height: 320px; overflow-y: auto; }
+
+.keywords__table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+
+.keywords__table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  text-align: left;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  font-weight: 600;
+  background: var(--panel-2);
+  padding: 4px 10px 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.keywords__table td { padding: 5px 10px 5px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
+.keywords__table tr:last-child td { border-bottom: none; }
+.keywords__table .num { text-align: right; padding-right: 14px; white-space: nowrap; }
+.keywords__term { color: var(--text); }
+.keywords__entity { color: var(--accent); font-size: 0.68rem; margin-left: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
+.keywords__found { color: var(--muted); font-size: 0.74rem; }
+
+/* The weight is a relative number, so it also reads as a bar: two glances at a
+   list of twenty tell you where the confident half ends. */
+.keywords__weight { display: inline-flex; align-items: center; gap: 6px; }
+.keywords__bar { display: inline-block; height: 4px; border-radius: 2px; background: var(--accent); min-width: 2px; }

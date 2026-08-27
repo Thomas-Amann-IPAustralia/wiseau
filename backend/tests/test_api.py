@@ -754,3 +754,393 @@ def test_batch_is_documented_in_the_openapi_schema(client):
     assert schema["paths"]["/convert/batch"]["post"]["operationId"] == "convert_batch"
     assert "files" in schema["components"]["schemas"]["Body_convert_batch"]["properties"]
     assert "status" in schema["components"]["schemas"]["BatchItem"]["properties"]
+
+
+# --- Keyword extraction (ADR-032) -------------------------------------------
+# The endpoint takes Markdown the caller already has, so these tests need no
+# conversion at all — which is the point of it being a second call rather than a
+# flag on the convert routes.
+KEYWORD_DOCUMENT = (
+    "# Coastal Inundation and Adaptation Funding\n\n"
+    "## Executive summary\n\n"
+    + "Adaptation funding has not kept pace with coastal inundation. " * 4
+    + "The Green Climate Fund disbursed less than a third of its committed "
+    "adaptation funding in the last reporting period, and coastal inundation "
+    "now affects settlements previously considered safe.\n"
+)
+
+
+def test_keywords_returns_a_ranked_weighted_list(client):
+    resp = client.post("/keywords", json={"markdown": KEYWORD_DOCUMENT, "source": "report.pdf"})
+    assert resp.status_code == 200
+    body = resp.json()
+
+    assert body["source"] == "report.pdf"
+    assert body["keyword_count"] == len(body["keywords"])
+    assert body["keywords"], "a document about something produced no keywords"
+    assert body["keywords"][0]["score"] == 1.0
+    assert [k["rank"] for k in body["keywords"]] == list(range(1, len(body["keywords"]) + 1))
+    assert body["methods_used"]
+
+
+def test_every_keyword_carries_the_evidence_behind_it(client):
+    body = client.post("/keywords", json={"markdown": KEYWORD_DOCUMENT}).json()
+
+    for keyword in body["keywords"]:
+        assert keyword["methods"], "a keyword nothing found"
+        assert keyword["agreement"] == len(keyword["methods"])
+        for evidence in keyword["methods"].values():
+            assert evidence["rank"] >= 1
+            assert "score" in evidence
+
+
+def test_keywords_does_not_return_the_document_unless_asked(client):
+    body = client.post("/keywords", json={"markdown": KEYWORD_DOCUMENT}).json()
+
+    assert body["markdown"] is None
+
+
+def test_keywords_can_return_the_document_with_the_table_prepended(client):
+    body = client.post(
+        "/keywords", json={"markdown": KEYWORD_DOCUMENT, "prepend_table": True, "top_k": 5}
+    ).json()
+
+    assert body["markdown"].startswith("# Coastal Inundation and Adaptation Funding")
+    assert "## Keywords" in body["markdown"]
+    assert "| Keyword | Weight | Found by |" in body["markdown"]
+    assert body["markdown"].rstrip().endswith(KEYWORD_DOCUMENT.rstrip().split("\n")[-1])
+
+
+def test_keywords_honours_top_k(client):
+    body = client.post("/keywords", json={"markdown": KEYWORD_DOCUMENT, "top_k": 3}).json()
+
+    assert body["keyword_count"] <= 3
+
+
+def test_a_document_too_short_to_characterise_is_a_200_with_a_reason(client):
+    resp = client.post("/keywords", json={"markdown": "# Notice\n\nClosed Friday.\n"})
+
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["keywords"] == []
+    assert "too short" in body["note"].lower()
+
+
+def test_keywords_rejects_an_empty_body_with_400(client):
+    assert client.post("/keywords", json={"markdown": "   \n"}).status_code == 400
+
+
+def test_an_unknown_keyword_method_is_a_400_not_a_502(client):
+    resp = client.post("/keywords", json={"markdown": KEYWORD_DOCUMENT, "methods": ["tf-idf"]})
+
+    assert resp.status_code == 400
+    assert "tf-idf" in resp.json()["detail"]
+
+
+def test_a_method_this_build_cannot_run_is_skipped_not_refused(client, monkeypatch):
+    from parsers import keywords as kw
+
+    monkeypatch.setattr(
+        kw,
+        "_method_availability",
+        lambda: {"frequency": "", "yake": "", "spacy": "spacy is not installed", "keybert": ""},
+    )
+    resp = client.post(
+        "/keywords", json={"markdown": KEYWORD_DOCUMENT, "methods": ["frequency", "spacy"]}
+    )
+
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["methods_used"] == ["frequency"]
+    assert "spacy" in body["methods_skipped"]
+    assert body["keywords"]
+
+
+def test_keywords_refuses_a_document_past_the_analysis_ceiling_with_413(client, monkeypatch):
+    monkeypatch.setattr(main, "MAX_KEYWORD_CHARS", 100)
+    resp = client.post("/keywords", json={"markdown": KEYWORD_DOCUMENT})
+
+    assert resp.status_code == 413
+    assert "character" in resp.json()["detail"]
+
+
+def test_top_k_is_bounded_by_the_schema(client):
+    assert client.post("/keywords", json={"markdown": KEYWORD_DOCUMENT, "top_k": 0}).status_code == 422
+    assert client.post("/keywords", json={"markdown": KEYWORD_DOCUMENT, "top_k": 500}).status_code == 422
+
+
+def test_an_extraction_failure_is_a_clean_502(client, monkeypatch):
+    def explode(*args, **kwargs):
+        raise RuntimeError("boom")
+
+    monkeypatch.setattr(main, "extract_keywords", explode)
+    resp = client.post("/keywords", json={"markdown": KEYWORD_DOCUMENT})
+
+    assert resp.status_code == 502
+    assert "boom" in resp.json()["detail"]
+
+
+def test_keywords_takes_a_job_slot_and_is_counted(client, fresh_metrics):
+    client.post("/keywords", json={"markdown": KEYWORD_DOCUMENT, "top_k": 5})
+    body = client.get("/metrics").json()
+
+    assert body["jobs"]["duration"]["count"] == 1
+    assert body["keywords"]["requested"] == 1
+    assert body["keywords"]["keywords"] > 0
+    assert body["keywords"]["by_method"]
+
+
+def test_a_skipped_method_is_visible_in_the_metrics(client, fresh_metrics, monkeypatch):
+    from parsers import keywords as kw
+
+    monkeypatch.setattr(
+        kw,
+        "_method_availability",
+        lambda: {"frequency": "", "yake": "", "spacy": "spacy is not installed", "keybert": ""},
+    )
+    client.post("/keywords", json={"markdown": KEYWORD_DOCUMENT, "methods": ["frequency", "spacy"]})
+
+    assert client.get("/metrics").json()["keywords"]["skipped"] == {"spacy": 1}
+
+
+def test_keywords_keeps_the_convert_routes_tighter_limit(client, monkeypatch):
+    for _ in range(20):
+        client.post("/keywords", json={"markdown": KEYWORD_DOCUMENT, "top_k": 1})
+    assert client.post("/keywords", json={"markdown": KEYWORD_DOCUMENT}).status_code == 429
+
+
+def test_ping_advertises_the_keyword_methods_and_the_default(client):
+    body = client.get("/ping").json()
+
+    assert "frequency" in body["keyword_methods"]
+    assert body["default_keyword_methods"]
+    assert set(body["default_keyword_methods"]) <= set(body["keyword_methods"])
+
+
+def test_keywords_is_documented_in_the_openapi_schema(client):
+    schema = client.get("/openapi.json").json()
+
+    assert schema["paths"]["/keywords"]["post"]["operationId"] == "extract_keywords"
+    request = schema["components"]["schemas"]["KeywordRequest"]["properties"]
+    assert {"markdown", "methods", "top_k", "prepend_table"} <= set(request)
+    keyword = schema["components"]["schemas"]["KeywordModel"]["properties"]
+    assert {"term", "score", "agreement", "methods"} <= set(keyword)
+
+
+# --- Batch keyword extraction (ADR-033) --------------------------------------
+# The companion to a batch conversion: having converted a folder in one request,
+# "and what are these about?" should also be one request. The properties worth
+# pinning are the ones that make the answer *usable* alongside the conversions —
+# every document gets an entry, the filenames line up with the ones the batch
+# conversion produced, and one bad document costs only itself.
+def _keyword_doc(subject: str, source: str) -> dict:
+    body = f"{subject} has not kept pace with demand across the region. " * 4
+    return {
+        "markdown": f"# {subject} Review\n\n## Summary\n\n{body}\n",
+        "source": source,
+    }
+
+
+def test_keyword_batch_answers_every_document_in_order(client):
+    resp = client.post(
+        "/keywords/batch",
+        json={"documents": [_keyword_doc("Adaptation funding", "coastal.pdf"),
+                            _keyword_doc("Patent examination", "patents.pdf")]},
+    )
+    assert resp.status_code == 200
+    body = resp.json()
+
+    assert body["count"] == 2 and body["succeeded"] == 2 and body["failed"] == 0
+    assert [item["source"] for item in body["results"]] == ["coastal.pdf", "patents.pdf"]
+    assert all(item["keywords"] for item in body["results"])
+
+
+def test_each_document_carries_the_markdown_filename_its_keywords_belong_to(client):
+    body = client.post(
+        "/keywords/batch",
+        json={"documents": [_keyword_doc("Adaptation funding", "Coastal Report.pdf"),
+                            _keyword_doc("Patent examination", "patents.pdf")]},
+    ).json()
+
+    assert [item["filename"] for item in body["results"]] == ["coastal-report.md", "patents.md"]
+
+
+def test_keyword_batch_filenames_match_what_the_batch_conversion_produced(client):
+    """The two sets of results have to line up, or a client cannot pair them."""
+    sources = ["Annual Report.pdf", "minutes.pdf", "Annual Report.pdf"]
+    converted = client.post(
+        "/convert/batch",
+        files=[_upload(name, f"Contents of {name}") for name in sources],
+    ).json()
+    analysed = client.post(
+        "/keywords/batch",
+        json={"documents": [_keyword_doc("Adaptation funding", name) for name in sources]},
+    ).json()
+
+    assert [item["filename"] for item in converted["results"]] == [
+        item["filename"] for item in analysed["results"]
+    ]
+
+
+def test_one_unusable_document_does_not_cost_the_others(client):
+    body = client.post(
+        "/keywords/batch",
+        json={
+            "documents": [
+                _keyword_doc("Adaptation funding", "coastal.pdf"),
+                {"markdown": "   \n", "source": "empty.pdf"},
+                _keyword_doc("Patent examination", "patents.pdf"),
+            ]
+        },
+    ).json()
+
+    assert body["succeeded"] == 2 and body["failed"] == 1
+    failure = body["results"][1]
+    assert failure["status"] == "error"
+    assert failure["error"]
+    # No filename, so a client collecting sidecars has nothing to attach an
+    # empty keyword list to.
+    assert failure["filename"] is None
+    assert failure["keywords"] == []
+    assert body["results"][2]["status"] == "ok"
+
+
+def test_a_document_past_the_single_document_limit_is_that_documents_own_error(client, monkeypatch):
+    monkeypatch.setattr(main, "MAX_KEYWORD_CHARS", 200)
+    body = client.post(
+        "/keywords/batch",
+        json={"documents": [_keyword_doc("Adaptation funding", "big.pdf"),
+                            {"markdown": "# Tiny\n\nShort.\n", "source": "small.pdf"}]},
+    ).json()
+
+    assert body["results"][0]["status"] == "error"
+    assert "limit" in body["results"][0]["error"]
+    assert body["results"][1]["status"] == "ok"
+
+
+def test_an_extraction_crash_is_contained_to_its_own_document(client, monkeypatch):
+    calls = {"n": 0}
+    real = main.extract_keywords
+
+    def flaky(markdown, **kwargs):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            raise RuntimeError("boom")
+        return real(markdown, **kwargs)
+
+    monkeypatch.setattr(main, "extract_keywords", flaky)
+    body = client.post(
+        "/keywords/batch",
+        json={"documents": [_keyword_doc("Adaptation funding", "a.pdf"),
+                            _keyword_doc("Patent examination", "b.pdf")]},
+    ).json()
+
+    assert body["results"][0]["status"] == "error"
+    assert "boom" in body["results"][0]["error"]
+    assert body["results"][1]["status"] == "ok"
+
+
+def test_keyword_batch_can_annotate_every_document(client):
+    body = client.post(
+        "/keywords/batch",
+        json={
+            "documents": [_keyword_doc("Adaptation funding", "coastal.pdf"),
+                          _keyword_doc("Patent examination", "patents.pdf")],
+            "prepend_table": True,
+            "top_k": 4,
+        },
+    ).json()
+
+    for item in body["results"]:
+        assert "## Keywords" in item["markdown"]
+        assert item["markdown"].startswith("#")
+    # Each document gets *its own* table, not a shared one.
+    assert body["results"][0]["markdown"] != body["results"][1]["markdown"]
+
+
+def test_keyword_batch_does_not_return_the_documents_unless_asked(client):
+    body = client.post(
+        "/keywords/batch",
+        json={"documents": [_keyword_doc("Adaptation funding", "coastal.pdf")]},
+    ).json()
+
+    assert body["results"][0]["markdown"] is None
+
+
+def test_keyword_batch_requires_at_least_one_document(client):
+    assert client.post("/keywords/batch", json={"documents": []}).status_code == 400
+
+
+def test_keyword_batch_caps_how_many_documents_one_request_may_carry(client, monkeypatch):
+    monkeypatch.setattr(main, "MAX_KEYWORD_BATCH_DOCS", 2)
+    resp = client.post(
+        "/keywords/batch",
+        json={"documents": [_keyword_doc("Adaptation funding", f"{i}.pdf") for i in range(3)]},
+    )
+
+    assert resp.status_code == 400
+    assert "limited to 2" in resp.json()["detail"]
+
+
+def test_keyword_batch_caps_its_total_size(client, monkeypatch):
+    monkeypatch.setattr(main, "MAX_KEYWORD_BATCH_CHARS", 300)
+    resp = client.post(
+        "/keywords/batch",
+        json={"documents": [_keyword_doc("Adaptation funding", f"{i}.pdf") for i in range(3)]},
+    )
+
+    assert resp.status_code == 413
+    assert "total limit" in resp.json()["detail"]
+
+
+def test_keyword_batch_rejects_an_unknown_method_with_400(client):
+    resp = client.post(
+        "/keywords/batch",
+        json={"documents": [_keyword_doc("Adaptation funding", "a.pdf")], "methods": ["tf-idf"]},
+    )
+
+    assert resp.status_code == 400
+    assert "tf-idf" in resp.json()["detail"]
+
+
+def test_keyword_batch_takes_one_job_slot_per_document(client, fresh_metrics):
+    """Per document, not per batch: holding the ceiling for a whole run would
+    starve every other caller (the ADR-031 rule, applied here)."""
+    client.post(
+        "/keywords/batch",
+        json={"documents": [_keyword_doc("Adaptation funding", "a.pdf"),
+                            _keyword_doc("Patent examination", "b.pdf"),
+                            _keyword_doc("Procurement compliance", "c.pdf")]},
+    )
+
+    assert client.get("/metrics").json()["jobs"]["duration"]["count"] == 3
+
+
+def test_keyword_batches_are_counted(client, fresh_metrics):
+    client.post(
+        "/keywords/batch",
+        json={"documents": [_keyword_doc("Adaptation funding", "a.pdf"),
+                            {"markdown": "  ", "source": "b.pdf"}]},
+    )
+    body = client.get("/metrics").json()["keywords"]
+
+    assert body["batches"] == {"requested": 1, "documents": 2, "failed": 1, "largest": 2}
+    # The per-document counters see only the document that actually ran.
+    assert body["requested"] == 1
+
+
+def test_keyword_batch_has_its_own_tighter_rate_limit(client):
+    payload = {"documents": [_keyword_doc("Adaptation funding", "a.pdf")], "top_k": 1}
+    for _ in range(5):
+        assert client.post("/keywords/batch", json=payload).status_code == 200
+    assert client.post("/keywords/batch", json=payload).status_code == 429
+
+
+def test_keyword_batch_is_documented_in_the_openapi_schema(client):
+    schema = client.get("/openapi.json").json()
+
+    assert schema["paths"]["/keywords/batch"]["post"]["operationId"] == "extract_keywords_batch"
+    request = schema["components"]["schemas"]["KeywordBatchRequest"]["properties"]
+    assert {"documents", "methods", "top_k", "prepend_table"} <= set(request)
+    item = schema["components"]["schemas"]["KeywordBatchItem"]["properties"]
+    assert {"status", "filename", "error", "keywords"} <= set(item)

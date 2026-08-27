@@ -96,6 +96,13 @@
   const BULLET = /^(\s*)[-*+]\s+(.*)$/;
   const ORDERED = /^(\s*)(\d+)[.)]\s+(.*)$/;
   const TABLE_ROW = /^\s*\|(.*)\|\s*$/;
+  // A line that is nothing but an HTML comment, and one that opens a multi-line
+  // one. The engine fences its keyword block this way (ADR-032), and every other
+  // fragment here is escaped rather than parsed — so without this the markers
+  // would be *displayed*, which is the one thing a comment must never do.
+  const COMMENT_ONLY = /^\s*<!--[\s\S]*?-->\s*$/;
+  const COMMENT_OPEN = /^\s*<!--/;
+  const COMMENT_CLOSE = /-->/;
   const TABLE_DIVIDER = /^\s*\|?[\s:|-]+\|[\s:|-]*$/;
 
   function splitRow(line) {
@@ -166,6 +173,18 @@
         continue;
       }
 
+      // Checked after the fence, so a comment *inside* a code block still
+      // renders as the code it is.
+      if (COMMENT_ONLY.test(line)) {
+        i += 1;
+        continue;
+      }
+      if (COMMENT_OPEN.test(line)) {
+        while (i < lines.length && !COMMENT_CLOSE.test(lines[i])) i += 1;
+        i += 1; // the line carrying the close
+        continue;
+      }
+
       if (RULE.test(line)) {
         out.push("<hr />");
         i += 1;
@@ -223,7 +242,12 @@
         !QUOTE.test(lines[i]) &&
         !BULLET.test(lines[i]) &&
         !ORDERED.test(lines[i]) &&
-        !TABLE_ROW.test(lines[i])
+        !TABLE_ROW.test(lines[i]) &&
+        // A comment ends a paragraph as surely as a blank line does. Without
+        // this the loop swallows the line before the block-level check above
+        // can drop it, and the comment is displayed as the paragraph's last
+        // words — which is how the keyword block's closing marker got shown.
+        !COMMENT_OPEN.test(lines[i])
       ) {
         paragraph.push(lines[i++]);
       }
