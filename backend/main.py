@@ -32,6 +32,7 @@ from observability import configure_logging, metrics
 from parsers import (
     REQUESTABLE_ENGINES,
     BlockedUrlError,
+    available_engines,
     available_methods,
     default_engine,
     default_methods,
@@ -176,7 +177,7 @@ app = FastAPI(
         "Deterministic conversion of web URLs, PDFs, and DOCX documents into "
         "clean, structured Markdown. Designed for both human UIs and LLM/MCP agents."
     ),
-    version="0.12.0",
+    version="0.13.0",
     lifespan=_lifespan,
 )
 
@@ -762,8 +763,10 @@ async def _read_upload(file: UploadFile, ceiling: int | None = None) -> bytes:
 async def ping(request: Request) -> dict:
     """Liveness/readiness check for the UI status badge and background monitors.
 
-    Also advertises the engines this build accepts on a convert request, and
-    which of them `auto` resolves to here, so a client can offer the choice —
+    Also advertises the engines this build accepts on a convert request, which
+    of them this deployment can actually run (`available_engines` — a remote
+    engine with no service configured is accepted but always falls back,
+    ADR-034), and which of them `auto` resolves to here, so a client can offer the choice —
     and estimate what it will cost — without hard-coding either (ADR-027) — plus
     the path of the MCP endpoint, if this deployment serves one (ADR-029), and
     the same pair for keyword methods (ADR-032): which ones this build can run,
@@ -776,6 +779,7 @@ async def ping(request: Request) -> dict:
         "service": "markdown-ingestion-engine",
         "version": app.version,
         "engines": sorted(REQUESTABLE_ENGINES),
+        "available_engines": available_engines(),
         "default_engine": default_engine(),
         "mcp_endpoint": MCP_ENDPOINT,
         "keyword_methods": available_methods(),

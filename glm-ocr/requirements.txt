@@ -1,0 +1,11 @@
+# GLM-OCR converter service (ADR-034). Pinned: this engine is stochastic only by
+# allowance (ADR-013); pinning keeps any variation down to the model, not to an
+# unnoticed dependency bump. torch/torchvision come from the CPU wheel index (see
+# the Dockerfile). These are the versions the 2026-11-01 bake-off ran on.
+glmocr[selfhosted,server]==0.1.5
+transformers==5.22.1
+accelerate==1.15.0
+opencv-python-headless==5.0.0.93
+pypdfium2==5.14.0
+flask==3.1.3
+waitress==3.0.2

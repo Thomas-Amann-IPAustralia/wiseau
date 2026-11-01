@@ -48,7 +48,8 @@ interactive docs are at `/docs`.
     "status": "ok",
     "service": "markdown-ingestion-engine",
     "version": "0.10.0",
-    "engines": ["docling", "pymupdf"],
+    "engines": ["docling", "glm-ocr", "pymupdf"],
+    "available_engines": ["pymupdf"],
     "default_engine": "pymupdf",
     "mcp_endpoint": "/mcp",
     "keyword_methods": ["frequency", "yake"],
@@ -57,9 +58,13 @@ interactive docs are at `/docs`.
   ```
   `engines` lists the names a caller may pass as `engine` on a convert request
   (plus the always-accepted `auto`), so a client can offer the choice without
-  hard-coding it. `default_engine` is the one `auto` resolves to *here* — i.e.
+  hard-coding it. `available_engines` is the subset this *deployment* can
+  actually run: the local parser plus each remote engine whose service is
+  configured. A remote engine that is not configured is still accepted — and
+  falls back — so a client should offer only what is listed here (ADR-034).
+  `default_engine` is the one `auto` resolves to *here* — i.e.
   this deployment's `WISEAU_PDF_ENGINE`, reported as the engine that will
-  actually run (anything but `docling` runs the local parser). A client uses it
+  actually run (anything but `docling` or `glm-ocr` runs the local parser). A client uses it
   to label its "auto" option and size a progress estimate (ADR-027).
   `mcp_endpoint` is the path of this deployment's MCP endpoint, or `null` if it
   serves none — `WISEAU_MCP_PATH` may have moved it, so a client discovers the
@@ -402,12 +407,17 @@ All backend configuration is via environment variables (12-factor).
 | `WISEAU_OCR_ENGINE` | `tesseract` | OCR backend: `tesseract` (default) or `easyocr` (opt-in neural, handwriting). |
 | `WISEAU_OCR_DPI` | `300` | Rasterization DPI for OCR (fixed for reproducibility). |
 | `WISEAU_OCR_LANG` | `eng` | OCR language(s); Tesseract 639-2/T code(s), `+`-joined. |
-| `WISEAU_PDF_ENGINE` | `pymupdf` | **Default** document engine: `pymupdf` (the fast, deterministic local parser — ADR-027) or `docling` (via docling-serve, for fidelity). A request's `engine` field overrides it per conversion (ADR-025). |
+| `WISEAU_PDF_ENGINE` | `pymupdf` | **Default** document engine: `pymupdf` (the fast, deterministic local parser — ADR-027), `docling` (via docling-serve, for fidelity), or `glm-ocr` (via the GLM-OCR service, for scans — ADR-034). A request's `engine` field overrides it per conversion (ADR-025). |
 | `WISEAU_DOCLING_BASE` | — | *(Phase 6)* Base URL of the internal docling-serve service (HF Space #2). Unset ⇒ docling is skipped even when it is selected. |
 | `WISEAU_DOCLING_TOKEN` | — | *(Phase 6)* Sent as `Authorization: Bearer` — the *platform gateway* credential (an HF token when Space #2 is private). |
 | `WISEAU_DOCLING_API_KEY` | — | *(Phase 6)* Sent as `X-Api-Key` — docling-serve's *own* guard, matching its `DOCLING_SERVE_API_KEY`. A different mechanism from the bearer token; either, both, or neither may be in use (ADR-018). |
 | `WISEAU_DOCLING_TIMEOUT` | `120` | *(Phase 6)* Seconds to wait on docling before falling back (generous, to absorb cold starts). |
 | `WISEAU_DOCLING_PATH` | `/v1/convert/file` | *(Phase 6)* docling-serve convert endpoint path; override only if a server version moves it. |
+| `WISEAU_GLM_OCR_BASE` | — | *(ADR-034)* Base URL of the GLM-OCR service (`glm-ocr/`). Unset ⇒ GLM-OCR is skipped even when selected, and is absent from `/ping`'s `available_engines`. |
+| `WISEAU_GLM_OCR_TOKEN` | — | Sent as `Authorization: Bearer` — the platform gateway credential (an HF token for a private Space). |
+| `WISEAU_GLM_OCR_API_KEY` | — | Sent as `X-Api-Key` — the service's own guard, matching its `GLM_OCR_API_KEY`. |
+| `WISEAU_GLM_OCR_TIMEOUT` | `300` | Seconds to wait on GLM-OCR before falling back. Higher than docling's because CPU inference costs minutes per page (ADR-034); the service's own page cap (`GLM_OCR_MAX_PAGES`, default 20) refuses long documents up front with a 413, which falls back immediately. |
+| `WISEAU_GLM_OCR_PATH` | `/v1/convert/file` | GLM-OCR convert path. |
 | `MAX_KEYWORD_CHARS` | `2000000` | Longest document `POST /keywords` accepts, in characters (ADR-032). The body is text in JSON, not an upload, so the streaming upload guard cannot bound it. Exceeding it is a 413. |
 | `MAX_KEYWORD_BATCH_DOCS` | `20` | Most documents one `POST /keywords/batch` may carry (ADR-033). |
 | `MAX_KEYWORD_BATCH_CHARS` | `8000000` | Total characters one keyword batch may carry. Bounds the *work*, not the memory — a JSON body is already parsed by the time the route runs. |
@@ -508,6 +518,13 @@ click-by-click guide; the notes below are what a host has to satisfy.
   deploy time: a private Space (bearer `WISEAU_DOCLING_TOKEN`) and docling-serve's
   own `DOCLING_SERVE_API_KEY` (`WISEAU_DOCLING_API_KEY`). Deployment steps are in
   [`docling/README.md`](../docling/README.md).
+- **GLM-OCR (ADR-034)** is an optional *third* service, built from
+  `glm-ocr/Dockerfile`: the GLM-OCR SDK pipeline (PP-DocLayoutV3 layout +
+  region recognition) behind `POST /v1/convert/file`, with the 0.9B model served
+  by `transformers` on CPU in the same container and both weights baked in at
+  pinned revisions. Same two optional guards as docling (private Space bearer
+  token; `GLM_OCR_API_KEY` as `X-Api-Key`). It is never reached by the public,
+  and a deployment without it simply does not list `glm-ocr` as available.
 - Cold-start is mitigated by the Space's long inactivity timeout; docling
   cold-starts are additionally absorbed by `WISEAU_DOCLING_TIMEOUT` + the automatic
   fallback (a cold docling Space yields the PyMuPDF result, not an error).
@@ -673,8 +690,9 @@ and `client`. The same `request_id` is returned to the caller as `X-Request-ID`
 | `requests` | Count by **route template** (never an arbitrary caller-supplied path — a path is only accepted as a label when this app registers it, so nothing else can inflate the table; everything else buckets to `unmatched`) and by status; duration count/mean/p50/p95/max per route. A request the rate-limit middleware rejects never reaches the router, so it is attributed by that registered-path check rather than lost to `unmatched`. | Is anything erroring? |
 | `jobs` | `in_flight`, `max_in_flight`, semaphore queue-wait and run-duration series. | What should `MAX_CONCURRENT_JOBS` be? Is anything queuing? |
 | `conversions` | `url.ok` / `url.error` / `file.ok` / `file.error`. | Success rate per surface. |
-| `engines` | Count per engine that actually produced Markdown: `docling`, `pymupdf`, `mammoth`, `ocr`, `trafilatura`, `markdownify`. Each parser records its own, so a PDF with **any** OCR'd page counts as `ocr` rather than `pymupdf` — one engine per conversion, and the OCR path stays visible. | **Is docling serving anything?** |
+| `engines` | Count per engine that actually produced Markdown: `docling`, `glm-ocr`, `pymupdf`, `mammoth`, `ocr`, `trafilatura`, `markdownify`. Each parser records its own, so a PDF with **any** OCR'd page counts as `ocr` rather than `pymupdf` — one engine per conversion, and the OCR path stays visible. | **Is docling serving anything?** |
 | `docling` | `attempts` / `successes` / `fallbacks` / `skipped`, `reasons` (`DoclingUnavailable`, `DoclingBadDocument`, `not_configured`, `engine_not_selected`), and call durations. | Is the Space down, misconfigured, or just slow? |
+| `glm_ocr` | The same shape for GLM-OCR (ADR-034): reasons `GlmOcrUnavailable`, `GlmOcrBadDocument` (including the service's page-cap 413), `not_configured`, `engine_not_selected`, and `unsupported_type` (a DOCX, which GLM-OCR cannot read). | Is GLM-OCR serving anything, or refusing everything as too long? |
 | `chapters` | `requested` / `split` / `sections` and `by_method` (`toc`, `headings`, `markers`, `none`). | Is chapter detection actually finding chapters, and by which signal? |
 | `batches` | `requested` / `files` / `failed` / `largest` (ADR-031). | What bulk conversion actually costs — thirty documents and one document are both a single request in `by_route`, so `files` is what sizes `MAX_BATCH_FILES`, and a climbing `failed` means callers are sending something unreadable. |
 | `keywords` | `requested` / `keywords` / `empty`, plus `by_method`, `skipped`, and `batches` (`requested`/`documents`/`failed`/`largest`, ADR-033). | Which methods are *actually* running — a deployment that installed the optional extras but never set `WISEAU_KEYWORD_METHODS` looks busy while only ever running the cheap pair. `skipped` is the only place a missing optional package shows, since it degrades the answer silently by design. |

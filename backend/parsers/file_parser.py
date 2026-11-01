@@ -55,7 +55,7 @@ import pymupdf4llm
 from markdownify import markdownify as html_to_md
 from observability import metrics
 
-from . import docling_client
+from . import docling_client, glm_ocr_client
 from .cleaner import clean_markdown
 from .ocr import get_engine
 
@@ -70,7 +70,16 @@ SUPPORTED_EXTENSIONS = {".pdf", ".docx"} | IMAGE_EXTENSIONS
 
 # Engines a caller may name on a request (ADR-025). `auto` is accepted too and
 # means "this deployment's default", i.e. whatever `WISEAU_PDF_ENGINE` says.
-REQUESTABLE_ENGINES = frozenset({"docling", "pymupdf"})
+# `glm-ocr` is the third engine (ADR-034): opt-in, remote, with the same
+# automatic fallback docling has.
+REQUESTABLE_ENGINES = frozenset({"docling", "glm-ocr", "pymupdf"})
+
+# The engines that run as a separate service and therefore need a fallback.
+# Each entry: (client module, the base error class that triggers the fallback).
+_REMOTE_ENGINES = {
+    "docling": (docling_client, docling_client.DoclingError),
+    "glm-ocr": (glm_ocr_client, glm_ocr_client.GlmOcrError),
+}
 
 # Resolution (dots per inch) for rasterizing a page before OCR. 300 DPI is the
 # accuracy sweet spot; a fixed constant (overridable via env) so the same page
@@ -217,7 +226,7 @@ def docx_to_markdown(data: bytes) -> str:
 
 
 def _pdf_engine() -> str:
-    """Preferred document engine: 'pymupdf' (default; ADR-027) or 'docling'.
+    """Preferred document engine: 'pymupdf' (default; ADR-027), 'docling', or 'glm-ocr'.
 
     The default is the fast local parser: it answers in about a second and is
     deterministic, which is the right trade for the common document. docling's
@@ -232,11 +241,25 @@ def default_engine() -> str:
 
     Reported by `GET /ping` so a client can label its "Auto" option and size its
     progress estimate without hard-coding a default that a deployment may have
-    changed. Anything other than `docling` in `WISEAU_PDF_ENGINE` runs the local
-    parser, so that is what an unrecognized value reports too — the answer
-    describes what will actually happen, not what was typed.
+    changed. Anything other than a remote engine's name (`docling`, `glm-ocr`) in
+    `WISEAU_PDF_ENGINE` runs the local parser, so that is what an unrecognized
+    value reports too — the answer describes what will actually happen, not what
+    was typed.
     """
-    return "docling" if _pdf_engine() == "docling" else "pymupdf"
+    selected = _pdf_engine()
+    return selected if selected in _REMOTE_ENGINES else "pymupdf"
+
+
+def available_engines() -> list[str]:
+    """The engines that would actually run here if a request named them (ADR-034).
+
+    `REQUESTABLE_ENGINES` is what this *build* accepts; a remote engine whose
+    service is not configured is still accepted — and silently falls back — so a
+    client that offered it would be offering a choice that does nothing. `/ping`
+    publishes this list so a UI can show only the engines this deployment has.
+    The local parser is always available.
+    """
+    return sorted(["pymupdf", *(name for name, (client, _) in _REMOTE_ENGINES.items() if client.is_configured())])
 
 
 def resolve_engine(requested: str | None) -> str | None:
@@ -247,7 +270,7 @@ def resolve_engine(requested: str | None) -> str | None:
     can take a minute where the deterministic parser takes a second.
 
     Args:
-        requested: `"docling"`, `"pymupdf"`, `"auto"`/empty (defer to
+        requested: `"docling"`, `"glm-ocr"`, `"pymupdf"`, `"auto"`/empty (defer to
             `WISEAU_PDF_ENGINE`), in any case.
 
     Returns:
@@ -281,53 +304,66 @@ def _fallback_markdown(data: bytes, ext: str) -> str:
 
 
 def _extract_markdown(data: bytes, filename: str, ext: str, engine: str | None = None) -> str:
-    """Convert a supported document to Markdown, with docling when selected.
+    """Convert a supported document to Markdown, with a remote engine when selected.
 
-    Tries docling only when it is *selected* (`WISEAU_PDF_ENGINE=docling`, or a
-    per-request `engine="docling"` — the default is the fast local parser,
-    ADR-027) **and** *configured*
-    (`WISEAU_DOCLING_BASE` set). Any docling failure — infrastructure
-    (`DoclingUnavailable`) or a rejected document (`DoclingBadDocument`) — is
-    logged and degraded to the deterministic parser, so the service returns a
-    working result rather than an error (ADR-014). That holds for an explicitly
-    requested docling too: a caller asking for fidelity still gets a result.
+    Tries a remote engine (docling, or GLM-OCR — ADR-034) only when it is
+    *selected* (`WISEAU_PDF_ENGINE`, or a per-request `engine=` — the default is
+    the fast local parser, ADR-027), *configured* (its base URL is set), and able
+    to read the file type (GLM-OCR has no DOCX reader). Any failure — the service
+    unreachable or a rejected document — is logged and degraded to the
+    deterministic parser, so the service returns a working result rather than an
+    error (ADR-014). That holds for an explicitly requested engine too: a caller
+    asking for fidelity still gets a result.
+
+    Every remote engine that did *not* run records why, so `GET /metrics` can tell
+    "never asked for" from "asked for but not deployed" (ADR-019).
     """
     selected = engine or _pdf_engine()
-    if selected != "docling":
-        metrics.record_docling_skipped("engine_not_selected")
-    elif not docling_client.is_configured():
-        metrics.record_docling_skipped("not_configured")
-    else:
-        started = time.perf_counter()
-        try:
-            markdown = docling_client.convert_document(data, filename)
-        except docling_client.DoclingError as exc:
-            # `DoclingUnavailable` means the *Space* is the problem;
-            # `DoclingBadDocument` means docling read the document and refused it.
-            # Recorded apart so a silent outage is distinguishable from a file
-            # docling simply cannot handle (ADR-014/018).
-            reason = type(exc).__name__
-            metrics.record_docling_attempt((time.perf_counter() - started) * 1000, ok=False, reason=reason)
-            logger.warning(
-                "docling conversion failed; falling back to the deterministic parser",
-                extra={"wiseau": {"filename": filename, "reason": reason, "error": str(exc)}},
-            )
-        else:
-            elapsed_ms = (time.perf_counter() - started) * 1000
-            metrics.record_docling_attempt(elapsed_ms, ok=True)
-            metrics.record_engine("docling")
-            logger.info(
-                "docling converted document",
-                extra={
-                    "wiseau": {
-                        "filename": filename,
-                        "chars": len(markdown),
-                        "duration_ms": round(elapsed_ms, 1),
-                    }
-                },
-            )
-            return markdown
-    return _fallback_markdown(data, ext)
+    for name in _REMOTE_ENGINES:
+        if name != selected:
+            metrics.record_remote_skipped(name, "engine_not_selected")
+    remote = _REMOTE_ENGINES.get(selected)
+    if remote is None:
+        return _fallback_markdown(data, ext)
+    client, error_type = remote
+    if not client.is_configured():
+        metrics.record_remote_skipped(selected, "not_configured")
+        return _fallback_markdown(data, ext)
+    if hasattr(client, "supports") and not client.supports(filename):
+        metrics.record_remote_skipped(selected, "unsupported_type")
+        return _fallback_markdown(data, ext)
+
+    started = time.perf_counter()
+    try:
+        markdown = client.convert_document(data, filename)
+    except error_type as exc:
+        # `*Unavailable` means the *service* is the problem; `*BadDocument` means
+        # it read the document and refused it. Recorded apart so a silent outage
+        # is distinguishable from a file the engine simply cannot handle
+        # (ADR-014/018).
+        reason = type(exc).__name__
+        metrics.record_remote_attempt(selected, (time.perf_counter() - started) * 1000, ok=False, reason=reason)
+        logger.warning(
+            f"{selected} conversion failed; falling back to the deterministic parser",
+            extra={"wiseau": {"engine": selected, "filename": filename, "reason": reason, "error": str(exc)}},
+        )
+        return _fallback_markdown(data, ext)
+
+    elapsed_ms = (time.perf_counter() - started) * 1000
+    metrics.record_remote_attempt(selected, elapsed_ms, ok=True)
+    metrics.record_engine(selected)
+    logger.info(
+        f"{selected} converted document",
+        extra={
+            "wiseau": {
+                "engine": selected,
+                "filename": filename,
+                "chars": len(markdown),
+                "duration_ms": round(elapsed_ms, 1),
+            }
+        },
+    )
+    return markdown
 
 
 def file_to_markdown(data: bytes, filename: str, engine: str | None = None) -> str:
@@ -336,7 +372,7 @@ def file_to_markdown(data: bytes, filename: str, engine: str | None = None) -> s
     Args:
         data: The document bytes.
         filename: Original filename; its extension selects the parser.
-        engine: Optional per-request engine override (`"docling"`/`"pymupdf"`);
+        engine: Optional per-request engine override (`"docling"`/`"glm-ocr"`/`"pymupdf"`);
             `None` uses this deployment's default. Validate caller input with
             `resolve_engine` first.
     """

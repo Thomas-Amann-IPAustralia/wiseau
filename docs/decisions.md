@@ -21,6 +21,23 @@ one `Superseded`.
 
 ---
 
+## ADR-034 — GLM-OCR is a third opt-in engine, not a replacement for docling
+**Date:** 2026-11-01 · **Status:** Accepted
+**Context:** A proposal asked to replace docling with GLM-OCR. Its speed and memory
+figures came from GPU serving and a model-only setup that skips the layout stage the
+GLM-OCR report says prevents hallucination. GLM-OCR also reads only pixels, so it has
+no DOCX reader and discards a digital PDF's text layer.
+**Decision:** Add `glm-ocr` as an opt-in engine beside docling (`engine="glm-ocr"` or
+`WISEAU_PDF_ENGINE=glm-ocr`), served by `glm-ocr/` (official SDK pipeline + the model
+via transformers on CPU) and reached over `WISEAU_GLM_OCR_BASE`, with ADR-014's
+fallback. DOCX never goes to it (`unsupported_type`). `/ping` gains
+`available_engines` so a UI offers only engines the deployment runs. API 0.12.0 → 0.13.0.
+**Consequences:** See `docs/benchmarks/2026-11-01-engine-bakeoff.md`. On CPU GLM-OCR
+costs minutes per page and showed a runaway generation that dropped half a page, so
+the service caps documents at 20 pages and the backend timeout is 300 s. A cloud VLM
+(Gemini Flash) was the most faithful engine tested; adding one would break the
+self-hosting/privacy stance and needs its own decision.
+
 ## ADR-033 — A batch's keywords are one request, one combined sidecar, and a table in each document
 **Date:** 2026-08-27 · **Status:** Accepted
 **Context:** ADR-032 deliberately left batch keyword extraction open, because the

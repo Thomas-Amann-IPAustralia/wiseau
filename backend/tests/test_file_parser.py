@@ -15,7 +15,7 @@ import shutil
 import pymupdf
 import pytest
 
-from parsers import docling_client, file_parser
+from parsers import docling_client, file_parser, glm_ocr_client
 from parsers.file_parser import SUPPORTED_EXTENSIONS, file_to_markdown
 
 docx = pytest.importorskip("docx", reason="python-docx (dev dependency) is required to synthesize DOCX fixtures")
@@ -174,7 +174,13 @@ def test_the_default_engine_is_the_fast_local_parser(monkeypatch):
 
 @pytest.mark.parametrize(
     ("configured", "expected"),
-    [(None, "pymupdf"), ("docling", "docling"), ("pymupdf", "pymupdf"), ("nonsense", "pymupdf")],
+    [
+        (None, "pymupdf"),
+        ("docling", "docling"),
+        ("glm-ocr", "glm-ocr"),
+        ("pymupdf", "pymupdf"),
+        ("nonsense", "pymupdf"),
+    ],
 )
 def test_default_engine_reports_what_will_actually_run(monkeypatch, configured, expected):
     # `/ping` publishes this, so it must describe behaviour, not the raw string:
@@ -367,7 +373,14 @@ def test_no_choice_defers_to_the_deployment_default(requested):
 
 @pytest.mark.parametrize(
     ("requested", "expected"),
-    [("docling", "docling"), ("DOCLING", "docling"), ("pymupdf", "pymupdf"), (" PyMuPDF ", "pymupdf")],
+    [
+        ("docling", "docling"),
+        ("DOCLING", "docling"),
+        ("glm-ocr", "glm-ocr"),
+        (" GLM-OCR ", "glm-ocr"),
+        ("pymupdf", "pymupdf"),
+        (" PyMuPDF ", "pymupdf"),
+    ],
 )
 def test_a_known_engine_is_normalized(requested, expected):
     assert file_parser.resolve_engine(requested) == expected
@@ -446,3 +459,90 @@ def test_a_docx_image_does_not_become_a_base64_blob():
     assert "# Illustrated" in result
     assert "Text around the figure." in result
     assert len(result) < 200
+
+
+# --- GLM-OCR: the third engine (ADR-034) -------------------------------------
+# Same two gates as docling (selected *and* configured), one more: GLM-OCR reads
+# pixels and has no DOCX reader, so a DOCX never reaches it.
+
+
+def _enable_glm_ocr(monkeypatch, converter):
+    monkeypatch.setattr(glm_ocr_client, "is_configured", lambda: True)
+    monkeypatch.setattr(glm_ocr_client, "convert_document", converter)
+
+
+def test_glm_ocr_is_not_used_unless_asked_for(monkeypatch):
+    monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)
+    _enable_glm_ocr(monkeypatch, lambda *a, **k: pytest.fail("GLM-OCR must not run unless asked for"))
+    _enable_docling(monkeypatch, lambda *a, **k: pytest.fail("docling must not run either"))
+
+    result = file_to_markdown(_make_pdf("The fast parser answers by default"), "doc.pdf")
+
+    assert "The fast parser answers by default" in result
+
+
+def test_requesting_glm_ocr_routes_to_it_and_cleans_the_output(monkeypatch, fresh_metrics):
+    calls = {}
+
+    def fake_convert(data, filename, **kwargs):
+        calls["filename"] = filename
+        return "# From GLM-OCR\n\n\n\nScanned body.   \n\n"
+
+    _enable_glm_ocr(monkeypatch, fake_convert)
+    _enable_docling(monkeypatch, lambda *a, **k: pytest.fail("docling must not be called"))
+
+    result = file_to_markdown(_make_pdf("Ignored by GLM-OCR"), "scan.pdf", engine="glm-ocr")
+
+    assert calls["filename"] == "scan.pdf"
+    assert result == "# From GLM-OCR\n\nScanned body.\n"  # through clean_markdown
+    snapshot = fresh_metrics.snapshot()
+    assert snapshot["engines"] == {"glm-ocr": 1}
+    assert snapshot["glm_ocr"]["successes"] == 1
+    assert snapshot["docling"]["reasons"] == {"engine_not_selected": 1}
+
+
+def test_the_deployment_can_default_to_glm_ocr(monkeypatch):
+    monkeypatch.setenv("WISEAU_PDF_ENGINE", "glm-ocr")
+    _enable_glm_ocr(monkeypatch, lambda data, filename, **kwargs: "# From GLM-OCR\n")
+
+    assert "From GLM-OCR" in file_to_markdown(_make_pdf("Ignored"), "scan.pdf")
+
+
+@pytest.mark.parametrize(
+    "error", [glm_ocr_client.GlmOcrUnavailable("asleep"), glm_ocr_client.GlmOcrBadDocument("too many pages")]
+)
+def test_a_requested_glm_ocr_still_falls_back(monkeypatch, fresh_metrics, error):
+    def failing_convert(data, filename, **kwargs):
+        raise error
+
+    _enable_glm_ocr(monkeypatch, failing_convert)
+
+    result = file_to_markdown(_make_pdf("Recovered by fallback"), "doc.pdf", engine="glm-ocr")
+
+    assert "Recovered by fallback" in result
+    snapshot = fresh_metrics.snapshot()
+    assert snapshot["engines"] == {"pymupdf": 1}
+    assert snapshot["glm_ocr"]["fallbacks"] == 1
+    assert snapshot["glm_ocr"]["reasons"] == {type(error).__name__: 1}
+
+
+def test_glm_ocr_skipped_when_not_configured(monkeypatch, fresh_metrics):
+    monkeypatch.setattr(glm_ocr_client, "is_configured", lambda: False)
+    monkeypatch.setattr(glm_ocr_client, "convert_document", lambda *a, **k: pytest.fail("not configured"))
+
+    result = file_to_markdown(_make_pdf("Local parser answers"), "doc.pdf", engine="glm-ocr")
+
+    assert "Local parser answers" in result
+    assert fresh_metrics.snapshot()["glm_ocr"]["reasons"] == {"not_configured": 1}
+
+
+def test_a_docx_never_goes_to_glm_ocr(monkeypatch, fresh_metrics):
+    # GLM-OCR has no DOCX reader; Mammoth converts it, and the skip says why.
+    _enable_glm_ocr(monkeypatch, lambda *a, **k: pytest.fail("GLM-OCR cannot read DOCX"))
+
+    result = file_to_markdown(_make_docx(), "report.docx", engine="glm-ocr")
+
+    assert "# Quarterly Report" in result
+    snapshot = fresh_metrics.snapshot()
+    assert snapshot["engines"] == {"mammoth": 1}
+    assert snapshot["glm_ocr"]["reasons"] == {"unsupported_type": 1}

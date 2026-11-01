@@ -22,7 +22,14 @@ const ESTIMATES = {
   ocr: { base: 8, perMb: 6 },
   // docling on a free CPU Space: an ML pipeline, plus a possible cold start.
   docling: { base: 30, perMb: 20 },
+  // GLM-OCR on CPU: a vision-language model transcribing every region of every
+  // page — measured at minutes per page (ADR-034). A scanned page is roughly
+  // 0.1-0.2 MB, so this works out near that rate; it is meant to look slow.
+  "glm-ocr": { base: 60, perMb: 1500 },
 };
+
+// Engines that run as a separate service and may not exist on a deployment.
+const REMOTE_ENGINES = ["docling", "glm-ocr"];
 
 // Keyword extraction is not a conversion, so it gets its own two estimates
 // (ADR-032): the statistical methods scan text and answer in under a second,
@@ -126,6 +133,7 @@ async function pingBackend() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     setBadge("online", "online");
     const info = await res.json();
+    applyAvailableEngines(info);
     applyServerDefaultEngine(info);
     applyKeywordMethods(info);
   } catch {
@@ -137,12 +145,31 @@ async function pingBackend() {
 // it will actually do instead of guessing (ADR-027).
 function applyServerDefaultEngine(info) {
   const reported = info && typeof info.default_engine === "string" ? info.default_engine : "";
-  if (reported !== "docling" && reported !== "pymupdf") return;
+  if (reported !== "pymupdf" && !REMOTE_ENGINES.includes(reported)) return;
   serverDefaultEngine = reported;
   if (el.engineAutoHint) {
     el.engineAutoHint.textContent =
-      reported === "docling" ? "Server's default — docling" : "Server's default — fastest";
+      reported === "pymupdf" ? "Server's default — fastest" : `Server's default — ${reported}`;
   }
+}
+
+// /ping lists the engines this deployment can actually run (ADR-034). A remote
+// engine whose service is not deployed would be accepted and then silently fall
+// back, so its option is hidden rather than offered. A server too old to send
+// the list keeps the original choices: docling shown, GLM-OCR hidden.
+function applyAvailableEngines(info) {
+  const listed = info && Array.isArray(info.available_engines) ? info.available_engines : null;
+  el.engineInputs.forEach((input) => {
+    if (!REMOTE_ENGINES.includes(input.value)) return;
+    const available = listed ? listed.includes(input.value) : input.value === "docling";
+    const option = input.closest(".engine__option");
+    if (option) option.hidden = !available;
+    if (!available && input.checked) {
+      input.checked = false;
+      const auto = Array.from(el.engineInputs).find((other) => other.value === "auto");
+      if (auto) auto.checked = true;
+    }
+  });
 }
 
 // /ping also reports which keyword methods this build can run and which of them
@@ -210,8 +237,9 @@ function estimateSeconds(kind, file, engine) {
 
   const megabytes = (file ? file.size : 0) / (1024 * 1024);
   const isImage = file && IMAGE_EXTENSIONS.some((ext) => file.name.toLowerCase().endsWith(ext));
-  let profile = ESTIMATES.docling;
-  if (effectiveEngine(engine) === "pymupdf") profile = isImage ? ESTIMATES.ocr : ESTIMATES.pymupdf;
+  const effective = effectiveEngine(engine);
+  let profile = ESTIMATES[effective] || ESTIMATES.docling;
+  if (effective === "pymupdf") profile = isImage ? ESTIMATES.ocr : ESTIMATES.pymupdf;
   return profile.base + profile.perMb * megabytes;
 }
 
@@ -229,7 +257,7 @@ let progressTimerId = null;
 
 function startProgress(estimate, engine) {
   const started = Date.now();
-  const slowEngine = effectiveEngine(engine) === "docling";
+  const slowEngine = REMOTE_ENGINES.includes(effectiveEngine(engine)) ? effectiveEngine(engine) : null;
   el.progress.hidden = false;
   el.progress.classList.remove("progress--done");
   el.progressLabel.textContent = `Converting… about ${formatSeconds(estimate)}`;
@@ -244,7 +272,7 @@ function startProgress(estimate, engine) {
     el.progressTimer.textContent = formatSeconds(elapsed);
     if (elapsed > estimate * 1.3) {
       el.progressLabel.textContent = slowEngine
-        ? "Still working — docling may be starting up from cold."
+        ? `Still working — ${slowEngine} may be starting up from cold.`
         : "Still working — this document is taking longer than usual.";
     }
   }, 100);
