@@ -5,7 +5,9 @@
 > session. Keep it honest — "scaffolded but untested" is more useful than a
 > green checkmark that lies.
 
-**Last updated:** 2026-08-27
+**Last updated:** 2026-11-01
+**Build note (2026-11-01):** GLM-OCR added as a third opt-in engine (ADR-034): `backend/parsers/glm_ocr_client.py`, engine selection + fallback + metrics, `/ping` `available_engines`, UI option hidden unless available, `glm-ocr/` service (Dockerfile never built — no Docker daemon). Bake-off on `pdf-test/` stopped early at the user's request; partial results in `docs/benchmarks/2026-11-01-engine-bakeoff.md`. Left: the `glm-ocr` radio option in `frontend/index.html`, GLM-OCR on scanned pages, MCP docstrings.
+**Previous update:** 2026-08-27
 **Updated by:** Claude Code (Phase 12: keywords, after the fact — then in bulk)
 **Build note (2026-08-27, second session that day):** **A whole batch's keywords
 now come back in one request — ADR-033.** ADR-032 shipped with batch keyword

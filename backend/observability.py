@@ -155,8 +155,11 @@ class Metrics:
             self._request_durations: Dict[str, _Durations] = {}
             self._engines: Dict[str, int] = {}
             self._conversions: Dict[str, int] = {}
-            self._docling: Dict[str, int] = {}
-            self._docling_skips: Dict[str, int] = {}
+            # Per remote engine (docling, glm-ocr): attempts/successes/fallbacks/
+            # skipped, the reasons, and call durations (ADR-019, ADR-034).
+            self._remote: Dict[str, Dict[str, int]] = {}
+            self._remote_reasons: Dict[str, Dict[str, int]] = {}
+            self._remote_durations: Dict[str, _Durations] = {}
             self._chapters: Dict[str, int] = {}
             self._chapter_methods: Dict[str, int] = {}
             self._batches: Dict[str, int] = {}
@@ -164,7 +167,6 @@ class Metrics:
             self._keyword_methods: Dict[str, int] = {}
             self._keyword_skips: Dict[str, int] = {}
             self._keyword_batches: Dict[str, int] = {}
-            self._docling_durations = _Durations()
             self._job_wait = _Durations()
             self._job_duration = _Durations()
             self._in_flight = 0
@@ -203,17 +205,31 @@ class Metrics:
         with self._lock:
             self._engines[engine] = self._engines.get(engine, 0) + 1
 
+    def record_remote_attempt(self, engine: str, duration_ms: float, ok: bool, reason: str = "") -> None:
+        """One call to a remote engine service: `ok` false means the caller fell back."""
+        with self._lock:
+            counts = self._remote.setdefault(engine, {})
+            counts["attempts"] = counts.get("attempts", 0) + 1
+            self._remote_durations.setdefault(engine, _Durations()).observe(duration_ms)
+            if ok:
+                counts["successes"] = counts.get("successes", 0) + 1
+            else:
+                counts["fallbacks"] = counts.get("fallbacks", 0) + 1
+                if reason:
+                    reasons = self._remote_reasons.setdefault(engine, {})
+                    reasons[reason] = reasons.get(reason, 0) + 1
+
+    def record_remote_skipped(self, engine: str, reason: str) -> None:
+        """A remote engine was never called (not selected, not configured, wrong type)."""
+        with self._lock:
+            counts = self._remote.setdefault(engine, {})
+            counts["skipped"] = counts.get("skipped", 0) + 1
+            reasons = self._remote_reasons.setdefault(engine, {})
+            reasons[reason] = reasons.get(reason, 0) + 1
+
     def record_docling_attempt(self, duration_ms: float, ok: bool, reason: str = "") -> None:
         """One call to docling-serve: `ok` false means the caller fell back."""
-        with self._lock:
-            self._docling["attempts"] = self._docling.get("attempts", 0) + 1
-            self._docling_durations.observe(duration_ms)
-            if ok:
-                self._docling["successes"] = self._docling.get("successes", 0) + 1
-            else:
-                self._docling["fallbacks"] = self._docling.get("fallbacks", 0) + 1
-                if reason:
-                    self._docling_skips[reason] = self._docling_skips.get(reason, 0) + 1
+        self.record_remote_attempt("docling", duration_ms, ok, reason)
 
     def record_chapter_split(self, method: str, chapters: int) -> None:
         """One requested chapter split, and which signal produced it (ADR-030).
@@ -286,9 +302,15 @@ class Metrics:
 
     def record_docling_skipped(self, reason: str) -> None:
         """docling was never called (not selected, or no base configured)."""
-        with self._lock:
-            self._docling["skipped"] = self._docling.get("skipped", 0) + 1
-            self._docling_skips[reason] = self._docling_skips.get(reason, 0) + 1
+        self.record_remote_skipped("docling", reason)
+
+    def _remote_snapshot(self, engine: str) -> Dict[str, Any]:
+        counts = self._remote.get(engine, {})
+        return {
+            **{k: counts.get(k, 0) for k in ("attempts", "successes", "fallbacks", "skipped")},
+            "reasons": dict(sorted(self._remote_reasons.get(engine, {}).items())),
+            "duration": self._remote_durations.get(engine, _Durations()).snapshot(),
+        }
 
     # -- reporting ----------------------------------------------------------
     def snapshot(self) -> Dict[str, Any]:
@@ -312,11 +334,8 @@ class Metrics:
                 },
                 "conversions": dict(sorted(self._conversions.items())),
                 "engines": dict(sorted(self._engines.items())),
-                "docling": {
-                    **{k: self._docling.get(k, 0) for k in ("attempts", "successes", "fallbacks", "skipped")},
-                    "reasons": dict(sorted(self._docling_skips.items())),
-                    "duration": self._docling_durations.snapshot(),
-                },
+                "docling": self._remote_snapshot("docling"),
+                "glm_ocr": self._remote_snapshot("glm-ocr"),
                 "chapters": {
                     **{k: self._chapters.get(k, 0) for k in ("requested", "split", "sections")},
                     "by_method": dict(sorted(self._chapter_methods.items())),

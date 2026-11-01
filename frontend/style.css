@@ -202,6 +202,7 @@ input[type="url"]:focus { outline: none; border-color: var(--accent); }
 }
 .engine__option:has(input:checked) { border-color: var(--accent); }
 .engine__option:has(input:disabled) { opacity: 0.55; cursor: not-allowed; }
+.engine__option[hidden] { display: none; }
 .engine__option input { position: absolute; opacity: 0; pointer-events: none; }
 .engine__name { font-weight: 600; }
 .engine__hint { font-size: 0.74rem; color: var(--muted); }

@@ -1,7 +1,7 @@
 """Deterministic parsing pipeline for the Markdown ingestion engine."""
 
 from .chapters import Chapter, ChapterSplit, split_into_chapters
-from .file_parser import REQUESTABLE_ENGINES, default_engine, file_to_markdown, resolve_engine
+from .file_parser import REQUESTABLE_ENGINES, available_engines, default_engine, file_to_markdown, resolve_engine
 from .keywords import (
     KEYWORD_METHODS,
     Keyword,
@@ -21,6 +21,7 @@ __all__ = [
     "file_to_markdown",
     "resolve_engine",
     "default_engine",
+    "available_engines",
     "split_into_chapters",
     "extract_keywords",
     "resolve_methods",
