@@ -65,8 +65,10 @@
 - Prefer one long blocking wait over repeated polling.
 
 ## Open items (need the user's go-ahead)
-- Diagnose GLM-OCR runaways: our transformers server vs the official vLLM/SGLang
-  path; tighter `max_tokens` / image-size limits.
+- ~~Diagnose GLM-OCR runaways~~ — done 2026-11-02, no paid APIs: the SDK's
+  `repetition_penalty=1.1` was the cause; the service now uses 1.0
+  (`docs/benchmarks/2026-11-02-glm-ocr-diagnosis.md`). Still open: layout merging
+  side-by-side tables (V16 p90).
 - Compare against self-hosted OCR tools (e.g. PaddleOCR-VL) on the same 10 pages.
 - `glm-ocr` radio option in `frontend/index.html`; MCP tool docstrings; build and
   deploy the `glm-ocr` image.

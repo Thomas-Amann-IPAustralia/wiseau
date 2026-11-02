@@ -90,4 +90,5 @@ Without Docker (what the bake-off did): install `requirements.txt` plus CPU
 | `GLM_OCR_REGION_TIMEOUT` | `1800` | Seconds the pipeline waits on one region. |
 | `GLM_OCR_DTYPE` | `bfloat16` | `float32` on CPUs without fast bf16 (no AVX512-BF16/AMX). |
 | `GLM_OCR_THREADS` | `2` | Torch threads for the model. |
-| `GLM_OCR_MAX_NEW_TOKENS` | `4096` | Cap per region — bounds a runaway (repeating) generation. |
+| `GLM_OCR_MAX_NEW_TOKENS` | `4096` | Cap per region — bounds a runaway (repeating) generation. A capped region is reported as `finish_reason: "length"` and logged as a warning. |
+| `GLM_OCR_REPETITION_PENALTY` | `1.0` | Overrides the SDK's 1.1, which caused the dotted-leader runaways and dropped periods, spaces and quotes ([diagnosis](../docs/benchmarks/2026-11-02-glm-ocr-diagnosis.md)). |

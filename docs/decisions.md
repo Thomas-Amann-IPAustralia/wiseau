@@ -37,6 +37,10 @@ costs minutes per page and showed a runaway generation that dropped half a page,
 the service caps documents at 20 pages and the backend timeout is 300 s. A cloud VLM
 (Gemini Flash) was the most faithful engine tested; adding one would break the
 self-hosting/privacy stance and needs its own decision.
+**Amended 2026-11-02:** the runaway was the SDK's `repetition_penalty=1.1`, not the
+model or our serving: it loops in bf16 and float32 alike and never at 1.0, which is
+also more faithful across the sample. `glm-ocr/service.py` now overrides it to 1.0
+(`GLM_OCR_REPETITION_PENALTY`); see `docs/benchmarks/2026-11-02-glm-ocr-diagnosis.md`.
 
 ## ADR-033 — A batch's keywords are one request, one combined sidecar, and a table in each document
 **Date:** 2026-08-27 · **Status:** Accepted

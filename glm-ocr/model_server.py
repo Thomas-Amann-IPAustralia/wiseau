@@ -109,7 +109,14 @@ def chat_completions():
         new_tokens = output[0][inputs["input_ids"].shape[1]:]
         text = processor.decode(new_tokens, skip_special_tokens=True)
         elapsed = time.perf_counter() - started
-    logger.info("generated %d tokens in %.1fs", len(new_tokens), elapsed)
+    # Say when a region was cut off at the cap rather than finished: a truncated
+    # region is how a runaway shows up, and "stop" hid it from the SDK and the logs.
+    eos_ids = model.generation_config.eos_token_id
+    eos_ids = set(eos_ids if isinstance(eos_ids, list) else [eos_ids])
+    truncated = len(new_tokens) >= max_new and int(new_tokens[-1]) not in eos_ids
+    finish_reason = "length" if truncated else "stop"
+    log = logger.warning if truncated else logger.info
+    log("generated %d tokens in %.1fs (finish_reason=%s)", len(new_tokens), elapsed, finish_reason)
 
     return jsonify(
         {
@@ -117,7 +124,7 @@ def chat_completions():
             "object": "chat.completion",
             "created": int(time.time()),
             "model": body.get("model", "glm-ocr"),
-            "choices": [{"index": 0, "message": {"role": "assistant", "content": text}, "finish_reason": "stop"}],
+            "choices": [{"index": 0, "message": {"role": "assistant", "content": text}, "finish_reason": finish_reason}],
             "usage": {
                 "prompt_tokens": int(inputs["input_ids"].shape[1]),
                 "completion_tokens": int(len(new_tokens)),
