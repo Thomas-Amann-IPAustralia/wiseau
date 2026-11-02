@@ -50,6 +50,8 @@ without MTP decoding. Some of the runaways/errors may be the serving setup, not 
 model. **Answered 2026-11-02** ([diagnosis](2026-11-02-glm-ocr-diagnosis.md)): the V16 p11
 runaway was the SDK's `repetition_penalty=1.1` (it loops in float32 too); at 1.0 the
 page converts in 2 min with nothing lost. The service now defaults to 1.0.
+**Re-scored 2026-11-02** ([re-run](2026-11-02-bakeoff-rerun.md)): at 1.0, GLM-OCR on scans
+reaches wer 0.103, word recall 0.930 and number recall 0.895 (was 0.744), on committed references.
 
 Not done: GPT on 17 V4 pages (credits ran out); Gemini 3.1
 Pro (daily quota). Reference drafts for scans started from GPT output and were
