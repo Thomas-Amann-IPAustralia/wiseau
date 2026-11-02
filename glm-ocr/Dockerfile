@@ -36,9 +36,17 @@ RUN pip install --no-cache-dir --index-url https://download.pytorch.org/whl/cpu 
 
 # Model weights, revision-pinned (the commits the 2026-11-01 bake-off used).
 ENV HF_HOME=/models
-RUN python -c "from huggingface_hub import snapshot_download as d; \
-d('zai-org/GLM-OCR', revision='2e85a62840ccac27daa451df36c736c4636b8628'); \
-d('PaddlePaddle/PP-DocLayoutV3_safetensors', revision='e4f489dc536556fc1be02b973ba06756e0d4a2ac')" \
+# A download by commit hash records no `refs/main`, and the code loads the models by
+# name, so with HF_HUB_OFFLINE=1 the name could not be resolved and the model server
+# failed at boot (found 2026-11-02, re-running the bake-off). Pointing `main` at the
+# pinned commit makes the offline lookup land on exactly the weights downloaded here.
+RUN python -c "import os; from huggingface_hub import snapshot_download as d; \
+pins = {'zai-org/GLM-OCR': '2e85a62840ccac27daa451df36c736c4636b8628', \
+'PaddlePaddle/PP-DocLayoutV3_safetensors': 'e4f489dc536556fc1be02b973ba06756e0d4a2ac'}; \
+[d(repo, revision=rev) for repo, rev in pins.items()]; \
+refs = [os.path.join(os.environ['HF_HOME'], 'hub', 'models--' + repo.replace('/', '--'), 'refs') for repo in pins]; \
+[os.makedirs(r, exist_ok=True) for r in refs]; \
+[open(os.path.join(r, 'main'), 'w').write(rev) for r, rev in zip(refs, pins.values())]" \
     && chmod -R a+rX /models
 
 COPY model_server.py service.py start.sh ./
