@@ -49,6 +49,15 @@ PDF_DPI = int(os.environ.get("GLM_OCR_PDF_DPI", "200"))
 # Seconds the SDK waits on a single region. A dense table region can run to
 # thousands of tokens, which on CPU is many minutes.
 REGION_TIMEOUT = int(os.environ.get("GLM_OCR_REGION_TIMEOUT", "1800"))
+# The SDK asks every region for repetition_penalty 1.1. On this model that is the
+# cause of the runaways: on V16 p11 a dotted-leader index looped on ". . ." to the
+# token cap (5 min, half the page lost) at 1.1 — in bf16 *and* float32 — and
+# finished cleanly in 50 s at 1.0. Over the 166 regions of the 2026-11-01 sample,
+# 1.0 never looped and was more faithful on 32 of them (kept periods, spaces and
+# opening quotes; transcribed 61 vs 36 rows of the V16 p90 table). Values above 1
+# start misspelling repeated letters ("Zarina" for Zanrina at 1.3). See
+# docs/benchmarks/2026-11-02-glm-ocr-diagnosis.md.
+REPETITION_PENALTY = float(os.environ.get("GLM_OCR_REPETITION_PENALTY", "1.0"))
 
 SUPPORTED = {".pdf", ".png", ".jpg", ".jpeg", ".tif", ".tiff", ".bmp", ".webp", ".gif"}
 
@@ -61,6 +70,7 @@ parser = GlmOcr(
         "pipeline.layout.model_dir": LAYOUT_MODEL,
         "pipeline.page_loader.pdf_dpi": PDF_DPI,
         "pipeline.ocr_api.request_timeout": REGION_TIMEOUT,
+        "pipeline.page_loader.repetition_penalty": REPETITION_PENALTY,
         # The model server runs one generation at a time; a deep worker pool
         # would only queue requests behind it and hold their images in memory.
         "pipeline.max_workers": 2,

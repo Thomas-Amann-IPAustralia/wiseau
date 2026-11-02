@@ -47,7 +47,9 @@ than PyMuPDF + Tesseract.
 Open question: the model was served by our own transformers server
 (`glm-ocr/model_server.py`), not the vLLM/SGLang path the authors support, and
 without MTP decoding. Some of the runaways/errors may be the serving setup, not the
-model. Not yet investigated.
+model. **Answered 2026-11-02** ([diagnosis](2026-11-02-glm-ocr-diagnosis.md)): the V16 p11
+runaway was the SDK's `repetition_penalty=1.1` (it loops in float32 too); at 1.0 the
+page converts in 2 min with nothing lost. The service now defaults to 1.0.
 
 Not done: GPT on 17 V4 pages (credits ran out); Gemini 3.1
 Pro (daily quota). Reference drafts for scans started from GPT output and were
