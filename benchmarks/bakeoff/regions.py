@@ -26,6 +26,16 @@ SAMPLE = {"V16": [11, 25, 34, 90], "V2": [6, 17, 20], "V4": [7, 11, 26]}
 # V2 p13 and V2 p16 were drawn first and replaced: V2's PDF scans four journal
 # pages twice (p15=p5, p16=p6, p17=p13, p18=p14), and those two repeat set-A pages.
 SAMPLE_B = {"V2": [2, 9, 11, 14, 23], "V4": [8, 22, 25, 27, 32]}
+# Set C (2026-11-03): a held-out set for the two Tesseract fixes and the router,
+# both of which were designed on sets A and B. Same blind procedure and layout
+# groups; seed 20261106; excludes sets A and B and every duplicate scan of their pages.
+SAMPLE_C = {"V2": [4, 8, 12, 21], "V4": [3, 10, 14, 17, 19, 23]}
+GROUPS_C = {
+    "two-column prose": ["V2_p4", "V2_p8", "V4_p17"],
+    "tables": ["V2_p12", "V4_p19"],
+    "two-column + data": ["V2_p21", "V4_p10", "V4_p14"],
+    "single column": ["V4_p3", "V4_p23"],
+}
 GROUPS_B = {
     "two-column prose": ["V2_p9", "V2_p11", "V2_p23"],
     "tables": ["V2_p14", "V4_p32"],
