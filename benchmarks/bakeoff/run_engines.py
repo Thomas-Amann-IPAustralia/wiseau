@@ -12,8 +12,8 @@ side by side: concurrent runs on a small box inflate every timing (post-mortem
   python benchmarks/bakeoff/run_engines.py tesseract-psm3     # Tesseract's own layout analysis
   python benchmarks/bakeoff/run_engines.py tesseract-unordered  # default path before ADR-035
 
-Add `--set b` to run the second, independently transcribed sample (SAMPLE_B in
-regions.py) instead of the original one. Timings are merged into the engine's
+Add `--set b` or `--set c` to run the second or third independently transcribed
+sample (SAMPLE_B / SAMPLE_C in regions.py) instead of the original one. Timings are merged into the engine's
 timings.json, so running one set never erases the other's.
 
 No engine here calls a paid or external API.
@@ -30,9 +30,10 @@ import pymupdf
 HERE = Path(__file__).parent
 ROOT = HERE.parent.parent
 sys.path.insert(0, str(HERE))
-from regions import DOCS, SAMPLE, SAMPLE_B  # noqa: E402
+from regions import DOCS, SAMPLE, SAMPLE_B, SAMPLE_C  # noqa: E402
 
-ACTIVE = SAMPLE_B if "--set" in sys.argv and sys.argv[sys.argv.index("--set") + 1].lower() == "b" else SAMPLE
+_SET = sys.argv[sys.argv.index("--set") + 1].lower() if "--set" in sys.argv else "a"
+ACTIVE = {"a": SAMPLE, "b": SAMPLE_B, "c": SAMPLE_C}[_SET]
 
 
 def pages():
@@ -48,6 +49,19 @@ def pymupdf_engine():
     sys.path.insert(0, str(ROOT / "backend"))
     from parsers.file_parser import file_to_markdown
 
+    return lambda data: file_to_markdown(data, "page.pdf", engine="pymupdf")
+
+
+def tesseract_adr035_engine():
+    """The default path as it stood at ADR-035, before the photo and row fixes (ADR-037)."""
+    sys.path.insert(0, str(ROOT / "backend"))
+    from parsers import ocr, reading_order
+    from parsers.file_parser import file_to_markdown
+
+    if hasattr(ocr, "SKIP_PHOTO_REGIONS"):
+        ocr.SKIP_PHOTO_REGIONS = False
+    if hasattr(reading_order, "ROWS_BY_CENTRE"):
+        reading_order.ROWS_BY_CENTRE = False
     return lambda data: file_to_markdown(data, "page.pdf", engine="pymupdf")
 
 
@@ -119,6 +133,8 @@ def main() -> None:
         run = glm_engine(url)
     elif engine == "tesseract-psm3":
         run = tesseract_psm3_engine()
+    elif engine == "tesseract-adr035":
+        run = tesseract_adr035_engine()
     elif engine == "tesseract-unordered":
         run = tesseract_unordered_engine()
     else:
