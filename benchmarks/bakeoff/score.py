@@ -33,7 +33,7 @@ METRICS = ["wer", "bow_r", "bow_p", "num_r", "num_p"]
 
 
 def tokens(text: str) -> list[str]:
-    text = re.sub(r"<[^>]+>", " ", text)                 # HTML (tables, <br>)
+    text = re.sub(r"</?[A-Za-z][^<>\n]*>", " ", text)    # HTML tags (tables, <br>); not stray "<" ... ">" OCR specks
     text = re.sub(r"\\[a-zA-Z]+", " ", text)             # LaTeX commands
     text = re.sub(r"!\[[^\]]*\]\([^)]*\)", " ", text)    # image links
     text = unicodedata.normalize("NFKC", text).lower()

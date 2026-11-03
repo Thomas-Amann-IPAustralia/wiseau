@@ -88,6 +88,7 @@ wiseau/
 │   │   ├── file_parser.py  # engine select: PyMuPDF/Mammoth default, docling opt-in
 │   │   ├── docling_client.py  # [Phase 6] thin HTTP client to docling-serve
 │   │   ├── ocr.py          # pluggable OCR engines (Tesseract / EasyOCR)
+│   │   ├── reading_order.py  # column order for OCR'd lines (ADR-035)
 │   │   ├── cleaner.py      # regex/Unicode normalization (always runs)
 │   │   ├── chapters.py     # split converted Markdown into chapters (ADR-030)
 │   │   ├── keywords.py     # rank a document's keywords across methods (ADR-032/033)

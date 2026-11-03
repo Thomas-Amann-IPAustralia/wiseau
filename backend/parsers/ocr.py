@@ -35,6 +35,8 @@ from functools import lru_cache
 
 import pymupdf
 
+from .reading_order import Line, order_lines
+
 # EasyOCR uses ISO 639-1 short codes ("en"); the rest of the pipeline speaks
 # Tesseract's 639-2/T codes ("eng"). Translate the common cases so one env var
 # (`WISEAU_OCR_LANG`) configures either engine.
@@ -76,7 +78,21 @@ class TesseractEngine(OcrEngine):
         # full=True rasterizes and OCRs the whole page (the right choice for an
         # image-only page), so it also works when forcing OCR over a text layer.
         textpage = page.get_textpage_ocr(flags=0, language=language, dpi=dpi, full=True)
-        return page.get_text("text", textpage=textpage)
+        # MuPDF groups OCR'd lines into blocks that run across columns, so a
+        # multi-column scan comes out interleaved. Re-order by geometry; a page
+        # with no text columns keeps MuPDF's own text unchanged (ADR-035).
+        ordered = order_lines(_ocr_lines(page, textpage))
+        return ordered if ordered is not None else page.get_text("text", textpage=textpage)
+
+
+def _ocr_lines(page: pymupdf.Page, textpage) -> list[Line]:
+    """Every recognised line on an OCR text page, with its bounding box."""
+    lines = []
+    for block in page.get_text("dict", textpage=textpage)["blocks"]:
+        for line in block.get("lines", []):
+            text = "".join(span["text"] for span in line["spans"]).strip()
+            lines.append(Line(*line["bbox"], text))
+    return lines
 
 
 class EasyOCREngine(OcrEngine):

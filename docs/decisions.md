@@ -21,6 +21,32 @@ one `Superseded`.
 
 ---
 
+## ADR-035 — OCR'd lines are put back in column order by geometry, not by a new engine
+**Date:** 2026-11-03 · **Status:** Accepted
+**Context:** On two-column scans the default Tesseract path found the right words
+(word recall 0.96) but scored a word error of 0.66, because MuPDF's OCR primitive
+groups recognised lines into blocks that run straight across the columns. The output
+interleaved left and right line by line. Calling Tesseract directly (its own layout
+mode) would have meant leaving the MuPDF primitive ADR-012 chose for determinism.
+**Decision:** Keep the MuPDF primitive and re-order its lines in a new pure-geometry
+module, `parsers/reading_order.py`, called by `TesseractEngine`:
+- **Gutters:** find vertical strips that at most 5% of lines cross.
+- **Validation:** a gutter is kept only if every column is at least 25% of the text
+  width and its typical row is a continuous run of text (median row density ≥ 0.7).
+  Table rows are mostly gaps between cells, so tables fail this and keep MuPDF's
+  row-wise text.
+- **Reading:** full-width lines cut the page into bands, and each band is read column
+  by column.
+- **No columns:** when no gutter qualifies, MuPDF's text is returned unchanged.
+
+The module is deterministic, with no model and stable tie-breakers.
+**Consequences:** On the bake-off scans, word error falls from 0.657 to 0.108, level
+with GLM-OCR (0.103) at about 5 s/page instead of 106 (see
+`docs/benchmarks/2026-11-03-tesseract-reading-order.md`). Born-digital pages and the
+typewriter table (V2 p17) are byte-identical. Only the Tesseract engine uses it;
+EasyOCR is unchanged. Not an API contract change: the response shape is the same and
+only the text order improves, so the API version is not bumped.
+
 ## ADR-034 — GLM-OCR is a third opt-in engine, not a replacement for docling
 **Date:** 2026-11-01 · **Status:** Accepted
 **Context:** A proposal asked to replace docling with GLM-OCR. Its speed and memory

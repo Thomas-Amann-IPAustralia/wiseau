@@ -131,3 +131,20 @@ Per scanned page (wer / bow_r / num_r):
 - The vote is a simple ROVER. Weighting engines by page type, or using per-word
   confidence scores (which these outputs don't carry), could do better. But
   finding 1 is about correlated errors, and neither of those changes fixes that.
+
+## Update, later on 2026-11-03: re-run after the Tesseract reading-order fix
+
+The results above use the old, interleaved Tesseract output and the old scorer.
+After ADR-035 put Tesseract's lines in column order, and `score.py` stopped
+deleting text between stray `<` and `>` characters, `vote.py` was re-run. The
+committed `outputs/vote-*`, `consensus-*` and `oracle-best-single` now reflect that
+re-run.
+
+- **Voting now helps on word order.** With Tesseract as the tie-breaker it scores
+  0.061 on scans, the best of any offline method, against GLM-OCR's 0.103.
+- **It still costs about 150 s/page.**
+- **It still loses numbers** (0.839 against 0.895).
+
+Finding 1 above held for the scrambled input: two engines failing together outvoted
+the one that was right. It no longer decides the question. See
+[the reading-order write-up](2026-11-03-tesseract-reading-order.md).
