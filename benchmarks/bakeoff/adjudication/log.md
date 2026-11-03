@@ -42,3 +42,20 @@ were listed, and **none was changed**:
 **Outcome:** after both rounds, the only change to any blind transcription is
 V2 p23's "the" → "tne", made on self-check before engine output was read. No
 engine-prompted check found a transcription error.
+
+## Set C
+
+The blind transcriptions were committed in `1f0986a`, before any engine ran on set C
+and before the ADR-037 fixes were written.
+
+**Round 1** (Tesseract and EasyOCR, `--set c --min 2`): one word was listed, V4 p10
+"C₂A₁", read by the engines as "ca"/"a". The subscripts are printed, so **no change**.
+
+**Words marked uncertain while transcribing**, checked against single-engine
+readings and 400 dpi crops:
+
+| Page | Reference | Engines read | Image | Decision |
+|---|---|---|---|---|
+| V2 p21 | 0f | of (Tesseract ×2) | narrow glyph, closer to a zero than to this font's capital O | kept, ambiguous (1 token) |
+| V2 p12 | 35 (Rubinen central cluster mean) | a8 / 38 | very faint; reads as 35 | kept |
+| V4 p14 | RHS 40B (Royal Dane, bloom colour) | 4cb (Tesseract ×2) | **printed "4CB"**: the zero is broken open, while the 40B beside it is closed | **changed to 4CB**, as printed (the same rule as "tne") |
