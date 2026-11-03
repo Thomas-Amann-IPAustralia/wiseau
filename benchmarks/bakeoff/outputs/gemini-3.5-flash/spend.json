@@ -1,0 +1,88 @@
+{
+  "budget_usd": 1.0,
+  "requests": [
+    {
+      "page": "V4_p26",
+      "input_tokens": 1163,
+      "output_tokens": 3603,
+      "thought_tokens": 2951,
+      "cost_usd": 0.034172
+    },
+    {
+      "page": "V16_p11",
+      "error": "HTTP 502 upstream request failed",
+      "cost_usd": 0.08,
+      "note": "failed before the worst-case booking existed; booked at a rounded-up worst case"
+    },
+    {
+      "page": "V16_p11",
+      "input_tokens": 1163,
+      "output_tokens": 6109,
+      "thought_tokens": 4262,
+      "cost_usd": 0.056725
+    },
+    {
+      "page": "V16_p25",
+      "input_tokens": 1163,
+      "output_tokens": 7086,
+      "thought_tokens": 6045,
+      "cost_usd": 0.065518
+    },
+    {
+      "page": "V16_p34",
+      "input_tokens": 1163,
+      "output_tokens": 4529,
+      "thought_tokens": 2984,
+      "cost_usd": 0.042506
+    },
+    {
+      "page": "V16_p90",
+      "input_tokens": 1163,
+      "output_tokens": 8188,
+      "thought_tokens": 6977,
+      "cost_usd": 0.075437
+    },
+    {
+      "page": "V2_p6",
+      "input_tokens": 1163,
+      "output_tokens": 4852,
+      "thought_tokens": 3750,
+      "cost_usd": 0.045413
+    },
+    {
+      "page": "V2_p17",
+      "input_tokens": 1163,
+      "output_tokens": 5701,
+      "thought_tokens": 4311,
+      "cost_usd": 0.053054
+    },
+    {
+      "page": "V2_p20",
+      "input_tokens": 1163,
+      "output_tokens": 4641,
+      "thought_tokens": 3480,
+      "cost_usd": 0.043513
+    },
+    {
+      "page": "V4_p7",
+      "input_tokens": 1163,
+      "output_tokens": 5592,
+      "thought_tokens": 4301,
+      "cost_usd": 0.052073
+    },
+    {
+      "page": "V4_p11",
+      "input_tokens": 1163,
+      "output_tokens": 2439,
+      "thought_tokens": 1482,
+      "cost_usd": 0.023696
+    },
+    {
+      "page": "V16_p90",
+      "error": "HTTP Error 502: Bad Gateway",
+      "cost_usd": 0.149201,
+      "note": "failed; booked at worst case"
+    }
+  ],
+  "spent_usd": 0.721307
+}

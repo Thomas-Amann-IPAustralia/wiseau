@@ -2,7 +2,9 @@
 
 Reproduces the 10-page engine comparison. The results and their write-up are in
 [`docs/benchmarks/2026-11-02-bakeoff-rerun.md`](../../docs/benchmarks/2026-11-02-bakeoff-rerun.md).
-No script here calls a paid or external API.
+Only `run_gemini.py` calls a paid API. It enforces a hard USD cap with a persistent
+spend ledger and needs the user's explicit go-ahead before it is run. Nothing else here
+calls an external service.
 
 | Path | What |
 |---|---|
@@ -11,6 +13,7 @@ No script here calls a paid or external API.
 | `references/` | One `.txt` per page. Scans are hand-corrected from `references/drafts/`. |
 | `run_engines.py` | Runs one engine over the sample, one page at a time. Writes `outputs/<engine>/`. |
 | `outputs/<engine>/` | Raw Markdown per page and `timings.json`. |
+| `run_gemini.py` | Gemini over the sample, under a hard budget (`--budget`, default $1). Use `--smoke` for one page. Ledger: `outputs/<model>/spend.json`. |
 | `score.py` | Scores every engine in `outputs/` and writes `results.json`. |
 
 Run every command from the repo root:
