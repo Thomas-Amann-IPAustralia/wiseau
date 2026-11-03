@@ -14,6 +14,7 @@ calls an external service.
 | `run_engines.py` | Runs one engine over the sample, one page at a time. Writes `outputs/<engine>/`. |
 | `outputs/<engine>/` | Raw Markdown per page and `timings.json`. |
 | `run_gemini.py` | Gemini over the sample, under a hard budget (`--budget`, default $1). Use `--smoke` for one page. Ledger: `outputs/<model>/spend.json`. |
+| `vote.py` | Word-level voting, consensus routers and the per-page oracle over the offline engines' outputs. No engines run. Write-up: `docs/benchmarks/2026-11-03-voting-experiment.md`. |
 | `score.py` | Scores every engine in `outputs/` and writes `results.json`. |
 
 Run every command from the repo root:

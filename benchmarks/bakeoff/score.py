@@ -26,7 +26,9 @@ HERE = Path(__file__).parent
 sys.path.insert(0, str(HERE))
 from regions import SAMPLE  # noqa: E402
 
-ENGINES = ["pymupdf", "docling", "glm-ocr", "gemini-3.5-flash"]
+ENGINES = ["pymupdf", "docling", "glm-ocr", "gemini-3.5-flash",
+           "vote-pymupdf", "vote-docling", "vote-glm-ocr", "consensus-order", "consensus-words",
+           "oracle-best-single"]
 METRICS = ["wer", "bow_r", "bow_p", "num_r", "num_p"]
 
 
