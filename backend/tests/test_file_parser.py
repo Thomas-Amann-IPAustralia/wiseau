@@ -471,6 +471,31 @@ def _enable_glm_ocr(monkeypatch, converter):
     monkeypatch.setattr(glm_ocr_client, "convert_document", converter)
 
 
+class _FakeOcr:
+    """Stands in for Tesseract so the fallback tests need no `tesseract` binary."""
+
+    name = "fake"
+
+    def ocr_page(self, page, *, dpi, language):
+        return f"local OCR of page {page.number}"
+
+
+def _fake_local_ocr(monkeypatch):
+    monkeypatch.setattr(file_parser, "_engine", lambda: _FakeOcr())
+
+
+def _pdf_of(*pages: bytes) -> bytes:
+    """Concatenate one-page PDFs into one document, in order."""
+    out = pymupdf.open()
+    for data in pages:
+        src = pymupdf.open(stream=data, filetype="pdf")
+        out.insert_pdf(src)
+        src.close()
+    data = out.tobytes()
+    out.close()
+    return data
+
+
 def test_glm_ocr_is_not_used_unless_asked_for(monkeypatch):
     monkeypatch.delenv("WISEAU_PDF_ENGINE", raising=False)
     _enable_glm_ocr(monkeypatch, lambda *a, **k: pytest.fail("GLM-OCR must not run unless asked for"))
@@ -491,7 +516,7 @@ def test_requesting_glm_ocr_routes_to_it_and_cleans_the_output(monkeypatch, fres
     _enable_glm_ocr(monkeypatch, fake_convert)
     _enable_docling(monkeypatch, lambda *a, **k: pytest.fail("docling must not be called"))
 
-    result = file_to_markdown(_make_pdf("Ignored by GLM-OCR"), "scan.pdf", engine="glm-ocr")
+    result = file_to_markdown(_make_scanned_pdf("Ignored by GLM-OCR"), "scan.pdf", engine="glm-ocr")
 
     assert calls["filename"] == "scan.pdf"
     assert result == "# From GLM-OCR\n\nScanned body.\n"  # through clean_markdown
@@ -505,7 +530,7 @@ def test_the_deployment_can_default_to_glm_ocr(monkeypatch):
     monkeypatch.setenv("WISEAU_PDF_ENGINE", "glm-ocr")
     _enable_glm_ocr(monkeypatch, lambda data, filename, **kwargs: "# From GLM-OCR\n")
 
-    assert "From GLM-OCR" in file_to_markdown(_make_pdf("Ignored"), "scan.pdf")
+    assert "From GLM-OCR" in file_to_markdown(_make_scanned_pdf("Ignored"), "scan.pdf")
 
 
 @pytest.mark.parametrize(
@@ -516,12 +541,13 @@ def test_a_requested_glm_ocr_still_falls_back(monkeypatch, fresh_metrics, error)
         raise error
 
     _enable_glm_ocr(monkeypatch, failing_convert)
+    _fake_local_ocr(monkeypatch)
 
-    result = file_to_markdown(_make_pdf("Recovered by fallback"), "doc.pdf", engine="glm-ocr")
+    result = file_to_markdown(_make_scanned_pdf("Recovered by fallback"), "doc.pdf", engine="glm-ocr")
 
-    assert "Recovered by fallback" in result
+    assert "local OCR of page" in result
     snapshot = fresh_metrics.snapshot()
-    assert snapshot["engines"] == {"pymupdf": 1}
+    assert snapshot["engines"] == {"ocr": 1}
     assert snapshot["glm_ocr"]["fallbacks"] == 1
     assert snapshot["glm_ocr"]["reasons"] == {type(error).__name__: 1}
 
@@ -546,3 +572,116 @@ def test_a_docx_never_goes_to_glm_ocr(monkeypatch, fresh_metrics):
     snapshot = fresh_metrics.snapshot()
     assert snapshot["engines"] == {"mammoth": 1}
     assert snapshot["glm_ocr"]["reasons"] == {"unsupported_type": 1}
+
+
+# --- GLM-OCR page by page (ADR-036) -------------------------------------------
+
+
+def _page_count(data: bytes) -> int:
+    doc = pymupdf.open(stream=data, filetype="pdf")
+    try:
+        return doc.page_count
+    finally:
+        doc.close()
+
+
+def test_a_born_digital_pdf_never_goes_to_glm_ocr(monkeypatch, fresh_metrics):
+    _enable_glm_ocr(monkeypatch, lambda *a, **k: pytest.fail("a text layer must not be re-read from pixels"))
+
+    result = file_to_markdown(_make_pdf("Read straight from the text layer"), "doc.pdf", engine="glm-ocr")
+
+    assert "Read straight from the text layer" in result
+    snapshot = fresh_metrics.snapshot()
+    assert snapshot["engines"] == {"pymupdf": 1}
+    assert snapshot["glm_ocr"]["reasons"] == {"no_image_pages": 1}
+
+
+def test_a_mixed_pdf_sends_only_its_image_runs_to_glm_ocr(monkeypatch, fresh_metrics):
+    calls = []
+
+    def fake_convert(data, filename, **kwargs):
+        calls.append(_page_count(data))
+        return f"GLM run {len(calls)}"
+
+    _enable_glm_ocr(monkeypatch, fake_convert)
+    pdf = _pdf_of(
+        _make_pdf("Digital page one with a text layer"),
+        _make_scanned_pdf("scan"),
+        _make_scanned_pdf("scan"),
+        _make_pdf("Digital page four with a text layer"),
+        _make_scanned_pdf("scan"),
+    )
+
+    result = file_to_markdown(pdf, "mixed.pdf", engine="glm-ocr")
+
+    assert calls == [2, 1]  # one request per consecutive run of image-only pages
+    order = ["Digital page one", "GLM run 1", "Digital page four", "GLM run 2"]
+    positions = [result.index(marker) for marker in order]
+    assert positions == sorted(positions)
+    snapshot = fresh_metrics.snapshot()
+    assert snapshot["engines"] == {"glm-ocr": 1}
+    assert snapshot["glm_ocr"]["successes"] == 2
+
+
+def test_a_failed_run_falls_back_for_just_those_pages(monkeypatch, fresh_metrics):
+    calls = []
+
+    def flaky_convert(data, filename, **kwargs):
+        calls.append(1)
+        if len(calls) == 1:
+            raise glm_ocr_client.GlmOcrUnavailable("asleep")
+        return "GLM read the second run"
+
+    _enable_glm_ocr(monkeypatch, flaky_convert)
+    _fake_local_ocr(monkeypatch)
+    pdf = _pdf_of(_make_scanned_pdf("scan"), _make_pdf("Digital middle page with a text layer"),
+                  _make_scanned_pdf("scan"))
+
+    result = file_to_markdown(pdf, "mixed.pdf", engine="glm-ocr")
+
+    assert "local OCR of page 0" in result
+    assert "GLM read the second run" in result
+    assert "local OCR of page 2" not in result
+    snapshot = fresh_metrics.snapshot()
+    assert snapshot["engines"] == {"glm-ocr": 1}
+    assert snapshot["glm_ocr"]["fallbacks"] == 1
+    assert snapshot["glm_ocr"]["successes"] == 1
+
+
+def test_a_mixed_pdf_is_local_ocr_when_every_run_fails(monkeypatch, fresh_metrics):
+    def failing_convert(data, filename, **kwargs):
+        raise glm_ocr_client.GlmOcrBadDocument("refused")
+
+    _enable_glm_ocr(monkeypatch, failing_convert)
+    _fake_local_ocr(monkeypatch)
+    pdf = _pdf_of(_make_pdf("Digital first page with a text layer"), _make_scanned_pdf("scan"))
+
+    result = file_to_markdown(pdf, "mixed.pdf", engine="glm-ocr")
+
+    assert "Digital first page" in result and "local OCR of page 1" in result
+    assert fresh_metrics.snapshot()["engines"] == {"ocr": 1}
+
+
+def test_force_mode_sends_every_page_to_glm_ocr(monkeypatch, fresh_metrics):
+    monkeypatch.setenv("WISEAU_OCR_MODE", "force")
+    calls = []
+
+    def fake_convert(data, filename, **kwargs):
+        calls.append(_page_count(data))
+        return "GLM read everything"
+
+    _enable_glm_ocr(monkeypatch, fake_convert)
+    pdf = _pdf_of(_make_pdf("Digital page with a text layer"), _make_scanned_pdf("scan"))
+
+    assert file_to_markdown(pdf, "doc.pdf", engine="glm-ocr").strip() == "GLM read everything"
+    assert calls == [2]
+
+
+def test_an_image_upload_still_goes_to_glm_ocr_whole(monkeypatch, fresh_metrics):
+    calls = []
+    _enable_glm_ocr(monkeypatch, lambda data, filename, **k: calls.append(filename) or "GLM read the photo")
+    pix = pymupdf.open(stream=_make_scanned_pdf("x"), filetype="pdf")[0].get_pixmap(dpi=50)
+
+    result = file_to_markdown(pix.tobytes("png"), "photo.png", engine="glm-ocr")
+
+    assert calls == ["photo.png"] and "GLM read the photo" in result

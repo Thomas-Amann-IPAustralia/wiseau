@@ -21,6 +21,34 @@ one `Superseded`.
 
 ---
 
+## ADR-036 — GLM-OCR reads only the image-only pages of a PDF
+**Date:** 2026-11-03 · **Status:** Accepted
+**Context:** `engine="glm-ocr"` sent the whole PDF to GLM-OCR, born-digital pages
+included. GLM-OCR reads only pixels, so it threw away an exact text layer. On the
+bake-off's born-digital pages it scored wer 0.297 at 205 s/page, where PyMuPDF
+scores 0.019 at 0.2 s. A per-page routing analysis on the committed outputs showed
+"text layer → PyMuPDF, image-only → GLM-OCR" matches the best possible per-page
+choice on every sample page except the V2 p17 typewriter table.
+**Decision:** for a PDF, the GLM-OCR engine classifies pages with the same
+text-layer test as the local OCR path (`_page_needs_ocr`, < 16 characters):
+- **No image-only pages:** GLM-OCR is skipped and recorded as `no_image_pages`.
+- **All pages image-only:** one request, as before.
+- **Mixed:** text pages are read natively. Each consecutive run of image-only pages
+  goes to GLM-OCR as its own PDF, and the parts are joined in page order.
+
+A run GLM-OCR fails on falls back to local OCR for just those pages (ADR-014).
+`WISEAU_OCR_MODE=force` sends every page. Images and DOCX are unchanged.
+**Consequences:**
+- Born-digital PDFs no longer pay GLM-OCR's minutes per page, and come out exact.
+- **Metrics:** a mixed PDF makes one GLM-OCR call per image run, so `glm_ocr`
+  success and fallback counts are now per call, not per conversion. `engines` still
+  counts each conversion once: `glm-ocr` if any run converted, otherwise `ocr`.
+- **Detection blind spots:** the text-layer test can be fooled by a scan with a
+  scanner-added hidden OCR layer, or by broken font encodings. Those pages would be
+  read natively.
+- **Unchanged:** the service's page cap (`GLM_OCR_MAX_PAGES`) still applies, now
+  per run. Not an API contract change, so no version bump.
+
 ## ADR-035 — OCR'd lines are put back in column order by geometry, not by a new engine
 **Date:** 2026-11-03 · **Status:** Accepted
 **Context:** On two-column scans the default Tesseract path found the right words
