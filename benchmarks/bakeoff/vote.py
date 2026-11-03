@@ -39,7 +39,7 @@ from pathlib import Path
 
 HERE = Path(__file__).parent
 sys.path.insert(0, str(HERE))
-from regions import SAMPLE  # noqa: E402
+from regions import SAMPLE, SAMPLE_B  # noqa: E402
 from score import edit_distance, overlap, score_page, tokens  # noqa: E402
 
 VOTERS = ["pymupdf", "docling", "glm-ocr"]
@@ -102,7 +102,9 @@ def vote(pivot: list[str], others: list[list[str]]) -> list[str]:
 def main() -> None:
     outputs = HERE / "outputs"
     timings = {e: json.loads((outputs / e / "timings.json").read_text()) for e in VOTERS}
-    keys = [f"{doc}_p{n}" for doc, nums in SAMPLE.items() for n in nums]
+    # Set A, plus every set-B page that all three voters have converted.
+    keys = [f"{doc}_p{n}" for doc, nums in list(SAMPLE.items()) + list(SAMPLE_B.items()) for n in nums]
+    keys = [k for k in keys if all((outputs / e / f"{k}.md").exists() for e in VOTERS)]
     toks = {e: {k: tokens((outputs / e / f"{k}.md").read_text()) for k in keys} for e in VOTERS}
     # Voting needs every engine on every page, run one after another.
     total = {k: round(sum(timings[e][k] for e in VOTERS), 1) for k in keys}
