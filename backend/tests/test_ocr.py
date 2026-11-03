@@ -177,3 +177,28 @@ def test_ocr_mode_off_leaves_native_text_intact(monkeypatch):
     data = doc.tobytes()
     doc.close()
     assert "Native Survives Off" in pdf_to_markdown(data)
+
+
+def _two_column_scan(left: list[str], right: list[str]) -> bytes:
+    """A scanned page with two text columns side by side (ADR-035)."""
+    font = _font(40)
+    img = Image.new("RGB", (2000, 120 + 70 * len(left)), "white")
+    draw = ImageDraw.Draw(img)
+    for i, (l, r) in enumerate(zip(left, right)):
+        draw.text((60, 60 + 70 * i), l, fill="black", font=font)
+        draw.text((1060, 60 + 70 * i), r, fill="black", font=font)
+    buf = io.BytesIO()
+    img.save(buf, format="PNG")
+    src = pymupdf.open(stream=buf.getvalue(), filetype="png")
+    out = src.convert_to_pdf()
+    src.close()
+    return out
+
+
+def test_two_column_scan_is_read_column_by_column():
+    left = [f"Apple orchard line {w}" for w in ("one", "two", "three", "four", "five", "six")]
+    right = [f"Banana grove line {w}" for w in ("one", "two", "three", "four", "five", "six")]
+    md = pdf_to_markdown(_two_column_scan(left, right))
+    # Every left-column line comes before every right-column line.
+    assert md.index("Apple orchard line six") < md.index("Banana grove line one")
+    assert md.index("Apple orchard line one") < md.index("Apple orchard line two")

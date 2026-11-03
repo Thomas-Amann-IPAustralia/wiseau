@@ -122,6 +122,14 @@ def _page_needs_ocr(page: pymupdf.Page) -> bool:
     return len(page.get_text("text").strip()) < _TEXT_LAYER_MIN_CHARS
 
 
+def _image_page_indices(doc: pymupdf.Document, mode: str) -> set[int]:
+    """The pages to read from pixels: every page under `force`, else image-only ones."""
+    if mode == "force":
+        return set(range(doc.page_count))
+    # "auto" (default) and any unrecognized value
+    return {i for i in range(doc.page_count) if _page_needs_ocr(doc[i])}
+
+
 def _native_page_markdown(doc: pymupdf.Document, index: int) -> str:
     """Legacy PyMuPDF4LLM Markdown for a single text-bearing page."""
     return pymupdf4llm.to_markdown(doc, pages=[index])
@@ -145,10 +153,7 @@ def pdf_to_markdown(data: bytes) -> str:
             return pymupdf4llm.to_markdown(doc)
 
         page_count = doc.page_count
-        if mode == "force":
-            ocr_pages = set(range(page_count))
-        else:  # "auto" (default) and any unrecognized value
-            ocr_pages = {i for i in range(page_count) if _page_needs_ocr(doc[i])}
+        ocr_pages = _image_page_indices(doc, mode)
 
         # Fast path: nothing needs OCR — identical to the pre-OCR behaviour.
         if not ocr_pages:
@@ -333,25 +338,37 @@ def _extract_markdown(data: bytes, filename: str, ext: str, engine: str | None =
         metrics.record_remote_skipped(selected, "unsupported_type")
         return _fallback_markdown(data, ext)
 
+    if selected == "glm-ocr" and ext == ".pdf":
+        return _glm_ocr_pdf(data, filename, client, error_type)
+
+    markdown = _call_remote(selected, client, error_type, data, filename)
+    if markdown is None:
+        return _fallback_markdown(data, ext)
+    metrics.record_engine(selected)
+    return markdown
+
+
+def _call_remote(selected: str, client, error_type, data: bytes, filename: str) -> str | None:
+    """One call to a remote engine; None (logged and recorded) if it failed.
+
+    `*Unavailable` means the *service* is the problem; `*BadDocument` means it read
+    the document and refused it. They are recorded apart so a silent outage is
+    distinguishable from a file the engine simply cannot handle (ADR-014/018).
+    """
     started = time.perf_counter()
     try:
         markdown = client.convert_document(data, filename)
     except error_type as exc:
-        # `*Unavailable` means the *service* is the problem; `*BadDocument` means
-        # it read the document and refused it. Recorded apart so a silent outage
-        # is distinguishable from a file the engine simply cannot handle
-        # (ADR-014/018).
         reason = type(exc).__name__
         metrics.record_remote_attempt(selected, (time.perf_counter() - started) * 1000, ok=False, reason=reason)
         logger.warning(
             f"{selected} conversion failed; falling back to the deterministic parser",
             extra={"wiseau": {"engine": selected, "filename": filename, "reason": reason, "error": str(exc)}},
         )
-        return _fallback_markdown(data, ext)
+        return None
 
     elapsed_ms = (time.perf_counter() - started) * 1000
     metrics.record_remote_attempt(selected, elapsed_ms, ok=True)
-    metrics.record_engine(selected)
     logger.info(
         f"{selected} converted document",
         extra={
@@ -364,6 +381,76 @@ def _extract_markdown(data: bytes, filename: str, ext: str, engine: str | None =
         },
     )
     return markdown
+
+
+def _page_runs(page_count: int, image_pages: set[int]) -> list[tuple[bool, list[int]]]:
+    """Split pages 0..n-1 into consecutive runs: (is_image_run, page indices)."""
+    runs: list[tuple[bool, list[int]]] = []
+    for i in range(page_count):
+        is_image = i in image_pages
+        if runs and runs[-1][0] == is_image:
+            runs[-1][1].append(i)
+        else:
+            runs.append((is_image, [i]))
+    return runs
+
+
+def _glm_ocr_pdf(data: bytes, filename: str, client, error_type) -> str:
+    """GLM-OCR for a PDF, page by page (ADR-036).
+
+    GLM-OCR reads only pixels, so a page that already has a text layer is read
+    worse by it (bake-off wer 0.297 against PyMuPDF's 0.019) and about 1,000
+    times slower. Only image-only pages are sent to it:
+
+    * **No image-only pages:** GLM-OCR is skipped (`no_image_pages`) and the local
+      parser answers.
+    * **All pages image-only:** the whole document goes in one request, as before.
+    * **Mixed:** text pages are read from their text layer; each consecutive run
+      of image-only pages goes to GLM-OCR as its own small PDF. The parts are
+      joined in page order.
+
+    A run that GLM-OCR fails on falls back to the local OCR engine for just those
+    pages (ADR-014), so one failure never costs the pages that did convert.
+    `WISEAU_OCR_MODE=force` sends every page to GLM-OCR.
+    """
+    doc = pymupdf.open(stream=data, filetype="pdf")
+    try:
+        image_pages = _image_page_indices(doc, _ocr_mode())
+        if not image_pages:
+            metrics.record_remote_skipped("glm-ocr", "no_image_pages")
+            return pdf_to_markdown(data)
+        if len(image_pages) == doc.page_count:
+            markdown = _call_remote("glm-ocr", client, error_type, data, filename)
+            if markdown is None:
+                return pdf_to_markdown(data)
+            metrics.record_engine("glm-ocr")
+            return markdown
+
+        parts: list[str] = []
+        used_glm = False
+        for is_image, pages in _page_runs(doc.page_count, image_pages):
+            if not is_image:
+                parts.extend(_native_page_markdown(doc, i) for i in pages)
+                continue
+            run = pymupdf.open()
+            try:
+                run.insert_pdf(doc, from_page=pages[0], to_page=pages[-1])
+                run_bytes = run.tobytes()
+            finally:
+                run.close()
+            markdown = _call_remote("glm-ocr", client, error_type, run_bytes, filename)
+            if markdown is None:
+                engine, dpi, lang = _engine(), _ocr_dpi(), _ocr_lang()
+                markdown = "\n\n".join(engine.ocr_page(doc[i], dpi=dpi, language=lang).strip() for i in pages)
+            else:
+                used_glm = True
+            parts.append(markdown)
+        # One conversion, one engine: GLM-OCR if it read any page, else local OCR.
+        metrics.record_engine("glm-ocr" if used_glm else "ocr")
+        return "\n\n".join(p.strip() for p in parts if p and p.strip())
+    finally:
+        if not doc.is_closed:
+            doc.close()
 
 
 def file_to_markdown(data: bytes, filename: str, engine: str | None = None) -> str:

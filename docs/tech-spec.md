@@ -324,6 +324,8 @@ The backend is deliberately small and layered. Each module has one job.
 | `parsers/file_parser.py` | Select the conversion engine (the request's `engine`, else `WISEAU_PDF_ENGINE`, default `pymupdf`): PyMuPDF4LLM (legacy mode) + per-page OCR / Mammoth, or docling when it is selected — with automatic fallback to the local parsers. Dispatch by extension; then clean. Validate a caller's engine choice (`resolve_engine`); report the deployment default (`default_engine`). | Hard-depend on docling; return unnormalized text; inline a DOCX image as a base64 data URI (ADR-024); use PyMuPDF4LLM's unstable layout/OCR engine in the fallback. |
 | `parsers/docling_client.py` *(Phase 6)* | Thin HTTP client to docling-serve (`WISEAU_DOCLING_BASE`): document bytes → Markdown, images requested as placeholders (ADR-024). Bounded timeout; typed errors so the caller can tell "docling down" from "bad document". | Contain conversion logic itself; retry forever; leak the token. |
 | `parsers/ocr.py` | Pluggable OCR engines (default MuPDF-Tesseract, opt-in EasyOCR): page image → text. Used by the *fallback* PDF path. | Introduce nondeterminism. |
+| `parsers/photo_regions.py` | Find photograph regions on a scanned page image, and tell OCR noise inside them from real words (ADR-037). Pure pixel arithmetic. | Drop a line outside a photo region, or one that reads as words. |
+| `parsers/reading_order.py` | Put a multi-column OCR page's lines back in column order from their bounding boxes (ADR-035). Pure geometry. | Guess when unsure: return `None` (keep MuPDF's order) unless real text columns are found. |
 | `parsers/cleaner.py` | Deterministic Unicode/whitespace/typography normalization; elide base64 data-URI payloads (ADR-024). | Introduce nondeterminism; remove content (it edits payloads, not text). |
 | `parsers/chapters.py` *(Phase 10)* | Split converted Markdown into chapters: read the document's contents page, else its heading structure, else plain-text chapter markers; name and number each chapter's file (§15). | Extract or convert anything; drop or duplicate content; return a split it is not confident in (say `none` instead); introduce nondeterminism. |
 | `parsers/keywords.py` *(Phase 12)* | Rank the keywords of already-converted Markdown across four methods and fuse the rankings; render the result as a Markdown table and prepend it to a document (§17). | Convert or extract anything; hard-depend on an optional method; let one method's failure fail the request; return a ranking for a document too short to characterise. |
@@ -594,6 +596,23 @@ OCR DPI is a fixed constant (300). All OCR output still ends in `clean_markdown(
   Python dependency); deterministic; strong on printed/scanned text; weak on
   cursive handwriting. Installed in the Docker image (`tesseract-ocr` +
   `tesseract-ocr-eng`); tessdata is auto-discovered (no `TESSDATA_PREFIX` needed).
+  **Reading order (ADR-035):** MuPDF returns the OCR'd lines grouped across
+  columns, so `parsers/reading_order.py` re-orders them by position.
+  - It finds column gutters, which at most 5% of lines may cross.
+  - It keeps a gutter only if every column is ≥ 25% of the text width and has
+    continuous rows (median row density ≥ 0.7). That rules out tables.
+  - It reads each band between full-width lines column by column, with a blank
+    line at paragraph gaps.
+  - A page with no qualifying gutter (single column, table) keeps MuPDF's text
+    unchanged.
+  **Photographs and rows (ADR-037):**
+  - Before ordering, `parsers/photo_regions.py` finds large mid-tone regions
+    (photographs) on the page image. An OCR line lying mostly inside one is
+    dropped, unless it reads as real words (banner text).
+  - Rows are rendered grouped by line centre, so an over-tall OCR box cannot
+    chain lines together.
+  - Both are deterministic. `ocr.SKIP_PHOTO_REGIONS` and
+    `reading_order.ROWS_BY_CENTRE` switch them off.
 - `easyocr` (opt-in) — a neural engine that handles handwriting and noisy
   captures. Enabled with `WISEAU_OCR_ENGINE=easyocr` after
   `pip install -r requirements-ocr.txt`. PyTorch is heavy, so it is kept out of
@@ -653,6 +672,20 @@ available on request and **automatic fallback** whenever docling is chosen:
    contract, so no response-shape version bump. (Which engine served a request is
    logged for observability; it is not part of the contract.)
 
+**GLM-OCR reads only image-only PDF pages (ADR-036).** With `glm-ocr` selected
+and configured, a PDF's pages are classified by the same text-layer test as §10
+(< 16 characters ⇒ image-only):
+- **No image-only pages:** GLM-OCR is skipped (reason `no_image_pages`), and the
+  local parser answers.
+- **All pages image-only:** one request.
+- **Mixed:** text pages are read from their text layer, and each consecutive run of
+  image-only pages is sent to GLM-OCR as its own small PDF. The parts are joined in
+  page order.
+
+A run that fails falls back to the local OCR engine for those pages only.
+`WISEAU_OCR_MODE=force` sends every page to GLM-OCR. Image uploads still go to it
+whole.
+
 DOCX takes the same engine selection as everything else: with `docling` selected
 *and* a base configured, a DOCX goes to docling too, and falls back to Mammoth on
 any failure. Mammoth serves it whenever docling is unselected (the default —
@@ -692,7 +725,7 @@ and `client`. The same `request_id` is returned to the caller as `X-Request-ID`
 | `conversions` | `url.ok` / `url.error` / `file.ok` / `file.error`. | Success rate per surface. |
 | `engines` | Count per engine that actually produced Markdown: `docling`, `glm-ocr`, `pymupdf`, `mammoth`, `ocr`, `trafilatura`, `markdownify`. Each parser records its own, so a PDF with **any** OCR'd page counts as `ocr` rather than `pymupdf` — one engine per conversion, and the OCR path stays visible. | **Is docling serving anything?** |
 | `docling` | `attempts` / `successes` / `fallbacks` / `skipped`, `reasons` (`DoclingUnavailable`, `DoclingBadDocument`, `not_configured`, `engine_not_selected`), and call durations. | Is the Space down, misconfigured, or just slow? |
-| `glm_ocr` | The same shape for GLM-OCR (ADR-034): reasons `GlmOcrUnavailable`, `GlmOcrBadDocument` (including the service's page-cap 413), `not_configured`, `engine_not_selected`, and `unsupported_type` (a DOCX, which GLM-OCR cannot read). | Is GLM-OCR serving anything, or refusing everything as too long? |
+| `glm_ocr` | The same shape for GLM-OCR (ADR-034): reasons `GlmOcrUnavailable`, `GlmOcrBadDocument` (including the service's page-cap 413), `not_configured`, `engine_not_selected`, `unsupported_type` (a DOCX, which GLM-OCR cannot read), and `no_image_pages` (a PDF with a text layer on every page, read locally instead — ADR-036). Successes and fallbacks count *calls*: a mixed PDF makes one call per run of image-only pages. | Is GLM-OCR serving anything, or refusing everything as too long? |
 | `chapters` | `requested` / `split` / `sections` and `by_method` (`toc`, `headings`, `markers`, `none`). | Is chapter detection actually finding chapters, and by which signal? |
 | `batches` | `requested` / `files` / `failed` / `largest` (ADR-031). | What bulk conversion actually costs — thirty documents and one document are both a single request in `by_route`, so `files` is what sizes `MAX_BATCH_FILES`, and a climbing `failed` means callers are sending something unreadable. |
 | `keywords` | `requested` / `keywords` / `empty`, plus `by_method`, `skipped`, and `batches` (`requested`/`documents`/`failed`/`largest`, ADR-033). | Which methods are *actually* running — a deployment that installed the optional extras but never set `WISEAU_KEYWORD_METHODS` looks busy while only ever running the cheap pair. `skipped` is the only place a missing optional package shows, since it degrades the answer silently by design. |

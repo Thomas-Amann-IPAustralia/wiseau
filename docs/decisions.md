@@ -21,6 +21,98 @@ one `Superseded`.
 
 ---
 
+## ADR-037 — Drop OCR text read out of photographs; render OCR rows by line centre
+**Date:** 2026-11-03 · **Status:** Accepted
+**Context:** Bake-off set B found two bugs in the default scanned-page path:
+- **Photo noise.** Tesseract "reads" photographs as garbage. That was most of the
+  path's loss on photo pages.
+- **Row chaining.** ADR-035's `_rows` grouped lines by comparing each one with a
+  row's *growing* extent, so one over-tall OCR box chained three printed lines
+  into one row.
+
+**Decision:**
+- `parsers/photo_regions.py` renders the page at 36 dpi and splits it into cells
+  about 2 mm square. A cell is *tone* when ≥ 60% of its pixels are mid-grey (grey
+  level 50–200). A connected tone region of ≥ 150 cells is a photo.
+- An OCR line ≥ 50% inside a photo is dropped unless it reads as real words
+  (≥ 3 word-like tokens making up ≥ 80% of its characters), so banner text
+  survives.
+- Rendering groups a column's lines into rows by vertical centre (within half
+  the median line height of the row's first line).
+- Column *validation* keeps ADR-035's grouping. Changing it there regressed
+  V4 p25 from wer 0.191 to 0.845, because the 0.7 density threshold was tuned on
+  the old grouping.
+- Both fixes sit behind module flags (`ocr.SKIP_PHOTO_REGIONS`,
+  `reading_order.ROWS_BY_CENTRE`), so the bake-off can reproduce the ADR-035
+  baseline byte-for-byte. Deterministic, no model, no measurable time cost.
+
+**Consequences:**
+- **Designed on sets A and B (16 scans):** wer 0.135 → 0.083.
+- **Held-out set C** (10 scans, blind-transcribed before the fixes were
+  written): wer 0.326 → 0.256, with no page worse. Two-column prose improved
+  0.278 → 0.088; V2 p8 (photos) improved 0.598 → 0.066.
+- **Limits:**
+  - Photos on a near-black background are not detected.
+  - Set C showed the larger remaining weakness is ADR-035's geometric column
+    detection on *mixed* layouts: a table inside a column (V4 p23, wer 0.932), or
+    a table above two-column text (V4 p19, 0.563). Tesseract's own layout
+    analysis (psm 3) reads those at 0.016 and 0.194. See
+    `docs/benchmarks/2026-11-03-set-c.md`.
+
+## ADR-036 — GLM-OCR reads only the image-only pages of a PDF
+**Date:** 2026-11-03 · **Status:** Accepted
+**Context:** `engine="glm-ocr"` sent the whole PDF to GLM-OCR, born-digital pages
+included. GLM-OCR reads only pixels, so it threw away an exact text layer. On the
+bake-off's born-digital pages it scored wer 0.297 at 205 s/page, where PyMuPDF
+scores 0.019 at 0.2 s. A per-page routing analysis on the committed outputs showed
+"text layer → PyMuPDF, image-only → GLM-OCR" matches the best possible per-page
+choice on every sample page except the V2 p17 typewriter table.
+**Decision:** for a PDF, the GLM-OCR engine classifies pages with the same
+text-layer test as the local OCR path (`_page_needs_ocr`, < 16 characters):
+- **No image-only pages:** GLM-OCR is skipped and recorded as `no_image_pages`.
+- **All pages image-only:** one request, as before.
+- **Mixed:** text pages are read natively. Each consecutive run of image-only pages
+  goes to GLM-OCR as its own PDF, and the parts are joined in page order.
+
+A run GLM-OCR fails on falls back to local OCR for just those pages (ADR-014).
+`WISEAU_OCR_MODE=force` sends every page. Images and DOCX are unchanged.
+**Consequences:**
+- Born-digital PDFs no longer pay GLM-OCR's minutes per page, and come out exact.
+- **Metrics:** a mixed PDF makes one GLM-OCR call per image run, so `glm_ocr`
+  success and fallback counts are now per call, not per conversion. `engines` still
+  counts each conversion once: `glm-ocr` if any run converted, otherwise `ocr`.
+- **Detection blind spots:** the text-layer test can be fooled by a scan with a
+  scanner-added hidden OCR layer, or by broken font encodings. Those pages would be
+  read natively.
+- **Unchanged:** the service's page cap (`GLM_OCR_MAX_PAGES`) still applies, now
+  per run. Not an API contract change, so no version bump.
+
+## ADR-035 — OCR'd lines are put back in column order by geometry, not by a new engine
+**Date:** 2026-11-03 · **Status:** Accepted
+**Context:** On two-column scans the default Tesseract path found the right words
+(word recall 0.96) but scored a word error of 0.66, because MuPDF's OCR primitive
+groups recognised lines into blocks that run straight across the columns. The output
+interleaved left and right line by line. Calling Tesseract directly (its own layout
+mode) would have meant leaving the MuPDF primitive ADR-012 chose for determinism.
+**Decision:** Keep the MuPDF primitive and re-order its lines in a new pure-geometry
+module, `parsers/reading_order.py`, called by `TesseractEngine`:
+- **Gutters:** find vertical strips that at most 5% of lines cross.
+- **Validation:** a gutter is kept only if every column is at least 25% of the text
+  width and its typical row is a continuous run of text (median row density ≥ 0.7).
+  Table rows are mostly gaps between cells, so tables fail this and keep MuPDF's
+  row-wise text.
+- **Reading:** full-width lines cut the page into bands, and each band is read column
+  by column.
+- **No columns:** when no gutter qualifies, MuPDF's text is returned unchanged.
+
+The module is deterministic, with no model and stable tie-breakers.
+**Consequences:** On the bake-off scans, word error falls from 0.657 to 0.108, level
+with GLM-OCR (0.103) at about 5 s/page instead of 106 (see
+`docs/benchmarks/2026-11-03-tesseract-reading-order.md`). Born-digital pages and the
+typewriter table (V2 p17) are byte-identical. Only the Tesseract engine uses it;
+EasyOCR is unchanged. Not an API contract change: the response shape is the same and
+only the text order improves, so the API version is not bumped.
+
 ## ADR-034 — GLM-OCR is a third opt-in engine, not a replacement for docling
 **Date:** 2026-11-01 · **Status:** Accepted
 **Context:** A proposal asked to replace docling with GLM-OCR. Its speed and memory

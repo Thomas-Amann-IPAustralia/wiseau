@@ -25,6 +25,8 @@ const ESTIMATES = {
   // GLM-OCR on CPU: a vision-language model transcribing every region of every
   // page — measured at minutes per page (ADR-034). A scanned page is roughly
   // 0.1-0.2 MB, so this works out near that rate; it is meant to look slow.
+  // Since ADR-036 a born-digital PDF skips GLM-OCR and finishes in seconds; the
+  // UI cannot tell the two apart before upload, so it shows the scan estimate.
   "glm-ocr": { base: 60, perMb: 1500 },
 };
 

@@ -11,7 +11,9 @@ Metrics per page:
   num_r / num_p  the same, restricted to tokens containing a digit
 Group figures are the mean over the group's pages.
 
-  python benchmarks/bakeoff/score.py            # prints the tables, writes results.json
+  python benchmarks/bakeoff/score.py            # set A tables; writes results.json (both sets)
+  python benchmarks/bakeoff/score.py --set b    # set B tables, overall and per layout group
+  python benchmarks/bakeoff/score.py --set c    # the same for set C (held out, 2026-11-03)
 """
 from __future__ import annotations
 
@@ -24,14 +26,16 @@ from pathlib import Path
 
 HERE = Path(__file__).parent
 sys.path.insert(0, str(HERE))
-from regions import SAMPLE  # noqa: E402
+from regions import GROUPS_B, GROUPS_C, SAMPLE, SAMPLE_B, SAMPLE_C  # noqa: E402
 
-ENGINES = ["pymupdf", "docling", "glm-ocr", "gemini-3.5-flash"]
+ENGINES = ["pymupdf", "tesseract-adr035", "tesseract-unordered", "tesseract-psm3", "docling", "glm-ocr", "gemini-3.5-flash",
+           "vote-pymupdf", "vote-docling", "vote-glm-ocr", "consensus-order", "consensus-words",
+           "router-rule", "oracle-best-single"]
 METRICS = ["wer", "bow_r", "bow_p", "num_r", "num_p"]
 
 
 def tokens(text: str) -> list[str]:
-    text = re.sub(r"<[^>]+>", " ", text)                 # HTML (tables, <br>)
+    text = re.sub(r"</?[A-Za-z][^<>\n]*>", " ", text)    # HTML tags (tables, <br>); not stray "<" ... ">" OCR specks
     text = re.sub(r"\\[a-zA-Z]+", " ", text)             # LaTeX commands
     text = re.sub(r"!\[[^\]]*\]\([^)]*\)", " ", text)    # image links
     text = unicodedata.normalize("NFKC", text).lower()
@@ -70,7 +74,7 @@ def main() -> None:
         if not out.exists():
             continue
         timings = json.loads((out / "timings.json").read_text()) if (out / "timings.json").exists() else {}
-        for doc, nums in SAMPLE.items():
+        for doc, nums in list(SAMPLE.items()) + list(SAMPLE_B.items()) + list(SAMPLE_C.items()):
             for n in nums:
                 key = f"{doc}_p{n}"
                 hyp = out / f"{key}.md"
@@ -80,6 +84,10 @@ def main() -> None:
                 s["seconds"] = timings.get(key)
                 results.setdefault(engine, {})[key] = s
     (HERE / "results.json").write_text(json.dumps(results, indent=2, sort_keys=True) + "\n")
+    chosen = sys.argv[sys.argv.index("--set") + 1].lower() if "--set" in sys.argv else "a"
+    if chosen in {"b", "c"}:
+        print_set(results, *({"b": (SAMPLE_B, GROUPS_B), "c": (SAMPLE_C, GROUPS_C)}[chosen]))
+        return
 
     print("| Engine | Pages | " + " | ".join(METRICS) + " | s/page |")
     print("|---|---|" + "---|" * (len(METRICS) + 1))
@@ -103,6 +111,34 @@ def main() -> None:
                 r = results[e].get(key)
                 cells.append("—" if r is None else f"{r['wer']:.3f} / {r['bow_r']:.3f} / {r['num_r']:.3f}")
             print(f"| {key} | " + " | ".join(cells) + " |")
+
+
+def _mean_row(rows: list[dict]) -> str:
+    means = [sum(r[m] for r in rows) / len(rows) for m in METRICS]
+    secs = [r["seconds"] for r in rows if r.get("seconds") is not None]
+    sp = f"{sum(secs) / len(secs):.0f}" if secs else "-"
+    return " | ".join(f"{x:.3f}" for x in means) + f" | {sp} |"
+
+
+def print_set(results: dict, sample: dict, groups: dict) -> None:
+    keys = [f"{d}_p{n}" for d, ns in sample.items() for n in ns]
+    complete = {e: p for e, p in results.items() if all(k in p for k in keys)}
+    print("| Engine | Pages | " + " | ".join(METRICS) + " | s/page |")
+    print("|---|---|" + "---|" * (len(METRICS) + 1))
+    for engine, pages in complete.items():
+        print(f"| {engine} | {len(keys)} | " + _mean_row([pages[k] for k in keys]))
+    for group, members in groups.items():
+        print(f"\n**{group}** ({', '.join(members)})\n")
+        print("| Engine | " + " | ".join(METRICS) + " | s/page |")
+        print("|---|" + "---|" * (len(METRICS) + 1))
+        for engine, pages in complete.items():
+            print(f"| {engine} | " + _mean_row([pages[k] for k in members]))
+    print("\n| Page | " + " | ".join(f"{e} wer / bow_r / num_r" for e in complete) + " |")
+    print("|---|" + "---|" * len(complete))
+    for k in keys:
+        cells = [f"{complete[e][k]['wer']:.3f} / {complete[e][k]['bow_r']:.3f} / {complete[e][k]['num_r']:.3f}"
+                 for e in complete]
+        print(f"| {k} | " + " | ".join(cells) + " |")
 
 
 if __name__ == "__main__":
