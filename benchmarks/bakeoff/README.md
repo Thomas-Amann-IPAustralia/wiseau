@@ -15,7 +15,11 @@ calls an external service.
 | `outputs/<engine>/` | Raw Markdown per page and `timings.json`. |
 | `run_gemini.py` | Gemini over the sample, under a hard budget (`--budget`, default $1). Use `--smoke` for one page. Ledger: `outputs/<model>/spend.json`. |
 | `vote.py` | Word-level voting, consensus routers and the per-page oracle over the offline engines' outputs. No engines run. Write-up: `docs/benchmarks/2026-11-03-voting-experiment.md`. |
+| `disagreements.py` | Lists words where engines disagree with a set-B reference, for adjudication against the page image. Log: `adjudication/log.md`. |
+| `route.py` | The rule router (≥ 30% numbers or single column → Tesseract, else GLM-OCR). Writes `outputs/router-rule/`. |
 | `score.py` | Scores every engine in `outputs/` and writes `results.json`. |
+
+Two samples: set A (`SAMPLE`, the original 10 pages) and set B (`SAMPLE_B`, 10 scanned pages blind-transcribed on 2026-11-03; see `docs/benchmarks/2026-11-03-set-b.md`). Add `--set b` to `run_engines.py` and `score.py` for set B.
 
 Run every command from the repo root:
 

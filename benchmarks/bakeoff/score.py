@@ -29,7 +29,7 @@ from regions import GROUPS_B, SAMPLE, SAMPLE_B  # noqa: E402
 
 ENGINES = ["pymupdf", "tesseract-unordered", "tesseract-psm3", "docling", "glm-ocr", "gemini-3.5-flash",
            "vote-pymupdf", "vote-docling", "vote-glm-ocr", "consensus-order", "consensus-words",
-           "oracle-best-single"]
+           "router-rule", "oracle-best-single"]
 METRICS = ["wer", "bow_r", "bow_p", "num_r", "num_p"]
 
 

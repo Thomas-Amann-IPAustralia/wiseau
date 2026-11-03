@@ -26,3 +26,19 @@ were listed. All were checked against the page crops, and **none was changed**:
 | V4 p22 | few | ew | faint but printed "f" |
 | V4 p25 | Lawson | 051 | alignment artefact (list read in a different order) |
 | V4 p27 | Ian (twice) | lan | the name Ian; sans-serif capital I |
+
+## Round 2: GLM-OCR added
+
+Run: `disagreements.py --set b --min 2` with all four engines. Eight more words
+were listed, and **none was changed**:
+
+| Page | Reference | Engines read | Image / reason |
+|---|---|---|---|
+| V2 p14 | FLOWER COLOURS row (8 words) | same words, other order | GLM-OCR and Tesseract psm 3 read each two-line cell whole ("milky pink with paler tips"). The convention, as in set A, reads each printed line across the row. This is an order difference, not a misreading: it costs those engines wer, but not bow/num. |
+| V2 p14 | 55D (×2) | width | alignment artefact from the same cell-order difference |
+| V4 p8 | 54 mm, 0 cm, 18 mm | 54mm, 0cm, 18mm | printed with a space; the engines joined number and unit |
+| V4 p27 | McIver | Mclver | the name McIver; sans-serif capital I |
+
+**Outcome:** after both rounds, the only change to any blind transcription is
+V2 p23's "the" → "tne", made on self-check before engine output was read. No
+engine-prompted check found a transcription error.
