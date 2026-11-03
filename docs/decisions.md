@@ -21,6 +21,44 @@ one `Superseded`.
 
 ---
 
+## ADR-037 — Drop OCR text read out of photographs; render OCR rows by line centre
+**Date:** 2026-11-03 · **Status:** Accepted
+**Context:** Bake-off set B found two bugs in the default scanned-page path:
+- **Photo noise.** Tesseract "reads" photographs as garbage. That was most of the
+  path's loss on photo pages.
+- **Row chaining.** ADR-035's `_rows` grouped lines by comparing each one with a
+  row's *growing* extent, so one over-tall OCR box chained three printed lines
+  into one row.
+
+**Decision:**
+- `parsers/photo_regions.py` renders the page at 36 dpi and splits it into cells
+  about 2 mm square. A cell is *tone* when ≥ 60% of its pixels are mid-grey (grey
+  level 50–200). A connected tone region of ≥ 150 cells is a photo.
+- An OCR line ≥ 50% inside a photo is dropped unless it reads as real words
+  (≥ 3 word-like tokens making up ≥ 80% of its characters), so banner text
+  survives.
+- Rendering groups a column's lines into rows by vertical centre (within half
+  the median line height of the row's first line).
+- Column *validation* keeps ADR-035's grouping. Changing it there regressed
+  V4 p25 from wer 0.191 to 0.845, because the 0.7 density threshold was tuned on
+  the old grouping.
+- Both fixes sit behind module flags (`ocr.SKIP_PHOTO_REGIONS`,
+  `reading_order.ROWS_BY_CENTRE`), so the bake-off can reproduce the ADR-035
+  baseline byte-for-byte. Deterministic, no model, no measurable time cost.
+
+**Consequences:**
+- **Designed on sets A and B (16 scans):** wer 0.135 → 0.083.
+- **Held-out set C** (10 scans, blind-transcribed before the fixes were
+  written): wer 0.326 → 0.256, with no page worse. Two-column prose improved
+  0.278 → 0.088; V2 p8 (photos) improved 0.598 → 0.066.
+- **Limits:**
+  - Photos on a near-black background are not detected.
+  - Set C showed the larger remaining weakness is ADR-035's geometric column
+    detection on *mixed* layouts: a table inside a column (V4 p23, wer 0.932), or
+    a table above two-column text (V4 p19, 0.563). Tesseract's own layout
+    analysis (psm 3) reads those at 0.016 and 0.194. See
+    `docs/benchmarks/2026-11-03-set-c.md`.
+
 ## ADR-036 — GLM-OCR reads only the image-only pages of a PDF
 **Date:** 2026-11-03 · **Status:** Accepted
 **Context:** `engine="glm-ocr"` sent the whole PDF to GLM-OCR, born-digital pages

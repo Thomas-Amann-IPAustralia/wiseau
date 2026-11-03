@@ -59,3 +59,17 @@ readings and 400 dpi crops:
 | V2 p21 | 0f | of (Tesseract ×2) | narrow glyph, closer to a zero than to this font's capital O | kept, ambiguous (1 token) |
 | V2 p12 | 35 (Rubinen central cluster mean) | a8 / 38 | very faint; reads as 35 | kept |
 | V4 p14 | RHS 40B (Royal Dane, bloom colour) | 4cb (Tesseract ×2) | **printed "4CB"**: the zero is broken open, while the 40B beside it is closed | **changed to 4CB**, as printed (the same rule as "tne") |
+
+**Round 2** (GLM-OCR added): eight words were listed, and one was changed.
+
+| Page | Reference | Engines read | Image / reason | Decision |
+|---|---|---|---|---|
+| V4 p10 | 60º/15º | 15 (three families) | the page prints a **degree sign**. I had typed the masculine ordinal "º", which NFKC folds to a letter, giving tokens "60o"/"15o" | **changed to 60°/15°** (my transcription error) |
+| V2 p21 | 0f | of (Tesseract, GLM-OCR) | still ambiguous at 400 dpi | kept (1 token) |
+| V4 p10 | C₂A₁ | ca / a / 1 | subscripts printed | kept |
+| V4 p14 | outside | ce | faint but printed "i" ("outs ce") | kept |
+| V4 p14, V4 p19 | 121.2 mm, 1.84 cm | 2mm, 84cm | printed with a space | kept |
+| V2 p12 | 4 | rhs | alignment artefact | kept |
+
+**Outcome, set C:** two changes to the blind transcriptions, both logged
+(V4 p14 "4CB" as printed, V4 p10 degree signs).

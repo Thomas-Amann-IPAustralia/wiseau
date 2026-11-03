@@ -324,6 +324,7 @@ The backend is deliberately small and layered. Each module has one job.
 | `parsers/file_parser.py` | Select the conversion engine (the request's `engine`, else `WISEAU_PDF_ENGINE`, default `pymupdf`): PyMuPDF4LLM (legacy mode) + per-page OCR / Mammoth, or docling when it is selected — with automatic fallback to the local parsers. Dispatch by extension; then clean. Validate a caller's engine choice (`resolve_engine`); report the deployment default (`default_engine`). | Hard-depend on docling; return unnormalized text; inline a DOCX image as a base64 data URI (ADR-024); use PyMuPDF4LLM's unstable layout/OCR engine in the fallback. |
 | `parsers/docling_client.py` *(Phase 6)* | Thin HTTP client to docling-serve (`WISEAU_DOCLING_BASE`): document bytes → Markdown, images requested as placeholders (ADR-024). Bounded timeout; typed errors so the caller can tell "docling down" from "bad document". | Contain conversion logic itself; retry forever; leak the token. |
 | `parsers/ocr.py` | Pluggable OCR engines (default MuPDF-Tesseract, opt-in EasyOCR): page image → text. Used by the *fallback* PDF path. | Introduce nondeterminism. |
+| `parsers/photo_regions.py` | Find photograph regions on a scanned page image, and tell OCR noise inside them from real words (ADR-037). Pure pixel arithmetic. | Drop a line outside a photo region, or one that reads as words. |
 | `parsers/reading_order.py` | Put a multi-column OCR page's lines back in column order from their bounding boxes (ADR-035). Pure geometry. | Guess when unsure: return `None` (keep MuPDF's order) unless real text columns are found. |
 | `parsers/cleaner.py` | Deterministic Unicode/whitespace/typography normalization; elide base64 data-URI payloads (ADR-024). | Introduce nondeterminism; remove content (it edits payloads, not text). |
 | `parsers/chapters.py` *(Phase 10)* | Split converted Markdown into chapters: read the document's contents page, else its heading structure, else plain-text chapter markers; name and number each chapter's file (§15). | Extract or convert anything; drop or duplicate content; return a split it is not confident in (say `none` instead); introduce nondeterminism. |
@@ -604,6 +605,14 @@ OCR DPI is a fixed constant (300). All OCR output still ends in `clean_markdown(
     line at paragraph gaps.
   - A page with no qualifying gutter (single column, table) keeps MuPDF's text
     unchanged.
+  **Photographs and rows (ADR-037):**
+  - Before ordering, `parsers/photo_regions.py` finds large mid-tone regions
+    (photographs) on the page image. An OCR line lying mostly inside one is
+    dropped, unless it reads as real words (banner text).
+  - Rows are rendered grouped by line centre, so an over-tall OCR box cannot
+    chain lines together.
+  - Both are deterministic. `ocr.SKIP_PHOTO_REGIONS` and
+    `reading_order.ROWS_BY_CENTRE` switch them off.
 - `easyocr` (opt-in) — a neural engine that handles handwriting and noisy
   captures. Enabled with `WISEAU_OCR_ENGINE=easyocr` after
   `pip install -r requirements-ocr.txt`. PyTorch is heavy, so it is kept out of

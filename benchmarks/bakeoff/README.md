@@ -19,7 +19,7 @@ calls an external service.
 | `route.py` | The rule router (≥ 30% numbers or single column → Tesseract, else GLM-OCR). Writes `outputs/router-rule/`. |
 | `score.py` | Scores every engine in `outputs/` and writes `results.json`. |
 
-Two samples: set A (`SAMPLE`, the original 10 pages) and set B (`SAMPLE_B`, 10 scanned pages blind-transcribed on 2026-11-03; see `docs/benchmarks/2026-11-03-set-b.md`). Add `--set b` to `run_engines.py` and `score.py` for set B.
+Two samples: set A (`SAMPLE`, the original 10 pages) and set B (`SAMPLE_B`, 10 scanned pages blind-transcribed on 2026-11-03; see `docs/benchmarks/2026-11-03-set-b.md`). Add `--set b` to `run_engines.py` and `score.py` for set B, or `--set c` for set C (`SAMPLE_C`, held out for ADR-037 and the router; see `docs/benchmarks/2026-11-03-set-c.md`).
 
 Run every command from the repo root:
 

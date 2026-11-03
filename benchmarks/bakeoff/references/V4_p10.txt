@@ -16,7 +16,7 @@ OESTROGENICITY (% dry matter)
 Formononetin trace trace 1.4 trace 1.0 0.2
 Genistein 0.8 0.2 1.0 0.3 0.7 1.2
 Biochanin A 0.3 0.2 0.4 1.1 1.3 1.7
-SEED HARDNESS (% remaining after 4 months in 60º/15º cabinet)
+SEED HARDNESS (% remaining after 4 months in 60°/15° cabinet)
 6.8 59.0 59.9 3.0 1.2 8.7
 SEEDWEIGHT (g/1000)
 7.3g 12.1g 10.8g 8.1g 6.8g 8.5g

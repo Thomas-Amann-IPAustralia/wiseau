@@ -78,5 +78,55 @@
     "engine": "pymupdf",
     "number_share": 0.52,
     "columns": 1
+  },
+  "V2_p4": {
+    "engine": "glm-ocr",
+    "number_share": 0.04,
+    "columns": 2
+  },
+  "V2_p8": {
+    "engine": "glm-ocr",
+    "number_share": 0.08,
+    "columns": 2
+  },
+  "V2_p12": {
+    "engine": "pymupdf",
+    "number_share": 0.42,
+    "columns": 1
+  },
+  "V2_p21": {
+    "engine": "glm-ocr",
+    "number_share": 0.15,
+    "columns": 2
+  },
+  "V4_p3": {
+    "engine": "pymupdf",
+    "number_share": 0.04,
+    "columns": 1
+  },
+  "V4_p10": {
+    "engine": "glm-ocr",
+    "number_share": 0.17,
+    "columns": 2
+  },
+  "V4_p14": {
+    "engine": "glm-ocr",
+    "number_share": 0.12,
+    "columns": 2
+  },
+  "V4_p17": {
+    "engine": "glm-ocr",
+    "number_share": 0.03,
+    "columns": 2
+  },
+  "V4_p19": {
+    "engine": "pymupdf",
+    "number_share": 0.33,
+    "columns": 2
+  },
+  "V4_p23": {
+    "engine": "pymupdf",
+    "number_share": 0.2,
+    "columns": 1
   }
 }

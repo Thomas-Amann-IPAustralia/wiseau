@@ -5,7 +5,7 @@
   "V16_p90": "pymupdf",
   "V2_p6": "glm-ocr",
   "V2_p17": "pymupdf",
-  "V2_p20": "glm-ocr",
+  "V2_p20": "pymupdf",
   "V4_p7": "glm-ocr",
   "V4_p11": "glm-ocr",
   "V4_p26": "docling",
@@ -18,5 +18,15 @@
   "V4_p22": "glm-ocr",
   "V4_p25": "glm-ocr",
   "V4_p27": "pymupdf",
-  "V4_p32": "pymupdf"
+  "V4_p32": "pymupdf",
+  "V2_p4": "docling",
+  "V2_p8": "glm-ocr",
+  "V2_p12": "pymupdf",
+  "V2_p21": "glm-ocr",
+  "V4_p3": "pymupdf",
+  "V4_p10": "glm-ocr",
+  "V4_p14": "glm-ocr",
+  "V4_p17": "glm-ocr",
+  "V4_p19": "glm-ocr",
+  "V4_p23": "docling"
 }
