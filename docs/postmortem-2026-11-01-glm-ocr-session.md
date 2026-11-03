@@ -50,14 +50,24 @@
 3. **Lost focus on the thing being implemented.** GLM-OCR's failures (runaways, slow
    prefill, possibly our own serving setup) were noted but not investigated, while
    effort went to cloud contenders.
-4. **Ran engines concurrently on a 4-vCPU box**, contaminating every timing.
-5. **Expensive, chatty working style:** many status polls, ~30 page-image reads to
+4. **Lost the paid outputs.** The GPT-5.4 and Gemini transcriptions of all 168 pages
+   were written only to the session's temporary container and never committed.
+   Neither commit from the session (`219d707`, `fae46c0`) contains any model output,
+   and no branch does. The container was deleted when the session ended, so only
+   the 10-page scores in `docs/benchmarks/2026-11-01-engine-bakeoff.md` survive.
+   That makes the credits spent on the other pages a total loss. The 60 scanned
+   pages among them would have been ready-made references (recorded 2026-11-03,
+   when they were wanted as training labels for a page router).
+5. **Ran engines concurrently on a 4-vCPU box**, contaminating every timing.
+6. **Expensive, chatty working style:** many status polls, ~30 page-image reads to
    build references, long tool outputs.
 
 ## Rules for next time
 - Any call to a paid external API needs the user's explicit permission first, with an
   estimate of request count. Default to the smallest sample that answers the question.
 - Fail fast on quota errors; never retry a daily quota.
+- Write every paid output into the repo (`benchmarks/bakeoff/outputs/`) and commit
+  and push it as soon as the run ends. A container's disk does not outlive the session.
 - Confirm what "compare against" means before choosing contenders.
 - Keep the investigation on the component being built; diagnose its failures before
   widening the comparison.
