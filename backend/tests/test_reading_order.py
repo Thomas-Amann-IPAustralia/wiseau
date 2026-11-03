@@ -93,3 +93,27 @@ def test_paragraph_gap_starts_a_new_paragraph():
 def test_output_does_not_depend_on_input_order():
     lines = _interleaved(_column(70, 280, LEFT), _column(310, 520, RIGHT))
     assert order_lines(lines) == order_lines(list(reversed(lines)))
+
+
+def test_an_over_tall_line_box_does_not_chain_rows():
+    # ADR-037: one OCR box two printed lines tall (26 pt) sat between two
+    # neighbours and merged all three into one output row.
+    left = [
+        Line(70, 400, 280, 414, "outer edges corresponding to RHS 55D; petal"),
+        Line(70, 408, 280, 434, "margins having fine serrations; no thick central"),
+        Line(70, 425, 280, 434, "cluster of petals; an epicalyx with 2 pairs of"),
+    ] + _column(70, 280, LEFT, top=440)
+    out = order_lines(_interleaved(left, _column(310, 520, RIGHT, top=400)))
+    lines = _text_lines(out)
+    assert lines[:3] == [
+        "outer edges corresponding to RHS 55D; petal",
+        "margins having fine serrations; no thick central",
+        "cluster of petals; an epicalyx with 2 pairs of",
+    ]
+
+
+def test_legacy_row_rendering_is_still_available(monkeypatch):
+    from parsers import reading_order
+    monkeypatch.setattr(reading_order, "ROWS_BY_CENTRE", False)
+    lines = _interleaved(_column(70, 280, LEFT), _column(310, 520, RIGHT))
+    assert _text_lines(order_lines(lines)) == LEFT + RIGHT

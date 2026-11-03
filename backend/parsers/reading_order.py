@@ -62,6 +62,10 @@ MAX_COLUMNS = 3
 PARAGRAPH_GAP = 0.8
 # Below this many lines a page is too small to judge; keep MuPDF's order.
 MIN_LINES = 6
+# Render a column's rows grouped by line centre (ADR-037). Column validation keeps
+# ADR-035's grouping either way. False restores ADR-035 rendering, which the
+# bake-off keeps as a baseline.
+ROWS_BY_CENTRE = True
 
 
 def _gutters(lines: Sequence[Line], left: int, right: int) -> list[tuple[int, int]]:
@@ -121,7 +125,13 @@ def _choose_gutters(lines: Sequence[Line]) -> list[tuple[int, int]]:
 
 
 def _rows(lines: Sequence[Line]) -> list[list[Line]]:
-    """Group lines that share a baseline into rows, top to bottom, left to right."""
+    """Group lines that overlap vertically into rows (ADR-035).
+
+    Used to *validate* columns (row density), where its thresholds were tuned.
+    Rendering uses `_rows_by_centre` instead (ADR-037): this grouping compares
+    each line with the row's growing extent, so one over-tall OCR box (two printed
+    lines high) can chain neighbouring lines into a single row of output.
+    """
     rows: list[list[Line]] = []
     for ln in sorted(lines, key=lambda l: (l.y0, l.x0, l.x1, l.text)):
         if rows:
@@ -135,6 +145,27 @@ def _rows(lines: Sequence[Line]) -> list[list[Line]]:
     return [sorted(r, key=lambda l: (l.x0, l.y0, l.text)) for r in rows]
 
 
+def _rows_by_centre(lines: Sequence[Line]) -> list[list[Line]]:
+    """Group fragments of one printed line into a row, for rendering (ADR-037).
+
+    A line joins a row when its vertical centre is within half a typical line
+    height of the row's *first* line, so an over-tall box cannot chain rows.
+    """
+    if not lines:
+        return []
+    tolerance = 0.5 * median(l.y1 - l.y0 for l in lines)
+    rows: list[list[Line]] = []
+    anchor = 0.0
+    for ln in sorted(lines, key=lambda l: ((l.y0 + l.y1) / 2, l.x0, l.x1, l.text)):
+        centre = (ln.y0 + ln.y1) / 2
+        if rows and abs(centre - anchor) <= tolerance:
+            rows[-1].append(ln)
+        else:
+            rows.append([ln])
+            anchor = centre
+    return [sorted(r, key=lambda l: (l.x0, l.y0, l.text)) for r in rows]
+
+
 def _density(row: Sequence[Line]) -> float:
     """Share of a row's extent covered by its recognised fragments."""
     extent = max(l.x1 for l in row) - min(l.x0 for l in row)
@@ -144,7 +175,7 @@ def _density(row: Sequence[Line]) -> float:
 def _render(lines: Sequence[Line], line_height: float) -> str:
     out: list[str] = []
     prev_bottom: Optional[float] = None
-    for row in _rows(lines):
+    for row in (_rows_by_centre(lines) if ROWS_BY_CENTRE else _rows(lines)):
         top = min(l.y0 for l in row)
         if prev_bottom is not None and top - prev_bottom > PARAGRAPH_GAP * line_height:
             out.append("")

@@ -35,7 +35,12 @@ from functools import lru_cache
 
 import pymupdf
 
+from . import photo_regions
 from .reading_order import Line, order_lines
+
+# Drop OCR noise read out of photographs (ADR-037). False restores the ADR-035
+# behaviour, which the bake-off keeps as a baseline.
+SKIP_PHOTO_REGIONS = True
 
 # EasyOCR uses ISO 639-1 short codes ("en"); the rest of the pipeline speaks
 # Tesseract's 639-2/T codes ("eng"). Translate the common cases so one env var
@@ -81,8 +86,21 @@ class TesseractEngine(OcrEngine):
         # MuPDF groups OCR'd lines into blocks that run across columns, so a
         # multi-column scan comes out interleaved. Re-order by geometry; a page
         # with no text columns keeps MuPDF's own text unchanged (ADR-035).
-        ordered = order_lines(_ocr_lines(page, textpage))
-        return ordered if ordered is not None else page.get_text("text", textpage=textpage)
+        lines = _ocr_lines(page, textpage)
+        # Photographs are "read" as garbage; drop those lines first (ADR-037).
+        dropped = False
+        if SKIP_PHOTO_REGIONS:
+            mask = photo_regions.photo_mask(page)
+            if mask.cells:
+                kept = [ln for ln in lines if not photo_regions.is_photo_noise(ln, mask)]
+                dropped = len(kept) < len(lines)
+                lines = kept
+        ordered = order_lines(lines)
+        if ordered is not None:
+            return ordered
+        if dropped:  # MuPDF's order, minus the photo noise
+            return "\n".join(ln.text for ln in lines if ln.text)
+        return page.get_text("text", textpage=textpage)
 
 
 def _ocr_lines(page: pymupdf.Page, textpage) -> list[Line]:
