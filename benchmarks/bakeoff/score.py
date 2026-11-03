@@ -13,6 +13,7 @@ Group figures are the mean over the group's pages.
 
   python benchmarks/bakeoff/score.py            # set A tables; writes results.json (both sets)
   python benchmarks/bakeoff/score.py --set b    # set B tables, overall and per layout group
+  python benchmarks/bakeoff/score.py --set c    # the same for set C (held out, 2026-11-03)
 """
 from __future__ import annotations
 
@@ -25,9 +26,9 @@ from pathlib import Path
 
 HERE = Path(__file__).parent
 sys.path.insert(0, str(HERE))
-from regions import GROUPS_B, SAMPLE, SAMPLE_B  # noqa: E402
+from regions import GROUPS_B, GROUPS_C, SAMPLE, SAMPLE_B, SAMPLE_C  # noqa: E402
 
-ENGINES = ["pymupdf", "tesseract-unordered", "tesseract-psm3", "docling", "glm-ocr", "gemini-3.5-flash",
+ENGINES = ["pymupdf", "tesseract-adr035", "tesseract-unordered", "tesseract-psm3", "docling", "glm-ocr", "gemini-3.5-flash",
            "vote-pymupdf", "vote-docling", "vote-glm-ocr", "consensus-order", "consensus-words",
            "router-rule", "oracle-best-single"]
 METRICS = ["wer", "bow_r", "bow_p", "num_r", "num_p"]
@@ -73,7 +74,7 @@ def main() -> None:
         if not out.exists():
             continue
         timings = json.loads((out / "timings.json").read_text()) if (out / "timings.json").exists() else {}
-        for doc, nums in list(SAMPLE.items()) + list(SAMPLE_B.items()):
+        for doc, nums in list(SAMPLE.items()) + list(SAMPLE_B.items()) + list(SAMPLE_C.items()):
             for n in nums:
                 key = f"{doc}_p{n}"
                 hyp = out / f"{key}.md"
@@ -83,8 +84,9 @@ def main() -> None:
                 s["seconds"] = timings.get(key)
                 results.setdefault(engine, {})[key] = s
     (HERE / "results.json").write_text(json.dumps(results, indent=2, sort_keys=True) + "\n")
-    if "--set" in sys.argv and sys.argv[sys.argv.index("--set") + 1].lower() == "b":
-        print_set_b(results)
+    chosen = sys.argv[sys.argv.index("--set") + 1].lower() if "--set" in sys.argv else "a"
+    if chosen in {"b", "c"}:
+        print_set(results, *({"b": (SAMPLE_B, GROUPS_B), "c": (SAMPLE_C, GROUPS_C)}[chosen]))
         return
 
     print("| Engine | Pages | " + " | ".join(METRICS) + " | s/page |")
@@ -118,14 +120,14 @@ def _mean_row(rows: list[dict]) -> str:
     return " | ".join(f"{x:.3f}" for x in means) + f" | {sp} |"
 
 
-def print_set_b(results: dict) -> None:
-    keys = [f"{d}_p{n}" for d, ns in SAMPLE_B.items() for n in ns]
+def print_set(results: dict, sample: dict, groups: dict) -> None:
+    keys = [f"{d}_p{n}" for d, ns in sample.items() for n in ns]
     complete = {e: p for e, p in results.items() if all(k in p for k in keys)}
     print("| Engine | Pages | " + " | ".join(METRICS) + " | s/page |")
     print("|---|---|" + "---|" * (len(METRICS) + 1))
     for engine, pages in complete.items():
         print(f"| {engine} | {len(keys)} | " + _mean_row([pages[k] for k in keys]))
-    for group, members in GROUPS_B.items():
+    for group, members in groups.items():
         print(f"\n**{group}** ({', '.join(members)})\n")
         print("| Engine | " + " | ".join(METRICS) + " | s/page |")
         print("|---|" + "---|" * (len(METRICS) + 1))

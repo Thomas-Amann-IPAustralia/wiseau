@@ -27,7 +27,7 @@ HERE = Path(__file__).parent
 ROOT = HERE.parent.parent
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(ROOT / "backend"))
-from regions import DOCS, SAMPLE, SAMPLE_B  # noqa: E402
+from regions import DOCS, SAMPLE, SAMPLE_B, SAMPLE_C  # noqa: E402
 from parsers import reading_order  # noqa: E402
 from parsers.ocr import _ocr_lines  # noqa: E402
 
@@ -49,7 +49,7 @@ def main() -> None:
     out = HERE / "outputs" / "router-rule"
     out.mkdir(parents=True, exist_ok=True)
     picks, timings = {}, {}
-    for doc_key, nums in list(SAMPLE.items()) + list(SAMPLE_B.items()):
+    for doc_key, nums in list(SAMPLE.items()) + list(SAMPLE_B.items()) + list(SAMPLE_C.items()):
         if doc_key == "V16":
             continue  # born-digital: PyMuPDF, not routed
         doc = pymupdf.open(ROOT / DOCS[doc_key])
