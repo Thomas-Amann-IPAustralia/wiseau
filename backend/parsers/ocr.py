@@ -45,7 +45,7 @@ SKIP_PHOTO_REGIONS = True
 # Read scans with Tesseract's own page layout, table rows stitched back
 # (ADR-038), keeping the ADR-035/037 text as a guard against dropped text.
 # False restores the ADR-037 path, which the bake-off keeps as a baseline.
-TESSERACT_LAYOUT = False
+TESSERACT_LAYOUT = True
 
 # EasyOCR uses ISO 639-1 short codes ("en"); the rest of the pipeline speaks
 # Tesseract's 639-2/T codes ("eng"). Translate the common cases so one env var

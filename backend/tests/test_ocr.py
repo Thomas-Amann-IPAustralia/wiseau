@@ -195,10 +195,23 @@ def _two_column_scan(left: list[str], right: list[str]) -> bytes:
     return out
 
 
-def test_two_column_scan_is_read_column_by_column():
-    left = [f"Apple orchard line {w}" for w in ("one", "two", "three", "four", "five", "six")]
-    right = [f"Banana grove line {w}" for w in ("one", "two", "three", "four", "five", "six")]
-    md = pdf_to_markdown(_two_column_scan(left, right))
+# Varied lines, as on a real page. Identical text on every line ("Apple orchard
+# line one", "... line two") stacks the same letters into vertical strokes, which
+# Tesseract's own layout analysis (ADR-038) removes as table rules.
+LEFT_COLUMN = ["Apple orchards cover the northern slope", "where frost settles late in spring",
+               "and growers wait for warmer days", "before thinning the young fruit",
+               "by hand along each crowded row", "until the harvest comes in autumn"]
+RIGHT_COLUMN = ["Banana groves need steady warmth", "so the plantations sit on the coast",
+                "with shelter belts against the wind", "and drip lines laid under mulch",
+                "to keep the soil from drying", "through the long dry season"]
+
+
+@pytest.mark.parametrize("layout", [True, False], ids=["tesseract-layout", "geometric"])
+def test_two_column_scan_is_read_column_by_column(monkeypatch, layout):
+    from parsers import ocr
+
+    monkeypatch.setattr(ocr, "TESSERACT_LAYOUT", layout)
+    md = pdf_to_markdown(_two_column_scan(LEFT_COLUMN, RIGHT_COLUMN))
     # Every left-column line comes before every right-column line.
-    assert md.index("Apple orchard line six") < md.index("Banana grove line one")
-    assert md.index("Apple orchard line one") < md.index("Apple orchard line two")
+    assert md.index("until the harvest comes in autumn") < md.index("Banana groves need steady warmth")
+    assert md.index("Apple orchards cover the northern slope") < md.index("where frost settles late in spring")
