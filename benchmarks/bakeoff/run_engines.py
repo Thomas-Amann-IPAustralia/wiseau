@@ -12,8 +12,8 @@ side by side: concurrent runs on a small box inflate every timing (post-mortem
   python benchmarks/bakeoff/run_engines.py tesseract-psm3     # Tesseract's own layout analysis
   python benchmarks/bakeoff/run_engines.py tesseract-unordered  # default path before ADR-035
 
-Add `--set b` or `--set c` to run the second or third independently transcribed
-sample (SAMPLE_B / SAMPLE_C in regions.py) instead of the original one. Timings are merged into the engine's
+Add `--set b`, `--set c` or `--set d` to run the second, third or fourth independently
+transcribed sample (SAMPLE_B / SAMPLE_C / SAMPLE_D in regions.py) instead of the original one. Timings are merged into the engine's
 timings.json, so running one set never erases the other's.
 
 No engine here calls a paid or external API.
@@ -30,10 +30,10 @@ import pymupdf
 HERE = Path(__file__).parent
 ROOT = HERE.parent.parent
 sys.path.insert(0, str(HERE))
-from regions import DOCS, SAMPLE, SAMPLE_B, SAMPLE_C  # noqa: E402
+from regions import DOCS, SAMPLE, SAMPLE_B, SAMPLE_C, SAMPLE_D  # noqa: E402
 
 _SET = sys.argv[sys.argv.index("--set") + 1].lower() if "--set" in sys.argv else "a"
-ACTIVE = {"a": SAMPLE, "b": SAMPLE_B, "c": SAMPLE_C}[_SET]
+ACTIVE = {"a": SAMPLE, "b": SAMPLE_B, "c": SAMPLE_C, "d": SAMPLE_D}[_SET]
 
 
 def pages():
