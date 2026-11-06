@@ -29,7 +29,7 @@ HERE = Path(__file__).parent
 sys.path.insert(0, str(HERE))
 from regions import GROUPS_B, GROUPS_C, GROUPS_D, SAMPLE, SAMPLE_B, SAMPLE_C, SAMPLE_D  # noqa: E402
 
-ENGINES = ["pymupdf", "tesseract-adr035", "tesseract-unordered", "tesseract-psm3", "docling", "glm-ocr", "gemini-3.5-flash",
+ENGINES = ["pymupdf", "tesseract-layout", "tesseract-adr037", "tesseract-adr035", "tesseract-unordered", "tesseract-psm3", "docling", "glm-ocr", "gemini-3.5-flash",
            "vote-pymupdf", "vote-docling", "vote-glm-ocr", "consensus-order", "consensus-words",
            "router-rule", "oracle-best-single"]
 METRICS = ["wer", "bow_r", "bow_p", "num_r", "num_p"]
