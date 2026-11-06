@@ -326,6 +326,7 @@ The backend is deliberately small and layered. Each module has one job.
 | `parsers/ocr.py` | Pluggable OCR engines (default MuPDF-Tesseract, opt-in EasyOCR): page image → text. Used by the *fallback* PDF path. | Introduce nondeterminism. |
 | `parsers/photo_regions.py` | Find photograph regions on a scanned page image, and tell OCR noise inside them from real words (ADR-037). Pure pixel arithmetic. | Drop a line outside a photo region, or one that reads as words. |
 | `parsers/reading_order.py` | Put a multi-column OCR page's lines back in column order from their bounding boxes (ADR-035). Pure geometry. | Guess when unsure: return `None` (keep MuPDF's order) unless real text columns are found. |
+| `parsers/tesseract_layout.py` | Read a scanned page with Tesseract's own layout analysis (psm 3), stitching side-by-side table cells back into rows (ADR-038). Pure geometry over Tesseract's TSV. | Stitch prose columns; return text when the CLI fails (return `None`, so the caller uses the ADR-035/037 guard). |
 | `parsers/cleaner.py` | Deterministic Unicode/whitespace/typography normalization; elide base64 data-URI payloads (ADR-024). | Introduce nondeterminism; remove content (it edits payloads, not text). |
 | `parsers/chapters.py` *(Phase 10)* | Split converted Markdown into chapters: read the document's contents page, else its heading structure, else plain-text chapter markers; name and number each chapter's file (§15). | Extract or convert anything; drop or duplicate content; return a split it is not confident in (say `none` instead); introduce nondeterminism. |
 | `parsers/keywords.py` *(Phase 12)* | Rank the keywords of already-converted Markdown across four methods and fuse the rankings; render the result as a Markdown table and prepend it to a document (§17). | Convert or extract anything; hard-depend on an optional method; let one method's failure fail the request; return a ranking for a document too short to characterise. |
@@ -613,6 +614,23 @@ OCR DPI is a fixed constant (300). All OCR output still ends in `clean_markdown(
     chain lines together.
   - Both are deterministic. `ocr.SKIP_PHOTO_REGIONS` and
     `reading_order.ROWS_BY_CENTRE` switch them off.
+  **Tesseract's own layout (ADR-038, the default since 2026-11-06):** the text
+  above is now the *guard*, and the page is read a second time by
+  `parsers/tesseract_layout.py`:
+  - The `tesseract` CLI reads the 300 dpi render with its own page
+    segmentation (`--psm 3`, TSV output), so mixed table-and-prose pages keep
+    their blocks.
+  - Side-by-side blocks that look like table cells (median ≤ 4 words per line,
+    ≤ 40% of the text width, ≤ 20% of the text width apart, ≥ 60% of the smaller
+    block's lines matching a same-height line at the same height) are stitched
+    back into one table and read row by row. Prose columns have long lines and
+    are never stitched.
+  - Lines inside photo regions (ADR-037) are dropped first.
+  - If the layout text has fewer than 85% of the guard's words (psm 3 can
+    discard a column of dates as an image), or the CLI fails, the guard text is
+    returned. This costs a second OCR pass (~8 s/page instead of ~4).
+  - Deterministic for fixed pixels. `ocr.TESSERACT_LAYOUT = False` restores the
+    ADR-037 path.
 - `easyocr` (opt-in) — a neural engine that handles handwriting and noisy
   captures. Enabled with `WISEAU_OCR_ENGINE=easyocr` after
   `pip install -r requirements-ocr.txt`. PyTorch is heavy, so it is kept out of

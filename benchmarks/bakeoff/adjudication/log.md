@@ -73,3 +73,20 @@ readings and 400 dpi crops:
 
 **Outcome, set C:** two changes to the blind transcriptions, both logged
 (V4 p14 "4CB" as printed, V4 p10 degree signs).
+
+## Set D (2026-11-06)
+
+One round, with all four recogniser families present (Tesseract via the default
+path and psm 3, docling's EasyOCR, GLM-OCR): `disagreements.py --set d --min 2`
+listed 75 words on 11 of the 12 pages. Representative words from each kind were
+checked on 600–700 dpi crops. **No reference was changed.**
+
+| Kind | Examples | Image / reason | Decision |
+|---|---|---|---|
+| Worn "e" printed as "c" (≈ 30 words) | thc, dcsign, pletc, takcn, Rcsearch, Kicntzler, Emcrald | at 600 dpi the letters have no crossbar (V5N1 p11 "pletc block dcsign"). Engines "correct" them to the word | kept, as printed (the "tne"/"4CB" rule) |
+| Units printed with a space (≈ 30) | 18.3 cm → 3cm, 44.4 mm → 4mm | printed "18.3 cm" (V5N1 p11), "701 mm" (V5N1 p9) | kept |
+| Line-end hyphenation (≈ 10) | mid-/line, pit-/ted, appli-/cant | printed hyphens, as kept in sets A–C (V4 p7, V4 p23) | kept |
+| Sans-serif capital I read as l | 'PI 13768' → pl | the set B category | kept |
+| Single words | See → sce (V5N3 p12); 3–4 → 34 (V5N1 p24) | printed "See" and "3–4" | kept |
+
+**Outcome, set D:** no changes to the blind transcriptions.

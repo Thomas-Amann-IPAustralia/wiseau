@@ -21,6 +21,59 @@ one `Superseded`.
 
 ---
 
+## ADR-038 — Scans are read with Tesseract's own layout, table rows stitched back, ADR-035/037 as the guard
+**Date:** 2026-11-06 · **Status:** Accepted
+**Context:**
+- Set C showed the default path's biggest remaining loss was ADR-035's geometric
+  column detection on *mixed* pages: a table inside a column (V4 p23, wer 0.932),
+  or a table above two-column prose (V4 p19, 0.563).
+- Tesseract's own page segmentation (`--psm 3`) read those pages well and beat the
+  default on 18 of 26 scans. It lost only on pages that must be read across each
+  row (comparison tables, name/number lists), because it cuts each table column
+  into its own block.
+- The hand-over's candidate was "psm 3 by default, today's path for tables",
+  which needed a page-level table signal. Number share (≥ 30%) misrouted pages in
+  both directions.
+- **Leaving ADR-012's MuPDF primitive** for these pages was the question ADR-035
+  had deferred. psm 3's output is deterministic for fixed pixels, so the
+  determinism argument behind ADR-012 does not apply against it.
+
+**Decision:** fix psm 3's one failure inside its own output instead of routing
+whole pages. `parsers/tesseract_layout.py`:
+- Runs the `tesseract` CLI (psm 3, TSV) on the 300 dpi render.
+- **Stitches** side-by-side blocks back into one table, read row by row, when both
+  look like cells: median ≤ 4 words per line, ≤ 40% of the text width, ≤ 20% of
+  the text width apart, overlapping vertically, and ≥ 60% of the smaller block's
+  lines matching a same-height line at the same height. Prose columns have long
+  lines, so they are never stitched. A stitched group sits where its first block
+  was.
+- Drops lines inside photo regions (ADR-037).
+- `ocr.TesseractEngine` still computes the ADR-035/037 text and keeps it as the
+  **guard**. If the layout text has fewer than 85% of the guard's words, or the CLI
+  fails, the guard text is returned. On the dev pages psm 3 had discarded V4 p32's
+  whole column of dates (54% of the words); every other page was ≥ 96%.
+- `ocr.TESSERACT_LAYOUT = False` restores the ADR-037 path byte for byte
+  (`tesseract-adr037` in the bake-off).
+
+**Consequences:**
+- **Designed on sets A–C** (26 scans): wer 0.149 → 0.048. Parameters were swept;
+  the result is flat around the chosen values.
+- **Frozen** in `9790218` behind the flag, then run on **held-out set D** (12 scans
+  from two journals no earlier set had touched, references committed in `451a718`
+  before any engine ran): wer 0.279 → 0.072, word recall 0.968 → 0.981, number
+  recall 0.962 → 0.973. Better on 10 of 12 pages. The flag was switched on after.
+- **All 38 scans:** 0.190 → 0.056; better on 30 pages, worse on 3.
+- **Cost:** two OCR passes, ~8 s/page instead of ~4. Still far below GLM-OCR.
+- **Known failures, for a set E:** short address lines in one text column stitched
+  to a directory in the next (V5N3 p24, 0.044 → 0.133); two tables side by side
+  read across both (V5N1 p18, 0.130 → 0.299; psm 3 alone does this too); V2 p12's
+  typewriter table 0.148 → 0.172.
+- The word-count guard catches *lost* text, not *misread* text: on a synthetic page
+  that repeats identical words on every line, psm 3 removed the stacked letters as
+  table rules and the guard could not tell. Real pages were not affected; the test
+  now uses varied lines.
+- Write-up: `docs/benchmarks/2026-11-06-set-d.md`.
+
 ## ADR-037 — Drop OCR text read out of photographs; render OCR rows by line centre
 **Date:** 2026-11-03 · **Status:** Accepted
 **Context:** Bake-off set B found two bugs in the default scanned-page path:
