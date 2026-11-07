@@ -1,0 +1,526 @@
+https://chatgpt.com/s/t_6aef30a89d888191a5b4a9278e33ef13
+
+### From perfect OCR to faithful Markdown
+
+I think this is a much more interesting problem than OCR itself.
+
+My central recommendation is:
+
+Don't convert OCR output directly into Markdown. Reconstruct the document first, then render that reconstruction into Markdown.
+
+That distinction is fundamental.
+
+Imagine a scanned page containing:
+
+* A section heading.
+
+* Two columns of text.
+
+* A photograph with a caption.
+
+* A table with three columns.
+
+* A footnote.
+
+* A paragraph that continues onto the next page.
+
+Perfect OCR gives you the characters and words. It doesn't necessarily tell you how these elements relate to each other.
+
+Even with 100% word recognition, you could produce a Markdown file that is materially misleading because the heading is at the wrong level, the caption is detached from its image, the footnote is placed in the middle of a paragraph, or the table has lost its row and column relationships.
+
+I think this is the next major architectural opportunity for Wiseau.
+
+### 1\. What the academic literature is telling us
+
+There has been a shift in document-processing research away from simply extracting text and towards reconstructing the logical structure of an entire document.
+
+Three research developments are particularly relevant.
+
+OmniDocBench (CVPR 2025)
+
+This benchmark evaluates document parsing across text, tables, mathematical formulas, layout and reading order. Importantly, it contains annotations for different kinds of document components and their relationships, not just their textual contents.
+
+MPDocBench-Parse (2026)
+
+This is particularly relevant to what you're trying to achieve. It evaluates multi-page documents rather than treating each PDF page as an isolated object.
+
+Its authors explicitly identify shortcomings in existing systems around:
+
+* Connecting paragraphs and tables that continue across pages.
+
+* Recovering heading hierarchies.
+
+* Preserving and relating figures and their captions.
+
+* Reconstructing logical reading order.
+
+* Preserving document-level continuity.
+
+It contains 433 manually annotated documents and 3,246 pages. GitHub +1
+
+LongDocBench (2026)
+
+This takes the problem a step further by looking at relationships across lengthy documents.
+
+It investigates recovering the table-of-contents hierarchy and relationships between figures, tables, captions, notes and sources. This is important because identifying individual elements isn't sufficient: you need to know which elements belong together. arxiv.org
+
+The common message is that document conversion needs to recover both content and structure.
+
+That is precisely the distinction I would build Wiseau around.
+
+### 2\. The architectural change I'd make to Wiseau
+
+I'd introduce an intermediate representation (IR): a structured description of the document that exists independently of the Markdown output.
+
+This is an established architectural approach in document-processing systems.
+
+The most relevant example is actually Docling itself.
+
+Its `DoclingDocument` model separates the document's content from its organisation:
+
+* `texts`: paragraphs, section headings, equations and other text.
+
+* `tables`: tables with their structural annotations.
+
+* `pictures`: images and associated information.
+
+* `body`: the hierarchical tree of document content.
+
+* `furniture`: headers, footers and other page furniture.
+
+* `groups`: structural groupings such as lists and chapters.
+
+Items can refer to their parents and children, and the document tree records reading order. GitHub +1
+
+This is much closer to the representation Wiseau ultimately needs than a long Markdown string.
+
+### What I'd have the intermediate representation capture
+
+I'd build around two separate concepts.
+
+A. Document elements
+
+Each element represents something that physically or logically exists in the source.
+
+| Element         | Example                                     |
+| --------------- | ------------------------------------------- |
+| Document title  | Annual Report 2025                          |
+| Section heading | 2.3 Research and Development                |
+| Paragraph       | A block of continuous prose                 |
+| List            | An ordered or unordered collection          |
+| List item       | One entry within a list                     |
+| Table           | A structured collection of rows and columns |
+| Figure          | A photograph, illustration or chart         |
+| Caption         | The text belonging to a figure or table     |
+| Footnote        | A note associated with a reference          |
+| Equation        | A mathematical expression                   |
+| Header/footer   | Repeated page furniture                     |
+| Page number     | Original printed pagination                 |
+| Code block      | A code sample or extract                    |
+
+B. Relationships between those elements
+
+This is the part I think is especially important.
+
+A document isn't just a collection of blocks. The blocks have relationships.
+
+For example:
+
+| Relationship    | Meaning                                        |
+| --------------- | ---------------------------------------------- |
+| parent_of       | A section heading contains several subsections |
+| caption_of      | A caption belongs to a particular image        |
+| footnote_for    | A footnote explains a particular reference     |
+| continues_from  | A paragraph continues onto the next page       |
+| continues_table | A table continues onto the following page      |
+| references      | A paragraph refers to Figure 4                 |
+| source_for      | A source note belongs to a particular table    |
+
+LongDocBench is particularly interesting here. Its researchers explicitly annotate these kinds of relationships and found that tables and figures frequently have multiple associated notes, captions and sources. arxiv.org +1
+
+Consider this example:
+
+A reconstructed document structure
+
+Section 2: Economic conditions
+
+Heading level 1 · Page 4
+
+Section 2.1: Employment
+
+Heading level 2 · Page 4
+
+Paragraph 1
+
+Employment increased during the reporting period...
+
+Page 4 · Continues on page 5
+
+Figure 1
+
+![Stora Kopparbergs bergslag.Ur Carl Sahlins bergshistoriska… — PICRYL - Public Domain Media Search Engine](https://images.openai.com/static-rsc-4/7klPipHUojXkTfmZU2rX_srNl0sE7ywP2oUKBJcZGWHUg1KtGav3d4_kWeWBkAsU7tOZbA2zznQTVki6ZDN3hjRqR91MUK1O1kklPiVg2Kwr_AW2KrlhWXJVRyICQ8sPM7vk4QGJY7DdiVCvydx371QTAgd2OL_TrCO-_k0p-tkxQTk0TgJiySUNtJCdDGgm?purpose=fullsize)
+
+Page 5 · Figure asset
+
+Caption: Employment growth by sector.
+
+Caption belongs to Figure 1 · Referenced in Paragraph 1
+
+Table 2
+
+Page 5–6 · Three columns · Eight rows · Continues across pages
+
+| Year | Employment | Change |
+| ---- | ---------- | ------ |
+| 2023 | 10,400     | 2.1%   |
+| 2024 | 10,850     | 4.3%   |
+
+Table notes and caption stored as associated elements
+
+The diagram illustrates the idea, rather than claiming these relationships have been detected from a particular source.
+
+The important thing is that the figure, paragraph, caption and table aren't simply arranged in a sequence. They have explicit identities and relationships.
+
+Then Markdown becomes a rendering of this structure, rather than the structure itself.
+
+I'd strongly favour this design over building a collection of increasingly complicated regex transformations on extracted Markdown.
+
+You don't need a graph database to achieve this. A JSON document tree with references between elements would be a perfectly reasonable starting point.
+
+### 3\. The actual reconstruction problems you need to solve
+
+With that architecture in place, there are several distinct problems to tackle.
+
+### A. Recovering heading hierarchy
+
+Very high priority
+
+This is one of the clearest research findings.
+
+Recognising that something is a heading is not the same as knowing what level of heading it is.
+
+For example:
+
+```text
+PART I
+    1. Definitions
+        1.1 Interpretation
+            (a) General
+                (i) Application
+```
+
+The output should be:
+
+```markdown
+# PART I
+
+## 1. Definitions
+
+### 1.1 Interpretation
+
+#### (a) General
+
+##### (i) Application
+```
+
+A document parser may correctly recognise every one of these headings but put them all at level one.
+
+MPDocBench-Parse found that heading hierarchy recovery remains difficult, particularly in magazines, newspapers, books and reports where the structure is less explicit. arxiv.org +1
+
+There is, however, a promising practical approach.
+
+Docling has introduced a heading-hierarchy stage that uses three signals, in order:
+
+* PDF bookmarks and embedded table of contents.
+
+* Numbering patterns in headings.
+
+* Visual formatting, including font size, weight, italics and capitalisation.
+
+Interestingly, this stage is disabled by default in the documented pipeline. Docling +1
+
+I'd investigate enabling it, subject to your pinned Docling version supporting it.
+
+I'd also extend your existing chapter extraction methodology.
+
+You already have a useful deterministic process in `chapters.py`: it looks for a table of contents, matches entries against the document body, then falls back to heading structures and chapter markers. GitHub +1
+
+At present, that's principally being used to split the document into chapters.
+
+I'd elevate it into a document-structure discovery process.
+
+In particular, don't just recover the top-level chapters. Recover nested TOC entries and their hierarchy, then match them to the actual headings throughout the document.
+
+This would give you an independent source of evidence for the heading tree.
+
+### B. Reconstructing paragraphs across pages
+
+Very high priority
+
+This problem is deceptively difficult.
+
+Imagine the original document:
+
+Page 12
+
+> The Australian economy experienced significant structural changes during the reporting period, particularly in relation to international trade and investment.
+
+Page 13
+
+> These developments resulted in a corresponding change in the distribution of economic activity.
+
+A naive page-by-page converter might produce two paragraphs.
+
+But the correct representation might be one continuous paragraph.
+
+There are actually several distinct cases:
+
+* A paragraph continues onto the next page.
+
+* A paragraph continues in another column.
+
+* A sentence has been interrupted by a page break.
+
+* A word has been hyphenated at the end of a line.
+
+* A completely new paragraph begins at the top of the following page.
+
+These need to be distinguished.
+
+MPDocBench-Parse explicitly evaluates truncated-text merging and finds that semantic continuity is still a substantial weakness, even for advanced document parsers. arxiv.org +2
+
+I'd introduce a continuation-detection stage.
+
+It could use:
+
+* Whether the preceding block ends in sentence punctuation.
+
+* Whether the following block begins with a continuation-like phrase.
+
+* Indentation and paragraph formatting.
+
+* Font and text-style consistency.
+
+* Page and column position.
+
+* Whether the two blocks belong to the same section.
+
+* Whether the previous line ends with a hyphen.
+
+One particularly important detail: don't automatically remove hyphens at line endings.
+
+For example:
+
+`inter-` followed by `national`
+
+could represent a line-break hyphenation of international, but it could also be an actual printed hyphen in a word.
+
+Retain the original transcription and make any reconstruction a separately recorded operation.
+
+### C. Reconstructing tables across pages
+
+Very high priority
+
+You already have table-row reconstruction in Wiseau, but I would regard that as the first stage of a much larger table problem.
+
+You need to understand:
+
+* Which text belongs to which cell.
+
+* Whether a cell spans multiple columns or rows.
+
+* Whether multiple visually separate tables are actually one table.
+
+* Whether a table continues across pages.
+
+* Whether repeated column headings should be removed when joining pages.
+
+* Whether notes and captions belong to the table.
+
+* Whether the table contains nested headings or grouped data.
+
+The MPDocBench researchers found that merging tables across pages remains particularly difficult. Even when systems identify the correct table fragments, they can still reconstruct the resulting cell structure incorrectly. arxiv.org +1
+
+This brings me to another important point about Markdown.
+
+Standard Markdown tables cannot faithfully represent every table.
+
+Docling's own documentation explicitly confirms that its Markdown serializer flattens merged cells, whereas its JSON and HTML serializers preserve their row and column spans. Docling +1
+
+GitHub Flavoured Markdown also doesn't support `rowspan` or `colspan` in its table syntax. MDN
+
+I would adopt a simple rule:
+
+| Source table                                                          | Markdown representation                                                                  |
+| --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Simple rectangular table                                              | Standard Markdown table                                                                  |
+| Merged heading cells                                                  | HTML table embedded in Markdown                                                          |
+| Complex nested cells                                                  | HTML table                                                                               |
+| Table continuing across pages                                         | Reconstructed as one table                                                               |
+| Table with complicated layout that cannot be faithfully reconstructed | Preserve the original table image and provide a structured representation where possible |
+
+Don't sacrifice the source's structure simply to make everything fit into pipe-delimited Markdown.
+
+### D. Figures, photographs, diagrams and charts
+
+High priority
+
+This is an area that I think many PDF-to-Markdown tools underestimate.
+
+A photograph isn't just an image sitting between two paragraphs.
+
+It might have:
+
+* A caption.
+
+* A figure number.
+
+* A source attribution.
+
+* A note.
+
+* A reference in the body text.
+
+* Several subfigures, labelled A, B and C.
+
+The output should preserve these relationships.
+
+LongDocBench specifically evaluates relationships between figures and tables and their captions, notes and sources. Its dataset contains 3,258 such relationships, including many one-to-many associations. arxiv.org
+
+My recommendation is to extract images as separate assets and reference them from Markdown.
+
+For example:
+
+```markdown
+![Figure 4](assets/figure-004.png)
+
+**Figure 4.** Distribution of employment by industry.
+
+_Source: Australian Bureau of Statistics._
+```
+
+I would also preserve the figure's page number and bounding box in the intermediate representation.
+
+One specific observation about Wiseau: your current Docling client requests `image_export_mode=placeholder`, which deliberately prevents huge base64 images being embedded in Markdown. That's sensible, but it means the result principally records that an image was present, rather than delivering the actual image as an asset. GitHub
+
+I'd change that to an asset-export mechanism rather than embedding base64 or simply dropping the image.
+
+A generated description of a chart or photograph can be useful for LLM consumption, but it must be labelled as generated metadata, not presented as text that appeared in the original document.
+
+### E. Footnotes, endnotes and references
+
+High priority
+
+This is easy to overlook.
+
+Consider:
+
+> The policy commenced in 1995.¹
+
+A footnote at the bottom of the page might explain an important qualification.
+
+If the conversion puts the note in the middle of the paragraph, or discards it as a page footer, the resulting Markdown is incomplete.
+
+You need to identify:
+
+* Footnote markers within paragraphs.
+
+* Their corresponding footnote text.
+
+* Endnotes and their references.
+
+* Superscript and subscript formatting.
+
+* Bibliographic references.
+
+* Cross-references between figures, tables and sections.
+
+For a compatible Markdown renderer, footnotes can be represented using an extension such as:
+
+```markdown
+The policy commenced in 1995.[^1]
+
+[^1]: The policy was initially introduced on a trial basis.
+```
+
+For a more faithful reconstruction, maintain a reference between the marker and its note in the intermediate representation rather than relying solely on the textual numbering.
+
+### F. Headers, footers and page numbering
+
+I would treat these as a separate class of content called document furniture.
+
+Repeated running headers, page numbers and footers often aren't part of the document's main narrative. But they can be useful.
+
+For example, a report might contain:
+
+* Document title in the header.
+
+* Current chapter in the running header.
+
+* Confidentiality status in the footer.
+
+* Printed page number.
+
+I wouldn't simply delete all of these.
+
+I'd detect repeated elements across pages and classify them as headers or footers. Then preserve the information in the document metadata or page-level representation.
+
+This is consistent with the way Docling separates `body` from `furniture`.
+
+The W3C's guidance on tagged PDFs also highlights the importance of logical reading order, including the way complex page elements are sequenced for accessibility. It warns that even tagged PDFs can have reading-order problems. W3C +1
+
+For Wiseau, I'd make the decision configurable:
+
+* Reader-friendly output: suppress repetitive running headers and footers.
+
+* Faithful output: preserve them as page-level annotations or explicit markers.
+
+### 4\. Something I'd change immediately: your Markdown normalisation
+
+This is a code-level observation rather than an academic recommendation.
+
+I looked at `backend/parsers/cleaner.py`.
+
+It currently performs several character replacements:
+
+| Original | Wiseau currently converts to |
+| -------- | ---------------------------- |
+| ‘ and ’  | '                            |
+| “ and ”  | "                            |
+| –        | -                            |
+| —        | --                           |
+| …        | ...                          |
+
+It also strips trailing whitespace and collapses multiple blank lines. GitHub +1
+
+I understand why this was introduced: consistent output, predictable tokenisation and deterministic Markdown.
+
+But I would reconsider it in light of your actual objective.
+
+An accurate transcription should preserve the punctuation that was printed.
+
+For example:
+
+* `1980–1986` is not typographically identical to `1980-1986`.
+
+* An em dash is not the same character as two hyphens.
+
+* An ellipsis glyph is not necessarily equivalent to three independently typed periods.
+
+* Historical quotations may use punctuation conventions that are themselves useful evidence.
+
+There is also a small technical issue.
+
+CommonMark recognises two trailing spaces before a newline as a hard line break. Your cleaner strips all trailing spaces. Therefore, an extractor that uses this Markdown convention to preserve line breaks could lose that formatting during normalisation. spec.commonmark.org +1
+
+I'd separate three operations:
+
+| Operation                 | Recommended behaviour                                              |
+| ------------------------- | ------------------------------------------------------------------ |
+| Text preservation         | Retain the original recognised characters                          |
+| Structural reconstruction | Interpret line wrapping, paragraphs, headings and formatting       |
+| Output normalisation      | Produce valid, consistent Markdown without changing source content |
+
+Unicode NFC normalisation and line-ending standardisation are reasonable technical operations in many contexts. Rewriting punctuation is a different matter.
+
+You could still offer an optional simplified-text output for downstream systems, but the faithful representation should be t
