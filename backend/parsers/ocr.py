@@ -35,12 +35,17 @@ from functools import lru_cache
 
 import pymupdf
 
-from . import photo_regions
+from . import photo_regions, tesseract_layout
 from .reading_order import Line, order_lines
 
 # Drop OCR noise read out of photographs (ADR-037). False restores the ADR-035
 # behaviour, which the bake-off keeps as a baseline.
 SKIP_PHOTO_REGIONS = True
+
+# Read scans with Tesseract's own page layout, table rows stitched back
+# (ADR-038), keeping the ADR-035/037 text as a guard against dropped text.
+# False restores the ADR-037 path, which the bake-off keeps as a baseline.
+TESSERACT_LAYOUT = True
 
 # EasyOCR uses ISO 639-1 short codes ("en"); the rest of the pipeline speaks
 # Tesseract's 639-2/T codes ("eng"). Translate the common cases so one env var
@@ -82,6 +87,22 @@ class TesseractEngine(OcrEngine):
     def ocr_page(self, page: pymupdf.Page, *, dpi: int, language: str) -> str:
         # full=True rasterizes and OCRs the whole page (the right choice for an
         # image-only page), so it also works when forcing OCR over a text layer.
+        mask = photo_regions.photo_mask(page) if SKIP_PHOTO_REGIONS else None
+        guard = self._geometric_text(page, dpi=dpi, language=language, mask=mask)
+        if not TESSERACT_LAYOUT:
+            return guard
+        # Tesseract's own layout reads mixed table-and-prose pages that ADR-035's
+        # geometry cannot (ADR-038). Its layout analysis occasionally discards a
+        # whole column of text, so the geometric text stays as the guard.
+        text = tesseract_layout.read_page(page, dpi=dpi, language=language, mask=mask)
+        if text is not None and tesseract_layout.keeps_words(text, guard):
+            return text
+        return guard
+
+    @staticmethod
+    def _geometric_text(page: pymupdf.Page, *, dpi: int, language: str,
+                        mask: "photo_regions.PhotoMask | None") -> str:
+        """MuPDF's OCR, photo noise dropped (ADR-037), columns ordered (ADR-035)."""
         textpage = page.get_textpage_ocr(flags=0, language=language, dpi=dpi, full=True)
         # MuPDF groups OCR'd lines into blocks that run across columns, so a
         # multi-column scan comes out interleaved. Re-order by geometry; a page
@@ -89,12 +110,10 @@ class TesseractEngine(OcrEngine):
         lines = _ocr_lines(page, textpage)
         # Photographs are "read" as garbage; drop those lines first (ADR-037).
         dropped = False
-        if SKIP_PHOTO_REGIONS:
-            mask = photo_regions.photo_mask(page)
-            if mask.cells:
-                kept = [ln for ln in lines if not photo_regions.is_photo_noise(ln, mask)]
-                dropped = len(kept) < len(lines)
-                lines = kept
+        if mask is not None and mask.cells:
+            kept = [ln for ln in lines if not photo_regions.is_photo_noise(ln, mask)]
+            dropped = len(kept) < len(lines)
+            lines = kept
         ordered = order_lines(lines)
         if ordered is not None:
             return ordered

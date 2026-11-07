@@ -11,9 +11,11 @@ side by side: concurrent runs on a small box inflate every timing (post-mortem
   python benchmarks/bakeoff/run_engines.py glm-ocr [URL]  # glm-ocr/service.py over HTTP
   python benchmarks/bakeoff/run_engines.py tesseract-psm3     # Tesseract's own layout analysis
   python benchmarks/bakeoff/run_engines.py tesseract-unordered  # default path before ADR-035
+  python benchmarks/bakeoff/run_engines.py tesseract-layout     # ADR-038: psm 3 + row stitching + guard
+  python benchmarks/bakeoff/run_engines.py tesseract-adr037     # default path before ADR-038
 
-Add `--set b` or `--set c` to run the second or third independently transcribed
-sample (SAMPLE_B / SAMPLE_C in regions.py) instead of the original one. Timings are merged into the engine's
+Add `--set b`, `--set c` or `--set d` to run the second, third or fourth independently
+transcribed sample (SAMPLE_B / SAMPLE_C / SAMPLE_D in regions.py) instead of the original one. Timings are merged into the engine's
 timings.json, so running one set never erases the other's.
 
 No engine here calls a paid or external API.
@@ -30,10 +32,10 @@ import pymupdf
 HERE = Path(__file__).parent
 ROOT = HERE.parent.parent
 sys.path.insert(0, str(HERE))
-from regions import DOCS, SAMPLE, SAMPLE_B, SAMPLE_C  # noqa: E402
+from regions import DOCS, SAMPLE, SAMPLE_B, SAMPLE_C, SAMPLE_D  # noqa: E402
 
 _SET = sys.argv[sys.argv.index("--set") + 1].lower() if "--set" in sys.argv else "a"
-ACTIVE = {"a": SAMPLE, "b": SAMPLE_B, "c": SAMPLE_C}[_SET]
+ACTIVE = {"a": SAMPLE, "b": SAMPLE_B, "c": SAMPLE_C, "d": SAMPLE_D}[_SET]
 
 
 def pages():
@@ -62,6 +64,29 @@ def tesseract_adr035_engine():
         ocr.SKIP_PHOTO_REGIONS = False
     if hasattr(reading_order, "ROWS_BY_CENTRE"):
         reading_order.ROWS_BY_CENTRE = False
+    if hasattr(ocr, "TESSERACT_LAYOUT"):
+        ocr.TESSERACT_LAYOUT = False
+    return lambda data: file_to_markdown(data, "page.pdf", engine="pymupdf")
+
+
+def tesseract_layout_engine():
+    """The ADR-038 candidate: Tesseract psm 3 + table-row stitching, ADR-037 text as guard."""
+    sys.path.insert(0, str(ROOT / "backend"))
+    from parsers import ocr
+    from parsers.file_parser import file_to_markdown
+
+    ocr.TESSERACT_LAYOUT = True
+    return lambda data: file_to_markdown(data, "page.pdf", engine="pymupdf")
+
+
+def tesseract_adr037_engine():
+    """The default path as it stood at ADR-037, before Tesseract's own layout (ADR-038)."""
+    sys.path.insert(0, str(ROOT / "backend"))
+    from parsers import ocr
+    from parsers.file_parser import file_to_markdown
+
+    if hasattr(ocr, "TESSERACT_LAYOUT"):
+        ocr.TESSERACT_LAYOUT = False
     return lambda data: file_to_markdown(data, "page.pdf", engine="pymupdf")
 
 
@@ -135,6 +160,10 @@ def main() -> None:
         run = tesseract_psm3_engine()
     elif engine == "tesseract-adr035":
         run = tesseract_adr035_engine()
+    elif engine == "tesseract-layout":
+        run = tesseract_layout_engine()
+    elif engine == "tesseract-adr037":
+        run = tesseract_adr037_engine()
     elif engine == "tesseract-unordered":
         run = tesseract_unordered_engine()
     else:

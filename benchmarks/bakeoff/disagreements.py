@@ -11,7 +11,7 @@ zoomed crop of the page image, and the reference is changed only when the image
 shows the transcription was wrong. Engines never decide; they only point.
 
   python benchmarks/bakeoff/disagreements.py V4_p8 [--min 2]   # one page
-  python benchmarks/bakeoff/disagreements.py --set b [--min 2]  # every set-B page (or --set c)
+  python benchmarks/bakeoff/disagreements.py --set b [--min 2]  # every set-B page (or --set c / d)
 """
 from __future__ import annotations
 
@@ -21,7 +21,7 @@ from pathlib import Path
 
 HERE = Path(__file__).parent
 sys.path.insert(0, str(HERE))
-from regions import SAMPLE_B, SAMPLE_C  # noqa: E402
+from regions import SAMPLE_B, SAMPLE_C, SAMPLE_D  # noqa: E402
 from score import tokens  # noqa: E402
 from vote import align  # noqa: E402
 
@@ -53,7 +53,7 @@ def disagreements(key: str, minimum: int) -> list[tuple[int, str, dict[str, str]
 def main() -> None:
     minimum = int(sys.argv[sys.argv.index("--min") + 1]) if "--min" in sys.argv else 2
     if "--set" in sys.argv:
-        sample = SAMPLE_C if sys.argv[sys.argv.index("--set") + 1].lower() == "c" else SAMPLE_B
+        sample = {"c": SAMPLE_C, "d": SAMPLE_D}.get(sys.argv[sys.argv.index("--set") + 1].lower(), SAMPLE_B)
         keys = [f"{d}_p{n}" for d, ns in sample.items() for n in ns]
     else:
         keys = [sys.argv[1]]

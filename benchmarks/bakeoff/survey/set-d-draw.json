@@ -1,0 +1,95 @@
+{
+ "groups": {
+  "two-column prose": [
+   "V5a_p4",
+   "V5a_p5",
+   "V5a_p6",
+   "V5a_p27",
+   "V5a_p29",
+   "V5b_p5",
+   "V5b_p12",
+   "V5b_p17",
+   "V5b_p23"
+  ],
+  "tables": [
+   "V5a_p11",
+   "V5a_p20",
+   "V5a_p21",
+   "V5b_p19"
+  ],
+  "two-column + data": [
+   "V5a_p7",
+   "V5a_p8",
+   "V5a_p9",
+   "V5a_p10",
+   "V5a_p12",
+   "V5a_p13",
+   "V5a_p18",
+   "V5a_p19",
+   "V5a_p22",
+   "V5a_p23",
+   "V5a_p25",
+   "V5a_p26",
+   "V5a_p28",
+   "V5b_p7",
+   "V5b_p8",
+   "V5b_p9",
+   "V5b_p10",
+   "V5b_p11",
+   "V5b_p18",
+   "V5b_p20",
+   "V5b_p21",
+   "V5b_p22",
+   "V5b_p24",
+   "V5b_p25"
+  ],
+  "single column": [
+   "V5a_p2",
+   "V5a_p3",
+   "V5a_p24",
+   "V5b_p3",
+   "V5b_p4",
+   "V5b_p6"
+  ],
+  "near-empty": [
+   "V5a_p1",
+   "V5a_p14",
+   "V5a_p15",
+   "V5a_p16",
+   "V5a_p17",
+   "V5a_p30",
+   "V5a_p31",
+   "V5b_p1",
+   "V5b_p2",
+   "V5b_p13",
+   "V5b_p14",
+   "V5b_p15",
+   "V5b_p16",
+   "V5b_p26",
+   "V5b_p27"
+  ]
+ },
+ "draw": {
+  "two-column prose": [
+   "V5b_p12",
+   "V5b_p17",
+   "V5b_p23"
+  ],
+  "tables": [
+   "V5a_p11",
+   "V5a_p20",
+   "V5b_p19"
+  ],
+  "two-column + data": [
+   "V5a_p18",
+   "V5a_p19",
+   "V5a_p9",
+   "V5b_p24"
+  ],
+  "single column": [
+   "V5a_p24",
+   "V5b_p4"
+  ]
+ },
+ "seed": 20261107
+}

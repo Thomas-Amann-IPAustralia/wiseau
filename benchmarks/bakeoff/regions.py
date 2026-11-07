@@ -12,6 +12,8 @@ DOCS = {
     "V16": "pdf-test/PBR-PlantVarieties_Volume-16-Number-3.pdf",
     "V2": "pdf-test/PBR-PlantVarieties_Volume-2-Number-1.pdf",
     "V4": "pdf-test/PBR-PlantVarieties_Volume-4-Number-2.pdf",
+    "V5N1": "pdf-test/Volume 5 Number 1.pdf",
+    "V5N3": "pdf-test/Volume 5 Number 3.pdf",
 }
 
 # 1-based page numbers (the same pages as the 2026-11-01 bake-off).
@@ -35,6 +37,17 @@ GROUPS_C = {
     "tables": ["V2_p12", "V4_p19"],
     "two-column + data": ["V2_p21", "V4_p10", "V4_p14"],
     "single column": ["V4_p3", "V4_p23"],
+}
+# Set D (2026-11-06): a held-out set from two journals no earlier set has touched
+# (Vol 5 No 1 and Vol 5 No 3, both image-only). Same blind procedure; groups from a
+# Tesseract survey of their 58 pages; seed 20261107; 3 + 3 + 4 + 2 pages. No duplicate
+# scans: every drawn page maps to a distinct printed page number.
+SAMPLE_D = {"V5N1": [9, 11, 18, 19, 20, 24], "V5N3": [4, 12, 17, 19, 23, 24]}
+GROUPS_D = {
+    "two-column prose": ["V5N3_p12", "V5N3_p17", "V5N3_p23"],
+    "tables": ["V5N1_p11", "V5N1_p20", "V5N3_p19"],
+    "two-column + data": ["V5N1_p9", "V5N1_p18", "V5N1_p19", "V5N3_p24"],
+    "single column": ["V5N1_p24", "V5N3_p4"],
 }
 GROUPS_B = {
     "two-column prose": ["V2_p9", "V2_p11", "V2_p23"],

@@ -560,6 +560,35 @@ Design & rationale: **ADR-032**. Contract: `tech-spec.md` §17.
 
 ---
 
+## Phase 13 — Scanned-page fidelity without paid APIs (2026-11)
+
+Design & rationale: **ADR-035, ADR-036, ADR-037, ADR-038**. Evidence: the bake-off
+harness (`benchmarks/bakeoff/`) and its write-ups in `docs/benchmarks/2026-11-0*.md`.
+No paid API is used for this work unless the user says otherwise.
+
+- [x] **Column order for OCR'd pages** (ADR-035, 2026-11-03).
+- [x] **GLM-OCR reads only image-only pages** (ADR-036, 2026-11-03).
+- [x] **Drop photo noise; rows by line centre** (ADR-037, held out on set C).
+- [x] **Held-out set D** (2026-11-06): 12 blind-transcribed scans from Vol 5 No 1
+  and No 3, the journals the user supplied for it.
+- [x] **Tesseract's own layout + table-row stitching as the scan default**
+  (ADR-038): designed on sets A–C, frozen, then held out on set D (wer 0.279 →
+  0.072). 38-scan wer 0.190 → 0.056.
+- [ ] **Don't stitch across a text-column gutter.** Short address lines in a
+  left column were stitched to a directory in the right one (set D, V5N3 p24).
+  Needs a fresh held-out set (E) before it ships.
+- [ ] **Side-by-side tables.** Two tables next to each other are read across
+  both (V5N1 p18; psm 3 alone does the same, so it predates stitching).
+- [ ] **Scans with a hidden OCR text layer** (Vol 1 No 3, Acrobat Paper
+  Capture). The text-layer test reads them natively, trusting Acrobat's OCR. On
+  its table page that layer reads columns top to bottom. Needs references to say
+  whether re-OCR would be better.
+- [ ] **Photos on near-black backgrounds** are not caught by ADR-037.
+- [ ] **UI progress estimate under `glm-ocr`** still assumes minutes for any PDF.
+- [ ] **GLM-OCR runs over 20 scanned pages** are not chunked to the service cap.
+
+---
+
 ## Cross-cutting backlog (not phase-bound)
 
 - [x] **OCR for scanned / handwritten documents.** Image-only PDF pages and image
