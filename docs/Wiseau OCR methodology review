@@ -1,0 +1,374 @@
+### Wiseau OCR methodology review
+
+https://chatgpt.com/s/t_6aef219c05c48191be8ee78e042a187c
+
+I've reviewed the repository's current status, benchmark results, OCR implementation notes and recent academic literature, including research published in 2024–2026.
+
+My overall assessment is that you're approaching the problem in a scientifically sound way, and you've already explored several techniques that are quite sophisticated for a small, locally runnable OCR project.
+
+However, I think there are some worthwhile avenues you haven't fully explored. One is particularly important: image preprocessing and document quality assessment before OCR. Another is replacing some of the increasingly complicated geometric layout heuristics with a specialised document-layout model.
+
+I would also investigate PaddleOCR 3.0 and a more selective, region-level approach to choosing OCR engines.
+
+Let me explain why.
+
+### 1\. What you've achieved so far
+
+The first thing I noticed is that your experiments have progressed beyond simply comparing OCR engines. You're now investigating why an engine fails on particular document structures and adapting the extraction process accordingly.
+
+That's an important distinction.
+
+Your repository has explored:
+
+| Method                                 | What it addresses                                           |
+| -------------------------------------- | ----------------------------------------------------------- |
+| PyMuPDF                                | Extracting existing PDF text layers without OCR             |
+| Tesseract                              | Traditional OCR for scanned documents                       |
+| EasyOCR                                | Neural OCR, including handwriting                           |
+| Docling                                | More comprehensive document parsing                         |
+| GLM-OCR                                | Vision-language-based document recognition                  |
+| Gemini                                 | Higher-quality hosted vision-based recognition experiments  |
+| Multi-engine voting                    | Combining competing OCR outputs                             |
+| Page-level routing                     | Selecting an engine based on document characteristics       |
+| Geometric reading-order reconstruction | Correcting text extracted in the wrong sequence             |
+| Photo-region filtering                 | Avoiding text mistakenly recognised inside photographs      |
+| Tesseract PSM 3                        | Using Tesseract's own page-layout analysis                  |
+| Table-row stitching                    | Reconstructing tables whose cells were extracted separately |
+
+This is a fairly substantial set of experiments.
+
+In particular, the latest November 6 experiment is significant.
+
+Latest result: Set D, held-out evaluation
+
+### 0.072
+
+Word error rate (WER)
+
+### 0.981
+
+Word recall
+
+### 0.973
+
+Number recall
+
+### 9 sec
+
+Approximate processing time per page
+
+| Method                           | WER   |
+| -------------------------------- | ----- |
+| Previous Tesseract pipeline      | 0.279 |
+| GLM-OCR                          | 0.095 |
+| New Tesseract layout + stitching | 0.072 |
+
+Source: Wiseau's November 6 Set D benchmark. The new method performed better on 10 of 12 held-out pages. GitHub +1
+
+The interesting finding is not just that Tesseract improved.
+
+It's that a substantial part of the problem was how the recognised text was organised, rather than whether the characters were recognised correctly in the first place.
+
+Your move to PSM 3, followed by table-row reconstruction, addresses this directly.
+
+I would take that finding seriously when deciding where to invest further effort.
+
+### 2\. What the academic literature says
+
+The literature points towards a useful way of thinking about OCR: treat it as a sequence of distinct problems, rather than one recognition problem.
+
+A modern OCR pipeline typically has to solve five things:
+
+* Image preparation: Is the text actually legible in the image? Is the page skewed, blurred, faded or unevenly illuminated?
+
+* Layout detection: Where are the paragraphs, columns, tables, headings, captions and other elements?
+
+* Text recognition: What characters and words are printed in each region?
+
+* Reading order and structure: In what order should those regions be read? Which words belong in which table cells?
+
+* Correction and validation: Are there recognition errors, omissions or implausible results that can be caught without changing what was actually printed?
+
+This separation is important because each stage can fail independently. The OCR-D project, a major research and infrastructure initiative for evaluating OCR, specifically advocates evaluating text recognition, layout and reading order separately. GitHub +2
+
+### A. Image preprocessing deserves more attention
+
+This is probably the most obvious gap in Wiseau's current experiments.
+
+There is a substantial research literature on document image quality assessment and restoration. A 2024 survey by Alaei and colleagues describes image quality assessment as an important early stage in document processing. It covers degradation such as noise, blur, poor contrast, uneven lighting, skew and other defects that interfere with recognition. SUNY University at Buffalo
+
+A separate 2024 review of document binarisation examines methods for separating foreground text from the background. This matters particularly for old scans, where paper discolouration, fading and bleed-through can make the distinction between text and background difficult. MDPI +1
+
+I'd investigate four fairly inexpensive transformations:
+
+| Technique                             | What it does                                    | Why test it                                          |
+| ------------------------------------- | ----------------------------------------------- | ---------------------------------------------------- |
+| Deskewing                             | Straightens tilted text                         | Improves line and column segmentation                |
+| Contrast and background normalisation | Makes faded text more distinguishable           | Helps with old or unevenly scanned pages             |
+| Adaptive thresholding (e.g. Sauvola)  | Separates text from locally varying backgrounds | Can help with yellowed paper and uneven illumination |
+| Denoising                             | Reduces speckles and scanning artefacts         | May improve recognition of degraded scans            |
+
+The important qualification is that preprocessing is not automatically beneficial. Aggressive thresholding can erase faint characters, punctuation and thin table borders. Denoising can remove precisely the small details OCR needs to recognise.
+
+I would therefore avoid introducing a fixed preprocessing routine for every page. Instead, compare the original image with a small number of transformed versions and measure the results. Keep the original as a candidate.
+
+My recommendation: build a small preprocessing experiment into your existing benchmark harness. You don't need a complicated machine-learning model to start. OpenCV can provide the transformations and some basic image-quality measurements.
+
+### B. Layout detection is a separate discipline
+
+Your recent work has established that page layout can be as consequential as character recognition.
+
+The academic literature has increasingly treated document layout analysis as its own task. Rather than asking an OCR engine to infer everything from the page at once, specialist models identify regions and their relationships first.
+
+One relevant dataset is DocLayNet. Published at KDD in 2022, it contains more than 80,000 manually annotated pages across 11 layout classes. It was designed to address the limited layout diversity of earlier datasets, many of which were dominated by scientific publications. doi.org +1
+
+For Wiseau, the most relevant implementation to investigate is PaddleOCR's PP-StructureV3 / PP-DocLayout family.
+
+These are not simply alternative text recognisers. They provide document layout detection, text extraction, table processing and reading-order reconstruction. PaddleOCR's documentation specifically describes handling complex multi-column documents and using cell detection to reconstruct tables. arxiv.org +2
+
+I'd be interested in testing the layout component independently, even if you keep Tesseract as the text recogniser.
+
+That would let you investigate a different architecture:
+
+* Detect the page's distinct regions.
+
+* Classify each region as text, table, heading, image or another relevant type.
+
+* Crop or extract each region independently.
+
+* Send it to the most appropriate recogniser.
+
+* Reassemble the page using the detected layout and reading order.
+
+This is a more flexible approach than trying to make one set of geometric rules work for every page.
+
+### C. Table extraction has its own research ecosystem
+
+This is particularly relevant given the remaining errors in your two-column tables and directory-style pages.
+
+There's a useful distinction between recognising the text inside a table and reconstructing the table itself.
+
+For example, a recogniser might identify every word in a table correctly but still fail to determine which words belong in which row or column.
+
+The most relevant research here is Smock and colleagues' 2022 CVPR paper, PubTables-1M: Towards Comprehensive Table Extraction From Unstructured Documents.
+
+It introduced a dataset of nearly one million tables with annotations for table boundaries, rows, columns, cells and headers. It also evaluates methods for detecting tables and reconstructing their internal structure. Microsoft Research +1
+
+One resulting model worth trying is Microsoft's Table Transformer.
+
+I wouldn't necessarily replace your current table-row stitching with it immediately. I'd run it as an independent table-structure detector on the pages where your current approach struggles.
+
+In particular, I'd test:
+
+* Two separate tables printed side by side.
+
+* Tables with unusually narrow columns.
+
+* Directory listings with no conventional grid lines.
+
+* Tables where the first column contains short numbers or abbreviations.
+
+* Tables with merged or multi-line cells.
+
+The last two are important because geometric alignment alone can easily produce convincing but incorrect results.
+
+### D. Vision-language models are not necessarily more reliable OCR engines
+
+A recent survey, OCR in the Foundation Model Era: From Specialist Models to Unified Models, published on 3 November 2026, compares traditional OCR toolkits, specialist document vision-language models, hybrid approaches and general-purpose vision-language models. arxiv.org
+
+One of its most important observations is that generative models can produce plausible-looking text that isn't actually present in the image.
+
+This is especially problematic for tables. Models may omit rows, invent content, collapse columns or silently alter text to make it more coherent. Layout-guided, region-level recognition is one approach researchers are exploring to reduce these errors. arxiv.org +1
+
+This reinforces something already apparent in your experiments: a model that produces more readable prose isn't necessarily producing more faithful OCR.
+
+I would make the following distinction:
+
+OCR should transcribe what is visible, not what the model believes the document ought to say.
+
+For historical or archival material, preserve unusual spellings, apparent typographical errors, names and numbers. Don't automatically correct them.
+
+There is research on domain-specific post-OCR correction. For example, Lyu and colleagues' 2021 paper, Neural OCR Post-Hoc Correction of Historical Corpora, demonstrated substantial improvements using a correction model trained on paired historical text. However, that approach depended on a large corpus of aligned OCR output and ground truth. It isn't equivalent to asking a general-purpose LLM to proofread a scan. doi.org +1
+
+I'd regard post-correction as a possible later project, not the next priority.
+
+### 3\. What I think you're missing
+
+These are the things I'd prioritise, ranked by expected value against implementation effort.
+
+### 1\. Run a proper preprocessing bake-off
+
+I'd start here.
+
+Create four versions of each test image:
+
+* Original, unmodified.
+
+* Deskewed and contrast-normalised.
+
+* Adaptive thresholding (Sauvola).
+
+* A lightly denoised version.
+
+Run your current best OCR pipeline against each version. Compare results by page type and image quality.
+
+This is a relatively inexpensive experiment that could reveal whether some of your remaining errors originate before recognition even begins.
+
+I'd also record basic quality measures for each page: skew angle, contrast, blur and noise. Eventually, you could use these to decide whether preprocessing is needed at all.
+
+### 2\. Try a specialist layout and table detector
+
+My first experiment would be PaddleOCR's PP-StructureV3, particularly its layout detection and table recognition components.
+
+I'd also try Microsoft's Table Transformer against your problematic pages.
+
+There is a reason I'd prioritise these over yet another general OCR engine: your recent results suggest that layout reconstruction is an important remaining source of errors.
+
+The literature supports treating layout, text recognition and table structure as separate tasks. It also provides established datasets and models for doing so.
+
+### 3\. Investigate PP-OCRv6
+
+Worth testing
+
+One specific development that seems worth adding to your experiments is PP-OCRv6.
+
+A paper published in June 2026 describes three model sizes, ranging from 1.5 million to 34.5 million parameters. Its authors report that the smallest model is substantially faster than its predecessor on CPU while maintaining comparable accuracy on their own benchmark. arxiv.org +1
+
+This is potentially interesting for Wiseau because it gives you another specialist OCR recogniser to compare against Tesseract without necessarily introducing a large vision-language model.
+
+I wouldn't assume it will outperform Tesseract on your documents. The reported results are not an independent evaluation on historical journal scans.
+
+But it's a relatively obvious candidate for your existing engine comparison harness.
+
+### 4\. Try region-level routing instead of page-level routing
+
+This is a refinement of something you've already investigated.
+
+Your previous page-level routing experiment is instructive:
+
+* It achieved good results on Set B.
+
+* It did not generalise well to Set C.
+
+* The best overall approach was not consistently the same for every page type. GitHub +1
+
+I think the next step is to route regions, not pages.
+
+Imagine a page containing two columns of prose and a table.
+
+Rather than choose one OCR engine for the entire page:
+
+* Use the current layout analysis to identify regions.
+
+* Recognise ordinary prose using Tesseract.
+
+* Send difficult table regions to a specialist table pipeline.
+
+* Reprocess only suspicious regions using an alternative recogniser or preprocessing method.
+
+* Reassemble everything in the correct reading order.
+
+You could use Tesseract's confidence values as one trigger for reprocessing, but I'd also investigate structural warning signs: unusually short regions, missing expected rows, suspiciously low word counts and inconsistent column lengths.
+
+One caution: OCR confidence values are not automatically reliable probabilities. Calibrate them against your ground truth before using them as decision thresholds.
+
+This should be more efficient than running several engines over an entire page and attempting to reconcile their outputs.
+
+### 5\. Audit PDFs that contain hidden OCR text layers
+
+There's something in your existing repository notes that I would investigate immediately.
+
+You identified that `Volume 1 Number 3.pdf` contains scanned page images with a hidden Acrobat 8 OCR text layer. The current approach trusts the text layer rather than automatically running OCR.
+
+That creates a potential quality problem.
+
+The presence of a text layer does not necessarily mean that the text is accurate.
+
+I'd compare the extracted text with a fresh OCR pass on a sample of those pages. If the existing text layer is poor, introduce a quality check rather than automatically trusting it.
+
+You could assess:
+
+* Percentage of the page covered by recognised text.
+
+* Suspiciously short or empty text blocks.
+
+* Character distributions and unusual replacement characters.
+
+* Reading-order anomalies.
+
+* Agreement with a fresh OCR pass.
+
+This could be a particularly useful improvement because it prevents the pipeline from silently accepting poor OCR simply because a PDF contains searchable text.
+
+GitHub +1
+
+### 4\. I'd improve the evaluation methodology as well
+
+I think your current benchmarking is one of Wiseau's strengths.
+
+The fact that Set D had manually transcribed ground truth prepared before the engines were evaluated is good experimental practice. Freezing the new method before testing it also makes the results more meaningful.
+
+However, I would make three changes.
+
+### A. Expand beyond the current document family
+
+Set D is a useful held-out test, but it consists of 12 pages drawn from two volumes of the same historical journal series.
+
+That means it tests generalisation to new pages within a familiar document family. It doesn't yet establish generalisation to different publications, printing conventions or scan conditions.
+
+I'd create Set E using entirely different source documents.
+
+Include examples of:
+
+* Different historical publications and fonts.
+
+* Poorer-quality scans.
+
+* Skewed and unevenly illuminated pages.
+
+* Multiple tables on a page.
+
+* Pages with unusual column arrangements.
+
+* Documents with embedded or hidden OCR layers.
+
+Keep the ground truth blind and frozen before evaluating new methods.
+
+### B. Separate recognition accuracy from layout accuracy
+
+WER is useful, but it can conflate two different problems.
+
+Suppose OCR correctly recognises every word in a two-column page but reads the right column before the left.
+
+The words themselves are correct, but the output sequence is wrong. WER will penalise that.
+
+I'd retain your existing metrics and add:
+
+| Metric                     | What it tells you                                                 |
+| -------------------------- | ----------------------------------------------------------------- |
+| Word error rate (WER)      | How many words are wrong, missing or incorrectly inserted         |
+| Character error rate (CER) | How accurately individual characters were recognised              |
+| Bag-of-words error         | Whether the words are correct, regardless of their order          |
+| Reading-order accuracy     | Whether blocks appear in the correct sequence                     |
+| Table structure accuracy   | Whether rows, columns and cells have been reconstructed correctly |
+| Numeric recall             | Whether numbers have been preserved                               |
+
+For table structure, investigate TEDS (Tree Edit Distance-based Similarity), a metric used to compare reconstructed table structures. OmniDocBench is another useful reference for evaluating document parsing beyond simple transcription. GitHub +2
+
+This would help you identify whether a particular improvement comes from better character recognition or better reconstruction of the page.
+
+### C. Measure the trade-off between quality and processing cost
+
+You've already made good use of processing time in your comparisons.
+
+I'd formalise this into a metric alongside accuracy.
+
+For example:
+
+| Measure                | Why it matters                    |
+| ---------------------- | --------------------------------- |
+| WER / CER              | Recognition quality               |
+| Numeric recall         | Preservation of important figures |
+| Reading-order accuracy | Structural correctness            |
+| Seconds per page       | Processing speed                  |
+| CPU and me
