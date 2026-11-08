@@ -54,7 +54,7 @@ sys.path.insert(0, str(HERE))
 from regions import (GROUPS_B, GROUPS_C, GROUPS_D, GROUPS_E, GROUPS_F, GROUPS_L, SAMPLE, SAMPLE_B,  # noqa: E402
                      SAMPLE_C, SAMPLE_D, SAMPLE_E, SAMPLE_F, SAMPLE_L)
 
-ENGINES = ["pymupdf", "tesseract-layout", "tesseract-adr037", "tesseract-adr035", "tesseract-unordered", "tesseract-psm3", "docling", "glm-ocr", "gemini-3.5-flash",
+ENGINES = ["pymupdf", "trust-layer", "hidden-layer", "forced-ocr", "tesseract-layout", "tesseract-adr037", "tesseract-adr035", "tesseract-unordered", "tesseract-psm3", "docling", "glm-ocr", "gemini-3.5-flash",
            "vote-pymupdf", "vote-docling", "vote-glm-ocr", "consensus-order", "consensus-words",
            "router-rule", "oracle-best-single"]
 METRICS = ["wer", "cer", "ord", "bow_r", "bow_p", "num_r", "num_p", "pun_r", "pun_p"]
