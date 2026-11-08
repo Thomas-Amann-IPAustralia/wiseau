@@ -586,8 +586,11 @@ uploads are OCR'd the same way. This is handled in `parsers/file_parser.py` +
 `parsers/ocr.py`; see **ADR-012** for the full rationale.
 
 **Detection & assembly.** Detection is per page: a page with `< 16` non-whitespace
-characters of embedded text is treated as image-only and OCR'd; other pages take
-the fast native path. The document is then assembled in page order. A fully
+characters of embedded text is treated as image-only and OCR'd; so is a **scan
+whose only text is an invisible OCR layer** (every character in PDF text render
+mode 3, and one image covering ≥ 90% of the page): that layer is an earlier OCR
+engine's guess (e.g. Acrobat Paper Capture), and it is not trusted (ADR-040).
+Other pages take the fast native path. The document is then assembled in page order. A fully
 digital PDF keeps the exact pre-OCR fast path (`pymupdf4llm.to_markdown(doc)`); a
 fully scanned PDF is entirely OCR'd; a mixed PDF interleaves.
 
@@ -699,7 +702,7 @@ available on request and **automatic fallback** whenever docling is chosen:
 
 **GLM-OCR reads only image-only PDF pages (ADR-036).** With `glm-ocr` selected
 and configured, a PDF's pages are classified by the same text-layer test as §10
-(< 16 characters ⇒ image-only):
+(< 16 characters, or an invisible OCR layer over a scan (ADR-040) ⇒ image-only):
 - **No image-only pages:** GLM-OCR is skipped (reason `no_image_pages`), and the
   local parser answers.
 - **All pages image-only:** one request.

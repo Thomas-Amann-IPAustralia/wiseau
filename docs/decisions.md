@@ -21,6 +21,55 @@ one `Superseded`.
 
 ---
 
+## ADR-040 — A scan's invisible OCR layer is not trusted: such pages are OCR'd
+**Date:** 2026-11-08 · **Status:** Accepted (roadmap 14 item 0.2: "if the layer loses, add a gate")
+**Context:**
+- Seven of the test PDFs are scans that carry an **invisible** text layer left by
+  an earlier OCR engine: Vol 1 No 3 and Vol 2 No 2 (producer "Adobe Acrobat 8.13
+  Paper Capture Plug-in") and the five patent specifications (no producer tag).
+  Every one of their 225 pages has all its text in render mode 3 over a full-page
+  image. The default path saw 16+ characters of text and read that layer as the
+  page, never OCR-ing it.
+- **Set L** (8 pages, a seeded *random* draw from the two Acrobat PBR journals,
+  blind references, `docs/benchmarks/2026-11-08-layer-audit.md`): the old
+  default scored wer 0.370, word recall 0.841, number recall 0.666. The layer had
+  dropped whole tables (V2N2 p23 and p29 kept 4% of their numbers; V1N3 p19 lost
+  the fee column; V2N2 p30 the table's figures), misread `1` as `l`, `Li` as `U`
+  (`Lilium` → `ulium`), `St` as `5t`, joined words (`154lines`), and typed
+  printed curly quotes as straight ones. PyMuPDF4LLM then read some layers'
+  columns right-to-left (V2N2 p33, wer 0.972 with 98% of the words present).
+  OCR-ing the same pages from their pixels with the ADR-038 path: **wer 0.042,
+  word recall 0.977, number recall 0.960**, better than the old default on all 8
+  pages.
+- No signal that needs no reference picked out the pages where the layer wins.
+  Coverage (layer words / OCR words < 0.85) catches only the two gross failures,
+  and agreement between the two texts looked the same on pages either one won.
+  Checking agreement costs an OCR pass anyway, so a gate saves no time either.
+**Decision:**
+- `file_parser._page_needs_ocr()` treats a page as a scan when *every* character on
+  it is invisible (render mode 3) **and** one image covers ≥ 90% of the page. Such
+  pages are OCR'd like image-only pages. GLM-OCR's per-page routing (ADR-036) uses
+  the same test, so it now receives these pages too.
+- A born-digital page (visible text), or one that hides a few characters behind
+  visible text, is unaffected. Across all 16 test PDFs the rule fires on exactly
+  the 225 layer pages and on no other page.
+- `file_parser.OCR_INVISIBLE_LAYER` turns it off; the bake-off's `trust-layer`
+  engine does that and reproduces the old default byte for byte.
+- No API contract change, so no version bump. The output of these PDFs changes,
+  the way ADR-035/037/038 changed the output of image-only ones.
+**Consequences:**
+- **Held out, set F's 8 Vol 2 No 2 pages** (drawn and frozen before this work):
+  wer 0.057 → 0.045, number recall 0.885 → 0.947; no page worse by more than 0.001.
+- **Do-no-harm, set E's 10 patent pages:** neutral on average (wer 0.094 → 0.092,
+  word recall 0.942 → 0.949, number recall 0.677 → 0.732), but 5 of the 10 pages
+  get worse. The patents' layer engine reads 1960s–80s typewriter faces better
+  than Tesseract does (`e`/`o`/`c` confusions), and Tesseract reads the scanners'
+  black edge bands as junk (P85 p6, 0.014 → 0.110). Both are recogniser and
+  preprocessing problems for roadmap 1.2 and 1.3, not reasons to trust a layer we
+  cannot check.
+- These pages cost an OCR pass (about 5–7 s per page instead of under 1 s).
+- `WISEAU_OCR_MODE=off` still reads only text layers, including invisible ones.
+
 ## ADR-039 — The normalizer keeps printed punctuation
 **Date:** 2026-11-08 · **Status:** Accepted (user sign-off 2026-11-08; roadmap item 0.1)
 **Context:**
