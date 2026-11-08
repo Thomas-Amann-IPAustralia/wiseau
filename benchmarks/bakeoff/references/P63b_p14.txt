@@ -1,0 +1,32 @@
+266213
+are connected to the transistor collector is at some negative
+potential. The resistance value in the base circuit is selected
+in relation to the input signals applied thereto such that the
+transistor will be switched to the conduction state only when
+5 at least two of the input signals applied to the three input
+terminals, shown collectively as 60, are of a predetermined
+negative potential. As regards typical values and orders of
+magnitude, the input resistors R1, R2, and R3, are preferably
+in the range of about 500 ohms, R4 is preferably the range of
+10 about 50 ohms, and the load resistor RL is preferably in the
+range of about 400 ohms. The value of V1 is in the range of
+about -4 volts, and the V2 is in the range of about -2 volts to
+clamp the output signal potential at -2 volts. When the tran-
+sistor 56 is driven to the conducting state the output signal
+15 at the output terminal 58 is substantially at zero or ground
+potential.
+In the use of the circuit of FIG. 4 as the majority-
+decision logic circuit it can be seen that if it is arbitrarily
+designated that a relatively negative signal represents a binary
+20 "1" and a relatively positive signal (such as a ground or zero
+potential) represents a binary "0", if at least two binary "1"
+representing signals are applied to respective ones of the in-
+put terminals 60, the transistor 56 will conduct and there will
+appear a zero potential signal at the output terminals 58. If
+25 the majority of the input signals, i. e., at least two of the
+three, are signal representations of binary "0"'s, the tran-
+sistor 56 will be in the nonconducting state and will output a
+signal of a potential level clamped at the value of -V2 which,
+in the present example, is -2V. It should be noted at this
+30 juncture that the circuit of FIG. 4 effects an inversion of the
+- 14 -

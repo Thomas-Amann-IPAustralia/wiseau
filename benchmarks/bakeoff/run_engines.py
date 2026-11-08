@@ -14,8 +14,8 @@ side by side: concurrent runs on a small box inflate every timing (post-mortem
   python benchmarks/bakeoff/run_engines.py tesseract-layout     # ADR-038: psm 3 + row stitching + guard
   python benchmarks/bakeoff/run_engines.py tesseract-adr037     # default path before ADR-038
 
-Add `--set b`, `--set c` or `--set d` to run the second, third or fourth independently
-transcribed sample (SAMPLE_B / SAMPLE_C / SAMPLE_D in regions.py) instead of the original one. Timings are merged into the engine's
+Add `--set b`, `--set c`, `--set d`, `--set e`, `--set f` or `--set l` to run another independently
+transcribed sample (SAMPLE_B ... SAMPLE_L in regions.py) instead of the original one. Timings are merged into the engine's
 timings.json, so running one set never erases the other's.
 
 Each page's run record also goes to outputs/<engine>/runs.json (merged the same
@@ -41,10 +41,11 @@ import pymupdf
 HERE = Path(__file__).parent
 ROOT = HERE.parent.parent
 sys.path.insert(0, str(HERE))
-from regions import DOCS, SAMPLE, SAMPLE_B, SAMPLE_C, SAMPLE_D, SAMPLE_F  # noqa: E402
+from regions import DOCS, SAMPLE, SAMPLE_B, SAMPLE_C, SAMPLE_D, SAMPLE_E, SAMPLE_F, SAMPLE_L  # noqa: E402
 
 _SET = sys.argv[sys.argv.index("--set") + 1].lower() if "--set" in sys.argv else "a"
-ACTIVE = {"a": SAMPLE, "b": SAMPLE_B, "c": SAMPLE_C, "d": SAMPLE_D, "f": SAMPLE_F}[_SET]
+ACTIVE = {"a": SAMPLE, "b": SAMPLE_B, "c": SAMPLE_C, "d": SAMPLE_D, "e": SAMPLE_E, "f": SAMPLE_F,
+          "l": SAMPLE_L}[_SET]
 
 
 def pages():
