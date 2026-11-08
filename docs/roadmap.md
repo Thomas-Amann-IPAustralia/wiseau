@@ -587,12 +587,28 @@ No paid API is used for this work unless the user says otherwise.
 - [ ] **UI progress estimate under `glm-ocr`** still assumes minutes for any PDF.
 - [ ] **GLM-OCR runs over 20 scanned pages** are not chunked to the service cap.
 
-## Phase 14 — OCR methodology and document structure (proposed, 2026-11-08)
+## Phase 14 — OCR methodology and document structure (in progress, 2026-11-08)
 
-Proposed, not started. Tiered plan, gates and rationale in
+- [x] **0.1 The normalizer keeps printed punctuation (ADR-039).** Curly quotes,
+  en/em dashes and `…` now pass through as printed; NBSP/zero-width/BOM rows kept.
+  `keywords.py` folds ’ → ' in its matching key. API `0.13.0 → 0.14.0`.
+  *Verified: 509 passed, 8 skipped; Vol 16 No 3 and Vol 20 No 4 keep ~4,300
+  typographic characters that were flattened before.*
+- [x] **0.3 Harness metrics.** `score.py`: cer, line reading-order error, printed
+  punctuation (strict and folded); `run_engines.py`: peak RSS and failures per page
+  (`runs.json`). *Verified: earlier metrics unchanged on all 530 page scores.*
+  Write-up: `docs/benchmarks/2026-11-08-tier0.md`.
+- [x] **0.4 Keep docling's JSON** (experiments only, no contract change).
+- [x] **1.1b Held-out PBR set F**: 14 pages (Vol 4 No 1, Vol 2 No 2), blind
+  references frozen before any engine ran (`1be3ded`).
+- [ ] **1.1 Set E**: drawn (12 pages, 2 per PDF, `71cb0aa`); transcription next.
+- [ ] **0.2 Text-layer trust check**: next after set E. Vol 2 No 2's hidden layer
+  holds 27 of 261 words on p25 and 35 of 245 on p27 (survey word counts).
+
+Started 2026-11-08. Tiered plan, gates and rationale in
 [`roadmap-ocr-and-structure.md`](roadmap-ocr-and-structure.md), drawn from the two
 external reviews in `docs/`. Headline order: Tier 0 quick fixes (cleaner keeps
-printed punctuation — needs user sign-off; text-layer trust check; harness CER /
+printed punctuation — done, ADR-039; text-layer trust check; harness CER /
 order / cost metrics; keep docling JSON) → Tier 1 evidence (set E from other
 publications; preprocessing ablation; Table Transformer / PP-StructureV3 /
 PP-OCRv6 bake-off) → Tier 2 canonical document IR + byte-neutral serializer +

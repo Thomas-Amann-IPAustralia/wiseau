@@ -21,6 +21,42 @@ one `Superseded`.
 
 ---
 
+## ADR-039 — The normalizer keeps printed punctuation
+**Date:** 2026-11-08 · **Status:** Accepted (user sign-off 2026-11-08; roadmap item 0.1)
+**Context:**
+- `clean_markdown()` rewrote ‘ ’ “ ” – — … to `' " - -- ...` on every
+  conversion, so the output did not show what the source printed. Both external
+  reviews (`docs/Document structure suggestion`, `docs/Wiseau OCR methodology
+  review`) flagged it: the transcription should be the source text, unchanged.
+- The born-digital PBR volumes carry real typographic punctuation. Measured on
+  the default path (OCR off): Vol 20 No 4 has 1,409 such characters (‘ 663,
+  ’ 721, – 13, “ ” 6 each) and Vol 16 No 3 has 2,863 (‘ 1,271, ’ 1,387, – 166,
+  “ ” 19 each, … 1). All of it was flattened.
+- The rewrite was not protecting any structure. No line in either volume begins
+  with a dash or bullet, so the en-dash → hyphen row was not quietly creating
+  Markdown lists.
+**Decision:**
+- Remove the quote, dash and ellipsis rows from `_CHAR_REPLACEMENTS`. Keep the
+  no-break space → space, zero-width space and BOM rows: those characters are
+  invisible, so rewriting them loses nothing a reader can see.
+- Keep NFC and line-ending normalisation. Don't "smarten" straight quotes or
+  hyphens either: the rule is *as printed*, in both directions.
+- `keywords.py` folds ’ to ' in its matching key only, so "breeder’s" and
+  "breeder's" in one document are one keyword. The term shown is still the most
+  common spelling, as printed.
+- Deferred until a consumer asks: a `simplified` (ASCII punctuation) output
+  option, and preserving a trailing two-space hard break.
+- API 0.13.0 → 0.14.0, because the default output changed for every consumer.
+**Consequences:**
+- Output is more faithful and stays deterministic and idempotent.
+- A consumer that matched on ASCII `'` or `--` in the output now sees the
+  printed characters. That is the contract change the version bump signals.
+- `chapters.py` was checked and needs no change: its title matching strips all
+  non-word characters, and its contents-page leader pattern already accepts – —.
+  `naming.py` slugs on non-word characters, so filenames are unchanged.
+- No OCR benchmark number moves. `score.py` drops punctuation, so punctuation
+  fidelity is invisible to it; roadmap item 0.3 adds a punctuation-aware score.
+
 ## ADR-038 — Scans are read with Tesseract's own layout, table rows stitched back, ADR-035/037 as the guard
 **Date:** 2026-11-06 · **Status:** Accepted
 **Context:**

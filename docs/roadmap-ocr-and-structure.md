@@ -67,7 +67,7 @@ can ship) are noted inline.
 
 ### Tier 0 — small, independent, do first
 
-- [ ] **0.1 Stop rewriting punctuation in `cleaner.py`.** Keep curly quotes, en
+- [x] **0.1 Stop rewriting punctuation in `cleaner.py`.** *Done 2026-11-08 (ADR-039, API 0.14.0), narrowly as recommended.* Keep curly quotes, en
   and em dashes and `…` as printed. Keep NFC and line-ending normalisation.
   Preserve a trailing two-space hard break. Offer the old behaviour as an opt-in
   `simplified` output. This changes the default output for every consumer, so it
@@ -80,7 +80,7 @@ can ship) are noted inline.
   reader can see. Defer the `simplified` option and the hard-break change until a
   consumer asks. The born-digital PBR volumes (V16, V20) carry real typographic
   punctuation that is flattened today. The change stays deterministic and moves
-  no OCR score. *Awaiting the user's go-ahead.*
+  no OCR score. *User approved 2026-11-08.*
 - [ ] **0.2 Text-layer trust check (Vol 1 No 3).** Blind-transcribe a few pages
   from that PDF, including its table page. Compare the hidden Acrobat layer with
   a fresh OCR pass. If the layer loses, add a gate: an invisible text layer
@@ -93,11 +93,11 @@ can ship) are noted inline.
   producer tag. A first look at their layers shows misreads such as `PATENT
   SPEOIFIOATION` and `L-d1ow`. That makes this the most common failure in the
   new material, so do it before any other Tier 1 item.
-- [ ] **0.3 Harness metrics.** Add CER, a block reading-order score
+- [x] **0.3 Harness metrics.** *Done 2026-11-08 (`docs/benchmarks/2026-11-08-tier0.md`): cer, line-level ord, pun_r/pun_p/pun_rf, rss, fail. Block order waits for 2.3's block annotations.* Add CER, a block reading-order score
   (normalised edit distance over block order), seconds/page, peak RSS and
   failure rate to `benchmarks/bakeoff/`. Add a punctuation-aware variant so 0.1
   is measurable. Report changes only, no new runs needed. *Effort: small.*
-- [ ] **0.4 Keep docling's JSON.** Have `docling_client.py` request
+- [x] **0.4 Keep docling's JSON.** *Done 2026-11-08: `convert_document_full()` and the harness keep it. The pinned docling (2.113.0) has the heading-level stage but docling-serve 1.27.0 does not expose it; a pin bump would.* Have `docling_client.py` request
   `to_formats=md,json` and keep the JSON next to the Markdown in experiments, so
   the document tree and table spans aren't thrown away. Also check whether the
   pinned docling-serve version exposes the heading-level stage (bookmarks →
@@ -105,7 +105,7 @@ can ship) are noted inline.
 
 ### Tier 1 — collect evidence before building more heuristics
 
-- [ ] **1.1 Set E from different publications.** The PDFs are supplied
+- [ ] **1.1 Set E from different publications.** *Drawn 2026-11-08 (`survey/set-e/`, seed 20261109, 2 pages per PDF, 12 pages); not yet transcribed.* The PDFs are supplied
   (2026-11-08, `pdf-test/Extra-4-Broad-Test/`): five Australian patent
   specifications from 1963 to 2000 (scans with hidden OCR layers, 145 pages) and
   one WO publication (`WO_2006070397_A1`, 21 image-only pages). These are typed
@@ -114,7 +114,7 @@ can ship) are noted inline.
   committed before any engine runs. Exclude near-empty pages and
   microcopy-resolution test charts (for example `1985043407` p1). *Effort:
   moderate (mostly transcription).*
-- [ ] **1.1b Held-out PBR pages for PBR-specific fixes.** The gutter-stitch fix
+- [x] **1.1b Held-out PBR pages for PBR-specific fixes.** *Done 2026-11-08: set F, 14 pages, blind references frozen in `1be3ded` (`SAMPLE_F`). No engine has run on it.* The gutter-stitch fix
   (V5N3 p24) and the side-by-side-table fix (V5N1 p18) are PBR failures, so they
   must be judged on PBR pages nobody has tuned against, with set E as the
   do-no-harm check. Vol 5 No 1 and No 3 have 46 unused image-only pages (15

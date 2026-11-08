@@ -373,9 +373,16 @@ unreadable characters to the output (ADR-024).
 ### `clean_markdown()` guarantees
 Given identical input it returns identical output: **base64 data-URI payloads
 elided** (see below), NFC Unicode normalization, CRLF/CR → LF,
-smart-quotes/dashes/ellipsis/nbsp/zero-width/BOM → plain ASCII, trailing
+no-break space → space, zero-width space and BOM removed, trailing
 whitespace stripped, runs of ≥3 blank lines collapsed to one blank line, exactly
 one trailing newline.
+
+**Printed punctuation is kept (ADR-039, API 0.14.0).** Curly quotes (‘ ’ “ ”),
+en and em dashes (– —) and the ellipsis (…) pass through exactly as the source
+printed them; the normalizer neither flattens them to ASCII nor "smartens"
+straight quotes and hyphens. Before 0.14.0 they were rewritten to `' " - -- ...`.
+Only characters a reader cannot see are rewritten. A consumer that wants ASCII
+punctuation applies that mapping itself; no `simplified` option exists yet.
 
 **Inlined images (ADR-024).** Any `data:<media-type>;base64,<payload>` becomes
 `data:<media-type>;base64,...`, wherever it occurs — Markdown image syntax, an

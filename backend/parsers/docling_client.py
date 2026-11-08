@@ -44,6 +44,14 @@ Configuration (all optional; when ``WISEAU_DOCLING_BASE`` is unset the client is
 
 The returned Markdown is **not** normalized here — the caller runs it through
 ``clean_markdown()`` like every other path (invariant #3).
+
+**Keeping docling's document tree (roadmap 14 item 0.4).** ``convert_document``
+asks for Markdown only, and is what the conversion path uses.
+``convert_document_full`` also asks for docling's JSON (``to_formats=md`` and
+``json``) and returns both, so an experiment can keep the element tree, bounding
+boxes and table spans that the Markdown flattens away. It is for experiments
+towards the document IR (roadmap 2.1): no endpoint returns the JSON, so the API
+contract is unchanged.
 """
 
 from __future__ import annotations
@@ -53,7 +61,8 @@ import json
 import os
 import urllib.error
 import urllib.request
-from typing import Callable, Optional
+from dataclasses import dataclass
+from typing import Any, Callable, Optional, Sequence
 
 # A transport turns a prepared request into raw response bytes. Injectable so
 # tests can mock docling-serve without a live Space (roadmap: mocked transport).
@@ -126,11 +135,12 @@ def _default_transport(request: urllib.request.Request, timeout: float) -> bytes
         return response.read()
 
 
-def _encode_multipart(filename: str, data: bytes) -> tuple[bytes, str]:
+def _encode_multipart(filename: str, data: bytes, formats: Sequence[str] = ("md",)) -> tuple[bytes, str]:
     """Encode ``data`` as a ``multipart/form-data`` body for docling-serve.
 
-    Sends the document under the ``files`` field and requests Markdown output
-    (``to_formats=md``) with images left out (``image_export_mode=placeholder``).
+    Sends the document under the ``files`` field and requests the given output
+    formats (one ``to_formats`` field each; Markdown alone by default) with images
+    left out (``image_export_mode=placeholder``).
     docling-serve's default is ``embedded``, which returns every figure as a
     base64 data URI inside ``md_content`` — a scanned page then arrives as tens of
     thousands of unreadable characters wrapped around the text we actually asked
@@ -144,12 +154,13 @@ def _encode_multipart(filename: str, data: bytes) -> tuple[bytes, str]:
     safe_name = filename.replace('"', "").replace("\r", "").replace("\n", "") or "document"
     marker = f"--{boundary}".encode("ascii")
 
+    format_parts: list[bytes] = []
+    for fmt in formats:
+        format_parts += [marker, b'Content-Disposition: form-data; name="to_formats"', b"", fmt.encode("ascii")]
+
     body = b"\r\n".join(
         [
-            marker,
-            b'Content-Disposition: form-data; name="to_formats"',
-            b"",
-            b"md",
+            *format_parts,
             marker,
             b'Content-Disposition: form-data; name="image_export_mode"',
             b"",
@@ -206,6 +217,30 @@ def _markdown_from_response(payload: object) -> str:
     return ""
 
 
+def _document_json_from_response(payload: object) -> Optional[dict]:
+    """docling's serialized ``DoclingDocument`` (``document.json_content``), if present."""
+    if isinstance(payload, dict):
+        document = payload.get("document")
+        if isinstance(document, dict) and isinstance(document.get("json_content"), dict):
+            return document["json_content"]
+    return None
+
+
+@dataclass(frozen=True)
+class DoclingConversion:
+    """What ``convert_document_full`` returns.
+
+    ``markdown`` is the raw, un-normalized Markdown (the caller still runs
+    ``clean_markdown()``). ``document`` is docling's ``DoclingDocument`` as JSON:
+    the element tree with provenance (page, bounding box) and table cell spans.
+    It is ``None`` when the server sent Markdown but no JSON; a conversion with
+    no Markdown is an error either way, exactly as for ``convert_document``.
+    """
+
+    markdown: str
+    document: Optional[dict[str, Any]]
+
+
 # --- Public API -------------------------------------------------------------
 def convert_document(
     data: bytes,
@@ -235,12 +270,45 @@ def convert_document(
             returned an empty or non-JSON body.
         DoclingBadDocument: docling returned another 4xx (rejected the document).
     """
+    return _convert(data, filename, ("md",), base, token, api_key, timeout, path, transport).markdown
+
+
+def convert_document_full(
+    data: bytes,
+    filename: str,
+    *,
+    base: Optional[str] = None,
+    token: Optional[str] = None,
+    api_key: Optional[str] = None,
+    timeout: Optional[float] = None,
+    path: Optional[str] = None,
+    transport: Optional[Transport] = None,
+) -> DoclingConversion:
+    """Like ``convert_document``, but also asks for and returns docling's JSON.
+
+    For experiments (roadmap 14 item 0.4): the JSON keeps the document tree and
+    table spans the Markdown loses. Same arguments, same errors.
+    """
+    return _convert(data, filename, ("md", "json"), base, token, api_key, timeout, path, transport)
+
+
+def _convert(
+    data: bytes,
+    filename: str,
+    formats: Sequence[str],
+    base: Optional[str],
+    token: Optional[str],
+    api_key: Optional[str],
+    timeout: Optional[float],
+    path: Optional[str],
+    transport: Optional[Transport],
+) -> DoclingConversion:
     resolved_base = base if base is not None else _base()
     if not resolved_base:
         raise DoclingUnavailable("WISEAU_DOCLING_BASE is not configured")
     resolved_base = resolved_base.rstrip("/")
 
-    body, content_type = _encode_multipart(filename or "document", data)
+    body, content_type = _encode_multipart(filename or "document", data, formats)
     headers = {"Content-Type": content_type, "Accept": "application/json"}
     resolved_token = token if token is not None else _token()
     if resolved_token:
@@ -276,4 +344,4 @@ def convert_document(
     markdown = _markdown_from_response(payload)
     if not markdown.strip():
         raise DoclingUnavailable("docling returned an empty conversion")
-    return markdown
+    return DoclingConversion(markdown=markdown, document=_document_json_from_response(payload))

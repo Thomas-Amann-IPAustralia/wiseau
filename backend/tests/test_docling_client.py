@@ -339,3 +339,60 @@ def test_a_real_5xx_is_classified_as_unavailable(stub_docling):
 
     with pytest.raises(docling_client.DoclingUnavailable):
         docling_client.convert_document(b"data", "d.pdf", base=stub_docling["base"])
+
+
+# --- Keeping docling's JSON (roadmap 14 item 0.4) ----------------------------
+#
+# `convert_document` (what conversion uses) still asks for Markdown alone;
+# `convert_document_full` also asks for docling's JSON and returns the tree.
+
+
+def _format_fields(body: bytes) -> list[bytes]:
+    """The values of every `to_formats` field in a multipart body, in order."""
+    values = []
+    for part in body.split(b"\r\n--"):
+        if b'name="to_formats"' in part:
+            values.append(part.split(b"\r\n\r\n", 1)[1].strip())
+    return values
+
+
+_TREE = {"schema_name": "DoclingDocument", "texts": [{"label": "section_header", "text": "Faithful"}]}
+
+
+def test_the_conversion_path_still_asks_for_markdown_only():
+    captured: dict = {}
+    docling_client.convert_document(
+        b"data", "d.pdf", base="http://docling", transport=_transport(captured, body=_ok_body("x"))
+    )
+    assert _format_fields(captured["request"].data) == [b"md"]
+
+
+def test_the_full_conversion_asks_for_markdown_and_json_and_returns_both():
+    captured: dict = {}
+    body = json.dumps({"document": {"md_content": "# Faithful", "json_content": _TREE}}).encode("utf-8")
+    result = docling_client.convert_document_full(
+        b"data", "d.pdf", base="http://docling", transport=_transport(captured, body=body)
+    )
+
+    assert _format_fields(captured["request"].data) == [b"md", b"json"]
+    assert result.markdown == "# Faithful"
+    assert result.document == _TREE
+
+
+def test_a_full_conversion_without_json_still_returns_the_markdown():
+    captured: dict = {}
+    result = docling_client.convert_document_full(
+        b"data", "d.pdf", base="http://docling", transport=_transport(captured, body=_ok_body("text"))
+    )
+    assert result.markdown == "text"
+    assert result.document is None
+
+
+def test_a_full_conversion_with_json_but_no_markdown_is_still_unavailable():
+    # The JSON alone is not a conversion: the same rule as convert_document.
+    captured: dict = {}
+    body = json.dumps({"document": {"md_content": "", "json_content": _TREE}}).encode("utf-8")
+    with pytest.raises(docling_client.DoclingUnavailable):
+        docling_client.convert_document_full(
+            b"data", "d.pdf", base="http://docling", transport=_transport(captured, body=body)
+        )
