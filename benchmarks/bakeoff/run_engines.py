@@ -7,7 +7,7 @@ side by side: concurrent runs on a small box inflate every timing (post-mortem
 2026-11-01).
 
   python benchmarks/bakeoff/run_engines.py pymupdf   # wiseau default path, in-process
-  python benchmarks/bakeoff/run_engines.py docling   # docling library, EasyOCR
+  python benchmarks/bakeoff/run_engines.py docling   # docling library, EasyOCR; also writes <page>.json (its document tree)
   python benchmarks/bakeoff/run_engines.py glm-ocr [URL]  # glm-ocr/service.py over HTTP
   python benchmarks/bakeoff/run_engines.py tesseract-psm3     # Tesseract's own layout analysis
   python benchmarks/bakeoff/run_engines.py tesseract-unordered  # default path before ADR-035
@@ -18,13 +18,22 @@ Add `--set b`, `--set c` or `--set d` to run the second, third or fourth indepen
 transcribed sample (SAMPLE_B / SAMPLE_C / SAMPLE_D in regions.py) instead of the original one. Timings are merged into the engine's
 timings.json, so running one set never erases the other's.
 
+Each page's run record also goes to outputs/<engine>/runs.json (merged the same
+way): seconds, peak resident memory so far in MB (the high-water mark of this
+process or of its largest child, such as the `tesseract` CLI; an HTTP engine's
+server is not visible), and whether the page raised. A page that raises is
+recorded as failed, gets no .md, and the run carries on; score.py scores it as
+empty output and reports the failure rate. The exit status is 1 if any page failed.
+
 No engine here calls a paid or external API.
 """
 from __future__ import annotations
 
 import json
+import resource
 import sys
 import time
+import traceback
 from pathlib import Path
 
 import pymupdf
@@ -128,9 +137,11 @@ def docling_engine():
     conv = DocumentConverter(format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=opts)})
     conv.convert(DocumentStream(name="warm.pdf", stream=BytesIO(next(pages())[1])))  # load models once
 
-    def run(data: bytes) -> str:
+    def run(data: bytes) -> tuple[str, dict]:
+        # The document tree as well as its Markdown (roadmap 14 item 0.4): it keeps
+        # the element types, bounding boxes and table spans the Markdown flattens.
         res = conv.convert(DocumentStream(name="page.pdf", stream=BytesIO(data)))
-        return res.document.export_to_markdown()
+        return res.document.export_to_markdown(), res.document.export_to_dict()
 
     return run
 
@@ -171,14 +182,44 @@ def main() -> None:
     out = HERE / "outputs" / engine
     out.mkdir(parents=True, exist_ok=True)
     timings_file = out / "timings.json"
+    runs_file = out / "runs.json"
     timings = json.loads(timings_file.read_text()) if timings_file.exists() else {}
+    runs = json.loads(runs_file.read_text()) if runs_file.exists() else {}
+    failures = 0
     for key, data in pages():
         t = time.perf_counter()
-        md = run(data)
-        timings[key] = round(time.perf_counter() - t, 1)
-        (out / f"{key}.md").write_text(md)
-        print(f"{engine} {key}: {timings[key]} s, {len(md)} chars", flush=True)
+        tree = None
+        try:
+            md, error = run(data), None
+            if isinstance(md, tuple):          # an engine that also returns its document tree
+                md, tree = md
+        except Exception as exc:  # recorded, not fatal: a failure rate needs the rest of the run
+            md, error = None, f"{type(exc).__name__}: {exc}"
+            traceback.print_exc()
+        seconds = round(time.perf_counter() - t, 1)
+        runs[key] = {"seconds": seconds, "rss_mb": peak_rss_mb(), "ok": error is None, "error": error}
+        if error is None:
+            timings[key] = seconds
+            (out / f"{key}.md").write_text(md)
+            if tree is not None:
+                (out / f"{key}.json").write_text(json.dumps(tree, indent=1, sort_keys=True) + "\n")
+            print(f"{engine} {key}: {seconds} s, {len(md)} chars, peak {runs[key]['rss_mb']} MB", flush=True)
+        else:
+            failures += 1
+            (out / f"{key}.md").unlink(missing_ok=True)   # never score a stale output as this run's
+            timings.pop(key, None)
+            print(f"{engine} {key}: FAILED after {seconds} s ({error})", flush=True)
     timings_file.write_text(json.dumps(timings, indent=2) + "\n")
+    runs_file.write_text(json.dumps(runs, indent=2, sort_keys=True) + "\n")
+    if failures:
+        raise SystemExit(f"{failures} page(s) failed; see {runs_file}")
+
+
+def peak_rss_mb() -> float:
+    """High-water resident memory of this process or its largest child, in MB (Linux: ru_maxrss is KB)."""
+    own = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    child = resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss
+    return round(max(own, child) / 1024, 1)
 
 
 if __name__ == "__main__":
