@@ -599,7 +599,11 @@ No paid API is used for this work unless the user says otherwise.
   (`runs.json`). *Verified: earlier metrics unchanged on all 530 page scores.*
   Write-up: `docs/benchmarks/2026-11-08-tier0.md`.
 - [x] **0.4 Keep docling's JSON** (experiments only, no contract change).
-- [ ] **0.2 Text-layer trust check**, then set E (1.1) and held-out PBR set F (1.1b).
+- [x] **1.1b Held-out PBR set F**: 14 pages (Vol 4 No 1, Vol 2 No 2), blind
+  references frozen before any engine ran (`1be3ded`).
+- [ ] **1.1 Set E**: drawn (12 pages, 2 per PDF, `71cb0aa`); transcription next.
+- [ ] **0.2 Text-layer trust check**: next after set E. Vol 2 No 2's hidden layer
+  holds 27 of 261 words on p25 and 35 of 245 on p27 (survey word counts).
 
 Started 2026-11-08. Tiered plan, gates and rationale in
 [`roadmap-ocr-and-structure.md`](roadmap-ocr-and-structure.md), drawn from the two

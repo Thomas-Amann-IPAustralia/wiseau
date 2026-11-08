@@ -105,7 +105,7 @@ can ship) are noted inline.
 
 ### Tier 1 — collect evidence before building more heuristics
 
-- [ ] **1.1 Set E from different publications.** The PDFs are supplied
+- [ ] **1.1 Set E from different publications.** *Drawn 2026-11-08 (`survey/set-e/`, seed 20261109, 2 pages per PDF, 12 pages); not yet transcribed.* The PDFs are supplied
   (2026-11-08, `pdf-test/Extra-4-Broad-Test/`): five Australian patent
   specifications from 1963 to 2000 (scans with hidden OCR layers, 145 pages) and
   one WO publication (`WO_2006070397_A1`, 21 image-only pages). These are typed
@@ -114,7 +114,7 @@ can ship) are noted inline.
   committed before any engine runs. Exclude near-empty pages and
   microcopy-resolution test charts (for example `1985043407` p1). *Effort:
   moderate (mostly transcription).*
-- [ ] **1.1b Held-out PBR pages for PBR-specific fixes.** The gutter-stitch fix
+- [x] **1.1b Held-out PBR pages for PBR-specific fixes.** *Done 2026-11-08: set F, 14 pages, blind references frozen in `1be3ded` (`SAMPLE_F`). No engine has run on it.* The gutter-stitch fix
   (V5N3 p24) and the side-by-side-table fix (V5N1 p18) are PBR failures, so they
   must be judged on PBR pages nobody has tuned against, with set E as the
   do-no-harm check. Vol 5 No 1 and No 3 have 46 unused image-only pages (15
