@@ -118,8 +118,10 @@ can ship) are noted inline.
   (V5N3 p24) and the side-by-side-table fix (V5N1 p18) are PBR failures, so they
   must be judged on PBR pages nobody has tuned against, with set E as the
   do-no-harm check. Vol 5 No 1 and No 3 have 46 unused image-only pages (15
-  near-empty, and only one table-heavy page left). More PBR scans, especially
-  table-heavy ones, would make this held-out set worth having.
+  near-empty, and only one table-heavy page left). **Supplied 2026-11-08:**
+  `Volume 4 Number 1.pdf` (36 pp, image-only) and `Volume 2 Number 2.pdf` (40
+  pp, hidden OCR layer, about 8 table pages), both partly lower-resolution (150
+  or 200 dpi). Draw from these; see `handover-2026-11-08.md`.
 - [ ] **1.2 Preprocessing ablation.** Run four variants of each page: the
   original, deskew + contrast/background normalisation, Sauvola thresholding,
   and light denoise. Score each through the current default, broken down by page
