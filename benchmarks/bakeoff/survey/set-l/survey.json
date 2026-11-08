@@ -1,0 +1,955 @@
+{
+ "V1N3_p1": {
+  "words": 61,
+  "num_share": 0.066,
+  "columns": 1,
+  "dpi": 300,
+  "hidden_layer_words": 9,
+  "first": [
+   "raa",
+   "ssp"
+  ],
+  "last": [
+   "WO",
+   "Ae",
+   "|"
+  ]
+ },
+ "V1N3_p2": {
+  "words": 262,
+  "num_share": 0.191,
+  "columns": 1,
+  "dpi": 300,
+  "hidden_layer_words": 260,
+  "first": [
+   "CONTENTS",
+   "PAGE"
+  ],
+  "last": [
+   "Canberra, A.C.T. 2601,",
+   "Typeset and Printed in Australia by CPP",
+   "Communications Ltd., Fyshwick, A.C.T."
+  ]
+ },
+ "V1N3_p3": {
+  "words": 298,
+  "num_share": 0.03,
+  "columns": 1,
+  "dpi": 298,
+  "hidden_layer_words": 295,
+  "first": [
+   "\u2019",
+   "REGISTRAR\u2019S REMARKS"
+  ],
+  "last": [
+   "ADMINISTRATION/GENERAL",
+   "062 723725",
+   "1"
+  ]
+ },
+ "V1N3_p4": {
+  "words": 855,
+  "num_share": 0.037,
+  "columns": 2,
+  "dpi": 299,
+  "hidden_layer_words": 847,
+  "first": [
+   "PART 1\u2014 ITEMS OF",
+   "PROPAGATION FOR NON"
+  ],
+  "last": [
+   "March 1990: Hemerocallis, Bougainvillea and Ilex.",
+   "notification and date of acceptance of the",
+   "2"
+  ]
+ },
+ "V1N3_p5": {
+  "words": 815,
+  "num_share": 0.012,
+  "columns": 2,
+  "dpi": 299,
+  "hidden_layer_words": 863,
+  "first": [
+   "application. This will be soon after lodgment of",
+   "Applicants should avoid using general or"
+  ],
+  "last": [
+   "advance.",
+   "genotype.",
+   "3"
+  ]
+ },
+ "V1N3_p6": {
+  "words": 874,
+  "num_share": 0.013,
+  "columns": 2,
+  "dpi": 299,
+  "hidden_layer_words": 880,
+  "first": [
+   "@",
+   "this does apply to varieties which have"
+  ],
+  "last": [
+   "in the June issue)",
+   "in Australia.",
+   "4"
+  ]
+ },
+ "V1N3_p7": {
+  "words": 510,
+  "num_share": 0.067,
+  "columns": 2,
+  "dpi": 300,
+  "hidden_layer_words": 443,
+  "first": [
+   "APPLICATIONS ACCEPTED",
+   "a) Descriptions Finalised"
+  ],
+  "last": [
+   "parent lines and is sustained through generations",
+   "electrophoresis of seed protein extractions which",
+   "5"
+  ]
+ },
+ "V1N3_p8": {
+  "words": 451,
+  "num_share": 0.419,
+  "columns": 1,
+  "dpi": 300,
+  "hidden_layer_words": 447,
+  "first": [
+   "display a consistently different banding pattern to",
+   "Agronomy"
+  ],
+  "last": [
+   "trials.",
+   "Data is from 1982 trials unless marked with # indicating 1983 data.",
+   "6"
+  ]
+ },
+ "V1N3_p9": {
+  "words": 667,
+  "num_share": 0.16,
+  "columns": 1,
+  "dpi": 300,
+  "hidden_layer_words": 659,
+  "first": [
+   "Table of Comparison with Closest Known Varieties",
+   "Observed tolerances to net blotch (Drechs/era dictyoides f.sp. perenne) and crown rust (Puccinia coronata)."
+  ],
+  "last": [
+   "and description.",
+   "deep fuchsia matching RHS 64B.",
+   "7"
+  ]
+ },
+ "V1N3_p10": {
+  "words": 16,
+  "num_share": 0.188,
+  "columns": 2,
+  "dpi": 300,
+  "hidden_layer_words": 13,
+  "first": [
+   "ye",
+   "= ee"
+  ],
+  "last": [
+   "\u2018Madame Butterfly\u2019 (Photo supplied by applicant)",
+   "8",
+   "TT"
+  ]
+ },
+ "V1N3_p11": {
+  "words": 181,
+  "num_share": 0.116,
+  "columns": 1,
+  "dpi": 300,
+  "hidden_layer_words": 179,
+  "first": [
+   "oe",
+   "a"
+  ],
+  "last": [
+   "FTE",
+   "ee",
+   "9"
+  ]
+ },
+ "V1N3_p12": {
+  "words": 319,
+  "num_share": 0.05,
+  "columns": 1,
+  "dpi": 300,
+  "hidden_layer_words": 248,
+  "first": [
+   "Setaria",
+   "ly"
+  ],
+  "last": [
+   "ey 5.0 ie, Wie Ye \\",
+   "DE ras",
+   "10"
+  ]
+ },
+ "V1N3_p13": {
+  "words": 417,
+  "num_share": 0.05,
+  "columns": 2,
+  "dpi": 300,
+  "hidden_layer_words": 367,
+  "first": [
+   "Morphology \u2014 See comparison tables.",
+   "longer in \u2018Splenda\u2019 than in \u2018Kazungula\u2019. Spikelets"
+  ],
+  "last": [
+   "ce",
+   "OY",
+   "11"
+  ]
+ },
+ "V1N3_p14": {
+  "words": 372,
+  "num_share": 0.36,
+  "columns": 1,
+  "dpi": 300,
+  "hidden_layer_words": 375,
+  "first": [
+   "Table of Comparison with Closest Known Varieties",
+   "(All data from Lawes, OLD, 1981, unless otherwise indicated. Within rows, values with the same"
+  ],
+  "last": [
+   "\u2018A5474\u2019",
+   "APPLICATION NO. 88/012",
+   "12"
+  ]
+ },
+ "V1N3_p15": {
+  "words": 521,
+  "num_share": 0.152,
+  "columns": 2,
+  "dpi": 299,
+  "hidden_layer_words": 538,
+  "first": [
+   "Accepted 31/8/88",
+   "PROVISIONAL PROTECTION"
+  ],
+  "last": [
+   "Registrar by close of business on 31 March 1989.",
+   "should be notified immediately.",
+   "13"
+  ]
+ },
+ "V1N3_p16": {
+  "words": 273,
+  "num_share": 0.022,
+  "columns": 3,
+  "dpi": 300,
+  "hidden_layer_words": 271,
+  "first": [
+   "PROPOSED SCHEDULE FOR INCLUDING GENERA/SPECIES IN",
+   "THE PLANT VARIETY RIGHTS REGULATIONS"
+  ],
+  "last": [
+   "Bothriochloa",
+   "Agapanthus",
+   "14"
+  ]
+ },
+ "V1N3_p17": {
+  "words": 630,
+  "num_share": 0.019,
+  "columns": 2,
+  "dpi": 299,
+  "hidden_layer_words": 638,
+  "first": [
+   "SECTIONS 16 AND 17 OF THE PVR ACT",
+   "(b) aname the use of which would be contrary to"
+  ],
+  "last": [
+   "mistaken for, the name of another plant",
+   "variety;",
+   "15"
+  ]
+ },
+ "V1N3_p18": {
+  "words": 819,
+  "num_share": 0.034,
+  "columns": 2,
+  "dpi": 300,
+  "hidden_layer_words": 824,
+  "first": [
+   "SECTION 26 OF THE PVR ACT",
+   "application, or, if the application has been varied in"
+  ],
+  "last": [
+   "may \u2014",
+   "sell reproductive material of plants of a plant",
+   "16"
+  ]
+ },
+ "V1N3_p19": {
+  "words": 390,
+  "num_share": 0.072,
+  "columns": 2,
+  "dpi": 298,
+  "hidden_layer_words": 393,
+  "first": [
+   "variety in respect of which plant variety rights",
+   "material of plants, of that variety, purchased"
+  ],
+  "last": [
+   "* HOURLY RATE = $50/hr; EXAMINATION OF OBJECTIONS EXCEEDING 2",
+   "HOURS WILL BE CHARGED AT THE HOURLY RATE FOR THE EXTRA TIME",
+   "17"
+  ]
+ },
+ "V1N3_p20": {
+  "words": 10,
+  "num_share": 0.8,
+  "columns": 1,
+  "dpi": 299,
+  "hidden_layer_words": 15,
+  "first": [
+   "9 780644 085687",
+   "R88/20750(2)"
+  ],
+  "last": [
+   "9 780644 085687",
+   "R88/20750(2)",
+   "Cat. No. 88 14767"
+  ]
+ },
+ "V2N2_p1": {
+  "words": 92,
+  "num_share": 0.098,
+  "columns": 1,
+  "dpi": 150,
+  "hidden_layer_words": 19,
+  "first": [
+   "T_TTe",
+   "im"
+  ],
+  "last": [
+   "EWR, ENS WG",
+   "ee ee",
+   "ee"
+  ]
+ },
+ "V2N2_p2": {
+  "words": 236,
+  "num_share": 0.186,
+  "columns": 1,
+  "dpi": 299,
+  "hidden_layer_words": 235,
+  "first": [
+   "CONTENTS",
+   "PAGE"
+  ],
+  "last": [
+   "Canberra Publishing and Printing Co.,",
+   "Fyshwick, A.C.T.",
+   "ee"
+  ]
+ },
+ "V2N2_p3": {
+  "words": 255,
+  "num_share": 0.067,
+  "columns": 1,
+  "dpi": 150,
+  "hidden_layer_words": 247,
+  "first": [
+   "cd",
+   "REGISTRAR\u2019S REMARKS"
+  ],
+  "last": [
+   "062 724753",
+   "1",
+   "\u2014\u2014Llc"
+  ]
+ },
+ "V2N2_p4": {
+  "words": 702,
+  "num_share": 0.024,
+  "columns": 2,
+  "dpi": 150,
+  "hidden_layer_words": 723,
+  "first": [
+   "EE",
+   "PART 1"
+  ],
+  "last": [
+   "from the provisions of the amendment.",
+   "the Act (S14) preventing sale of the variety before",
+   "2"
+  ]
+ },
+ "V2N2_p5": {
+  "words": 504,
+  "num_share": 0.016,
+  "columns": 1,
+  "dpi": 294,
+  "hidden_layer_words": 527,
+  "first": [
+   "application has been considered. Some applicants",
+   "consumer organisations to discuss the changes"
+  ],
+  "last": [
+   "3",
+   "a",
+   "EE Oe"
+  ]
+ },
+ "V2N2_p6": {
+  "words": 611,
+  "num_share": 0.129,
+  "columns": 2,
+  "dpi": 295,
+  "hidden_layer_words": 604,
+  "first": [
+   "PART",
+   "2\u2014 MATTERS FOR"
+  ],
+  "last": [
+   "a) Descriptions finalised",
+   "hilum.",
+   "4"
+  ]
+ },
+ "V2N2_p7": {
+  "words": 313,
+  "num_share": 0.086,
+  "columns": 2,
+  "dpi": 150,
+  "hidden_layer_words": 300,
+  "first": [
+   "\u201cA5939\u2019 is distinct from Lapel \"Manerk\u2019, \"Brage\u2019",
+   "SOYBEAN"
+  ],
+  "last": [
+   "{Photo suppliedby applicant)",
+   "5",
+   "!"
+  ]
+ },
+ "V2N2_p8": {
+  "words": 622,
+  "num_share": 0.063,
+  "columns": 2,
+  "dpi": 150,
+  "hidden_layer_words": 641,
+  "first": [
+   "Origin",
+   "Origin"
+  ],
+  "last": [
+   "in the application form (hypocoty! techniques).",
+   "of \u2018A5474\u2019. (Photo supplied by applicant)",
+   "6"
+  ]
+ },
+ "V2N2_p9": {
+  "words": 438,
+  "num_share": 0.091,
+  "columns": 2,
+  "dpi": 150,
+  "hidden_layer_words": 439,
+  "first": [
+   "Phytophthora root rot resistance was determined",
+   "SOYBEAN"
+  ],
+  "last": [
+   "2 replicates per variety. Measurements in tables are",
+   "of 20 plants chosen at random.",
+   "4"
+  ]
+ },
+ "V2N2_p10": {
+  "words": 342,
+  "num_share": 0.52,
+  "columns": 1,
+  "dpi": 150,
+  "hidden_layer_words": 316,
+  "first": [
+   "TLL",
+   "LLL"
+  ],
+  "last": [
+   "39.9 %",
+   "40.8 %",
+   "8"
+  ]
+ },
+ "V2N2_p11": {
+  "words": 318,
+  "num_share": 0.538,
+  "columns": 1,
+  "dpi": 298,
+  "hidden_layer_words": 311,
+  "first": [
+   "TABLE OF COMPARISON FOR SOYBEAN VARIETIES",
+   "a"
+  ],
+  "last": [
+   "39.4 %",
+   "_",
+   "9"
+  ]
+ },
+ "V2N2_p12": {
+  "words": 247,
+  "num_share": 0.502,
+  "columns": 1,
+  "dpi": 298,
+  "hidden_layer_words": 246,
+  "first": [
+   "TABLE OF COMPARISON FOR SOYBEAN VARIETIES",
+   "eee"
+  ],
+  "last": [
+   "_",
+   "\u2014",
+   "10"
+  ]
+ },
+ "V2N2_p13": {
+  "words": 255,
+  "num_share": 0.525,
+  "columns": 1,
+  "dpi": 299,
+  "hidden_layer_words": 254,
+  "first": [
+   "TABLE OF COMPARISON FOR SOYBEAN VARIETIES",
+   "\u2018Bossier\u2019"
+  ],
+  "last": [
+   "41.4%",
+   "42.7%",
+   "11"
+  ]
+ },
+ "V2N2_p14": {
+  "words": 560,
+  "num_share": 0.298,
+  "columns": 1,
+  "dpi": 150,
+  "hidden_layer_words": 452,
+  "first": [
+   "LE",
+   "RAPE"
+  ],
+  "last": [
+   "continuous",
+   "not",
+   "12"
+  ]
+ },
+ "V2N2_p15": {
+  "words": 538,
+  "num_share": 0.046,
+  "columns": 2,
+  "dpi": 150,
+  "hidden_layer_words": 538,
+  "first": [
+   "Morphology \u2014 See comparison tables.",
+   "Comparative Growing Trials"
+  ],
+  "last": [
+   "Le",
+   "ee",
+   "ee"
+  ]
+ },
+ "V2N2_p16": {
+  "words": 415,
+  "num_share": 0.607,
+  "columns": 1,
+  "dpi": 150,
+  "hidden_layer_words": 414,
+  "first": [
+   "TABLE OF COMPARISON OF BEAN VARIETIES",
+   "\u2018Bronco\u2019"
+  ],
+  "last": [
+   "white",
+   "white",
+   "14"
+  ]
+ },
+ "V2N2_p17": {
+  "words": 536,
+  "num_share": 0.047,
+  "columns": 2,
+  "dpi": 150,
+  "hidden_layer_words": 464,
+  "first": [
+   "FRENCH BEAN",
+   "was actually measured as a length due to weather"
+  ],
+  "last": [
+   "length was assessed from mature plants,",
+   "discarding pods under 10 cm. Main branch height",
+   "15"
+  ]
+ },
+ "V2N2_p18": {
+  "words": 351,
+  "num_share": 0.615,
+  "columns": 1,
+  "dpi": 150,
+  "hidden_layer_words": 344,
+  "first": [
+   "TABLE OF COMPARISON OF BEAN VARIETIES",
+   "\u2018Gresham\u2019"
+  ],
+  "last": [
+   "41",
+   "37",
+   "16"
+  ]
+ },
+ "V2N2_p19": {
+  "words": 626,
+  "num_share": 0.112,
+  "columns": 1,
+  "dpi": 150,
+  "hidden_layer_words": 443,
+  "first": [
+   "A",
+   "Poa oy ; A ~*~"
+  ],
+  "last": [
+   "and third leaf. inflorescence measurements are",
+   "from sowing to maturity.",
+   "17"
+  ]
+ },
+ "V2N2_p20": {
+  "words": 749,
+  "num_share": 0.18,
+  "columns": 2,
+  "dpi": 150,
+  "hidden_layer_words": 764,
+  "first": [
+   "\u2018Kyambro\u2019 differs from \u2018Maral\u2019 in its prostrate",
+   "SUBTERRANEAN CLOVER"
+  ],
+  "last": [
+   "eee |. ae <n",
+   "pigmentation with temperature). \u2018Rosedale\u2019 can be",
+   "18"
+  ]
+ },
+ "V2N2_p21": {
+  "words": 505,
+  "num_share": 0.168,
+  "columns": 1,
+  "dpi": 150,
+  "hidden_layer_words": 329,
+  "first": [
+   "distinguished from \u2018Clare\u2019, \u2018Northam\u2019 and \u2018Dalkeith\u2019",
+   "LEAF"
+  ],
+  "last": [
+   " small-medium",
+   "medium",
+   "19"
+  ]
+ },
+ "V2N2_p22": {
+  "words": 261,
+  "num_share": 0.1,
+  "columns": 1,
+  "dpi": 150,
+  "hidden_layer_words": 180,
+  "first": [
+   "a",
+   "GUINEA GRASS"
+  ],
+  "last": [
+   "supplied",
+   "by applicant)",
+   "20"
+  ]
+ },
+ "V2N2_p23": {
+  "words": 585,
+  "num_share": 0.383,
+  "columns": 1,
+  "dpi": 299,
+  "hidden_layer_words": 251,
+  "first": [
+   "Further growing trials will be conducted in",
+   "Morphology \u2014 See comparison tables."
+  ],
+  "last": [
+   "0.80 g",
+   "0.92g",
+   "21"
+  ]
+ },
+ "V2N2_p24": {
+  "words": 432,
+  "num_share": 0.03,
+  "columns": 2,
+  "dpi": 150,
+  "hidden_layer_words": 431,
+  "first": [
+   "BARLEY",
+   "\u2018Franklin\u2019 originates from the controlled pollination"
+  ],
+  "last": [
+   "22",
+   "eee",
+   "|"
+  ]
+ },
+ "V2N2_p25": {
+  "words": 261,
+  "num_share": 0.471,
+  "columns": 1,
+  "dpi": 150,
+  "hidden_layer_words": 27,
+  "first": [
+   "a",
+   "Le"
+  ],
+  "last": [
+   "base",
+   "length",
+   "23"
+  ]
+ },
+ "V2N2_p26": {
+  "words": 222,
+  "num_share": 0.081,
+  "columns": 1,
+  "dpi": 150,
+  "hidden_layer_words": 196,
+  "first": [
+   "ROSE",
+   "colours, corresponding to RHS 66C medially and to"
+  ],
+  "last": [
+   "supplied",
+   "by applicant)",
+   "24"
+  ]
+ },
+ "V2N2_p27": {
+  "words": 245,
+  "num_share": 0.143,
+  "columns": 1,
+  "dpi": 150,
+  "hidden_layer_words": 35,
+  "first": [
+   "a",
+   "N"
+  ],
+  "last": [
+   "ae ee",
+   ":",
+   "27"
+  ]
+ },
+ "V2N2_p28": {
+  "words": 698,
+  "num_share": 0.069,
+  "columns": 2,
+  "dpi": 150,
+  "hidden_layer_words": 502,
+  "first": [
+   "WHITE CLOVER",
+   "Morphology \u2014 See comparison tables."
+  ],
+  "last": [
+   "suppliedby applicant)",
+   "28",
+   "a"
+  ]
+ },
+ "V2N2_p29": {
+  "words": 512,
+  "num_share": 0.227,
+  "columns": 1,
+  "dpi": 299,
+  "hidden_layer_words": 257,
+  "first": [
+   "by Plant Variety Rights in France since 1984. It is",
+   "pedicel is smooth, without prickles; leaves are"
+  ],
+  "last": [
+   "deep concave",
+   "concave",
+   "25"
+  ]
+ },
+ "V2N2_p30": {
+  "words": 568,
+  "num_share": 0.238,
+  "columns": 1,
+  "dpi": 299,
+  "hidden_layer_words": 579,
+  "first": [
+   "WYALONG WATTLE",
+   "TABLE OF COMPARISON FOR"
+  ],
+  "last": [
+   "eeeeOoOV_:\u2122\u2122.,.mlLcele",
+   "EEE",
+   "ee"
+  ]
+ },
+ "V2N2_p31": {
+  "words": 573,
+  "num_share": 0.065,
+  "columns": 2,
+  "dpi": 298,
+  "hidden_layer_words": 565,
+  "first": [
+   "Variety: \u2018Grasslands Kopu\u2019 Application No. 89/024",
+   "Morphology\u2014 See comparison tables."
+  ],
+  "last": [
+   "Electrophoretic gels of white clover varieties seed protein showing characteristic banding patterns. (Photo",
+   "supplied by applicant)",
+   "29"
+  ]
+ },
+ "V2N2_p32": {
+  "words": 522,
+  "num_share": 0.531,
+  "columns": 1,
+  "dpi": 300,
+  "hidden_layer_words": 532,
+  "first": [
+   "TABLE OF COMPARISON WITH CLOVER VARIETIES",
+   "Ladino"
+  ],
+  "last": [
+   "\u2018Frolic\u2019 Application No.:89/026",
+   "Application No.:89/021",
+   "30"
+  ]
+ },
+ "V2N2_p33": {
+  "words": 567,
+  "num_share": 0.108,
+  "columns": 2,
+  "dpi": 299,
+  "hidden_layer_words": 561,
+  "first": [
+   "\u2018Kuranga Gold Lace\u2019",
+   "Application No.:89/022"
+  ],
+  "last": [
+   "Plants(Research) Pty Ltd.,",
+   "Variation: Change name to \u2018Flamingo\u2019",
+   "31"
+  ]
+ },
+ "V2N2_p34": {
+  "words": 276,
+  "num_share": 0.025,
+  "columns": 2,
+  "dpi": 298,
+  "hidden_layer_words": 275,
+  "first": [
+   "Appendix 1",
+   "PROPOSED SCHEDULE FOR INCLUDING GENERA/SPECIES IN"
+  ],
+  "last": [
+   "ADDITIONS",
+   "Carpobrotus",
+   "32"
+  ]
+ },
+ "V2N2_p35": {
+  "words": 642,
+  "num_share": 0.02,
+  "columns": 2,
+  "dpi": 298,
+  "hidden_layer_words": 640,
+  "first": [
+   "Appendix 2",
+   "SECTIONS 16 AND 17 OF THE PVR ACT"
+  ],
+  "last": [
+   "mistaken for, the name of another plant",
+   "variety;",
+   "33"
+  ]
+ },
+ "V2N2_p36": {
+  "words": 477,
+  "num_share": 0.04,
+  "columns": 2,
+  "dpi": 299,
+  "hidden_layer_words": 473,
+  "first": [
+   "Appendix 3",
+   "SECTION 26 OF THE PVR ACT"
+  ],
+  "last": [
+   "which the rights relate as the Secretary considers",
+   "appropriate.",
+   "34"
+  ]
+ },
+ "V2N2_p37": {
+  "words": 225,
+  "num_share": 0.142,
+  "columns": 2,
+  "dpi": 298,
+  "hidden_layer_words": 224,
+  "first": [
+   "FEES",
+   "As from 1 July 1989 the following fee schedule will"
+  ],
+  "last": [
+   "CANBERRA ACT 2601",
+   "Representative of consumers.",
+   "35"
+  ]
+ },
+ "V2N2_p38": {
+  "words": 102,
+  "num_share": 0.137,
+  "columns": 1,
+  "dpi": 299,
+  "hidden_layer_words": 98,
+  "first": [
+   "Appendix 6",
+   "ORGANISATIONS OFFERING TO"
+  ],
+  "last": [
+   "CSIRO MAY DO TRIALS ON A FEE FOR SERVICE",
+   "BASIS FOR SOME SPECIES.",
+   "36"
+  ]
+ },
+ "V2N2_p39": {
+  "words": 0,
+  "num_share": 0.0,
+  "columns": 1,
+  "dpi": 298,
+  "hidden_layer_words": 0,
+  "first": [],
+  "last": []
+ },
+ "V2N2_p40": {
+  "words": 9,
+  "num_share": 0.778,
+  "columns": 1,
+  "dpi": 298,
+  "hidden_layer_words": 8,
+  "first": [
+   "9 780644 098137",
+   "B89/20554"
+  ],
+  "last": [
+   "9 780644 098137",
+   "B89/20554",
+   "Cat. No. 89 05427"
+  ]
+ }
+}
