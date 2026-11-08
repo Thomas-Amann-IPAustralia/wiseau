@@ -35,6 +35,7 @@ Group figures are the mean over the group's pages.
   python benchmarks/bakeoff/score.py --set b    # set B tables, overall and per layout group
   python benchmarks/bakeoff/score.py --set c    # the same for set C (held out, 2026-11-03)
   python benchmarks/bakeoff/score.py --set d    # the same for set D (held out, 2026-11-06)
+  python benchmarks/bakeoff/score.py --set f    # the same for set F (held out, 2026-11-08)
 """
 from __future__ import annotations
 
@@ -48,7 +49,7 @@ from pathlib import Path
 
 HERE = Path(__file__).parent
 sys.path.insert(0, str(HERE))
-from regions import GROUPS_B, GROUPS_C, GROUPS_D, SAMPLE, SAMPLE_B, SAMPLE_C, SAMPLE_D  # noqa: E402
+from regions import GROUPS_B, GROUPS_C, GROUPS_D, GROUPS_F, SAMPLE, SAMPLE_B, SAMPLE_C, SAMPLE_D, SAMPLE_F  # noqa: E402
 
 ENGINES = ["pymupdf", "tesseract-layout", "tesseract-adr037", "tesseract-adr035", "tesseract-unordered", "tesseract-psm3", "docling", "glm-ocr", "gemini-3.5-flash",
            "vote-pymupdf", "vote-docling", "vote-glm-ocr", "consensus-order", "consensus-words",
@@ -204,7 +205,7 @@ def main() -> None:
         if not out.exists():
             continue
         runs = _runs(out)
-        for doc, nums in list(SAMPLE.items()) + list(SAMPLE_B.items()) + list(SAMPLE_C.items()) + list(SAMPLE_D.items()):
+        for doc, nums in list(SAMPLE.items()) + list(SAMPLE_B.items()) + list(SAMPLE_C.items()) + list(SAMPLE_D.items()) + list(SAMPLE_F.items()):
             for n in nums:
                 key = f"{doc}_p{n}"
                 hyp = out / f"{key}.md"
@@ -220,8 +221,9 @@ def main() -> None:
                 results.setdefault(engine, {})[key] = s
     (HERE / "results.json").write_text(json.dumps(results, indent=2, sort_keys=True) + "\n")
     chosen = sys.argv[sys.argv.index("--set") + 1].lower() if "--set" in sys.argv else "a"
-    if chosen in {"b", "c", "d"}:
-        print_set(results, *({"b": (SAMPLE_B, GROUPS_B), "c": (SAMPLE_C, GROUPS_C), "d": (SAMPLE_D, GROUPS_D)}[chosen]))
+    if chosen in {"b", "c", "d", "f"}:
+        print_set(results, *({"b": (SAMPLE_B, GROUPS_B), "c": (SAMPLE_C, GROUPS_C), "d": (SAMPLE_D, GROUPS_D),
+                              "f": (SAMPLE_F, GROUPS_F)}[chosen]))
         return
 
     print("| Engine | Pages | " + " | ".join(METRICS) + " | " + " | ".join(RUN_COLUMNS) + " |")

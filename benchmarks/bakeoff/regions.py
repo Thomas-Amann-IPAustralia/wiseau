@@ -14,6 +14,8 @@ DOCS = {
     "V4": "pdf-test/PBR-PlantVarieties_Volume-4-Number-2.pdf",
     "V5N1": "pdf-test/Volume 5 Number 1.pdf",
     "V5N3": "pdf-test/Volume 5 Number 3.pdf",
+    "V4N1": "pdf-test/Volume 4 Number 1.pdf",
+    "V2N2": "pdf-test/Volume 2 Number 2.pdf",
 }
 
 # 1-based page numbers (the same pages as the 2026-11-01 bake-off).
@@ -48,6 +50,19 @@ GROUPS_D = {
     "tables": ["V5N1_p11", "V5N1_p20", "V5N3_p19"],
     "two-column + data": ["V5N1_p9", "V5N1_p18", "V5N1_p19", "V5N3_p24"],
     "single column": ["V5N1_p24", "V5N3_p4"],
+}
+# Set F (2026-11-08): the held-out PBR set for Phase 14 (roadmap 1.1b) and for the
+# text-layer trust check (0.2). Drawn from Vol 4 No 1 (image-only) and Vol 2 No 2
+# (scans with a hidden Acrobat 8 OCR layer, which the references never used), seed
+# 20261108, quota 3/5/4/2 weighted to tables, split by native resolution (7 pages at
+# 150-200 dpi, 7 at about 300). Survey and draw: survey/set-f/. Transcribed blind
+# from the page images with printed punctuation kept (‘ ’ “ ” – — as printed).
+SAMPLE_F = {"V2N2": [3, 4, 6, 10, 12, 16, 31, 32], "V4N1": [7, 13, 21, 22, 25, 27]}
+GROUPS_F = {
+    "two-column prose": ["V2N2_p31", "V2N2_p4", "V4N1_p22"],
+    "tables": ["V2N2_p10", "V2N2_p12", "V2N2_p16", "V2N2_p32", "V4N1_p25"],
+    "two-column + data": ["V2N2_p6", "V4N1_p13", "V4N1_p21", "V4N1_p7"],
+    "single column": ["V2N2_p3", "V4N1_p27"],
 }
 GROUPS_B = {
     "two-column prose": ["V2_p9", "V2_p11", "V2_p23"],
