@@ -1,8 +1,13 @@
 """Deterministic Markdown post-processing.
 
-Strips residual noise, normalizes Unicode and quote characters, collapses
-excess whitespace, and trims trailing spaces so that identical input reliably
-yields byte-identical output.
+Strips residual noise, normalizes Unicode composition and invisible characters,
+collapses excess whitespace, and trims trailing spaces so that identical input
+reliably yields byte-identical output.
+
+It keeps the source's **printed punctuation** (ADR-039). Curly quotes, en and em
+dashes and the ellipsis are what the document says, so they pass through as
+printed rather than being flattened to `' " - -- ...`. Only characters a reader
+cannot see (no-break space, zero-width space, byte-order mark) are rewritten.
 
 It also drops **base64 data-URI payloads** (ADR-024). Several extractors inline
 images directly into the Markdown — a single screenshot then becomes tens of
@@ -16,18 +21,14 @@ from __future__ import annotations
 import re
 import unicodedata
 
-# Common "smart" characters mapped to plain ASCII equivalents.
+# Invisible characters that carry no printed content, mapped to what a reader
+# sees. Typographic punctuation (curly quotes, en and em dashes, the ellipsis)
+# is deliberately *not* here: it is part of what the source printed, and since
+# ADR-039 the output keeps it as printed.
 _CHAR_REPLACEMENTS = {
-    "‘": "'",
-    "’": "'",
-    "“": '"',
-    "”": '"',
-    "–": "-",
-    "—": "--",
-    "…": "...",
-    " ": " ",  # non-breaking space
-    "​": "",   # zero-width space
-    "﻿": "",   # byte-order mark
+    "\u00a0": " ",  # non-breaking space -> space
+    "\u200b": "",   # zero-width space
+    "\ufeff": "",   # byte-order mark
 }
 
 _MULTI_BLANK_LINE = re.compile(r"\n{3,}")
@@ -72,7 +73,7 @@ def clean_markdown(text: str) -> str:
     text = unicodedata.normalize("NFC", text)
     text = text.replace("\r\n", "\n").replace("\r", "\n")
 
-    # Replace typographic characters with plain equivalents.
+    # Replace invisible characters; printed punctuation is kept (ADR-039).
     for src, dst in _CHAR_REPLACEMENTS.items():
         text = text.replace(src, dst)
 

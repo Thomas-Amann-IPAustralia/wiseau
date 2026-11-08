@@ -177,7 +177,7 @@ app = FastAPI(
         "Deterministic conversion of web URLs, PDFs, and DOCX documents into "
         "clean, structured Markdown. Designed for both human UIs and LLM/MCP agents."
     ),
-    version="0.13.0",
+    version="0.14.0",
     lifespan=_lifespan,
 )
 

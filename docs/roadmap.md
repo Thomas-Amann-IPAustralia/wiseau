@@ -587,12 +587,18 @@ No paid API is used for this work unless the user says otherwise.
 - [ ] **UI progress estimate under `glm-ocr`** still assumes minutes for any PDF.
 - [ ] **GLM-OCR runs over 20 scanned pages** are not chunked to the service cap.
 
-## Phase 14 — OCR methodology and document structure (proposed, 2026-11-08)
+## Phase 14 — OCR methodology and document structure (in progress, 2026-11-08)
 
-Proposed, not started. Tiered plan, gates and rationale in
+- [x] **0.1 The normalizer keeps printed punctuation (ADR-039).** Curly quotes,
+  en/em dashes and `…` now pass through as printed; NBSP/zero-width/BOM rows kept.
+  `keywords.py` folds ’ → ' in its matching key. API `0.13.0 → 0.14.0`.
+  *Verified: 509 passed, 8 skipped; Vol 16 No 3 and Vol 20 No 4 keep ~4,300
+  typographic characters that were flattened before.*
+
+Started 2026-11-08. Tiered plan, gates and rationale in
 [`roadmap-ocr-and-structure.md`](roadmap-ocr-and-structure.md), drawn from the two
 external reviews in `docs/`. Headline order: Tier 0 quick fixes (cleaner keeps
-printed punctuation — needs user sign-off; text-layer trust check; harness CER /
+printed punctuation — done, ADR-039; text-layer trust check; harness CER /
 order / cost metrics; keep docling JSON) → Tier 1 evidence (set E from other
 publications; preprocessing ablation; Table Transformer / PP-StructureV3 /
 PP-OCRv6 bake-off) → Tier 2 canonical document IR + byte-neutral serializer +

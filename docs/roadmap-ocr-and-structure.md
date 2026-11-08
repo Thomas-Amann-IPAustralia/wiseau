@@ -67,7 +67,7 @@ can ship) are noted inline.
 
 ### Tier 0 — small, independent, do first
 
-- [ ] **0.1 Stop rewriting punctuation in `cleaner.py`.** Keep curly quotes, en
+- [x] **0.1 Stop rewriting punctuation in `cleaner.py`.** *Done 2026-11-08 (ADR-039, API 0.14.0), narrowly as recommended.* Keep curly quotes, en
   and em dashes and `…` as printed. Keep NFC and line-ending normalisation.
   Preserve a trailing two-space hard break. Offer the old behaviour as an opt-in
   `simplified` output. This changes the default output for every consumer, so it
@@ -80,7 +80,7 @@ can ship) are noted inline.
   reader can see. Defer the `simplified` option and the hard-break change until a
   consumer asks. The born-digital PBR volumes (V16, V20) carry real typographic
   punctuation that is flattened today. The change stays deterministic and moves
-  no OCR score. *Awaiting the user's go-ahead.*
+  no OCR score. *User approved 2026-11-08.*
 - [ ] **0.2 Text-layer trust check (Vol 1 No 3).** Blind-transcribe a few pages
   from that PDF, including its table page. Compare the hidden Acrobat layer with
   a fresh OCR pass. If the layer loses, add a gate: an invisible text layer

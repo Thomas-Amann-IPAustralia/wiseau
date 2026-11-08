@@ -397,9 +397,19 @@ def _s_stem(word: str) -> str:
     return word
 
 
+def _key_form(word: str) -> str:
+    """A token as a matching key: lowercased, with the apostrophe folded.
+
+    The output keeps printed punctuation (ADR-039), so one document can spell
+    the same word "breeder’s" and "breeder's". Those must key together.
+    Only the *key* is folded; the surface form a caller sees stays as printed.
+    """
+    return word.lower().replace("’", "'")
+
+
 def _words(text: str) -> list[str]:
-    """Lowercased word tokens, in order."""
-    return [match.group(0).lower() for match in _WORD.finditer(text)]
+    """Matching-key word tokens, in order."""
+    return [_key_form(match.group(0)) for match in _WORD.finditer(text)]
 
 
 def canonical(term: str) -> str:
@@ -459,7 +469,7 @@ class _Occurrences:
                 for match in _WORD.finditer(chunk):
                     surface = match.group(0)
                     raw.append(surface)
-                    stream.append(_s_stem(surface.lower()))
+                    stream.append(_s_stem(_key_form(surface)))
                 stream.append(None)
                 raw.append(None)
             stream.append(None)

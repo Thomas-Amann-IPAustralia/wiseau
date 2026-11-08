@@ -230,6 +230,26 @@ def test_two_phrasings_of_one_idea_are_one_keyword():
     assert canonical("Adaptation Funding") == canonical("adaptation funding")
 
 
+def test_a_curly_and_a_straight_apostrophe_are_one_keyword():
+    """Printed punctuation is kept (ADR-039), so one document can spell a word
+    both ways; the matching key folds them, the displayed term does not."""
+    assert canonical("Plant Breeder’s Rights") == canonical("plant breeder's rights")
+
+    document = (
+        "# Plant Breeder’s Rights\n\n"
+        + "A plant breeder’s rights grant covers the variety. " * 3
+        + "A plant breeder's rights grant covers the variety. " * 1
+        + "Nobody in the office admitted to having touched the ledger that quarter.\n"
+    )
+    result = extract_keywords(document, methods=["frequency"], top_k=10)
+    breeder_rows = [k for k in result.keywords if "breeder" in k.term.lower()]
+    keys = {canonical(k.term) for k in breeder_rows}
+
+    assert len(breeder_rows) == len(keys), "one idea split across two apostrophe spellings"
+    # The display is the most common spelling, as for any other term.
+    assert any("’" in k.term for k in breeder_rows), "the majority spelling should be shown"
+
+
 def test_a_unigram_that_only_ever_occurs_inside_a_phrase_is_dropped():
     document = (
         "# Inundation Modelling\n\n"

@@ -21,18 +21,39 @@ def test_output_ends_with_single_trailing_newline():
     assert clean_markdown("hello\n\n\n") == "hello\n"
 
 
-def test_smart_quotes_are_flattened_to_ascii():
-    result = clean_markdown("“Hi” said ‘Mark’")
-    assert result == '"Hi" said \'Mark\'\n'
+# --- Printed punctuation is kept (ADR-039) ----------------------------------
+#
+# Curly quotes, en and em dashes and the ellipsis are what the source printed.
+# Until ADR-039 the normalizer flattened them to ASCII; it now passes them through.
 
 
-def test_dashes_and_ellipsis_are_normalized():
-    result = clean_markdown("a–b—c…")
-    assert result == "a-b--c...\n"
+def test_curly_quotes_are_kept_as_printed():
+    source = "\u201cHi\u201d said \u2018Mark\u2019, and it\u2019s Mark\u2019s"
+    assert clean_markdown(source) == source + "\n"
+
+
+def test_dashes_and_ellipsis_are_kept_as_printed():
+    # En dash in a range, em dash as a break, a single-character ellipsis.
+    source = "pages 12\u201314 \u2014 see below\u2026"
+    assert clean_markdown(source) == source + "\n"
+
+
+def test_ascii_punctuation_is_not_upgraded():
+    # Keeping printed punctuation is not "smartening": straight quotes and
+    # hyphens the source used stay straight.
+    source = "\"Hi\" said 'Mark' -- a-b..."
+    assert clean_markdown(source) == source + "\n"
+
+
+def test_printed_punctuation_survives_a_second_pass():
+    source = "\u2018a\u2019 \u201cb\u201d c\u2013d e\u2014f g\u2026"
+    once = clean_markdown(source)
+    assert clean_markdown(once) == once == source + "\n"
 
 
 def test_nbsp_zero_width_and_bom_are_handled():
-    # nbsp -> regular space; zero-width space and BOM -> removed entirely.
+    # Invisible characters are still rewritten: nbsp -> regular space;
+    # zero-width space and BOM -> removed entirely.
     source = "a b​c﻿d"
     assert clean_markdown(source) == "a bcd\n"
 
