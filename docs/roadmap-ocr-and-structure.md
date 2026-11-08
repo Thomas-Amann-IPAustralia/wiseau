@@ -2,13 +2,16 @@
 
 A prioritised plan built from two external reviews:
 [`Wiseau OCR methodology review`](Wiseau%20OCR%20methodology%20review) and
-[`Document structure suggestion`](Document%20structure%20suggestion). The copies
-in `docs/` stop mid-sentence (about 80% of each). This plan was written from the
-full texts on their ChatGPT share pages. What the copies leave out: the OCR
-review's ranked experiment list (§5), its reading list and its target pipeline;
-the structure review's output-format advice (§5), structural metrics (§6) and its
-ordered priorities (§7). The 2026 papers both reviews lean on all resolve on
-arXiv: 2611.04874, 2606.13108, 2605.22100, 2608.15064.
+[`Document structure suggestion`](Document%20structure%20suggestion). The first
+copies in `docs/` stopped at about 80%; both now hold the full text from their
+ChatGPT share pages (citation markers removed, links restored). The 2026 papers
+both reviews lean on all resolve on arXiv: 2611.04874, 2606.13108, 2605.22100,
+2608.15064.
+
+**Target corpus.** The Plant Breeder's Rights journals (`pdf-test/`) are the
+primary target, though not the only one. So each fix is *tuned and judged* on
+held-out PBR pages, and the other material (set E) is a **do-no-harm check**: a
+fix ships only if it helps PBR and does not regress set E.
 
 **This is a proposal, not a decision.** Nothing here is built. Each item that
 changes behaviour gets its own ADR when it ships. The standing rules still apply:
@@ -71,6 +74,13 @@ can ship) are noted inline.
   needs **user sign-off**, an ADR, a `tech-spec.md` update and an API version
   bump. Check `chapters.py` contents matching and `keywords.py` against curly
   punctuation before shipping. *Effort: small.*
+  **Recommendation (2026-11-08): do it, narrowly.** Drop only the
+  quote/dash/ellipsis rows of `_CHAR_REPLACEMENTS`. Keep the NBSP, zero-width and
+  BOM rows: those characters are invisible, so removing them loses nothing a
+  reader can see. Defer the `simplified` option and the hard-break change until a
+  consumer asks. The born-digital PBR volumes (V16, V20) carry real typographic
+  punctuation that is flattened today. The change stays deterministic and moves
+  no OCR score. *Awaiting the user's go-ahead.*
 - [ ] **0.2 Text-layer trust check (Vol 1 No 3).** Blind-transcribe a few pages
   from that PDF, including its table page. Compare the hidden Acrobat layer with
   a fresh OCR pass. If the layer loses, add a gate: an invisible text layer
@@ -78,6 +88,11 @@ can ship) are noted inline.
   fresh OCR, or when it looks wrong (coverage, replacement characters, column
   read top-to-bottom). The handover's quick check found 99% word agreement on
   prose but 82% on a table page. *Effort: small.*
+  **Scope grew (2026-11-08):** five of the six set E PDFs are this same case,
+  145 pages of patent-specification scans with an invisible text layer and no
+  producer tag. A first look at their layers shows misreads such as `PATENT
+  SPEOIFIOATION` and `L-d1ow`. That makes this the most common failure in the
+  new material, so do it before any other Tier 1 item.
 - [ ] **0.3 Harness metrics.** Add CER, a block reading-order score
   (normalised edit distance over block order), seconds/page, peak RSS and
   failure rate to `benchmarks/bakeoff/`. Add a punctuation-aware variant so 0.1
@@ -90,13 +105,21 @@ can ship) are noted inline.
 
 ### Tier 1 — collect evidence before building more heuristics
 
-- [ ] **1.1 Set E from different publications.** This is the gate for the
-  gutter-stitch fix, the side-by-side-table fix and anything in Tier 3. It needs
-  **the user to supply new PDFs**: other publications and fonts, poorer or skewed
-  scans, several tables per page, odd column layouts, hidden OCR layers. The 46
-  unused Vol 5 pages are too close to set D to test generalisation. Same
-  protocol as before: seeded draw, blind references, committed before any
-  engine runs. *Effort: moderate (mostly transcription).*
+- [ ] **1.1 Set E from different publications.** The PDFs are supplied
+  (2026-11-08, `pdf-test/Extra-4-Broad-Test/`): five Australian patent
+  specifications from 1963 to 2000 (scans with hidden OCR layers, 145 pages) and
+  one WO publication (`WO_2006070397_A1`, 21 image-only pages). These are typed
+  and printed legal documents, not journals, so they test generalisation and
+  hidden-layer handling. Same protocol as before: seeded draw, blind references,
+  committed before any engine runs. Exclude near-empty pages and
+  microcopy-resolution test charts (for example `1985043407` p1). *Effort:
+  moderate (mostly transcription).*
+- [ ] **1.1b Held-out PBR pages for PBR-specific fixes.** The gutter-stitch fix
+  (V5N3 p24) and the side-by-side-table fix (V5N1 p18) are PBR failures, so they
+  must be judged on PBR pages nobody has tuned against, with set E as the
+  do-no-harm check. Vol 5 No 1 and No 3 have 46 unused image-only pages (15
+  near-empty, and only one table-heavy page left). More PBR scans, especially
+  table-heavy ones, would make this held-out set worth having.
 - [ ] **1.2 Preprocessing ablation.** Run four variants of each page: the
   original, deskew + contrast/background normalisation, Sauvola thresholding,
   and light denoise. Score each through the current default, broken down by page
@@ -178,8 +201,9 @@ unsure (ADR-030):
 ## Suggested sequence
 
 1. Tier 0 together, about one session. Item 0.1 waits for the user's sign-off.
-2. Ask the user for set E PDFs (1.1). Meanwhile, run 1.2 and 1.3 on sets A–D as
-   development, not as evidence.
+2. Draw and blind-transcribe set E (1.1), and assemble the held-out PBR pages
+   (1.1b). Meanwhile, run 1.2 and 1.3 on sets A–D as development, not as
+   evidence.
 3. Build 2.1 and 2.2 as a byte-for-byte-neutral refactor, then 2.3.
 4. Tier 3 in the order listed, each held out on set E and the structural gold
    set.
