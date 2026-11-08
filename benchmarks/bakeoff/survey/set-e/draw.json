@@ -158,7 +158,6 @@
    "P63b_p26",
    "P63b_p27",
    "P63b_p28",
-   "P85_p1",
    "P85_p26",
    "P97_p5",
    "P97_p19",
@@ -175,13 +174,35 @@
    "WO06_p15",
    "WO06_p21"
   ],
-  "excluded": []
+  "excluded": [
+   "P85_p1"
+  ]
  },
  "draw": {
-  "two-column prose": [],
-  "tables": [],
-  "two-column + data": [],
-  "single column": []
+  "P63a": [
+   "P63a_p3",
+   "P63a_p7"
+  ],
+  "P63b": [
+   "P63b_p14",
+   "P63b_p20"
+  ],
+  "P85": [
+   "P85_p6",
+   "P85_p21"
+  ],
+  "P97": [
+   "P97_p13",
+   "P97_p15"
+  ],
+  "P00": [
+   "P00_p4",
+   "P00_p15"
+  ],
+  "WO06": [
+   "WO06_p4",
+   "WO06_p16"
+  ]
  },
  "seed": 20261109,
  "quota": [
@@ -191,5 +212,8 @@
   0
  ],
  "split_dpi": false,
- "exclude": []
+ "per_doc": true,
+ "exclude": [
+  "P85_p1"
+ ]
 }

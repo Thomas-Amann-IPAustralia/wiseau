@@ -13,7 +13,7 @@ makes a seeded stratified draw:
   single column      everything else
 
   python benchmarks/bakeoff/survey.py OUT_DIR KEY=PDF [KEY=PDF ...] --seed N --quota 3,3,4,2
-        [--exclude KEY_pN,KEY_pN,...] [--split-dpi]
+        [--exclude KEY_pN,KEY_pN,...] [--split-dpi] [--per-doc N]
 
 Each page also records `dpi`, the native resolution of its largest image (pixels
 per inch of the page it covers), and `hidden_layer_words`, the words in its own
@@ -25,6 +25,10 @@ earlier set used). `--split-dpi` splits each group's quota between low-resolutio
 pages (< 250 dpi) and the rest, in proportion to how many of each the group has
 (at least one of each when the quota is 2+ and both exist), so a held-out set
 covers both when a PDF mixes them.
+
+`--per-doc N` replaces the layout quota with N pages from each document (any
+group but near-empty), for a set whose job is breadth across publications, such
+as set E. The draw still records each page's layout group.
 
 Set D: KEY V5a = "Volume 5 Number 1.pdf", V5b = "Volume 5 Number 3.pdf", seed 20261107,
 quota prose 3, tables 3, data 4, single 2. Outputs: survey/set-d-*.json.
@@ -126,11 +130,20 @@ def main() -> None:
     for k, v in data.items():
         groups["excluded" if k in exclude else group(v)].append(k)
     rng = random.Random(seed)
-    draw = {g: draw_group(rng, groups[g], q, data, by_dpi) for g, q in zip(GROUPS, quota)}
+    if "--per-doc" in args:
+        per_doc = int(args[args.index("--per-doc") + 1])
+        eligible = {k for g in GROUPS for k in groups[g]}
+        draw = {}
+        for doc in dict.fromkeys(k.rsplit("_p", 1)[0] for k in data):
+            pool = sorted((k for k in eligible if k.rsplit("_p", 1)[0] == doc), key=lambda k: int(k.rsplit("_p", 1)[1]))
+            draw[doc] = sorted(rng.sample(pool, min(per_doc, len(pool))), key=lambda k: int(k.rsplit("_p", 1)[1]))
+    else:
+        draw = {g: draw_group(rng, groups[g], q, data, by_dpi) for g, q in zip(GROUPS, quota)}
     out_dir.mkdir(parents=True, exist_ok=True)
     survey_file.write_text(json.dumps(data, indent=1) + "\n")
     (out_dir / "draw.json").write_text(json.dumps({"groups": groups, "draw": draw, "seed": seed,
                                                    "quota": quota, "split_dpi": by_dpi,
+                                                   "per_doc": "--per-doc" in args,
                                                    "exclude": sorted(exclude)}, indent=1) + "\n")
     print(json.dumps(draw, indent=1))
 
