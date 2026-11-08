@@ -1,0 +1,124 @@
+{
+ "groups": {
+  "two-column prose": [
+   "V4N1_p4",
+   "V4N1_p5",
+   "V4N1_p8",
+   "V4N1_p17",
+   "V4N1_p18",
+   "V4N1_p22",
+   "V4N1_p24",
+   "V4N1_p29",
+   "V2N2_p4",
+   "V2N2_p7",
+   "V2N2_p8",
+   "V2N2_p9",
+   "V2N2_p15",
+   "V2N2_p17",
+   "V2N2_p24",
+   "V2N2_p28",
+   "V2N2_p31",
+   "V2N2_p33",
+   "V2N2_p34",
+   "V2N2_p35",
+   "V2N2_p36"
+  ],
+  "tables": [
+   "V4N1_p20",
+   "V4N1_p23",
+   "V4N1_p25",
+   "V4N1_p31",
+   "V4N1_p32",
+   "V4N1_p33",
+   "V4N1_p34",
+   "V4N1_p35",
+   "V4N1_p36",
+   "V2N2_p10",
+   "V2N2_p11",
+   "V2N2_p12",
+   "V2N2_p13",
+   "V2N2_p16",
+   "V2N2_p18",
+   "V2N2_p23",
+   "V2N2_p25",
+   "V2N2_p32"
+  ],
+  "two-column + data": [
+   "V4N1_p6",
+   "V4N1_p7",
+   "V4N1_p9",
+   "V4N1_p10",
+   "V4N1_p11",
+   "V4N1_p12",
+   "V4N1_p13",
+   "V4N1_p14",
+   "V4N1_p15",
+   "V4N1_p16",
+   "V4N1_p21",
+   "V4N1_p26",
+   "V2N2_p6",
+   "V2N2_p20",
+   "V2N2_p37"
+  ],
+  "single column": [
+   "V4N1_p3",
+   "V4N1_p27",
+   "V4N1_p28",
+   "V4N1_p30",
+   "V2N2_p2",
+   "V2N2_p3",
+   "V2N2_p5",
+   "V2N2_p14",
+   "V2N2_p19",
+   "V2N2_p21",
+   "V2N2_p22",
+   "V2N2_p26",
+   "V2N2_p27",
+   "V2N2_p29",
+   "V2N2_p30"
+  ],
+  "near-empty": [
+   "V4N1_p1",
+   "V4N1_p2",
+   "V4N1_p19",
+   "V2N2_p1",
+   "V2N2_p38",
+   "V2N2_p39",
+   "V2N2_p40"
+  ],
+  "excluded": []
+ },
+ "draw": {
+  "two-column prose": [
+   "V2N2_p31",
+   "V2N2_p4",
+   "V4N1_p22"
+  ],
+  "tables": [
+   "V2N2_p10",
+   "V2N2_p12",
+   "V2N2_p16",
+   "V2N2_p32",
+   "V4N1_p25"
+  ],
+  "two-column + data": [
+   "V2N2_p6",
+   "V4N1_p13",
+   "V4N1_p21",
+   "V4N1_p7"
+  ],
+  "single column": [
+   "V2N2_p3",
+   "V4N1_p27"
+  ]
+ },
+ "seed": 20261108,
+ "quota": [
+  3,
+  5,
+  4,
+  2
+ ],
+ "split_dpi": true,
+ "exclude": []
+}
