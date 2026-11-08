@@ -21,6 +21,51 @@ one `Superseded`.
 
 ---
 
+## ADR-041 — Scanner bands at a page's edges are painted out before OCR
+**Date:** 2026-11-08 · **Status:** Accepted (roadmap 14 item 1.2, border cleanup; user asked for it 2026-11-08)
+**Context:**
+- The 1985 patent specification (P85) was scanned with a solid black band across
+  the top and bottom of almost every page; some pages sit in a full black frame.
+  After ADR-040 these pages are OCR'd, and Tesseract read the speckle in the bands
+  as junk words: P85 p6 (set E) gained `t snes ee nsn bago ey set et ines …` and
+  scored wer 0.110 against its own layer's 0.014.
+- A survey of every scanned page in the 16 test PDFs found solid black regions of
+  four kinds: P85's scanner bands; hairline strips along the very edge of some PBR
+  scans; printed black header bars in the PBR journals; photos and banners inside
+  the page.
+**Decision:** `parsers/borders.py`, run first in `TesseractEngine.ocr_page`.
+- A *band* is a connected region of solid cells (2 mm cells ≥ 70% near-black,
+  on a 36 dpi render) that spans ≥ 50% of the page, lies wholly in the outer 18%
+  margin, **runs off the page** at one end, and is **≥ 4% deep**. The last two
+  were added after a first version also removed PBR edge hairlines and header
+  bars: that changed no junk but nudged Tesseract's page segmentation, which lost
+  a heading (V2 p23) and a caption (V1N3 p7) on PBR pages. With them, the rule
+  fires on 25 of P85's 26 pages and on no page of any other test PDF.
+- The band is covered with white **vector rectangles** drawn over a copy of the
+  page, following its outline per cell column, bridging holes of ≤ 3 cells.
+  Re-rasterising the page instead resampled every pixel (about 900k bytes changed
+  on a page whose only edit was a 4 mm strip) and moved OCR results at random.
+- Both OCR passes (the psm 3 layout and the ADR-038 guard) read the cleaned copy.
+- `ocr.BORDER_CLEANUP = False` switches it off; the bake-off's `no-borders` engine
+  does that and reproduces the previous default byte for byte on all 76 scored
+  pages.
+**Consequences:**
+- Set E's P85 pages: p6 wer 0.110 → 0.053 (word precision 0.917 → 0.968), p21
+  0.086 → 0.082. Set E overall 0.084 → 0.079. Every other scored page is
+  byte-identical.
+- P85's 23 other pages have no reference; scored against the PDF's own hidden
+  layer as a silver reference (it scored wer 0.014 and 0.045 on the referenced
+  pages): mean wer 0.585 → 0.440, precision 0.719 → 0.772, better on 17 pages.
+  Recall falls 0.871 → 0.851. Part of that is text from the *neighbouring* page
+  visible at the scan's edge (in the layer, not part of this page), but **p5 loses
+  a real line** ("Address of Applicant: New Murphy Road …").
+- The p5 loss is the ADR-038 guard, not the cleanup: the guard counts junk as
+  words, so once the bands were gone it out-counted psm 3 on the stamp-covered
+  cover page and replaced psm 3's correct text. The cleanup flips the guard's
+  choice on 9 P85 pages, 7 of them toward psm 3. A guard that counts only
+  plausible words is the follow-up; it changes every scan's path choice, so it
+  needs its own held-out check.
+
 ## ADR-040 — A scan's invisible OCR layer is not trusted: such pages are OCR'd
 **Date:** 2026-11-08 · **Status:** Accepted (roadmap 14 item 0.2: "if the layer loses, add a gate")
 **Context:**

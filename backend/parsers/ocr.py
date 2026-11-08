@@ -35,7 +35,7 @@ from functools import lru_cache
 
 import pymupdf
 
-from . import photo_regions, tesseract_layout
+from . import borders, photo_regions, tesseract_layout
 from .reading_order import Line, order_lines
 
 # Drop OCR noise read out of photographs (ADR-037). False restores the ADR-035
@@ -46,6 +46,11 @@ SKIP_PHOTO_REGIONS = True
 # (ADR-038), keeping the ADR-035/037 text as a guard against dropped text.
 # False restores the ADR-037 path, which the bake-off keeps as a baseline.
 TESSERACT_LAYOUT = True
+
+# Paint out solid scanner bands at the page edges before OCR (borders.py), so
+# their speckle is not read as junk words. False restores the path before it,
+# which the bake-off keeps as a baseline.
+BORDER_CLEANUP = True
 
 # EasyOCR uses ISO 639-1 short codes ("en"); the rest of the pipeline speaks
 # Tesseract's 639-2/T codes ("eng"). Translate the common cases so one env var
@@ -85,6 +90,11 @@ class TesseractEngine(OcrEngine):
     name = "tesseract"
 
     def ocr_page(self, page: pymupdf.Page, *, dpi: int, language: str) -> str:
+        # Every pass below reads the same cleaned pixels: a guard that still saw the
+        # junk could otherwise out-count, and override, the cleaned text.
+        cleaned = borders.cleaned_page(page) if BORDER_CLEANUP else None
+        if cleaned is not None:
+            _doc, page = cleaned  # _doc keeps the cleaned page alive
         # full=True rasterizes and OCRs the whole page (the right choice for an
         # image-only page), so it also works when forcing OCR over a text layer.
         mask = photo_regions.photo_mask(page) if SKIP_PHOTO_REGIONS else None

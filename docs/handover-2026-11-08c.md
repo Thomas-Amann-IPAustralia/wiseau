@@ -49,7 +49,22 @@ Tests: 519 passed, 8 skipped.
   0.046, cer 0.014, ord 0.075, word recall 0.966, number recall 0.947.
 - No adjudication pass has been run on sets E, F or L yet.
 
+## Later the same session: border cleanup (ADR-041)
+
+The user said "keep ADR-040 on, start the border cleanup next". Done:
+`parsers/borders.py` paints out solid scanner bands (only the 1985 patent has
+them). P85 p6 0.110 → 0.053; nothing else scored changed. Read
+`docs/benchmarks/2026-11-08-border-cleanup.md` before touching it: two plausible
+first versions were wrong (re-rasterising resamples the page; removing hairline
+edge strips perturbs Tesseract's segmentation). `silver_layer.py` scores an OCR
+flag against a PDF's own hidden layer on pages without references.
+
 ## What to do next, in order
+
+0. **Fix the ADR-038 guard's word count** (count plausible words, not junk):
+   it cost P85 p5 a real line once its bands were gone. It can change the path of
+   any scan, so re-run the default on every scored set and check P85 with
+   `silver_layer.py`.
 
 1. Optional, cheap: adjudicate sets E/F/L references against the disagreements
    between `forced-ocr` and `hidden-layer` (`disagreements.py` pattern), against

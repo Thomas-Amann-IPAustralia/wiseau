@@ -610,6 +610,13 @@ No paid API is used for this work unless the user says otherwise.
   patents neutral (0.094 → 0.092). *Verified: 519 passed, 8 skipped; old default
   reproduced byte for byte as `trust-layer`.* Write-up:
   `docs/benchmarks/2026-11-08-layer-audit.md`.
+- [x] **1.2 (part) Border cleanup (ADR-041).** Solid scanner bands at a page's
+  edges are painted out before OCR (`parsers/borders.py`). Fires only on the 1985
+  patent's pages. P85 p6 wer 0.110 → 0.053; set E 0.084 → 0.079; the other 74
+  scored pages byte-identical. *Verified: 529 passed, 8 skipped.*
+- [ ] **ADR-038 guard counts junk as words** (found by ADR-041: P85 p5 lost a
+  line). Count plausible words only; held-out check on every scored set.
+- [ ] **1.2 rest**: deskew, contrast, Sauvola, denoise.
 
 Started 2026-11-08. Tiered plan, gates and rationale in
 [`roadmap-ocr-and-structure.md`](roadmap-ocr-and-structure.md), drawn from the two

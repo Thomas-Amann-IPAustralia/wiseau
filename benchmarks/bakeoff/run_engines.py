@@ -16,6 +16,7 @@ side by side: concurrent runs on a small box inflate every timing (post-mortem
   python benchmarks/bakeoff/run_engines.py hidden-layer   # the page's own (invisible OCR) text layer, as is
   python benchmarks/bakeoff/run_engines.py forced-ocr     # default path, but OCR every page (ignore the layer)
   python benchmarks/bakeoff/run_engines.py trust-layer    # default path before ADR-040 (reads a scan's invisible layer)
+  python benchmarks/bakeoff/run_engines.py no-borders     # default path before scanner-band cleanup
 
 Add `--set b`, `--set c`, `--set d`, `--set e`, `--set f` or `--set l` to run another independently
 transcribed sample (SAMPLE_B ... SAMPLE_L in regions.py) instead of the original one. Timings are merged into the engine's
@@ -76,6 +77,17 @@ def hidden_layer_engine():
     yields nothing.
     """
     return lambda data: pymupdf.open(stream=data, filetype="pdf")[0].get_text()
+
+
+def no_borders_engine():
+    """The default path before scanner-band cleanup (borders.py): bands are OCR'd as they are."""
+    sys.path.insert(0, str(ROOT / "backend"))
+    from parsers import ocr
+    from parsers.file_parser import file_to_markdown
+
+    if hasattr(ocr, "BORDER_CLEANUP"):
+        ocr.BORDER_CLEANUP = False
+    return lambda data: file_to_markdown(data, "page.pdf", engine="pymupdf")
 
 
 def trust_layer_engine():
@@ -206,6 +218,8 @@ def main() -> None:
         run = glm_engine(url)
     elif engine == "hidden-layer":
         run = hidden_layer_engine()
+    elif engine == "no-borders":
+        run = no_borders_engine()
     elif engine == "trust-layer":
         run = trust_layer_engine()
     elif engine == "forced-ocr":

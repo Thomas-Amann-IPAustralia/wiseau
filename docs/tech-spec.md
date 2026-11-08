@@ -324,6 +324,7 @@ The backend is deliberately small and layered. Each module has one job.
 | `parsers/file_parser.py` | Select the conversion engine (the request's `engine`, else `WISEAU_PDF_ENGINE`, default `pymupdf`): PyMuPDF4LLM (legacy mode) + per-page OCR / Mammoth, or docling when it is selected — with automatic fallback to the local parsers. Dispatch by extension; then clean. Validate a caller's engine choice (`resolve_engine`); report the deployment default (`default_engine`). | Hard-depend on docling; return unnormalized text; inline a DOCX image as a base64 data URI (ADR-024); use PyMuPDF4LLM's unstable layout/OCR engine in the fallback. |
 | `parsers/docling_client.py` *(Phase 6)* | Thin HTTP client to docling-serve (`WISEAU_DOCLING_BASE`): document bytes → Markdown, images requested as placeholders (ADR-024). Bounded timeout; typed errors so the caller can tell "docling down" from "bad document". | Contain conversion logic itself; retry forever; leak the token. |
 | `parsers/ocr.py` | Pluggable OCR engines (default MuPDF-Tesseract, opt-in EasyOCR): page image → text. Used by the *fallback* PDF path. | Introduce nondeterminism. |
+| `parsers/borders.py` | Find solid scanner bands at a scanned page's edges and cover them with white before OCR (ADR-041). Pure pixel arithmetic. | Touch a page with no band, a printed bar with white margin at both ends, or a hairline edge strip. |
 | `parsers/photo_regions.py` | Find photograph regions on a scanned page image, and tell OCR noise inside them from real words (ADR-037). Pure pixel arithmetic. | Drop a line outside a photo region, or one that reads as words. |
 | `parsers/reading_order.py` | Put a multi-column OCR page's lines back in column order from their bounding boxes (ADR-035). Pure geometry. | Guess when unsure: return `None` (keep MuPDF's order) unless real text columns are found. |
 | `parsers/tesseract_layout.py` | Read a scanned page with Tesseract's own layout analysis (psm 3), stitching side-by-side table cells back into rows (ADR-038). Pure geometry over Tesseract's TSV. | Stitch prose columns; return text when the CLI fails (return `None`, so the caller uses the ADR-035/037 guard). |
@@ -641,6 +642,14 @@ OCR DPI is a fixed constant (300). All OCR output still ends in `clean_markdown(
     returned. This costs a second OCR pass (~8 s/page instead of ~4).
   - Deterministic for fixed pixels. `ocr.TESSERACT_LAYOUT = False` restores the
     ADR-037 path.
+  **Scanner bands (ADR-041):** before any of the above, `parsers/borders.py`
+  looks for solid black bands a scanner leaves at a page's edge. A band is a
+  connected region of near-black 2 mm cells that spans ≥ 50% of the page, lies
+  wholly in the outer 18% margin, runs off the page at one end, and reaches ≥ 4%
+  in from the edge (so hairline edge strips and printed header bars are left
+  alone). Each band is covered by white vector rectangles on a copy of the page
+  (never a re-rasterised image), and every OCR pass reads that copy. Pages with
+  no band are untouched. `ocr.BORDER_CLEANUP = False` switches it off.
 - `easyocr` (opt-in) — a neural engine that handles handwriting and noisy
   captures. Enabled with `WISEAU_OCR_ENGINE=easyocr` after
   `pip install -r requirements-ocr.txt`. PyTorch is heavy, so it is kept out of
