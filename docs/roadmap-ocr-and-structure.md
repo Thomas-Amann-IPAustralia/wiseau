@@ -93,11 +93,11 @@ can ship) are noted inline.
   producer tag. A first look at their layers shows misreads such as `PATENT
   SPEOIFIOATION` and `L-d1ow`. That makes this the most common failure in the
   new material, so do it before any other Tier 1 item.
-- [ ] **0.3 Harness metrics.** Add CER, a block reading-order score
+- [x] **0.3 Harness metrics.** *Done 2026-11-08 (`docs/benchmarks/2026-11-08-tier0.md`): cer, line-level ord, pun_r/pun_p/pun_rf, rss, fail. Block order waits for 2.3's block annotations.* Add CER, a block reading-order score
   (normalised edit distance over block order), seconds/page, peak RSS and
   failure rate to `benchmarks/bakeoff/`. Add a punctuation-aware variant so 0.1
   is measurable. Report changes only, no new runs needed. *Effort: small.*
-- [ ] **0.4 Keep docling's JSON.** Have `docling_client.py` request
+- [x] **0.4 Keep docling's JSON.** *Done 2026-11-08: `convert_document_full()` and the harness keep it. The pinned docling (2.113.0) has the heading-level stage but docling-serve 1.27.0 does not expose it; a pin bump would.* Have `docling_client.py` request
   `to_formats=md,json` and keep the JSON next to the Markdown in experiments, so
   the document tree and table spans aren't thrown away. Also check whether the
   pinned docling-serve version exposes the heading-level stage (bookmarks →

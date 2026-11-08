@@ -594,6 +594,12 @@ No paid API is used for this work unless the user says otherwise.
   `keywords.py` folds ’ → ' in its matching key. API `0.13.0 → 0.14.0`.
   *Verified: 509 passed, 8 skipped; Vol 16 No 3 and Vol 20 No 4 keep ~4,300
   typographic characters that were flattened before.*
+- [x] **0.3 Harness metrics.** `score.py`: cer, line reading-order error, printed
+  punctuation (strict and folded); `run_engines.py`: peak RSS and failures per page
+  (`runs.json`). *Verified: earlier metrics unchanged on all 530 page scores.*
+  Write-up: `docs/benchmarks/2026-11-08-tier0.md`.
+- [x] **0.4 Keep docling's JSON** (experiments only, no contract change).
+- [ ] **0.2 Text-layer trust check**, then set E (1.1) and held-out PBR set F (1.1b).
 
 Started 2026-11-08. Tiered plan, gates and rationale in
 [`roadmap-ocr-and-structure.md`](roadmap-ocr-and-structure.md), drawn from the two
