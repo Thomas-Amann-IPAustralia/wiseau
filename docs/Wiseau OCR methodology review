@@ -365,10 +365,108 @@ I'd formalise this into a metric alongside accuracy.
 
 For example:
 
-| Measure                | Why it matters                    |
-| ---------------------- | --------------------------------- |
-| WER / CER              | Recognition quality               |
-| Numeric recall         | Preservation of important figures |
-| Reading-order accuracy | Structural correctness            |
-| Seconds per page       | Processing speed                  |
-| CPU and me
+| Measure | Why it matters |
+|--------|--------|
+| WER / CER | Recognition quality |
+| Numeric recall | Preservation of important figures |
+| Reading-order accuracy | Structural correctness |
+| Seconds per page | Processing speed |
+| CPU and memory | Deployment requirements |
+| Failure rate | Operational reliability |
+
+The objective shouldn't necessarily be the lowest possible WER at any cost.
+
+It should be the best balance of fidelity, reliability and processing efficiency.
+
+---
+
+### 5\. My proposed next experiment sequence
+
+I wouldn't start by implementing all of this. I'd use a series of small, independently measurable experiments.
+
+| Priority | Experiment | Expected value | Effort |
+|--------|--------|--------|--------|
+| 1 | Preprocessing ablation | Potentially improves recognition across multiple page types | Low |
+| 2 | Audit hidden OCR layers | Prevents poor existing text from bypassing OCR | Low |
+| 3 | PP-OCRv6 comparison | Tests a newer specialist recogniser | Low–moderate |
+| 4 | Table Transformer comparison | Targets your remaining table reconstruction problems | Moderate |
+| 5 | PP-StructureV3 layout detection | Tests a different approach to page structure | Moderate |
+| 6 | Region-level selective routing | Combines the best methods without processing every page repeatedly | Moderate–high |
+| 7 | Set E external-domain benchmark | Establishes whether improvements generalise | Moderate |
+
+One thing I'd deliberately avoid for now is another large-scale multi-engine voting experiment. You've already found that voting can make results worse than the best individual engine. I'd only revisit ensemble approaches once you have reliable region-level evaluation and a specific reason to believe the engines make complementary errors.
+
+### 6\. Some papers and research resources worth keeping
+
+These are the references I'd put on the project's research reading list.
+
+| Research | Why it's relevant |
+|--------|--------|
+| **[OCR in the Foundation Model Era: From Specialist Models to Unified Models (2026)](https://arxiv.org/abs/2611.04874)** | Current overview of the competing OCR architectures and their limitations |
+| **[Document Image Quality Assessment: A Survey (2024)](https://doi.org/10.1145/3606692)** | Image preprocessing and quality assessment |
+| **[A Review of Document Binarization (2024)](https://doi.org/10.3390/electronics13071394)** | Image preparation for degraded documents |
+| **[PP-OCRv6 (2026)](https://arxiv.org/abs/2606.13108)** | New lightweight specialist OCR models |
+| **[PubTables-1M (2022)](https://arxiv.org/abs/2110.00061)** | Table detection and structure reconstruction |
+| **[DocLayNet (2022)](https://arxiv.org/abs/2206.01062)** | Document layout detection |
+| **[A Survey of OCR Evaluation Tools and Metrics (2021)](https://doi.org/10.1007/978-3-030-86159-9_2)** | How to measure OCR quality properly |
+| **[Neural OCR Post-Hoc Correction of Historical Corpora (2021)](https://aclanthology.org/2021.tacl-1.28/)** | Domain-specific correction of historical OCR |
+
+---
+
+### My overall assessment
+
+I think Wiseau is at an interesting point in its development.
+
+You've demonstrated that relatively inexpensive, traditional OCR technology can outperform more sophisticated document-understanding models on your particular material. Your latest results are a good example.
+
+I wouldn't interpret that as evidence that Tesseract is inherently better than modern OCR models. Rather, it demonstrates that **choosing the right combination of segmentation, recognition and reconstruction techniques can matter more than choosing the most powerful recogniser.**
+
+The biggest opportunity, in my view, is moving towards a modular, quality-aware pipeline:
+
+**1\. Input PDF**
+
+Extract existing text where it is trustworthy
+
+**2\. Page quality assessment**
+
+Assess scan quality, orientation, contrast and degradation
+
+**3\. Layout detection**
+
+Identify columns, tables, paragraphs and other regions
+
+**Ordinary text**
+
+Tesseract / PP-OCRv6
+
+**Tables**
+
+Table Transformer / PP-Structure
+
+**4\. Reading-order reconstruction**
+
+Reassemble the page while preserving its structure
+
+**5\. Quality validation and selective retry**
+
+Identify suspicious regions and retry only where necessary
+
+**6\. Faithful extracted document**
+
+Preserve the original transcription and layout, with uncertainty identifiable
+
+The important architectural idea is that each component does one job, and you can evaluate, replace or improve it independently.
+
+**My strongest recommendation:** before investing in another recogniser, test preprocessing and specialist layout/table detection. Those are the two avenues most directly supported by your current failure patterns and by the research literature.
+
+A weekly watch for new OCR papers, models and benchmark results could also help keep the project current.
+
+Weekly OCR research watch
+
+---
+
+If you want, I can:
+
+- Plan a preprocessing ablation experiment
+- Outline a modular OCR pipeline incorporating layout detection and region-level routing
+- Develop an evaluation plan expanding document sets and metrics
