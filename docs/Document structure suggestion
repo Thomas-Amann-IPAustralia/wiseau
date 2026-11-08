@@ -523,4 +523,248 @@ I'd separate three operations:
 
 Unicode NFC normalisation and line-ending standardisation are reasonable technical operations in many contexts. Rewriting punctuation is a different matter.
 
-You could still offer an optional simplified-text output for downstream systems, but the faithful representation should be t
+You could still offer an optional simplified-text output for downstream systems, but the faithful representation should be the default.
+
+---
+
+### 5\. Markdown itself imposes limitations
+
+This is worth acknowledging explicitly.
+
+Markdown is primarily a lightweight markup language for representing structured text. It isn't a complete representation of the original document.
+
+It doesn't natively represent every aspect of:
+
+- Physical page layout.
+- Exact positioning of elements.
+- Complex table structures.
+- Arbitrary typography.
+- Footnote relationships in every implementation.
+- Multi-column layouts.
+- Complex figures and their associated annotations.
+
+Different Markdown implementations also support different extensions.
+
+I'd choose a specific output standard for Wiseau rather than treating Markdown as one universal format.
+
+My preference would be:
+
+**Preferred output strategy**
+
+(Recommended)
+
+**CommonMark-compatible Markdown with selective HTML**
+
+Use conventional Markdown for headings, prose, lists, quotes and simple tables.
+
+Use embedded HTML where necessary for complex tables, captions, figures and other structures that Markdown cannot represent faithfully.
+
+Use LaTeX syntax for mathematical expressions where appropriate.
+
+Keep images as external assets rather than base64 payloads.
+
+Maintain document metadata and provenance in a JSON sidecar.
+
+This is not an unusual compromise. Even Docling recognises that its serializers make format-specific trade-offs and recommends HTML or JSON where Markdown cannot preserve table structure.
+
+I would actually consider making Wiseau's downloadable output a ZIP containing:
+
+```text
+converted-document/
+│
+├── document.md
+├── document.json
+│
+└── assets/
+    ├── figure-001.png
+    ├── figure-002.png
+    └── figure-003.png
+```
+
+The Markdown is the convenient human-readable representation.
+
+The JSON is the richer, structured representation.
+
+The assets preserve the visual components.
+
+That gives you room to improve the Markdown renderer in the future without having to process the original PDF again.
+
+---
+
+### 6\. How I'd evaluate whether the resulting Markdown is accurate
+
+This is another area where I would move beyond your current OCR benchmark methodology.
+
+You currently have a fairly good framework for measuring text recognition. But you'd need another set of measurements for structural fidelity.
+
+The research provides some useful precedents.
+
+OmniDocBench evaluates text, layout, reading order, tables and formulas using different metrics. MPDocBench-Parse extends this into multi-page continuity and heading hierarchy. LongDocBench adds document-level relationships.
+
+I'd adopt a similar approach.
+
+| Dimension | Suggested measure | What you're testing |
+|--------|--------|--------|
+| Text fidelity | WER / CER | Is all text retained accurately? |
+| Block detection | Precision / recall / F1 | Have all paragraphs, tables, headings and figures been found? |
+| Reading order | Normalised edit distance | Is the sequence correct? |
+| Heading hierarchy | Tree edit distance | Are sections and subsections nested correctly? |
+| Table fidelity | TEDS | Are rows, columns and cells correctly reconstructed? |
+| Figure relationships | Precision / recall / F1 | Are captions, sources and notes attached to the correct figures? |
+| Footnote relationships | Precision / recall / F1 | Are the references correctly associated? |
+| Cross-page continuity | Merge/split accuracy | Are continuing paragraphs and tables reconstructed correctly? |
+| Asset preservation | Asset recall | Have all meaningful figures been retained? |
+
+TEDS, for example, is a tree-edit-distance metric originally developed for table structure recognition. It evaluates the reconstructed table structure rather than just comparing a flattened string of words.
+
+For heading hierarchy, MPDocBench-Parse uses tree edit distance to compare predicted heading structures with their ground-truth hierarchies.
+
+### One particularly useful testing idea
+
+I'd create a small collection of manually annotated *gold-standard documents*\.
+
+But instead of manually transcribing only their words, annotate their actual structure.
+
+For every element, record:
+
+- Its type.
+- Its text.
+- Its parent.
+- Its reading order.
+- Its source page.
+- Its relationships with other elements.
+
+Then compare Wiseau's reconstructed document tree against that reference.
+
+This would let you identify cases where the text is perfect but the document is structurally wrong.
+
+I'd include a few difficult examples, especially:
+
+- A multi-column publication.
+- A report with a deeply nested section hierarchy.
+- A document with several tables continuing across pages.
+- A document with lots of footnotes.
+- A magazine with photographs, captions and sidebars.
+- A document with an unusually complicated table of contents.
+
+You don't need hundreds of documents to begin. A carefully selected sample of perhaps 10–15 documents, with a number of manually annotated pages each, would be a useful starting point.
+
+One other thing: retain the original page images and build a visual inspection facility. Ideally, selecting a reconstructed Markdown block should show the corresponding source region. That gives you a way to investigate errors rather than merely seeing that the final output looks wrong.
+
+---
+
+### 7\. My recommended development priorities for Wiseau
+
+Bringing the research and the repository together, this is the order in which I'd approach the work.
+
+**1\. Preserve Docling's structured output** (Do first)
+
+The current `docling_client.py` requests `to_formats=md` only. Change the experiment to request both `md` and `json`\.
+
+Retain the JSON output so you can access the document tree, table structure and provenance instead of throwing that information away.
+
+---
+
+**2\. Introduce a canonical document representation**
+
+Create a format-independent internal document model.
+
+Ideally, adapt Docling's JSON into this model, with equivalent adapters for PyMuPDF, Mammoth and web extraction.
+
+Keep original text, page coordinates, hierarchy, relationships and source provenance.
+
+---
+
+**3\. Implement document-level structure recovery**
+
+Prioritise:
+
+- Heading hierarchy.
+- TOC matching.
+- Paragraph continuation.
+- Cross-page tables.
+- Figure/caption relationships.
+- Footnote relationships.
+
+I'd start with bookmarks, TOC entries, numbering and typography before introducing additional generative models.
+
+---
+
+**4\. Build a dedicated Markdown serializer**
+
+Render the canonical document model into Markdown.
+
+Decide when to use Markdown syntax, when to use embedded HTML, and how to reference external images.
+
+Make the output dialect explicit.
+
+---
+
+**5\. Introduce structural evaluation**
+
+Create your gold-standard document trees and evaluate structural accuracy separately from OCR accuracy.
+
+Add visual inspection and source-region traceability.
+
+---
+
+**6\. Add confidence and selective human review**
+
+Record uncertain relationships, heading levels and continuation decisions.
+
+Don't silently invent structure. Allow the pipeline to say that a relationship is uncertain rather than confidently attaching the wrong caption or merging two unrelated paragraphs.
+
+### 8\. The academic reading list I'd prioritise
+
+These are the papers and resources I'd keep close to the project. The first three are the most important for the problem you're now tackling.
+
+| Research | What I'd read it for |
+|--------|--------|
+| [MPDocBench-Parse (2026)](https://arxiv.org/abs/2605.22100) | The most directly relevant benchmark for multi-page document reconstruction, heading hierarchies and continuity |
+| [LongDocBench (2026)](https://arxiv.org/abs/2608.15064) | Recovering TOC hierarchies and relationships between tables, figures, captions, notes and sources |
+| [OmniDocBench (CVPR 2025)](https://arxiv.org/abs/2412.07626) | Comprehensive evaluation of document parsing, including reading order, tables and layout |
+| [Docling Technical Report (2025)](https://arxiv.org/abs/2501.17887) | A practical architecture for a unified structured document representation |
+| [PubTables-1M (2022)](https://arxiv.org/abs/2110.00061) | Table reconstruction and structural evaluation |
+| [DocLayNet (2022)](https://arxiv.org/abs/2206.01062) | Document layout classification and segmentation |
+| [Docling: Heading levels](https://docling-project.github.io/docling/usage/heading_levels/) | A practical approach using bookmarks, numbering and visual style |
+| [Docling: Serialization](https://docling-project.github.io/docling/concepts/serialization/) | Understanding what is lost or retained when converting structured documents into Markdown |
+
+---
+
+### My final recommendation
+
+I think there's a fairly significant opportunity here that goes beyond making a better PDF-to-Markdown converter.
+
+**Wiseau could become a document reconstruction engine with Markdown as its primary output format.**
+
+The distinction is important.
+
+A conventional converter asks:
+
+*How do I turn this PDF into Markdown?*
+
+Wiseau should instead ask:
+
+*What is this document made of, how do its elements relate to each other, and how should I represent that structure in Markdown without losing information?*
+
+That changes the development problem quite substantially.
+
+And there's one thing I'd particularly encourage you not to do: don't build the next stage around asking an LLM to take perfectly recognised text and turn it into nicely formatted Markdown. That might produce attractive results, but it risks silently changing, dropping or inventing content.
+
+Use models and heuristics to identify structure and relationships. Keep the source transcription immutable. Then use a deterministic renderer to produce the Markdown.
+
+**The single most valuable next step is to experiment with Docling's JSON output and establish a canonical document representation before doing any more work on the Markdown itself.**
+
+That gives you a foundation on which almost every subsequent improvement can be built.
+
+A weekly research watch would also help identify new document-reconstruction methods as this field develops.
+
+Weekly document reconstruction research watch
+
+---
+
+If you want, I can:
+
+- Suggest architecture for implementing document intermediate representation
+- Propose an algorithm for paragraph continuation detection
+- Outline a Markdown output strategy including HTML usage and asset management

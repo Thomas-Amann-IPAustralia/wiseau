@@ -587,6 +587,18 @@ No paid API is used for this work unless the user says otherwise.
 - [ ] **UI progress estimate under `glm-ocr`** still assumes minutes for any PDF.
 - [ ] **GLM-OCR runs over 20 scanned pages** are not chunked to the service cap.
 
+## Phase 14 — OCR methodology and document structure (proposed, 2026-11-08)
+
+Proposed, not started. Tiered plan, gates and rationale in
+[`roadmap-ocr-and-structure.md`](roadmap-ocr-and-structure.md), drawn from the two
+external reviews in `docs/`. Headline order: Tier 0 quick fixes (cleaner keeps
+printed punctuation — needs user sign-off; text-layer trust check; harness CER /
+order / cost metrics; keep docling JSON) → Tier 1 evidence (set E from other
+publications; preprocessing ablation; Table Transformer / PP-StructureV3 /
+PP-OCRv6 bake-off) → Tier 2 canonical document IR + byte-neutral serializer +
+structural gold set → Tier 3 structure recovery (headings, furniture,
+continuation, figure assets, footnotes, cross-page tables, region routing).
+
 ---
 
 ## Cross-cutting backlog (not phase-bound)
