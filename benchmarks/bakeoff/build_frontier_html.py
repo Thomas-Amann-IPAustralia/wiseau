@@ -171,8 +171,10 @@ from the page image by Claude Opus 5.5 in an earlier session, under the conventi
 It was not redone for this page.</p>
 <p><b>The other two columns</b> each come from one successful request per page: <span id="settings"></span>
 Both models got the same <span id="dpi"></span>-dpi PNG, the one shown here. Total spend: $<span id="spent"></span>,
-including failed and superseded requests. A 30-second proxy timeout made the first request to each model fail
-(HTTP 502, kept on record). The first Gemini answer for V5N1 p18 was made at the "high" image setting. It was
+including failed and superseded requests (failures booked at their worst case, so the true bill is lower).
+Four requests got no answer: this session's network proxy drops a request that is silent for 30 seconds
+(three HTTP 502s), and one was cut off when the runner hit a time limit. All four are recorded in
+<code>manifest.json</code> and were sent again; no page has more than one answer per model to choose from. The first Gemini answer for V5N1 p18 was made at the "high" image setting. It was
 superseded <i>before any comparison</i>, because "ultra high" is Gemini's maximum and GPT had read the page at
 full resolution. The superseded answer is kept unchanged in the repository.</p>
 <p><b>Integrity.</b> Each text is embedded here as its exact bytes. Your browser recomputes each SHA-256 when the
@@ -187,7 +189,7 @@ page loads and checks it against the hash recorded when the API response arrived
 <div class="controls">
 <label><input type="radio" name="view" value="raw" checked> Raw text</label>
 <label><input type="radio" name="view" value="rendered"> Rendered Markdown</label>
-<label><input type="checkbox" id="hl"> Highlight words the other two don't have</label>
+<label><input type="checkbox" id="hl"> Highlight words the other two don't have (raw view)</label>
 <label><input type="checkbox" id="wrap" checked> Wrap lines</label>
 <label><input type="checkbox" id="blind"> Blind (hide and shuffle model names)</label>
 <nav class="jump" id="jump"></nav>
@@ -283,7 +285,7 @@ function draw() {
       grid.append(col);
       crypto.subtle.digest("SHA-256", e.bytes).then(d => {
         const got = hex(d), el = $(".integrity", col);
-        el.innerHTML = got === e.sha ? `<span class="ok">✓ sha256 ${got.slice(0, 16)}… matches the recorded hash</span>`
+        el.innerHTML = got === e.sha ? `<span class="ok">✓ sha256 ${got.slice(0, 16)}… verified</span>`
           : `<span class="bad">✗ sha256 ${got.slice(0, 16)}… does NOT match ${e.sha.slice(0, 16)}…</span>`;
       }).catch(() => { $(".integrity", col).textContent = "sha256 " + e.sha.slice(0, 16) + "… (browser cannot verify here)"; });
     });

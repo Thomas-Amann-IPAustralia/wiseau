@@ -2,7 +2,7 @@
 
 Reproduces the 10-page engine comparison. The results and their write-up are in
 [`docs/benchmarks/2026-11-02-bakeoff-rerun.md`](../../docs/benchmarks/2026-11-02-bakeoff-rerun.md).
-Only `run_gemini.py` calls a paid API. It enforces a hard USD cap with a persistent
+Only `run_gemini.py` and `run_frontier.py` call paid APIs. It enforces a hard USD cap with a persistent
 spend ledger and needs the user's explicit go-ahead before it is run. Nothing else here
 calls an external service.
 
@@ -25,6 +25,8 @@ calls an external service.
 | `rule_search.py` | Searches per-page preprocessing rules on the development sets and scores the best on E and F. |
 | `guard_cache.py`, `guard_eval.py` | The two texts the ADR-038 guard chooses between, for any pages; which pages a counting rule flips and whether that helps (ADR-042). |
 | `tatr_detections.py` | Table Transformer's raw table boxes and scores per scored scan. |
+| `run_frontier.py` | **Paid.** The user-requested frontier check (2026-11-09): GPT-6 Astra and Gemini 4 Argon transcribe the five hardest hand-annotated pages. Raw bodies kept byte for byte, hashes in `outputs/frontier-check/manifest.json`. |
+| `build_frontier_html.py` | Builds `docs/benchmarks/2026-11-09-frontier-transcriptions.html`: page image beside Claude's reference and both models' answers, hash-verified in the browser. |
 | `word_errors.py` | Lists every word an engine misread, lost or inserted on a set, against the references (`ENGINE --set l [--summary]`). Says *what* went wrong where `score.py` says how much. |
 
 Two samples: set A (`SAMPLE`, the original 10 pages) and set B (`SAMPLE_B`, 10 scanned pages blind-transcribed on 2026-11-03; see `docs/benchmarks/2026-11-03-set-b.md`). Add `--set b` to `run_engines.py` and `score.py` for set B, or `--set c` for set C (`SAMPLE_C`, held out for ADR-037 and the router; see `docs/benchmarks/2026-11-03-set-c.md`), or `--set d` for set D (`SAMPLE_D`, 12 scans from Vol 5 No 1 and No 3, held out for ADR-038; see `docs/benchmarks/2026-11-06-set-d.md`). Sets E (`SAMPLE_E`, 12 patent/WO pages), F (`SAMPLE_F`, 14 held-out PBR pages) and L (`SAMPLE_L`, 8 random pages from the Acrobat-OCR'd PBR journals) take `--set e`, `--set f` and `--set l`; see `docs/benchmarks/2026-11-08-layer-audit.md`.
