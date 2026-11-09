@@ -21,6 +21,217 @@ one `Superseded`.
 
 ---
 
+## ADR-047 — The image ships the table pass on; MuPDF's OCR call is serialised
+**Date:** 2026-11-09 · **Status:** Accepted (the user accepted ADR-046's recommendation)
+**Context:**
+- ADR-046 built the Table Transformer pass opt-in and recommended turning it on in
+  the deployed Space: table structure on scans more than doubles (TEDS 0.26 →
+  0.56), no word changes, +26% per scanned page, ~1 GB more memory.
+- The same image is documented for three hosts (`docs/hosting.md`): HF Spaces
+  (16 GB), Cloud Run (2 GiB recommended) and Render (512 MB).
+- Load-testing the built image found that **four concurrent scanned conversions
+  failed** with `Attempt to use Leptonica from 2 threads at once!`: MuPDF's
+  `Page.get_textpage_ocr` (the ADR-035/037 guard read on every scanned page) is
+  not thread-safe, and the service runs up to `MAX_CONCURRENT_JOBS` (4)
+  conversions in threads. The lean image fails the same way: this predates the
+  table pass and affected every deployment.
+**Decision:**
+- `backend/Dockerfile`: build arg `TABLES=1` (default) installs CPU PyTorch
+  2.15.0, torchvision 0.29.2 and `requirements-tables.txt`, and fetches the two
+  pinned models (`fetch_table_models.py`, which reads the ids and revisions from
+  `parsers/tables.py`) into `HF_HOME=/opt/hf`, root-owned and world-readable.
+  The image sets `WISEAU_TABLES=tatr`, `WISEAU_TABLE_THREADS=1` and
+  `HF_HUB_OFFLINE=1`: no conversion depends on Hugging Face at run time.
+  `--build-arg TABLES=0` builds the lean image; `WISEAU_TABLES=` (empty)
+  switches the pass off at run time.
+- The code default stays off (`WISEAU_TABLES` unset outside the image), and a
+  failure inside the pass (models missing, inference error) is logged and the
+  page is kept without it, never failing the conversion.
+- `ocr.py` holds a process-wide lock around `get_textpage_ocr`; Tesseract's psm 3
+  pass runs as its own process and stays parallel.
+- Hosting guide: Spaces need nothing; Cloud Run either 4 GiB or the pass off;
+  Render the pass off.
+**Consequences:**
+- Image 2.0 GB → 3.9 GB uncompressed (PyTorch and dependencies 1.4 GB, models
+  230 MB); first build several minutes longer. Verified built and run with no
+  network: `/ping`, OCR, a scanned table returned as a pipe table, as UID 1000.
+- In the container: V5N1 p18 over HTTP 14.7 s cold (model load included), 10.8 s
+  warm; **four at once all succeed** (26.9 s wall), peak process memory 1.9 GB.
+- CI builds both images: the full one must turn a rasterised table into a
+  table offline; the lean one must convert without PyTorch.
+- `tests/test_ocr.py::test_scanned_pages_convert_concurrently` failed before the
+  lock and passes after. Output is unchanged (the lock only orders calls).
+
+## ADR-046 — Table Transformer reads scanned tables cell by cell; opt-in, refuses prose
+**Date:** 2026-11-09 · **Status:** Accepted as opt-in (`WISEAU_TABLES=tatr`); whether to turn it on in the deployed Space is the user's call (roadmap 3.7; user asked for it)
+**Context:**
+- Set S showed the default path recovers no table structure on scans (TEDS
+  0.26): Tesseract reads the words, but ADR-038's stitched rows hold line
+  fragments, not columns, and side-by-side tables interleave (V5N1 p18, wer 0.30).
+- The Tier 1 bake-off found Table Transformer (TATR) fixes those tables but, as a
+  page-level switch, boxes two-column prose as tables and loses overall (+0.10
+  wer); neither its confidence nor the box size separated the cases.
+**Decision:** `parsers/tables.py`, an IR pass in `TesseractEngine.read_elements`,
+run only on psm 3's reading (not when ADR-038's guard text wins).
+- TATR detection (≥ 0.8) and structure recognition (v1.1-all), pinned revisions,
+  Microsoft's reference pre-processing, a fixed number of CPU threads
+  (`WISEAU_TABLE_THREADS`, default 1).
+- Cells are filled with psm 3's own words: each word to the row and column it
+  overlaps most, rows assigned per Tesseract line (skew), membership decided word
+  by word (psm 3 reads a line straight across side-by-side tables, so such a line
+  is split between them). The page's words are partitioned exactly.
+- A TATR row stacking records (2+ cells with the same number ≥ 2 of printed
+  lines) is split into one row per line, counted per column; a projected row
+  header keeps its words in the first cell only if they run on without a column
+  gap; TATR's spanning cells are not used.
+- **The check refuses a region whose cells average more than 2.5 words**, and a
+  region under 2 × 2. On the scored scans, prose boxed as a table averaged 3–67 words a cell; accepted tables 1.3–2.5.
+- Chosen on the development sets only (`tatr_eval.py`, cached TATR runs), then
+  run unchanged on the held-out sets and end to end.
+- Opt-in, with PyTorch an optional dependency (`requirements-tables.txt`):
+  without it, or with the variable unset, the pass is skipped, never an error.
+**Consequences:**
+- Set S table structure: TEDS 0.258 → 0.558 on the 8 documents all engines share
+  (docling 0.513, GLM-OCR 0.717); S01 0.23 → 0.96, S07 0.23 → 0.88, held-out S04
+  0.22 → 0.75. Block F1 0.718 → 0.756.
+- No text changes: every changed page has exactly the default's words. Order
+  moves with the cell reading: set D wer 0.072 → 0.052 (V5N1 p18 0.299 → 0.024),
+  the other sets +0.001 to +0.007, held-out E unchanged, F +0.007.
+- The check holds out of sample: on E and F, all 8 accepted regions are harmless
+  (none costs > 0.1 wer) and all 7 damaging regions were refused.
+- Cost: 7.1 → 9.0 s per scanned page on one thread (+26%; +8% on four), 2.8 s
+  model load per process, peak memory 0.28 → 1.17 GB, +1.9 GB of Docker image
+  (PyTorch and its dependencies, 230 MB of weights; measured in ADR-047). Born-digital pages cost
+  nothing. Deterministic across repeat runs and thread counts.
+- Not covered: born-digital tables, tables TATR misses, list-like tables with
+  long cells, spanning cells, headings, emphasis.
+- `docs/benchmarks/2026-11-09-tables.md`.
+
+## ADR-045 — The serializer writes tables with real cells as tables
+**Date:** 2026-11-09 · **Status:** Accepted (roadmap 2.2, the explicit dialect; user asked for it)
+**Context:**
+- ADR-043's serializer reproduced the old output byte for byte. The IR now holds
+  tables whose cells are real columns (ADR-046), and Markdown can say so.
+**Decision:**
+- A `table` element whose signal says its cells are columns (`CELL_SIGNALS`,
+  today `tatr`) is written as a **pipe table** when its first row is all header
+  cells and no cell spans others, else as an **HTML `<table>`** (`<th>` for
+  headers, `colspan`/`rowspan`); `|` is escaped in pipe cells, `& < >` in HTML
+  ones. HTML is valid Markdown and both scorers strip its tags.
+- ADR-038's stitched tables stay plain rows of text (`STITCHED_AS_TABLES =
+  False`): their "cells" are Tesseract line fragments, and written as tables
+  they gain nothing (set S TEDS 0.279 → 0.288, typed F1 down) while claiming
+  columns they don't have.
+- Headings: OCR elements have none yet (roadmap 3.1); text-layer blocks keep
+  PyMuPDF4LLM's own `#`. Plain OCR text is still not escaped.
+**Consequences:**
+- With the table pass off, every output is byte-identical to ADR-043/044's (15
+  test PDFs whole, all scored pages): the dialect only applies where the IR has
+  real cells.
+- `docs/benchmarks/2026-11-09-tables.md`.
+
+## ADR-044 — Text-layer blocks get boxes by aligning their words with the page's
+**Date:** 2026-11-09 · **Status:** Accepted (roadmap Phase 14, item 2.1 follow-up; user asked for it)
+**Context:**
+- ADR-043's IR gave OCR elements boxes but left text-layer elements (PyMuPDF4LLM's
+  Markdown blocks) without any: PyMuPDF4LLM's legacy Markdown reports no
+  positions. Page furniture (3.2), paragraph continuation (3.3) and region routing
+  (3.7) all need to know *where* a block sits, on born-digital pages too.
+- PyMuPDF4LLM cannot be switched to its layout mode (ADR-012: non-deterministic),
+  and re-deriving its blocks from `get_text("dict")` would change the Markdown.
+**Decision:** `parsers/text_layer.py`, run on every text-layer page in
+`file_parser._add_native_page` (`TEXT_LAYER_BOXES = False` turns it off).
+- Both sides are cut into the same tokens (letters and digits, lower case; link
+  targets and HTML tags such as `<u>` dropped), and the block tokens are aligned
+  with the page's `get_text("words")` tokens by `difflib.SequenceMatcher`
+  (`autojunk=False`). PyMuPDF4LLM sometimes emits blocks in another order than the
+  page lists its words, so further passes align what is left (runs of 2+ tokens),
+  until a pass aligns nothing (at most 32). A one-word block left over (a page
+  number) is placed only if exactly one unclaimed page token can be it.
+- Each element gets the union box of its aligned words, the page lines they sit
+  on (with boxes) as `lines`, `bbox_signal = "text-layer-alignment"` and
+  `bbox_coverage`, the measured share of its tokens that aligned. **Below 0.5 it
+  gets no box** (refuse rather than guess, ADR-030); the coverage is still reported.
+**Consequences:**
+- V16 and V20 (the two born-digital volumes, 479 text-layer pages, 4,605
+  elements): **99.3% of elements boxed** (4,573), 96.9% with coverage ≥ 0.9.
+  Unboxed (32): footnote markers glued to words by the text layer (`Argentina2`
+  against `Argentina <sup>2</sup>`), struck-through text, repeated labels whose
+  words another block already claimed, and table fragments PyMuPDF4LLM split
+  out of order (V20 p131, p173).
+- Box quality: text blocks do not overlap on a real page, so a box bloated by a
+  stray match would. Of 42,705 same-page pairs, 49 (0.11%) overlap by more than
+  half the smaller box, on 9 pages: repeated caption text (V16 p52–53, "Rose –
+  flower and plant parts" in every caption) and table rows PyMuPDF4LLM itself
+  split into interleaved blocks (V20 p173, p224). Drawn on V16 p8 and V20 p173,
+  the boxes sit on the right text.
+- The Markdown is untouched (the serializer does not read boxes): V16 and V20
+  converted whole are byte-identical to ADR-043's output, and so is every harness
+  page re-run (sets A and S, 26 pages; the alignment only runs on text-layer
+  pages, which in the harness are V16's). Time within noise (V20 whole: 26–28 s
+  either way).
+- JSON gains `bbox_signal` and `bbox_coverage` on such elements (schema stays
+  `0.1`: additive). 555 tests pass, 8 skipped.
+
+## ADR-043 — A document IR between the engines and the Markdown, serialized byte-neutrally
+**Date:** 2026-11-09 · **Status:** Accepted (roadmap Phase 14, items 2.1–2.2; user asked for Tier 2)
+**Context:**
+- Every converter went straight from its engine's output to a Markdown string.
+  What the engine knew about the text (each OCR line's box, which psm 3 groups
+  ADR-038 stitched into a table, which page a block came from, which engine read
+  it) was dropped at once, so no later stage could use it. Both external reviews
+  (`docs/Document structure suggestion`, `docs/Wiseau OCR methodology review`)
+  name this as the architectural gap: structure recovery (headings, furniture,
+  continuations, captions) and region-level routing (roadmap 3.7, where Table
+  Transformer is the lead) need elements with pages, boxes and provenance.
+- The roadmap set the gate: the refactor must be provably behaviour-neutral
+  before anything is built on it.
+**Decision:**
+- `parsers/document.py`: a `Document` is `pages` (number, size, `method`
+  text-layer/ocr/remote, source engine), `elements` in reading order, and
+  `relations`. An `Element` has `type`, `text` (as the engine produced it, never
+  edited), `text_format` (plain/markdown), `source`, `page`, `bbox` (PDF points;
+  `None` where the engine gives none), OCR `lines`, table `rows` of `Cell`s, a
+  heading `level`, and the `signal`/`confidence` behind any inferred type
+  (`confidence` is `None` unless calibrated: ADR-030's rule). `to_dict()` is
+  deterministic (fixed field order, coordinates to 0.01). The vocabulary for Tier
+  3 (caption, footnote, page_header, `caption_of`, `continues_from`, …) is
+  defined but not yet produced.
+- Adapters, the default path first: PyMuPDF4LLM's Markdown, split per page into
+  typed top-level blocks (`serializer.split_markdown`, never inside a code fence;
+  the fast path keeps one whole-document call with `page_chunks=True`, so heading
+  sizes are still judged over all pages); the Tesseract path as psm 3 text blocks
+  and row-stitched tables with every line's box, or ADR-035 paragraphs, or
+  MuPDF's own OCR text; Mammoth, docling and GLM-OCR Markdown as unpaged blocks.
+  `reading_order.order_paragraphs` and `tesseract_layout.groups` return the
+  structure their string functions used to flatten; the string functions remain,
+  as renders of it.
+- `parsers/serializer.py` renders the IR with fixed joins: an element as its text
+  (a table row by row), a page's elements by a blank line, the page stripped,
+  blank pages skipped, pages by a blank line. `file_to_markdown` is
+  `clean_markdown(to_markdown(file_to_document(...)))`.
+- The IR is internal: no endpoint returns it, so there is no contract change (API
+  stays 0.14.0). The harness writes it per page (`outputs/pymupdf/<page>.json`).
+**Consequences:**
+- **The gate held: byte-for-byte identical output.** All 15 test PDFs converted
+  whole (859 pages: 382 OCR'd, 477 from a text layer; the fast path, the mixed
+  path and the all-scanned path all exercised), a synthetic 8-page PDF
+  interleaving text-layer, image-only and Acrobat-layer pages, and every scored
+  benchmark page against its committed `outputs/pymupdf/` output. Whole-corpus
+  time is unchanged (the 4-worker run took the same 1–5 s a page).
+- One edge differs and is documented: a whitespace-only document now normalizes
+  to `""` instead of `"\n"`. Every caller tests `markdown.strip()`, so both mean
+  "no text" (the property test in `tests/test_document_ir.py` pins it).
+- Tests that stubbed `_geometric_text`/`read_page` now stub
+  `_geometric_elements`/`read_page_blocks`; the harness's `tesseract-unordered`
+  engine patches `order_paragraphs`. 548 tests pass, 8 skipped.
+- PyMuPDF4LLM's blocks have no boxes and their types are only as good as its
+  Markdown (`signal="markdown-syntax"`); a box-bearing text-layer adapter (from
+  `page.get_text("dict")`) is the follow-up, and must keep this gate.
+- Next on top of it: the explicit dialect (pipe/HTML tables; changes output, so
+  its own ADR), the structural gold set (2.3), then Tier 3 and TATR region routing
+  (3.7) as IR passes. `docs/benchmarks/2026-11-09-ir-neutrality.md`.
+
 ## ADR-042 — The ADR-038 guard counts plausible words; Tesseract runs on one thread
 **Date:** 2026-11-09 · **Status:** Accepted (hand-over 2026-11-08c item 0; the thread limit was found doing it)
 **Context:**

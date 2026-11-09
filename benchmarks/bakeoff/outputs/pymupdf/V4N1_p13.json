@@ -1,0 +1,1218 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    46.8,
+    54.72,
+    283.2,
+    139.44
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      47.28,
+      54.72,
+      258.72,
+      63.36
+     ],
+     "text": "in a medium consisting of pine bark and coarse sand"
+    },
+    {
+     "bbox": [
+      46.8,
+      64.8,
+      260.4,
+      72.96
+     ],
+     "text": "fertilised with \u201c\u201cOsmocote\u201d, lime, and micronutrients."
+    },
+    {
+     "bbox": [
+      47.28,
+      81.84,
+      72.48,
+      90.24
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      47.28,
+      91.2,
+      264.24,
+      99.36
+     ],
+     "text": "\u2018Great Balls of Fire\u2019 arose as a chance seedling on the"
+    },
+    {
+     "bbox": [
+      47.04,
+      101.28,
+      281.76,
+      110.4
+     ],
+     "text": "applicant\u2019s property. Selection by the applicant was on the"
+    },
+    {
+     "bbox": [
+      47.28,
+      110.88,
+      283.2,
+      119.52
+     ],
+     "text": "basis of its compact growth habit and the colour of its new"
+    },
+    {
+     "bbox": [
+      47.28,
+      120.96,
+      255.12,
+      129.6
+     ],
+     "text": "foliage. \u2018Great Balls of Fire\u2019 has been propagated by"
+    },
+    {
+     "bbox": [
+      47.28,
+      131.04,
+      173.76,
+      139.44
+     ],
+     "text": "cuttings through 3 generations."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "in a medium consisting of pine bark and coarse sand\nfertilised with \u201c\u201cOsmocote\u201d, lime, and micronutrients.\nOrigin\n\u2018Great Balls of Fire\u2019 arose as a chance seedling on the\napplicant\u2019s property. Selection by the applicant was on the\nbasis of its compact growth habit and the colour of its new\nfoliage. \u2018Great Balls of Fire\u2019 has been propagated by\ncuttings through 3 generations.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    47.04,
+    146.88,
+    277.44,
+    225.12
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      47.52,
+      146.88,
+      204.24,
+      155.28
+     ],
+     "text": "Morphology \u2014 see comparison tables."
+    },
+    {
+     "bbox": [
+      47.52,
+      156.24,
+      269.28,
+      165.36
+     ],
+     "text": "The plant is a compact well-branched dwarf shrub. The"
+    },
+    {
+     "bbox": [
+      47.04,
+      166.32,
+      277.44,
+      175.44
+     ],
+     "text": "young leaves are usually pendulous, narrow elliptic, non-"
+    },
+    {
+     "bbox": [
+      47.28,
+      176.4,
+      261.84,
+      185.04
+     ],
+     "text": "petiolate, entire, pubescent on both sides, and greyed"
+    },
+    {
+     "bbox": [
+      47.28,
+      186.0,
+      276.96,
+      195.12
+     ],
+     "text": "purple (RHS 183C). Mature leaves are yellow green (RHS"
+    },
+    {
+     "bbox": [
+      48.0,
+      196.32,
+      275.04,
+      204.96
+     ],
+     "text": "144A to 147A) and glabrous on both sides. Young stems"
+    },
+    {
+     "bbox": [
+      47.52,
+      206.4,
+      275.04,
+      215.28
+     ],
+     "text": "are pubescent and variably pigmented with anthocyanin."
+    },
+    {
+     "bbox": [
+      47.52,
+      216.72,
+      214.8,
+      225.12
+     ],
+     "text": "The stems are upright and branch readily."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 see comparison tables.\nThe plant is a compact well-branched dwarf shrub. The\nyoung leaves are usually pendulous, narrow elliptic, non-\npetiolate, entire, pubescent on both sides, and greyed\npurple (RHS 183C). Mature leaves are yellow green (RHS\n144A to 147A) and glabrous on both sides. Young stems\nare pubescent and variably pigmented with anthocyanin.\nThe stems are upright and branch readily.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    47.52,
+    232.56,
+    283.2,
+    251.04
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      47.76,
+      232.56,
+      260.4,
+      240.72
+     ],
+     "text": "\u2018Great Balls of Fire\u2019 differs from C. salignus in having"
+    },
+    {
+     "bbox": [
+      47.52,
+      242.4,
+      283.2,
+      251.04
+     ],
+     "text": "shorter stems and many more branches. The young leaves"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Great Balls of Fire\u2019 differs from C. salignus in having\nshorter stems and many more branches. The young leaves",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    47.52,
+    251.28,
+    284.16,
+    261.84
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      47.52,
+      251.28,
+      284.16,
+      261.84
+     ],
+     "text": "are more pubescent and are a lighter shade of grey-purple."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "are more pubescent and are a lighter shade of grey-purple.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    47.28,
+    262.08,
+    282.48,
+    329.76
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      47.52,
+      262.08,
+      263.52,
+      270.0
+     ],
+     "text": "The mature leaves of \u2018Great Balls of Fire\u2019 are a lighter"
+    },
+    {
+     "bbox": [
+      47.52,
+      271.92,
+      281.04,
+      280.56
+     ],
+     "text": "shade of yellow green (RHS 144A-147A) in comparison to"
+    },
+    {
+     "bbox": [
+      47.76,
+      281.76,
+      252.96,
+      290.16
+     ],
+     "text": "C. Salignus. |n both varieties the leaf colour passes"
+    },
+    {
+     "bbox": [
+      47.28,
+      291.6,
+      256.8,
+      300.0
+     ],
+     "text": "through intermediate bronze shadings but these are"
+    },
+    {
+     "bbox": [
+      47.52,
+      301.44,
+      282.48,
+      309.84
+     ],
+     "text": "brighter (more yellowed) in \u2018Great Balls of Fire\u2019. The young"
+    },
+    {
+     "bbox": [
+      48.0,
+      311.52,
+      253.92,
+      319.68
+     ],
+     "text": "stems of \u2018Great Balls of Fire\u2019 have less anthocyanin"
+    },
+    {
+     "bbox": [
+      47.52,
+      321.36,
+      169.68,
+      329.76
+     ],
+     "text": "pigmentation than C. safignus."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The mature leaves of \u2018Great Balls of Fire\u2019 are a lighter\nshade of yellow green (RHS 144A-147A) in comparison to\nC. Salignus. |n both varieties the leaf colour passes\nthrough intermediate bronze shadings but these are\nbrighter (more yellowed) in \u2018Great Balls of Fire\u2019. The young\nstems of \u2018Great Balls of Fire\u2019 have less anthocyanin\npigmentation than C. safignus.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    47.52,
+    339.12,
+    274.56,
+    361.68
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      47.76,
+      339.12,
+      274.56,
+      350.64
+     ],
+     "text": "Table of Comparison of Ca/listemon Varieties"
+    },
+    {
+     "bbox": [
+      47.52,
+      353.52,
+      186.96,
+      361.68
+     ],
+     "text": "(* = varieties used for comparison}"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Ca/listemon Varieties\n(* = varieties used for comparison}",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    47.52,
+    373.44,
+    273.84,
+    719.52
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      143.28,
+      373.44,
+      258.48,
+      380.4
+     ],
+     "text": "\u2018Great Balls *\u2019Callistemon"
+    },
+    {
+     "bbox": [
+      143.28,
+      383.52,
+      242.88,
+      391.92
+     ],
+     "text": "of Fire\u2019 salignus\u2019"
+    },
+    {
+     "bbox": [
+      48.0,
+      397.92,
+      95.76,
+      404.4
+     ],
+     "text": "PLANT HEIGHT"
+    },
+    {
+     "bbox": [
+      47.76,
+      407.28,
+      239.52,
+      414.24
+     ],
+     "text": "mean 20.8 cm 48.3 cm"
+    },
+    {
+     "bbox": [
+      48.0,
+      417.12,
+      232.32,
+      425.52
+     ],
+     "text": "range 17,5-23.5 32-61"
+    },
+    {
+     "bbox": [
+      47.52,
+      427.2,
+      224.4,
+      433.92
+     ],
+     "text": "std. deviation 1.9 6.8"
+    },
+    {
+     "bbox": [
+      47.76,
+      440.88,
+      92.64,
+      447.6
+     ],
+     "text": "PLANT WIDTH"
+    },
+    {
+     "bbox": [
+      47.76,
+      450.48,
+      239.76,
+      457.44
+     ],
+     "text": "mean 24.2 cm 30.3 cm"
+    },
+    {
+     "bbox": [
+      47.76,
+      460.56,
+      233.52,
+      468.96
+     ],
+     "text": "range 19-30 20-44"
+    },
+    {
+     "bbox": [
+      47.52,
+      470.64,
+      224.4,
+      477.6
+     ],
+     "text": "std. deviation 3.3 8.6"
+    },
+    {
+     "bbox": [
+      48.0,
+      484.8,
+      151.68,
+      492.0
+     ],
+     "text": "NUMBER OF STEMS PER PLANT"
+    },
+    {
+     "bbox": [
+      47.76,
+      494.88,
+      228.72,
+      501.84
+     ],
+     "text": "mean 23.6 10.8"
+    },
+    {
+     "bbox": [
+      47.76,
+      505.2,
+      229.2,
+      513.6
+     ],
+     "text": "range {3-91 6-14"
+    },
+    {
+     "bbox": [
+      47.76,
+      515.04,
+      224.64,
+      522.0
+     ],
+     "text": "std. deviation 5.6 24"
+    },
+    {
+     "bbox": [
+      48.0,
+      528.72,
+      144.96,
+      535.92
+     ],
+     "text": "LENGTH OF LONGEST SHOOT"
+    },
+    {
+     "bbox": [
+      48.0,
+      538.8,
+      240.0,
+      545.28
+     ],
+     "text": "mean 17.3cm 40.7 cm"
+    },
+    {
+     "bbox": [
+      47.76,
+      548.4,
+      246.0,
+      556.8
+     ],
+     "text": "range 9.5-22.5 24.5-53.0"
+    },
+    {
+     "bbox": [
+      47.76,
+      558.48,
+      224.16,
+      565.44
+     ],
+     "text": "std. deviation 3.9 6.4"
+    },
+    {
+     "bbox": [
+      47.76,
+      572.4,
+      92.4,
+      579.36
+     ],
+     "text": "LEAF LENGTH"
+    },
+    {
+     "bbox": [
+      47.76,
+      582.24,
+      242.4,
+      588.96
+     ],
+     "text": "mean 75.2mm 79.6 mm"
+    },
+    {
+     "bbox": [
+      48.0,
+      592.08,
+      237.84,
+      600.48
+     ],
+     "text": "range 59-89 53-102"
+    },
+    {
+     "bbox": [
+      47.52,
+      601.68,
+      228.24,
+      608.64
+     ],
+     "text": "std. deviation 78 10.6"
+    },
+    {
+     "bbox": [
+      48.24,
+      615.6,
+      87.84,
+      622.32
+     ],
+     "text": "LEAF WIDTH"
+    },
+    {
+     "bbox": [
+      47.76,
+      625.44,
+      242.64,
+      632.4
+     ],
+     "text": "mean 16.7 mm 21.0mm"
+    },
+    {
+     "bbox": [
+      48.0,
+      635.52,
+      232.56,
+      643.68
+     ],
+     "text": "range 14-19 17-31"
+    },
+    {
+     "bbox": [
+      47.52,
+      645.6,
+      224.4,
+      652.32
+     ],
+     "text": "std. deviation 1.9 3.4"
+    },
+    {
+     "bbox": [
+      47.76,
+      658.56,
+      250.32,
+      668.88
+     ],
+     "text": "FLUSH COLOUR grey-purple grey-purpte"
+    },
+    {
+     "bbox": [
+      214.8,
+      669.84,
+      265.68,
+      677.76
+     ],
+     "text": "and grey-orange"
+    },
+    {
+     "bbox": [
+      47.76,
+      679.2,
+      273.84,
+      686.4
+     ],
+     "text": "RHS No 183C 183A, 177A, 166A"
+    },
+    {
+     "bbox": [
+      47.76,
+      692.88,
+      128.88,
+      699.84
+     ],
+     "text": "MATURE LEAF COLOURS"
+    },
+    {
+     "bbox": [
+      142.8,
+      702.96,
+      255.12,
+      710.64
+     ],
+     "text": "yellow-green yellow-green"
+    },
+    {
+     "bbox": [
+      48.0,
+      712.32,
+      231.6,
+      719.52
+     ],
+     "text": "RHS No 144A, 147A 147A"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Great Balls *\u2019Callistemon\nof Fire\u2019 salignus\u2019\nPLANT HEIGHT\nmean 20.8 cm 48.3 cm\nrange 17,5-23.5 32-61\nstd. deviation 1.9 6.8\nPLANT WIDTH\nmean 24.2 cm 30.3 cm\nrange 19-30 20-44\nstd. deviation 3.3 8.6\nNUMBER OF STEMS PER PLANT\nmean 23.6 10.8\nrange {3-91 6-14\nstd. deviation 5.6 24\nLENGTH OF LONGEST SHOOT\nmean 17.3cm 40.7 cm\nrange 9.5-22.5 24.5-53.0\nstd. deviation 3.9 6.4\nLEAF LENGTH\nmean 75.2mm 79.6 mm\nrange 59-89 53-102\nstd. deviation 78 10.6\nLEAF WIDTH\nmean 16.7 mm 21.0mm\nrange 14-19 17-31\nstd. deviation 1.9 3.4\nFLUSH COLOUR grey-purple grey-purpte\nand grey-orange\nRHS No 183C 183A, 177A, 166A\nMATURE LEAF COLOURS\nyellow-green yellow-green\nRHS No 144A, 147A 147A",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    305.52,
+    54.48,
+    471.36,
+    81.6
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      305.76,
+      54.48,
+      383.76,
+      65.04
+     ],
+     "text": "IMPATIENS"
+    },
+    {
+     "bbox": [
+      305.52,
+      68.88,
+      471.36,
+      81.6
+     ],
+     "text": "(/mpatiens hawker hybrid)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "IMPATIENS\n(/mpatiens hawker hybrid)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.08,
+    100.32,
+    539.76,
+    198.24
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      304.56,
+      100.32,
+      422.64,
+      108.96
+     ],
+     "text": "Comparative Growing Trials"
+    },
+    {
+     "bbox": [
+      304.08,
+      110.4,
+      530.88,
+      118.56
+     ],
+     "text": "Ail characteristics and comparisons described below are"
+    },
+    {
+     "bbox": [
+      304.32,
+      120.24,
+      524.64,
+      128.64
+     ],
+     "text": "from comparative growing trials conducted at Emeratd,"
+    },
+    {
+     "bbox": [
+      304.56,
+      130.08,
+      526.56,
+      138.48
+     ],
+     "text": "near Melbourne, Victoria. Growing conditions were the"
+    },
+    {
+     "bbox": [
+      304.56,
+      139.92,
+      537.6,
+      148.08
+     ],
+     "text": "same as used for commercial production. The plants were"
+    },
+    {
+     "bbox": [
+      304.08,
+      150.0,
+      524.64,
+      158.16
+     ],
+     "text": "grown in a pinebark based medium enriched with time"
+    },
+    {
+     "bbox": [
+      304.56,
+      159.6,
+      539.52,
+      168.0
+     ],
+     "text": "release fertiliser in a whitewashed poly-tunnel maintained"
+    },
+    {
+     "bbox": [
+      304.32,
+      169.68,
+      530.64,
+      176.64
+     ],
+     "text": "between 16 and 35\u00b0C in 50% shade. Measurements are"
+    },
+    {
+     "bbox": [
+      304.32,
+      179.76,
+      539.76,
+      187.92
+     ],
+     "text": "based on 20 random selections from these plants, taken in"
+    },
+    {
+     "bbox": [
+      304.32,
+      189.6,
+      469.92,
+      198.24
+     ],
+     "text": "January 1991, 3 months after potting on."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials\nAil characteristics and comparisons described below are\nfrom comparative growing trials conducted at Emeratd,\nnear Melbourne, Victoria. Growing conditions were the\nsame as used for commercial production. The plants were\ngrown in a pinebark based medium enriched with time\nrelease fertiliser in a whitewashed poly-tunnel maintained\nbetween 16 and 35\u00b0C in 50% shade. Measurements are\nbased on 20 random selections from these plants, taken in\nJanuary 1991, 3 months after potting on.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    303.84,
+    226.32,
+    504.0,
+    283.68
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      304.8,
+      226.32,
+      319.68,
+      240.24
+     ],
+     "text": "[|]"
+    },
+    {
+     "bbox": [
+      303.84,
+      245.76,
+      463.92,
+      254.4
+     ],
+     "text": "Variety: \u2018Sesia\u2019 Application No. 90/116"
+    },
+    {
+     "bbox": [
+      304.32,
+      255.84,
+      424.08,
+      264.0
+     ],
+     "text": "Accepted: 10 December 1990"
+    },
+    {
+     "bbox": [
+      304.08,
+      265.68,
+      504.0,
+      274.08
+     ],
+     "text": "Applicant: Kientzler KG, of Gensingen, Germany."
+    },
+    {
+     "bbox": [
+      304.08,
+      275.52,
+      475.92,
+      283.68
+     ],
+     "text": "Australian Agent: RW Rother, of Emerald,"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "[|]\nVariety: \u2018Sesia\u2019 Application No. 90/116\nAccepted: 10 December 1990\nApplicant: Kientzler KG, of Gensingen, Germany.\nAustralian Agent: RW Rother, of Emerald,",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.08,
+    285.6,
+    336.48,
+    292.08
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      304.08,
+      285.6,
+      336.48,
+      292.08
+     ],
+     "text": "Victoria."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Victoria.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.56,
+    301.2,
+    530.4,
+    349.44
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      305.04,
+      301.2,
+      345.36,
+      309.36
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      304.56,
+      311.04,
+      524.64,
+      319.2
+     ],
+     "text": "This variety is distinct from all other known varieties in"
+    },
+    {
+     "bbox": [
+      304.8,
+      320.88,
+      527.52,
+      329.28
+     ],
+     "text": "having the following combination of characters: a small"
+    },
+    {
+     "bbox": [
+      304.56,
+      330.96,
+      530.4,
+      339.36
+     ],
+     "text": "plant; ovate leaves, dark green on the upper surface and"
+    },
+    {
+     "bbox": [
+      304.8,
+      340.8,
+      501.84,
+      349.44
+     ],
+     "text": "light green on the underside; simple, red flowers."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\nThis variety is distinct from all other known varieties in\nhaving the following combination of characters: a small\nplant; ovate leaves, dark green on the upper surface and\nlight green on the underside; simple, red flowers.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.32,
+    356.88,
+    541.2,
+    468.96
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      304.32,
+      356.88,
+      432.48,
+      365.28
+     ],
+     "text": "Varieties Used for Comparison"
+    },
+    {
+     "bbox": [
+      305.04,
+      367.2,
+      530.64,
+      375.6
+     ],
+     "text": "\u2018Melissa\u2019, a Kientzler hybrid Impatiens, being the closest"
+    },
+    {
+     "bbox": [
+      304.56,
+      377.28,
+      537.6,
+      385.68
+     ],
+     "text": "known variety. Six plants of Sesia\u2019 and twelve of \u2018Melissa\u2019"
+    },
+    {
+     "bbox": [
+      304.56,
+      388.8,
+      354.24,
+      395.04
+     ],
+     "text": "were grown."
+    },
+    {
+     "bbox": [
+      304.32,
+      402.96,
+      329.76,
+      411.36
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      304.8,
+      413.04,
+      531.12,
+      421.44
+     ],
+     "text": "The breeder was L Kientzler of Kientzier KG, Gensingen,"
+    },
+    {
+     "bbox": [
+      304.56,
+      422.64,
+      523.68,
+      430.8
+     ],
+     "text": "Germany. \u2018Sesia\u2019 was selected in 1985 on the basis of"
+    },
+    {
+     "bbox": [
+      304.32,
+      432.48,
+      541.2,
+      440.88
+     ],
+     "text": "flower size, flower colour, and plant growth habit, from the"
+    },
+    {
+     "bbox": [
+      304.56,
+      442.56,
+      533.52,
+      450.96
+     ],
+     "text": "seedling progeny of two breeder selections. Plant Variety"
+    },
+    {
+     "bbox": [
+      304.8,
+      452.16,
+      512.64,
+      460.8
+     ],
+     "text": "Rights have been granted in Germany, Holland, and"
+    },
+    {
+     "bbox": [
+      304.8,
+      462.24,
+      342.48,
+      468.96
+     ],
+     "text": "Denmark."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties Used for Comparison\n\u2018Melissa\u2019, a Kientzler hybrid Impatiens, being the closest\nknown variety. Six plants of Sesia\u2019 and twelve of \u2018Melissa\u2019\nwere grown.\nOrigin\nThe breeder was L Kientzler of Kientzier KG, Gensingen,\nGermany. \u2018Sesia\u2019 was selected in 1985 on the basis of\nflower size, flower colour, and plant growth habit, from the\nseedling progeny of two breeder selections. Plant Variety\nRights have been granted in Germany, Holland, and\nDenmark.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.08,
+    478.08,
+    541.92,
+    556.8
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      304.56,
+      478.08,
+      461.04,
+      486.72
+     ],
+     "text": "Morphology \u2014 see comparison tables."
+    },
+    {
+     "bbox": [
+      304.56,
+      488.16,
+      519.12,
+      497.28
+     ],
+     "text": "\u2018Sesia\u2019 is a hybrid Impatiens of compact growth habit."
+    },
+    {
+     "bbox": [
+      304.8,
+      498.48,
+      541.92,
+      505.68
+     ],
+     "text": "Plants of \u2018Sesia\u2019 are shorter and narrower in diameter than"
+    },
+    {
+     "bbox": [
+      304.56,
+      508.56,
+      524.16,
+      516.96
+     ],
+     "text": "those of \u2018Melissa\u2019. \u2018Sesia\u2019 leaves are dark green on the"
+    },
+    {
+     "bbox": [
+      304.8,
+      518.64,
+      502.56,
+      526.8
+     ],
+     "text": "upper surface (RHS 139A), in contrast to those of"
+    },
+    {
+     "bbox": [
+      304.8,
+      528.48,
+      541.92,
+      537.12
+     ],
+     "text": "\u2018Melissa\u2019, which are in the yellow-green colour group (RHS"
+    },
+    {
+     "bbox": [
+      305.04,
+      537.84,
+      530.64,
+      546.0
+     ],
+     "text": "147A). On the lower surface \u2018Sesia\u2019 leaves are also dark"
+    },
+    {
+     "bbox": [
+      304.08,
+      548.16,
+      535.68,
+      556.8
+     ],
+     "text": "green (RHS 138B}, with some red pigmentation. \u2018Melissa\u2018"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 see comparison tables.\n\u2018Sesia\u2019 is a hybrid Impatiens of compact growth habit.\nPlants of \u2018Sesia\u2019 are shorter and narrower in diameter than\nthose of \u2018Melissa\u2019. \u2018Sesia\u2019 leaves are dark green on the\nupper surface (RHS 139A), in contrast to those of\n\u2018Melissa\u2019, which are in the yellow-green colour group (RHS\n147A). On the lower surface \u2018Sesia\u2019 leaves are also dark\ngreen (RHS 138B}, with some red pigmentation. \u2018Melissa\u2018",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    303.6,
+    751.44,
+    505.44,
+    769.44
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      304.32,
+      751.44,
+      505.44,
+      760.32
+     ],
+     "text": "Flower and leaf of \u2018Sesia\u2019 (Photograph supplied by"
+    },
+    {
+     "bbox": [
+      303.6,
+      761.28,
+      342.48,
+      769.44
+     ],
+     "text": "applicant)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Flower and leaf of \u2018Sesia\u2019 (Photograph supplied by\napplicant)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    529.44,
+    796.08,
+    540.24,
+    804.72
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      529.44,
+      796.08,
+      540.24,
+      804.72
+     ],
+     "text": "14"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "14",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

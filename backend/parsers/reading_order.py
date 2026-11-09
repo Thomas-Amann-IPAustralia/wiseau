@@ -172,23 +172,34 @@ def _density(row: Sequence[Line]) -> float:
     return min(1.0, sum(l.x1 - l.x0 for l in row) / extent)
 
 
-def _render(lines: Sequence[Line], line_height: float) -> str:
-    out: list[str] = []
+Row = list[Line]
+Paragraph = list[Row]
+
+
+def _paragraphs(lines: Sequence[Line], line_height: float) -> list[Paragraph]:
+    """A column's rows, split into paragraphs at vertical gaps."""
+    out: list[Paragraph] = []
     prev_bottom: Optional[float] = None
     for row in (_rows_by_centre(lines) if ROWS_BY_CENTRE else _rows(lines)):
         top = min(l.y0 for l in row)
-        if prev_bottom is not None and top - prev_bottom > PARAGRAPH_GAP * line_height:
-            out.append("")
-        out.append(" ".join(l.text for l in row))
+        if not out or (prev_bottom is not None and top - prev_bottom > PARAGRAPH_GAP * line_height):
+            out.append([])
+        out[-1].append(row)
         prev_bottom = max(l.y1 for l in row)
-    return "\n".join(out)
+    return out
 
 
-def order_lines(lines: Sequence[Line]) -> Optional[str]:
-    """Reading-order text for a multi-column page, or None to keep MuPDF's order.
+def paragraph_text(paragraph: Paragraph) -> str:
+    """A paragraph's text: its rows top to bottom, fragments of a row joined by spaces."""
+    return "\n".join(" ".join(l.text for l in row) for row in paragraph)
+
+
+def order_paragraphs(lines: Sequence[Line]) -> Optional[list[Paragraph]]:
+    """Paragraphs of a multi-column page in reading order, or None to keep MuPDF's order.
 
     Returns None when the page has too few lines or no gutter separates real
     text columns: single-column pages and tables are left exactly as they are.
+    A full-width line (one that crosses a gutter) is a paragraph of its own.
     """
     lines = [ln for ln in lines if ln.text.strip() and ln.x1 > ln.x0 and ln.y1 > ln.y0]
     if len(lines) < MIN_LINES:
@@ -202,7 +213,7 @@ def order_lines(lines: Sequence[Line]) -> Optional[str]:
     spanning = sorted((ln for ln in lines if _column_of(ln, gutters) is None),
                       key=lambda l: (l.y0, l.x0, l.text))
     columned = [ln for ln in lines if _column_of(ln, gutters) is not None]
-    parts: list[str] = []
+    paragraphs: list[Paragraph] = []
     lower = float("-inf")
     for cut in spanning + [None]:
         upper = float("inf") if cut is None else (cut.y0 + cut.y1) / 2
@@ -210,8 +221,19 @@ def order_lines(lines: Sequence[Line]) -> Optional[str]:
         for col in range(len(gutters) + 1):
             members = [ln for ln in band if _column_of(ln, gutters) == col]
             if members:
-                parts.append(_render(members, line_height))
+                paragraphs.extend(_paragraphs(members, line_height))
         if cut is not None:
-            parts.append(cut.text)
+            paragraphs.append([[cut]])
         lower = upper
-    return "\n\n".join(p for p in parts if p)
+    return paragraphs
+
+
+def order_lines(lines: Sequence[Line]) -> Optional[str]:
+    """Reading-order text for a multi-column page, or None to keep MuPDF's order.
+
+    The text of `order_paragraphs`, paragraphs separated by a blank line.
+    """
+    paragraphs = order_paragraphs(lines)
+    if paragraphs is None:
+        return None
+    return "\n\n".join(paragraph_text(p) for p in paragraphs)

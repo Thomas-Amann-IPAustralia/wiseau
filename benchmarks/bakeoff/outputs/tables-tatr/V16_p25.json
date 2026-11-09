@@ -1,0 +1,1792 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    424.96,
+    56.35,
+    575.46,
+    63.67
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      424.96,
+      56.35,
+      575.46,
+      63.67
+     ],
+     "text": "PLANT VARIETIES JOURNAL 2003 VOL 16 NO. 3"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "<u>PLANT VARIETIES JOURNAL 2003 VOL 16 NO. 3</u>",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    84.69,
+    186.4,
+    93.94
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      76.46,
+      84.69,
+      186.4,
+      93.94
+     ],
+     "text": "Table 5 Avena varieties"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Table 5** **_Avena_** **varieties**",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    112.67,
+    572.52,
+    144.33
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      189.85,
+      115.08,
+      226.86,
+      123.22
+     ],
+     "text": "\u2018Quokka\u2019"
+    },
+    {
+     "bbox": [
+      274.9,
+      112.67,
+      314.82,
+      123.22
+     ],
+     "text": "*\u2018Quoll\u2019 A"
+    },
+    {
+     "bbox": [
+      359.93,
+      115.08,
+      391.43,
+      123.22
+     ],
+     "text": "*\u2018Swan\u2019"
+    },
+    {
+     "bbox": [
+      444.98,
+      115.08,
+      474.81,
+      123.22
+     ],
+     "text": "*\u2018Euro\u2019"
+    },
+    {
+     "bbox": [
+      530.02,
+      115.08,
+      572.52,
+      123.22
+     ],
+     "text": "*\u2018Echidna\u2019"
+    },
+    {
+     "bbox": [
+      76.46,
+      136.08,
+      178.77,
+      144.33
+     ],
+     "text": "PLANT: GROWTH HABIT"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**\u2018Quokka\u2019** ***\u2018Quoll\u2019** <sup>A</sup> ***\u2018Swan\u2019** ***\u2018Euro\u2019** ***\u2018Echidna\u2019**\n______________________________________________________________________________________________________________\nPLANT: GROWTH HABIT",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    146.59,
+    575.07,
+    175.83
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      189.85,
+      146.59,
+      234.84,
+      154.83
+     ],
+     "text": "intermediate"
+    },
+    {
+     "bbox": [
+      274.91,
+      146.59,
+      319.9,
+      154.83
+     ],
+     "text": "intermediate"
+    },
+    {
+     "bbox": [
+      359.97,
+      146.59,
+      404.96,
+      154.83
+     ],
+     "text": "intermediate"
+    },
+    {
+     "bbox": [
+      445.02,
+      146.59,
+      482.51,
+      154.83
+     ],
+     "text": "semi-erect"
+    },
+    {
+     "bbox": [
+      530.08,
+      146.59,
+      575.07,
+      154.83
+     ],
+     "text": "intermediate"
+    },
+    {
+     "bbox": [
+      76.46,
+      167.59,
+      145.98,
+      175.83
+     ],
+     "text": "PLANT: LENGTH"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "intermediate intermediate intermediate semi-erect intermediate\n______________________________________________________________________________________________________________\nPLANT: LENGTH",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    178.09,
+    566.35,
+    259.83
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      189.85,
+      178.09,
+      205.85,
+      186.33
+     ],
+     "text": "long"
+    },
+    {
+     "bbox": [
+      274.89,
+      178.09,
+      292.89,
+      186.33
+     ],
+     "text": "short"
+    },
+    {
+     "bbox": [
+      359.93,
+      178.09,
+      375.93,
+      186.33
+     ],
+     "text": "long"
+    },
+    {
+     "bbox": [
+      444.97,
+      178.09,
+      474.47,
+      186.33
+     ],
+     "text": "medium"
+    },
+    {
+     "bbox": [
+      530.02,
+      178.09,
+      566.35,
+      186.33
+     ],
+     "text": "very short"
+    },
+    {
+     "bbox": [
+      76.46,
+      199.09,
+      165.95,
+      207.33
+     ],
+     "text": "PLANT: HEIGHT (mm)"
+    },
+    {
+     "bbox": [
+      76.46,
+      209.59,
+      95.96,
+      217.83
+     ],
+     "text": "mean"
+    },
+    {
+     "bbox": [
+      189.86,
+      209.59,
+      203.36,
+      217.83
+     ],
+     "text": "934"
+    },
+    {
+     "bbox": [
+      274.9,
+      209.59,
+      288.4,
+      217.83
+     ],
+     "text": "570"
+    },
+    {
+     "bbox": [
+      359.94,
+      209.59,
+      373.44,
+      217.83
+     ],
+     "text": "852"
+    },
+    {
+     "bbox": [
+      444.98,
+      209.59,
+      458.48,
+      217.83
+     ],
+     "text": "664"
+    },
+    {
+     "bbox": [
+      530.02,
+      209.59,
+      543.52,
+      217.83
+     ],
+     "text": "524"
+    },
+    {
+     "bbox": [
+      76.46,
+      220.09,
+      122.71,
+      228.33
+     ],
+     "text": "std deviation"
+    },
+    {
+     "bbox": [
+      189.85,
+      220.09,
+      198.85,
+      228.33
+     ],
+     "text": "88"
+    },
+    {
+     "bbox": [
+      274.89,
+      220.09,
+      283.89,
+      228.33
+     ],
+     "text": "43"
+    },
+    {
+     "bbox": [
+      359.93,
+      220.09,
+      368.93,
+      228.33
+     ],
+     "text": "82"
+    },
+    {
+     "bbox": [
+      444.97,
+      220.09,
+      453.97,
+      228.33
+     ],
+     "text": "62"
+    },
+    {
+     "bbox": [
+      530.01,
+      220.09,
+      539.01,
+      228.33
+     ],
+     "text": "60"
+    },
+    {
+     "bbox": [
+      76.46,
+      230.59,
+      106.47,
+      238.83
+     ],
+     "text": "LSD/sig"
+    },
+    {
+     "bbox": [
+      189.86,
+      230.59,
+      198.86,
+      238.83
+     ],
+     "text": "42"
+    },
+    {
+     "bbox": [
+      274.9,
+      229.68,
+      300.58,
+      238.83
+     ],
+     "text": "P\u22640.01"
+    },
+    {
+     "bbox": [
+      359.93,
+      229.68,
+      385.62,
+      238.83
+     ],
+     "text": "P\u22640.01"
+    },
+    {
+     "bbox": [
+      444.97,
+      229.68,
+      470.66,
+      238.83
+     ],
+     "text": "P\u22640.01"
+    },
+    {
+     "bbox": [
+      530.01,
+      229.68,
+      555.7,
+      238.83
+     ],
+     "text": "P\u22640.01"
+    },
+    {
+     "bbox": [
+      76.47,
+      251.59,
+      249.37,
+      259.83
+     ],
+     "text": "STEM: HAIRINESS OF UPPERMOST NODE"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "long short long medium very short\n______________________________________________________________________________________________________________\nPLANT: HEIGHT (mm)\nmean 934 570 852 664 524\nstd deviation 88 43 82 62 60\nLSD/sig 42 P\u22640.01 P\u22640.01 P\u22640.01 P\u22640.01\n______________________________________________________________________________________________________________\nSTEM: HAIRINESS OF UPPERMOST NODE",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.47,
+    262.09,
+    556.03,
+    291.34
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      189.85,
+      262.09,
+      215.84,
+      270.34
+     ],
+     "text": "present"
+    },
+    {
+     "bbox": [
+      274.9,
+      262.09,
+      300.89,
+      270.34
+     ],
+     "text": "present"
+    },
+    {
+     "bbox": [
+      359.95,
+      262.09,
+      382.94,
+      270.34
+     ],
+     "text": "absent"
+    },
+    {
+     "bbox": [
+      444.99,
+      262.09,
+      470.98,
+      270.34
+     ],
+     "text": "present"
+    },
+    {
+     "bbox": [
+      530.04,
+      262.09,
+      556.03,
+      270.34
+     ],
+     "text": "present"
+    },
+    {
+     "bbox": [
+      76.47,
+      283.09,
+      312.81,
+      291.34
+     ],
+     "text": "STEM: INTENSITY OF HAIRINESS OF UPPERMOST NODE"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "present present absent present present\n______________________________________________________________________________________________________________\nSTEM: INTENSITY OF HAIRINESS OF UPPERMOST NODE",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.47,
+    293.59,
+    559.52,
+    322.84
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      189.85,
+      293.59,
+      208.84,
+      301.84
+     ],
+     "text": "weak"
+    },
+    {
+     "bbox": [
+      274.89,
+      293.59,
+      293.88,
+      301.84
+     ],
+     "text": "weak"
+    },
+    {
+     "bbox": [
+      359.93,
+      293.59,
+      370.93,
+      301.84
+     ],
+     "text": "n/a"
+    },
+    {
+     "bbox": [
+      444.97,
+      293.59,
+      474.47,
+      301.84
+     ],
+     "text": "medium"
+    },
+    {
+     "bbox": [
+      530.02,
+      293.59,
+      559.52,
+      301.84
+     ],
+     "text": "medium"
+    },
+    {
+     "bbox": [
+      76.47,
+      314.59,
+      365.05,
+      322.84
+     ],
+     "text": "LEAF BLADE: HAIRINESS OF MARGINS OF LEAF BELOW FLAG LEAF"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "weak weak n/a medium medium\n______________________________________________________________________________________________________________\nLEAF BLADE: HAIRINESS OF MARGINS OF LEAF BELOW FLAG LEAF",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.47,
+    325.09,
+    549.02,
+    364.84
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      189.85,
+      325.09,
+      222.82,
+      333.34
+     ],
+     "text": "absent or"
+    },
+    {
+     "bbox": [
+      274.9,
+      325.09,
+      293.89,
+      333.34
+     ],
+     "text": "weak"
+    },
+    {
+     "bbox": [
+      359.94,
+      325.09,
+      392.91,
+      333.34
+     ],
+     "text": "absent or"
+    },
+    {
+     "bbox": [
+      444.99,
+      325.09,
+      463.98,
+      333.34
+     ],
+     "text": "weak"
+    },
+    {
+     "bbox": [
+      530.03,
+      325.09,
+      549.02,
+      333.34
+     ],
+     "text": "weak"
+    },
+    {
+     "bbox": [
+      189.85,
+      335.6,
+      227.17,
+      343.84
+     ],
+     "text": "very weak"
+    },
+    {
+     "bbox": [
+      359.93,
+      335.6,
+      397.25,
+      343.84
+     ],
+     "text": "very weak"
+    },
+    {
+     "bbox": [
+      76.47,
+      356.6,
+      209.55,
+      364.84
+     ],
+     "text": "TIME OF PANICLE EMERGENCE"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "absent or weak absent or weak weak\nvery weak very weak\n______________________________________________________________________________________________________________\nTIME OF PANICLE EMERGENCE",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.47,
+    367.1,
+    559.55,
+    396.34
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      189.85,
+      367.1,
+      226.17,
+      375.34
+     ],
+     "text": "very early"
+    },
+    {
+     "bbox": [
+      274.9,
+      367.1,
+      304.4,
+      375.34
+     ],
+     "text": "medium"
+    },
+    {
+     "bbox": [
+      359.95,
+      367.1,
+      377.94,
+      375.34
+     ],
+     "text": "early"
+    },
+    {
+     "bbox": [
+      445.0,
+      367.1,
+      474.5,
+      375.34
+     ],
+     "text": "medium"
+    },
+    {
+     "bbox": [
+      530.05,
+      367.1,
+      559.55,
+      375.34
+     ],
+     "text": "medium"
+    },
+    {
+     "bbox": [
+      76.47,
+      388.1,
+      154.6,
+      396.34
+     ],
+     "text": "PANICLE: LENGTH"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "very early medium early medium medium\n______________________________________________________________________________________________________________\nPANICLE: LENGTH",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    398.6,
+    559.52,
+    480.35
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      189.85,
+      398.6,
+      205.85,
+      406.84
+     ],
+     "text": "long"
+    },
+    {
+     "bbox": [
+      274.89,
+      398.6,
+      290.89,
+      406.84
+     ],
+     "text": "long"
+    },
+    {
+     "bbox": [
+      359.93,
+      398.6,
+      375.93,
+      406.84
+     ],
+     "text": "long"
+    },
+    {
+     "bbox": [
+      444.97,
+      398.6,
+      474.47,
+      406.84
+     ],
+     "text": "medium"
+    },
+    {
+     "bbox": [
+      530.02,
+      398.6,
+      559.52,
+      406.84
+     ],
+     "text": "medium"
+    },
+    {
+     "bbox": [
+      76.47,
+      419.6,
+      177.07,
+      427.84
+     ],
+     "text": "PANICLE: LENGTH (mm)"
+    },
+    {
+     "bbox": [
+      76.47,
+      430.1,
+      95.96,
+      438.34
+     ],
+     "text": "mean"
+    },
+    {
+     "bbox": [
+      189.86,
+      430.1,
+      203.36,
+      438.34
+     ],
+     "text": "203"
+    },
+    {
+     "bbox": [
+      274.9,
+      430.1,
+      288.4,
+      438.34
+     ],
+     "text": "201"
+    },
+    {
+     "bbox": [
+      359.94,
+      430.1,
+      373.44,
+      438.34
+     ],
+     "text": "199"
+    },
+    {
+     "bbox": [
+      444.98,
+      430.1,
+      458.48,
+      438.34
+     ],
+     "text": "172"
+    },
+    {
+     "bbox": [
+      530.02,
+      430.1,
+      543.52,
+      438.34
+     ],
+     "text": "175"
+    },
+    {
+     "bbox": [
+      76.47,
+      440.6,
+      122.71,
+      448.84
+     ],
+     "text": "std deviation"
+    },
+    {
+     "bbox": [
+      189.85,
+      440.6,
+      198.85,
+      448.84
+     ],
+     "text": "17"
+    },
+    {
+     "bbox": [
+      274.89,
+      440.6,
+      283.89,
+      448.84
+     ],
+     "text": "21"
+    },
+    {
+     "bbox": [
+      359.93,
+      440.6,
+      368.93,
+      448.84
+     ],
+     "text": "12"
+    },
+    {
+     "bbox": [
+      444.97,
+      440.6,
+      453.97,
+      448.84
+     ],
+     "text": "15"
+    },
+    {
+     "bbox": [
+      530.01,
+      440.6,
+      539.01,
+      448.84
+     ],
+     "text": "13"
+    },
+    {
+     "bbox": [
+      76.47,
+      451.1,
+      106.47,
+      459.35
+     ],
+     "text": "LSD/sig"
+    },
+    {
+     "bbox": [
+      189.86,
+      451.1,
+      198.86,
+      459.35
+     ],
+     "text": "11"
+    },
+    {
+     "bbox": [
+      274.9,
+      451.1,
+      282.9,
+      459.35
+     ],
+     "text": "ns"
+    },
+    {
+     "bbox": [
+      359.94,
+      451.1,
+      367.94,
+      459.35
+     ],
+     "text": "ns"
+    },
+    {
+     "bbox": [
+      444.98,
+      450.19,
+      470.66,
+      459.35
+     ],
+     "text": "P\u22640.01"
+    },
+    {
+     "bbox": [
+      530.01,
+      450.19,
+      555.7,
+      459.35
+     ],
+     "text": "P\u22640.01"
+    },
+    {
+     "bbox": [
+      76.46,
+      472.1,
+      154.43,
+      480.35
+     ],
+     "text": "GLUMES: LENGTH"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "long long long medium medium\n______________________________________________________________________________________________________________\nPANICLE: LENGTH (mm)\nmean 203 201 199 172 175\nstd deviation 17 21 12 15 13\nLSD/sig 11 ns ns P\u22640.01 P\u22640.01\n______________________________________________________________________________________________________________\nGLUMES: LENGTH",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    482.6,
+    559.53,
+    564.35
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      189.85,
+      482.6,
+      207.85,
+      490.85
+     ],
+     "text": "short"
+    },
+    {
+     "bbox": [
+      274.89,
+      482.6,
+      332.34,
+      490.85
+     ],
+     "text": "medium to long"
+    },
+    {
+     "bbox": [
+      359.94,
+      482.6,
+      375.94,
+      490.85
+     ],
+     "text": "long"
+    },
+    {
+     "bbox": [
+      444.98,
+      482.6,
+      474.48,
+      490.85
+     ],
+     "text": "medium"
+    },
+    {
+     "bbox": [
+      530.03,
+      482.6,
+      559.53,
+      490.85
+     ],
+     "text": "medium"
+    },
+    {
+     "bbox": [
+      76.46,
+      503.6,
+      176.9,
+      511.85
+     ],
+     "text": "GLUMES: LENGTH (mm)"
+    },
+    {
+     "bbox": [
+      76.46,
+      514.1,
+      95.96,
+      522.35
+     ],
+     "text": "mean"
+    },
+    {
+     "bbox": [
+      189.86,
+      514.1,
+      205.61,
+      522.35
+     ],
+     "text": "21.7"
+    },
+    {
+     "bbox": [
+      274.9,
+      514.1,
+      290.65,
+      522.35
+     ],
+     "text": "25.3"
+    },
+    {
+     "bbox": [
+      359.94,
+      514.1,
+      375.69,
+      522.35
+     ],
+     "text": "27.3"
+    },
+    {
+     "bbox": [
+      444.98,
+      514.1,
+      460.73,
+      522.35
+     ],
+     "text": "23.3"
+    },
+    {
+     "bbox": [
+      530.02,
+      514.1,
+      545.77,
+      522.35
+     ],
+     "text": "23.5"
+    },
+    {
+     "bbox": [
+      76.46,
+      524.61,
+      122.71,
+      532.85
+     ],
+     "text": "std deviation"
+    },
+    {
+     "bbox": [
+      189.85,
+      524.61,
+      201.1,
+      532.85
+     ],
+     "text": "1.4"
+    },
+    {
+     "bbox": [
+      274.89,
+      524.61,
+      286.14,
+      532.85
+     ],
+     "text": "1.2"
+    },
+    {
+     "bbox": [
+      359.93,
+      524.61,
+      371.18,
+      532.85
+     ],
+     "text": "1.3"
+    },
+    {
+     "bbox": [
+      444.97,
+      524.61,
+      456.22,
+      532.85
+     ],
+     "text": "1.1"
+    },
+    {
+     "bbox": [
+      530.01,
+      524.61,
+      541.26,
+      532.85
+     ],
+     "text": "1.2"
+    },
+    {
+     "bbox": [
+      76.46,
+      535.11,
+      106.47,
+      543.35
+     ],
+     "text": "LSD/sig"
+    },
+    {
+     "bbox": [
+      189.86,
+      535.11,
+      201.11,
+      543.35
+     ],
+     "text": "1.4"
+    },
+    {
+     "bbox": [
+      274.9,
+      534.2,
+      300.58,
+      543.35
+     ],
+     "text": "P\u22640.01"
+    },
+    {
+     "bbox": [
+      359.93,
+      534.2,
+      385.62,
+      543.35
+     ],
+     "text": "P\u22640.01"
+    },
+    {
+     "bbox": [
+      444.97,
+      534.2,
+      470.66,
+      543.35
+     ],
+     "text": "P\u22640.01"
+    },
+    {
+     "bbox": [
+      530.01,
+      534.2,
+      555.7,
+      543.35
+     ],
+     "text": "P\u22640.01"
+    },
+    {
+     "bbox": [
+      76.46,
+      556.11,
+      238.96,
+      564.35
+     ],
+     "text": "PRIMARY GRAIN: HAIRINESS OF BASE"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "short medium to long long medium medium\n______________________________________________________________________________________________________________\nGLUMES: LENGTH (mm)\nmean 21.7 25.3 27.3 23.3 23.5\nstd deviation 1.4 1.2 1.3 1.1 1.2\nLSD/sig 1.4 P\u22640.01 P\u22640.01 P\u22640.01 P\u22640.01\n______________________________________________________________________________________________________________\nPRIMARY GRAIN: HAIRINESS OF BASE",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    566.61,
+    549.02,
+    606.35
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      189.85,
+      566.61,
+      222.82,
+      574.85
+     ],
+     "text": "absent or"
+    },
+    {
+     "bbox": [
+      274.9,
+      566.61,
+      315.73,
+      574.85
+     ],
+     "text": "very strong"
+    },
+    {
+     "bbox": [
+      359.95,
+      566.61,
+      378.94,
+      574.85
+     ],
+     "text": "weak"
+    },
+    {
+     "bbox": [
+      444.99,
+      566.61,
+      483.96,
+      574.85
+     ],
+     "text": "medium to"
+    },
+    {
+     "bbox": [
+      530.03,
+      566.61,
+      549.02,
+      574.85
+     ],
+     "text": "weak"
+    },
+    {
+     "bbox": [
+      189.85,
+      577.11,
+      227.17,
+      585.35
+     ],
+     "text": "very weak"
+    },
+    {
+     "bbox": [
+      444.97,
+      577.11,
+      463.96,
+      585.35
+     ],
+     "text": "weak"
+    },
+    {
+     "bbox": [
+      76.46,
+      598.11,
+      196.88,
+      606.35
+     ],
+     "text": "GRAIN: COLOUR OF LEMMA"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "absent or very strong weak medium to weak\nvery weak weak\n______________________________________________________________________________________________________________\nGRAIN: COLOUR OF LEMMA",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    189.85,
+    608.61,
+    554.27,
+    616.85
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      189.85,
+      608.61,
+      214.12,
+      616.85
+     ],
+     "text": "yellow"
+    },
+    {
+     "bbox": [
+      274.89,
+      608.61,
+      299.16,
+      616.85
+     ],
+     "text": "yellow"
+    },
+    {
+     "bbox": [
+      359.92,
+      608.61,
+      382.69,
+      616.85
+     ],
+     "text": "brown"
+    },
+    {
+     "bbox": [
+      444.96,
+      608.61,
+      469.23,
+      616.85
+     ],
+     "text": "yellow"
+    },
+    {
+     "bbox": [
+      530.0,
+      608.61,
+      554.27,
+      616.85
+     ],
+     "text": "yellow"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "yellow yellow brown yellow yellow\n______________________________________________________________________________________________________________",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    82.13,
+    645.04,
+    173.82,
+    666.09
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      82.13,
+      645.04,
+      173.82,
+      654.29
+     ],
+     "text": "Boronia heterophylla"
+    },
+    {
+     "bbox": [
+      82.13,
+      656.84,
+      141.66,
+      666.09
+     ],
+     "text": "Red Boronia"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_~~Boronia heterophylla~~_\n**~~Red Boronia~~**",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    677.42,
+    311.74,
+    739.36
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      76.46,
+      677.42,
+      152.4,
+      688.27
+     ],
+     "text": "\u2018Ice Charlotte\u2019"
+    },
+    {
+     "bbox": [
+      76.46,
+      690.27,
+      276.55,
+      699.36
+     ],
+     "text": "Application No: 2000/334 Accepted: 7 Dec 2000."
+    },
+    {
+     "bbox": [
+      76.46,
+      700.27,
+      311.74,
+      709.36
+     ],
+     "text": "Applicant: Anthony & Karyn Ward, Tauranga, New"
+    },
+    {
+     "bbox": [
+      76.46,
+      710.27,
+      111.17,
+      719.36
+     ],
+     "text": "Zealand."
+    },
+    {
+     "bbox": [
+      76.46,
+      720.27,
+      311.74,
+      729.36
+     ],
+     "text": "Agent: Greenhills Propagation Nursery Pty Ltd,"
+    },
+    {
+     "bbox": [
+      76.46,
+      730.27,
+      131.66,
+      739.36
+     ],
+     "text": "Tynong, VIC."
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**\u2018Ice Charlotte\u2019**\nApplication No: 2000/334 Accepted: 7 Dec 2000.\nApplicant: **Anthony & Karyn Ward**, Tauranga, New\nZealand.\nAgent: **Greenhills Propagation Nursery Pty Ltd**,\nTynong, VIC.",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    750.27,
+    311.78,
+    789.36
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      76.46,
+      750.27,
+      311.75,
+      759.36
+     ],
+     "text": "Characteristics (Table 6, Figure 21) Stem: shape in cross"
+    },
+    {
+     "bbox": [
+      76.46,
+      760.27,
+      311.78,
+      769.36
+     ],
+     "text": "section round. Leaf: type pinnate, number of leaflets three"
+    },
+    {
+     "bbox": [
+      76.46,
+      770.27,
+      311.77,
+      779.36
+     ],
+     "text": "to seven, margin entire, colour of upper side in relation to"
+    },
+    {
+     "bbox": [
+      76.46,
+      780.27,
+      311.76,
+      789.36
+     ],
+     "text": "colour of lower side same, hairiness of lower side absent to"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Characteristics** (Table 6, Figure 21) Stem: shape in cross\nsection round. Leaf: type pinnate, number of leaflets three\nto seven, margin entire, colour of upper side in relation to\ncolour of lower side same, hairiness of lower side absent to",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    340.09,
+    640.55,
+    575.39,
+    739.64
+   ],
+   "bbox_coverage": 0.987,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      340.09,
+      640.55,
+      575.37,
+      649.64
+     ],
+     "text": "very weak, hairiness of upper side absent to very weak,"
+    },
+    {
+     "bbox": [
+      340.09,
+      650.55,
+      575.38,
+      659.64
+     ],
+     "text": "texture of upper side warty. Flowering stem: position of"
+    },
+    {
+     "bbox": [
+      340.09,
+      660.55,
+      575.38,
+      669.64
+     ],
+     "text": "flowers axillary. Inflorescence: number of flowers one."
+    },
+    {
+     "bbox": [
+      340.09,
+      670.55,
+      575.39,
+      679.64
+     ],
+     "text": "Flower: shape closed bell. Petal: main colour white (RHS"
+    },
+    {
+     "bbox": [
+      340.09,
+      680.55,
+      575.38,
+      689.64
+     ],
+     "text": "155C), secondary colour red, position of secondary colour"
+    },
+    {
+     "bbox": [
+      340.09,
+      690.55,
+      575.39,
+      699.64
+     ],
+     "text": "predominantly on midrib, prominence of midvein weak."
+    },
+    {
+     "bbox": [
+      340.09,
+      700.55,
+      575.39,
+      709.64
+     ],
+     "text": "Stigma: colour greyed-red, swelling present. Anther:"
+    },
+    {
+     "bbox": [
+      340.09,
+      710.55,
+      575.37,
+      719.64
+     ],
+     "text": "colour greyed-red. (RHS 139A), colour lower side yellow-"
+    },
+    {
+     "bbox": [
+      340.09,
+      720.55,
+      575.38,
+      729.64
+     ],
+     "text": "green (RHS 147B. (Note: All RHS colour chart numbers"
+    },
+    {
+     "bbox": [
+      340.09,
+      730.55,
+      428.6,
+      739.64
+     ],
+     "text": "refer to 2001 edition.)"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "very weak, hairiness of upper side absent to very weak,\ntexture of upper side warty. Flowering stem: position of\nflowers axillary. Inflorescence: number of flowers one.\nFlower: shape closed bell. Petal: main colour white (RHS\n155C), secondary colour red, position of secondary colour\npredominantly on midrib, prominence of midvein weak.\nStigma: colour greyed-red, swelling present. Anther:\ncolour greyed-red. (RHS 139A), colour lower side yellowgreen (RHS 147B. (Note: All RHS colour chart numbers\nrefer to 2001 edition.)",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    340.09,
+    750.55,
+    575.39,
+    789.64
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      340.09,
+      750.55,
+      575.37,
+      759.64
+     ],
+     "text": "Origin and Breeding Spontaneous mutation: from"
+    },
+    {
+     "bbox": [
+      340.09,
+      760.5,
+      575.37,
+      769.64
+     ],
+     "text": "Boronia heterophylla at owners property in Tauranga, New"
+    },
+    {
+     "bbox": [
+      340.09,
+      770.55,
+      575.39,
+      779.64
+     ],
+     "text": "Zealand in 1995. The parental form is characterised by"
+    },
+    {
+     "bbox": [
+      340.09,
+      780.55,
+      575.38,
+      789.64
+     ],
+     "text": "pink flowers. A mutant was selected for further"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Origin and Breeding** Spontaneous mutation: from\n_Boronia heterophylla_ at owners property in Tauranga, New\nZealand in 1995. The parental form is characterised by\npink flowers. A mutant was selected for further",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    565.36,
+    821.07,
+    575.36,
+    830.23
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      565.36,
+      821.07,
+      575.36,
+      830.23
+     ],
+     "text": "23"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "23",
+   "text_format": "markdown",
+   "type": "paragraph"
+  }
+ ],
+ "pages": [
+  {
+   "method": "text-layer",
+   "number": 1,
+   "size": [
+    651.0,
+    898.0
+   ],
+   "source": "pymupdf4llm"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

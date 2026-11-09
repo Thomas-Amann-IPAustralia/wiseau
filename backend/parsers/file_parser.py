@@ -40,6 +40,12 @@ Two determinism-critical choices (see ADR-012):
 * OCR uses MuPDF's own OCR primitive (via `ocr.py`), **not** PyMuPDF4LLM's OCR
   integration, which has the same cross-call instability.
 
+**The document IR (ADR-043).** Every path builds a `document.Document` (elements
+in reading order, each with its page, box when known, and source engine) and
+`serializer.to_markdown()` turns it into the Markdown string, which is
+byte-for-byte what these paths returned before the IR existed. `file_to_document`
+returns the IR itself; `file_to_markdown` is that, serialized and normalized.
+
 Behaviour is controlled by env vars: `WISEAU_OCR_MODE` (`auto`/`force`/`off`),
 `WISEAU_OCR_DPI`, `WISEAU_OCR_LANG`, `WISEAU_OCR_ENGINE`.
 """
@@ -57,9 +63,10 @@ import pymupdf4llm
 from markdownify import markdownify as html_to_md
 from observability import metrics
 
-from . import docling_client, glm_ocr_client
+from . import docling_client, glm_ocr_client, serializer, text_layer
+from . import document as ir
 from .cleaner import clean_markdown
-from .ocr import get_engine
+from .ocr import get_engine, text_elements
 
 logger = logging.getLogger(__name__)
 
@@ -173,13 +180,56 @@ def _image_page_indices(doc: pymupdf.Document, mode: str) -> set[int]:
     return {i for i in range(doc.page_count) if _page_needs_ocr(doc[i])}
 
 
+# The source name on elements read from a PDF's own text layer.
+PYMUPDF4LLM = "pymupdf4llm"
+
+
 def _native_page_markdown(doc: pymupdf.Document, index: int) -> str:
     """Legacy PyMuPDF4LLM Markdown for a single text-bearing page."""
     return pymupdf4llm.to_markdown(doc, pages=[index])
 
 
-def pdf_to_markdown(data: bytes) -> str:
-    """Convert PDF bytes to Markdown, OCR-ing scanned pages as configured.
+def _page_info(page: pymupdf.Page, method: str, source: str) -> ir.PageInfo:
+    return ir.PageInfo(page.number + 1, method, source, page.rect.width, page.rect.height)
+
+
+# Locate text-layer blocks on the page by aligning their words (ADR-044). The
+# Markdown is unaffected either way; False leaves the blocks without boxes.
+TEXT_LAYER_BOXES = True
+
+
+def _add_native_page(out: ir.Document, page: pymupdf.Page, markdown: str) -> None:
+    elements = serializer.split_markdown(markdown, PYMUPDF4LLM)
+    if TEXT_LAYER_BOXES and elements:
+        elements = text_layer.align(elements, text_layer.page_words(page))
+    out.add_page(_page_info(page, ir.TEXT_LAYER, PYMUPDF4LLM), elements)
+
+
+def _add_native_document(out: ir.Document, doc: pymupdf.Document) -> None:
+    """Every page from its text layer, in one PyMuPDF4LLM call.
+
+    One call, not one per page, because PyMuPDF4LLM sizes headings from the font
+    statistics of all the pages it is given; `page_chunks=True` only keeps each
+    page's Markdown apart (their concatenation is the single-string output).
+    """
+    for chunk, page in zip(pymupdf4llm.to_markdown(doc, page_chunks=True), doc):
+        _add_native_page(out, page, chunk["text"])
+
+
+def _ocr_elements(engine, page: pymupdf.Page, *, dpi: int, language: str) -> list[ir.Element]:
+    """An OCR engine's reading of a page as IR elements (any engine with `ocr_page`)."""
+    read = getattr(engine, "read_elements", None)
+    if read is not None:
+        return read(page, dpi=dpi, language=language)
+    return text_elements(engine.ocr_page(page, dpi=dpi, language=language), source=engine.name)
+
+
+def _add_ocr_page(out: ir.Document, engine, page: pymupdf.Page, *, dpi: int, language: str) -> None:
+    out.add_page(_page_info(page, ir.OCR, engine.name), _ocr_elements(engine, page, dpi=dpi, language=language))
+
+
+def pdf_to_document(data: bytes) -> ir.Document:
+    """Convert PDF bytes to the document IR, OCR-ing scanned pages as configured.
 
     Records its own engine attribution, because only this function knows whether
     the text came off the page's own layer (`pymupdf`) or out of the OCR engine
@@ -187,13 +237,15 @@ def pdf_to_markdown(data: bytes) -> str:
     `GET /metrics`. A document with *any* OCR'd page counts as `ocr`, so one
     conversion is still attributed to exactly one engine.
     """
+    out = ir.Document()
     doc = pymupdf.open(stream=data, filetype="pdf")
     try:
         mode = _ocr_mode()
         # OCR disabled: native extraction only (scanned pages yield nothing).
         if mode == "off":
             metrics.record_engine("pymupdf")
-            return pymupdf4llm.to_markdown(doc)
+            _add_native_document(out, doc)
+            return out
 
         page_count = doc.page_count
         ocr_pages = _image_page_indices(doc, mode)
@@ -201,34 +253,33 @@ def pdf_to_markdown(data: bytes) -> str:
         # Fast path: nothing needs OCR — identical to the pre-OCR behaviour.
         if not ocr_pages:
             metrics.record_engine("pymupdf")
-            return pymupdf4llm.to_markdown(doc)
+            _add_native_document(out, doc)
+            return out
 
         metrics.record_engine("ocr")
         engine = _engine()
         dpi, lang = _ocr_dpi(), _ocr_lang()
 
-        # Whole document is scanned: OCR every page.
-        if len(ocr_pages) == page_count:
-            parts = [engine.ocr_page(doc[i], dpi=dpi, language=lang).strip() for i in range(page_count)]
-            return "\n\n".join(p for p in parts if p)
-
-        # Mixed: native Markdown for text pages, OCR for scanned pages, in order.
-        parts = []
+        # Every page is OCR'd, or mixed: native Markdown for text pages (each
+        # converted on its own, as before), OCR for scanned pages, in page order.
         for i in range(page_count):
             if i in ocr_pages:
-                part = engine.ocr_page(doc[i], dpi=dpi, language=lang)
+                _add_ocr_page(out, engine, doc[i], dpi=dpi, language=lang)
             else:
-                part = _native_page_markdown(doc, i)
-            if part and part.strip():
-                parts.append(part.strip())
-        return "\n\n".join(parts)
+                _add_native_page(out, doc[i], _native_page_markdown(doc, i))
+        return out
     finally:
         if not doc.is_closed:
             doc.close()
 
 
-def image_to_markdown(data: bytes, ext: str) -> str:
-    """OCR a standalone image (PNG/JPEG/TIFF/...) into text."""
+def pdf_to_markdown(data: bytes) -> str:
+    """Convert PDF bytes to Markdown (the serialized `pdf_to_document`)."""
+    return serializer.to_markdown(pdf_to_document(data))
+
+
+def image_to_document(data: bytes, ext: str) -> ir.Document:
+    """OCR a standalone image (PNG/JPEG/TIFF/...) into the document IR."""
     if _ocr_mode() == "off":
         raise ValueError("OCR is disabled (WISEAU_OCR_MODE=off); cannot read image files.")
     metrics.record_engine("ocr")
@@ -239,15 +290,22 @@ def image_to_markdown(data: bytes, ext: str) -> str:
     finally:
         if not src.is_closed:
             src.close()
+    out = ir.Document()
     doc = pymupdf.open(stream=pdf_bytes, filetype="pdf")
     try:
         engine = _engine()
         dpi, lang = _ocr_dpi(), _ocr_lang()
-        parts = [engine.ocr_page(doc[i], dpi=dpi, language=lang).strip() for i in range(doc.page_count)]
-        return "\n\n".join(p for p in parts if p)
+        for page in doc:
+            _add_ocr_page(out, engine, page, dpi=dpi, language=lang)
+        return out
     finally:
         if not doc.is_closed:
             doc.close()
+
+
+def image_to_markdown(data: bytes, ext: str) -> str:
+    """OCR a standalone image (PNG/JPEG/TIFF/...) into text."""
+    return serializer.to_markdown(image_to_document(data, ext))
 
 
 @mammoth.images.img_element
@@ -271,6 +329,13 @@ def docx_to_markdown(data: bytes) -> str:
     metrics.record_engine("mammoth")
     result = mammoth.convert_to_html(io.BytesIO(data), convert_image=_image_without_payload)
     return html_to_md(result.value, heading_style="ATX")
+
+
+def _markdown_document(markdown: str, source: str) -> ir.Document:
+    """Whole-document Markdown from an engine that writes it, as IR blocks (no pages)."""
+    out = ir.Document()
+    out.extend(serializer.split_markdown(markdown, source))
+    return out
 
 
 def _pdf_engine() -> str:
@@ -337,21 +402,21 @@ def resolve_engine(requested: str | None) -> str | None:
     return value
 
 
-def _fallback_markdown(data: bytes, ext: str) -> str:
+def _fallback_document(data: bytes, ext: str) -> ir.Document:
     """Deterministic extraction by extension — the always-available fallback.
 
     Each parser records the engine that actually served the conversion; a scanned
     PDF and a born-digital one both arrive here but are attributed differently.
     """
     if ext == ".pdf":
-        return pdf_to_markdown(data)
+        return pdf_to_document(data)
     if ext == ".docx":
-        return docx_to_markdown(data)
+        return _markdown_document(docx_to_markdown(data), "mammoth")
     # Only reachable for image extensions; other types are rejected upstream.
-    return image_to_markdown(data, ext)
+    return image_to_document(data, ext)
 
 
-def _extract_markdown(data: bytes, filename: str, ext: str, engine: str | None = None) -> str:
+def _extract_document(data: bytes, filename: str, ext: str, engine: str | None = None) -> ir.Document:
     """Convert a supported document to Markdown, with a remote engine when selected.
 
     Tries a remote engine (docling, or GLM-OCR — ADR-034) only when it is
@@ -372,23 +437,23 @@ def _extract_markdown(data: bytes, filename: str, ext: str, engine: str | None =
             metrics.record_remote_skipped(name, "engine_not_selected")
     remote = _REMOTE_ENGINES.get(selected)
     if remote is None:
-        return _fallback_markdown(data, ext)
+        return _fallback_document(data, ext)
     client, error_type = remote
     if not client.is_configured():
         metrics.record_remote_skipped(selected, "not_configured")
-        return _fallback_markdown(data, ext)
+        return _fallback_document(data, ext)
     if hasattr(client, "supports") and not client.supports(filename):
         metrics.record_remote_skipped(selected, "unsupported_type")
-        return _fallback_markdown(data, ext)
+        return _fallback_document(data, ext)
 
     if selected == "glm-ocr" and ext == ".pdf":
         return _glm_ocr_pdf(data, filename, client, error_type)
 
     markdown = _call_remote(selected, client, error_type, data, filename)
     if markdown is None:
-        return _fallback_markdown(data, ext)
+        return _fallback_document(data, ext)
     metrics.record_engine(selected)
-    return markdown
+    return _markdown_document(markdown, selected)
 
 
 def _call_remote(selected: str, client, error_type, data: bytes, filename: str) -> str | None:
@@ -438,7 +503,7 @@ def _page_runs(page_count: int, image_pages: set[int]) -> list[tuple[bool, list[
     return runs
 
 
-def _glm_ocr_pdf(data: bytes, filename: str, client, error_type) -> str:
+def _glm_ocr_pdf(data: bytes, filename: str, client, error_type) -> ir.Document:
     """GLM-OCR for a PDF, page by page (ADR-036).
 
     GLM-OCR reads only pixels, so a page that already has a text layer is read
@@ -461,19 +526,20 @@ def _glm_ocr_pdf(data: bytes, filename: str, client, error_type) -> str:
         image_pages = _image_page_indices(doc, _ocr_mode())
         if not image_pages:
             metrics.record_remote_skipped("glm-ocr", "no_image_pages")
-            return pdf_to_markdown(data)
+            return pdf_to_document(data)
         if len(image_pages) == doc.page_count:
             markdown = _call_remote("glm-ocr", client, error_type, data, filename)
             if markdown is None:
-                return pdf_to_markdown(data)
+                return pdf_to_document(data)
             metrics.record_engine("glm-ocr")
-            return markdown
+            return _markdown_document(markdown, "glm-ocr")
 
-        parts: list[str] = []
+        out = ir.Document()
         used_glm = False
         for is_image, pages in _page_runs(doc.page_count, image_pages):
             if not is_image:
-                parts.extend(_native_page_markdown(doc, i) for i in pages)
+                for i in pages:
+                    _add_native_page(out, doc[i], _native_page_markdown(doc, i))
                 continue
             run = pymupdf.open()
             try:
@@ -484,20 +550,41 @@ def _glm_ocr_pdf(data: bytes, filename: str, client, error_type) -> str:
             markdown = _call_remote("glm-ocr", client, error_type, run_bytes, filename)
             if markdown is None:
                 engine, dpi, lang = _engine(), _ocr_dpi(), _ocr_lang()
-                markdown = "\n\n".join(engine.ocr_page(doc[i], dpi=dpi, language=lang).strip() for i in pages)
-            else:
-                used_glm = True
-            parts.append(markdown)
+                for i in pages:
+                    _add_ocr_page(out, engine, doc[i], dpi=dpi, language=lang)
+                continue
+            used_glm = True
+            # GLM-OCR returns one Markdown string for the run, so its blocks are
+            # not tied to a page; the pages it covered are still listed.
+            for i in pages:
+                out.pages.append(_page_info(doc[i], ir.REMOTE, "glm-ocr"))
+            out.extend(serializer.split_markdown(markdown, "glm-ocr"))
         # One conversion, one engine: GLM-OCR if it read any page, else local OCR.
         metrics.record_engine("glm-ocr" if used_glm else "ocr")
-        return "\n\n".join(p.strip() for p in parts if p and p.strip())
+        return out
     finally:
         if not doc.is_closed:
             doc.close()
 
 
+def file_to_document(data: bytes, filename: str, engine: str | None = None) -> ir.Document:
+    """Convert an uploaded document to the document IR (ADR-043), by extension.
+
+    Same arguments and errors as `file_to_markdown`. The elements' text is what
+    each engine produced, before the shared normalizer runs.
+    """
+    ext = os.path.splitext(filename)[1].lower()
+    if ext not in SUPPORTED_EXTENSIONS:
+        supported = ", ".join(sorted(SUPPORTED_EXTENSIONS))
+        raise ValueError(f"Unsupported file type '{ext or 'unknown'}'. Supported: {supported}.")
+    return _extract_document(data, filename, ext, engine)
+
+
 def file_to_markdown(data: bytes, filename: str, engine: str | None = None) -> str:
     """Dispatch an uploaded document to the right parser by extension.
+
+    The document is converted to the IR (`file_to_document`), serialized
+    (`serializer.to_markdown`) and normalized (`clean_markdown`).
 
     Args:
         data: The document bytes.
@@ -506,10 +593,4 @@ def file_to_markdown(data: bytes, filename: str, engine: str | None = None) -> s
             `None` uses this deployment's default. Validate caller input with
             `resolve_engine` first.
     """
-    ext = os.path.splitext(filename)[1].lower()
-    if ext not in SUPPORTED_EXTENSIONS:
-        supported = ", ".join(sorted(SUPPORTED_EXTENSIONS))
-        raise ValueError(f"Unsupported file type '{ext or 'unknown'}'. Supported: {supported}.")
-
-    raw = _extract_markdown(data, filename, ext, engine)
-    return clean_markdown(raw)
+    return clean_markdown(serializer.to_markdown(file_to_document(data, filename, engine)))

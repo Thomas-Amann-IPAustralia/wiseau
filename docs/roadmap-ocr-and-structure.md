@@ -138,7 +138,7 @@ can ship) are noted inline.
 
 ### Tier 2 — the architectural change
 
-- [ ] **2.1 Canonical document IR.** A JSON tree with elements (title,
+- [ ] **2.1 Canonical document IR.** *Core done 2026-11-09 (ADR-043): `parsers/document.py`; adapters for the PyMuPDF4LLM text layer (typed Markdown blocks, no boxes yet), the Tesseract path (psm 3 blocks and stitched tables, ADR-035 paragraphs, every OCR line's box), and Mammoth/docling/GLM-OCR Markdown as unpaged blocks. Text-layer blocks got boxes 2026-11-09 (ADR-044: word alignment, 99.3% of V16/V20 blocks boxed, refusal below 0.5 coverage). Still open: docling's JSON tree as an adapter, and the URL path.* A JSON tree with elements (title,
   heading+level, paragraph, list/item, table with cell spans, figure, caption,
   footnote, equation, header/footer, page number) and relationships (parent_of,
   caption_of, footnote_for, continues_from, continues_table, references,
@@ -147,13 +147,13 @@ can ship) are noted inline.
   fields with a `confidence`, so nothing overwrites the transcription. Adapter
   order: PyMuPDF text layer and the Tesseract layout path first (the defaults),
   then docling JSON, Mammoth, and the URL path. *Effort: large.*
-- [ ] **2.2 Deterministic Markdown serializer.** IR → Markdown. **Gate: its
+- [ ] **2.2 Deterministic Markdown serializer.** *Gate passed 2026-11-09 (ADR-043, `docs/benchmarks/2026-11-09-ir-neutrality.md`): `parsers/serializer.py` replaces the string path, byte for byte on all 15 test PDFs whole (859 pages), a mixed-path PDF and every scored page. Dialect done 2026-11-09 (ADR-045): tables with real cells are written as pipe or HTML tables; ADR-038's stitched rows stay plain (no gain, false columns).* IR → Markdown. **Gate: its
   output must match today's Markdown byte for byte before it replaces the current
   path**, so the refactor is provably behaviour-neutral. After that, adopt an
   explicit dialect: CommonMark plus selective HTML. Simple tables use pipe
   syntax; tables with merged cells or nested headers use HTML. That costs no
   WER, because the scorer strips HTML tags. *Effort: moderate.*
-- [ ] **2.3 Structural gold set and metrics.** Annotate 10–15 documents for
+- [x] **2.3 Structural gold set and metrics.** *Done 2026-11-09 (`docs/benchmarks/2026-11-09-structure-gold-set.md`): set S, 12 documents / 20 pages / 399 blocks / 43 relations, blind from page images, frozen in `fb08ab2`; `structure.py` scores block F1, types, split/merge, order, headings (F1, level, tree edit distance), TEDS, emphasis and relations. Gaps: no deeply nested report, no table repeating its header across pages. First scores: the default path recovers no headings, tables or emphasis on scans; docling and GLM-OCR find headings but level all of them `##`; GLM-OCR leads on tables (TEDS 0.72).* Annotate 10–15 documents for
   structure, not just text. For every element record its type, text, parent,
   order, page and relations. Include a multi-column journal, a deeply nested
   report, tables that continue across pages, a footnote-heavy document and a
@@ -185,7 +185,7 @@ unsure (ADR-030):
   render with `[^n]`.
 - [ ] **3.6 Cross-page tables.** Merge table fragments and drop repeated header
   rows, with an image fallback when the structure can't be rebuilt.
-- [ ] **3.7 Region-level routing.** Once a layout detector feeds IR regions,
+- [~] **3.7 Region-level routing.** *Tables done 2026-11-09 as an opt-in pass (ADR-046, `WISEAU_TABLES=tatr`, `docs/benchmarks/2026-11-09-tables.md`): TATR regions read into cells from psm 3's words; a region averaging > 2.5 words a cell is refused as prose (held out: all 7 damaging regions refused, no accepted one damaging). Set S TEDS 0.258 → 0.558; no word changes; +26% time per scanned page on one thread, +0.9 GB peak memory. On in the Docker image since ADR-047 (user accepted). Open: re-OCR of suspicious regions; born-digital tables.* Once a layout detector feeds IR regions,
   send prose to Tesseract and tables to the table pipeline, and re-OCR only
   regions that look suspicious (low calibrated confidence, missing rows,
   uneven column lengths). This replaces page-level routing, which failed its

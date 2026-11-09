@@ -208,8 +208,8 @@ def _groups(blocks: Sequence[Block]) -> list[list[int]]:
     return sorted(groups.values(), key=lambda g: g[0])
 
 
-def _rows(lines: Sequence[Line]) -> list[str]:
-    """Lines of a stitched table, read row by row (left to right within a row)."""
+def table_rows(lines: Sequence[Line]) -> list[list[Line]]:
+    """Lines of a stitched table grouped into rows, each row left to right."""
     line_height = median(ln.y1 - ln.y0 for ln in lines)
     rows: list[tuple[float, list[Line]]] = []
     for ln in sorted(lines, key=lambda l: ((l.y0 + l.y1) / 2, l.x0, l.text)):
@@ -218,20 +218,120 @@ def _rows(lines: Sequence[Line]) -> list[str]:
             rows[-1][1].append(ln)
         else:
             rows.append((centre, [ln]))
-    return [" ".join(ln.text for ln in sorted(row, key=lambda l: (l.x0, l.text))) for _, row in rows]
+    return [sorted(row, key=lambda l: (l.x0, l.text)) for _, row in rows]
+
+
+class Group(NamedTuple):
+    """One unit of the page in reading order: a lone block, or a stitched table.
+
+    ``rows`` is empty for a lone block (read as its ``lines``, in Tesseract's
+    order) and holds the table's rows for a stitched group of cells.
+    """
+
+    lines: tuple[Line, ...]
+    rows: tuple[tuple[Line, ...], ...] = ()
+
+
+def groups(blocks: Sequence[Block]) -> list[Group]:
+    """Blocks in Tesseract's order, neighbouring table cells stitched into one group."""
+    if not blocks:
+        return []
+    out = []
+    for group in _groups(blocks):
+        if len(group) == 1:
+            out.append(Group(blocks[group[0]].lines))
+        else:
+            lines = [ln for i in group for ln in blocks[i].lines]
+            out.append(Group(tuple(lines), tuple(tuple(r) for r in table_rows(lines))))
+    return out
+
+
+def group_text(group: Group) -> str:
+    """A group's text: a block line by line, a table row by row."""
+    if group.rows:
+        return "\n".join(" ".join(ln.text for ln in row) for row in group.rows)
+    return "\n".join(ln.text for ln in group.lines)
 
 
 def render(blocks: Sequence[Block]) -> str:
     """Blocks in Tesseract's order, stitched table groups read row by row."""
-    if not blocks:
-        return ""
+    return "\n\n".join(group_text(g) for g in groups(blocks))
+
+
+class Word(NamedTuple):
+    """One word Tesseract read: its box (PDF points), text and (block, par, line) key."""
+
+    x0: float
+    y0: float
+    x1: float
+    y1: float
+    text: str
+    key: tuple[int, int, int]
+
+
+def parse_words(tsv: str, scale: float = 1.0) -> list[Word]:
+    """Tesseract TSV → its words in Tesseract's order, boxes multiplied by ``scale``.
+
+    The same words `parse_tsv` groups into lines: a line's box is exactly the
+    union of its words' boxes, so a line and its words can be matched up.
+    """
+    reader = csv.DictReader(io.StringIO(tsv), delimiter="\t", quoting=csv.QUOTE_NONE)
     out = []
-    for group in _groups(blocks):
-        if len(group) == 1:
-            out.append("\n".join(ln.text for ln in blocks[group[0]].lines))
-        else:
-            out.append("\n".join(_rows([ln for i in group for ln in blocks[i].lines])))
-    return "\n\n".join(out)
+    for row in reader:
+        if row.get("level") != "5" or not (row.get("text") or "").strip():
+            continue
+        x0, y0 = int(row["left"]), int(row["top"])
+        x1, y1 = x0 + int(row["width"]), y0 + int(row["height"])
+        out.append(Word(x0 * scale, y0 * scale, x1 * scale, y1 * scale, row["text"].strip(),
+                        (int(row["block_num"]), int(row["par_num"]), int(row["line_num"]))))
+    return out
+
+
+def read_page_tsv(page: pymupdf.Page, *, dpi: int, language: str) -> Optional[str]:
+    """Tesseract's psm 3 TSV for ``page``; ``None`` if Tesseract fails."""
+    png = page.get_pixmap(dpi=dpi).tobytes("png")
+    try:
+        done = subprocess.run([TESSERACT_CMD, "stdin", "stdout", "--psm", "3", "-l", language, "tsv"],
+                              input=png, capture_output=True, timeout=TIMEOUT_S, check=True,
+                              env={**os.environ, **TESSERACT_ENV})
+    except (OSError, subprocess.SubprocessError):
+        return None
+    return done.stdout.decode("utf-8", errors="replace")
+
+
+def blocks_from_tsv(tsv: str, *, dpi: int, mask: Optional[photo_regions.PhotoMask] = None) -> list[Block]:
+    """psm 3 TSV → blocks in PDF points, lines read out of photographs dropped (ADR-037)."""
+    blocks = parse_tsv(tsv, scale=72.0 / dpi)
+    if mask is not None and mask.cells:
+        kept = [[ln for ln in b.lines if not photo_regions.is_photo_noise(ln, mask)] for b in blocks]
+        blocks = [_block(ls) for ls in kept if ls]
+    return blocks
+
+
+class Layout(NamedTuple):
+    """One psm 3 reading of a page: its blocks (photo noise dropped) and every word."""
+
+    blocks: list[Block]
+    words: list[Word]
+
+
+def read_page_layout(page: pymupdf.Page, *, dpi: int, language: str,
+                     mask: Optional[photo_regions.PhotoMask] = None) -> Optional[Layout]:
+    """Tesseract's psm 3 blocks and words for ``page``; ``None`` if Tesseract fails."""
+    tsv = read_page_tsv(page, dpi=dpi, language=language)
+    if tsv is None:
+        return None
+    return Layout(blocks_from_tsv(tsv, dpi=dpi, mask=mask), parse_words(tsv, scale=72.0 / dpi))
+
+
+def read_page_blocks(page: pymupdf.Page, *, dpi: int, language: str,
+                     mask: Optional[photo_regions.PhotoMask] = None) -> Optional[list[Block]]:
+    """Tesseract's psm 3 blocks for ``page`` (PDF points); ``None`` if Tesseract fails.
+
+    ``mask`` (ADR-037) drops lines read out of photographs.
+    """
+    tsv = read_page_tsv(page, dpi=dpi, language=language)
+    return None if tsv is None else blocks_from_tsv(tsv, dpi=dpi, mask=mask)
 
 
 def read_page(page: pymupdf.Page, *, dpi: int, language: str,
@@ -240,18 +340,8 @@ def read_page(page: pymupdf.Page, *, dpi: int, language: str,
 
     ``mask`` (ADR-037) drops lines read out of photographs before stitching.
     """
-    png = page.get_pixmap(dpi=dpi).tobytes("png")
-    try:
-        done = subprocess.run([TESSERACT_CMD, "stdin", "stdout", "--psm", "3", "-l", language, "tsv"],
-                              input=png, capture_output=True, timeout=TIMEOUT_S, check=True,
-                              env={**os.environ, **TESSERACT_ENV})
-    except (OSError, subprocess.SubprocessError):
-        return None
-    blocks = parse_tsv(done.stdout.decode("utf-8", errors="replace"), scale=72.0 / dpi)
-    if mask is not None and mask.cells:
-        kept = [[ln for ln in b.lines if not photo_regions.is_photo_noise(ln, mask)] for b in blocks]
-        blocks = [_block(ls) for ls in kept if ls]
-    return render(blocks)
+    blocks = read_page_blocks(page, dpi=dpi, language=language, mask=mask)
+    return None if blocks is None else render(blocks)
 
 
 def keeps_words(text: str, guard_text: str, *, plausible: bool = True) -> bool:

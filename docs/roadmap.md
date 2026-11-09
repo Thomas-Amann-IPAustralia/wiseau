@@ -636,6 +636,27 @@ No paid API is used for this work unless the user says otherwise.
   separates the cases: lead for 3.7. PP-StructureV3 on the 20 table pages: wer 0.332 against the
   default's 0.090, loses text, merges side-by-side tables, 8–10.6 GB a page. Write-up: `docs/benchmarks/2026-11-09-recogniser-and-table-bakeoff.md`.
 
+- [~] **2.1–2.2 Document IR and byte-neutral serializer (ADR-043).** Done
+  2026-11-09: `parsers/document.py` (elements with type, page, box, source engine,
+  unedited text, OCR lines, table rows; deterministic JSON) and
+  `parsers/serializer.py`; every document path now builds the IR and serializes
+  it. Gate passed: byte-for-byte identical on all 15 test PDFs whole (859 pages),
+  a mixed-path PDF and every scored page. Open:
+  docling-JSON adapter, URL path, and the explicit Markdown dialect (its own ADR).
+  Write-up: `docs/benchmarks/2026-11-09-ir-neutrality.md`.
+  Text-layer boxes done 2026-11-09 (ADR-044).
+- [x] **2.2 (dialect) and 3.7 (tables) — ADR-045, ADR-046.** Tables with real cells
+  are written as pipe/HTML tables; an opt-in Table Transformer pass
+  (`WISEAU_TABLES=tatr`, `requirements-tables.txt`) reads scanned tables into
+  cells and refuses prose. Set S TEDS 0.258 → 0.558, no word changes, +26% time
+  per scanned page. On in the Docker image since ADR-047 (user accepted); off in code.
+  Write-up: `docs/benchmarks/2026-11-09-tables.md`.
+- [x] **2.3 Structural gold set (set S) and `structure.py`.** 12 documents, 20
+  pages, frozen blind; block/type/heading/table/emphasis/relation metrics. The
+  default path scores hd_r 0, TEDS 0.26, em_r 0 on scans; GLM-OCR TEDS 0.72;
+  docling and GLM-OCR level every heading `##`. Write-up:
+  `docs/benchmarks/2026-11-09-structure-gold-set.md`.
+
 Started 2026-11-08. Tiered plan, gates and rationale in
 [`roadmap-ocr-and-structure.md`](roadmap-ocr-and-structure.md), drawn from the two
 external reviews in `docs/`. Headline order: Tier 0 quick fixes (cleaner keeps

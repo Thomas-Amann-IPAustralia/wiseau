@@ -6,7 +6,7 @@ timings to outputs/<engine>/timings.json. Run engines one after another, never
 side by side: concurrent runs on a small box inflate every timing (post-mortem
 2026-11-01).
 
-  python benchmarks/bakeoff/run_engines.py pymupdf   # wiseau default path, in-process
+  python benchmarks/bakeoff/run_engines.py pymupdf   # wiseau default path, in-process; also writes <page>.json (its IR)
   python benchmarks/bakeoff/run_engines.py docling   # docling library, EasyOCR; also writes <page>.json (its document tree)
   python benchmarks/bakeoff/run_engines.py glm-ocr [URL]  # glm-ocr/service.py over HTTP
   python benchmarks/bakeoff/run_engines.py tesseract-psm3     # Tesseract's own layout analysis
@@ -17,6 +17,7 @@ side by side: concurrent runs on a small box inflate every timing (post-mortem
   python benchmarks/bakeoff/run_engines.py forced-ocr     # default path, but OCR every page (ignore the layer)
   python benchmarks/bakeoff/run_engines.py trust-layer    # default path before ADR-040 (reads a scan's invisible layer)
   python benchmarks/bakeoff/run_engines.py no-borders     # default path before scanner-band cleanup
+  python benchmarks/bakeoff/run_engines.py tables-tatr    # default path + Table Transformer tables (ADR-046)
   python benchmarks/bakeoff/run_engines.py pre-VARIANT    # default path on preprocessed pixels (preprocess.py;
                                                           #   ident, deskew, norm, sauvola, denoise; roadmap 1.2)
   python benchmarks/bakeoff/run_engines.py rec-MODEL      # psm 3 layout, lines re-read by MODEL (ml_engines.py;
@@ -25,7 +26,7 @@ side by side: concurrent runs on a small box inflate every timing (post-mortem
   python benchmarks/bakeoff/run_engines.py tatr           # psm 3 layout, tables found by Table Transformer (1.3)
   python benchmarks/bakeoff/run_engines.py ppstructure-v3 # PaddleOCR's PP-StructureV3 pipeline (1.3)
 
-Add `--pages KEY,KEY` to run only those pages of the set. Add `--set b`, `--set c`, `--set d`, `--set e`, `--set f` or `--set l` to run another independently
+Add `--pages KEY,KEY` to run only those pages of the set. Add `--set b`, `--set c`, `--set d`, `--set e`, `--set f`, `--set l` or `--set s` (the structural gold set's pages) to run another independently
 transcribed sample (SAMPLE_B ... SAMPLE_L in regions.py) instead of the original one. Timings are merged into the engine's
 timings.json, so running one set never erases the other's.
 
@@ -52,11 +53,11 @@ import pymupdf
 HERE = Path(__file__).parent
 ROOT = HERE.parent.parent
 sys.path.insert(0, str(HERE))
-from regions import DOCS, SAMPLE, SAMPLE_B, SAMPLE_C, SAMPLE_D, SAMPLE_E, SAMPLE_F, SAMPLE_L  # noqa: E402
+from regions import DOCS, SAMPLE, SAMPLE_B, SAMPLE_C, SAMPLE_D, SAMPLE_E, SAMPLE_F, SAMPLE_L, SAMPLE_S  # noqa: E402
 
 _SET = sys.argv[sys.argv.index("--set") + 1].lower() if "--set" in sys.argv else "a"
 ACTIVE = {"a": SAMPLE, "b": SAMPLE_B, "c": SAMPLE_C, "d": SAMPLE_D, "e": SAMPLE_E, "f": SAMPLE_F,
-          "l": SAMPLE_L}[_SET]
+          "l": SAMPLE_L, "s": SAMPLE_S}[_SET]
 
 
 def pages():
@@ -69,10 +70,19 @@ def pages():
 
 
 def pymupdf_engine():
+    """The default path. Also returns the page's document IR (ADR-043), written as
+    <page>.json: elements with type, box, source engine and OCR lines."""
     sys.path.insert(0, str(ROOT / "backend"))
-    from parsers.file_parser import file_to_markdown
+    from parsers import serializer
+    from parsers.cleaner import clean_markdown
+    from parsers.file_parser import file_to_document
 
-    return lambda data: file_to_markdown(data, "page.pdf", engine="pymupdf")
+    def run(data: bytes) -> tuple[str, dict]:
+        doc = file_to_document(data, "page.pdf", engine="pymupdf")
+        # Exactly file_to_markdown's output, from the same conversion.
+        return clean_markdown(serializer.to_markdown(doc)), doc.to_dict()
+
+    return run
 
 
 def hidden_layer_engine():
@@ -84,6 +94,15 @@ def hidden_layer_engine():
     yields nothing.
     """
     return lambda data: pymupdf.open(stream=data, filetype="pdf")[0].get_text()
+
+
+def tables_tatr_engine():
+    """The default path with the Table Transformer pass on (ADR-046, WISEAU_TABLES=tatr).
+    Writes the IR as <page>.json too, like `pymupdf`."""
+    import os
+
+    os.environ["WISEAU_TABLES"] = "tatr"
+    return pymupdf_engine()
 
 
 def no_borders_engine():
@@ -182,7 +201,7 @@ def tesseract_unordered_engine():
     from parsers import ocr
     from parsers.file_parser import file_to_markdown
 
-    ocr.order_lines = lambda lines: None
+    ocr.order_paragraphs = lambda lines: None
     return lambda data: file_to_markdown(data, "page.pdf", engine="pymupdf")
 
 
@@ -253,6 +272,8 @@ def main() -> None:
         run = trust_layer_engine()
     elif engine == "forced-ocr":
         run = forced_ocr_engine()
+    elif engine == "tables-tatr":
+        run = tables_tatr_engine()
     elif engine == "tesseract-psm3":
         run = tesseract_psm3_engine()
     elif engine == "tesseract-adr035":

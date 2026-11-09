@@ -140,27 +140,47 @@ def page():
 
 @pytest.fixture
 def geometric(monkeypatch):
-    monkeypatch.setattr(ocr.TesseractEngine, "_geometric_text",
-                        staticmethod(lambda page, **kw: "one two three four five six seven"))
+    monkeypatch.setattr(ocr.TesseractEngine, "_geometric_elements",
+                        staticmethod(lambda page, **kw: ocr.text_elements("one two three four five six seven",
+                                                                          source="test")))
+
+
+def _layout_blocks(text):
+    """psm 3 blocks reading ``text``, one block per paragraph (or None: Tesseract failed)."""
+    if text is None:
+        return lambda *a, **kw: None
+    blocks = [Block((Line(0, 10 * i, 100, 10 * i + 8, t),), 0, 10 * i, 100, 10 * i + 8)
+              for i, t in enumerate(text.split("\n"))]
+    return lambda *a, **kw: tesseract_layout.Layout(blocks, [])
 
 
 def test_layout_off_returns_the_geometric_text(monkeypatch, page, geometric):
     monkeypatch.setattr(ocr, "TESSERACT_LAYOUT", False)
-    monkeypatch.setattr(tesseract_layout, "read_page", lambda *a, **kw: pytest.fail("layout ran"))
+    monkeypatch.setattr(tesseract_layout, "read_page_layout", lambda *a, **kw: pytest.fail("layout ran"))
     assert ocr.TesseractEngine().ocr_page(page, dpi=72, language="eng") == "one two three four five six seven"
 
 
 def test_layout_on_returns_the_layout_text(monkeypatch, page, geometric):
     monkeypatch.setattr(ocr, "TESSERACT_LAYOUT", True)
-    monkeypatch.setattr(tesseract_layout, "read_page", lambda *a, **kw: "one two three\nfour five six seven")
-    assert ocr.TesseractEngine().ocr_page(page, dpi=72, language="eng") == "one two three\nfour five six seven"
+    monkeypatch.setattr(tesseract_layout, "read_page_layout", _layout_blocks("one two three\nfour five six seven"))
+    assert ocr.TesseractEngine().ocr_page(page, dpi=72, language="eng") == "one two three\n\nfour five six seven"
 
 
 @pytest.mark.parametrize("layout_text", [None, "one two"])
 def test_layout_failure_or_lost_words_falls_back(monkeypatch, page, geometric, layout_text):
     monkeypatch.setattr(ocr, "TESSERACT_LAYOUT", True)
-    monkeypatch.setattr(tesseract_layout, "read_page", lambda *a, **kw: layout_text)
+    monkeypatch.setattr(tesseract_layout, "read_page_layout", _layout_blocks(layout_text))
     assert ocr.TesseractEngine().ocr_page(page, dpi=72, language="eng") == "one two three four five six seven"
+
+
+def test_the_engine_returns_ir_elements_with_provenance(monkeypatch, page, geometric):
+    # ADR-043: the chosen reading arrives as IR elements carrying their source.
+    monkeypatch.setattr(ocr, "TESSERACT_LAYOUT", True)
+    monkeypatch.setattr(tesseract_layout, "read_page_layout", _layout_blocks("one two three\nfour five six seven"))
+    elements = ocr.TesseractEngine().read_elements(page, dpi=72, language="eng")
+    assert [(e.type, e.source, e.text) for e in elements] == [
+        ("text", "tesseract-psm3", "one two three"), ("text", "tesseract-psm3", "four five six seven")]
+    assert elements[0].bbox is not None and elements[0].lines[0].text == "one two three"
 
 
 def test_tesseract_runs_on_one_thread(monkeypatch):

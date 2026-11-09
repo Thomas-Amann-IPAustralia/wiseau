@@ -1,0 +1,279 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    49.92,
+    62.4,
+    276.72,
+    77.28
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      49.92,
+      62.4,
+      276.72,
+      77.28
+     ],
+     "text": "REGISTRAR\u2019S REMARKS"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "REGISTRAR\u2019S REMARKS",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    288.24,
+    119.04,
+    440.64,
+    137.52
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      288.24,
+      119.04,
+      346.32,
+      127.44
+     ],
+     "text": "Dr Mick Lloyd"
+    },
+    {
+     "bbox": [
+      288.24,
+      128.64,
+      440.64,
+      137.52
+     ],
+     "text": "Director: Plant Variety Rights Office"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Dr Mick Lloyd\nDirector: Plant Variety Rights Office",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    50.64,
+    290.64,
+    528.72,
+    468.96
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      59.76,
+      290.64,
+      528.24,
+      299.76
+     ],
+     "text": "On 19 March 1991, the twenty member countries of the International Union for the Protection of New Plant"
+    },
+    {
+     "bbox": [
+      50.64,
+      300.72,
+      528.48,
+      310.08
+     ],
+     "text": "Varieties (UPOV) agreed that the final draft of the convention of 1991 was a true representation of the outcome"
+    },
+    {
+     "bbox": [
+      50.88,
+      311.76,
+      167.04,
+      320.16
+     ],
+     "text": "of the diplomatic conference."
+    },
+    {
+     "bbox": [
+      60.24,
+      321.12,
+      528.0,
+      329.76
+     ],
+     "text": "Should Australia wish to be a party to the revised convention, and there are compelling reasons why it should,"
+    },
+    {
+     "bbox": [
+      51.6,
+      330.96,
+      528.24,
+      339.12
+     ],
+     "text": "its ratification of the new convention must take place before 31 March, 1992. The next step, formal accession to"
+    },
+    {
+     "bbox": [
+      51.12,
+      340.8,
+      528.24,
+      349.44
+     ],
+     "text": "the treaty, will need to be preceded by legislative amendments to the Australian PVR Act 1987 which we plan"
+    },
+    {
+     "bbox": [
+      51.12,
+      350.64,
+      178.32,
+      359.28
+     ],
+     "text": "to complete by the end of 1992."
+    },
+    {
+     "bbox": [
+      60.24,
+      360.48,
+      528.48,
+      369.12
+     ],
+     "text": "| believe that Australia\u2019s national interests are adequately catered for in the new UPOV Convention and operationally"
+    },
+    {
+     "bbox": [
+      51.6,
+      370.32,
+      528.72,
+      378.72
+     ],
+     "text": "it will make little impact on Australian PVR since many of the new provisions of the 1991 Convention are already"
+    },
+    {
+     "bbox": [
+      51.36,
+      380.16,
+      528.0,
+      388.8
+     ],
+     "text": "in our Act. Previous exclusions from the breeder's right are firmly entrenched in the new convention. These are:"
+    },
+    {
+     "bbox": [
+      60.0,
+      390.0,
+      300.72,
+      398.64
+     ],
+     "text": "\u2014 the use of a protected variety for breeding a new variety,"
+    },
+    {
+     "bbox": [
+      60.0,
+      400.32,
+      230.64,
+      408.48
+     ],
+     "text": "\u2014 use for non-commercial purposes, and,"
+    },
+    {
+     "bbox": [
+      60.0,
+      409.92,
+      327.84,
+      418.8
+     ],
+     "text": "\u2014 optionally, the use of farm saved seed for the farmers own use."
+    },
+    {
+     "bbox": [
+      59.52,
+      420.24,
+      528.72,
+      428.88
+     ],
+     "text": "Whilst the rights of the breeder have been extended to cover produce from a protected variety, this will only"
+    },
+    {
+     "bbox": [
+      51.12,
+      430.32,
+      485.76,
+      438.96
+     ],
+     "text": "apply if the breeder has not had a reasonable opportunity to exercise their right on the propagative material."
+    },
+    {
+     "bbox": [
+      59.76,
+      440.16,
+      528.48,
+      448.8
+     ],
+     "text": "The most compelling reason for Australia\u2019s accession to the 1991 UPOV Convention is the enhanced reciprocity"
+    },
+    {
+     "bbox": [
+      51.36,
+      450.24,
+      528.24,
+      458.88
+     ],
+     "text": "between UPOV member states. This means freer movement of new varieties and stimulation of breeding in Australia"
+    },
+    {
+     "bbox": [
+      50.88,
+      460.32,
+      463.2,
+      468.96
+     ],
+     "text": "with all the attendant advantages for the rural economy and Australia's international competitiveness."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "On 19 March 1991, the twenty member countries of the International Union for the Protection of New Plant\nVarieties (UPOV) agreed that the final draft of the convention of 1991 was a true representation of the outcome\nof the diplomatic conference.\nShould Australia wish to be a party to the revised convention, and there are compelling reasons why it should,\nits ratification of the new convention must take place before 31 March, 1992. The next step, formal accession to\nthe treaty, will need to be preceded by legislative amendments to the Australian PVR Act 1987 which we plan\nto complete by the end of 1992.\n| believe that Australia\u2019s national interests are adequately catered for in the new UPOV Convention and operationally\nit will make little impact on Australian PVR since many of the new provisions of the 1991 Convention are already\nin our Act. Previous exclusions from the breeder's right are firmly entrenched in the new convention. These are:\n\u2014 the use of a protected variety for breeding a new variety,\n\u2014 use for non-commercial purposes, and,\n\u2014 optionally, the use of farm saved seed for the farmers own use.\nWhilst the rights of the breeder have been extended to cover produce from a protected variety, this will only\napply if the breeder has not had a reasonable opportunity to exercise their right on the propagative material.\nThe most compelling reason for Australia\u2019s accession to the 1991 UPOV Convention is the enhanced reciprocity\nbetween UPOV member states. This means freer movement of new varieties and stimulation of breeding in Australia\nwith all the attendant advantages for the rural economy and Australia's international competitiveness.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    66.24,
+    694.8,
+    434.88,
+    704.88
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      66.24,
+      694.8,
+      434.88,
+      704.88
+     ],
+     "text": "CLOSING DATE FOR SEPTEMBER ISSUE: 24 JULY 1991"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "CLOSING DATE FOR SEPTEMBER ISSUE: 24 JULY 1991",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

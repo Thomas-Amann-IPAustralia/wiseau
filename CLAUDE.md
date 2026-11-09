@@ -91,13 +91,19 @@ wiseau/
 │   │   ├── reading_order.py  # column order for OCR'd lines (ADR-035/037)
 │   │   ├── tesseract_layout.py  # psm 3 layout + table-row stitching (ADR-038)
 │   │   ├── photo_regions.py  # drop OCR noise read out of photographs (ADR-037)
+│   │   ├── document.py     # the document IR: elements, boxes, provenance (ADR-043)
+│   │   ├── serializer.py   # IR -> Markdown, byte-neutral (ADR-043)
+│   │   ├── text_layer.py   # boxes for text-layer blocks by word alignment (ADR-044)
+│   │   ├── tables.py       # opt-in: Table Transformer tables on scans (ADR-046)
 │   │   ├── cleaner.py      # regex/Unicode normalization (always runs)
 │   │   ├── chapters.py     # split converted Markdown into chapters (ADR-030)
 │   │   ├── keywords.py     # rank a document's keywords across methods (ADR-032/033)
 │   │   └── naming.py       # the one filename rule: chapters + batches (ADR-031)
-│   ├── Dockerfile          # version-locks Chromium + Python
+│   ├── Dockerfile          # version-locks Chromium + Python; table pass on (TABLES=0 for lean)
+│   ├── fetch_table_models.py  # build-time fetch of the pinned table models (ADR-047)
 │   ├── requirements.txt
-│   └── requirements-keywords.txt  # opt-in keyword methods: spaCy, KeyBERT
+│   ├── requirements-keywords.txt  # opt-in keyword methods: spaCy, KeyBERT
+│   └── requirements-tables.txt    # opt-in table pass: PyTorch, transformers, timm
 ├── docling/                # [Phase 6] docling-serve converter — HF Space #2
 │   ├── Dockerfile          # upstream docling-serve-cpu image, tag+digest pinned
 │   └── README.md           # HF Space card + deployment/verification steps
@@ -202,6 +208,12 @@ pip install -r requirements-keywords.txt
   shape as `/convert/batch` (ADR-033)** — one request, one result per document in
   send order, each carrying the `.md` filename it belongs to via
   `parsers/naming.py`, so the two sets of results always line up.
+- **Documents go engine → IR → serializer → normalizer (ADR-043).** A new
+  document adapter builds `document.Element`s (text as the engine produced it,
+  never edited; inferred structure in its own fields with a `signal`), and only
+  `serializer.py` writes Markdown. A change to the serializer's output is a
+  behaviour change: it needs its own ADR and the whole-document gate
+  (`benchmarks/bakeoff/whole_docs.py`).
 - **All extracted output flows through `cleaner.clean_markdown()`.** Don't return
   Markdown from any parser (docling included) without running it through the shared
   normalizer.

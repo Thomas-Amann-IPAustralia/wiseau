@@ -1,0 +1,1619 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    76.19,
+    56.35,
+    226.69,
+    63.67
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      76.19,
+      56.35,
+      226.69,
+      63.67
+     ],
+     "text": "PLANT VARIETIES JOURNAL 2003 VOL 16 NO. 3"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "<u>PLANT VARIETIES JOURNAL 2003 VOL 16 NO. 3</u>",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.19,
+    84.69,
+    289.82,
+    126.63
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      76.19,
+      84.69,
+      214.96,
+      95.68
+     ],
+     "text": "\u2018Sunbelre\u2019 syn Red Chimes"
+    },
+    {
+     "bbox": [
+      76.19,
+      97.54,
+      279.06,
+      106.63
+     ],
+     "text": "Application No: 2003/129 Accepted: 20 Jun 2003."
+    },
+    {
+     "bbox": [
+      76.19,
+      107.54,
+      271.54,
+      116.63
+     ],
+     "text": "Applicant: Suntory Flowers Ltd, Tokyo, Japan."
+    },
+    {
+     "bbox": [
+      76.19,
+      117.54,
+      289.82,
+      126.63
+     ],
+     "text": "Agent: Ramm Botanicals Pty Ltd, Tuggerah, NSW."
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**\u2018Sunbelre\u2019** syn **Red Chimes**\nApplication No: 2003/129 Accepted: 20 Jun 2003.\nApplicant: **Suntory Flowers Ltd**, Tokyo, Japan.\nAgent: **Ramm Botanicals Pty Ltd**, Tuggerah, NSW.",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.19,
+    137.54,
+    311.51,
+    306.63
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      76.19,
+      137.54,
+      311.48,
+      146.63
+     ],
+     "text": "Characteristics (Table 8, Figure 13) Plant: growth habit"
+    },
+    {
+     "bbox": [
+      76.19,
+      147.54,
+      311.49,
+      156.63
+     ],
+     "text": "upright, height medium. Shoot: length medium (mean"
+    },
+    {
+     "bbox": [
+      76.19,
+      157.54,
+      311.5,
+      166.63
+     ],
+     "text": "20.9cm). Petiole: absent. Leaf blade: length medium (mean"
+    },
+    {
+     "bbox": [
+      76.19,
+      167.54,
+      311.49,
+      176.63
+     ],
+     "text": "29.6mm), width medium (mean 7.7mm), shape of apex"
+    },
+    {
+     "bbox": [
+      76.19,
+      177.54,
+      311.49,
+      186.63
+     ],
+     "text": "narrow acute, variegation absent, green colour of upper"
+    },
+    {
+     "bbox": [
+      76.19,
+      187.54,
+      311.5,
+      196.63
+     ],
+     "text": "side medium. Pedicel: length medium (mean 10.1mm)."
+    },
+    {
+     "bbox": [
+      76.19,
+      197.54,
+      311.51,
+      206.63
+     ],
+     "text": "Sepal: length medium (mean 8.2mm), width medium"
+    },
+    {
+     "bbox": [
+      76.19,
+      207.54,
+      311.49,
+      216.63
+     ],
+     "text": "(mean 2.8mm), anthocyanin colouration present. Flower:"
+    },
+    {
+     "bbox": [
+      76.19,
+      217.54,
+      311.5,
+      226.63
+     ],
+     "text": "type single, diameter small (mean 25.4mm), depth of"
+    },
+    {
+     "bbox": [
+      76.19,
+      227.54,
+      311.48,
+      236.63
+     ],
+     "text": "incisions between corolla lobes shallow, number of colours"
+    },
+    {
+     "bbox": [
+      76.19,
+      237.54,
+      311.48,
+      246.63
+     ],
+     "text": "of upper side one, main colour of upper side red (RHS"
+    },
+    {
+     "bbox": [
+      76.19,
+      247.54,
+      311.47,
+      256.63
+     ],
+     "text": "53B-C), conspicuousness of veins on upper side weak,"
+    },
+    {
+     "bbox": [
+      76.19,
+      257.54,
+      311.48,
+      266.63
+     ],
+     "text": "main colour of lower side red-purple (RHS 59D). Corolla"
+    },
+    {
+     "bbox": [
+      76.19,
+      267.54,
+      311.49,
+      276.63
+     ],
+     "text": "lobe: shape of apex rounded. Flower tube: length medium"
+    },
+    {
+     "bbox": [
+      76.19,
+      277.54,
+      311.48,
+      286.63
+     ],
+     "text": "(mean 16.3mm), main colour of inner side yellow (RHS"
+    },
+    {
+     "bbox": [
+      76.19,
+      287.54,
+      311.48,
+      296.63
+     ],
+     "text": "7A), conspicuousness of veins on inner side weak. (Note:"
+    },
+    {
+     "bbox": [
+      76.19,
+      297.54,
+      290.66,
+      306.63
+     ],
+     "text": "All RHS colour chart numbers refer to 2001 edition.)"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Characteristics** (Table 8, Figure 13) Plant: growth habit\nupright, height medium. Shoot: length medium (mean\n20.9cm). Petiole: absent. Leaf blade: length medium (mean\n29.6mm), width medium (mean 7.7mm), shape of apex\nnarrow acute, variegation absent, green colour of upper\nside medium. Pedicel: length medium (mean 10.1mm).\nSepal: length medium (mean 8.2mm), width medium\n(mean 2.8mm), anthocyanin colouration present. Flower:\ntype single, diameter small (mean 25.4mm), depth of\nincisions between corolla lobes shallow, number of colours\nof upper side one, main colour of upper side red (RHS\n53B-C), conspicuousness of veins on upper side weak,\nmain colour of lower side red-purple (RHS 59D). Corolla\nlobe: shape of apex rounded. Flower tube: length medium\n(mean 16.3mm), main colour of inner side yellow (RHS\n7A), conspicuousness of veins on inner side weak. (Note:\nAll RHS colour chart numbers refer to 2001 edition.)",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.19,
+    317.54,
+    311.5,
+    416.72
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      76.19,
+      317.54,
+      311.49,
+      326.63
+     ],
+     "text": "Origin and Breeding Controlled pollination: seed parent"
+    },
+    {
+     "bbox": [
+      76.19,
+      327.54,
+      311.48,
+      336.87
+     ],
+     "text": "\u2018Sunbelchipi\u2019 x pollen parent \u2018R5\u2019. The seed parent is"
+    },
+    {
+     "bbox": [
+      76.19,
+      337.63,
+      311.5,
+      346.72
+     ],
+     "text": "characterised by a purple-red flower colour and the pollen"
+    },
+    {
+     "bbox": [
+      76.19,
+      347.63,
+      311.49,
+      356.72
+     ],
+     "text": "parent by a red-orange flower colour. Selection took place"
+    },
+    {
+     "bbox": [
+      76.19,
+      357.63,
+      311.5,
+      366.72
+     ],
+     "text": "at Omi R&D Centre, Shiga, Japan. Selection criteria: red"
+    },
+    {
+     "bbox": [
+      76.19,
+      367.63,
+      311.49,
+      376.72
+     ],
+     "text": "flower colour, semi-erect growth habit and small flower"
+    },
+    {
+     "bbox": [
+      76.19,
+      377.63,
+      311.5,
+      386.72
+     ],
+     "text": "diameter. Propagation: mature stock plants were generated"
+    },
+    {
+     "bbox": [
+      76.19,
+      387.63,
+      311.49,
+      396.72
+     ],
+     "text": "from this seedling through tissue culture and found to be"
+    },
+    {
+     "bbox": [
+      76.19,
+      397.63,
+      311.49,
+      406.72
+     ],
+     "text": "uniform and stable. Breeder: Yasuyuki Murakami, Shiga,"
+    },
+    {
+     "bbox": [
+      76.19,
+      407.63,
+      101.46,
+      416.72
+     ],
+     "text": "Japan."
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Origin and Breeding** Controlled pollination: seed parent\n\u2018Sunbelchipi\u2019 x pollen parent \u2018R5\u2019. The seed parent is\ncharacterised by a purple-red flower colour and the pollen\nparent by a red-orange flower colour. Selection took place\nat Omi R&D Centre, Shiga, Japan. Selection criteria: red\nflower colour, semi-erect growth habit and small flower\ndiameter. Propagation: mature stock plants were generated\nfrom this seedling through tissue culture and found to be\nuniform and stable. Breeder: Yasuyuki Murakami, Shiga,\nJapan.",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.19,
+    427.63,
+    311.5,
+    486.72
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      76.19,
+      427.63,
+      311.48,
+      436.72
+     ],
+     "text": "Choice of Comparators Grouping characteristics used in"
+    },
+    {
+     "bbox": [
+      76.19,
+      437.63,
+      311.5,
+      446.72
+     ],
+     "text": "identifying the most similar varieties of common"
+    },
+    {
+     "bbox": [
+      76.19,
+      447.63,
+      311.48,
+      456.72
+     ],
+     "text": "knowledge are \u2013 Flower: main colour of upper side red. On"
+    },
+    {
+     "bbox": [
+      76.19,
+      457.63,
+      311.49,
+      466.72
+     ],
+     "text": "this basis, the most similar variety of common knowledge"
+    },
+    {
+     "bbox": [
+      76.19,
+      467.63,
+      311.48,
+      476.72
+     ],
+     "text": "is \u2018KLEC00072\u2019. The parents were excluded for reasons"
+    },
+    {
+     "bbox": [
+      76.19,
+      477.63,
+      299.84,
+      486.72
+     ],
+     "text": "stated above. No other similar varieties were identified."
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Choice of Comparators** Grouping characteristics used in\nidentifying the most similar varieties of common\nknowledge are \u2013 Flower: main colour of upper side red. On\nthis basis, the most similar variety of common knowledge\nis \u2018KLEC00072\u2019. The parents were excluded for reasons\nstated above. No other similar varieties were identified.",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.19,
+    497.63,
+    311.5,
+    586.72
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      76.19,
+      497.63,
+      311.47,
+      506.72
+     ],
+     "text": "Comparative Trial Location: Somersby, NSW, summer"
+    },
+    {
+     "bbox": [
+      76.19,
+      507.63,
+      311.46,
+      516.72
+     ],
+     "text": "2002-2003. Conditions: trial conducted in open beds,"
+    },
+    {
+     "bbox": [
+      76.19,
+      517.63,
+      311.5,
+      526.72
+     ],
+     "text": "plants propagated from cutting, rooted cuttings planted into"
+    },
+    {
+     "bbox": [
+      76.19,
+      527.63,
+      311.49,
+      536.72
+     ],
+     "text": "140mm pots filled with soilless potting mix, nutrition"
+    },
+    {
+     "bbox": [
+      76.19,
+      537.63,
+      311.49,
+      546.72
+     ],
+     "text": "maintained with slow release fertilisers, pest and disease"
+    },
+    {
+     "bbox": [
+      76.19,
+      547.63,
+      311.5,
+      556.72
+     ],
+     "text": "treatments applied as required. Trial design: fifteen pots of"
+    },
+    {
+     "bbox": [
+      76.19,
+      557.63,
+      311.5,
+      566.72
+     ],
+     "text": "each variety arranged in a completely randomised design."
+    },
+    {
+     "bbox": [
+      76.19,
+      567.63,
+      311.49,
+      576.72
+     ],
+     "text": "Measurements: from ten plants at random. One sample per"
+    },
+    {
+     "bbox": [
+      76.19,
+      577.63,
+      98.69,
+      586.72
+     ],
+     "text": "plant."
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Comparative Trial** Location: Somersby, NSW, summer\n2002-2003. Conditions: trial conducted in open beds,\nplants propagated from cutting, rooted cuttings planted into\n140mm pots filled with soilless potting mix, nutrition\nmaintained with slow release fertilisers, pest and disease\ntreatments applied as required. Trial design: fifteen pots of\neach variety arranged in a completely randomised design.\nMeasurements: from ten plants at random. One sample per\nplant.",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.19,
+    597.95,
+    293.88,
+    676.72
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      76.19,
+      597.95,
+      198.17,
+      606.72
+     ],
+     "text": "Prior Applications and Sales"
+    },
+    {
+     "bbox": [
+      76.19,
+      607.95,
+      112.3,
+      616.72
+     ],
+     "text": "Country"
+    },
+    {
+     "bbox": [
+      136.03,
+      607.95,
+      156.02,
+      616.72
+     ],
+     "text": "Year"
+    },
+    {
+     "bbox": [
+      181.07,
+      607.95,
+      207.74,
+      616.72
+     ],
+     "text": "Status"
+    },
+    {
+     "bbox": [
+      232.79,
+      607.95,
+      293.88,
+      616.72
+     ],
+     "text": "Name Applied"
+    },
+    {
+     "bbox": [
+      76.19,
+      617.63,
+      98.96,
+      626.72
+     ],
+     "text": "Japan"
+    },
+    {
+     "bbox": [
+      136.03,
+      617.63,
+      156.03,
+      626.72
+     ],
+     "text": "2001"
+    },
+    {
+     "bbox": [
+      181.07,
+      617.63,
+      213.29,
+      626.72
+     ],
+     "text": "Applied"
+    },
+    {
+     "bbox": [
+      232.8,
+      617.63,
+      275.01,
+      626.72
+     ],
+     "text": "\u2018Sunbelre\u2019"
+    },
+    {
+     "bbox": [
+      76.19,
+      627.63,
+      106.18,
+      636.72
+     ],
+     "text": "Canada"
+    },
+    {
+     "bbox": [
+      136.03,
+      627.63,
+      156.03,
+      636.72
+     ],
+     "text": "2001"
+    },
+    {
+     "bbox": [
+      181.07,
+      627.63,
+      213.29,
+      636.72
+     ],
+     "text": "Applied"
+    },
+    {
+     "bbox": [
+      232.8,
+      627.63,
+      275.01,
+      636.72
+     ],
+     "text": "\u2018Sunbelre\u2019"
+    },
+    {
+     "bbox": [
+      76.19,
+      637.63,
+      89.52,
+      646.72
+     ],
+     "text": "NZ"
+    },
+    {
+     "bbox": [
+      136.03,
+      637.63,
+      156.03,
+      646.72
+     ],
+     "text": "2002"
+    },
+    {
+     "bbox": [
+      181.07,
+      637.63,
+      213.29,
+      646.72
+     ],
+     "text": "Applied"
+    },
+    {
+     "bbox": [
+      232.8,
+      637.63,
+      275.01,
+      646.72
+     ],
+     "text": "\u2018Sunbelre\u2019"
+    },
+    {
+     "bbox": [
+      76.19,
+      647.63,
+      96.19,
+      656.72
+     ],
+     "text": "USA"
+    },
+    {
+     "bbox": [
+      136.02,
+      647.63,
+      156.02,
+      656.72
+     ],
+     "text": "2002"
+    },
+    {
+     "bbox": [
+      181.06,
+      647.63,
+      213.28,
+      656.72
+     ],
+     "text": "Applied"
+    },
+    {
+     "bbox": [
+      232.79,
+      647.63,
+      275.0,
+      656.72
+     ],
+     "text": "\u2018Sunbelre\u2019"
+    },
+    {
+     "bbox": [
+      76.19,
+      657.63,
+      98.4,
+      666.72
+     ],
+     "text": "Israel"
+    },
+    {
+     "bbox": [
+      136.03,
+      657.63,
+      156.03,
+      666.72
+     ],
+     "text": "2003"
+    },
+    {
+     "bbox": [
+      181.07,
+      657.63,
+      213.29,
+      666.72
+     ],
+     "text": "Applied"
+    },
+    {
+     "bbox": [
+      232.8,
+      657.63,
+      275.01,
+      666.72
+     ],
+     "text": "\u2018Sunbelre\u2019"
+    },
+    {
+     "bbox": [
+      76.19,
+      667.63,
+      89.52,
+      676.72
+     ],
+     "text": "EU"
+    },
+    {
+     "bbox": [
+      136.03,
+      667.63,
+      156.03,
+      676.72
+     ],
+     "text": "2003"
+    },
+    {
+     "bbox": [
+      181.07,
+      667.63,
+      213.29,
+      676.72
+     ],
+     "text": "Applied"
+    },
+    {
+     "bbox": [
+      232.8,
+      667.63,
+      275.01,
+      676.72
+     ],
+     "text": "\u2018Sunbelre\u2019"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Prior Applications and Sales**\n**Country** **Year** **Status** **Name Applied**\nJapan 2001 Applied \u2018Sunbelre\u2019\nCanada 2001 Applied \u2018Sunbelre\u2019\nNZ 2002 Applied \u2018Sunbelre\u2019\nUSA 2002 Applied \u2018Sunbelre\u2019\nIsrael 2003 Applied \u2018Sunbelre\u2019\nEU 2003 Applied \u2018Sunbelre\u2019",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.19,
+    687.63,
+    311.48,
+    706.72
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      76.19,
+      687.63,
+      311.48,
+      696.72
+     ],
+     "text": "First sold in New Zealand in Sep 2001. First Australian"
+    },
+    {
+     "bbox": [
+      76.19,
+      697.63,
+      131.41,
+      706.72
+     ],
+     "text": "sale Jul 2002."
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "First sold in New Zealand in Sep 2001. First Australian\nsale Jul 2002.",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.19,
+    716.48,
+    311.45,
+    732.81
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      76.19,
+      716.48,
+      311.45,
+      723.81
+     ],
+     "text": "Description: Ian Paananen, Crop & Nursery Services, Central Coast,"
+    },
+    {
+     "bbox": [
+      76.19,
+      725.48,
+      95.11,
+      732.81
+     ],
+     "text": "NSW."
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "Description: **Ian Paananen**, Crop & Nursery Services, Central Coast,\nNSW.",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.19,
+    821.7,
+    86.19,
+    830.86
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      76.19,
+      821.7,
+      86.19,
+      830.86
+     ],
+     "text": "32"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "32",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    345.48,
+    89.18,
+    439.1,
+    110.23
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      345.48,
+      89.18,
+      439.1,
+      98.43
+     ],
+     "text": "Callistemon viminalis"
+    },
+    {
+     "bbox": [
+      345.48,
+      100.98,
+      401.59,
+      110.23
+     ],
+     "text": "Bottlebrush"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_~~Callistemon viminalis~~_\n**~~Bottlebrush~~**",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    339.81,
+    121.57,
+    568.12,
+    163.5
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      339.81,
+      121.57,
+      402.48,
+      132.41
+     ],
+     "text": "\u2018UnicalOne\u2019"
+    },
+    {
+     "bbox": [
+      339.81,
+      134.41,
+      545.47,
+      143.5
+     ],
+     "text": "Application No: 2003/179 Accepted: 25 Aug 2003."
+    },
+    {
+     "bbox": [
+      339.81,
+      144.41,
+      556.13,
+      153.5
+     ],
+     "text": "Applicant: T.C. & J.M. Keogh, Victoria Point, QLD."
+    },
+    {
+     "bbox": [
+      339.81,
+      154.41,
+      568.12,
+      163.5
+     ],
+     "text": "Agent: Redlands Nursery Pty Ltd, Redland Bay, QLD."
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**\u2018UnicalOne\u2019**\nApplication No: 2003/179 Accepted: 25 Aug 2003.\nApplicant: **T.C. & J.M. Keogh**, Victoria Point, QLD.\nAgent: **Redlands Nursery Pty Ltd**, Redland Bay, QLD.",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    339.81,
+    174.41,
+    575.12,
+    363.5
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      339.81,
+      174.41,
+      575.12,
+      183.5
+     ],
+     "text": "Characteristics (Table 12, Figure 22) Plant: attitude"
+    },
+    {
+     "bbox": [
+      339.81,
+      184.41,
+      575.1,
+      193.5
+     ],
+     "text": "upright, density dense, height small, branching habit"
+    },
+    {
+     "bbox": [
+      339.81,
+      194.41,
+      575.1,
+      203.5
+     ],
+     "text": "strong. Leaf: colour of young leaf yellow-green (RHS"
+    },
+    {
+     "bbox": [
+      339.81,
+      204.41,
+      575.1,
+      213.5
+     ],
+     "text": "144A), colour of mature leaf on upper side green (RHS"
+    },
+    {
+     "bbox": [
+      339.81,
+      214.41,
+      575.1,
+      223.5
+     ],
+     "text": "137A), colour of mature leaf on lower side green RHS"
+    },
+    {
+     "bbox": [
+      339.81,
+      224.41,
+      575.12,
+      233.5
+     ],
+     "text": "137B, shape lanceolate, average length 32.4mm, width"
+    },
+    {
+     "bbox": [
+      339.81,
+      234.41,
+      575.12,
+      243.5
+     ],
+     "text": "5.9mm, length/width ratio 5.50. Inflorescence: spike length"
+    },
+    {
+     "bbox": [
+      339.81,
+      244.41,
+      575.11,
+      253.5
+     ],
+     "text": "medium (approx. 30-50mm). Flower: colour of stamen and"
+    },
+    {
+     "bbox": [
+      339.81,
+      254.41,
+      575.11,
+      263.5
+     ],
+     "text": "stigma red (RHS 46B). Corolla lobe: shape ovate, number"
+    },
+    {
+     "bbox": [
+      339.81,
+      264.41,
+      575.12,
+      273.5
+     ],
+     "text": "of colour two. Petal: distinctiveness of margin distinct,"
+    },
+    {
+     "bbox": [
+      339.81,
+      274.41,
+      575.11,
+      283.5
+     ],
+     "text": "colour of margin red (RHS 48B), colour of middle zone"
+    },
+    {
+     "bbox": [
+      339.81,
+      284.41,
+      575.1,
+      293.5
+     ],
+     "text": "yellow-green (RHS 150A-B), transparency transparent."
+    },
+    {
+     "bbox": [
+      339.81,
+      294.41,
+      575.12,
+      303.5
+     ],
+     "text": "Calyx lobe: red colouration of margin strong. Bud:"
+    },
+    {
+     "bbox": [
+      339.81,
+      304.41,
+      575.11,
+      313.5
+     ],
+     "text": "distinctiveness of red colour before bud burst distinct,"
+    },
+    {
+     "bbox": [
+      339.81,
+      314.41,
+      575.11,
+      323.5
+     ],
+     "text": "colour red (RHS 63B). Seed capsule: colour of immature"
+    },
+    {
+     "bbox": [
+      339.81,
+      324.41,
+      575.1,
+      333.5
+     ],
+     "text": "capsule yellow-green (RHS 143B-C). (Notes: RHS colour"
+    },
+    {
+     "bbox": [
+      339.81,
+      334.41,
+      575.11,
+      343.5
+     ],
+     "text": "chart number refers to 1995 edition, the codes are the"
+    },
+    {
+     "bbox": [
+      339.81,
+      344.41,
+      575.12,
+      353.5
+     ],
+     "text": "closest if not exact, characters variable with growing"
+    },
+    {
+     "bbox": [
+      339.81,
+      354.41,
+      383.42,
+      363.5
+     ],
+     "text": "condition.)"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Characteristics** (Table 12, Figure 22) Plant: attitude\nupright, density dense, height small, branching habit\nstrong. Leaf: colour of young leaf yellow-green (RHS\n144A), colour of mature leaf on upper side green (RHS\n137A), colour of mature leaf on lower side green RHS\n137B, shape lanceolate, average length 32.4mm, width\n5.9mm, length/width ratio 5.50. Inflorescence: spike length\nmedium (approx. 30-50mm). Flower: colour of stamen and\nstigma red (RHS 46B). Corolla lobe: shape ovate, number\nof colour two. Petal: distinctiveness of margin distinct,\ncolour of margin red (RHS 48B), colour of middle zone\nyellow-green (RHS 150A-B), transparency transparent.\nCalyx lobe: red colouration of margin strong. Bud:\ndistinctiveness of red colour before bud burst distinct,\ncolour red (RHS 63B). Seed capsule: colour of immature\ncapsule yellow-green (RHS 143B-C). (Notes: RHS colour\nchart number refers to 1995 edition, the codes are the\nclosest if not exact, characters variable with growing\ncondition.)",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    339.81,
+    374.41,
+    575.13,
+    503.59
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      339.81,
+      374.41,
+      575.11,
+      383.5
+     ],
+     "text": "Origin and Breeding Controlled pollination: seed parent"
+    },
+    {
+     "bbox": [
+      339.81,
+      384.41,
+      575.09,
+      394.1
+     ],
+     "text": "\u2018Captain Cook\u2019 x pollen parent \u2018Little John\u2019 to produced F1"
+    },
+    {
+     "bbox": [
+      339.81,
+      394.5,
+      575.1,
+      403.94
+     ],
+     "text": "seedlings. Resulting F1 seedlings were crossed again to"
+    },
+    {
+     "bbox": [
+      339.81,
+      404.5,
+      575.1,
+      413.94
+     ],
+     "text": "produce F2 seedlings at Wellington Point, QLD in 1995."
+    },
+    {
+     "bbox": [
+      339.81,
+      414.5,
+      575.1,
+      423.94
+     ],
+     "text": "The F2 generation was found to be dwarf and dense when"
+    },
+    {
+     "bbox": [
+      339.81,
+      424.5,
+      575.12,
+      433.59
+     ],
+     "text": "compared with parental variety \u2018Captain Cook\u2019, which is a"
+    },
+    {
+     "bbox": [
+      339.81,
+      434.5,
+      575.12,
+      443.59
+     ],
+     "text": "taller variety with open growth habit. It also has finer"
+    },
+    {
+     "bbox": [
+      339.81,
+      444.5,
+      575.12,
+      453.59
+     ],
+     "text": "leaves compared to pollen parent \u2018Little John\u2019. It was"
+    },
+    {
+     "bbox": [
+      339.81,
+      454.5,
+      575.12,
+      463.59
+     ],
+     "text": "vegetatively propagated through several generations and"
+    },
+    {
+     "bbox": [
+      339.81,
+      464.5,
+      575.1,
+      473.59
+     ],
+     "text": "was found to be stable and distinct from the parents."
+    },
+    {
+     "bbox": [
+      339.81,
+      474.5,
+      575.13,
+      483.59
+     ],
+     "text": "Selection criteria: plant growth habit compact, and finer"
+    },
+    {
+     "bbox": [
+      339.81,
+      484.5,
+      575.12,
+      493.59
+     ],
+     "text": "leaves. Propagation: vegetatively propagated through"
+    },
+    {
+     "bbox": [
+      339.81,
+      494.5,
+      552.34,
+      503.59
+     ],
+     "text": "cuttings. Breeder: T. C. Keogh, Victoria Point, QLD."
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Origin and Breeding** Controlled pollination: seed parent\n\u2018Captain Cook\u2019 x pollen parent \u2018Little John\u2019 to produced F1\nseedlings. Resulting F1 seedlings were crossed again to\nproduce F2 seedlings at Wellington Point, QLD in 1995.\nThe F2 generation was found to be dwarf and dense when\ncompared with parental variety \u2018Captain Cook\u2019, which is a\ntaller variety with open growth habit. It also has finer\nleaves compared to pollen parent \u2018Little John\u2019. It was\nvegetatively propagated through several generations and\nwas found to be stable and distinct from the parents.\nSelection criteria: plant growth habit compact, and finer\nleaves. Propagation: vegetatively propagated through\ncuttings. Breeder: T. C. Keogh, Victoria Point, QLD.",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    339.81,
+    514.5,
+    575.12,
+    603.59
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      339.81,
+      514.5,
+      575.1,
+      523.59
+     ],
+     "text": "Choice of Comparators Grouping characteristics used in"
+    },
+    {
+     "bbox": [
+      339.81,
+      524.5,
+      575.12,
+      533.59
+     ],
+     "text": "identifying the most similar varieties of common"
+    },
+    {
+     "bbox": [
+      339.81,
+      534.5,
+      575.12,
+      543.59
+     ],
+     "text": "knowledge were \u2013 Plant: attitude upright, density dense,"
+    },
+    {
+     "bbox": [
+      339.81,
+      544.5,
+      575.12,
+      553.59
+     ],
+     "text": "height small. Flower: colour red. Leaf: size small to"
+    },
+    {
+     "bbox": [
+      339.81,
+      554.5,
+      575.11,
+      563.59
+     ],
+     "text": "medium. On these bases, \u2018Captain Cook\u2019 and \u2018Little John\u2019"
+    },
+    {
+     "bbox": [
+      339.81,
+      564.5,
+      575.12,
+      573.59
+     ],
+     "text": "were chosen as the comparators. There are the parental"
+    },
+    {
+     "bbox": [
+      339.81,
+      574.5,
+      575.12,
+      583.59
+     ],
+     "text": "varieties and have some similarities with the candidate. No"
+    },
+    {
+     "bbox": [
+      339.81,
+      584.5,
+      575.12,
+      593.59
+     ],
+     "text": "other similar varieties of common knowledge have been"
+    },
+    {
+     "bbox": [
+      339.81,
+      594.5,
+      380.64,
+      603.59
+     ],
+     "text": "identified."
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Choice of Comparators** Grouping characteristics used in\nidentifying the most similar varieties of common\nknowledge were \u2013 Plant: attitude upright, density dense,\nheight small. Flower: colour red. Leaf: size small to\nmedium. On these bases, \u2018Captain Cook\u2019 and \u2018Little John\u2019\nwere chosen as the comparators. There are the parental\nvarieties and have some similarities with the candidate. No\nother similar varieties of common knowledge have been\nidentified.",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    339.81,
+    614.5,
+    575.12,
+    693.59
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      339.81,
+      614.5,
+      575.1,
+      623.59
+     ],
+     "text": "Comparative Trials Location: Redland Bay, QLD, 2002"
+    },
+    {
+     "bbox": [
+      339.81,
+      624.5,
+      575.12,
+      633.59
+     ],
+     "text": "to 2003. Conditions: trial conducted in full sun, plants"
+    },
+    {
+     "bbox": [
+      339.81,
+      634.5,
+      575.11,
+      643.59
+     ],
+     "text": "propagated from cuttings and potted into 140mm pots with"
+    },
+    {
+     "bbox": [
+      339.81,
+      644.5,
+      575.12,
+      653.59
+     ],
+     "text": "soilless media (peat and bark based), nutrition maintained"
+    },
+    {
+     "bbox": [
+      339.81,
+      654.5,
+      575.12,
+      663.59
+     ],
+     "text": "with controlled release fertilisers, pest and disease was not"
+    },
+    {
+     "bbox": [
+      339.81,
+      664.5,
+      575.11,
+      673.59
+     ],
+     "text": "of concern. Trial design: 15 pots of each variety arranged"
+    },
+    {
+     "bbox": [
+      339.81,
+      674.5,
+      575.12,
+      683.59
+     ],
+     "text": "in a completely randomised design. Measurements: from"
+    },
+    {
+     "bbox": [
+      339.81,
+      684.5,
+      422.22,
+      693.59
+     ],
+     "text": "10 plants at random."
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Comparative Trials** Location: Redland Bay, QLD, 2002\nto 2003. Conditions: trial conducted in full sun, plants\npropagated from cuttings and potted into 140mm pots with\nsoilless media (peat and bark based), nutrition maintained\nwith controlled release fertilisers, pest and disease was not\nof concern. Trial design: 15 pots of each variety arranged\nin a completely randomised design. Measurements: from\n10 plants at random.",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    339.81,
+    704.5,
+    477.6,
+    713.59
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      339.81,
+      704.5,
+      477.6,
+      713.59
+     ],
+     "text": "Prior Applications and Sales nil."
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Prior Applications and Sales** nil.",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    339.81,
+    723.35,
+    493.21,
+    730.68
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      339.81,
+      723.35,
+      493.21,
+      730.68
+     ],
+     "text": "Description: Deo Singh, Ornatec Pty Ltd, QLD."
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "Description: **Deo Singh**, Ornatec Pty Ltd, QLD.",
+   "text_format": "markdown",
+   "type": "paragraph"
+  }
+ ],
+ "pages": [
+  {
+   "method": "text-layer",
+   "number": 1,
+   "size": [
+    651.0,
+    898.0
+   ],
+   "source": "pymupdf4llm"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

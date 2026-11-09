@@ -1,0 +1,2575 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    63.6,
+    50.88,
+    239.76,
+    70.08
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      64.32,
+      50.88,
+      239.76,
+      60.72
+     ],
+     "text": "Further growing trials will be conducted in"
+    },
+    {
+     "bbox": [
+      63.6,
+      61.2,
+      206.4,
+      70.08
+     ],
+     "text": "Australia to verify this description."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Further growing trials will be conducted in\nAustralia to verify this description.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.4,
+    95.76,
+    266.64,
+    153.36
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      62.4,
+      95.76,
+      88.08,
+      104.64
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      62.88,
+      104.88,
+      266.64,
+      114.24
+     ],
+     "text": "\u2018Natsukaze\u2019 guinea grass has Plant Variety Rights"
+    },
+    {
+     "bbox": [
+      62.88,
+      114.72,
+      255.84,
+      124.08
+     ],
+     "text": "protection in Japan since November 1986. The"
+    },
+    {
+     "bbox": [
+      62.88,
+      124.56,
+      249.36,
+      133.44
+     ],
+     "text": "breeder is Hirosayu Sato, of Kyushu National"
+    },
+    {
+     "bbox": [
+      62.4,
+      134.4,
+      256.32,
+      143.52
+     ],
+     "text": "Agricultural Experiment Station at Kumamoto,"
+    },
+    {
+     "bbox": [
+      62.64,
+      144.96,
+      90.24,
+      153.36
+     ],
+     "text": "Japan."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\n\u2018Natsukaze\u2019 guinea grass has Plant Variety Rights\nprotection in Japan since November 1986. The\nbreeder is Hirosayu Sato, of Kyushu National\nAgricultural Experiment Station at Kumamoto,\nJapan.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.64,
+    163.68,
+    272.16,
+    263.52
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      62.88,
+      163.68,
+      267.12,
+      172.56
+     ],
+     "text": "This variety arises from the controlled pollination"
+    },
+    {
+     "bbox": [
+      62.64,
+      173.76,
+      236.4,
+      182.88
+     ],
+     "text": "of a sexual plant accession by pollen from"
+    },
+    {
+     "bbox": [
+      62.88,
+      183.84,
+      272.16,
+      193.2
+     ],
+     "text": "apomictic accessions. Selection of sexual progeny"
+    },
+    {
+     "bbox": [
+      62.64,
+      193.68,
+      260.16,
+      203.04
+     ],
+     "text": "was made for three generations, on the basis of"
+    },
+    {
+     "bbox": [
+      62.88,
+      204.0,
+      272.16,
+      213.36
+     ],
+     "text": "early growth vigour and high dry matter yield. The"
+    },
+    {
+     "bbox": [
+      63.12,
+      214.32,
+      240.96,
+      222.0
+     ],
+     "text": "resultant material was then evaluated at 13"
+    },
+    {
+     "bbox": [
+      62.88,
+      224.16,
+      272.16,
+      233.52
+     ],
+     "text": "different sites in Japan from 1981 to 1984 for yield,"
+    },
+    {
+     "bbox": [
+      62.88,
+      234.48,
+      259.68,
+      243.6
+     ],
+     "text": "chemical composition, nutrient value and other"
+    },
+    {
+     "bbox": [
+      63.12,
+      244.32,
+      266.16,
+      253.44
+     ],
+     "text": "performance characteristics, resulting in the final"
+    },
+    {
+     "bbox": [
+      62.64,
+      254.4,
+      191.76,
+      263.52
+     ],
+     "text": "selection of an apomictic plant."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "This variety arises from the controlled pollination\nof a sexual plant accession by pollen from\napomictic accessions. Selection of sexual progeny\nwas made for three generations, on the basis of\nearly growth vigour and high dry matter yield. The\nresultant material was then evaluated at 13\ndifferent sites in Japan from 1981 to 1984 for yield,\nchemical composition, nutrient value and other\nperformance characteristics, resulting in the final\nselection of an apomictic plant.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    296.4,
+    48.72,
+    508.56,
+    96.72
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      296.4,
+      48.72,
+      458.4,
+      57.84
+     ],
+     "text": "Morphology \u2014 See comparison tables."
+    },
+    {
+     "bbox": [
+      296.64,
+      58.08,
+      508.56,
+      67.68
+     ],
+     "text": "\u2019Natsukaze\u2019 is a perennial tetraploid (2n = 32) erect"
+    },
+    {
+     "bbox": [
+      296.4,
+      68.64,
+      486.72,
+      78.24
+     ],
+     "text": "growing guinea grass. Its reproduction is 85%"
+    },
+    {
+     "bbox": [
+      296.64,
+      78.48,
+      508.08,
+      88.32
+     ],
+     "text": "apomictic \u2014 that is, producing seed without sexual"
+    },
+    {
+     "bbox": [
+      296.88,
+      89.52,
+      359.52,
+      96.72
+     ],
+     "text": "recombination."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 See comparison tables.\n\u2019Natsukaze\u2019 is a perennial tetraploid (2n = 32) erect\ngrowing guinea grass. Its reproduction is 85%\napomictic \u2014 that is, producing seed without sexual\nrecombination.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    296.4,
+    106.08,
+    510.0,
+    213.12
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      296.64,
+      106.08,
+      504.0,
+      114.72
+     ],
+     "text": "\u2018Natsukaze\u2019 is distinct from \u2018Gatton\u2019 in being more"
+    },
+    {
+     "bbox": [
+      296.88,
+      115.92,
+      493.92,
+      124.32
+     ],
+     "text": "robust and broader leafed than \u2018Gatton\u2019, having"
+    },
+    {
+     "bbox": [
+      296.4,
+      125.76,
+      495.6,
+      134.64
+     ],
+     "text": "denser and shorter leaf sheath pubescence than"
+    },
+    {
+     "bbox": [
+      296.4,
+      135.84,
+      474.72,
+      144.72
+     ],
+     "text": "\u2018Gatton\u2019 and having pubescent stem nodes"
+    },
+    {
+     "bbox": [
+      296.4,
+      145.44,
+      480.0,
+      154.8
+     ],
+     "text": "compared to the glabrous nodes of \u2018Gatton\u2019."
+    },
+    {
+     "bbox": [
+      296.88,
+      155.28,
+      494.64,
+      163.92
+     ],
+     "text": "\u2018Natsukaze\u2019 is also distinct from \u2018Petrie\u2019 in being"
+    },
+    {
+     "bbox": [
+      296.64,
+      165.36,
+      483.36,
+      173.28
+     ],
+     "text": "more robust and broader leafed than \u2018Petrie\u2019,"
+    },
+    {
+     "bbox": [
+      297.12,
+      175.2,
+      510.0,
+      184.56
+     ],
+     "text": "having a later heading date than \u2018Petrie\u2019 and having"
+    },
+    {
+     "bbox": [
+      296.64,
+      185.28,
+      493.68,
+      194.64
+     ],
+     "text": "glabrous bright green leaf blade upper surfaces"
+    },
+    {
+     "bbox": [
+      296.64,
+      195.84,
+      508.8,
+      204.72
+     ],
+     "text": "compared to the pale green finely pubescent upper"
+    },
+    {
+     "bbox": [
+      296.88,
+      205.92,
+      392.64,
+      213.12
+     ],
+     "text": "leaf surfaces of \u2018Petrie\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Natsukaze\u2019 is distinct from \u2018Gatton\u2019 in being more\nrobust and broader leafed than \u2018Gatton\u2019, having\ndenser and shorter leaf sheath pubescence than\n\u2018Gatton\u2019 and having pubescent stem nodes\ncompared to the glabrous nodes of \u2018Gatton\u2019.\n\u2018Natsukaze\u2019 is also distinct from \u2018Petrie\u2019 in being\nmore robust and broader leafed than \u2018Petrie\u2019,\nhaving a later heading date than \u2018Petrie\u2019 and having\nglabrous bright green leaf blade upper surfaces\ncompared to the pale green finely pubescent upper\nleaf surfaces of \u2018Petrie\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    297.36,
+    223.68,
+    502.56,
+    260.88
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      297.36,
+      223.68,
+      341.76,
+      232.56
+     ],
+     "text": "Agronomy"
+    },
+    {
+     "bbox": [
+      297.6,
+      233.76,
+      486.0,
+      242.64
+     ],
+     "text": "\u2018Natsukaze\u2019 is intended as a summer growing"
+    },
+    {
+     "bbox": [
+      297.6,
+      243.84,
+      502.56,
+      252.48
+     ],
+     "text": "perennial (3-4 years) pasture grass. It is known to"
+    },
+    {
+     "bbox": [
+      297.6,
+      253.68,
+      406.32,
+      260.88
+     ],
+     "text": "have a low frost tolerance."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Agronomy\n\u2018Natsukaze\u2019 is intended as a summer growing\nperennial (3-4 years) pasture grass. It is known to\nhave a low frost tolerance.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    65.52,
+    273.84,
+    391.44,
+    284.4
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      65.52,
+      273.84,
+      391.44,
+      284.4
+     ],
+     "text": "TABLES OF COMPARISON OF GUINEA GRASS VARIETIES"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "TABLES OF COMPARISON OF GUINEA GRASS VARIETIES",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    65.83,
+    297.41,
+    456.8,
+    776.76
+   ],
+   "confidence": null,
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      227.76,
+      297.84,
+      443.76,
+      307.44
+     ],
+     "text": "\u2018Natsukaze\u2019 Gatton\u2019 \u2018Patrie\u2019"
+    },
+    {
+     "bbox": [
+      66.48,
+      315.84,
+      307.92,
+      325.44
+     ],
+     "text": "RECORDED SEXUAL REPRODUCTION \u2014 8 nuclei per embryo sac"
+    },
+    {
+     "bbox": [
+      66.72,
+      325.68,
+      431.52,
+      333.36
+     ],
+     "text": "1983 analysis 15% 6% 0%"
+    },
+    {
+     "bbox": [
+      66.72,
+      343.92,
+      433.2,
+      350.88
+     ],
+     "text": "HEADING DATE Mean 26.3 13.9 11.7"
+    },
+    {
+     "bbox": [
+      66.72,
+      351.6,
+      434.64,
+      361.44
+     ],
+     "text": "(from 1 July} Range 21-31 10-21 5-21"
+    },
+    {
+     "bbox": [
+      132.72,
+      360.96,
+      432.48,
+      370.56
+     ],
+     "text": "Standard deviation 1.44 2.11 2.11"
+    },
+    {
+     "bbox": [
+      66.72,
+      380.4,
+      450.72,
+      387.12
+     ],
+     "text": "STEM LENGTH Mean 221.8cm 175.7 cm 154.7 cm"
+    },
+    {
+     "bbox": [
+      180.0,
+      388.08,
+      449.04,
+      397.92
+     ],
+     "text": "Range 205-244 151-212 128-185"
+    },
+    {
+     "bbox": [
+      132.72,
+      397.92,
+      433.44,
+      404.88
+     ],
+     "text": "Standard deviation 2.46 2.06 3.86"
+    },
+    {
+     "bbox": [
+      66.48,
+      415.68,
+      445.68,
+      422.64
+     ],
+     "text": "STEM DIAMETER Mean 6.0 mm 4.3mm 4.1mm"
+    },
+    {
+     "bbox": [
+      180.0,
+      423.84,
+      444.48,
+      433.92
+     ],
+     "text": "Range \u00a7.1-7.2 3.4-5.5 3.2-5.0"
+    },
+    {
+     "bbox": [
+      132.48,
+      433.44,
+      433.68,
+      440.16
+     ],
+     "text": "Standard deviation 0.35 0.37 0.13"
+    },
+    {
+     "bbox": [
+      66.72,
+      450.96,
+      279.36,
+      459.12
+     ],
+     "text": "NO. TILLERS (tillers having not less than 1 node per stem)"
+    },
+    {
+     "bbox": [
+      66.72,
+      460.08,
+      433.68,
+      466.8
+     ],
+     "text": "PER PLANT Mean 29.1 43.3 62.5"
+    },
+    {
+     "bbox": [
+      180.24,
+      468.24,
+      444.72,
+      477.6
+     ],
+     "text": "Range 11-62 19-91 18-178"
+    },
+    {
+     "bbox": [
+      132.48,
+      478.08,
+      432.48,
+      484.8
+     ],
+     "text": "Standard deviation 3.50 4.29 8.21"
+    },
+    {
+     "bbox": [
+      66.72,
+      496.56,
+      446.4,
+      503.28
+     ],
+     "text": "LEAF LENGTH Mean 43.5cm 38.2 cm 37.3.cm"
+    },
+    {
+     "bbox": [
+      66.48,
+      504.48,
+      440.4,
+      514.08
+     ],
+     "text": "(next from flag) Range 34-52 29-47 21-48"
+    },
+    {
+     "bbox": [
+      132.72,
+      514.56,
+      428.64,
+      521.28
+     ],
+     "text": "Standard deviation 1.36 1.0 5:2"
+    },
+    {
+     "bbox": [
+      66.48,
+      532.8,
+      442.08,
+      539.28
+     ],
+     "text": "LEAF WIDTH Mean 3.2cm 2.0cm 1.8cm"
+    },
+    {
+     "bbox": [
+      66.48,
+      540.24,
+      444.24,
+      550.08
+     ],
+     "text": "(same leaf} Range 2.6-3.5 4.6-2.5 1.4-2.2"
+    },
+    {
+     "bbox": [
+      132.48,
+      550.32,
+      433.68,
+      557.04
+     ],
+     "text": "Standard deviation 0.09 0.03 0.16"
+    },
+    {
+     "bbox": [
+      66.48,
+      568.32,
+      245.04,
+      576.0
+     ],
+     "text": "HAIR \u2014 Ranked 0 ( = glabrous) to 9 {= abundant}"
+    },
+    {
+     "bbox": [
+      65.76,
+      576.96,
+      429.12,
+      583.44
+     ],
+     "text": "\u2014 ON STEM NODE Mean 1.7 0 1.9"
+    },
+    {
+     "bbox": [
+      65.52,
+      585.84,
+      428.16,
+      592.56
+     ],
+     "text": "\u2014 ON SHEATH Mean 3.1 0 4.1"
+    },
+    {
+     "bbox": [
+      66.0,
+      594.96,
+      429.12,
+      601.44
+     ],
+     "text": "\u2014 ONLIGULE Mean 2.9 1.7 2.5"
+    },
+    {
+     "bbox": [
+      66.24,
+      612.72,
+      446.4,
+      619.44
+     ],
+     "text": "PANICLE LENGTH Mean 38.5cm 27.3cm 29.3 cm"
+    },
+    {
+     "bbox": [
+      180.0,
+      621.84,
+      453.36,
+      629.28
+     ],
+     "text": "Range 35.2-48.5 17.2-33.0 27.4-41.0"
+    },
+    {
+     "bbox": [
+      132.24,
+      630.72,
+      433.44,
+      637.2
+     ],
+     "text": "Standard deviation 0.49 1.93 0.72"
+    },
+    {
+     "bbox": [
+      66.48,
+      648.72,
+      438.0,
+      655.44
+     ],
+     "text": "NO. PANICLES Mean 23.6 96.8 108.3"
+    },
+    {
+     "bbox": [
+      66.48,
+      656.64,
+      444.48,
+      666.48
+     ],
+     "text": "PER PLANT Range 10-50 32-136 32-230"
+    },
+    {
+     "bbox": [
+      132.48,
+      666.72,
+      438.0,
+      673.44
+     ],
+     "text": "Standard deviation 3.75 18.58 11.53"
+    },
+    {
+     "bbox": [
+      66.48,
+      684.96,
+      433.68,
+      691.2
+     ],
+     "text": "NO. RACHIS Mean 51.7 38.9 33.5"
+    },
+    {
+     "bbox": [
+      66.24,
+      692.64,
+      438.96,
+      702.24
+     ],
+     "text": "PER PANICLE Range 47-56 30-45 26-41"
+    },
+    {
+     "bbox": [
+      132.48,
+      702.48,
+      433.2,
+      708.96
+     ],
+     "text": "Standard deviation 0.35 1,59 2.12"
+    },
+    {
+     "bbox": [
+      66.24,
+      720.0,
+      444.0,
+      727.92
+     ],
+     "text": "SEED \u2014 RUGOSITY rugose rugose rugose"
+    },
+    {
+     "bbox": [
+      90.72,
+      737.76,
+      456.96,
+      745.68
+     ],
+     "text": "\u2014 GLUME HAIRINESS glabrous glabrous pubescent"
+    },
+    {
+     "bbox": [
+      90.72,
+      755.76,
+      435.6,
+      763.92
+     ],
+     "text": "\u2014 WEIGHT PER 1000 1.02g 0.89g 1.0g"
+    },
+    {
+     "bbox": [
+      91.44,
+      764.88,
+      439.92,
+      772.8
+     ],
+     "text": "{2 samples) 1.05 g 0.80 g 0.92g"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       227.76,
+       298.8,
+       269.76,
+       305.04
+      ],
+      "header": true,
+      "text": "\u2018Natsukaze\u2019"
+     },
+     {
+      "bbox": [
+       323.52,
+       297.84,
+       349.92,
+       307.44
+      ],
+      "header": true,
+      "text": "Gatton\u2019"
+     },
+     {
+      "bbox": [
+       418.56,
+       298.56,
+       443.76,
+       305.04
+      ],
+      "header": true,
+      "text": "\u2018Patrie\u2019"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       66.48,
+       317.04,
+       143.04,
+       323.52
+      ],
+      "text": "RECORDED SEXUAL"
+     },
+     {
+      "bbox": [
+       145.92,
+       316.8,
+       207.84,
+       323.28
+      ],
+      "text": "REPRODUCTION"
+     },
+     {
+      "bbox": [
+       210.24,
+       315.84,
+       307.92,
+       325.44
+      ],
+      "text": "\u2014 8 nuclei per embryo sac"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       66.72,
+       326.16,
+       115.68,
+       333.36
+      ],
+      "text": "1983 analysis"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       228.24,
+       325.92,
+       245.04,
+       331.92
+      ],
+      "text": "15%"
+     },
+     {
+      "bbox": [
+       323.04,
+       325.68,
+       336.0,
+       331.68
+      ],
+      "text": "6%"
+     },
+     {
+      "bbox": [
+       418.32,
+       325.68,
+       431.52,
+       331.68
+      ],
+      "text": "0%"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       66.72,
+       344.4,
+       125.28,
+       350.88
+      ],
+      "text": "HEADING DATE"
+     },
+     {
+      "bbox": [
+       182.64,
+       344.16,
+       203.04,
+       350.4
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       227.76,
+       344.16,
+       242.4,
+       350.4
+      ],
+      "text": "26.3"
+     },
+     {
+      "bbox": [
+       323.76,
+       343.92,
+       338.16,
+       350.16
+      ],
+      "text": "13.9"
+     },
+     {
+      "bbox": [
+       419.04,
+       344.16,
+       433.2,
+       350.16
+      ],
+      "text": "11.7"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       66.72,
+       353.04,
+       113.04,
+       360.96
+      ],
+      "text": "(from 1 July}"
+     },
+     {
+      "bbox": [
+       180.24,
+       353.04,
+       203.04,
+       360.96
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       227.76,
+       353.28,
+       248.16,
+       359.28
+      ],
+      "text": "21-31"
+     },
+     {
+      "bbox": [
+       323.76,
+       351.6,
+       343.44,
+       361.44
+      ],
+      "text": "10-21"
+     },
+     {
+      "bbox": [
+       418.56,
+       353.28,
+       434.64,
+       359.04
+      ],
+      "text": "5-21"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       132.72,
+       362.16,
+       203.04,
+       369.12
+      ],
+      "text": "Standard deviation"
+     },
+     {
+      "bbox": [
+       228.24,
+       360.96,
+       243.36,
+       370.56
+      ],
+      "text": "1.44"
+     },
+     {
+      "bbox": [
+       323.28,
+       362.4,
+       336.96,
+       368.4
+      ],
+      "text": "2.11"
+     },
+     {
+      "bbox": [
+       418.56,
+       362.64,
+       432.48,
+       368.4
+      ],
+      "text": "2.11"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       66.72,
+       380.64,
+       121.92,
+       387.12
+      ],
+      "text": "STEM LENGTH"
+     },
+     {
+      "bbox": [
+       183.12,
+       380.64,
+       202.8,
+       386.88
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       228.0,
+       380.4,
+       259.92,
+       386.4
+      ],
+      "text": "221.8cm"
+     },
+     {
+      "bbox": [
+       324.0,
+       380.4,
+       355.44,
+       386.64
+      ],
+      "text": "175.7 cm"
+     },
+     {
+      "bbox": [
+       419.04,
+       380.64,
+       450.72,
+       386.64
+      ],
+      "text": "154.7 cm"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       180.0,
+       389.76,
+       203.28,
+       396.96
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       227.76,
+       388.08,
+       257.76,
+       397.92
+      ],
+      "text": "205-244"
+     },
+     {
+      "bbox": [
+       323.52,
+       389.28,
+       353.28,
+       395.28
+      ],
+      "text": "151-212"
+     },
+     {
+      "bbox": [
+       419.04,
+       389.28,
+       449.04,
+       395.52
+      ],
+      "text": "128-185"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       132.72,
+       398.16,
+       202.8,
+       404.88
+      ],
+      "text": "Standard deviation"
+     },
+     {
+      "bbox": [
+       227.76,
+       398.4,
+       242.64,
+       404.4
+      ],
+      "text": "2.46"
+     },
+     {
+      "bbox": [
+       323.52,
+       397.92,
+       337.92,
+       404.16
+      ],
+      "text": "2.06"
+     },
+     {
+      "bbox": [
+       418.8,
+       398.4,
+       433.44,
+       404.64
+      ],
+      "text": "3.86"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       66.48,
+       416.16,
+       131.28,
+       422.64
+      ],
+      "text": "STEM DIAMETER"
+     },
+     {
+      "bbox": [
+       182.88,
+       415.92,
+       202.8,
+       422.4
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       227.76,
+       416.16,
+       254.4,
+       422.16
+      ],
+      "text": "6.0 mm"
+     },
+     {
+      "bbox": [
+       323.04,
+       415.68,
+       349.92,
+       422.16
+      ],
+      "text": "4.3mm"
+     },
+     {
+      "bbox": [
+       418.32,
+       416.4,
+       445.68,
+       422.16
+      ],
+      "text": "4.1mm"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       180.0,
+       425.04,
+       202.8,
+       432.48
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       227.52,
+       424.8,
+       253.44,
+       430.8
+      ],
+      "text": "\u00a7.1-7.2"
+     },
+     {
+      "bbox": [
+       323.28,
+       423.84,
+       349.2,
+       433.92
+      ],
+      "text": "3.4-5.5"
+     },
+     {
+      "bbox": [
+       418.8,
+       425.04,
+       444.48,
+       431.04
+      ],
+      "text": "3.2-5.0"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       132.48,
+       433.68,
+       202.8,
+       439.92
+      ],
+      "text": "Standard deviation"
+     },
+     {
+      "bbox": [
+       227.52,
+       433.92,
+       242.64,
+       439.92
+      ],
+      "text": "0.35"
+     },
+     {
+      "bbox": [
+       323.04,
+       433.44,
+       337.92,
+       439.68
+      ],
+      "text": "0.37"
+     },
+     {
+      "bbox": [
+       418.8,
+       433.92,
+       433.68,
+       440.16
+      ],
+      "text": "0.13"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       66.72,
+       450.96,
+       279.36,
+       459.12
+      ],
+      "text": "NO. TILLERS (tillers having not less than 1 node per stem)"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       66.72,
+       460.56,
+       108.72,
+       466.8
+      ],
+      "text": "PER PLANT"
+     },
+     {
+      "bbox": [
+       182.64,
+       460.08,
+       202.56,
+       466.32
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       227.76,
+       460.32,
+       241.44,
+       466.56
+      ],
+      "text": "29.1"
+     },
+     {
+      "bbox": [
+       323.04,
+       460.32,
+       338.16,
+       466.56
+      ],
+      "text": "43.3"
+     },
+     {
+      "bbox": [
+       418.56,
+       460.56,
+       433.68,
+       466.8
+      ],
+      "text": "62.5"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       180.24,
+       469.44,
+       203.04,
+       477.12
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       228.24,
+       469.44,
+       248.88,
+       475.44
+      ],
+      "text": "11-62"
+     },
+     {
+      "bbox": [
+       323.76,
+       468.24,
+       343.44,
+       477.6
+      ],
+      "text": "19-91"
+     },
+     {
+      "bbox": [
+       419.28,
+       469.68,
+       444.72,
+       475.68
+      ],
+      "text": "18-178"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       132.48,
+       478.08,
+       202.56,
+       484.8
+      ],
+      "text": "Standard deviation"
+     },
+     {
+      "bbox": [
+       227.76,
+       478.32,
+       242.4,
+       484.56
+      ],
+      "text": "3.50"
+     },
+     {
+      "bbox": [
+       322.8,
+       478.32,
+       338.16,
+       484.56
+      ],
+      "text": "4.29"
+     },
+     {
+      "bbox": [
+       418.56,
+       478.56,
+       432.48,
+       484.56
+      ],
+      "text": "8.21"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       66.72,
+       496.8,
+       118.8,
+       503.28
+      ],
+      "text": "LEAF LENGTH"
+     },
+     {
+      "bbox": [
+       182.64,
+       496.56,
+       202.8,
+       502.8
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       227.52,
+       496.8,
+       255.36,
+       502.8
+      ],
+      "text": "43.5cm"
+     },
+     {
+      "bbox": [
+       323.52,
+       496.8,
+       351.12,
+       502.56
+      ],
+      "text": "38.2 cm"
+     },
+     {
+      "bbox": [
+       418.56,
+       496.8,
+       446.4,
+       503.04
+      ],
+      "text": "37.3.cm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       66.48,
+       505.68,
+       123.12,
+       513.84
+      ],
+      "text": "(next from flag)"
+     },
+     {
+      "bbox": [
+       180.0,
+       505.68,
+       203.28,
+       513.36
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       227.28,
+       504.48,
+       248.88,
+       514.08
+      ],
+      "text": "34-52"
+     },
+     {
+      "bbox": [
+       323.52,
+       504.48,
+       344.64,
+       514.08
+      ],
+      "text": "29-47"
+     },
+     {
+      "bbox": [
+       418.8,
+       505.68,
+       440.4,
+       511.92
+      ],
+      "text": "21-48"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       132.72,
+       514.56,
+       202.8,
+       521.28
+      ],
+      "text": "Standard deviation"
+     },
+     {
+      "bbox": [
+       228.0,
+       514.8,
+       242.64,
+       521.04
+      ],
+      "text": "1.36"
+     },
+     {
+      "bbox": [
+       323.76,
+       514.8,
+       333.6,
+       521.04
+      ],
+      "text": "1.0"
+     },
+     {
+      "bbox": [
+       418.8,
+       515.04,
+       428.64,
+       521.04
+      ],
+      "text": "5:2"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       66.48,
+       532.8,
+       113.28,
+       539.28
+      ],
+      "text": "LEAF WIDTH"
+     },
+     {
+      "bbox": [
+       182.88,
+       532.8,
+       202.8,
+       539.04
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       227.52,
+       532.8,
+       250.8,
+       538.8
+      ],
+      "text": "3.2cm"
+     },
+     {
+      "bbox": [
+       323.52,
+       532.8,
+       346.56,
+       538.8
+      ],
+      "text": "2.0cm"
+     },
+     {
+      "bbox": [
+       419.04,
+       532.8,
+       442.08,
+       539.04
+      ],
+      "text": "1.8cm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       66.48,
+       541.68,
+       106.8,
+       548.64
+      ],
+      "text": "(same leaf}"
+     },
+     {
+      "bbox": [
+       180.0,
+       541.68,
+       203.04,
+       549.12
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       228.0,
+       540.24,
+       253.68,
+       550.08
+      ],
+      "text": "2.6-3.5"
+     },
+     {
+      "bbox": [
+       323.76,
+       540.24,
+       349.2,
+       550.08
+      ],
+      "text": "4.6-2.5"
+     },
+     {
+      "bbox": [
+       419.52,
+       541.92,
+       444.24,
+       547.68
+      ],
+      "text": "1.4-2.2"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       132.48,
+       550.56,
+       202.8,
+       557.04
+      ],
+      "text": "Standard deviation"
+     },
+     {
+      "bbox": [
+       227.52,
+       550.32,
+       242.4,
+       556.8
+      ],
+      "text": "0.09"
+     },
+     {
+      "bbox": [
+       323.04,
+       550.56,
+       338.16,
+       556.56
+      ],
+      "text": "0.03"
+     },
+     {
+      "bbox": [
+       418.32,
+       550.8,
+       433.68,
+       556.8
+      ],
+      "text": "0.16"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       66.48,
+       568.32,
+       245.04,
+       576.0
+      ],
+      "text": "HAIR \u2014 Ranked 0 ( = glabrous) to 9 {= abundant}"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       65.76,
+       576.96,
+       139.44,
+       583.44
+      ],
+      "text": "\u2014 ON STEM NODE"
+     },
+     {
+      "bbox": [
+       182.64,
+       577.2,
+       203.04,
+       583.2
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       228.24,
+       577.44,
+       237.84,
+       583.2
+      ],
+      "text": "1.7"
+     },
+     {
+      "bbox": [
+       322.8,
+       577.2,
+       326.88,
+       583.2
+      ],
+      "text": "0"
+     },
+     {
+      "bbox": [
+       419.04,
+       577.2,
+       429.12,
+       583.44
+      ],
+      "text": "1.9"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       65.52,
+       586.08,
+       124.32,
+       592.56
+      ],
+      "text": "\u2014 ON SHEATH"
+     },
+     {
+      "bbox": [
+       182.64,
+       585.84,
+       203.04,
+       592.08
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       227.52,
+       586.08,
+       236.88,
+       592.32
+      ],
+      "text": "3.1"
+     },
+     {
+      "bbox": [
+       323.28,
+       586.08,
+       326.88,
+       592.08
+      ],
+      "text": "0"
+     },
+     {
+      "bbox": [
+       418.32,
+       586.32,
+       428.16,
+       592.08
+      ],
+      "text": "4.1"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       66.0,
+       594.96,
+       120.24,
+       601.44
+      ],
+      "text": "\u2014 ONLIGULE"
+     },
+     {
+      "bbox": [
+       182.64,
+       594.96,
+       203.04,
+       601.2
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       227.76,
+       594.96,
+       238.08,
+       600.96
+      ],
+      "text": "2.9"
+     },
+     {
+      "bbox": [
+       324.0,
+       594.96,
+       333.36,
+       600.96
+      ],
+      "text": "1.7"
+     },
+     {
+      "bbox": [
+       419.04,
+       595.2,
+       429.12,
+       601.2
+      ],
+      "text": "2.5"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       66.24,
+       612.72,
+       133.2,
+       619.44
+      ],
+      "text": "PANICLE LENGTH"
+     },
+     {
+      "bbox": [
+       182.64,
+       612.72,
+       202.8,
+       618.96
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       227.52,
+       612.72,
+       255.36,
+       618.96
+      ],
+      "text": "38.5cm"
+     },
+     {
+      "bbox": [
+       323.52,
+       612.72,
+       351.12,
+       618.96
+      ],
+      "text": "27.3cm"
+     },
+     {
+      "bbox": [
+       418.8,
+       612.96,
+       446.4,
+       619.2
+      ],
+      "text": "29.3 cm"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       180.0,
+       622.08,
+       202.8,
+       629.28
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       227.28,
+       621.84,
+       262.56,
+       628.08
+      ],
+      "text": "35.2-48.5"
+     },
+     {
+      "bbox": [
+       323.52,
+       621.84,
+       357.84,
+       628.08
+      ],
+      "text": "17.2-33.0"
+     },
+     {
+      "bbox": [
+       418.8,
+       622.08,
+       453.36,
+       628.32
+      ],
+      "text": "27.4-41.0"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       132.24,
+       630.72,
+       202.8,
+       637.2
+      ],
+      "text": "Standard deviation"
+     },
+     {
+      "bbox": [
+       227.28,
+       630.96,
+       242.64,
+       636.96
+      ],
+      "text": "0.49"
+     },
+     {
+      "bbox": [
+       323.76,
+       630.72,
+       337.92,
+       636.96
+      ],
+      "text": "1.93"
+     },
+     {
+      "bbox": [
+       418.56,
+       631.2,
+       433.44,
+       636.96
+      ],
+      "text": "0.72"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       66.48,
+       649.2,
+       120.72,
+       655.44
+      ],
+      "text": "NO. PANICLES"
+     },
+     {
+      "bbox": [
+       182.4,
+       648.72,
+       202.8,
+       654.96
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       227.52,
+       648.96,
+       242.16,
+       655.2
+      ],
+      "text": "23.6"
+     },
+     {
+      "bbox": [
+       323.04,
+       648.72,
+       337.92,
+       654.96
+      ],
+      "text": "96.8"
+     },
+     {
+      "bbox": [
+       419.04,
+       649.2,
+       438.0,
+       655.44
+      ],
+      "text": "108.3"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       66.48,
+       658.08,
+       108.48,
+       664.32
+      ],
+      "text": "PER PLANT"
+     },
+     {
+      "bbox": [
+       180.0,
+       658.08,
+       203.04,
+       665.76
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       228.0,
+       656.64,
+       249.12,
+       666.48
+      ],
+      "text": "10-50"
+     },
+     {
+      "bbox": [
+       323.04,
+       657.84,
+       348.72,
+       664.08
+      ],
+      "text": "32-136"
+     },
+     {
+      "bbox": [
+       418.8,
+       658.08,
+       444.48,
+       664.56
+      ],
+      "text": "32-230"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       132.48,
+       666.72,
+       202.8,
+       673.44
+      ],
+      "text": "Standard deviation"
+     },
+     {
+      "bbox": [
+       227.28,
+       666.96,
+       242.4,
+       673.2
+      ],
+      "text": "3.75"
+     },
+     {
+      "bbox": [
+       323.76,
+       666.96,
+       342.24,
+       673.2
+      ],
+      "text": "18.58"
+     },
+     {
+      "bbox": [
+       419.04,
+       667.2,
+       438.0,
+       673.44
+      ],
+      "text": "11.53"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       66.48,
+       684.96,
+       111.36,
+       691.2
+      ],
+      "text": "NO. RACHIS"
+     },
+     {
+      "bbox": [
+       182.64,
+       684.96,
+       202.56,
+       691.2
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       227.52,
+       684.96,
+       242.16,
+       690.96
+      ],
+      "text": "51.7"
+     },
+     {
+      "bbox": [
+       323.28,
+       684.96,
+       337.68,
+       690.96
+      ],
+      "text": "38.9"
+     },
+     {
+      "bbox": [
+       418.56,
+       685.2,
+       433.68,
+       691.2
+      ],
+      "text": "33.5"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       66.24,
+       693.6,
+       115.92,
+       700.32
+      ],
+      "text": "PER PANICLE"
+     },
+     {
+      "bbox": [
+       179.76,
+       693.84,
+       203.04,
+       701.28
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       227.04,
+       693.84,
+       248.88,
+       700.08
+      ],
+      "text": "47-56"
+     },
+     {
+      "bbox": [
+       323.28,
+       692.64,
+       344.16,
+       702.24
+      ],
+      "text": "30-45"
+     },
+     {
+      "bbox": [
+       419.04,
+       694.08,
+       438.96,
+       700.08
+      ],
+      "text": "26-41"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       132.48,
+       702.48,
+       202.56,
+       708.96
+      ],
+      "text": "Standard deviation"
+     },
+     {
+      "bbox": [
+       227.52,
+       702.72,
+       242.4,
+       708.72
+      ],
+      "text": "0.35"
+     },
+     {
+      "bbox": [
+       323.76,
+       702.72,
+       337.68,
+       708.48
+      ],
+      "text": "1,59"
+     },
+     {
+      "bbox": [
+       419.04,
+       702.96,
+       433.2,
+       708.96
+      ],
+      "text": "2.12"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       66.24,
+       720.0,
+       144.72,
+       726.72
+      ],
+      "text": "SEED \u2014 RUGOSITY"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       227.76,
+       721.92,
+       253.2,
+       727.68
+      ],
+      "text": "rugose"
+     },
+     {
+      "bbox": [
+       323.52,
+       721.92,
+       348.48,
+       727.68
+      ],
+      "text": "rugose"
+     },
+     {
+      "bbox": [
+       418.8,
+       722.16,
+       444.0,
+       727.92
+      ],
+      "text": "rugose"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       90.72,
+       738.0,
+       132.0,
+       744.24
+      ],
+      "text": "\u2014 GLUME"
+     },
+     {
+      "bbox": [
+       134.88,
+       737.76,
+       176.88,
+       744.24
+      ],
+      "text": "HAIRINESS"
+     },
+     {
+      "bbox": [
+       227.28,
+       738.24,
+       259.92,
+       745.44
+      ],
+      "text": "glabrous"
+     },
+     {
+      "bbox": [
+       322.8,
+       738.0,
+       355.44,
+       745.68
+      ],
+      "text": "glabrous"
+     },
+     {
+      "bbox": [
+       418.8,
+       738.48,
+       456.96,
+       745.68
+      ],
+      "text": "pubescent"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       90.72,
+       755.76,
+       135.36,
+       762.48
+      ],
+      "text": "\u2014 WEIGHT"
+     },
+     {
+      "bbox": [
+       137.76,
+       756.0,
+       171.36,
+       762.24
+      ],
+      "text": "PER 1000"
+     },
+     {
+      "bbox": [
+       228.0,
+       755.76,
+       248.64,
+       763.68
+      ],
+      "text": "1.02g"
+     },
+     {
+      "bbox": [
+       323.04,
+       756.24,
+       344.16,
+       763.44
+      ],
+      "text": "0.89g"
+     },
+     {
+      "bbox": [
+       419.28,
+       756.24,
+       435.6,
+       763.92
+      ],
+      "text": "1.0g"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       91.44,
+       764.88,
+       133.44,
+       772.8
+      ],
+      "text": "{2 samples)"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       228.0,
+       764.88,
+       248.64,
+       772.56
+      ],
+      "text": "1.05 g"
+     },
+     {
+      "bbox": [
+       323.04,
+       765.12,
+       343.92,
+       772.8
+      ],
+      "text": "0.80 g"
+     },
+     {
+      "bbox": [
+       418.32,
+       765.6,
+       439.92,
+       772.8
+      ],
+      "text": "0.92g"
+     }
+    ]
+   ],
+   "score": 0.9997,
+   "signal": "tatr",
+   "source": "tatr",
+   "text": "  \u2018Natsukaze\u2019 Gatton\u2019 \u2018Patrie\u2019\nRECORDED SEXUAL REPRODUCTION \u2014 8 nuclei per embryo sac  \n1983 analysis  15% 6% 0%\nHEADING DATE Mean 26.3 13.9 11.7\n(from 1 July} Range 21-31 10-21 5-21\n Standard deviation 1.44 2.11 2.11\nSTEM LENGTH Mean 221.8cm 175.7 cm 154.7 cm\n Range 205-244 151-212 128-185\n Standard deviation 2.46 2.06 3.86\nSTEM DIAMETER Mean 6.0 mm 4.3mm 4.1mm\n Range \u00a7.1-7.2 3.4-5.5 3.2-5.0\n Standard deviation 0.35 0.37 0.13\nNO. TILLERS (tillers having not less than 1 node per stem)    \nPER PLANT Mean 29.1 43.3 62.5\n Range 11-62 19-91 18-178\n Standard deviation 3.50 4.29 8.21\nLEAF LENGTH Mean 43.5cm 38.2 cm 37.3.cm\n(next from flag) Range 34-52 29-47 21-48\n Standard deviation 1.36 1.0 5:2\nLEAF WIDTH Mean 3.2cm 2.0cm 1.8cm\n(same leaf} Range 2.6-3.5 4.6-2.5 1.4-2.2\n Standard deviation 0.09 0.03 0.16\nHAIR \u2014 Ranked 0 ( = glabrous) to 9 {= abundant}    \n\u2014 ON STEM NODE Mean 1.7 0 1.9\n\u2014 ON SHEATH Mean 3.1 0 4.1\n\u2014 ONLIGULE Mean 2.9 1.7 2.5\nPANICLE LENGTH Mean 38.5cm 27.3cm 29.3 cm\n Range 35.2-48.5 17.2-33.0 27.4-41.0\n Standard deviation 0.49 1.93 0.72\nNO. PANICLES Mean 23.6 96.8 108.3\nPER PLANT Range 10-50 32-136 32-230\n Standard deviation 3.75 18.58 11.53\nNO. RACHIS Mean 51.7 38.9 33.5\nPER PANICLE Range 47-56 30-45 26-41\n Standard deviation 0.35 1,59 2.12\nSEED \u2014 RUGOSITY  rugose rugose rugose\n\u2014 GLUME HAIRINESS glabrous glabrous pubescent\n\u2014 WEIGHT PER 1000 1.02g 0.89g 1.0g\n{2 samples)  1.05 g 0.80 g 0.92g",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    506.88,
+    795.12,
+    513.84,
+    800.88
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      506.88,
+      795.12,
+      513.84,
+      800.88
+     ],
+     "text": "21"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "21",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    596.95,
+    844.01
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}
