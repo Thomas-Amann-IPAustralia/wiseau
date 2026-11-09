@@ -63,7 +63,7 @@ import pymupdf4llm
 from markdownify import markdownify as html_to_md
 from observability import metrics
 
-from . import docling_client, glm_ocr_client, serializer
+from . import docling_client, glm_ocr_client, serializer, text_layer
 from . import document as ir
 from .cleaner import clean_markdown
 from .ocr import get_engine, text_elements
@@ -193,8 +193,16 @@ def _page_info(page: pymupdf.Page, method: str, source: str) -> ir.PageInfo:
     return ir.PageInfo(page.number + 1, method, source, page.rect.width, page.rect.height)
 
 
+# Locate text-layer blocks on the page by aligning their words (ADR-044). The
+# Markdown is unaffected either way; False leaves the blocks without boxes.
+TEXT_LAYER_BOXES = True
+
+
 def _add_native_page(out: ir.Document, page: pymupdf.Page, markdown: str) -> None:
-    out.add_page(_page_info(page, ir.TEXT_LAYER, PYMUPDF4LLM), serializer.split_markdown(markdown, PYMUPDF4LLM))
+    elements = serializer.split_markdown(markdown, PYMUPDF4LLM)
+    if TEXT_LAYER_BOXES and elements:
+        elements = text_layer.align(elements, text_layer.page_words(page))
+    out.add_page(_page_info(page, ir.TEXT_LAYER, PYMUPDF4LLM), elements)
 
 
 def _add_native_document(out: ir.Document, doc: pymupdf.Document) -> None:

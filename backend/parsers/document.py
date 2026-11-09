@@ -140,6 +140,11 @@ class Element:
     # the signal has no calibrated confidence; it is not invented.
     signal: Optional[str] = None
     confidence: Optional[float] = None
+    # How `bbox` was found when the engine did not report it (e.g.
+    # "text-layer-alignment", ADR-044), and the measured share of the element's
+    # words that method located. None when the box came from the engine itself.
+    bbox_signal: Optional[str] = None
+    bbox_coverage: Optional[float] = None
 
     def __post_init__(self) -> None:
         if self.type not in ELEMENT_TYPES:
@@ -161,6 +166,9 @@ class Element:
         if self.signal is not None:
             out["signal"] = self.signal
             out["confidence"] = self.confidence
+        if self.bbox_signal is not None:
+            out["bbox_signal"] = self.bbox_signal
+            out["bbox_coverage"] = None if self.bbox_coverage is None else round(self.bbox_coverage, 3)
         return out
 
 
