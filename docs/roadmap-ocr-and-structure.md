@@ -190,6 +190,17 @@ unsure (ADR-030):
   regions that look suspicious (low calibrated confidence, missing rows,
   uneven column lengths). This replaces page-level routing, which failed its
   held-out test on set C.
+- [ ] **3.7b Layout-region bake-off for scans (spike, no production change).**
+  *Proposed 2026-11-09 (`docs/assessment-2026-11-09-ovisocr3-teleocr.md`, from
+  `Alt-solution-investigation.md`).* 3.7 has no general layout detector yet
+  (headings, captions, page furniture, figures). Compare OvisOCR3's layout-only
+  mode (GPU on Kaggle for quality; 4-vCPU timing for cost) against a CPU layout
+  detector (DocLayout-YOLO or similar) as harness engines. Each engine's regions
+  are filled with Tesseract's psm 3 words, serialized and scored with
+  `structure.py`. Develop on sets A/B, then score set S once with everything
+  frozen; word metrics must not move. Probe V16 p90 / V5N1 p18 first (PP-DocLayout
+  merged them). Integration only after a set S gain and an ADR. *Effort:
+  moderate; the Kaggle leg needs the user's account.*
 
 ### Not now
 
