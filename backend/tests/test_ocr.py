@@ -215,3 +215,17 @@ def test_two_column_scan_is_read_column_by_column(monkeypatch, layout):
     # Every left-column line comes before every right-column line.
     assert md.index("until the harvest comes in autumn") < md.index("Banana groves need steady warmth")
     assert md.index("Apple orchards cover the northern slope") < md.index("where frost settles late in spring")
+
+
+def test_scanned_pages_convert_concurrently():
+    # The service converts up to MAX_CONCURRENT_JOBS documents at once, in
+    # threads. MuPDF's OCR (Leptonica) refuses two threads at once ("Attempt to
+    # use Leptonica from 2 threads at once!"), which turned concurrent scanned
+    # uploads into 502s; ocr.py serialises that one call.
+    from concurrent.futures import ThreadPoolExecutor
+
+    data = [_scanned_pdf(f"Concurrent page {i}") for i in range(4)]
+    with ThreadPoolExecutor(4) as pool:
+        outs = list(pool.map(pdf_to_markdown, data))
+    for i, out in enumerate(outs):
+        assert "Concurrent" in out, out

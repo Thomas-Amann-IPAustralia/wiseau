@@ -58,6 +58,13 @@ PLAUSIBLE_GUARD = True
 # which the bake-off keeps as a baseline.
 BORDER_CLEANUP = True
 
+# MuPDF's OCR (`Page.get_textpage_ocr`, Tesseract through Leptonica) is not
+# thread-safe: a second thread raises "Attempt to use Leptonica from 2 threads
+# at once!". The service converts up to MAX_CONCURRENT_JOBS documents at once in
+# threads, so concurrent scanned uploads failed (found 2026-11-09). That one call
+# is serialised; psm 3 runs Tesseract as a separate process and stays parallel.
+_MUPDF_OCR_LOCK = threading.Lock()
+
 # EasyOCR uses ISO 639-1 short codes ("en"); the rest of the pipeline speaks
 # Tesseract's 639-2/T codes ("eng"). Translate the common cases so one env var
 # (`WISEAU_OCR_LANG`) configures either engine.
@@ -136,7 +143,13 @@ class TesseractEngine(OcrEngine):
         # from psm 3's own words. Only on psm 3's reading, whose words it reuses.
         if tables.enabled():
             present = [ln for el in layout for ln in el.lines]
-            layout = tables.apply(layout, tables.read_tables(page, read.words, present), read.words)
+            try:
+                regions = tables.read_tables(page, read.words, present)
+            except Exception as exc:  # the pass is optional: degrade, never fail (ADR-046)
+                tables.logger.warning("table pass failed; page kept without it",
+                                      extra={"wiseau": {"error": f"{type(exc).__name__}: {exc}"}})
+                return layout
+            layout = tables.apply(layout, regions, read.words)
         return layout
 
     @classmethod
@@ -149,7 +162,8 @@ class TesseractEngine(OcrEngine):
     def _geometric_elements(page: pymupdf.Page, *, dpi: int, language: str,
                             mask: "photo_regions.PhotoMask | None") -> list[ir.Element]:
         """MuPDF's OCR, photo noise dropped (ADR-037), columns ordered (ADR-035)."""
-        textpage = page.get_textpage_ocr(flags=0, language=language, dpi=dpi, full=True)
+        with _MUPDF_OCR_LOCK:
+            textpage = page.get_textpage_ocr(flags=0, language=language, dpi=dpi, full=True)
         # MuPDF groups OCR'd lines into blocks that run across columns, so a
         # multi-column scan comes out interleaved. Re-order by geometry; a page
         # with no text columns keeps MuPDF's own text unchanged (ADR-035).
