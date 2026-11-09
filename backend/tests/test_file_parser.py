@@ -685,3 +685,75 @@ def test_an_image_upload_still_goes_to_glm_ocr_whole(monkeypatch, fresh_metrics)
     result = file_to_markdown(pix.tobytes("png"), "photo.png", engine="glm-ocr")
 
     assert calls == ["photo.png"] and "GLM read the photo" in result
+
+
+# --- ADR-040: an invisible OCR layer over a scan is not trusted ---------------------
+
+
+def _make_scan_with_invisible_layer(picture_text: str, layer_text: str) -> bytes:
+    """A scan (full-page image of ``picture_text``) carrying an invisible text layer.
+
+    The layer says ``layer_text`` in render mode 3, the way Acrobat's Paper Capture
+    (or any OCR-to-PDF tool) leaves its guess under the picture. Making the two
+    differ lets a test tell which one the converter read.
+    """
+    scan = pymupdf.open(stream=_make_scanned_pdf(picture_text), filetype="pdf")
+    page = scan[0]
+    page.insert_text((72, 120), layer_text, fontsize=11, render_mode=3)
+    data = scan.tobytes()
+    scan.close()
+    return data
+
+
+def test_invisible_layer_over_a_scan_counts_as_a_scan():
+    data = _make_scan_with_invisible_layer("Picture", "An earlier OCR engine guessed this text")
+    page = pymupdf.open(stream=data, filetype="pdf")[0]
+
+    assert file_parser._invisible_layer_over_scan(page)
+    assert file_parser._page_needs_ocr(page)
+
+
+def test_visible_text_is_never_treated_as_a_scan():
+    page = pymupdf.open(stream=_make_pdf("A born-digital page with a real text layer"), filetype="pdf")[0]
+
+    assert not file_parser._invisible_layer_over_scan(page)
+    assert not file_parser._page_needs_ocr(page)
+
+
+def test_hidden_text_beside_visible_text_keeps_the_native_path():
+    # A born-digital page that also hides some text (a watermark, a search key)
+    # still has visible text, so its layer is its own and is read directly.
+    doc = pymupdf.open(stream=_make_pdf("A born-digital page with a real text layer"), filetype="pdf")
+    doc[0].insert_text((72, 300), "hidden search keywords", render_mode=3)
+    page = pymupdf.open(stream=doc.tobytes(), filetype="pdf")[0]
+
+    assert not file_parser._page_needs_ocr(page)
+
+
+def test_invisible_text_without_a_full_page_image_keeps_the_native_path():
+    doc = pymupdf.open()
+    doc.new_page().insert_text((72, 72), "Invisible text on a page with no picture at all", render_mode=3)
+    page = pymupdf.open(stream=doc.tobytes(), filetype="pdf")[0]
+
+    assert not file_parser._invisible_layer_over_scan(page)
+
+
+def test_scan_with_invisible_layer_is_read_from_its_pixels(monkeypatch):
+    _fake_local_ocr(monkeypatch)
+    data = _make_scan_with_invisible_layer("Picture", "An earlier OCR engine guessed this text")
+
+    result = file_to_markdown(data, "scan.pdf", engine="pymupdf")
+
+    assert "local OCR of page 0" in result
+    assert "guessed" not in result
+
+
+def test_trusting_the_invisible_layer_can_be_switched_back_on(monkeypatch):
+    _fake_local_ocr(monkeypatch)
+    monkeypatch.setattr(file_parser, "OCR_INVISIBLE_LAYER", False)
+    data = _make_scan_with_invisible_layer("Picture", "An earlier OCR engine guessed this text")
+
+    result = file_to_markdown(data, "scan.pdf", engine="pymupdf")
+
+    assert "guessed this text" in result
+    assert "local OCR" not in result

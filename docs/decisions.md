@@ -21,6 +21,100 @@ one `Superseded`.
 
 ---
 
+## ADR-041 — Scanner bands at a page's edges are painted out before OCR
+**Date:** 2026-11-08 · **Status:** Accepted (roadmap 14 item 1.2, border cleanup; user asked for it 2026-11-08)
+**Context:**
+- The 1985 patent specification (P85) was scanned with a solid black band across
+  the top and bottom of almost every page; some pages sit in a full black frame.
+  After ADR-040 these pages are OCR'd, and Tesseract read the speckle in the bands
+  as junk words: P85 p6 (set E) gained `t snes ee nsn bago ey set et ines …` and
+  scored wer 0.110 against its own layer's 0.014.
+- A survey of every scanned page in the 16 test PDFs found solid black regions of
+  four kinds: P85's scanner bands; hairline strips along the very edge of some PBR
+  scans; printed black header bars in the PBR journals; photos and banners inside
+  the page.
+**Decision:** `parsers/borders.py`, run first in `TesseractEngine.ocr_page`.
+- A *band* is a connected region of solid cells (2 mm cells ≥ 70% near-black,
+  on a 36 dpi render) that spans ≥ 50% of the page, lies wholly in the outer 18%
+  margin, **runs off the page** at one end, and is **≥ 4% deep**. The last two
+  were added after a first version also removed PBR edge hairlines and header
+  bars: that changed no junk but nudged Tesseract's page segmentation, which lost
+  a heading (V2 p23) and a caption (V1N3 p7) on PBR pages. With them, the rule
+  fires on 25 of P85's 26 pages and on no page of any other test PDF.
+- The band is covered with white **vector rectangles** drawn over a copy of the
+  page, following its outline per cell column, bridging holes of ≤ 3 cells.
+  Re-rasterising the page instead resampled every pixel (about 900k bytes changed
+  on a page whose only edit was a 4 mm strip) and moved OCR results at random.
+- Both OCR passes (the psm 3 layout and the ADR-038 guard) read the cleaned copy.
+- `ocr.BORDER_CLEANUP = False` switches it off; the bake-off's `no-borders` engine
+  does that and reproduces the previous default byte for byte on all 76 scored
+  pages.
+**Consequences:**
+- Set E's P85 pages: p6 wer 0.110 → 0.053 (word precision 0.917 → 0.968), p21
+  0.086 → 0.082. Set E overall 0.084 → 0.079. Every other scored page is
+  byte-identical.
+- P85's 23 other pages have no reference; scored against the PDF's own hidden
+  layer as a silver reference (it scored wer 0.014 and 0.045 on the referenced
+  pages): mean wer 0.585 → 0.440, precision 0.719 → 0.772, better on 17 pages.
+  Recall falls 0.871 → 0.851. Part of that is text from the *neighbouring* page
+  visible at the scan's edge (in the layer, not part of this page), but **p5 loses
+  a real line** ("Address of Applicant: New Murphy Road …").
+- The p5 loss is the ADR-038 guard, not the cleanup: the guard counts junk as
+  words, so once the bands were gone it out-counted psm 3 on the stamp-covered
+  cover page and replaced psm 3's correct text. The cleanup flips the guard's
+  choice on 9 P85 pages, 7 of them toward psm 3. A guard that counts only
+  plausible words is the follow-up; it changes every scan's path choice, so it
+  needs its own held-out check.
+
+## ADR-040 — A scan's invisible OCR layer is not trusted: such pages are OCR'd
+**Date:** 2026-11-08 · **Status:** Accepted (roadmap 14 item 0.2: "if the layer loses, add a gate")
+**Context:**
+- Seven of the test PDFs are scans that carry an **invisible** text layer left by
+  an earlier OCR engine: Vol 1 No 3 and Vol 2 No 2 (producer "Adobe Acrobat 8.13
+  Paper Capture Plug-in") and the five patent specifications (no producer tag).
+  Every one of their 225 pages has all its text in render mode 3 over a full-page
+  image. The default path saw 16+ characters of text and read that layer as the
+  page, never OCR-ing it.
+- **Set L** (8 pages, a seeded *random* draw from the two Acrobat PBR journals,
+  blind references, `docs/benchmarks/2026-11-08-layer-audit.md`): the old
+  default scored wer 0.370, word recall 0.841, number recall 0.666. The layer had
+  dropped whole tables (V2N2 p23 and p29 kept 4% of their numbers; V1N3 p19 lost
+  the fee column; V2N2 p30 the table's figures), misread `1` as `l`, `Li` as `U`
+  (`Lilium` → `ulium`), `St` as `5t`, joined words (`154lines`), and typed
+  printed curly quotes as straight ones. PyMuPDF4LLM then read some layers'
+  columns right-to-left (V2N2 p33, wer 0.972 with 98% of the words present).
+  OCR-ing the same pages from their pixels with the ADR-038 path: **wer 0.042,
+  word recall 0.977, number recall 0.960**, better than the old default on all 8
+  pages.
+- No signal that needs no reference picked out the pages where the layer wins.
+  Coverage (layer words / OCR words < 0.85) catches only the two gross failures,
+  and agreement between the two texts looked the same on pages either one won.
+  Checking agreement costs an OCR pass anyway, so a gate saves no time either.
+**Decision:**
+- `file_parser._page_needs_ocr()` treats a page as a scan when *every* character on
+  it is invisible (render mode 3) **and** one image covers ≥ 90% of the page. Such
+  pages are OCR'd like image-only pages. GLM-OCR's per-page routing (ADR-036) uses
+  the same test, so it now receives these pages too.
+- A born-digital page (visible text), or one that hides a few characters behind
+  visible text, is unaffected. Across all 16 test PDFs the rule fires on exactly
+  the 225 layer pages and on no other page.
+- `file_parser.OCR_INVISIBLE_LAYER` turns it off; the bake-off's `trust-layer`
+  engine does that and reproduces the old default byte for byte.
+- No API contract change, so no version bump. The output of these PDFs changes,
+  the way ADR-035/037/038 changed the output of image-only ones.
+**Consequences:**
+- **Held out, set F's 8 Vol 2 No 2 pages** (drawn and frozen before this work):
+  wer 0.057 → 0.045, number recall 0.885 → 0.947; no page worse by more than 0.001.
+- **Do-no-harm, set E's 10 patent pages:** neutral on average (wer 0.094 → 0.092,
+  word recall 0.942 → 0.949, number recall 0.677 → 0.732), but 5 of the 10 pages
+  get worse. The patents' layer engine reads 1960s–80s typewriter faces better
+  than Tesseract does (`e`/`o`/`c` confusions), and Tesseract reads the scanners'
+  black edge bands as junk (P85 p6, 0.014 → 0.110). Both are recogniser and
+  preprocessing problems for roadmap 1.2 and 1.3, not reasons to trust a layer we
+  cannot check.
+- These pages cost an OCR pass (about 5–7 s per page instead of under 1 s).
+- `WISEAU_OCR_MODE=off` still reads only text layers, including invisible ones.
+
 ## ADR-039 — The normalizer keeps printed punctuation
 **Date:** 2026-11-08 · **Status:** Accepted (user sign-off 2026-11-08; roadmap item 0.1)
 **Context:**

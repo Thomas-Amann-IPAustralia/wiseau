@@ -601,9 +601,22 @@ No paid API is used for this work unless the user says otherwise.
 - [x] **0.4 Keep docling's JSON** (experiments only, no contract change).
 - [x] **1.1b Held-out PBR set F**: 14 pages (Vol 4 No 1, Vol 2 No 2), blind
   references frozen before any engine ran (`1be3ded`).
-- [ ] **1.1 Set E**: drawn (12 pages, 2 per PDF, `71cb0aa`); transcription next.
-- [ ] **0.2 Text-layer trust check**: next after set E. Vol 2 No 2's hidden layer
-  holds 27 of 261 words on p25 and 35 of 245 on p27 (survey word counts).
+- [x] **1.1 Set E**: 12 pages (2 per patent/WO PDF), blind references frozen
+  (`8247cc8`). Plus **set L**, a random 8-page audit of the Acrobat-OCR'd PBR
+  journals (Vol 1 No 3, Vol 2 No 2), frozen in the same commit.
+- [x] **0.2 Text-layer trust check (ADR-040).** A scan whose only text is an
+  invisible OCR layer is now OCR'd, not read from the layer. Set L: wer 0.370 →
+  0.042, number recall 0.666 → 0.960; held-out set F (V2N2): 0.057 → 0.045; set E
+  patents neutral (0.094 → 0.092). *Verified: 519 passed, 8 skipped; old default
+  reproduced byte for byte as `trust-layer`.* Write-up:
+  `docs/benchmarks/2026-11-08-layer-audit.md`.
+- [x] **1.2 (part) Border cleanup (ADR-041).** Solid scanner bands at a page's
+  edges are painted out before OCR (`parsers/borders.py`). Fires only on the 1985
+  patent's pages. P85 p6 wer 0.110 → 0.053; set E 0.084 → 0.079; the other 74
+  scored pages byte-identical. *Verified: 529 passed, 8 skipped.*
+- [ ] **ADR-038 guard counts junk as words** (found by ADR-041: P85 p5 lost a
+  line). Count plausible words only; held-out check on every scored set.
+- [ ] **1.2 rest**: deskew, contrast, Sauvola, denoise.
 
 Started 2026-11-08. Tiered plan, gates and rationale in
 [`roadmap-ocr-and-structure.md`](roadmap-ocr-and-structure.md), drawn from the two

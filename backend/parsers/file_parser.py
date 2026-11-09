@@ -26,9 +26,11 @@ finishes in the shared `clean_markdown` normalizer for uniform output
 Scanned and handwritten PDFs do not — their pages are images. Detection is
 per-page: a page with (essentially) no extractable text is rasterized and OCR'd
 by the configured engine (see `ocr.py`); pages with a real text layer keep the
-fast native path. So a mixed PDF (digital pages plus scanned inserts) is
-assembled page by page in order, OCR-ing only what it must. Plain image uploads
-(PNG/JPEG/TIFF/...) are OCR'd through the same engine.
+fast native path. A scan that carries only an *invisible* OCR text layer (another
+engine's earlier guess, e.g. Acrobat Paper Capture) counts as a scan and is OCR'd
+from its pixels; its layer is not trusted (ADR-040). So a mixed PDF (digital pages
+plus scanned inserts) is assembled page by page in order, OCR-ing only what it
+must. Plain image uploads (PNG/JPEG/TIFF/...) are OCR'd through the same engine.
 
 Two determinism-critical choices (see ADR-012):
 
@@ -117,9 +119,50 @@ def _engine():
     return get_engine(os.environ.get("WISEAU_OCR_ENGINE", "tesseract"))
 
 
+# ADR-040: a scan whose only text is an invisible OCR layer (PDF text render mode 3,
+# e.g. Acrobat "Paper Capture") is read from its pixels, not from that layer. On a
+# random sample of such PBR pages the layer had lost whole tables (a third of the
+# numbers), so it is not trusted. The harness turns this off to reproduce the old
+# behaviour (`benchmarks/bakeoff/run_engines.py`).
+OCR_INVISIBLE_LAYER = True
+
+# How much of the page one image must cover for the page to count as a scan.
+_SCAN_IMAGE_MIN_COVER = 0.9
+
+# PDF text render mode 3: neither filled nor stroked, i.e. invisible text.
+_RENDER_INVISIBLE = 3
+
+
+def _invisible_layer_over_scan(page: pymupdf.Page) -> bool:
+    """True when every character on the page is invisible and one image covers it.
+
+    That is the shape of an OCR'd scan: the picture is what a reader sees and the
+    invisible text is some earlier OCR engine's guess at it. A born-digital page
+    has visible text; a page that merely hides a watermark or a few characters
+    behind visible text has visible text too, so neither matches.
+    """
+    spans = page.get_texttrace()
+    if not spans or any(s["type"] != _RENDER_INVISIBLE for s in spans):
+        return False
+    area = page.rect.width * page.rect.height
+    if area <= 0:
+        return False
+    for info in page.get_image_info():
+        x0, y0, x1, y1 = info["bbox"]
+        if (x1 - x0) * (y1 - y0) / area >= _SCAN_IMAGE_MIN_COVER:
+            return True
+    return False
+
+
 def _page_needs_ocr(page: pymupdf.Page) -> bool:
-    """True when a page lacks a usable embedded text layer (i.e. is scanned)."""
-    return len(page.get_text("text").strip()) < _TEXT_LAYER_MIN_CHARS
+    """True when a page lacks a text layer worth reading (i.e. is scanned).
+
+    That is a page with (essentially) no embedded text, or, under ADR-040, a scan
+    whose only text is an invisible OCR layer.
+    """
+    if len(page.get_text("text").strip()) < _TEXT_LAYER_MIN_CHARS:
+        return True
+    return OCR_INVISIBLE_LAYER and _invisible_layer_over_scan(page)
 
 
 def _image_page_indices(doc: pymupdf.Document, mode: str) -> set[int]:

@@ -16,6 +16,13 @@ DOCS = {
     "V5N3": "pdf-test/Volume 5 Number 3.pdf",
     "V4N1": "pdf-test/Volume 4 Number 1.pdf",
     "V2N2": "pdf-test/Volume 2 Number 2.pdf",
+    "V1N3": "pdf-test/Volume 1 Number 3.pdf",
+    "P63a": "pdf-test/Extra-4-Broad-Test/1963026099 B0 specification (1).pdf",
+    "P63b": "pdf-test/Extra-4-Broad-Test/1963026103 B0 specification (1).pdf",
+    "P85": "pdf-test/Extra-4-Broad-Test/1985043407 A0 specification (1).pdf",
+    "P97": "pdf-test/Extra-4-Broad-Test/1997024746 B0 specification (1).pdf",
+    "P00": "pdf-test/Extra-4-Broad-Test/2000028878 B2 specification (1).pdf",
+    "WO06": "pdf-test/Extra-4-Broad-Test/WO_2006070397_A1 (1).pdf",
 }
 
 # 1-based page numbers (the same pages as the 2026-11-01 bake-off).
@@ -63,6 +70,35 @@ GROUPS_F = {
     "tables": ["V2N2_p10", "V2N2_p12", "V2N2_p16", "V2N2_p32", "V4N1_p25"],
     "two-column + data": ["V2N2_p6", "V4N1_p13", "V4N1_p21", "V4N1_p7"],
     "single column": ["V2N2_p3", "V4N1_p27"],
+}
+# Set E (2026-11-08, transcribed 2026-11-08): the do-no-harm set from other
+# publications. Two pages from each of five Australian patent specifications (1963-2000,
+# scans with an invisible OCR layer of unknown producer) and one image-only WO
+# publication (2006), seed 20261109, `--per-doc 2`. Survey and draw: survey/set-e/.
+# Transcribed blind with set F's conventions, plus: line numbers *typed* in a patent's
+# margin are kept at the start of their line (they are printed text); handwritten
+# margin numbers (P63a p7) and chemical structure drawings (P97) are left out, like
+# text inside a photograph. No drawn page is a duplicate scan (image check).
+SAMPLE_E = {"P63a": [3, 7], "P63b": [14, 20], "P85": [6, 21], "P97": [13, 15], "P00": [4, 15],
+            "WO06": [4, 16]}
+GROUPS_E = {  # by publication: the point of set E is breadth, not layout
+    "1963 typewritten": ["P63a_p3", "P63a_p7", "P63b_p14", "P63b_p20"],
+    "1985 typewritten": ["P85_p6", "P85_p21"],
+    "1997-2000 typeset": ["P97_p13", "P97_p15", "P00_p4", "P00_p15"],
+    "2006 WO (image-only)": ["WO06_p4", "WO06_p16"],
+}
+# Set L (2026-11-08): the layer audit. A seeded random sample (seed 20261110,
+# `--per-doc 4`) of pages from the two PBR journals whose scans carry a hidden
+# "Adobe Acrobat 8.13 Paper Capture" OCR layer, Vol 1 No 3 and Vol 2 No 2 (set F's
+# pages excluded). Its job is an unbiased estimate of how wrong that layer is, so the
+# draw is plain random, not stratified, and Vol 2 No 2's known coverage failure
+# (p23) was left in when the draw picked it. Survey and draw: survey/set-l/.
+# Transcribed blind from the page images with set F's conventions.
+SAMPLE_L = {"V1N3": [7, 12, 16, 19], "V2N2": [23, 29, 30, 33]}
+GROUPS_L = {
+    "two-column prose": ["V1N3_p7", "V1N3_p19", "V2N2_p33"],
+    "tables": ["V1N3_p16", "V2N2_p23"],
+    "single column": ["V1N3_p12", "V2N2_p29", "V2N2_p30"],
 }
 GROUPS_B = {
     "two-column prose": ["V2_p9", "V2_p11", "V2_p23"],

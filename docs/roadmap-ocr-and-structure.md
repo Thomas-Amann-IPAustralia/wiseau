@@ -81,7 +81,7 @@ can ship) are noted inline.
   consumer asks. The born-digital PBR volumes (V16, V20) carry real typographic
   punctuation that is flattened today. The change stays deterministic and moves
   no OCR score. *User approved 2026-11-08.*
-- [ ] **0.2 Text-layer trust check (Vol 1 No 3).** Blind-transcribe a few pages
+- [x] **0.2 Text-layer trust check (Vol 1 No 3).** *Done 2026-11-08 (ADR-040, `docs/benchmarks/2026-11-08-layer-audit.md`): on a random set L of Acrobat-OCR'd PBR pages the layer lost whole tables (old default wer 0.370, number recall 0.666; OCR 0.042 / 0.960). No reference-free gate separated the cases, so a scan whose only text is invisible is now always OCR'd. Held out on set F (0.057 → 0.045); neutral on set E's patents (0.094 → 0.092, 5 of 10 pages worse: typewriter faces and black scanner bands, for 1.2/1.3).* Blind-transcribe a few pages
   from that PDF, including its table page. Compare the hidden Acrobat layer with
   a fresh OCR pass. If the layer loses, add a gate: an invisible text layer
   (render mode 3) over a full-page image gets re-OCR'd when it disagrees with
@@ -105,7 +105,7 @@ can ship) are noted inline.
 
 ### Tier 1 — collect evidence before building more heuristics
 
-- [ ] **1.1 Set E from different publications.** *Drawn 2026-11-08 (`survey/set-e/`, seed 20261109, 2 pages per PDF, 12 pages); not yet transcribed.* The PDFs are supplied
+- [x] **1.1 Set E from different publications.** *Drawn 2026-11-08 (`survey/set-e/`, seed 20261109, 2 pages per PDF, 12 pages); blind references frozen 2026-11-08 (`8247cc8`, `SAMPLE_E`). Default after ADR-040: wer 0.084.* The PDFs are supplied
   (2026-11-08, `pdf-test/Extra-4-Broad-Test/`): five Australian patent
   specifications from 1963 to 2000 (scans with hidden OCR layers, 145 pages) and
   one WO publication (`WO_2006070397_A1`, 21 image-only pages). These are typed
@@ -122,7 +122,7 @@ can ship) are noted inline.
   `Volume 4 Number 1.pdf` (36 pp, image-only) and `Volume 2 Number 2.pdf` (40
   pp, hidden OCR layer, about 8 table pages), both partly lower-resolution (150
   or 200 dpi). Draw from these; see `handover-2026-11-08.md`.
-- [ ] **1.2 Preprocessing ablation.** Run four variants of each page: the
+- [ ] **1.2 Preprocessing ablation.** *Border cleanup done 2026-11-08 (ADR-041, `docs/benchmarks/2026-11-08-border-cleanup.md`): scanner bands painted out; P85 p6 wer 0.110 → 0.053, set E 0.084 → 0.079, no other scored page changed. Follow-up: the ADR-038 guard counts junk as words (cost P85 p5 a line). Deskew, contrast, Sauvola, denoise not started.* Run four variants of each page: the
   original, deskew + contrast/background normalisation, Sauvola thresholding,
   and light denoise. Score each through the current default, broken down by page
   type, and log skew, contrast, blur and noise per page. Keep the original as a

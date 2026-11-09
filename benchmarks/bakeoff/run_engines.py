@@ -13,9 +13,13 @@ side by side: concurrent runs on a small box inflate every timing (post-mortem
   python benchmarks/bakeoff/run_engines.py tesseract-unordered  # default path before ADR-035
   python benchmarks/bakeoff/run_engines.py tesseract-layout     # ADR-038: psm 3 + row stitching + guard
   python benchmarks/bakeoff/run_engines.py tesseract-adr037     # default path before ADR-038
+  python benchmarks/bakeoff/run_engines.py hidden-layer   # the page's own (invisible OCR) text layer, as is
+  python benchmarks/bakeoff/run_engines.py forced-ocr     # default path, but OCR every page (ignore the layer)
+  python benchmarks/bakeoff/run_engines.py trust-layer    # default path before ADR-040 (reads a scan's invisible layer)
+  python benchmarks/bakeoff/run_engines.py no-borders     # default path before scanner-band cleanup
 
-Add `--set b`, `--set c` or `--set d` to run the second, third or fourth independently
-transcribed sample (SAMPLE_B / SAMPLE_C / SAMPLE_D in regions.py) instead of the original one. Timings are merged into the engine's
+Add `--set b`, `--set c`, `--set d`, `--set e`, `--set f` or `--set l` to run another independently
+transcribed sample (SAMPLE_B ... SAMPLE_L in regions.py) instead of the original one. Timings are merged into the engine's
 timings.json, so running one set never erases the other's.
 
 Each page's run record also goes to outputs/<engine>/runs.json (merged the same
@@ -41,10 +45,11 @@ import pymupdf
 HERE = Path(__file__).parent
 ROOT = HERE.parent.parent
 sys.path.insert(0, str(HERE))
-from regions import DOCS, SAMPLE, SAMPLE_B, SAMPLE_C, SAMPLE_D, SAMPLE_F  # noqa: E402
+from regions import DOCS, SAMPLE, SAMPLE_B, SAMPLE_C, SAMPLE_D, SAMPLE_E, SAMPLE_F, SAMPLE_L  # noqa: E402
 
 _SET = sys.argv[sys.argv.index("--set") + 1].lower() if "--set" in sys.argv else "a"
-ACTIVE = {"a": SAMPLE, "b": SAMPLE_B, "c": SAMPLE_C, "d": SAMPLE_D, "f": SAMPLE_F}[_SET]
+ACTIVE = {"a": SAMPLE, "b": SAMPLE_B, "c": SAMPLE_C, "d": SAMPLE_D, "e": SAMPLE_E, "f": SAMPLE_F,
+          "l": SAMPLE_L}[_SET]
 
 
 def pages():
@@ -57,6 +62,50 @@ def pages():
 
 
 def pymupdf_engine():
+    sys.path.insert(0, str(ROOT / "backend"))
+    from parsers.file_parser import file_to_markdown
+
+    return lambda data: file_to_markdown(data, "page.pdf", engine="pymupdf")
+
+
+def hidden_layer_engine():
+    """The page's own text layer, as is: no OCR, no Markdown (roadmap 14 item 0.2).
+
+    On a scan with an invisible OCR layer (Acrobat Paper Capture, or the patent
+    PDFs' unattributed layer) this is exactly the text that layer holds, which the
+    default path passes through whenever it has 16+ characters. An image-only page
+    yields nothing.
+    """
+    return lambda data: pymupdf.open(stream=data, filetype="pdf")[0].get_text()
+
+
+def no_borders_engine():
+    """The default path before scanner-band cleanup (borders.py): bands are OCR'd as they are."""
+    sys.path.insert(0, str(ROOT / "backend"))
+    from parsers import ocr
+    from parsers.file_parser import file_to_markdown
+
+    if hasattr(ocr, "BORDER_CLEANUP"):
+        ocr.BORDER_CLEANUP = False
+    return lambda data: file_to_markdown(data, "page.pdf", engine="pymupdf")
+
+
+def trust_layer_engine():
+    """The default path before ADR-040: a scan's invisible OCR layer is read as its text."""
+    sys.path.insert(0, str(ROOT / "backend"))
+    from parsers import file_parser
+
+    if hasattr(file_parser, "OCR_INVISIBLE_LAYER"):
+        file_parser.OCR_INVISIBLE_LAYER = False
+    return lambda data: file_parser.file_to_markdown(data, "page.pdf", engine="pymupdf")
+
+
+def forced_ocr_engine():
+    """The default path with WISEAU_OCR_MODE=force: every page is OCR'd from its
+    pixels by the ADR-038 path, ignoring any text layer (roadmap 14 item 0.2)."""
+    import os
+
+    os.environ["WISEAU_OCR_MODE"] = "force"
     sys.path.insert(0, str(ROOT / "backend"))
     from parsers.file_parser import file_to_markdown
 
@@ -167,6 +216,14 @@ def main() -> None:
     elif engine == "glm-ocr":
         url = sys.argv[2] if len(sys.argv) > 2 and not sys.argv[2].startswith("--") else "http://127.0.0.1:7860"
         run = glm_engine(url)
+    elif engine == "hidden-layer":
+        run = hidden_layer_engine()
+    elif engine == "no-borders":
+        run = no_borders_engine()
+    elif engine == "trust-layer":
+        run = trust_layer_engine()
+    elif engine == "forced-ocr":
+        run = forced_ocr_engine()
     elif engine == "tesseract-psm3":
         run = tesseract_psm3_engine()
     elif engine == "tesseract-adr035":
