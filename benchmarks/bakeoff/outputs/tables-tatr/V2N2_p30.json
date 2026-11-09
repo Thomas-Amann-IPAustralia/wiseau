@@ -1,0 +1,2287 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    88.8,
+    49.44,
+    224.16,
+    78.72
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      88.8,
+      49.44,
+      221.28,
+      60.48
+     ],
+     "text": "WYALONG WATTLE"
+    },
+    {
+     "bbox": [
+      89.28,
+      64.8,
+      224.16,
+      78.72
+     ],
+     "text": "(Acacia cardiophylla)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "WYALONG WATTLE\n(Acacia cardiophylla)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    88.32,
+    116.64,
+    288.72,
+    133.68
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      88.32,
+      116.64,
+      288.72,
+      125.28
+     ],
+     "text": "Variety: \u2018Kuranga Gold Lace\u2019 Application No. 89/"
+    },
+    {
+     "bbox": [
+      88.32,
+      126.72,
+      102.48,
+      133.68
+     ],
+     "text": "022"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Kuranga Gold Lace\u2019 Application No. 89/\n022",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    88.08,
+    146.88,
+    292.08,
+    163.68
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      88.08,
+      146.88,
+      292.08,
+      155.52
+     ],
+     "text": "Applicant: Kuranga Native Nursery of Ringwood,"
+    },
+    {
+     "bbox": [
+      88.08,
+      156.72,
+      119.76,
+      163.68
+     ],
+     "text": "Victoria"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Kuranga Native Nursery of Ringwood,\nVictoria",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    87.84,
+    176.88,
+    299.28,
+    234.72
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      88.08,
+      176.88,
+      129.36,
+      185.52
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      87.84,
+      186.48,
+      266.16,
+      194.88
+     ],
+     "text": "This variety is distinct from all other known"
+    },
+    {
+     "bbox": [
+      88.08,
+      196.32,
+      286.56,
+      204.96
+     ],
+     "text": "varieties in having the following combination of"
+    },
+    {
+     "bbox": [
+      88.08,
+      206.4,
+      269.28,
+      215.04
+     ],
+     "text": "characters: a prostrate trailing growth habit"
+    },
+    {
+     "bbox": [
+      88.32,
+      216.0,
+      299.28,
+      224.64
+     ],
+     "text": "(attaining little more than 20 cm height) with stems"
+    },
+    {
+     "bbox": [
+      88.32,
+      226.08,
+      229.44,
+      234.72
+     ],
+     "text": "becoming slightly tortuous in age."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\nThis variety is distinct from all other known\nvarieties in having the following combination of\ncharacters: a prostrate trailing growth habit\n(attaining little more than 20 cm height) with stems\nbecoming slightly tortuous in age.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    87.84,
+    246.0,
+    267.36,
+    264.48
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      87.84,
+      246.0,
+      206.16,
+      254.64
+     ],
+     "text": "Variety used for comparison"
+    },
+    {
+     "bbox": [
+      88.08,
+      255.84,
+      267.36,
+      264.48
+     ],
+     "text": "Standard erect form of Acacia cardiophylia."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety used for comparison\nStandard erect form of Acacia cardiophylia.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    86.88,
+    276.24,
+    301.92,
+    394.08
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      87.84,
+      276.24,
+      206.64,
+      285.12
+     ],
+     "text": "Comparative Growing Trials"
+    },
+    {
+     "bbox": [
+      87.6,
+      286.32,
+      294.24,
+      294.72
+     ],
+     "text": "All characteristics described and comparisons are"
+    },
+    {
+     "bbox": [
+      87.84,
+      296.4,
+      278.16,
+      305.04
+     ],
+     "text": "from comparative growing trials conducted at"
+    },
+    {
+     "bbox": [
+      87.6,
+      306.0,
+      295.44,
+      314.64
+     ],
+     "text": "Wandin North, Victoria in 1989. Trials consisted of"
+    },
+    {
+     "bbox": [
+      87.84,
+      316.32,
+      298.56,
+      325.2
+     ],
+     "text": "25 plants \u2018Kuranga Gold Lace\u2019 grown from cuttings"
+    },
+    {
+     "bbox": [
+      88.08,
+      325.92,
+      291.84,
+      334.8
+     ],
+     "text": "(potted January, 1989) with 25 plants grown from"
+    },
+    {
+     "bbox": [
+      86.88,
+      335.76,
+      291.6,
+      344.88
+     ],
+     "text": "A.cardiophylia seed (sown August 1988 \u2014 potted"
+    },
+    {
+     "bbox": [
+      87.36,
+      345.6,
+      292.08,
+      354.24
+     ],
+     "text": "January 1989), all in 15 cm pots outdoors. Potting"
+    },
+    {
+     "bbox": [
+      88.32,
+      355.2,
+      301.92,
+      362.88
+     ],
+     "text": "mixture was \u2018Debco\u2019 soilless mix. Measurements of"
+    },
+    {
+     "bbox": [
+      87.84,
+      365.28,
+      298.56,
+      373.92
+     ],
+     "text": "20 randomly selected plants were taken in April, 94"
+    },
+    {
+     "bbox": [
+      87.84,
+      375.12,
+      294.96,
+      384.24
+     ],
+     "text": "days after potting. Four-year-old tub grown plants"
+    },
+    {
+     "bbox": [
+      87.6,
+      385.44,
+      230.16,
+      394.08
+     ],
+     "text": "of the variety were also measured."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials\nAll characteristics described and comparisons are\nfrom comparative growing trials conducted at\nWandin North, Victoria in 1989. Trials consisted of\n25 plants \u2018Kuranga Gold Lace\u2019 grown from cuttings\n(potted January, 1989) with 25 plants grown from\nA.cardiophylia seed (sown August 1988 \u2014 potted\nJanuary 1989), all in 15 cm pots outdoors. Potting\nmixture was \u2018Debco\u2019 soilless mix. Measurements of\n20 randomly selected plants were taken in April, 94\ndays after potting. Four-year-old tub grown plants\nof the variety were also measured.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    87.6,
+    405.36,
+    268.56,
+    433.92
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      87.6,
+      405.36,
+      113.04,
+      414.24
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      87.6,
+      414.96,
+      268.56,
+      423.84
+     ],
+     "text": "The breeder is E P Clucas of Kuranga Native"
+    },
+    {
+     "bbox": [
+      88.08,
+      425.52,
+      123.12,
+      433.92
+     ],
+     "text": "Nursery."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\nThe breeder is E P Clucas of Kuranga Native\nNursery.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    87.36,
+    444.96,
+    298.8,
+    503.28
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      87.36,
+      444.96,
+      288.96,
+      454.08
+     ],
+     "text": "This variety was selected for its prostrate growth"
+    },
+    {
+     "bbox": [
+      87.84,
+      455.04,
+      298.8,
+      463.92
+     ],
+     "text": "habit in 1980 from seedlings of Acacia cardiophylla"
+    },
+    {
+     "bbox": [
+      87.6,
+      465.12,
+      264.72,
+      474.0
+     ],
+     "text": "sown and grown on the breeders property."
+    },
+    {
+     "bbox": [
+      88.08,
+      474.72,
+      288.72,
+      483.6
+     ],
+     "text": "Material has been vegetatively propagated since"
+    },
+    {
+     "bbox": [
+      87.6,
+      484.56,
+      298.8,
+      492.96
+     ],
+     "text": "selection and further evaluated by the applicant for"
+    },
+    {
+     "bbox": [
+      87.84,
+      494.4,
+      193.92,
+      503.28
+     ],
+     "text": "its growth characteristics."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "This variety was selected for its prostrate growth\nhabit in 1980 from seedlings of Acacia cardiophylla\nsown and grown on the breeders property.\nMaterial has been vegetatively propagated since\nselection and further evaluated by the applicant for\nits growth characteristics.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    87.12,
+    513.84,
+    295.2,
+    602.4
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      87.6,
+      513.84,
+      249.36,
+      522.96
+     ],
+     "text": "Morphology \u2014 See comparison tables."
+    },
+    {
+     "bbox": [
+      87.84,
+      523.92,
+      282.0,
+      532.8
+     ],
+     "text": "\u2018Kuranga Gold Lace\u2019 is a perennial shrub with a"
+    },
+    {
+     "bbox": [
+      87.12,
+      533.76,
+      294.0,
+      542.64
+     ],
+     "text": "trailing prostrate growth habit. Its flowering is not"
+    },
+    {
+     "bbox": [
+      87.36,
+      543.84,
+      247.92,
+      551.04
+     ],
+     "text": "observed to differ from the standard A."
+    },
+    {
+     "bbox": [
+      87.36,
+      553.68,
+      292.32,
+      562.8
+     ],
+     "text": "cardiophylla form. Flowering occurs from August"
+    },
+    {
+     "bbox": [
+      87.36,
+      564.0,
+      277.44,
+      572.88
+     ],
+     "text": "to September, when the plants produce many"
+    },
+    {
+     "bbox": [
+      87.84,
+      573.6,
+      281.76,
+      582.48
+     ],
+     "text": "mildly perfumed golden yellow globular heads"
+    },
+    {
+     "bbox": [
+      87.6,
+      583.44,
+      295.2,
+      592.08
+     ],
+     "text": "about 1 cm in diameter in dense ancillary racemes"
+    },
+    {
+     "bbox": [
+      87.36,
+      594.0,
+      139.44,
+      602.4
+     ],
+     "text": "3-5 cm long."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 See comparison tables.\n\u2018Kuranga Gold Lace\u2019 is a perennial shrub with a\ntrailing prostrate growth habit. Its flowering is not\nobserved to differ from the standard A.\ncardiophylla form. Flowering occurs from August\nto September, when the plants produce many\nmildly perfumed golden yellow globular heads\nabout 1 cm in diameter in dense ancillary racemes\n3-5 cm long.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    87.12,
+    613.2,
+    286.08,
+    640.08
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      87.12,
+      613.2,
+      278.88,
+      622.32
+     ],
+     "text": "The foliage of \u2018Kuranga Gold Lace\u2019 is typical A."
+    },
+    {
+     "bbox": [
+      87.36,
+      623.04,
+      286.08,
+      631.92
+     ],
+     "text": "cardiophylla and not observed to differ from the"
+    },
+    {
+     "bbox": [
+      87.36,
+      633.12,
+      148.56,
+      640.08
+     ],
+     "text": "standard form."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The foliage of \u2018Kuranga Gold Lace\u2019 is typical A.\ncardiophylla and not observed to differ from the\nstandard form.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    87.12,
+    652.32,
+    297.36,
+    701.04
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      87.12,
+      652.32,
+      275.52,
+      661.2
+     ],
+     "text": "The stems\u2019 prostrate growth habit is the main"
+    },
+    {
+     "bbox": [
+      87.12,
+      662.16,
+      290.88,
+      671.04
+     ],
+     "text": "characteristic distinguishing \u2018Kuranga Gold Lace\u2019"
+    },
+    {
+     "bbox": [
+      87.12,
+      672.24,
+      294.48,
+      680.88
+     ],
+     "text": "from other A. cardiophylla. The stems of \u2018Kuranga"
+    },
+    {
+     "bbox": [
+      87.6,
+      682.08,
+      297.36,
+      689.52
+     ],
+     "text": "Gold Lace\u2019 also differ from those of the standard A."
+    },
+    {
+     "bbox": [
+      87.12,
+      692.16,
+      270.72,
+      701.04
+     ],
+     "text": "cardiophylla in becoming tortuous with age."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The stems\u2019 prostrate growth habit is the main\ncharacteristic distinguishing \u2018Kuranga Gold Lace\u2019\nfrom other A. cardiophylla. The stems of \u2018Kuranga\nGold Lace\u2019 also differ from those of the standard A.\ncardiophylla in becoming tortuous with age.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    87.12,
+    712.32,
+    299.28,
+    768.96
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      87.12,
+      712.32,
+      120.72,
+      719.52
+     ],
+     "text": "Culture\u2019"
+    },
+    {
+     "bbox": [
+      87.36,
+      722.16,
+      283.68,
+      731.04
+     ],
+     "text": "\u2018Kuranga Gold Lace\u2019 is propagated vegetatively"
+    },
+    {
+     "bbox": [
+      87.12,
+      732.24,
+      288.72,
+      741.12
+     ],
+     "text": "from cuttings. It is considered by the applicant to"
+    },
+    {
+     "bbox": [
+      87.6,
+      742.08,
+      273.6,
+      750.96
+     ],
+     "text": "be suitable for growth outdoors in temperate"
+    },
+    {
+     "bbox": [
+      87.6,
+      751.68,
+      299.28,
+      760.8
+     ],
+     "text": "regions of Australia. It is frost-tolerant and requires"
+    },
+    {
+     "bbox": [
+      87.12,
+      762.0,
+      164.4,
+      768.96
+     ],
+     "text": "a well drained soil."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Culture\u2019\n\u2018Kuranga Gold Lace\u2019 is propagated vegetatively\nfrom cuttings. It is considered by the applicant to\nbe suitable for growth outdoors in temperate\nregions of Australia. It is frost-tolerant and requires\na well drained soil.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    87.84,
+    790.56,
+    96.48,
+    796.8
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      87.84,
+      790.56,
+      96.48,
+      796.8
+     ],
+     "text": "26"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "26",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    322.32,
+    49.92,
+    500.4,
+    73.2
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      322.32,
+      49.92,
+      489.12,
+      59.52
+     ],
+     "text": "TABLE OF COMPARISON FOR"
+    },
+    {
+     "bbox": [
+      322.32,
+      63.6,
+      500.4,
+      73.2
+     ],
+     "text": "WYALONG WATTLE VARIETIES"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "TABLE OF COMPARISON FOR\nWYALONG WATTLE VARIETIES",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    324.42,
+    90.3,
+    536.95,
+    494.84
+   ],
+   "confidence": null,
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      423.36,
+      92.4,
+      535.2,
+      100.08
+     ],
+     "text": "\u2018Kuranga A. cardiophylla"
+    },
+    {
+     "bbox": [
+      423.12,
+      101.04,
+      461.76,
+      107.52
+     ],
+     "text": "Gold Lace\u2019"
+    },
+    {
+     "bbox": [
+      322.32,
+      119.04,
+      507.6,
+      125.76
+     ],
+     "text": "PLANT HEIGHT Mean 84cm 60.3 cm"
+    },
+    {
+     "bbox": [
+      321.6,
+      128.16,
+      514.56,
+      135.84
+     ],
+     "text": "AT 94 DAYS Range 4.4-14.4 44.8-79.6"
+    },
+    {
+     "bbox": [
+      322.08,
+      137.04,
+      494.4,
+      144.24
+     ],
+     "text": "(POTTED) Stddeviation 2.4 8.82"
+    },
+    {
+     "bbox": [
+      322.08,
+      154.8,
+      487.2,
+      161.52
+     ],
+     "text": "PLANT HEIGHT Mean 13.6cm _\u2014"
+    },
+    {
+     "bbox": [
+      321.36,
+      163.92,
+      486.96,
+      172.08
+     ],
+     "text": "AT 4 YEARS Range 9.0-19.4 _"
+    },
+    {
+     "bbox": [
+      322.08,
+      172.8,
+      486.96,
+      179.76
+     ],
+     "text": "(POTTED) Stddeviation 2.33 \u2014"
+    },
+    {
+     "bbox": [
+      321.6,
+      190.8,
+      505.44,
+      198.24
+     ],
+     "text": "GROWTH HABIT prostrate& erect &"
+    },
+    {
+     "bbox": [
+      422.16,
+      199.92,
+      506.4,
+      207.36
+     ],
+     "text": "trailing arching"
+    },
+    {
+     "bbox": [
+      321.84,
+      217.2,
+      491.28,
+      224.88
+     ],
+     "text": "MAIN STEM slightly not"
+    },
+    {
+     "bbox": [
+      422.16,
+      224.88,
+      510.48,
+      234.72
+     ],
+     "text": "tortuous tortuous"
+    },
+    {
+     "bbox": [
+      321.6,
+      244.08,
+      506.88,
+      250.56
+     ],
+     "text": "LENGTH OF Mean 5.38cm 6.06 cm"
+    },
+    {
+     "bbox": [
+      321.6,
+      252.96,
+      504.72,
+      260.88
+     ],
+     "text": "RACHIS Range 3.8-7.5 3.8-7.7"
+    },
+    {
+     "bbox": [
+      361.2,
+      262.08,
+      498.24,
+      268.56
+     ],
+     "text": "Stddeviation 1.14 0.967"
+    },
+    {
+     "bbox": [
+      321.12,
+      280.32,
+      506.88,
+      286.56
+     ],
+     "text": "WIDTH Mean 1.74cm 1.85cm"
+    },
+    {
+     "bbox": [
+      386.88,
+      289.44,
+      504.72,
+      296.88
+     ],
+     "text": "Range \u2014_1.2-2.2 1.6-2.7"
+    },
+    {
+     "bbox": [
+      360.96,
+      298.32,
+      493.92,
+      304.56
+     ],
+     "text": "Stddeviation 0.27 0.36"
+    },
+    {
+     "bbox": [
+      321.6,
+      315.6,
+      493.92,
+      324.72
+     ],
+     "text": "LENGTH TO Mean _ 3.1 3.14"
+    },
+    {
+     "bbox": [
+      320.88,
+      324.96,
+      504.72,
+      332.88
+     ],
+     "text": "WIDTH RATIO Range _2.2-3.6 1.6-2.7"
+    },
+    {
+     "bbox": [
+      360.96,
+      333.84,
+      493.68,
+      340.32
+     ],
+     "text": "Stddeviation 0.4 0.35"
+    },
+    {
+     "bbox": [
+      321.36,
+      351.36,
+      518.4,
+      358.8
+     ],
+     "text": "NUMBER OF Mean 15.6 pairs 17.55 pairs"
+    },
+    {
+     "bbox": [
+      321.36,
+      360.24,
+      500.16,
+      367.92
+     ],
+     "text": "PINNAE Range 13-19 12-20"
+    },
+    {
+     "bbox": [
+      360.72,
+      369.12,
+      489.12,
+      375.36
+     ],
+     "text": "Stddeviation 1.77 1.9"
+    },
+    {
+     "bbox": [
+      321.12,
+      387.12,
+      505.68,
+      393.36
+     ],
+     "text": "PINNAE Mean 3.4mm 3.4mm"
+    },
+    {
+     "bbox": [
+      321.12,
+      395.04,
+      507.84,
+      404.4
+     ],
+     "text": "INTERVAL Range 2.4-04.2 2.7-04.1"
+    },
+    {
+     "bbox": [
+      360.72,
+      404.88,
+      493.44,
+      411.36
+     ],
+     "text": "Stddeviation 0.48 0.37"
+    },
+    {
+     "bbox": [
+      321.36,
+      423.12,
+      493.68,
+      429.36
+     ],
+     "text": "NUMBER OF Mean 16.7 19.5"
+    },
+    {
+     "bbox": [
+      321.12,
+      430.8,
+      500.16,
+      440.64
+     ],
+     "text": "PINNULES Range 14-22 16-24"
+    },
+    {
+     "bbox": [
+      360.72,
+      441.12,
+      493.44,
+      447.6
+     ],
+     "text": "Stddeviation 1.92 2.08"
+    },
+    {
+     "bbox": [
+      320.88,
+      458.16,
+      505.44,
+      467.52
+     ],
+     "text": "PINNULE Mean 1.05mm 1.0mm"
+    },
+    {
+     "bbox": [
+      321.12,
+      466.56,
+      508.56,
+      476.4
+     ],
+     "text": "INTERVAL Range 0.78-1.38 0.8-1.35"
+    },
+    {
+     "bbox": [
+      320.88,
+      476.64,
+      493.44,
+      483.36
+     ],
+     "text": "(WIDTH Stddeviation 0.15 0.14"
+    },
+    {
+     "bbox": [
+      320.88,
+      485.28,
+      374.16,
+      492.24
+     ],
+     "text": "PER PINNULE)"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       423.12,
+       92.4,
+       461.76,
+       107.52
+      ],
+      "header": true,
+      "text": "\u2018Kuranga Gold Lace\u2019"
+     },
+     {
+      "bbox": [
+       479.52,
+       92.4,
+       535.2,
+       100.08
+      ],
+      "header": true,
+      "text": "A. cardiophylla"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       322.32,
+       119.04,
+       378.96,
+       125.52
+      ],
+      "text": "PLANT HEIGHT"
+     },
+     {
+      "bbox": [
+       390.48,
+       119.28,
+       410.4,
+       125.28
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       423.12,
+       119.52,
+       446.64,
+       125.52
+      ],
+      "text": "84cm"
+     },
+     {
+      "bbox": [
+       479.76,
+       119.76,
+       507.6,
+       125.76
+      ],
+      "text": "60.3 cm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       321.6,
+       128.16,
+       366.48,
+       134.4
+      ],
+      "text": "AT 94 DAYS"
+     },
+     {
+      "bbox": [
+       387.6,
+       128.16,
+       410.64,
+       135.84
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       422.88,
+       128.4,
+       453.6,
+       134.4
+      ],
+      "text": "4.4-14.4"
+     },
+     {
+      "bbox": [
+       479.28,
+       128.64,
+       514.56,
+       134.64
+      ],
+      "text": "44.8-79.6"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       322.08,
+       137.04,
+       357.6,
+       144.24
+      ],
+      "text": "(POTTED)"
+     },
+     {
+      "bbox": [
+       361.68,
+       137.28,
+       410.16,
+       143.52
+      ],
+      "text": "Stddeviation"
+     },
+     {
+      "bbox": [
+       422.88,
+       137.76,
+       433.68,
+       143.52
+      ],
+      "text": "2.4"
+     },
+     {
+      "bbox": [
+       479.28,
+       137.76,
+       494.4,
+       143.76
+      ],
+      "text": "8.82"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       322.08,
+       154.8,
+       378.96,
+       161.28
+      ],
+      "text": "PLANT HEIGHT"
+     },
+     {
+      "bbox": [
+       390.24,
+       155.28,
+       410.16,
+       161.52
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       423.6,
+       155.28,
+       450.72,
+       161.52
+      ],
+      "text": "13.6cm"
+     },
+     {
+      "bbox": [
+       479.04,
+       158.64,
+       487.2,
+       159.36
+      ],
+      "text": "_\u2014"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       321.36,
+       163.92,
+       366.0,
+       170.64
+      ],
+      "text": "AT 4 YEARS"
+     },
+     {
+      "bbox": [
+       387.36,
+       164.16,
+       410.4,
+       172.08
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       422.64,
+       164.4,
+       453.12,
+       170.64
+      ],
+      "text": "9.0-19.4"
+     },
+     {
+      "bbox": [
+       479.04,
+       167.52,
+       486.96,
+       168.24
+      ],
+      "text": "_"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       322.08,
+       172.8,
+       357.6,
+       179.76
+      ],
+      "text": "(POTTED)"
+     },
+     {
+      "bbox": [
+       361.68,
+       172.8,
+       410.16,
+       179.52
+      ],
+      "text": "Stddeviation"
+     },
+     {
+      "bbox": [
+       422.88,
+       173.28,
+       438.0,
+       179.52
+      ],
+      "text": "2.33"
+     },
+     {
+      "bbox": [
+       479.04,
+       176.64,
+       486.96,
+       177.36
+      ],
+      "text": "\u2014"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       321.6,
+       190.8,
+       383.28,
+       197.04
+      ],
+      "text": "GROWTH HABIT"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       422.88,
+       190.8,
+       464.4,
+       198.24
+      ],
+      "text": "prostrate&"
+     },
+     {
+      "bbox": [
+       479.28,
+       191.04,
+       505.44,
+       197.04
+      ],
+      "text": "erect &"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       422.16,
+       199.92,
+       448.32,
+       207.12
+      ],
+      "text": "trailing"
+     },
+     {
+      "bbox": [
+       479.28,
+       199.92,
+       506.4,
+       207.36
+      ],
+      "text": "arching"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       321.84,
+       217.2,
+       366.48,
+       223.44
+      ],
+      "text": "MAIN STEM"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       422.64,
+       217.44,
+       449.52,
+       224.88
+      ],
+      "text": "slightly"
+     },
+     {
+      "bbox": [
+       479.52,
+       218.16,
+       491.28,
+       223.44
+      ],
+      "text": "not"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       422.16,
+       224.88,
+       453.84,
+       234.72
+      ],
+      "text": "tortuous"
+     },
+     {
+      "bbox": [
+       479.04,
+       227.04,
+       510.48,
+       232.32
+      ],
+      "text": "tortuous"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       321.6,
+       244.08,
+       365.52,
+       250.56
+      ],
+      "text": "LENGTH OF"
+     },
+     {
+      "bbox": [
+       390.0,
+       244.32,
+       409.68,
+       250.32
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       422.64,
+       244.32,
+       450.48,
+       250.32
+      ],
+      "text": "5.38cm"
+     },
+     {
+      "bbox": [
+       479.04,
+       244.32,
+       506.88,
+       250.32
+      ],
+      "text": "6.06 cm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       321.6,
+       252.96,
+       350.16,
+       259.44
+      ],
+      "text": "RACHIS"
+     },
+     {
+      "bbox": [
+       387.12,
+       253.2,
+       409.92,
+       260.88
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       422.4,
+       253.2,
+       448.32,
+       259.44
+      ],
+      "text": "3.8-7.5"
+     },
+     {
+      "bbox": [
+       479.04,
+       253.2,
+       504.72,
+       259.2
+      ],
+      "text": "3.8-7.7"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       361.2,
+       262.08,
+       409.68,
+       268.56
+      ],
+      "text": "Stddeviation"
+     },
+     {
+      "bbox": [
+       423.12,
+       262.32,
+       437.52,
+       268.32
+      ],
+      "text": "1.14"
+     },
+     {
+      "bbox": [
+       479.04,
+       262.32,
+       498.24,
+       268.56
+      ],
+      "text": "0.967"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       321.12,
+       280.32,
+       346.8,
+       286.56
+      ],
+      "text": "WIDTH"
+     },
+     {
+      "bbox": [
+       389.76,
+       280.32,
+       409.68,
+       286.56
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       422.88,
+       280.56,
+       450.24,
+       286.56
+      ],
+      "text": "1.74cm"
+     },
+     {
+      "bbox": [
+       479.52,
+       280.56,
+       506.88,
+       286.56
+      ],
+      "text": "1.85cm"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       386.88,
+       289.44,
+       409.92,
+       296.88
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       422.88,
+       289.68,
+       448.08,
+       295.44
+      ],
+      "text": "\u2014_1.2-2.2"
+     },
+     {
+      "bbox": [
+       479.28,
+       289.44,
+       504.72,
+       295.68
+      ],
+      "text": "1.6-2.7"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       360.96,
+       298.32,
+       409.44,
+       304.56
+      ],
+      "text": "Stddeviation"
+     },
+     {
+      "bbox": [
+       422.16,
+       298.56,
+       437.28,
+       304.56
+      ],
+      "text": "0.27"
+     },
+     {
+      "bbox": [
+       478.56,
+       298.32,
+       493.92,
+       304.32
+      ],
+      "text": "0.36"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       321.6,
+       316.32,
+       365.52,
+       322.56
+      ],
+      "text": "LENGTH TO"
+     },
+     {
+      "bbox": [
+       389.52,
+       315.6,
+       415.92,
+       324.72
+      ],
+      "text": "Mean _"
+     },
+     {
+      "bbox": [
+       422.4,
+       316.56,
+       431.76,
+       322.32
+      ],
+      "text": "3.1"
+     },
+     {
+      "bbox": [
+       478.8,
+       316.32,
+       493.92,
+       322.32
+      ],
+      "text": "3.14"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       320.88,
+       324.96,
+       372.96,
+       331.2
+      ],
+      "text": "WIDTH RATIO"
+     },
+     {
+      "bbox": [
+       386.64,
+       325.2,
+       409.68,
+       332.88
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       422.16,
+       325.2,
+       448.08,
+       331.2
+      ],
+      "text": "_2.2-3.6"
+     },
+     {
+      "bbox": [
+       479.28,
+       325.2,
+       504.72,
+       331.2
+      ],
+      "text": "1.6-2.7"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       360.96,
+       333.84,
+       409.44,
+       340.32
+      ],
+      "text": "Stddeviation"
+     },
+     {
+      "bbox": [
+       422.16,
+       334.08,
+       432.96,
+       340.08
+      ],
+      "text": "0.4"
+     },
+     {
+      "bbox": [
+       478.56,
+       334.08,
+       493.68,
+       339.84
+      ],
+      "text": "0.35"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       321.36,
+       351.6,
+       368.16,
+       357.84
+      ],
+      "text": "NUMBER OF"
+     },
+     {
+      "bbox": [
+       389.52,
+       351.6,
+       409.2,
+       357.84
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       422.64,
+       351.6,
+       457.44,
+       358.8
+      ],
+      "text": "15.6 pairs"
+     },
+     {
+      "bbox": [
+       479.04,
+       351.36,
+       518.4,
+       358.56
+      ],
+      "text": "17.55 pairs"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       321.36,
+       360.48,
+       349.92,
+       366.48
+      ],
+      "text": "PINNAE"
+     },
+     {
+      "bbox": [
+       386.64,
+       360.24,
+       409.44,
+       367.92
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       422.64,
+       360.72,
+       443.76,
+       366.48
+      ],
+      "text": "13-19"
+     },
+     {
+      "bbox": [
+       479.28,
+       360.48,
+       500.16,
+       366.48
+      ],
+      "text": "12-20"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       360.72,
+       369.12,
+       409.44,
+       375.36
+      ],
+      "text": "Stddeviation"
+     },
+     {
+      "bbox": [
+       422.64,
+       369.36,
+       437.04,
+       375.36
+      ],
+      "text": "1.77"
+     },
+     {
+      "bbox": [
+       479.28,
+       369.36,
+       489.12,
+       375.12
+      ],
+      "text": "1.9"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       321.12,
+       387.12,
+       350.16,
+       393.36
+      ],
+      "text": "PINNAE"
+     },
+     {
+      "bbox": [
+       389.28,
+       387.36,
+       409.2,
+       393.36
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       422.16,
+       387.36,
+       449.04,
+       393.12
+      ],
+      "text": "3.4mm"
+     },
+     {
+      "bbox": [
+       478.56,
+       387.12,
+       505.68,
+       393.12
+      ],
+      "text": "3.4mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       321.12,
+       395.04,
+       359.04,
+       404.4
+      ],
+      "text": "INTERVAL"
+     },
+     {
+      "bbox": [
+       386.4,
+       396.0,
+       409.44,
+       403.68
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       421.92,
+       396.0,
+       452.16,
+       402.0
+      ],
+      "text": "2.4-04.2"
+     },
+     {
+      "bbox": [
+       478.56,
+       396.0,
+       507.84,
+       402.0
+      ],
+      "text": "2.7-04.1"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       360.72,
+       404.88,
+       409.2,
+       411.36
+      ],
+      "text": "Stddeviation"
+     },
+     {
+      "bbox": [
+       421.92,
+       405.12,
+       437.04,
+       411.12
+      ],
+      "text": "0.48"
+     },
+     {
+      "bbox": [
+       478.32,
+       405.12,
+       493.44,
+       411.12
+      ],
+      "text": "0.37"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       321.36,
+       423.12,
+       367.92,
+       429.36
+      ],
+      "text": "NUMBER OF"
+     },
+     {
+      "bbox": [
+       389.28,
+       423.12,
+       409.2,
+       429.12
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       422.4,
+       423.36,
+       436.8,
+       429.36
+      ],
+      "text": "16.7"
+     },
+     {
+      "bbox": [
+       479.04,
+       423.12,
+       493.68,
+       429.12
+      ],
+      "text": "19.5"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       321.12,
+       430.8,
+       360.24,
+       440.64
+      ],
+      "text": "PINNULES"
+     },
+     {
+      "bbox": [
+       386.4,
+       432.24,
+       409.44,
+       439.68
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       422.64,
+       432.24,
+       443.52,
+       438.24
+      ],
+      "text": "14-22"
+     },
+     {
+      "bbox": [
+       479.04,
+       432.24,
+       500.16,
+       438.24
+      ],
+      "text": "16-24"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       360.72,
+       441.12,
+       409.2,
+       447.6
+      ],
+      "text": "Stddeviation"
+     },
+     {
+      "bbox": [
+       422.4,
+       441.36,
+       436.8,
+       447.36
+      ],
+      "text": "1.92"
+     },
+     {
+      "bbox": [
+       478.56,
+       441.12,
+       493.44,
+       447.36
+      ],
+      "text": "2.08"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       320.88,
+       458.16,
+       354.72,
+       467.52
+      ],
+      "text": "PINNULE"
+     },
+     {
+      "bbox": [
+       389.28,
+       459.12,
+       408.96,
+       465.12
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       422.64,
+       459.12,
+       453.36,
+       465.12
+      ],
+      "text": "1.05mm"
+     },
+     {
+      "bbox": [
+       478.8,
+       459.12,
+       505.44,
+       464.88
+      ],
+      "text": "1.0mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       321.12,
+       466.56,
+       359.04,
+       476.4
+      ],
+      "text": "INTERVAL"
+     },
+     {
+      "bbox": [
+       386.4,
+       468.0,
+       409.2,
+       475.44
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       421.68,
+       467.76,
+       456.48,
+       474.0
+      ],
+      "text": "0.78-1.38"
+     },
+     {
+      "bbox": [
+       478.32,
+       467.76,
+       508.56,
+       473.76
+      ],
+      "text": "0.8-1.35"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       320.88,
+       476.64,
+       374.16,
+       492.24
+      ],
+      "text": "(WIDTH PER PINNULE)"
+     },
+     {
+      "bbox": [
+       360.48,
+       476.64,
+       408.96,
+       482.88
+      ],
+      "text": "Stddeviation"
+     },
+     {
+      "bbox": [
+       421.68,
+       476.64,
+       436.8,
+       482.64
+      ],
+      "text": "0.15"
+     },
+     {
+      "bbox": [
+       478.32,
+       476.64,
+       493.44,
+       482.64
+      ],
+      "text": "0.14"
+     }
+    ]
+   ],
+   "score": 0.9999,
+   "signal": "tatr",
+   "source": "tatr",
+   "text": "  \u2018Kuranga Gold Lace\u2019 A. cardiophylla\nPLANT HEIGHT Mean 84cm 60.3 cm\nAT 94 DAYS Range 4.4-14.4 44.8-79.6\n(POTTED) Stddeviation 2.4 8.82\nPLANT HEIGHT Mean 13.6cm _\u2014\nAT 4 YEARS Range 9.0-19.4 _\n(POTTED) Stddeviation 2.33 \u2014\nGROWTH HABIT  prostrate& erect &\n  trailing arching\nMAIN STEM  slightly not\n  tortuous tortuous\nLENGTH OF Mean 5.38cm 6.06 cm\nRACHIS Range 3.8-7.5 3.8-7.7\n Stddeviation 1.14 0.967\nWIDTH Mean 1.74cm 1.85cm\n Range \u2014_1.2-2.2 1.6-2.7\n Stddeviation 0.27 0.36\nLENGTH TO Mean _ 3.1 3.14\nWIDTH RATIO Range _2.2-3.6 1.6-2.7\n Stddeviation 0.4 0.35\nNUMBER OF Mean 15.6 pairs 17.55 pairs\nPINNAE Range 13-19 12-20\n Stddeviation 1.77 1.9\nPINNAE Mean 3.4mm 3.4mm\nINTERVAL Range 2.4-04.2 2.7-04.1\n Stddeviation 0.48 0.37\nNUMBER OF Mean 16.7 19.5\nPINNULES Range 14-22 16-24\n Stddeviation 1.92 2.08\nPINNULE Mean 1.05mm 1.0mm\nINTERVAL Range 0.78-1.38 0.8-1.35\n(WIDTH PER PINNULE) Stddeviation 0.15 0.14",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    0.72,
+    828.72,
+    594.24,
+    841.44
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      0.72,
+      828.72,
+      594.24,
+      841.44
+     ],
+     "text": "\u2014 EEOEOEOEOEEeEEeEOEeEeEeeE>=>~SEEEEOOOO ee"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2014 EEOEOEOEOEEeEEeEOEeEeEeeE>=>~SEEEEOOOO ee",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    594.06,
+    841.36
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

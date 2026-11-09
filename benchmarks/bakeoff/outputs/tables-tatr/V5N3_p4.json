@@ -1,0 +1,748 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    40.32,
+    57.36,
+    109.92,
+    71.28
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      40.32,
+      57.36,
+      109.92,
+      71.28
+     ],
+     "text": "Editorial"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Editorial",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    38.4,
+    84.48,
+    432.0,
+    148.56
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      39.12,
+      84.48,
+      432.0,
+      96.24
+     ],
+     "text": "The Plant Variety Rights Scheme in Australia is to be evaluated under the Commonwealth"
+    },
+    {
+     "bbox": [
+      38.88,
+      97.68,
+      431.76,
+      110.64
+     ],
+     "text": "Government\u2019s Financial Management Improvement Program (FMIP) in\u2019 which"
+    },
+    {
+     "bbox": [
+      38.64,
+      110.88,
+      431.52,
+      123.6
+     ],
+     "text": "Government programs are evaluated every three to five years. When Cabinet established"
+    },
+    {
+     "bbox": [
+      38.64,
+      124.56,
+      431.52,
+      135.36
+     ],
+     "text": "the PVR Scheme in 1986 one of the conditions attached to the allocation of funds was that"
+    },
+    {
+     "bbox": [
+      38.4,
+      137.28,
+      204.48,
+      148.56
+     ],
+     "text": "the Scheme be reviewed in five years."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The Plant Variety Rights Scheme in Australia is to be evaluated under the Commonwealth\nGovernment\u2019s Financial Management Improvement Program (FMIP) in\u2019 which\nGovernment programs are evaluated every three to five years. When Cabinet established\nthe PVR Scheme in 1986 one of the conditions attached to the allocation of funds was that\nthe Scheme be reviewed in five years.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    38.4,
+    158.64,
+    430.08,
+    170.64
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      38.4,
+      158.64,
+      430.08,
+      170.64
+     ],
+     "text": "This is an opportunity for you to participate in moulding the future of your PVR Scheme."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "This is an opportunity for you to participate in moulding the future of your PVR Scheme.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    37.68,
+    180.48,
+    431.04,
+    203.28
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      37.92,
+      180.48,
+      431.04,
+      192.0
+     ],
+     "text": "Program evaluation under the Department of Finance guidelines is a systematic assessment"
+    },
+    {
+     "bbox": [
+      37.68,
+      193.2,
+      163.2,
+      203.28
+     ],
+     "text": "of the program to determine:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Program evaluation under the Department of Finance guidelines is a systematic assessment\nof the program to determine:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    37.2,
+    211.68,
+    264.72,
+    241.2
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      37.68,
+      211.68,
+      264.72,
+      222.72
+     ],
+     "text": "* its appropriateness, effectiveness and efficiency;"
+    },
+    {
+     "bbox": [
+      37.2,
+      230.4,
+      232.08,
+      241.2
+     ],
+     "text": "* the need for changes to the program; and"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "* its appropriateness, effectiveness and efficiency;\n* the need for changes to the program; and",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    36.24,
+    249.12,
+    430.32,
+    420.72
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      37.2,
+      249.12,
+      422.4,
+      259.44
+     ],
+     "text": "* if resources should continue at current levels, be increased, reduced or discontinued."
+    },
+    {
+     "bbox": [
+      36.96,
+      264.96,
+      430.08,
+      276.0
+     ],
+     "text": "The intended outcome of a program evaluation is better program management, more"
+    },
+    {
+     "bbox": [
+      36.96,
+      278.16,
+      429.84,
+      288.72
+     ],
+     "text": "accountability, more informed decision-making, better resource allocation, more effi-"
+    },
+    {
+     "bbox": [
+      36.96,
+      291.12,
+      429.6,
+      301.92
+     ],
+     "text": "ciency and an overall improved performance. In view of this, the Plant Variety Rights"
+    },
+    {
+     "bbox": [
+      36.72,
+      303.84,
+      430.08,
+      314.16
+     ],
+     "text": "Office fully supports the evaluation since the outcomes of FMIP evaluations are consistent"
+    },
+    {
+     "bbox": [
+      36.72,
+      317.04,
+      429.12,
+      327.12
+     ],
+     "text": "with aims of the PVR Office team\u2014an improved and more cost-effective PVR Scheme."
+    },
+    {
+     "bbox": [
+      36.48,
+      332.4,
+      429.6,
+      342.48
+     ],
+     "text": "The PVR Advisory Committee (PVRAC) formulated the evaluation strategy, but will not"
+    },
+    {
+     "bbox": [
+      36.72,
+      345.36,
+      429.6,
+      355.2
+     ],
+     "text": "itself undertake the evaluation. An independent consultant will conduct the evaluation and"
+    },
+    {
+     "bbox": [
+      36.24,
+      358.32,
+      430.32,
+      368.4
+     ],
+     "text": "report direct to an impartial Government Steering Committee. An essential part of"
+    },
+    {
+     "bbox": [
+      36.24,
+      371.28,
+      429.36,
+      381.6
+     ],
+     "text": "PVRAC\u2019s evaluation strategy is public consultation. The views of all readers and interest"
+    },
+    {
+     "bbox": [
+      36.48,
+      384.48,
+      430.08,
+      394.8
+     ],
+     "text": "groups are being canvassed for consideration in the evaluation. Considering the purpose of"
+    },
+    {
+     "bbox": [
+      36.48,
+      397.68,
+      429.12,
+      407.76
+     ],
+     "text": "the evaluation and Department of Finance guidelines, comment should, inter alia, address"
+    },
+    {
+     "bbox": [
+      36.24,
+      410.64,
+      164.88,
+      420.72
+     ],
+     "text": "one or more of the following:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "* if resources should continue at current levels, be increased, reduced or discontinued.\nThe intended outcome of a program evaluation is better program management, more\naccountability, more informed decision-making, better resource allocation, more effi-\nciency and an overall improved performance. In view of this, the Plant Variety Rights\nOffice fully supports the evaluation since the outcomes of FMIP evaluations are consistent\nwith aims of the PVR Office team\u2014an improved and more cost-effective PVR Scheme.\nThe PVR Advisory Committee (PVRAC) formulated the evaluation strategy, but will not\nitself undertake the evaluation. An independent consultant will conduct the evaluation and\nreport direct to an impartial Government Steering Committee. An essential part of\nPVRAC\u2019s evaluation strategy is public consultation. The views of all readers and interest\ngroups are being canvassed for consideration in the evaluation. Considering the purpose of\nthe evaluation and Department of Finance guidelines, comment should, inter alia, address\none or more of the following:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    36.0,
+    429.12,
+    406.08,
+    511.68
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      36.24,
+      429.12,
+      306.24,
+      438.96
+     ],
+     "text": "* effectiveness and impact of the PVR Scheme in Australia;"
+    },
+    {
+     "bbox": [
+      36.24,
+      447.12,
+      406.08,
+      457.2
+     ],
+     "text": "* operational efficiency of the scheme and suggested improvements in procedures;"
+    },
+    {
+     "bbox": [
+      36.24,
+      465.12,
+      291.36,
+      475.2
+     ],
+     "text": "* fee structure and services provided by the PVR Office;"
+    },
+    {
+     "bbox": [
+      36.0,
+      483.36,
+      355.44,
+      493.44
+     ],
+     "text": "\u00a2 need for, and/or domestic obligations of, a PVR Scheme in Australia;"
+    },
+    {
+     "bbox": [
+      36.0,
+      501.6,
+      393.6,
+      511.68
+     ],
+     "text": "* cost-benefits of fulfilling Australia\u2019s obligations under the UPOV convention;"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "* effectiveness and impact of the PVR Scheme in Australia;\n* operational efficiency of the scheme and suggested improvements in procedures;\n* fee structure and services provided by the PVR Office;\n\u00a2 need for, and/or domestic obligations of, a PVR Scheme in Australia;\n* cost-benefits of fulfilling Australia\u2019s obligations under the UPOV convention;",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    35.52,
+    520.08,
+    428.64,
+    599.76
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      36.0,
+      520.08,
+      428.64,
+      530.4
+     ],
+     "text": "* efficiencies arising from, and degree of, integration of PVR Office with the Patents"
+    },
+    {
+     "bbox": [
+      50.64,
+      533.28,
+      77.76,
+      540.96
+     ],
+     "text": "office."
+    },
+    {
+     "bbox": [
+      36.0,
+      548.64,
+      428.64,
+      558.72
+     ],
+     "text": "You are invited to take this opportunity to contribute to the development of a more effec-"
+    },
+    {
+     "bbox": [
+      35.76,
+      561.6,
+      428.4,
+      571.68
+     ],
+     "text": "tive system for the legal protection of plant varieties in Australia by sending your com-"
+    },
+    {
+     "bbox": [
+      35.76,
+      574.56,
+      185.04,
+      584.64
+     ],
+     "text": "ments by 16 OCTOBER 1992 to:"
+    },
+    {
+     "bbox": [
+      35.52,
+      589.44,
+      377.28,
+      599.76
+     ],
+     "text": "The Chairperson, PVR Advisory Committee , GPO Box 858, Canberra, 2601."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "* efficiencies arising from, and degree of, integration of PVR Office with the Patents\noffice.\nYou are invited to take this opportunity to contribute to the development of a more effec-\ntive system for the legal protection of plant varieties in Australia by sending your com-\nments by 16 OCTOBER 1992 to:\nThe Chairperson, PVR Advisory Committee , GPO Box 858, Canberra, 2601.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    98.4,
+    621.84,
+    365.76,
+    632.64
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      98.4,
+      621.84,
+      365.76,
+      632.64
+     ],
+     "text": "CLOSING DATE FOR DECEMBER ISSUE"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "CLOSING DATE FOR DECEMBER ISSUE",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    170.16,
+    636.72,
+    293.76,
+    647.76
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      170.16,
+      636.72,
+      293.76,
+      647.76
+     ],
+     "text": "22 OCTOBER 1992"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "22 OCTOBER 1992",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    35.28,
+    673.68,
+    397.2,
+    726.72
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      35.28,
+      673.68,
+      275.76,
+      684.72
+     ],
+     "text": "Editorial Panel: Registrar: Dr Mick Lloyd"
+    },
+    {
+     "bbox": [
+      125.52,
+      688.32,
+      397.2,
+      698.4
+     ],
+     "text": "Examiners: David Thearle, Mark Kethro, Libby Pulsford,"
+    },
+    {
+     "bbox": [
+      215.76,
+      702.24,
+      286.56,
+      711.12
+     ],
+     "text": "Shirley Gourgaud"
+    },
+    {
+     "bbox": [
+      125.76,
+      715.68,
+      293.04,
+      726.72
+     ],
+     "text": "Administration: Margaret Winsbury"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Editorial Panel: Registrar: Dr Mick Lloyd\nExaminers: David Thearle, Mark Kethro, Libby Pulsford,\nShirley Gourgaud\nAdministration: Margaret Winsbury",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    35.04,
+    734.88,
+    429.36,
+    780.0
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      35.52,
+      734.88,
+      429.36,
+      744.0
+     ],
+     "text": "Assistance with scientific names from Lyn Craven, Australian National Herbarium, Division of"
+    },
+    {
+     "bbox": [
+      35.28,
+      747.12,
+      127.2,
+      756.0
+     ],
+     "text": "Plant Industry, CSIRO."
+    },
+    {
+     "bbox": [
+      35.04,
+      761.04,
+      428.4,
+      769.2
+     ],
+     "text": "The editors welcome comments and short articles from all sectors of the plant breeding industry for publica-"
+    },
+    {
+     "bbox": [
+      35.76,
+      772.08,
+      330.96,
+      780.0
+     ],
+     "text": "tion in the Plant Varieties Journal. Authors should follow the guide at Appendix 4."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Assistance with scientific names from Lyn Craven, Australian National Herbarium, Division of\nPlant Industry, CSIRO.\nThe editors welcome comments and short articles from all sectors of the plant breeding industry for publica-\ntion in the Plant Varieties Journal. Authors should follow the guide at Appendix 4.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    450.72,
+    332.64,
+    504.0,
+    340.32
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      450.72,
+      332.64,
+      504.0,
+      340.32
+     ],
+     "text": "Libby Pulsford"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Libby Pulsford",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    450.24,
+    461.76,
+    496.08,
+    482.88
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      452.64,
+      461.76,
+      492.72,
+      472.56
+     ],
+     "text": "an \u2018"
+    },
+    {
+     "bbox": [
+      450.24,
+      476.64,
+      496.08,
+      482.88
+     ],
+     "text": "Mark Kethro"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "an \u2018\nMark Kethro",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    449.52,
+    621.84,
+    519.6,
+    629.52
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      449.52,
+      621.84,
+      519.6,
+      629.52
+     ],
+     "text": "Margaret Winsbury"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Margaret Winsbury",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    449.76,
+    768.96,
+    501.36,
+    775.2
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      449.76,
+      768.96,
+      501.36,
+      775.2
+     ],
+     "text": "David Thearle"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "David Thearle",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    35.28,
+    793.44,
+    40.56,
+    801.12
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      35.28,
+      793.44,
+      40.56,
+      801.12
+     ],
+     "text": "2"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "2",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

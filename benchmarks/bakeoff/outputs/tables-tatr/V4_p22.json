@@ -1,0 +1,2280 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    40.8,
+    58.08,
+    272.16,
+    97.44
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      41.04,
+      58.08,
+      256.8,
+      67.68
+     ],
+     "text": "characters: narrow, nearly straight thorns that detach"
+    },
+    {
+     "bbox": [
+      40.8,
+      68.4,
+      272.16,
+      78.48
+     ],
+     "text": "easily; medium-sized, midgreen leathery foliage; single to"
+    },
+    {
+     "bbox": [
+      40.8,
+      78.48,
+      255.12,
+      88.08
+     ],
+     "text": "semi-double flowers; bi-coloured petals in the apricot"
+    },
+    {
+     "bbox": [
+      40.8,
+      88.32,
+      117.6,
+      97.44
+     ],
+     "text": "blend colour range."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "characters: narrow, nearly straight thorns that detach\neasily; medium-sized, midgreen leathery foliage; single to\nsemi-double flowers; bi-coloured petals in the apricot\nblend colour range.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    40.32,
+    112.8,
+    274.08,
+    150.72
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      40.56,
+      112.8,
+      168.72,
+      121.44
+     ],
+     "text": "Varieties Used for Comparison"
+    },
+    {
+     "bbox": [
+      40.56,
+      122.16,
+      269.28,
+      131.52
+     ],
+     "text": "\u2018Cream Puff\u2019 being the closest variety known in Australia"
+    },
+    {
+     "bbox": [
+      40.56,
+      132.24,
+      274.08,
+      141.36
+     ],
+     "text": "in flower colour and growth habit, and \u2018Summer Breeze\u2019 a"
+    },
+    {
+     "bbox": [
+      40.32,
+      142.32,
+      125.76,
+      150.72
+     ],
+     "text": "standard pink variety."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties Used for Comparison\n\u2018Cream Puff\u2019 being the closest variety known in Australia\nin flower colour and growth habit, and \u2018Summer Breeze\u2019 a\nstandard pink variety.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    39.36,
+    166.08,
+    271.68,
+    245.04
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      40.08,
+      166.08,
+      158.16,
+      174.96
+     ],
+     "text": "Comparative Growing Trials"
+    },
+    {
+     "bbox": [
+      39.36,
+      176.16,
+      268.56,
+      185.76
+     ],
+     "text": "All characteristics described below are from comparative"
+    },
+    {
+     "bbox": [
+      39.84,
+      186.48,
+      267.12,
+      194.88
+     ],
+     "text": "growing trials conducted at Box Hil! North in Victoria. All"
+    },
+    {
+     "bbox": [
+      39.6,
+      196.56,
+      257.76,
+      205.92
+     ],
+     "text": "plants used were grown on their own roots, initially in"
+    },
+    {
+     "bbox": [
+      39.6,
+      207.12,
+      245.52,
+      215.52
+     ],
+     "text": "containers in a pine bark/scoria mix for 12 months"
+    },
+    {
+     "bbox": [
+      39.6,
+      217.2,
+      254.64,
+      226.56
+     ],
+     "text": "outdoors, and later transferred into the ground 50 cm"
+    },
+    {
+     "bbox": [
+      39.6,
+      227.52,
+      271.68,
+      236.4
+     ],
+     "text": "apart in October 1990. Measurements are from 20 plants"
+    },
+    {
+     "bbox": [
+      39.36,
+      237.36,
+      259.44,
+      245.04
+     ],
+     "text": "selected at random and were taken in the first week of"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials\nAll characteristics described below are from comparative\ngrowing trials conducted at Box Hil! North in Victoria. All\nplants used were grown on their own roots, initially in\ncontainers in a pine bark/scoria mix for 12 months\noutdoors, and later transferred into the ground 50 cm\napart in October 1990. Measurements are from 20 plants\nselected at random and were taken in the first week of",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    39.12,
+    247.2,
+    86.16,
+    255.36
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      39.12,
+      247.2,
+      86.16,
+      255.36
+     ],
+     "text": "April, 1991."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "April, 1991.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    38.64,
+    297.12,
+    235.2,
+    319.44
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      38.88,
+      297.12,
+      235.2,
+      308.4
+     ],
+     "text": "Table of Comparison of Rose Varieties"
+    },
+    {
+     "bbox": [
+      38.64,
+      311.28,
+      178.8,
+      319.44
+     ],
+     "text": "(* = varieties used for comparison)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Rose Varieties\n(* = varieties used for comparison)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    38.01,
+    340.85,
+    261.24,
+    765.5
+   ],
+   "confidence": null,
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      98.64,
+      340.08,
+      251.52,
+      350.4
+     ],
+     "text": "\u2018Cecilia\u2019 *\u2018Cream Puff\u2019 = * \u2018Summer"
+    },
+    {
+     "bbox": [
+      217.68,
+      351.6,
+      240.48,
+      358.32
+     ],
+     "text": "Breeze\u2019"
+    },
+    {
+     "bbox": [
+      38.88,
+      368.4,
+      102.72,
+      375.12
+     ],
+     "text": "FLOWER DIAMETER"
+    },
+    {
+     "bbox": [
+      38.64,
+      378.48,
+      246.48,
+      385.2
+     ],
+     "text": "mean 73.) mm 65.9 mm 73.0 mm"
+    },
+    {
+     "bbox": [
+      38.64,
+      387.12,
+      246.0,
+      397.2
+     ],
+     "text": "range 66 \u201477 57 \u201475 64 \u2014 80"
+    },
+    {
+     "bbox": [
+      38.4,
+      398.4,
+      232.08,
+      405.12
+     ],
+     "text": "std. deviation 268 5.24 3.76"
+    },
+    {
+     "bbox": [
+      38.64,
+      411.84,
+      122.64,
+      419.04
+     ],
+     "text": "FLOWER COLOUR GROUP"
+    },
+    {
+     "bbox": [
+      98.16,
+      422.16,
+      258.48,
+      430.08
+     ],
+     "text": "apricot blenc pink blend medium pink"
+    },
+    {
+     "bbox": [
+      38.4,
+      435.6,
+      125.04,
+      442.56
+     ],
+     "text": "PETAL COLOUR CHARTING"
+    },
+    {
+     "bbox": [
+      38.64,
+      445.92,
+      64.56,
+      452.4
+     ],
+     "text": "midzone"
+    },
+    {
+     "bbox": [
+      38.16,
+      454.56,
+      230.16,
+      464.64
+     ],
+     "text": "outside RHS 11A 3D 55C"
+    },
+    {
+     "bbox": [
+      38.64,
+      465.6,
+      64.56,
+      472.08
+     ],
+     "text": "midzone"
+    },
+    {
+     "bbox": [
+      38.4,
+      475.44,
+      230.16,
+      482.4
+     ],
+     "text": "nside RHS 30D 18C 358"
+    },
+    {
+     "bbox": [
+      38.4,
+      487.68,
+      59.76,
+      494.16
+     ],
+     "text": "margn"
+    },
+    {
+     "bbox": [
+      38.16,
+      495.6,
+      230.4,
+      502.56
+     ],
+     "text": "outside RHS 15D iD 35C"
+    },
+    {
+     "bbox": [
+      38.4,
+      507.6,
+      59.76,
+      513.84
+     ],
+     "text": "margin"
+    },
+    {
+     "bbox": [
+      38.16,
+      515.76,
+      230.16,
+      522.48
+     ],
+     "text": "inside RHS 31B 37B 55B"
+    },
+    {
+     "bbox": [
+      38.64,
+      535.44,
+      132.0,
+      542.4
+     ],
+     "text": "PETAL 8ASAL SPOT COLOUR"
+    },
+    {
+     "bbox": [
+      38.16,
+      544.32,
+      226.32,
+      554.4
+     ],
+     "text": "outside RHS 124 8C 8D"
+    },
+    {
+     "bbox": [
+      38.4,
+      555.36,
+      226.32,
+      561.84
+     ],
+     "text": "inside RHS 12A 4c 30"
+    },
+    {
+     "bbox": [
+      38.4,
+      568.8,
+      245.28,
+      576.0
+     ],
+     "text": "PETAL NUMBERS 6 \u2014 12 26 \u2014 50 13 \u201425"
+    },
+    {
+     "bbox": [
+      37.68,
+      582.72,
+      129.36,
+      589.44
+     ],
+     "text": "TERMINAL LEAFLET LENGTH"
+    },
+    {
+     "bbox": [
+      38.4,
+      592.32,
+      246.0,
+      599.28
+     ],
+     "text": "mean 45.9 mm 41.5 mm 284mm"
+    },
+    {
+     "bbox": [
+      38.16,
+      602.16,
+      245.28,
+      610.56
+     ],
+     "text": "range 38 \u2014 52 36 \u2014 52 23 \u2014 32"
+    },
+    {
+     "bbox": [
+      38.16,
+      611.76,
+      230.64,
+      618.72
+     ],
+     "text": "std. deviation 3.85 3.64 24)"
+    },
+    {
+     "bbox": [
+      37.92,
+      625.92,
+      125.76,
+      632.64
+     ],
+     "text": "TERMINAL LEAFLET WIDTH"
+    },
+    {
+     "bbox": [
+      38.4,
+      636.0,
+      246.24,
+      642.72
+     ],
+     "text": "mean 23.7 mm 23.6 \u2122m 22.3 mm"
+    },
+    {
+     "bbox": [
+      38.4,
+      644.64,
+      245.52,
+      654.72
+     ],
+     "text": "range 20 \u2014 30 20 \u2014 27 19 \u2014 26"
+    },
+    {
+     "bbox": [
+      38.16,
+      655.68,
+      231.84,
+      662.64
+     ],
+     "text": "std deviation 252 2 08 195"
+    },
+    {
+     "bbox": [
+      38.64,
+      669.6,
+      90.0,
+      676.32
+     ],
+     "text": "THORN PROFILE"
+    },
+    {
+     "bbox": [
+      38.16,
+      679.68,
+      239.28,
+      686.4
+     ],
+     "text": "above flat convex convex"
+    },
+    {
+     "bbox": [
+      38.16,
+      689.52,
+      261.12,
+      697.44
+     ],
+     "text": "below concave deep concave deep concave"
+    },
+    {
+     "bbox": [
+      38.16,
+      702.96,
+      89.04,
+      709.68
+     ],
+     "text": "THORN LENGTK"
+    },
+    {
+     "bbox": [
+      38.4,
+      712.8,
+      245.76,
+      719.76
+     ],
+     "text": "mean 7.90 m-~ 6.00 mm 4.50 mm"
+    },
+    {
+     "bbox": [
+      38.4,
+      722.88,
+      236.16,
+      731.04
+     ],
+     "text": "range &-\u20149 4\u20147 3-6"
+    },
+    {
+     "bbox": [
+      38.16,
+      732.48,
+      231.6,
+      739.2
+     ],
+     "text": "std. deviation 0.94 0.70 0.67"
+    },
+    {
+     "bbox": [
+      38.4,
+      746.16,
+      128.64,
+      752.88
+     ],
+     "text": "PEDICEL-THORN/PRICKLES"
+    },
+    {
+     "bbox": [
+      97.92,
+      756.0,
+      228.0,
+      762.96
+     ],
+     "text": "few few \u2018ew"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       98.64,
+       340.08,
+       122.4,
+       350.4
+      ],
+      "header": true,
+      "text": "\u2018Cecilia\u2019"
+     },
+     {
+      "bbox": [
+       158.4,
+       341.28,
+       201.84,
+       348.0
+      ],
+      "header": true,
+      "text": "*\u2018Cream Puff\u2019"
+     },
+     {
+      "bbox": [
+       211.92,
+       340.32,
+       251.52,
+       358.32
+      ],
+      "header": true,
+      "text": "= * \u2018Summer Breeze\u2019"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.88,
+       368.4,
+       102.72,
+       375.12
+      ],
+      "text": "FLOWER DIAMETER"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.64,
+       380.16,
+       55.2,
+       384.96
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       98.64,
+       378.48,
+       126.96,
+       385.2
+      ],
+      "text": "73.) mm"
+     },
+     {
+      "bbox": [
+       158.16,
+       378.72,
+       186.72,
+       385.2
+      ],
+      "text": "65.9 mm"
+     },
+     {
+      "bbox": [
+       218.4,
+       378.72,
+       246.48,
+       385.2
+      ],
+      "text": "73.0 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.64,
+       390.24,
+       56.4,
+       396.48
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       98.4,
+       388.56,
+       126.24,
+       395.28
+      ],
+      "text": "66 \u201477"
+     },
+     {
+      "bbox": [
+       158.16,
+       388.56,
+       186.0,
+       395.28
+      ],
+      "text": "57 \u201475"
+     },
+     {
+      "bbox": [
+       217.68,
+       387.12,
+       246.0,
+       397.2
+      ],
+      "text": "64 \u2014 80"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.4,
+       398.64,
+       80.16,
+       404.88
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       98.4,
+       398.4,
+       112.56,
+       405.12
+      ],
+      "text": "268"
+     },
+     {
+      "bbox": [
+       158.16,
+       398.4,
+       171.84,
+       404.88
+      ],
+      "text": "5.24"
+     },
+     {
+      "bbox": [
+       217.68,
+       398.4,
+       232.08,
+       405.12
+      ],
+      "text": "3.76"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.64,
+       411.84,
+       122.64,
+       419.04
+      ],
+      "text": "FLOWER COLOUR GROUP"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.4,
+       435.6,
+       88.56,
+       442.56
+      ],
+      "text": "PETAL COLOUR"
+     },
+     {
+      "bbox": [
+       91.44,
+       422.16,
+       139.68,
+       442.32
+      ],
+      "text": "apricot blenc CHARTING"
+     },
+     {
+      "bbox": [
+       157.92,
+       422.16,
+       190.32,
+       430.08
+      ],
+      "text": "pink blend"
+     },
+     {
+      "bbox": [
+       217.68,
+       422.16,
+       258.48,
+       430.08
+      ],
+      "text": "medium pink"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.64,
+       445.92,
+       64.56,
+       452.4
+      ],
+      "text": "midzone"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.16,
+       454.56,
+       64.56,
+       472.08
+      ],
+      "text": "outside midzone"
+     },
+     {
+      "bbox": [
+       80.64,
+       455.76,
+       111.12,
+       462.24
+      ],
+      "text": "RHS 11A"
+     },
+     {
+      "bbox": [
+       158.16,
+       455.76,
+       166.8,
+       462.24
+      ],
+      "text": "3D"
+     },
+     {
+      "bbox": [
+       217.92,
+       455.76,
+       230.16,
+       462.24
+      ],
+      "text": "55C"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.4,
+       475.68,
+       59.76,
+       494.16
+      ],
+      "text": "nside margn"
+     },
+     {
+      "bbox": [
+       80.4,
+       475.44,
+       111.36,
+       482.4
+      ],
+      "text": "RHS 30D"
+     },
+     {
+      "bbox": [
+       158.64,
+       475.44,
+       170.4,
+       482.4
+      ],
+      "text": "18C"
+     },
+     {
+      "bbox": [
+       217.92,
+       475.44,
+       230.16,
+       482.16
+      ],
+      "text": "358"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.16,
+       496.32,
+       61.2,
+       513.84
+      ],
+      "text": "outside margin"
+     },
+     {
+      "bbox": [
+       80.64,
+       495.6,
+       111.6,
+       502.56
+      ],
+      "text": "RHS 15D"
+     },
+     {
+      "bbox": [
+       159.36,
+       496.08,
+       171.36,
+       502.56
+      ],
+      "text": "iD"
+     },
+     {
+      "bbox": [
+       217.68,
+       495.6,
+       230.4,
+       502.56
+      ],
+      "text": "35C"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.16,
+       516.0,
+       56.64,
+       522.48
+      ],
+      "text": "inside"
+     },
+     {
+      "bbox": [
+       80.64,
+       515.76,
+       110.64,
+       522.24
+      ],
+      "text": "RHS 31B"
+     },
+     {
+      "bbox": [
+       157.68,
+       515.76,
+       170.4,
+       522.24
+      ],
+      "text": "37B"
+     },
+     {
+      "bbox": [
+       217.92,
+       515.76,
+       230.16,
+       522.48
+      ],
+      "text": "55B"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.64,
+       535.44,
+       132.0,
+       542.4
+      ],
+      "text": "PETAL 8ASAL SPOT COLOUR"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.16,
+       544.32,
+       61.2,
+       554.4
+      ],
+      "text": "outside"
+     },
+     {
+      "bbox": [
+       80.64,
+       545.52,
+       111.12,
+       552.24
+      ],
+      "text": "RHS 124"
+     },
+     {
+      "bbox": [
+       157.92,
+       545.76,
+       165.84,
+       552.24
+      ],
+      "text": "8C"
+     },
+     {
+      "bbox": [
+       217.68,
+       545.52,
+       226.32,
+       552.24
+      ],
+      "text": "8D"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.4,
+       555.36,
+       56.4,
+       561.84
+      ],
+      "text": "inside"
+     },
+     {
+      "bbox": [
+       80.4,
+       555.36,
+       111.12,
+       561.84
+      ],
+      "text": "RHS 12A"
+     },
+     {
+      "bbox": [
+       157.92,
+       555.36,
+       165.84,
+       561.84
+      ],
+      "text": "4c"
+     },
+     {
+      "bbox": [
+       217.68,
+       555.6,
+       226.32,
+       561.6
+      ],
+      "text": "30"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.4,
+       568.8,
+       92.16,
+       575.76
+      ],
+      "text": "PETAL NUMBERS"
+     },
+     {
+      "bbox": [
+       98.16,
+       569.04,
+       120.96,
+       575.76
+      ],
+      "text": "6 \u2014 12"
+     },
+     {
+      "bbox": [
+       157.92,
+       569.04,
+       185.76,
+       576.0
+      ],
+      "text": "26 \u2014 50"
+     },
+     {
+      "bbox": [
+       218.88,
+       569.04,
+       245.28,
+       575.76
+      ],
+      "text": "13 \u201425"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       37.68,
+       582.72,
+       129.36,
+       589.44
+      ],
+      "text": "TERMINAL LEAFLET LENGTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.4,
+       594.24,
+       55.2,
+       599.28
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       97.92,
+       592.32,
+       126.48,
+       599.04
+      ],
+      "text": "45.9 mm"
+     },
+     {
+      "bbox": [
+       157.68,
+       592.56,
+       186.24,
+       599.04
+      ],
+      "text": "41.5 mm"
+     },
+     {
+      "bbox": [
+       217.44,
+       592.32,
+       246.0,
+       599.04
+      ],
+      "text": "284mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.16,
+       604.08,
+       55.92,
+       610.56
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       97.92,
+       602.4,
+       125.76,
+       609.12
+      ],
+      "text": "38 \u2014 52"
+     },
+     {
+      "bbox": [
+       157.68,
+       602.4,
+       185.52,
+       609.12
+      ],
+      "text": "36 \u2014 52"
+     },
+     {
+      "bbox": [
+       217.44,
+       602.16,
+       245.28,
+       609.12
+      ],
+      "text": "23 \u2014 32"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.16,
+       612.24,
+       80.16,
+       618.48
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       97.92,
+       611.76,
+       112.32,
+       618.72
+      ],
+      "text": "3.85"
+     },
+     {
+      "bbox": [
+       157.44,
+       612.0,
+       171.84,
+       618.48
+      ],
+      "text": "3.64"
+     },
+     {
+      "bbox": [
+       217.44,
+       612.0,
+       230.64,
+       618.48
+      ],
+      "text": "24)"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       37.92,
+       625.92,
+       71.52,
+       632.64
+      ],
+      "text": "TERMINAL"
+     },
+     {
+      "bbox": [
+       74.64,
+       625.92,
+       125.76,
+       632.64
+      ],
+      "text": "LEAFLET WIDTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.4,
+       637.92,
+       54.96,
+       642.48
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       98.4,
+       636.0,
+       126.72,
+       642.48
+      ],
+      "text": "23.7 mm"
+     },
+     {
+      "bbox": [
+       157.92,
+       636.0,
+       186.48,
+       642.48
+      ],
+      "text": "23.6 \u2122m"
+     },
+     {
+      "bbox": [
+       217.68,
+       636.0,
+       246.24,
+       642.72
+      ],
+      "text": "22.3 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.4,
+       647.76,
+       55.68,
+       654.24
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       98.16,
+       646.08,
+       126.0,
+       652.56
+      ],
+      "text": "20 \u2014 30"
+     },
+     {
+      "bbox": [
+       157.92,
+       646.08,
+       185.28,
+       652.56
+      ],
+      "text": "20 \u2014 27"
+     },
+     {
+      "bbox": [
+       218.16,
+       644.64,
+       245.52,
+       654.72
+      ],
+      "text": "19 \u2014 26"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.16,
+       655.92,
+       79.92,
+       662.64
+      ],
+      "text": "std deviation"
+     },
+     {
+      "bbox": [
+       98.16,
+       655.68,
+       112.32,
+       662.4
+      ],
+      "text": "252"
+     },
+     {
+      "bbox": [
+       157.92,
+       655.92,
+       172.08,
+       662.4
+      ],
+      "text": "2 08"
+     },
+     {
+      "bbox": [
+       218.4,
+       655.92,
+       231.84,
+       662.4
+      ],
+      "text": "195"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.64,
+       669.6,
+       90.0,
+       676.32
+      ],
+      "text": "THORN PROFILE"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.16,
+       679.92,
+       56.64,
+       685.92
+      ],
+      "text": "above"
+     },
+     {
+      "bbox": [
+       97.92,
+       679.68,
+       107.04,
+       686.4
+      ],
+      "text": "flat"
+     },
+     {
+      "bbox": [
+       157.68,
+       681.36,
+       179.52,
+       686.4
+      ],
+      "text": "convex"
+     },
+     {
+      "bbox": [
+       217.44,
+       681.36,
+       239.28,
+       686.16
+      ],
+      "text": "convex"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.16,
+       689.52,
+       57.12,
+       696.24
+      ],
+      "text": "below"
+     },
+     {
+      "bbox": [
+       97.92,
+       691.2,
+       124.08,
+       696.24
+      ],
+      "text": "concave"
+     },
+     {
+      "bbox": [
+       157.68,
+       689.76,
+       201.84,
+       697.44
+      ],
+      "text": "deep concave"
+     },
+     {
+      "bbox": [
+       217.44,
+       689.76,
+       261.12,
+       697.2
+      ],
+      "text": "deep concave"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.16,
+       702.96,
+       89.04,
+       709.68
+      ],
+      "text": "THORN LENGTK"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.4,
+       714.96,
+       54.96,
+       719.76
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       98.4,
+       713.04,
+       126.24,
+       719.52
+      ],
+      "text": "7.90 m-~"
+     },
+     {
+      "bbox": [
+       157.92,
+       713.04,
+       186.48,
+       719.76
+      ],
+      "text": "6.00 mm"
+     },
+     {
+      "bbox": [
+       217.2,
+       712.8,
+       245.76,
+       719.76
+      ],
+      "text": "4.50 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.4,
+       724.8,
+       55.68,
+       731.04
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       98.16,
+       723.12,
+       116.64,
+       729.36
+      ],
+      "text": "&-\u20149"
+     },
+     {
+      "bbox": [
+       157.68,
+       723.12,
+       176.4,
+       729.12
+      ],
+      "text": "4\u20147"
+     },
+     {
+      "bbox": [
+       217.44,
+       722.88,
+       236.16,
+       729.6
+      ],
+      "text": "3-6"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.16,
+       732.96,
+       80.16,
+       739.2
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       97.92,
+       732.72,
+       112.32,
+       738.96
+      ],
+      "text": "0.94"
+     },
+     {
+      "bbox": [
+       157.68,
+       732.48,
+       172.56,
+       739.2
+      ],
+      "text": "0.70"
+     },
+     {
+      "bbox": [
+       217.2,
+       732.48,
+       231.6,
+       738.96
+      ],
+      "text": "0.67"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       38.4,
+       746.16,
+       128.64,
+       752.88
+      ],
+      "text": "PEDICEL-THORN/PRICKLES"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       97.92,
+       756.24,
+       108.48,
+       762.72
+      ],
+      "text": "few"
+     },
+     {
+      "bbox": [
+       157.92,
+       756.24,
+       168.72,
+       762.96
+      ],
+      "text": "few"
+     },
+     {
+      "bbox": [
+       217.2,
+       756.0,
+       228.0,
+       762.96
+      ],
+      "text": "\u2018ew"
+     }
+    ]
+   ],
+   "score": 0.9997,
+   "signal": "tatr",
+   "source": "tatr",
+   "text": " \u2018Cecilia\u2019 *\u2018Cream Puff\u2019 = * \u2018Summer Breeze\u2019\nFLOWER DIAMETER   \nmean 73.) mm 65.9 mm 73.0 mm\nrange 66 \u201477 57 \u201475 64 \u2014 80\nstd. deviation 268 5.24 3.76\nFLOWER COLOUR GROUP   \nPETAL COLOUR apricot blenc CHARTING pink blend medium pink\nmidzone   \noutside midzone RHS 11A 3D 55C\nnside margn RHS 30D 18C 358\noutside margin RHS 15D iD 35C\ninside RHS 31B 37B 55B\nPETAL 8ASAL SPOT COLOUR   \noutside RHS 124 8C 8D\ninside RHS 12A 4c 30\nPETAL NUMBERS 6 \u2014 12 26 \u2014 50 13 \u201425\nTERMINAL LEAFLET LENGTH   \nmean 45.9 mm 41.5 mm 284mm\nrange 38 \u2014 52 36 \u2014 52 23 \u2014 32\nstd. deviation 3.85 3.64 24)\nTERMINAL LEAFLET WIDTH  \nmean 23.7 mm 23.6 \u2122m 22.3 mm\nrange 20 \u2014 30 20 \u2014 27 19 \u2014 26\nstd deviation 252 2 08 195\nTHORN PROFILE   \nabove flat convex convex\nbelow concave deep concave deep concave\nTHORN LENGTK   \nmean 7.90 m-~ 6.00 mm 4.50 mm\nrange &-\u20149 4\u20147 3-6\nstd. deviation 0.94 0.70 0.67\n PEDICEL-THORN/PRICKLES  \n few few \u2018ew",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    306.48,
+    60.72,
+    537.6,
+    100.56
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      307.2,
+      60.72,
+      331.92,
+      69.12
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      306.48,
+      70.56,
+      530.16,
+      79.68
+     ],
+     "text": "The breeder is F Hannemann of Box Hill North, Victoria."
+    },
+    {
+     "bbox": [
+      306.48,
+      80.88,
+      537.6,
+      90.0
+     ],
+     "text": "This variety arose from a controlled pollination in 1986 of"
+    },
+    {
+     "bbox": [
+      306.48,
+      90.96,
+      536.64,
+      100.56
+     ],
+     "text": "the miniature rose \u2018Oz Gold\u2019 by the shrub rose \u2018Eyepaint\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\nThe breeder is F Hannemann of Box Hill North, Victoria.\nThis variety arose from a controlled pollination in 1986 of\nthe miniature rose \u2018Oz Gold\u2019 by the shrub rose \u2018Eyepaint\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    305.28,
+    114.48,
+    540.0,
+    231.36
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      306.72,
+      114.48,
+      463.2,
+      123.36
+     ],
+     "text": "Morphology \u2014 see comparison tables."
+    },
+    {
+     "bbox": [
+      306.24,
+      124.56,
+      527.52,
+      132.48
+     ],
+     "text": "\u2018Cecilia\u2019 is a low bi-coloured cluster-flowered rose with"
+    },
+    {
+     "bbox": [
+      306.0,
+      134.16,
+      527.76,
+      142.8
+     ],
+     "text": "flowers larger than those of \u2018Cream Puff\u2019 and similar in"
+    },
+    {
+     "bbox": [
+      306.0,
+      143.76,
+      536.88,
+      153.36
+     ],
+     "text": "size to Summer Breeze\u2019. The undulating thick petals give"
+    },
+    {
+     "bbox": [
+      306.0,
+      153.84,
+      515.28,
+      162.72
+     ],
+     "text": "the flower a cupped appearance similar to \u2018Summer"
+    },
+    {
+     "bbox": [
+      306.24,
+      163.92,
+      518.64,
+      172.56
+     ],
+     "text": "Breeze\u2019 but unlike the flat shape of \u2018Cream Puff\u2019. The"
+    },
+    {
+     "bbox": [
+      305.76,
+      174.0,
+      540.0,
+      183.36
+     ],
+     "text": "appearance of the flower can be compared with the larger"
+    },
+    {
+     "bbox": [
+      305.76,
+      184.08,
+      527.76,
+      193.2
+     ],
+     "text": "shrub roses \u2018Fruhlingsmorgen\u2019 and \u2018Sparrieshoop\u2019. The"
+    },
+    {
+     "bbox": [
+      305.52,
+      193.92,
+      516.48,
+      203.28
+     ],
+     "text": "foltage is matt and of a lighter green than that of the"
+    },
+    {
+     "bbox": [
+      305.28,
+      204.72,
+      505.2,
+      213.36
+     ],
+     "text": "comparative varieties. The stipules of \u2018Cecilia\u2019 are"
+    },
+    {
+     "bbox": [
+      305.76,
+      214.32,
+      508.32,
+      223.44
+     ],
+     "text": "significantly shorter than those of the comparative"
+    },
+    {
+     "bbox": [
+      305.28,
+      224.88,
+      340.8,
+      231.36
+     ],
+     "text": "varieties."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 see comparison tables.\n\u2018Cecilia\u2019 is a low bi-coloured cluster-flowered rose with\nflowers larger than those of \u2018Cream Puff\u2019 and similar in\nsize to Summer Breeze\u2019. The undulating thick petals give\nthe flower a cupped appearance similar to \u2018Summer\nBreeze\u2019 but unlike the flat shape of \u2018Cream Puff\u2019. The\nappearance of the flower can be compared with the larger\nshrub roses \u2018Fruhlingsmorgen\u2019 and \u2018Sparrieshoop\u2019. The\nfoltage is matt and of a lighter green than that of the\ncomparative varieties. The stipules of \u2018Cecilia\u2019 are\nsignificantly shorter than those of the comparative\nvarieties.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    305.52,
+    255.12,
+    394.32,
+    281.52
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      306.96,
+      255.12,
+      345.84,
+      265.44
+     ],
+     "text": "ROSE"
+    },
+    {
+     "bbox": [
+      305.52,
+      269.04,
+      394.32,
+      281.52
+     ],
+     "text": "(Rosa hybrida)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ROSE\n(Rosa hybrida)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    305.04,
+    300.48,
+    535.68,
+    389.52
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      305.28,
+      300.48,
+      320.4,
+      314.64
+     ],
+     "text": "L_]"
+    },
+    {
+     "bbox": [
+      305.04,
+      322.32,
+      497.76,
+      330.96
+     ],
+     "text": "Variety: \u2018Korferse\u2019(commercial synonym \u2018Coco\u2019)"
+    },
+    {
+     "bbox": [
+      305.04,
+      332.16,
+      399.12,
+      340.56
+     ],
+     "text": "Application No. 91/051"
+    },
+    {
+     "bbox": [
+      305.28,
+      342.24,
+      438.48,
+      350.88
+     ],
+     "text": "Application received: 3 May 1991"
+    },
+    {
+     "bbox": [
+      305.28,
+      352.32,
+      529.68,
+      360.72
+     ],
+     "text": "Applicant: W. Kordes Sohne, Rosenschulen GmbH, of"
+    },
+    {
+     "bbox": [
+      305.76,
+      362.4,
+      344.16,
+      370.56
+     ],
+     "text": "Germany."
+    },
+    {
+     "bbox": [
+      305.04,
+      372.48,
+      535.68,
+      381.12
+     ],
+     "text": "Australian Agent: Roy H. Rumsey Pty Ltd of Dural, New"
+    },
+    {
+     "bbox": [
+      305.28,
+      382.56,
+      358.8,
+      389.52
+     ],
+     "text": "South Wales."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "L_]\nVariety: \u2018Korferse\u2019(commercial synonym \u2018Coco\u2019)\nApplication No. 91/051\nApplication received: 3 May 1991\nApplicant: W. Kordes Sohne, Rosenschulen GmbH, of\nGermany.\nAustralian Agent: Roy H. Rumsey Pty Ltd of Dural, New\nSouth Wales.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.8,
+    564.96,
+    517.2,
+    583.2
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      305.52,
+      564.96,
+      517.2,
+      572.88
+     ],
+     "text": "Flowers of \u2018Kardinal\u2019, \u2018Coco\u2019 {(Korferse) and \u2018Toscana\u2019"
+    },
+    {
+     "bbox": [
+      304.8,
+      574.8,
+      443.04,
+      583.2
+     ],
+     "text": "(Photograph supplied by applicant)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Flowers of \u2018Kardinal\u2019, \u2018Coco\u2019 {(Korferse) and \u2018Toscana\u2019\n(Photograph supplied by applicant)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.32,
+    603.6,
+    540.0,
+    651.84
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      305.04,
+      603.6,
+      345.84,
+      612.0
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      305.04,
+      613.44,
+      525.36,
+      621.84
+     ],
+     "text": "\u2018Caco\u2019 (Korferse) is a medium red glasshouse rose. It is"
+    },
+    {
+     "bbox": [
+      304.32,
+      623.28,
+      540.0,
+      631.92
+     ],
+     "text": "distinct from other known varieties in having the following"
+    },
+    {
+     "bbox": [
+      304.32,
+      633.36,
+      527.04,
+      640.56
+     ],
+     "text": "combination of characters: whole bloom closest to RHS"
+    },
+    {
+     "bbox": [
+      304.56,
+      643.44,
+      497.52,
+      651.84
+     ],
+     "text": "44B; petal basal spot present only on the inside."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\n\u2018Caco\u2019 (Korferse) is a medium red glasshouse rose. It is\ndistinct from other known varieties in having the following\ncombination of characters: whole bloom closest to RHS\n44B; petal basal spot present only on the inside.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.56,
+    667.44,
+    519.84,
+    695.28
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      305.04,
+      667.44,
+      429.6,
+      675.6
+     ],
+     "text": "Varieties used for comparison"
+    },
+    {
+     "bbox": [
+      305.04,
+      677.28,
+      519.84,
+      685.68
+     ],
+     "text": "\u2018Toscana\u2019 (registered name \u2018Korkunde\u2019) and \u2018Kardinal\u2019"
+    },
+    {
+     "bbox": [
+      304.56,
+      687.12,
+      501.6,
+      695.28
+     ],
+     "text": "which is a common standard variety in Australia."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comparison\n\u2018Toscana\u2019 (registered name \u2018Korkunde\u2019) and \u2018Kardinal\u2019\nwhich is a common standard variety in Australia.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.56,
+    710.88,
+    535.44,
+    767.04
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      304.8,
+      710.88,
+      419.28,
+      719.04
+     ],
+     "text": "Comparative growing trials"
+    },
+    {
+     "bbox": [
+      304.56,
+      720.24,
+      511.44,
+      728.4
+     ],
+     "text": "All characteristics and comparisons below are from"
+    },
+    {
+     "bbox": [
+      304.8,
+      730.08,
+      511.92,
+      738.48
+     ],
+     "text": "comparative growing trials conducted at Dural near"
+    },
+    {
+     "bbox": [
+      305.04,
+      739.92,
+      535.44,
+      748.32
+     ],
+     "text": "Sydney, in N.S.W., in April, 1991. The plants were grown"
+    },
+    {
+     "bbox": [
+      305.28,
+      749.76,
+      529.92,
+      758.16
+     ],
+     "text": "in the open spaced 0.5m between plants. All trial plants"
+    },
+    {
+     "bbox": [
+      304.56,
+      759.6,
+      496.56,
+      767.04
+     ],
+     "text": "were on rootstock indexed virus free. Measured"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative growing trials\nAll characteristics and comparisons below are from\ncomparative growing trials conducted at Dural near\nSydney, in N.S.W., in April, 1991. The plants were grown\nin the open spaced 0.5m between plants. All trial plants\nwere on rootstock indexed virus free. Measured",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    38.16,
+    792.48,
+    50.4,
+    801.6
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      38.16,
+      792.48,
+      50.4,
+      801.6
+     ],
+     "text": "20"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "20",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

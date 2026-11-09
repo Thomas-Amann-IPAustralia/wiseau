@@ -1,0 +1,2795 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    52.56,
+    62.16,
+    241.44,
+    67.92
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      52.56,
+      62.16,
+      241.44,
+      67.92
+     ],
+     "text": "TABLE OF COMPARISON OF OAT VARIETIES\u2014Continued"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "TABLE OF COMPARISON OF OAT VARIETIES\u2014Continued",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.73,
+    75.53,
+    533.75,
+    351.31
+   ],
+   "confidence": null,
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      143.04,
+      76.08,
+      534.72,
+      86.16
+     ],
+     "text": "\u2018Riel\u2019 \u201cAlgerian\u201d *Cleanleaf\u2019 *Cluan\u2019 *\u2018Minhafer\u2019 *\u2018Nobby\u2019"
+    },
+    {
+     "bbox": [
+      52.56,
+      91.92,
+      109.92,
+      99.6
+     ],
+     "text": "AWNS (primary)"
+    },
+    {
+     "bbox": [
+      142.56,
+      101.52,
+      515.04,
+      108.96
+     ],
+     "text": "few present present rare rare few"
+    },
+    {
+     "bbox": [
+      52.8,
+      116.16,
+      102.24,
+      122.16
+     ],
+     "text": "BASAL SCAR"
+    },
+    {
+     "bbox": [
+      143.04,
+      124.32,
+      535.44,
+      133.92
+     ],
+     "text": "intermed. oblique intermed. flat intermed. intermed."
+    },
+    {
+     "bbox": [
+      53.04,
+      139.92,
+      123.36,
+      146.16
+     ],
+     "text": "FLAG LEAF WIDTH"
+    },
+    {
+     "bbox": [
+      53.04,
+      149.28,
+      533.28,
+      155.52
+     ],
+     "text": "mean 28.0 mm 17.3mm 26.0 mm 39.5 mm 25.1 mm 21.8mm"
+    },
+    {
+     "bbox": [
+      52.8,
+      157.2,
+      524.88,
+      166.8
+     ],
+     "text": "range 23-33 14-19 23-30 33-43 19-32 19-28"
+    },
+    {
+     "bbox": [
+      52.8,
+      167.76,
+      517.92,
+      174.0
+     ],
+     "text": "std dev 2.93 1.16 1.97 2.74 3.14 2.46"
+    },
+    {
+     "bbox": [
+      53.04,
+      182.16,
+      129.6,
+      188.16
+     ],
+     "text": "FLAG LEAF LENGTH"
+    },
+    {
+     "bbox": [
+      52.8,
+      191.52,
+      530.64,
+      197.76
+     ],
+     "text": "mean 27.7cm 30.4 cm 20.1 cm 34.3 cm 22.0 cm 31.4 cm"
+    },
+    {
+     "bbox": [
+      52.8,
+      199.92,
+      523.44,
+      209.52
+     ],
+     "text": "range 21-35 24-35 16-32 26-42 17-28 23-41"
+    },
+    {
+     "bbox": [
+      52.32,
+      210.72,
+      517.92,
+      216.96
+     ],
+     "text": "std.dev 3.28 2.89 4.09 4.84 2.92 3.88"
+    },
+    {
+     "bbox": [
+      53.04,
+      225.36,
+      125.52,
+      231.36
+     ],
+     "text": "RACHILLA LENGTH"
+    },
+    {
+     "bbox": [
+      52.8,
+      234.72,
+      533.04,
+      240.96
+     ],
+     "text": "mean 2.62 mm 2.10 mm 2.31 mm 2.42 mm 2.28 mm 2.12mm"
+    },
+    {
+     "bbox": [
+      52.56,
+      244.32,
+      528.72,
+      252.0
+     ],
+     "text": "range 2.3-2.9 1.9-2.3 1,9-2.8 2.1-2.7 1.7-2.6 1.8-2.4"
+    },
+    {
+     "bbox": [
+      52.32,
+      253.92,
+      517.68,
+      260.16
+     ],
+     "text": "std.dev 0.15 0.12 0.19 0.16 0.21 0.15"
+    },
+    {
+     "bbox": [
+      52.32,
+      268.08,
+      104.64,
+      274.32
+     ],
+     "text": "AWN LENGTH"
+    },
+    {
+     "bbox": [
+      52.8,
+      277.68,
+      533.04,
+      283.92
+     ],
+     "text": "mean 32.1 mm 32.7 mm 25.4mm 24.0 mm 20.5 mm 29.3 mm"
+    },
+    {
+     "bbox": [
+      52.56,
+      287.04,
+      524.4,
+      294.72
+     ],
+     "text": "range 27-36 30-36 22-29 19-27 16-27 20-35"
+    },
+    {
+     "bbox": [
+      52.32,
+      296.4,
+      517.44,
+      302.64
+     ],
+     "text": "std. dev 2.35 1.76 2.16 2.37 2.45 3.77"
+    },
+    {
+     "bbox": [
+      52.8,
+      310.56,
+      218.88,
+      317.52
+     ],
+     "text": "REACTIONS TO LEAF RUST\u2014races 264, 384"
+    },
+    {
+     "bbox": [
+      142.8,
+      318.72,
+      507.6,
+      328.56
+     ],
+     "text": "R Ss R R Ss R"
+    },
+    {
+     "bbox": [
+      52.56,
+      334.32,
+      220.8,
+      341.28
+     ],
+     "text": "REACTIONS TO STEM RUST\u2014races 1, 20, 22"
+    },
+    {
+     "bbox": [
+      142.56,
+      342.72,
+      514.32,
+      352.32
+     ],
+     "text": "MR-MS Ss R MR VS MR"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       143.04,
+       77.52,
+       161.04,
+       83.28
+      ],
+      "header": true,
+      "text": "\u2018Riel\u2019"
+     },
+     {
+      "bbox": [
+       214.8,
+       76.32,
+       253.68,
+       86.16
+      ],
+      "header": true,
+      "text": "\u201cAlgerian\u201d"
+     },
+     {
+      "bbox": [
+       287.04,
+       76.08,
+       329.52,
+       85.92
+      ],
+      "header": true,
+      "text": "*Cleanleaf\u2019"
+     },
+     {
+      "bbox": [
+       359.04,
+       76.08,
+       388.08,
+       86.16
+      ],
+      "header": true,
+      "text": "*Cluan\u2019"
+     },
+     {
+      "bbox": [
+       431.04,
+       76.08,
+       471.6,
+       86.16
+      ],
+      "header": true,
+      "text": "*\u2018Minhafer\u2019"
+     },
+     {
+      "bbox": [
+       503.04,
+       77.28,
+       534.72,
+       84.96
+      ],
+      "header": true,
+      "text": "*\u2018Nobby\u2019"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       52.56,
+       91.92,
+       109.92,
+       99.6
+      ],
+      "text": "AWNS (primary)"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       142.56,
+       101.52,
+       154.8,
+       107.52
+      ],
+      "text": "few"
+     },
+     {
+      "bbox": [
+       214.8,
+       101.76,
+       240.96,
+       108.72
+      ],
+      "text": "present"
+     },
+     {
+      "bbox": [
+       287.04,
+       101.76,
+       313.2,
+       108.96
+      ],
+      "text": "present"
+     },
+     {
+      "bbox": [
+       359.28,
+       102.96,
+       372.72,
+       107.52
+      ],
+      "text": "rare"
+     },
+     {
+      "bbox": [
+       431.28,
+       102.96,
+       444.48,
+       107.76
+      ],
+      "text": "rare"
+     },
+     {
+      "bbox": [
+       502.8,
+       101.52,
+       515.04,
+       107.52
+      ],
+      "text": "few"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       52.8,
+       116.16,
+       102.24,
+       122.16
+      ],
+      "text": "BASAL SCAR"
+     },
+     {
+      "bbox": [
+       143.04,
+       124.56,
+       175.2,
+       133.92
+      ],
+      "text": "intermed."
+     },
+     {
+      "bbox": [
+       214.8,
+       125.28,
+       240.0,
+       132.72
+      ],
+      "text": "oblique"
+     },
+     {
+      "bbox": [
+       287.28,
+       124.32,
+       319.44,
+       133.68
+      ],
+      "text": "intermed."
+     },
+     {
+      "bbox": [
+       359.04,
+       125.28,
+       369.12,
+       131.28
+      ],
+      "text": "flat"
+     },
+     {
+      "bbox": [
+       431.28,
+       124.56,
+       463.44,
+       133.92
+      ],
+      "text": "intermed."
+     },
+     {
+      "bbox": [
+       503.28,
+       125.52,
+       535.44,
+       131.76
+      ],
+      "text": "intermed."
+     }
+    ],
+    [
+     {
+      "bbox": [
+       53.04,
+       139.92,
+       123.36,
+       146.16
+      ],
+      "text": "FLAG LEAF WIDTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       53.04,
+       150.96,
+       71.76,
+       155.52
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       142.56,
+       149.52,
+       173.04,
+       155.28
+      ],
+      "text": "28.0 mm"
+     },
+     {
+      "bbox": [
+       215.28,
+       149.28,
+       245.28,
+       155.04
+      ],
+      "text": "17.3mm"
+     },
+     {
+      "bbox": [
+       286.8,
+       149.28,
+       317.28,
+       155.28
+      ],
+      "text": "26.0 mm"
+     },
+     {
+      "bbox": [
+       359.04,
+       149.28,
+       389.28,
+       155.28
+      ],
+      "text": "39.5 mm"
+     },
+     {
+      "bbox": [
+       431.04,
+       149.52,
+       461.28,
+       155.28
+      ],
+      "text": "25.1 mm"
+     },
+     {
+      "bbox": [
+       502.8,
+       149.52,
+       533.28,
+       155.28
+      ],
+      "text": "21.8mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       52.8,
+       160.08,
+       72.48,
+       166.32
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       142.56,
+       158.88,
+       164.16,
+       164.64
+      ],
+      "text": "23-33"
+     },
+     {
+      "bbox": [
+       215.28,
+       158.64,
+       236.4,
+       164.16
+      ],
+      "text": "14-19"
+     },
+     {
+      "bbox": [
+       286.8,
+       158.4,
+       308.64,
+       164.4
+      ],
+      "text": "23-30"
+     },
+     {
+      "bbox": [
+       359.04,
+       157.2,
+       380.88,
+       166.8
+      ],
+      "text": "33-43"
+     },
+     {
+      "bbox": [
+       431.52,
+       158.64,
+       452.64,
+       164.4
+      ],
+      "text": "19-32"
+     },
+     {
+      "bbox": [
+       503.28,
+       158.88,
+       524.88,
+       164.64
+      ],
+      "text": "19-28"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       52.8,
+       168.24,
+       78.24,
+       174.0
+      ],
+      "text": "std dev"
+     },
+     {
+      "bbox": [
+       142.8,
+       168.24,
+       157.92,
+       174.0
+      ],
+      "text": "2.93"
+     },
+     {
+      "bbox": [
+       215.28,
+       167.76,
+       229.92,
+       173.52
+      ],
+      "text": "1.16"
+     },
+     {
+      "bbox": [
+       287.52,
+       168.0,
+       301.92,
+       173.52
+      ],
+      "text": "1.97"
+     },
+     {
+      "bbox": [
+       359.04,
+       168.0,
+       373.92,
+       173.76
+      ],
+      "text": "2.74"
+     },
+     {
+      "bbox": [
+       431.04,
+       168.0,
+       445.92,
+       174.0
+      ],
+      "text": "3.14"
+     },
+     {
+      "bbox": [
+       503.04,
+       168.24,
+       517.92,
+       174.0
+      ],
+      "text": "2.46"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       53.04,
+       182.16,
+       129.6,
+       188.16
+      ],
+      "text": "FLAG LEAF LENGTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       52.8,
+       193.2,
+       71.76,
+       197.76
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       142.56,
+       191.76,
+       170.16,
+       197.52
+      ],
+      "text": "27.7cm"
+     },
+     {
+      "bbox": [
+       214.56,
+       191.52,
+       242.4,
+       197.28
+      ],
+      "text": "30.4 cm"
+     },
+     {
+      "bbox": [
+       286.8,
+       191.52,
+       314.64,
+       197.28
+      ],
+      "text": "20.1 cm"
+     },
+     {
+      "bbox": [
+       358.8,
+       191.76,
+       386.4,
+       197.52
+      ],
+      "text": "34.3 cm"
+     },
+     {
+      "bbox": [
+       430.8,
+       191.76,
+       458.64,
+       197.52
+      ],
+      "text": "22.0 cm"
+     },
+     {
+      "bbox": [
+       502.8,
+       192.0,
+       530.64,
+       197.76
+      ],
+      "text": "31.4 cm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       52.8,
+       202.8,
+       72.24,
+       208.8
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       142.56,
+       201.36,
+       164.16,
+       207.12
+      ],
+      "text": "21-35"
+     },
+     {
+      "bbox": [
+       214.56,
+       201.12,
+       236.16,
+       206.88
+      ],
+      "text": "24-35"
+     },
+     {
+      "bbox": [
+       287.28,
+       201.12,
+       308.4,
+       207.12
+      ],
+      "text": "16-32"
+     },
+     {
+      "bbox": [
+       358.8,
+       199.92,
+       380.4,
+       209.52
+      ],
+      "text": "26-42"
+     },
+     {
+      "bbox": [
+       431.52,
+       201.36,
+       452.4,
+       207.12
+      ],
+      "text": "17-28"
+     },
+     {
+      "bbox": [
+       502.56,
+       201.6,
+       523.44,
+       207.36
+      ],
+      "text": "23-41"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       52.32,
+       210.96,
+       78.24,
+       216.72
+      ],
+      "text": "std.dev"
+     },
+     {
+      "bbox": [
+       142.8,
+       210.96,
+       157.68,
+       216.72
+      ],
+      "text": "3.28"
+     },
+     {
+      "bbox": [
+       214.56,
+       210.72,
+       229.68,
+       216.48
+      ],
+      "text": "2.89"
+     },
+     {
+      "bbox": [
+       286.8,
+       210.72,
+       301.92,
+       216.48
+      ],
+      "text": "4.09"
+     },
+     {
+      "bbox": [
+       358.8,
+       210.96,
+       373.92,
+       216.72
+      ],
+      "text": "4.84"
+     },
+     {
+      "bbox": [
+       430.8,
+       210.96,
+       445.68,
+       216.72
+      ],
+      "text": "2.92"
+     },
+     {
+      "bbox": [
+       502.8,
+       211.2,
+       517.92,
+       216.96
+      ],
+      "text": "3.88"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       53.04,
+       225.36,
+       125.52,
+       231.36
+      ],
+      "text": "RACHILLA LENGTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       52.8,
+       236.4,
+       71.76,
+       240.96
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       142.56,
+       234.96,
+       172.8,
+       240.72
+      ],
+      "text": "2.62 mm"
+     },
+     {
+      "bbox": [
+       214.56,
+       234.72,
+       245.04,
+       240.72
+      ],
+      "text": "2.10 mm"
+     },
+     {
+      "bbox": [
+       286.56,
+       234.96,
+       317.04,
+       240.72
+      ],
+      "text": "2.31 mm"
+     },
+     {
+      "bbox": [
+       358.8,
+       234.96,
+       389.04,
+       240.96
+      ],
+      "text": "2.42 mm"
+     },
+     {
+      "bbox": [
+       430.8,
+       235.2,
+       461.04,
+       240.96
+      ],
+      "text": "2.28 mm"
+     },
+     {
+      "bbox": [
+       502.8,
+       235.2,
+       533.04,
+       240.96
+      ],
+      "text": "2.12mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       52.56,
+       246.0,
+       72.24,
+       252.0
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       142.32,
+       244.32,
+       168.48,
+       250.32
+      ],
+      "text": "2.3-2.9"
+     },
+     {
+      "bbox": [
+       215.04,
+       244.32,
+       240.72,
+       250.08
+      ],
+      "text": "1.9-2.3"
+     },
+     {
+      "bbox": [
+       287.04,
+       244.32,
+       312.72,
+       250.08
+      ],
+      "text": "1,9-2.8"
+     },
+     {
+      "bbox": [
+       358.56,
+       244.56,
+       384.72,
+       250.32
+      ],
+      "text": "2.1-2.7"
+     },
+     {
+      "bbox": [
+       431.28,
+       244.56,
+       456.72,
+       250.32
+      ],
+      "text": "1.7-2.6"
+     },
+     {
+      "bbox": [
+       503.28,
+       244.8,
+       528.72,
+       250.56
+      ],
+      "text": "1.8-2.4"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       52.32,
+       254.16,
+       77.76,
+       260.16
+      ],
+      "text": "std.dev"
+     },
+     {
+      "bbox": [
+       142.32,
+       254.16,
+       157.68,
+       259.92
+      ],
+      "text": "0.15"
+     },
+     {
+      "bbox": [
+       214.56,
+       253.92,
+       229.68,
+       259.44
+      ],
+      "text": "0.12"
+     },
+     {
+      "bbox": [
+       286.56,
+       253.92,
+       301.92,
+       259.68
+      ],
+      "text": "0.19"
+     },
+     {
+      "bbox": [
+       358.56,
+       253.92,
+       373.92,
+       259.68
+      ],
+      "text": "0.16"
+     },
+     {
+      "bbox": [
+       430.56,
+       254.16,
+       444.48,
+       260.16
+      ],
+      "text": "0.21"
+     },
+     {
+      "bbox": [
+       502.8,
+       254.4,
+       517.68,
+       260.16
+      ],
+      "text": "0.15"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       52.32,
+       268.08,
+       104.64,
+       274.32
+      ],
+      "text": "AWN LENGTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       52.8,
+       279.12,
+       71.76,
+       283.68
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       142.56,
+       277.92,
+       172.8,
+       283.68
+      ],
+      "text": "32.1 mm"
+     },
+     {
+      "bbox": [
+       214.56,
+       277.68,
+       244.8,
+       283.44
+      ],
+      "text": "32.7 mm"
+     },
+     {
+      "bbox": [
+       286.56,
+       277.68,
+       317.04,
+       283.44
+      ],
+      "text": "25.4mm"
+     },
+     {
+      "bbox": [
+       358.56,
+       277.68,
+       389.04,
+       283.68
+      ],
+      "text": "24.0 mm"
+     },
+     {
+      "bbox": [
+       430.8,
+       277.92,
+       461.04,
+       283.92
+      ],
+      "text": "20.5 mm"
+     },
+     {
+      "bbox": [
+       502.56,
+       278.16,
+       533.04,
+       283.92
+      ],
+      "text": "29.3 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       52.56,
+       288.48,
+       72.24,
+       294.72
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       142.32,
+       287.28,
+       164.16,
+       293.04
+      ],
+      "text": "27-36"
+     },
+     {
+      "bbox": [
+       214.56,
+       287.04,
+       236.16,
+       292.8
+      ],
+      "text": "30-36"
+     },
+     {
+      "bbox": [
+       286.56,
+       287.04,
+       308.4,
+       292.8
+      ],
+      "text": "22-29"
+     },
+     {
+      "bbox": [
+       359.28,
+       287.28,
+       380.4,
+       292.8
+      ],
+      "text": "19-27"
+     },
+     {
+      "bbox": [
+       431.04,
+       287.28,
+       452.16,
+       293.28
+      ],
+      "text": "16-27"
+     },
+     {
+      "bbox": [
+       502.56,
+       287.52,
+       524.4,
+       293.28
+      ],
+      "text": "20-35"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       52.32,
+       296.64,
+       79.92,
+       302.4
+      ],
+      "text": "std. dev"
+     },
+     {
+      "bbox": [
+       142.32,
+       296.64,
+       157.44,
+       302.4
+      ],
+      "text": "2.35"
+     },
+     {
+      "bbox": [
+       215.04,
+       296.4,
+       229.44,
+       301.92
+      ],
+      "text": "1.76"
+     },
+     {
+      "bbox": [
+       286.56,
+       296.4,
+       301.68,
+       302.16
+      ],
+      "text": "2.16"
+     },
+     {
+      "bbox": [
+       358.56,
+       296.64,
+       373.68,
+       302.4
+      ],
+      "text": "2.37"
+     },
+     {
+      "bbox": [
+       430.56,
+       296.64,
+       445.68,
+       302.64
+      ],
+      "text": "2.45"
+     },
+     {
+      "bbox": [
+       502.56,
+       296.88,
+       517.44,
+       302.64
+      ],
+      "text": "3.77"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       52.8,
+       310.56,
+       218.88,
+       317.52
+      ],
+      "text": "REACTIONS TO LEAF RUST\u2014races 264, 384"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       142.8,
+       320.16,
+       147.36,
+       325.68
+      ],
+      "text": "R"
+     },
+     {
+      "bbox": [
+       213.6,
+       318.72,
+       219.12,
+       328.32
+      ],
+      "text": "Ss"
+     },
+     {
+      "bbox": [
+       287.04,
+       320.16,
+       291.6,
+       325.92
+      ],
+      "text": "R"
+     },
+     {
+      "bbox": [
+       359.04,
+       320.16,
+       363.6,
+       325.68
+      ],
+      "text": "R"
+     },
+     {
+      "bbox": [
+       429.84,
+       318.96,
+       435.36,
+       328.56
+      ],
+      "text": "Ss"
+     },
+     {
+      "bbox": [
+       503.04,
+       320.64,
+       507.6,
+       326.16
+      ],
+      "text": "R"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       52.56,
+       334.32,
+       220.8,
+       341.28
+      ],
+      "text": "REACTIONS TO STEM RUST\u2014races 1, 20, 22"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       142.56,
+       343.68,
+       170.64,
+       349.92
+      ],
+      "text": "MR-MS"
+     },
+     {
+      "bbox": [
+       213.6,
+       342.72,
+       219.36,
+       352.32
+      ],
+      "text": "Ss"
+     },
+     {
+      "bbox": [
+       286.8,
+       343.92,
+       291.6,
+       349.68
+      ],
+      "text": "R"
+     },
+     {
+      "bbox": [
+       358.8,
+       343.92,
+       370.32,
+       349.92
+      ],
+      "text": "MR"
+     },
+     {
+      "bbox": [
+       430.56,
+       344.4,
+       440.64,
+       350.16
+      ],
+      "text": "VS"
+     },
+     {
+      "bbox": [
+       502.8,
+       344.4,
+       514.32,
+       350.4
+      ],
+      "text": "MR"
+     }
+    ]
+   ],
+   "score": 0.9996,
+   "signal": "tatr",
+   "source": "tatr",
+   "text": " \u2018Riel\u2019 \u201cAlgerian\u201d *Cleanleaf\u2019 *Cluan\u2019 *\u2018Minhafer\u2019 *\u2018Nobby\u2019\nAWNS (primary)      \n few present present rare rare few\nBASAL SCAR intermed. oblique intermed. flat intermed. intermed.\nFLAG LEAF WIDTH      \nmean 28.0 mm 17.3mm 26.0 mm 39.5 mm 25.1 mm 21.8mm\nrange 23-33 14-19 23-30 33-43 19-32 19-28\nstd dev 2.93 1.16 1.97 2.74 3.14 2.46\nFLAG LEAF LENGTH      \nmean 27.7cm 30.4 cm 20.1 cm 34.3 cm 22.0 cm 31.4 cm\nrange 21-35 24-35 16-32 26-42 17-28 23-41\nstd.dev 3.28 2.89 4.09 4.84 2.92 3.88\nRACHILLA LENGTH      \nmean 2.62 mm 2.10 mm 2.31 mm 2.42 mm 2.28 mm 2.12mm\nrange 2.3-2.9 1.9-2.3 1,9-2.8 2.1-2.7 1.7-2.6 1.8-2.4\nstd.dev 0.15 0.12 0.19 0.16 0.21 0.15\nAWN LENGTH      \nmean 32.1 mm 32.7 mm 25.4mm 24.0 mm 20.5 mm 29.3 mm\nrange 27-36 30-36 22-29 19-27 16-27 20-35\nstd. dev 2.35 1.76 2.16 2.37 2.45 3.77\nREACTIONS TO LEAF RUST\u2014races 264, 384      \n R Ss R R Ss R\nREACTIONS TO STEM RUST\u2014races 1, 20, 22      \n MR-MS Ss R MR VS MR",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    52.56,
+    372.48,
+    551.28,
+    382.8
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      52.56,
+      372.48,
+      551.28,
+      382.8
+     ],
+     "text": "LETTUCE Varieties were seeded in February and transplanted into the"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "LETTUCE Varieties were seeded in February and transplanted into the",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    52.56,
+    387.12,
+    122.16,
+    395.28
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      52.56,
+      387.12,
+      122.16,
+      395.28
+     ],
+     "text": "Lactuca sativa"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Lactuca sativa",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.84,
+    403.68,
+    66.96,
+    418.56
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      51.84,
+      403.68,
+      66.96,
+      418.56
+     ],
+     "text": "[|"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "[|",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    52.08,
+    423.12,
+    277.92,
+    474.0
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      52.32,
+      423.12,
+      230.64,
+      431.76
+     ],
+     "text": "Variety: \u2018Impact\u2019. See fig. 10 in colour section"
+    },
+    {
+     "bbox": [
+      52.32,
+      434.16,
+      141.36,
+      442.8
+     ],
+     "text": "Application No. 91/128"
+    },
+    {
+     "bbox": [
+      52.08,
+      445.2,
+      212.88,
+      453.84
+     ],
+     "text": "Application Received: 16 December 1991"
+    },
+    {
+     "bbox": [
+      52.32,
+      456.24,
+      277.92,
+      464.88
+     ],
+     "text": "Applicant: Arthur Yates & Co. Pty Ltd, of Milperra, New"
+    },
+    {
+     "bbox": [
+      52.08,
+      467.28,
+      98.88,
+      474.0
+     ],
+     "text": "South Wales"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Impact\u2019. See fig. 10 in colour section\nApplication No. 91/128\nApplication Received: 16 December 1991\nApplicant: Arthur Yates & Co. Pty Ltd, of Milperra, New\nSouth Wales",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    52.32,
+    484.8,
+    228.48,
+    493.92
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      52.32,
+      484.8,
+      228.48,
+      493.92
+     ],
+     "text": "Description\u2014see also comparison tables"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Description\u2014see also comparison tables",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.12,
+    498.48,
+    288.0,
+    702.24
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      52.8,
+      498.48,
+      287.76,
+      507.12
+     ],
+     "text": "\u2018Impact\u2019 is a \u2018Salinas\u2019 type of crisphead lettuce resistant to"
+    },
+    {
+     "bbox": [
+      51.6,
+      509.52,
+      287.52,
+      518.16
+     ],
+     "text": "known isolates of Bremia lactucae in Australia, possessing the"
+    },
+    {
+     "bbox": [
+      51.36,
+      520.8,
+      287.52,
+      529.2
+     ],
+     "text": "Dm genes | and 3 for resistance to Bremia. It is a medium"
+    },
+    {
+     "bbox": [
+      52.08,
+      531.6,
+      287.28,
+      540.72
+     ],
+     "text": "maturing variety producing a firm, round, well-covered head."
+    },
+    {
+     "bbox": [
+      51.6,
+      542.64,
+      287.28,
+      551.52
+     ],
+     "text": "There is no anthocyanin in the foliage; wrapper leaves are dark-"
+    },
+    {
+     "bbox": [
+      51.6,
+      553.68,
+      287.28,
+      562.08
+     ],
+     "text": "green; at the 34 true leaf stage leaves are erect, lobed, narrow"
+    },
+    {
+     "bbox": [
+      51.6,
+      564.48,
+      242.64,
+      573.12
+     ],
+     "text": "elliptical and medium to dark green; seed is white."
+    },
+    {
+     "bbox": [
+      51.84,
+      581.76,
+      78.72,
+      590.88
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      51.36,
+      595.2,
+      287.04,
+      603.6
+     ],
+     "text": "The breeder is Mr Dan Trimboli of Arthur Yates & Co. Pty Ltd."
+    },
+    {
+     "bbox": [
+      52.32,
+      606.0,
+      287.28,
+      614.4
+     ],
+     "text": "\u2018Impact\u2019 arose from the controlled pollination of \u2018Jackpot\u2019 by"
+    },
+    {
+     "bbox": [
+      52.32,
+      616.8,
+      287.28,
+      625.44
+     ],
+     "text": "\u2018Narromar\u2019. The resultant progeny was backcrossed 5 times to"
+    },
+    {
+     "bbox": [
+      52.32,
+      627.6,
+      287.28,
+      636.48
+     ],
+     "text": "\u2018Jackpot\u2019. Prior to backcrossing on each occasion, the progeny"
+    },
+    {
+     "bbox": [
+      51.6,
+      638.88,
+      288.0,
+      645.6
+     ],
+     "text": "was screened in vitro for resistance to an Australian isolate of"
+    },
+    {
+     "bbox": [
+      51.12,
+      649.68,
+      286.8,
+      658.56
+     ],
+     "text": "Bremia lactucae. Subsequent to the completion of backcross-"
+    },
+    {
+     "bbox": [
+      51.12,
+      660.72,
+      286.8,
+      669.36
+     ],
+     "text": "ing, 10 resistant plants were selfed in October 1988. From these"
+    },
+    {
+     "bbox": [
+      52.32,
+      671.76,
+      287.04,
+      680.4
+     ],
+     "text": "14 resistant plants were again selfed and the progeny screened"
+    },
+    {
+     "bbox": [
+      51.12,
+      682.56,
+      286.8,
+      691.2
+     ],
+     "text": "for homozygosity for resistance to mildew. Field nurseries"
+    },
+    {
+     "bbox": [
+      51.36,
+      693.36,
+      286.56,
+      702.24
+     ],
+     "text": "identified phenotypically acceptable plants over two seasons."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Impact\u2019 is a \u2018Salinas\u2019 type of crisphead lettuce resistant to\nknown isolates of Bremia lactucae in Australia, possessing the\nDm genes | and 3 for resistance to Bremia. It is a medium\nmaturing variety producing a firm, round, well-covered head.\nThere is no anthocyanin in the foliage; wrapper leaves are dark-\ngreen; at the 34 true leaf stage leaves are erect, lobed, narrow\nelliptical and medium to dark green; seed is white.\nOrigin\nThe breeder is Mr Dan Trimboli of Arthur Yates & Co. Pty Ltd.\n\u2018Impact\u2019 arose from the controlled pollination of \u2018Jackpot\u2019 by\n\u2018Narromar\u2019. The resultant progeny was backcrossed 5 times to\n\u2018Jackpot\u2019. Prior to backcrossing on each occasion, the progeny\nwas screened in vitro for resistance to an Australian isolate of\nBremia lactucae. Subsequent to the completion of backcross-\ning, 10 resistant plants were selfed in October 1988. From these\n14 resistant plants were again selfed and the progeny screened\nfor homozygosity for resistance to mildew. Field nurseries\nidentified phenotypically acceptable plants over two seasons.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.12,
+    711.12,
+    286.56,
+    732.96
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      51.12,
+      711.12,
+      186.0,
+      720.0
+     ],
+     "text": "Varieties used for comparison"
+    },
+    {
+     "bbox": [
+      52.08,
+      724.32,
+      286.56,
+      732.96
+     ],
+     "text": "\u2018Jackpot\u2019 being a parent variety and the closest known variety."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comparison\n\u2018Jackpot\u2019 being a parent variety and the closest known variety.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.12,
+    741.6,
+    176.64,
+    750.72
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      51.12,
+      741.6,
+      176.64,
+      750.72
+     ],
+     "text": "Comparative Growing Trials"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.12,
+    755.04,
+    286.8,
+    773.76
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      51.12,
+      755.04,
+      286.8,
+      763.92
+     ],
+     "text": "All characteristics described are from comparative growing tri-"
+    },
+    {
+     "bbox": [
+      51.12,
+      765.84,
+      286.32,
+      773.76
+     ],
+     "text": "als conducted at Narromine, New South Wales in autumn 1990."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "All characteristics described are from comparative growing tri-\nals conducted at Narromine, New South Wales in autumn 1990.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    315.6,
+    384.72,
+    551.04,
+    469.92
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      315.6,
+      384.72,
+      551.04,
+      393.6
+     ],
+     "text": "field in March 1990. Plants were spaced 36 cm within a row"
+    },
+    {
+     "bbox": [
+      315.84,
+      396.0,
+      551.04,
+      402.96
+     ],
+     "text": "and 50 cm between rows on 75 cm beds. Kerb herbicide was"
+    },
+    {
+     "bbox": [
+      315.6,
+      406.8,
+      551.04,
+      415.44
+     ],
+     "text": "applied subsequent to transplanting and Ridomil MZ was"
+    },
+    {
+     "bbox": [
+      315.6,
+      417.84,
+      550.8,
+      426.48
+     ],
+     "text": "applied twice during the latter half of the growing period."
+    },
+    {
+     "bbox": [
+      315.6,
+      428.64,
+      551.04,
+      437.04
+     ],
+     "text": "Measurements are from 50 plants chosen at random from each"
+    },
+    {
+     "bbox": [
+      315.84,
+      439.44,
+      551.04,
+      448.08
+     ],
+     "text": "variety. Identification of Dm genes to Bremia lactucae were"
+    },
+    {
+     "bbox": [
+      315.6,
+      450.24,
+      550.8,
+      459.12
+     ],
+     "text": "determined by assay at the Horticultural Research Institute,"
+    },
+    {
+     "bbox": [
+      315.6,
+      461.28,
+      473.76,
+      469.92
+     ],
+     "text": "Wellesbourne, England in 1990 and 1991."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "field in March 1990. Plants were spaced 36 cm within a row\nand 50 cm between rows on 75 cm beds. Kerb herbicide was\napplied subsequent to transplanting and Ridomil MZ was\napplied twice during the latter half of the growing period.\nMeasurements are from 50 plants chosen at random from each\nvariety. Identification of Dm genes to Bremia lactucae were\ndetermined by assay at the Horticultural Research Institute,\nWellesbourne, England in 1990 and 1991.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    315.36,
+    479.76,
+    362.16,
+    488.88
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      315.36,
+      479.76,
+      362.16,
+      488.88
+     ],
+     "text": "Agronomy"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Agronomy",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    315.36,
+    499.68,
+    551.04,
+    531.36
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      316.08,
+      499.68,
+      550.8,
+      508.32
+     ],
+     "text": "\u2018Impact\u2019 is suitable for culture in coastal areas of Australia and"
+    },
+    {
+     "bbox": [
+      315.36,
+      510.72,
+      551.04,
+      518.16
+     ],
+     "text": "California and inland areas of New South Wales wherever"
+    },
+    {
+     "bbox": [
+      316.08,
+      521.76,
+      517.92,
+      531.36
+     ],
+     "text": "\u2018Jackpot\u2019 is grown during autumn and spring periods."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Impact\u2019 is suitable for culture in coastal areas of Australia and\nCalifornia and inland areas of New South Wales wherever\n\u2018Jackpot\u2019 is grown during autumn and spring periods.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    319.92,
+    566.4,
+    493.2,
+    575.04
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      319.92,
+      566.4,
+      493.2,
+      575.04
+     ],
+     "text": "Table of Comparison of Lettuce Varieties"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Lettuce Varieties",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    315.18,
+    584.7,
+    531.57,
+    769.34
+   ],
+   "confidence": null,
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      315.36,
+      582.0,
+      425.76,
+      589.92
+     ],
+     "text": "(*=variety used for comparison)"
+    },
+    {
+     "bbox": [
+      423.36,
+      597.12,
+      531.84,
+      606.72
+     ],
+     "text": "\u2018Impact\u2019 Jackpot\u2019"
+    },
+    {
+     "bbox": [
+      315.12,
+      613.2,
+      456.72,
+      621.36
+     ],
+     "text": "MATURITY (no. of days from transplant)"
+    },
+    {
+     "bbox": [
+      315.36,
+      624.0,
+      510.0,
+      629.76
+     ],
+     "text": "mean 65.2 67.7"
+    },
+    {
+     "bbox": [
+      315.12,
+      633.84,
+      516.48,
+      640.8
+     ],
+     "text": "range 65-69 64-70"
+    },
+    {
+     "bbox": [
+      314.88,
+      643.68,
+      509.76,
+      649.92
+     ],
+     "text": "standard error 0.27"
+    },
+    {
+     "bbox": [
+      315.12,
+      659.28,
+      383.28,
+      665.52
+     ],
+     "text": "PLANT DIAMETER"
+    },
+    {
+     "bbox": [
+      315.12,
+      669.84,
+      522.48,
+      675.84
+     ],
+     "text": "mean 45.5cm 46.5cm"
+    },
+    {
+     "bbox": [
+      315.12,
+      678.72,
+      516.24,
+      688.08
+     ],
+     "text": "range 43-47 44-50"
+    },
+    {
+     "bbox": [
+      314.64,
+      689.52,
+      514.08,
+      695.76
+     ],
+     "text": "standard error 0.237"
+    },
+    {
+     "bbox": [
+      314.88,
+      704.88,
+      368.64,
+      711.12
+     ],
+     "text": "HEAD HEIGHT"
+    },
+    {
+     "bbox": [
+      314.88,
+      715.68,
+      522.24,
+      721.44
+     ],
+     "text": "mean 12.4cem 12.9cm"
+    },
+    {
+     "bbox": [
+      314.88,
+      725.28,
+      522.72,
+      732.24
+     ],
+     "text": "range 11-14 12-14.5"
+    },
+    {
+     "bbox": [
+      314.4,
+      734.64,
+      509.28,
+      741.12
+     ],
+     "text": "standard error 0.13"
+    },
+    {
+     "bbox": [
+      314.88,
+      750.24,
+      386.88,
+      757.68
+     ],
+     "text": "Dm genes to Bremia"
+    },
+    {
+     "bbox": [
+      423.12,
+      760.56,
+      504.96,
+      767.52
+     ],
+     "text": "1,3,5/8 5/8"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       315.36,
+       582.0,
+       379.92,
+       589.68
+      ],
+      "header": true,
+      "text": "(*=variety used for"
+     },
+     {
+      "bbox": [
+       382.32,
+       582.24,
+       425.76,
+       589.92
+      ],
+      "header": true,
+      "text": "comparison)"
+     },
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       423.36,
+       597.12,
+       452.4,
+       606.72
+      ],
+      "header": true,
+      "text": "\u2018Impact\u2019"
+     },
+     {
+      "bbox": [
+       495.12,
+       598.32,
+       531.84,
+       605.52
+      ],
+      "header": true,
+      "text": "Jackpot\u2019"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       315.12,
+       613.2,
+       456.72,
+       621.36
+      ],
+      "text": "MATURITY (no. of days from transplant)"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       315.36,
+       624.72,
+       334.08,
+       629.28
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       423.12,
+       624.0,
+       438.0,
+       629.76
+      ],
+      "text": "65.2"
+     },
+     {
+      "bbox": [
+       494.88,
+       624.24,
+       510.0,
+       629.76
+      ],
+      "text": "67.7"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       315.12,
+       634.8,
+       334.56,
+       640.8
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       422.88,
+       633.84,
+       444.48,
+       639.84
+      ],
+      "text": "65-69"
+     },
+     {
+      "bbox": [
+       494.88,
+       634.08,
+       516.48,
+       639.84
+      ],
+      "text": "64-70"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       314.88,
+       643.68,
+       364.56,
+       649.44
+      ],
+      "text": "standard error"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       494.88,
+       644.16,
+       509.76,
+       649.92
+      ],
+      "text": "0.27"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       315.12,
+       659.28,
+       383.28,
+       665.52
+      ],
+      "text": "PLANT DIAMETER"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       315.12,
+       670.8,
+       334.08,
+       675.36
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       422.64,
+       669.84,
+       450.48,
+       675.84
+      ],
+      "text": "45.5cm"
+     },
+     {
+      "bbox": [
+       494.88,
+       670.08,
+       522.48,
+       675.84
+      ],
+      "text": "46.5cm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       315.12,
+       680.64,
+       334.32,
+       686.88
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       422.64,
+       678.72,
+       444.48,
+       688.08
+      ],
+      "text": "43-47"
+     },
+     {
+      "bbox": [
+       494.64,
+       680.16,
+       516.24,
+       685.92
+      ],
+      "text": "44-50"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       314.64,
+       689.52,
+       364.32,
+       695.28
+      ],
+      "text": "standard error"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       494.64,
+       690.0,
+       514.08,
+       695.76
+      ],
+      "text": "0.237"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       314.88,
+       704.88,
+       368.64,
+       720.72
+      ],
+      "text": "HEAD HEIGHT mean"
+     },
+     {
+      "bbox": [
+       423.12,
+       715.68,
+       450.24,
+       721.44
+      ],
+      "text": "12.4cem"
+     },
+     {
+      "bbox": [
+       495.12,
+       715.68,
+       522.24,
+       721.44
+      ],
+      "text": "12.9cm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       314.88,
+       726.0,
+       334.32,
+       732.24
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       423.12,
+       725.28,
+       443.52,
+       731.04
+      ],
+      "text": "11-14"
+     },
+     {
+      "bbox": [
+       495.12,
+       725.52,
+       522.72,
+       731.28
+      ],
+      "text": "12-14.5"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       314.4,
+       734.64,
+       364.32,
+       740.64
+      ],
+      "text": "standard error"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       494.4,
+       735.36,
+       509.28,
+       741.12
+      ],
+      "text": "0.13"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       314.88,
+       750.24,
+       386.88,
+       757.68
+      ],
+      "text": "Dm genes to Bremia"
+     },
+     {
+      "bbox": [
+       423.12,
+       760.56,
+       446.16,
+       767.52
+      ],
+      "text": "1,3,5/8"
+     },
+     {
+      "bbox": [
+       494.64,
+       761.04,
+       504.96,
+       766.8
+      ],
+      "text": "5/8"
+     }
+    ]
+   ],
+   "score": 0.9996,
+   "signal": "tatr",
+   "source": "tatr",
+   "text": "(*=variety used for comparison) \n \u2018Impact\u2019 Jackpot\u2019\nMATURITY (no. of days from transplant)  \nmean 65.2 67.7\nrange 65-69 64-70\nstandard error  0.27\nPLANT DIAMETER  \nmean 45.5cm 46.5cm\nrange 43-47 44-50\nstandard error  0.237\nHEAD HEIGHT mean 12.4cem 12.9cm\nrange 11-14 12-14.5\nstandard error  0.13\nDm genes to Bremia 1,3,5/8 5/8",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    538.32,
+    795.84,
+    550.08,
+    804.0
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      538.32,
+      795.84,
+      550.08,
+      804.0
+     ],
+     "text": "23"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "23",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

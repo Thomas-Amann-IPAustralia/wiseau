@@ -1,0 +1,2168 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    76.46,
+    84.69,
+    265.52,
+    101.34
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e1",
+   "level": 1,
+   "lines": [
+    {
+     "bbox": [
+      76.46,
+      84.69,
+      265.52,
+      101.34
+     ],
+     "text": "Part 2 \u2013 Public Notices"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "# **Part 2 \u2013 Public Notices**",
+   "text_format": "markdown",
+   "type": "heading"
+  },
+  {
+   "bbox": [
+    82.13,
+    117.9,
+    287.19,
+    130.85
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e2",
+   "level": 2,
+   "lines": [
+    {
+     "bbox": [
+      82.13,
+      117.9,
+      287.19,
+      130.85
+     ],
+     "text": "Varieties Included in this Issue"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "## ~~**Varieties Included in this Issue**~~",
+   "text_format": "markdown",
+   "type": "heading"
+  },
+  {
+   "bbox": [
+    76.46,
+    139.38,
+    311.77,
+    158.51
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      76.46,
+      139.38,
+      311.77,
+      148.47
+     ],
+     "text": "An index reference for common names with botanical"
+    },
+    {
+     "bbox": [
+      76.46,
+      149.42,
+      215.49,
+      158.51
+     ],
+     "text": "names is published in Appendix 9."
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "An index reference for common names with botanical\nnames is published in Appendix 9.",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    170.3,
+    308.91,
+    200.14
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      76.46,
+      170.3,
+      153.11,
+      179.07
+     ],
+     "text": "Botanical Variety"
+    },
+    {
+     "bbox": [
+      288.36,
+      170.3,
+      308.91,
+      179.07
+     ],
+     "text": "Page"
+    },
+    {
+     "bbox": [
+      76.46,
+      180.84,
+      101.45,
+      189.61
+     ],
+     "text": "Name"
+    },
+    {
+     "bbox": [
+      121.81,
+      180.84,
+      146.8,
+      189.61
+     ],
+     "text": "Name"
+    },
+    {
+     "bbox": [
+      294.17,
+      180.84,
+      308.89,
+      189.61
+     ],
+     "text": "No."
+    },
+    {
+     "bbox": [
+      76.46,
+      191.0,
+      150.87,
+      200.14
+     ],
+     "text": "Acacia pravissima"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Botanical** **Variety** **Page**\n**Name** **Name** **No.**\n_Acacia pravissima_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    201.59,
+    308.91,
+    221.21
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      121.82,
+      201.59,
+      308.91,
+      210.68
+     ],
+     "text": "\u2018NE 02\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . 18"
+    },
+    {
+     "bbox": [
+      76.46,
+      212.07,
+      138.1,
+      221.21
+     ],
+     "text": "Ajania pacifica"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018NE 02\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . 18\n_Ajania pacifica_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    222.65,
+    308.91,
+    252.81
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      121.82,
+      222.65,
+      308.91,
+      231.74
+     ],
+     "text": "\u2018Bea\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69"
+    },
+    {
+     "bbox": [
+      121.82,
+      233.19,
+      308.9,
+      242.28
+     ],
+     "text": "\u2018Bess\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69"
+    },
+    {
+     "bbox": [
+      76.46,
+      243.67,
+      157.17,
+      252.81
+     ],
+     "text": "Alstroemeria hybrid"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Bea\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69\n\u2018Bess\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69\n_Alstroemeria_ hybrid",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    254.26,
+    308.92,
+    294.95
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      121.82,
+      254.26,
+      308.92,
+      263.35
+     ],
+     "text": "\u2018Zalsamay\u2019 syn Mayfair . . . . . . . . . . . . . . . 12"
+    },
+    {
+     "bbox": [
+      121.82,
+      264.79,
+      308.91,
+      273.88
+     ],
+     "text": "\u2018Zalsasenan\u2019 syn Senna . . . . . . . . . . . . . . . 12"
+    },
+    {
+     "bbox": [
+      121.82,
+      275.33,
+      308.91,
+      284.42
+     ],
+     "text": "\u2018Zanrina\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 70"
+    },
+    {
+     "bbox": [
+      76.46,
+      285.81,
+      168.11,
+      294.95
+     ],
+     "text": "Angelonia angustifolia"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Zalsamay\u2019 syn Mayfair . . . . . . . . . . . . . . . 12\n\u2018Zalsasenan\u2019 syn Senna . . . . . . . . . . . . . . . 12\n\u2018Zanrina\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 70\n_Angelonia angustifolia_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    296.39,
+    308.91,
+    358.15
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      121.82,
+      296.39,
+      308.91,
+      305.48
+     ],
+     "text": "\u2018Balangdeum\u2019 . . . . . . . . . . . . . . . . . . . . . . 71"
+    },
+    {
+     "bbox": [
+      121.82,
+      306.93,
+      308.91,
+      316.02
+     ],
+     "text": "\u2018Balanglav\u2019 . . . . . . . . . . . . . . . . . . . . . . . . 71"
+    },
+    {
+     "bbox": [
+      121.82,
+      317.46,
+      308.91,
+      326.55
+     ],
+     "text": "\u2018Balangpink\u2019 . . . . . . . . . . . . . . . . . . . . . . . 71"
+    },
+    {
+     "bbox": [
+      121.82,
+      328.0,
+      308.91,
+      337.09
+     ],
+     "text": "\u2018Balangpurp\u2019 . . . . . . . . . . . . . . . . . . . . . . . 71"
+    },
+    {
+     "bbox": [
+      121.82,
+      338.53,
+      308.91,
+      347.62
+     ],
+     "text": "\u2018Balangwhit\u2019 . . . . . . . . . . . . . . . . . . . . . . . 71"
+    },
+    {
+     "bbox": [
+      76.46,
+      349.01,
+      146.43,
+      358.15
+     ],
+     "text": "Angelonia hybrid"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Balangdeum\u2019 . . . . . . . . . . . . . . . . . . . . . . 71\n\u2018Balanglav\u2019 . . . . . . . . . . . . . . . . . . . . . . . . 71\n\u2018Balangpink\u2019 . . . . . . . . . . . . . . . . . . . . . . . 71\n\u2018Balangpurp\u2019 . . . . . . . . . . . . . . . . . . . . . . . 71\n\u2018Balangwhit\u2019 . . . . . . . . . . . . . . . . . . . . . . . 71\n_Angelonia_ hybrid",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    359.6,
+    308.92,
+    421.36
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      121.82,
+      359.6,
+      308.91,
+      368.69
+     ],
+     "text": "\u2018Balangdepi\u2019 . . . . . . . . . . . . . . . . . . . . . . . 12"
+    },
+    {
+     "bbox": [
+      121.82,
+      370.13,
+      308.92,
+      379.22
+     ],
+     "text": "\u2018Balangimla\u2019 . . . . . . . . . . . . . . . . . . . . . . . 12"
+    },
+    {
+     "bbox": [
+      121.82,
+      380.67,
+      308.91,
+      389.76
+     ],
+     "text": "\u2018Balangimpu\u2019. . . . . . . . . . . . . . . . . . . . . . . 12"
+    },
+    {
+     "bbox": [
+      121.82,
+      391.2,
+      308.92,
+      400.29
+     ],
+     "text": "\u2018Balanglapi\u2019. . . . . . . . . . . . . . . . . . . . . . . . 12"
+    },
+    {
+     "bbox": [
+      121.82,
+      401.73,
+      308.92,
+      410.82
+     ],
+     "text": "\u2018Balangpili\u2019 . . . . . . . . . . . . . . . . . . . . . . . . 12"
+    },
+    {
+     "bbox": [
+      76.46,
+      412.22,
+      159.77,
+      421.36
+     ],
+     "text": "Anigozanthos hybrid"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Balangdepi\u2019 . . . . . . . . . . . . . . . . . . . . . . . 12\n\u2018Balangimla\u2019 . . . . . . . . . . . . . . . . . . . . . . . 12\n\u2018Balangimpu\u2019. . . . . . . . . . . . . . . . . . . . . . . 12\n\u2018Balanglapi\u2019. . . . . . . . . . . . . . . . . . . . . . . . 12\n\u2018Balangpili\u2019 . . . . . . . . . . . . . . . . . . . . . . . . 12\n_Anigozanthos_ hybrid",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    422.8,
+    308.91,
+    442.43
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      121.82,
+      422.8,
+      308.91,
+      431.89
+     ],
+     "text": "\u2018Joey Lipstick\u2019. . . . . . . . . . . . . . . . . . . . . . 71"
+    },
+    {
+     "bbox": [
+      76.46,
+      433.29,
+      172.54,
+      442.43
+     ],
+     "text": "Anthurium andraeanum"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Joey Lipstick\u2019. . . . . . . . . . . . . . . . . . . . . . 71\n_Anthurium andraeanum_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    443.87,
+    308.91,
+    474.03
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      124.57,
+      443.87,
+      308.91,
+      452.96
+     ],
+     "text": "\u2018Rijn199922\u2019 . . . . . . . . . . . . . . . . . . . . . . 12"
+    },
+    {
+     "bbox": [
+      124.57,
+      454.4,
+      308.91,
+      463.49
+     ],
+     "text": "\u2018Whispering Love\u2019 . . . . . . . . . . . . . . . . . . 12"
+    },
+    {
+     "bbox": [
+      76.46,
+      464.89,
+      149.2,
+      474.03
+     ],
+     "text": "Arachis hypogaea"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Rijn199922\u2019 . . . . . . . . . . . . . . . . . . . . . . 12\n\u2018Whispering Love\u2019 . . . . . . . . . . . . . . . . . . 12\n_Arachis hypogaea_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    475.47,
+    308.91,
+    505.63
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      121.82,
+      475.47,
+      308.91,
+      484.56
+     ],
+     "text": "\u2018Middleton\u2019 . . . . . . . . . . . . . . . . . . . . . . . . 19"
+    },
+    {
+     "bbox": [
+      121.82,
+      486.01,
+      308.91,
+      495.1
+     ],
+     "text": "\u2018Wheeler\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . 19"
+    },
+    {
+     "bbox": [
+      76.46,
+      496.49,
+      143.85,
+      505.63
+     ],
+     "text": "Arctotis fastuosa"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Middleton\u2019 . . . . . . . . . . . . . . . . . . . . . . . . 19\n\u2018Wheeler\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . 19\n_Arctotis fastuosa_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    504.97,
+    308.9,
+    537.22
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      121.82,
+      504.97,
+      308.9,
+      516.16
+     ],
+     "text": "\u2018Archley\u2019A. . . . . . . . . . . . . . . . . . . . . . . . . 65"
+    },
+    {
+     "bbox": [
+      121.82,
+      515.5,
+      308.9,
+      526.69
+     ],
+     "text": "\u2018Archnah\u2019A . . . . . . . . . . . . . . . . . . . . . . . . 65"
+    },
+    {
+     "bbox": [
+      76.46,
+      528.08,
+      136.62,
+      537.22
+     ],
+     "text": "Arctotis hybrid"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Archley\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . . . 65\n\u2018Archnah\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . . 65\n_Arctotis_ hybrid",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    538.67,
+    308.91,
+    568.83
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      121.82,
+      538.67,
+      308.9,
+      547.76
+     ],
+     "text": "\u2018Pink Posy\u2019 . . . . . . . . . . . . . . . . . . . . . . . . 13"
+    },
+    {
+     "bbox": [
+      121.82,
+      549.2,
+      308.91,
+      558.29
+     ],
+     "text": "\u2018Silverdust Glow\u2019 . . . . . . . . . . . . . . . . . . . 13"
+    },
+    {
+     "bbox": [
+      76.46,
+      559.69,
+      160.88,
+      568.83
+     ],
+     "text": "Asteriscus maritimus"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Pink Posy\u2019 . . . . . . . . . . . . . . . . . . . . . . . . 13\n\u2018Silverdust Glow\u2019 . . . . . . . . . . . . . . . . . . . 13\n_Asteriscus maritimus_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    570.27,
+    308.91,
+    589.89
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      121.82,
+      570.27,
+      308.91,
+      579.36
+     ],
+     "text": "\u2018Double Gold Coin\u2019 syn Typ Gefull . . . . . . 71"
+    },
+    {
+     "bbox": [
+      76.46,
+      580.75,
+      160.32,
+      589.89
+     ],
+     "text": "Atriplex nummularia"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Double Gold Coin\u2019 syn Typ Gefull . . . . . . 71\n_Atriplex nummularia_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    591.34,
+    308.91,
+    610.96
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      121.82,
+      591.34,
+      308.91,
+      600.43
+     ],
+     "text": "\u2018Eyres Green\u2019 . . . . . . . . . . . . . . . . . . . . . . 20"
+    },
+    {
+     "bbox": [
+      76.46,
+      601.82,
+      127.54,
+      610.96
+     ],
+     "text": "Avena sativa"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Eyres Green\u2019 . . . . . . . . . . . . . . . . . . . . . . 20\n_Avena sativa_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    612.41,
+    308.91,
+    653.1
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      121.82,
+      612.41,
+      308.9,
+      621.5
+     ],
+     "text": "\u2018Brusher\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 21"
+    },
+    {
+     "bbox": [
+      121.82,
+      622.94,
+      308.91,
+      632.03
+     ],
+     "text": "\u2018Quokka\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 22"
+    },
+    {
+     "bbox": [
+      121.82,
+      633.47,
+      308.91,
+      642.57
+     ],
+     "text": "\u2018Volta\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13"
+    },
+    {
+     "bbox": [
+      76.46,
+      643.96,
+      126.99,
+      653.1
+     ],
+     "text": "Betula nigra"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Brusher\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 21\n\u2018Quokka\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 22\n\u2018Volta\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13\n_Betula nigra_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    654.54,
+    308.91,
+    674.17
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      121.82,
+      654.54,
+      308.91,
+      663.63
+     ],
+     "text": "\u2018Chameleon\u2019 . . . . . . . . . . . . . . . . . . . . . . . 13"
+    },
+    {
+     "bbox": [
+      76.46,
+      665.03,
+      146.44,
+      674.17
+     ],
+     "text": "Bidens ferulifolia"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Chameleon\u2019 . . . . . . . . . . . . . . . . . . . . . . . 13\n_Bidens ferulifolia_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    675.61,
+    308.91,
+    695.23
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      121.82,
+      675.61,
+      308.91,
+      684.7
+     ],
+     "text": "\u2018Bidtis 1\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 69"
+    },
+    {
+     "bbox": [
+      76.46,
+      686.09,
+      151.99,
+      695.23
+     ],
+     "text": "Bidens triplinervia"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Bidtis 1\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 69\n_Bidens triplinervia_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    696.68,
+    308.91,
+    716.3
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      121.82,
+      696.68,
+      308.91,
+      705.77
+     ],
+     "text": "\u2018Sunbideki\u2019 syn Yellow Spark . . . . . . . . . . 13"
+    },
+    {
+     "bbox": [
+      76.46,
+      707.16,
+      161.8,
+      716.3
+     ],
+     "text": "Boronia heterophylla"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Sunbideki\u2019 syn Yellow Spark . . . . . . . . . . 13\n_Boronia heterophylla_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    717.75,
+    308.92,
+    737.37
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      121.82,
+      717.75,
+      308.92,
+      726.84
+     ],
+     "text": "\u2018Ice Charlotte\u2019 . . . . . . . . . . . . . . . . . . . . . . 23"
+    },
+    {
+     "bbox": [
+      76.46,
+      728.23,
+      178.1,
+      737.37
+     ],
+     "text": "Bougainvillea spectabilis"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Ice Charlotte\u2019 . . . . . . . . . . . . . . . . . . . . . . 23\n_Bougainvillea spectabilis_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    738.81,
+    308.91,
+    768.97
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e22",
+   "lines": [
+    {
+     "bbox": [
+      121.82,
+      738.81,
+      308.9,
+      747.9
+     ],
+     "text": "\u2018LYNNVERA\u2019 . . . . . . . . . . . . . . . . . . . . . . 13"
+    },
+    {
+     "bbox": [
+      121.82,
+      749.35,
+      308.91,
+      758.44
+     ],
+     "text": "\u2018Vera White\u2019 . . . . . . . . . . . . . . . . . . . . . . . 13"
+    },
+    {
+     "bbox": [
+      76.46,
+      759.83,
+      189.43,
+      768.97
+     ],
+     "text": "Brassica napus var. oleifera"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018LYNNVERA\u2019 . . . . . . . . . . . . . . . . . . . . . . 13\n\u2018Vera White\u2019 . . . . . . . . . . . . . . . . . . . . . . . 13\n_Brassica napus_ var. _oleifera_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    121.82,
+    768.31,
+    308.9,
+    811.1
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e23",
+   "lines": [
+    {
+     "bbox": [
+      121.82,
+      768.31,
+      308.9,
+      779.51
+     ],
+     "text": "\u201844C73\u2019A. . . . . . . . . . . . . . . . . . . . . . . . . . 65"
+    },
+    {
+     "bbox": [
+      121.82,
+      778.85,
+      308.9,
+      790.04
+     ],
+     "text": "\u201845C75\u2019A. . . . . . . . . . . . . . . . . . . . . . . . . . 65"
+    },
+    {
+     "bbox": [
+      121.82,
+      789.38,
+      308.9,
+      800.57
+     ],
+     "text": "\u201846C74\u2019A. . . . . . . . . . . . . . . . . . . . . . . . . . 65"
+    },
+    {
+     "bbox": [
+      121.82,
+      799.91,
+      308.9,
+      811.1
+     ],
+     "text": "\u2018AG-Castle\u2019A. . . . . . . . . . . . . . . . . . . . . . . 65"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u201844C73\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . . . . 65\n\u201845C75\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . . . . 65\n\u201846C74\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . . . . 65\n\u2018AG-Castle\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . 65",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    424.96,
+    56.35,
+    575.46,
+    63.67
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e24",
+   "lines": [
+    {
+     "bbox": [
+      424.96,
+      56.35,
+      575.46,
+      63.67
+     ],
+     "text": "PLANT VARIETIES JOURNAL 2003 VOL 16 NO. 3"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "<u>PLANT VARIETIES JOURNAL 2003 VOL 16 NO. 3</u>",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    340.09,
+    111.26,
+    572.54,
+    140.82
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e25",
+   "lines": [
+    {
+     "bbox": [
+      340.09,
+      111.26,
+      416.74,
+      120.03
+     ],
+     "text": "Botanical Variety"
+    },
+    {
+     "bbox": [
+      551.99,
+      111.26,
+      572.54,
+      120.03
+     ],
+     "text": "Page"
+    },
+    {
+     "bbox": [
+      340.09,
+      121.78,
+      365.08,
+      130.55
+     ],
+     "text": "Name"
+    },
+    {
+     "bbox": [
+      385.44,
+      121.78,
+      410.43,
+      130.55
+     ],
+     "text": "Name"
+    },
+    {
+     "bbox": [
+      557.8,
+      121.78,
+      572.52,
+      130.55
+     ],
+     "text": "No."
+    },
+    {
+     "bbox": [
+      340.09,
+      131.68,
+      501.9,
+      140.82
+     ],
+     "text": "Brassica napus var. oleifera (continued)"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Botanical** **Variety** **Page**\n**Name** **Name** **No.**\n_Brassica napus_ var. _oleifera_ (continued)",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    342.84,
+    142.0,
+    572.53,
+    212.7
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e26",
+   "lines": [
+    {
+     "bbox": [
+      385.44,
+      142.0,
+      572.53,
+      151.09
+     ],
+     "text": "\u2018AG-Spectrum\u2019 . . . . . . . . . . . . . . . . . . . 13,69"
+    },
+    {
+     "bbox": [
+      385.44,
+      150.17,
+      572.53,
+      161.36
+     ],
+     "text": "\u2018ATR-EYRE\u2019A . . . . . . . . . . . . . . . . . . . . . 65"
+    },
+    {
+     "bbox": [
+      385.44,
+      162.53,
+      572.52,
+      171.62
+     ],
+     "text": "\u2018ATR-Stubby\u2019 . . . . . . . . . . . . . . . . . . . . 13,69"
+    },
+    {
+     "bbox": [
+      385.44,
+      172.8,
+      572.53,
+      181.89
+     ],
+     "text": "\u2018Georgie\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 71"
+    },
+    {
+     "bbox": [
+      385.44,
+      183.07,
+      572.52,
+      192.16
+     ],
+     "text": "\u2018Grouse\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 71"
+    },
+    {
+     "bbox": [
+      385.44,
+      191.24,
+      572.53,
+      202.43
+     ],
+     "text": "\u2018Lantern\u2019A. . . . . . . . . . . . . . . . . . . . . . . . . 65"
+    },
+    {
+     "bbox": [
+      342.84,
+      203.56,
+      407.8,
+      212.7
+     ],
+     "text": "Buddleia hybrid"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018AG-Spectrum\u2019 . . . . . . . . . . . . . . . . . . . 13,69\n\u2018ATR-EYRE\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . 65\n\u2018ATR-Stubby\u2019 . . . . . . . . . . . . . . . . . . . . 13,69\n\u2018Georgie\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 71\n\u2018Grouse\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 71\n\u2018Lantern\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . . . 65\n_Buddleia_ hybrid",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    340.09,
+    213.88,
+    572.54,
+    233.23
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e27",
+   "lines": [
+    {
+     "bbox": [
+      385.44,
+      213.88,
+      572.54,
+      222.97
+     ],
+     "text": "\u2018Little Honey\u2019 . . . . . . . . . . . . . . . . . . . . . . 13"
+    },
+    {
+     "bbox": [
+      340.09,
+      224.09,
+      419.5,
+      233.23
+     ],
+     "text": "Calibrachoa hybrid"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Little Honey\u2019 . . . . . . . . . . . . . . . . . . . . . . 13\n_Calibrachoa_ hybrid",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    340.09,
+    234.41,
+    572.54,
+    366.72
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e28",
+   "lines": [
+    {
+     "bbox": [
+      385.44,
+      234.41,
+      572.53,
+      243.5
+     ],
+     "text": "\u2018KLEC00066\u2019 . . . . . . . . . . . . . . . . . . . . . . 24"
+    },
+    {
+     "bbox": [
+      385.44,
+      244.68,
+      572.53,
+      253.77
+     ],
+     "text": "\u2018KLEC00072\u2019 . . . . . . . . . . . . . . . . . . . . . . 25"
+    },
+    {
+     "bbox": [
+      385.44,
+      254.95,
+      572.53,
+      264.04
+     ],
+     "text": "\u2018KLEC01056\u2019 . . . . . . . . . . . . . . . . . . . . . . 25"
+    },
+    {
+     "bbox": [
+      385.44,
+      265.22,
+      572.53,
+      274.31
+     ],
+     "text": "\u2018KLEC01057\u2019 . . . . . . . . . . . . . . . . . . . . . . 26"
+    },
+    {
+     "bbox": [
+      385.44,
+      275.48,
+      572.54,
+      284.57
+     ],
+     "text": "\u2018KLEC01058\u2019 syn Selecta White . . . . . . . . 27"
+    },
+    {
+     "bbox": [
+      385.44,
+      285.75,
+      572.53,
+      294.84
+     ],
+     "text": "\u2018KLEC01062\u2019syn Selecta Sweet Heart Pink. 13,27"
+    },
+    {
+     "bbox": [
+      385.44,
+      296.02,
+      572.53,
+      305.11
+     ],
+     "text": "\u2018Rosestar\u2019 syn Selecta Pink . . . . . . . . . . . . 28"
+    },
+    {
+     "bbox": [
+      385.44,
+      306.29,
+      572.53,
+      315.38
+     ],
+     "text": "\u2018Sunbel-apu\u2019 . . . . . . . . . . . . . . . . . . . . . . . 28"
+    },
+    {
+     "bbox": [
+      385.44,
+      316.56,
+      572.54,
+      325.65
+     ],
+     "text": "\u2018Sunbelho\u2019 syn White Chimes . . . . . . . . 13,29"
+    },
+    {
+     "bbox": [
+      385.44,
+      326.83,
+      572.53,
+      335.92
+     ],
+     "text": "\u2018Sunbelkos\u2019 syn Coral Chimes . . . . . . . . . . 30"
+    },
+    {
+     "bbox": [
+      385.44,
+      337.1,
+      572.53,
+      346.19
+     ],
+     "text": "\u2018Sunbelkufepi\u2019 . . . . . . . . . . . . . . . . . . . . . . 30"
+    },
+    {
+     "bbox": [
+      385.44,
+      347.37,
+      572.53,
+      356.46
+     ],
+     "text": "\u2018Sunbelre\u2019 syn Red Chimes . . . . . . . . . . . . 32"
+    },
+    {
+     "bbox": [
+      340.09,
+      357.58,
+      427.85,
+      366.72
+     ],
+     "text": "Callistemon viminalis"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018KLEC00066\u2019 . . . . . . . . . . . . . . . . . . . . . . 24\n\u2018KLEC00072\u2019 . . . . . . . . . . . . . . . . . . . . . . 25\n\u2018KLEC01056\u2019 . . . . . . . . . . . . . . . . . . . . . . 25\n\u2018KLEC01057\u2019 . . . . . . . . . . . . . . . . . . . . . . 26\n\u2018KLEC01058\u2019 syn Selecta White . . . . . . . . 27\n\u2018KLEC01062\u2019syn Selecta Sweet Heart Pink. 13,27\n\u2018Rosestar\u2019 syn Selecta Pink . . . . . . . . . . . . 28\n\u2018Sunbel-apu\u2019 . . . . . . . . . . . . . . . . . . . . . . . 28\n\u2018Sunbelho\u2019 syn White Chimes . . . . . . . . 13,29\n\u2018Sunbelkos\u2019 syn Coral Chimes . . . . . . . . . . 30\n\u2018Sunbelkufepi\u2019 . . . . . . . . . . . . . . . . . . . . . . 30\n\u2018Sunbelre\u2019 syn Red Chimes . . . . . . . . . . . . 32\n_Callistemon viminalis_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    340.09,
+    367.9,
+    572.53,
+    390.1
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e29",
+   "lines": [
+    {
+     "bbox": [
+      354.26,
+      367.9,
+      572.53,
+      376.99
+     ],
+     "text": "\u2018UnicalOne\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13,32"
+    },
+    {
+     "bbox": [
+      340.09,
+      380.96,
+      414.51,
+      390.1
+     ],
+     "text": "Ceanothus griseus"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018UnicalOne\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13,32\n_Ceanothus griseus_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    340.09,
+    391.28,
+    572.53,
+    410.63
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e30",
+   "lines": [
+    {
+     "bbox": [
+      385.44,
+      391.28,
+      572.53,
+      400.37
+     ],
+     "text": "\u2018Silver Heights\u2019 . . . . . . . . . . . . . . . . . . . . . 70"
+    },
+    {
+     "bbox": [
+      340.09,
+      401.49,
+      403.95,
+      410.63
+     ],
+     "text": "Cicer arietinum"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Silver Heights\u2019 . . . . . . . . . . . . . . . . . . . . . 70\n_Cicer arietinum_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    340.09,
+    411.76,
+    572.54,
+    431.17
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e31",
+   "lines": [
+    {
+     "bbox": [
+      385.44,
+      411.76,
+      572.54,
+      420.92
+     ],
+     "text": "\u2018WACPE2012\u2019 syn Moti . . . . . . . . . . . . . . . 13"
+    },
+    {
+     "bbox": [
+      340.09,
+      422.03,
+      478.62,
+      431.17
+     ],
+     "text": "Citrus australasica var. sanguinea"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018WACPE2012\u2019 syn Moti . . . . . . . . . . . . . . . 13\n_Citrus australasica_ var. _sanguinea_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    340.09,
+    430.25,
+    572.53,
+    451.71
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e32",
+   "lines": [
+    {
+     "bbox": [
+      385.44,
+      430.25,
+      572.53,
+      441.44
+     ],
+     "text": "\u2018Rainforest Pearl\u2019A . . . . . . . . . . . . . . . . . . 65"
+    },
+    {
+     "bbox": [
+      340.09,
+      442.38,
+      476.29,
+      451.71
+     ],
+     "text": "Citrus reticulata x Citrus sinensis"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Rainforest Pearl\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . 65\n_Citrus reticulata_ x _Citrus sinensis_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    340.09,
+    452.89,
+    572.52,
+    472.24
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e33",
+   "lines": [
+    {
+     "bbox": [
+      385.44,
+      452.89,
+      572.52,
+      461.98
+     ],
+     "text": "\u2018IrM1\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33"
+    },
+    {
+     "bbox": [
+      340.09,
+      463.1,
+      429.5,
+      472.24
+     ],
+     "text": "Codiaeum variegatum"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018IrM1\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33\n_Codiaeum variegatum_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    340.09,
+    471.32,
+    572.53,
+    513.32
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e34",
+   "lines": [
+    {
+     "bbox": [
+      385.44,
+      471.32,
+      572.53,
+      482.51
+     ],
+     "text": "\u2018Congo\u2019A. . . . . . . . . . . . . . . . . . . . . . . . . . 65"
+    },
+    {
+     "bbox": [
+      385.44,
+      481.59,
+      572.53,
+      492.78
+     ],
+     "text": "\u2018Masaii\u2019A . . . . . . . . . . . . . . . . . . . . . . . . . 66"
+    },
+    {
+     "bbox": [
+      385.44,
+      491.86,
+      572.53,
+      503.05
+     ],
+     "text": "\u2018Zulu\u2019A . . . . . . . . . . . . . . . . . . . . . . . . . . . 66"
+    },
+    {
+     "bbox": [
+      340.09,
+      503.99,
+      499.24,
+      513.32
+     ],
+     "text": "Cordyline australis x Cordyline banksii"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Congo\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . . . . 65\n\u2018Masaii\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . . . 66\n\u2018Zulu\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . . . . . 66\n_Cordyline australis_ x _Cordyline banksii_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    340.09,
+    512.4,
+    572.53,
+    533.85
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e35",
+   "lines": [
+    {
+     "bbox": [
+      385.44,
+      512.4,
+      572.53,
+      523.59
+     ],
+     "text": "\u2018Purple Sensation\u2019A. . . . . . . . . . . . . . . . . . 66"
+    },
+    {
+     "bbox": [
+      340.09,
+      524.71,
+      413.96,
+      533.85
+     ],
+     "text": "Corymbia ficifolia"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Purple Sensation\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . 66\n_Corymbia ficifolia_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    340.09,
+    532.93,
+    572.53,
+    554.39
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e36",
+   "lines": [
+    {
+     "bbox": [
+      385.44,
+      532.93,
+      572.53,
+      544.12
+     ],
+     "text": "\u2018C89.2.7\u2019A. . . . . . . . . . . . . . . . . . . . . . . . . 66"
+    },
+    {
+     "bbox": [
+      340.09,
+      545.25,
+      476.94,
+      554.39
+     ],
+     "text": "Dactylis glomerata ssp. hispanica"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018C89.2.7\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . . . 66\n_Dactylis glomerata_ ssp. _hispanica_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    340.09,
+    555.57,
+    572.53,
+    585.2
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e37",
+   "lines": [
+    {
+     "bbox": [
+      385.44,
+      555.57,
+      572.53,
+      564.66
+     ],
+     "text": "\u2018Sendace\u2019. . . . . . . . . . . . . . . . . . . . . . . . . . 13"
+    },
+    {
+     "bbox": [
+      385.44,
+      565.84,
+      572.53,
+      574.93
+     ],
+     "text": "\u2018Uplands\u2019. . . . . . . . . . . . . . . . . . . . . . . . . . 13"
+    },
+    {
+     "bbox": [
+      340.09,
+      576.06,
+      411.17,
+      585.2
+     ],
+     "text": "Diascia barbarae"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Sendace\u2019. . . . . . . . . . . . . . . . . . . . . . . . . . 13\n\u2018Uplands\u2019. . . . . . . . . . . . . . . . . . . . . . . . . . 13\n_Diascia barbarae_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    340.09,
+    586.37,
+    572.53,
+    605.73
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e38",
+   "lines": [
+    {
+     "bbox": [
+      385.44,
+      586.37,
+      572.53,
+      595.46
+     ],
+     "text": "\u2018Pendan\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 13"
+    },
+    {
+     "bbox": [
+      340.09,
+      596.59,
+      428.39,
+      605.73
+     ],
+     "text": "Duranta stenostachya"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Pendan\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 13\n_Duranta stenostachya_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    340.09,
+    606.91,
+    572.53,
+    626.27
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e39",
+   "lines": [
+    {
+     "bbox": [
+      385.44,
+      606.91,
+      572.53,
+      616.0
+     ],
+     "text": "\u2018Mini Gold\u2019 . . . . . . . . . . . . . . . . . . . . . . . . 14"
+    },
+    {
+     "bbox": [
+      340.09,
+      617.13,
+      435.06,
+      626.27
+     ],
+     "text": "Euphorbia pulcherrima"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Mini Gold\u2019 . . . . . . . . . . . . . . . . . . . . . . . . 14\n_Euphorbia pulcherrima_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    340.09,
+    625.35,
+    572.53,
+    728.96
+   ],
+   "bbox_coverage": 0.805,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e40",
+   "lines": [
+    {
+     "bbox": [
+      385.44,
+      625.35,
+      495.57,
+      636.54
+     ],
+     "text": "268 Pink\u2019A syn Eckespoint"
+    },
+    {
+     "bbox": [
+      385.44,
+      635.62,
+      572.53,
+      646.81
+     ],
+     "text": "Celebrate 2 PinkA . . . . . . . . . . . . . . . . . . . 69"
+    },
+    {
+     "bbox": [
+      385.44,
+      645.89,
+      506.11,
+      657.08
+     ],
+     "text": "490 Marble\u2019A syn Eckespoint"
+    },
+    {
+     "bbox": [
+      385.44,
+      656.15,
+      572.53,
+      667.35
+     ],
+     "text": "Freedom MarbleA . . . . . . . . . . . . . . . . . . . 69"
+    },
+    {
+     "bbox": [
+      385.44,
+      666.42,
+      493.34,
+      677.61
+     ],
+     "text": "490 Red\u2019A syn Eckespoint"
+    },
+    {
+     "bbox": [
+      385.44,
+      676.69,
+      572.53,
+      687.88
+     ],
+     "text": "Freedom RedA. . . . . . . . . . . . . . . . . . . . . . 69"
+    },
+    {
+     "bbox": [
+      385.44,
+      686.96,
+      522.21,
+      698.15
+     ],
+     "text": "White Freedom\u2019A syn Eckespoint"
+    },
+    {
+     "bbox": [
+      385.44,
+      697.23,
+      572.53,
+      708.42
+     ],
+     "text": "Freedom WhiteA . . . . . . . . . . . . . . . . . . . . 69"
+    },
+    {
+     "bbox": [
+      385.44,
+      709.6,
+      572.53,
+      718.69
+     ],
+     "text": "\u2018Windark\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . 69"
+    },
+    {
+     "bbox": [
+      340.09,
+      719.82,
+      417.28,
+      728.96
+     ],
+     "text": "Euryops pectinatus"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "268 Pink\u2019 <sup>A</sup> syn Eckespoint\nCelebrate 2 Pink <sup>A</sup> . . . . . . . . . . . . . . . . . . . 69\n490 Marble\u2019 <sup>A</sup> syn Eckespoint\nFreedom Marble <sup>A</sup> . . . . . . . . . . . . . . . . . . . 69\n490 Red\u2019 <sup>A</sup> syn Eckespoint\nFreedom Red <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . 69\nWhite Freedom\u2019 <sup>A</sup> syn Eckespoint\nFreedom White <sup>A</sup> . . . . . . . . . . . . . . . . . . . . 69\n\u2018Windark\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . 69\n_Euryops pectinatus_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    340.09,
+    728.03,
+    572.53,
+    749.49
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e41",
+   "lines": [
+    {
+     "bbox": [
+      385.44,
+      728.03,
+      572.53,
+      739.22
+     ],
+     "text": "\u2018Emperor\u2019s Gold\u2019A . . . . . . . . . . . . . . . . . . 66"
+    },
+    {
+     "bbox": [
+      340.09,
+      740.35,
+      396.17,
+      749.49
+     ],
+     "text": "Ficus elastica"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Emperor\u2019s Gold\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . 66\n_Ficus elastica_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    340.09,
+    750.67,
+    572.53,
+    770.03
+   ],
+   "bbox_coverage": 0.6,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e42",
+   "lines": [
+    {
+     "bbox": [
+      385.44,
+      750.67,
+      572.53,
+      759.76
+     ],
+     "text": "\u2018Sylvie\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . 71"
+    },
+    {
+     "bbox": [
+      340.09,
+      760.7,
+      422.29,
+      770.03
+     ],
+     "text": "Fragaria xananassa"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Sylvie\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . 71\n_Fragaria_ x _ananassa_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    385.44,
+    771.21,
+    572.53,
+    811.1
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e43",
+   "lines": [
+    {
+     "bbox": [
+      385.44,
+      771.21,
+      572.53,
+      780.3
+     ],
+     "text": "\u2018Aromas\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 14"
+    },
+    {
+     "bbox": [
+      385.44,
+      781.47,
+      572.53,
+      790.56
+     ],
+     "text": "\u2018Cal Giant 2\u2019 . . . . . . . . . . . . . . . . . . . . . . . 14"
+    },
+    {
+     "bbox": [
+      385.44,
+      791.74,
+      572.53,
+      800.83
+     ],
+     "text": "\u2018Cal Giant 3\u2019 . . . . . . . . . . . . . . . . . . . . . . . 14"
+    },
+    {
+     "bbox": [
+      385.44,
+      802.01,
+      572.53,
+      811.1
+     ],
+     "text": "\u2018Cal Giant 4\u2019 . . . . . . . . . . . . . . . . . . . . . . . 14"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Aromas\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 14\n\u2018Cal Giant 2\u2019 . . . . . . . . . . . . . . . . . . . . . . . 14\n\u2018Cal Giant 3\u2019 . . . . . . . . . . . . . . . . . . . . . . . 14\n\u2018Cal Giant 4\u2019 . . . . . . . . . . . . . . . . . . . . . . . 14",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    570.36,
+    821.7,
+    575.36,
+    830.86
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e44",
+   "lines": [
+    {
+     "bbox": [
+      570.36,
+      821.7,
+      575.36,
+      830.86
+     ],
+     "text": "9"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "9",
+   "text_format": "markdown",
+   "type": "paragraph"
+  }
+ ],
+ "pages": [
+  {
+   "method": "text-layer",
+   "number": 1,
+   "size": [
+    651.0,
+    898.0
+   ],
+   "source": "pymupdf4llm"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

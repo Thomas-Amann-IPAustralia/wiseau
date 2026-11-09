@@ -26,6 +26,7 @@ calls an external service.
 | `guard_cache.py`, `guard_eval.py` | The two texts the ADR-038 guard chooses between, for any pages; which pages a counting rule flips and whether that helps (ADR-042). |
 | `tatr_detections.py` | Table Transformer's raw table boxes and scores per scored scan. |
 | `structure.py`, `structure/` | Scores document *structure* against set S, the structural gold set (12 documents, 20 pages; format in `structure/README.md`): block F1, types, splits/merges, block order, headings and their tree, table TEDS, emphasis, relations. Also scores the default path's IR (`pymupdf-ir`). `--self-check` scores the gold against itself. Write-up: `docs/benchmarks/2026-11-09-structure-gold-set.md`. |
+| `tatr_regions.py`, `tatr_eval.py`, `table_timing.py` | The Table Transformer pass (ADR-046): every detected region with its features and its effect on the page's wer; a cached run of all scored scans and a grid of settings scored on words (dev vs held out) and set S's structure; the pass's time, model load and memory. Engine `tables-tatr` is the default path with the pass on. Write-up: `docs/benchmarks/2026-11-09-tables.md`. |
 | `whole_docs.py` | Converts whole PDFs with any checkout's default path, one `.md` each: the byte-for-byte gate for refactors (ADR-043), since one-page samples never exercise page joins, the fast path or the mixed path. |
 | `word_errors.py` | Lists every word an engine misread, lost or inserted on a set, against the references (`ENGINE --set l [--summary]`). Says *what* went wrong where `score.py` says how much. |
 

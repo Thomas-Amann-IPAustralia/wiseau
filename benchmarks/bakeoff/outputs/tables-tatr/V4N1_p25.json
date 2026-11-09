@@ -1,0 +1,2776 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    48.0,
+    53.28,
+    285.36,
+    130.8
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      48.24,
+      53.28,
+      261.12,
+      62.64
+     ],
+     "text": "per petiole, leaflets are absent and no anthocyanin is"
+    },
+    {
+     "bbox": [
+      48.48,
+      63.36,
+      257.52,
+      72.48
+     ],
+     "text": "present. The white flowers appear moderately early,"
+    },
+    {
+     "bbox": [
+      48.48,
+      73.44,
+      280.32,
+      82.32
+     ],
+     "text": "lasting only a short period. The pods of \u2018Bluey\u2019 are slightly"
+    },
+    {
+     "bbox": [
+      48.24,
+      83.28,
+      268.56,
+      91.92
+     ],
+     "text": "curved and mostly with an obtuse angled point. \u2018Bluey\u2019"
+    },
+    {
+     "bbox": [
+      48.0,
+      93.12,
+      265.68,
+      101.76
+     ],
+     "text": "differs from \u2018Dinkum\u2019 by having green cotyledons, and"
+    },
+    {
+     "bbox": [
+      48.0,
+      102.72,
+      277.68,
+      111.6
+     ],
+     "text": "from \u2018Buckley\u2019 by being semi-leafless, semi-dwarf and by"
+    },
+    {
+     "bbox": [
+      48.72,
+      112.8,
+      285.36,
+      121.68
+     ],
+     "text": "having larger seeds. The seeds of \u2018Bluey\u2019 are globose, have"
+    },
+    {
+     "bbox": [
+      48.48,
+      122.88,
+      225.36,
+      130.8
+     ],
+     "text": "a white seed coat and an occasional dimple."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "per petiole, leaflets are absent and no anthocyanin is\npresent. The white flowers appear moderately early,\nlasting only a short period. The pods of \u2018Bluey\u2019 are slightly\ncurved and mostly with an obtuse angled point. \u2018Bluey\u2019\ndiffers from \u2018Dinkum\u2019 by having green cotyledons, and\nfrom \u2018Buckley\u2019 by being semi-leafless, semi-dwarf and by\nhaving larger seeds. The seeds of \u2018Bluey\u2019 are globose, have\na white seed coat and an occasional dimple.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    48.24,
+    138.96,
+    276.72,
+    166.8
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      48.24,
+      138.96,
+      92.64,
+      147.12
+     ],
+     "text": "Agronomy"
+    },
+    {
+     "bbox": [
+      48.72,
+      147.84,
+      276.72,
+      156.72
+     ],
+     "text": "\u2018Bluey\u2019 is intended for cropping in low to medium rainfall"
+    },
+    {
+     "bbox": [
+      48.24,
+      158.4,
+      157.44,
+      166.8
+     ],
+     "text": "(300-500 mm p.a.} regions."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Agronomy\n\u2018Bluey\u2019 is intended for cropping in low to medium rainfall\n(300-500 mm p.a.} regions.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    48.72,
+    175.92,
+    237.84,
+    198.48
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      48.72,
+      175.92,
+      237.84,
+      187.2
+     ],
+     "text": "Table of Comparison of Pea Varieties"
+    },
+    {
+     "bbox": [
+      51.36,
+      190.08,
+      187.92,
+      198.48
+     ],
+     "text": "* = varieties used for comparison)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Pea Varieties\n* = varieties used for comparison)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    47.92,
+    208.56,
+    267.08,
+    569.29
+   ],
+   "confidence": null,
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      96.48,
+      209.76,
+      267.84,
+      218.4
+     ],
+     "text": "\u2018Bluey\u2019 *'Dinkum\u2019 * \u2018Buckley\u2019 * \u2018PSA3\u2019"
+    },
+    {
+     "bbox": [
+      48.72,
+      224.4,
+      96.72,
+      231.12
+     ],
+     "text": "PLANT HEIGHT"
+    },
+    {
+     "bbox": [
+      48.72,
+      233.76,
+      262.32,
+      240.96
+     ],
+     "text": "mean 72.8 cm 65.3 cm 116.6 cm 78.0cm"
+    },
+    {
+     "bbox": [
+      48.48,
+      243.6,
+      262.32,
+      252.48
+     ],
+     "text": "range 61-83 34-80 84-148 62-102"
+    },
+    {
+     "bbox": [
+      48.48,
+      253.68,
+      257.52,
+      260.64
+     ],
+     "text": "std deviation 6.64 11.33 14.45 10.57"
+    },
+    {
+     "bbox": [
+      48.96,
+      267.6,
+      119.04,
+      274.32
+     ],
+     "text": "DAYS TO FLOWERING"
+    },
+    {
+     "bbox": [
+      48.72,
+      276.96,
+      257.52,
+      284.16
+     ],
+     "text": "mean 107.0 107.4 101.1 110.4"
+    },
+    {
+     "bbox": [
+      48.72,
+      286.8,
+      266.64,
+      295.68
+     ],
+     "text": "range 104-111 102-112 96-105 106-114"
+    },
+    {
+     "bbox": [
+      48.48,
+      296.64,
+      253.44,
+      304.08
+     ],
+     "text": "std deviation 2.87 2.78 2.74 2.08"
+    },
+    {
+     "bbox": [
+      48.96,
+      311.04,
+      112.08,
+      317.76
+     ],
+     "text": "PEDUNCLE LENGTH"
+    },
+    {
+     "bbox": [
+      48.72,
+      321.12,
+      267.36,
+      328.08
+     ],
+     "text": "mean 69.3 mm 58.0 mm 81.0 mm 72.2 mm"
+    },
+    {
+     "bbox": [
+      48.72,
+      330.96,
+      258.24,
+      339.6
+     ],
+     "text": "range 54-82 42-74 59-105 62-90"
+    },
+    {
+     "bbox": [
+      48.48,
+      341.04,
+      253.2,
+      348.24
+     ],
+     "text": "std deviation 7.23 7.47 12.98 7.13"
+    },
+    {
+     "bbox": [
+      48.72,
+      355.44,
+      90.72,
+      362.4
+     ],
+     "text": "POD LENGTH"
+    },
+    {
+     "bbox": [
+      48.72,
+      365.28,
+      267.12,
+      372.0
+     ],
+     "text": "mean 70.1 mm 64.3 mm 51.5 mm 69.2 mm"
+    },
+    {
+     "bbox": [
+      48.48,
+      374.88,
+      258.48,
+      383.52
+     ],
+     "text": "range 58-81 57-72 35-62 37-84"
+    },
+    {
+     "bbox": [
+      48.48,
+      384.72,
+      257.28,
+      391.92
+     ],
+     "text": "std deviation 5.77 4.88 8.07 11.32"
+    },
+    {
+     "bbox": [
+      48.72,
+      398.88,
+      86.4,
+      405.6
+     ],
+     "text": "POD WIDTH"
+    },
+    {
+     "bbox": [
+      48.72,
+      408.24,
+      267.12,
+      415.44
+     ],
+     "text": "mean 13.5 mm 12.9mm 12.2 mm 13.2 mm"
+    },
+    {
+     "bbox": [
+      48.72,
+      418.32,
+      258.0,
+      426.72
+     ],
+     "text": "range 12-16 12-14 11-13 11-15"
+    },
+    {
+     "bbox": [
+      48.24,
+      428.16,
+      252.0,
+      435.12
+     ],
+     "text": "std deviation 0.97 0.79 0.68 1.21"
+    },
+    {
+     "bbox": [
+      48.48,
+      442.08,
+      106.08,
+      449.04
+     ],
+     "text": "OVULES PER POD"
+    },
+    {
+     "bbox": [
+      48.48,
+      452.16,
+      249.12,
+      458.88
+     ],
+     "text": "mean 6.3 7.3 6.4 68"
+    },
+    {
+     "bbox": [
+      48.48,
+      462.0,
+      249.84,
+      470.64
+     ],
+     "text": "range 5-7 5-9 4-8 5-8"
+    },
+    {
+     "bbox": [
+      48.48,
+      472.08,
+      253.2,
+      479.04
+     ],
+     "text": "std deviation 0.62 0.89 0.91 1.26"
+    },
+    {
+     "bbox": [
+      48.48,
+      486.0,
+      101.04,
+      492.72
+     ],
+     "text": "SEEDS PER POD"
+    },
+    {
+     "bbox": [
+      48.48,
+      495.84,
+      248.88,
+      502.8
+     ],
+     "text": "mean 4.3 4.4 3.7 4.2"
+    },
+    {
+     "bbox": [
+      48.48,
+      505.92,
+      249.84,
+      514.32
+     ],
+     "text": "range 3-6 3-6 2-6 1-7"
+    },
+    {
+     "bbox": [
+      48.24,
+      515.76,
+      252.96,
+      522.48
+     ],
+     "text": "std deviation 0.94 1.06 1.35 1.42"
+    },
+    {
+     "bbox": [
+      48.24,
+      529.44,
+      260.16,
+      537.6
+     ],
+     "text": "SEED WEIGHT PER 1000 SEEDS (from 4 samples at 11% moisture)"
+    },
+    {
+     "bbox": [
+      48.48,
+      539.28,
+      256.56,
+      547.68
+     ],
+     "text": "mean 2229 206 g 135g 232g"
+    },
+    {
+     "bbox": [
+      48.0,
+      549.12,
+      266.16,
+      557.52
+     ],
+     "text": "range 216-226 204-207 132-138 230-235"
+    },
+    {
+     "bbox": [
+      48.0,
+      558.96,
+      247.44,
+      565.68
+     ],
+     "text": "std deviation 4.2 2.0 2.7 2.1"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       96.48,
+       210.24,
+       118.32,
+       218.4
+      ],
+      "header": true,
+      "text": "\u2018Bluey\u2019"
+     },
+     {
+      "bbox": [
+       144.0,
+       210.0,
+       179.04,
+       216.72
+      ],
+      "header": true,
+      "text": "*'Dinkum\u2019"
+     },
+     {
+      "bbox": [
+       191.76,
+       210.0,
+       226.8,
+       217.92
+      ],
+      "header": true,
+      "text": "* \u2018Buckley\u2019"
+     },
+     {
+      "bbox": [
+       239.52,
+       209.76,
+       267.84,
+       216.48
+      ],
+      "header": true,
+      "text": "* \u2018PSA3\u2019"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.72,
+       224.4,
+       96.72,
+       231.12
+      ],
+      "text": "PLANT HEIGHT"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.72,
+       236.16,
+       65.52,
+       240.96
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       96.24,
+       234.24,
+       121.2,
+       240.96
+      ],
+      "text": "72.8 cm"
+     },
+     {
+      "bbox": [
+       144.0,
+       234.0,
+       168.96,
+       240.72
+      ],
+      "text": "65.3 cm"
+     },
+     {
+      "bbox": [
+       192.24,
+       233.76,
+       220.8,
+       240.48
+      ],
+      "text": "116.6 cm"
+     },
+     {
+      "bbox": [
+       239.52,
+       233.76,
+       262.32,
+       240.48
+      ],
+      "text": "78.0cm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.48,
+       246.0,
+       66.0,
+       252.48
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       96.48,
+       244.08,
+       114.72,
+       251.04
+      ],
+      "text": "61-83"
+     },
+     {
+      "bbox": [
+       144.0,
+       243.84,
+       162.96,
+       250.8
+      ],
+      "text": "34-80"
+     },
+     {
+      "bbox": [
+       191.76,
+       243.84,
+       214.56,
+       250.56
+      ],
+      "text": "84-148"
+     },
+     {
+      "bbox": [
+       239.76,
+       243.6,
+       262.32,
+       250.32
+      ],
+      "text": "62-102"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.48,
+       253.92,
+       87.6,
+       260.64
+      ],
+      "text": "std deviation"
+     },
+     {
+      "bbox": [
+       96.24,
+       253.68,
+       110.16,
+       260.64
+      ],
+      "text": "6.64"
+     },
+     {
+      "bbox": [
+       144.48,
+       253.68,
+       162.0,
+       260.4
+      ],
+      "text": "11.33"
+     },
+     {
+      "bbox": [
+       192.24,
+       253.68,
+       209.52,
+       260.16
+      ],
+      "text": "14.45"
+     },
+     {
+      "bbox": [
+       240.0,
+       253.68,
+       257.52,
+       260.16
+      ],
+      "text": "10.57"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.96,
+       267.6,
+       119.04,
+       274.32
+      ],
+      "text": "DAYS TO FLOWERING"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.72,
+       279.36,
+       65.52,
+       284.16
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       96.96,
+       277.44,
+       114.48,
+       283.92
+      ],
+      "text": "107.0"
+     },
+     {
+      "bbox": [
+       144.72,
+       277.2,
+       162.0,
+       283.92
+      ],
+      "text": "107.4"
+     },
+     {
+      "bbox": [
+       192.24,
+       276.96,
+       208.56,
+       283.68
+      ],
+      "text": "101.1"
+     },
+     {
+      "bbox": [
+       240.0,
+       276.96,
+       257.52,
+       283.44
+      ],
+      "text": "110.4"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.72,
+       288.96,
+       66.0,
+       295.68
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       96.96,
+       287.28,
+       121.92,
+       293.76
+      ],
+      "text": "104-111"
+     },
+     {
+      "bbox": [
+       144.72,
+       287.04,
+       170.88,
+       293.52
+      ],
+      "text": "102-112"
+     },
+     {
+      "bbox": [
+       192.0,
+       287.04,
+       214.56,
+       293.76
+      ],
+      "text": "96-105"
+     },
+     {
+      "bbox": [
+       240.24,
+       286.8,
+       266.64,
+       293.52
+      ],
+      "text": "106-114"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.48,
+       297.12,
+       87.84,
+       303.84
+      ],
+      "text": "std deviation"
+     },
+     {
+      "bbox": [
+       96.24,
+       297.12,
+       109.92,
+       304.08
+      ],
+      "text": "2.87"
+     },
+     {
+      "bbox": [
+       144.0,
+       296.88,
+       157.92,
+       303.84
+      ],
+      "text": "2.78"
+     },
+     {
+      "bbox": [
+       192.0,
+       296.88,
+       205.92,
+       303.36
+      ],
+      "text": "2.74"
+     },
+     {
+      "bbox": [
+       239.52,
+       296.64,
+       253.44,
+       303.36
+      ],
+      "text": "2.08"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.96,
+       311.04,
+       112.08,
+       317.76
+      ],
+      "text": "PEDUNCLE LENGTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.72,
+       323.04,
+       65.76,
+       328.08
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       96.48,
+       321.12,
+       124.08,
+       327.84
+      ],
+      "text": "69.3 mm"
+     },
+     {
+      "bbox": [
+       144.24,
+       321.12,
+       171.84,
+       327.84
+      ],
+      "text": "58.0 mm"
+     },
+     {
+      "bbox": [
+       192.0,
+       321.12,
+       219.6,
+       327.84
+      ],
+      "text": "81.0 mm"
+     },
+     {
+      "bbox": [
+       239.76,
+       321.12,
+       267.36,
+       327.6
+      ],
+      "text": "72.2 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.72,
+       333.12,
+       66.0,
+       339.6
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       96.24,
+       331.2,
+       114.72,
+       338.16
+      ],
+      "text": "54-82"
+     },
+     {
+      "bbox": [
+       144.0,
+       330.96,
+       162.72,
+       337.68
+      ],
+      "text": "42-74"
+     },
+     {
+      "bbox": [
+       192.0,
+       330.96,
+       214.56,
+       337.92
+      ],
+      "text": "59-105"
+     },
+     {
+      "bbox": [
+       239.52,
+       330.96,
+       258.24,
+       337.68
+      ],
+      "text": "62-90"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.48,
+       341.52,
+       87.84,
+       348.24
+      ],
+      "text": "std deviation"
+     },
+     {
+      "bbox": [
+       96.48,
+       341.04,
+       109.92,
+       348.0
+      ],
+      "text": "7.23"
+     },
+     {
+      "bbox": [
+       144.24,
+       341.28,
+       157.68,
+       347.76
+      ],
+      "text": "7.47"
+     },
+     {
+      "bbox": [
+       192.48,
+       341.04,
+       209.76,
+       348.0
+      ],
+      "text": "12.98"
+     },
+     {
+      "bbox": [
+       239.76,
+       341.28,
+       253.2,
+       347.76
+      ],
+      "text": "7.13"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.72,
+       355.44,
+       90.72,
+       362.4
+      ],
+      "text": "POD LENGTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.72,
+       367.2,
+       65.52,
+       372.0
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       96.48,
+       365.28,
+       123.84,
+       372.0
+      ],
+      "text": "70.1 mm"
+     },
+     {
+      "bbox": [
+       144.24,
+       365.28,
+       171.6,
+       372.0
+      ],
+      "text": "64.3 mm"
+     },
+     {
+      "bbox": [
+       192.0,
+       365.28,
+       219.36,
+       371.76
+      ],
+      "text": "51.5 mm"
+     },
+     {
+      "bbox": [
+       239.76,
+       365.28,
+       267.12,
+       372.0
+      ],
+      "text": "69.2 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.48,
+       377.04,
+       66.0,
+       383.52
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       96.24,
+       375.12,
+       113.76,
+       382.08
+      ],
+      "text": "58-81"
+     },
+     {
+      "bbox": [
+       144.24,
+       375.12,
+       162.72,
+       381.84
+      ],
+      "text": "57-72"
+     },
+     {
+      "bbox": [
+       191.76,
+       374.88,
+       210.48,
+       381.84
+      ],
+      "text": "35-62"
+     },
+     {
+      "bbox": [
+       239.52,
+       375.12,
+       258.48,
+       381.84
+      ],
+      "text": "37-84"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.48,
+       385.2,
+       87.6,
+       391.92
+      ],
+      "text": "std deviation"
+     },
+     {
+      "bbox": [
+       96.24,
+       385.2,
+       109.68,
+       391.68
+      ],
+      "text": "5.77"
+     },
+     {
+      "bbox": [
+       144.0,
+       385.2,
+       157.68,
+       391.92
+      ],
+      "text": "4.88"
+     },
+     {
+      "bbox": [
+       191.76,
+       384.96,
+       205.44,
+       391.92
+      ],
+      "text": "8.07"
+     },
+     {
+      "bbox": [
+       240.0,
+       384.72,
+       257.28,
+       391.44
+      ],
+      "text": "11.32"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.72,
+       398.88,
+       86.4,
+       405.6
+      ],
+      "text": "POD WIDTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.72,
+       410.4,
+       65.52,
+       415.44
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       96.72,
+       408.72,
+       123.84,
+       415.2
+      ],
+      "text": "13.5 mm"
+     },
+     {
+      "bbox": [
+       144.48,
+       408.48,
+       171.6,
+       415.44
+      ],
+      "text": "12.9mm"
+     },
+     {
+      "bbox": [
+       192.24,
+       408.48,
+       219.36,
+       415.2
+      ],
+      "text": "12.2 mm"
+     },
+     {
+      "bbox": [
+       240.0,
+       408.24,
+       267.12,
+       415.2
+      ],
+      "text": "13.2 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.72,
+       420.24,
+       66.0,
+       426.72
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       96.72,
+       418.32,
+       114.72,
+       425.04
+      ],
+      "text": "12-16"
+     },
+     {
+      "bbox": [
+       144.48,
+       418.56,
+       162.72,
+       425.04
+      ],
+      "text": "12-14"
+     },
+     {
+      "bbox": [
+       192.24,
+       418.32,
+       210.48,
+       425.04
+      ],
+      "text": "11-13"
+     },
+     {
+      "bbox": [
+       240.24,
+       418.56,
+       258.0,
+       425.04
+      ],
+      "text": "11-15"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.24,
+       428.4,
+       87.6,
+       435.12
+      ],
+      "text": "std deviation"
+     },
+     {
+      "bbox": [
+       96.0,
+       428.16,
+       109.92,
+       434.88
+      ],
+      "text": "0.97"
+     },
+     {
+      "bbox": [
+       143.76,
+       428.16,
+       157.68,
+       434.88
+      ],
+      "text": "0.79"
+     },
+     {
+      "bbox": [
+       191.52,
+       428.16,
+       205.44,
+       434.88
+      ],
+      "text": "0.68"
+     },
+     {
+      "bbox": [
+       240.0,
+       428.16,
+       252.0,
+       434.64
+      ],
+      "text": "1.21"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.48,
+       442.08,
+       106.08,
+       449.04
+      ],
+      "text": "OVULES PER POD"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.48,
+       454.08,
+       65.28,
+       458.88
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       96.0,
+       452.16,
+       105.6,
+       458.88
+      ],
+      "text": "6.3"
+     },
+     {
+      "bbox": [
+       144.0,
+       452.16,
+       153.6,
+       458.64
+      ],
+      "text": "7.3"
+     },
+     {
+      "bbox": [
+       191.76,
+       452.16,
+       201.36,
+       458.64
+      ],
+      "text": "6.4"
+     },
+     {
+      "bbox": [
+       239.52,
+       452.16,
+       249.12,
+       458.88
+      ],
+      "text": "68"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.48,
+       463.92,
+       65.76,
+       470.64
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       96.24,
+       462.24,
+       106.32,
+       468.72
+      ],
+      "text": "5-7"
+     },
+     {
+      "bbox": [
+       144.0,
+       462.24,
+       154.08,
+       468.96
+      ],
+      "text": "5-9"
+     },
+     {
+      "bbox": [
+       191.52,
+       462.24,
+       201.84,
+       468.72
+      ],
+      "text": "4-8"
+     },
+     {
+      "bbox": [
+       239.52,
+       462.0,
+       249.84,
+       468.72
+      ],
+      "text": "5-8"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.48,
+       472.32,
+       87.6,
+       478.8
+      ],
+      "text": "std deviation"
+     },
+     {
+      "bbox": [
+       96.0,
+       472.08,
+       109.68,
+       478.8
+      ],
+      "text": "0.62"
+     },
+     {
+      "bbox": [
+       143.76,
+       472.08,
+       157.68,
+       479.04
+      ],
+      "text": "0.89"
+     },
+     {
+      "bbox": [
+       191.52,
+       472.08,
+       204.24,
+       478.8
+      ],
+      "text": "0.91"
+     },
+     {
+      "bbox": [
+       240.0,
+       472.08,
+       253.2,
+       478.56
+      ],
+      "text": "1.26"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.48,
+       486.0,
+       101.04,
+       492.72
+      ],
+      "text": "SEEDS PER POD"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.48,
+       497.76,
+       65.52,
+       502.8
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       96.0,
+       496.08,
+       105.6,
+       502.56
+      ],
+      "text": "4.3"
+     },
+     {
+      "bbox": [
+       143.76,
+       496.08,
+       153.6,
+       502.56
+      ],
+      "text": "4.4"
+     },
+     {
+      "bbox": [
+       191.76,
+       496.08,
+       201.12,
+       502.56
+      ],
+      "text": "3.7"
+     },
+     {
+      "bbox": [
+       239.28,
+       495.84,
+       248.88,
+       502.56
+      ],
+      "text": "4.2"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.48,
+       507.84,
+       65.76,
+       514.32
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       96.0,
+       505.92,
+       106.08,
+       512.64
+      ],
+      "text": "3-6"
+     },
+     {
+      "bbox": [
+       143.76,
+       505.92,
+       153.84,
+       512.64
+      ],
+      "text": "3-6"
+     },
+     {
+      "bbox": [
+       191.52,
+       505.92,
+       201.84,
+       512.4
+      ],
+      "text": "2-6"
+     },
+     {
+      "bbox": [
+       239.76,
+       506.16,
+       249.84,
+       512.4
+      ],
+      "text": "1-7"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.24,
+       515.76,
+       87.36,
+       522.48
+      ],
+      "text": "std deviation"
+     },
+     {
+      "bbox": [
+       96.0,
+       515.76,
+       109.68,
+       522.48
+      ],
+      "text": "0.94"
+     },
+     {
+      "bbox": [
+       144.24,
+       515.76,
+       157.44,
+       522.24
+      ],
+      "text": "1.06"
+     },
+     {
+      "bbox": [
+       192.0,
+       515.76,
+       205.2,
+       522.24
+      ],
+      "text": "1.35"
+     },
+     {
+      "bbox": [
+       239.76,
+       515.76,
+       252.96,
+       522.24
+      ],
+      "text": "1.42"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.24,
+       529.44,
+       260.16,
+       537.6
+      ],
+      "text": "SEED WEIGHT PER 1000 SEEDS (from 4 samples at 11% moisture)"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.48,
+       540.96,
+       65.28,
+       546.0
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       96.0,
+       539.28,
+       113.28,
+       547.68
+      ],
+      "text": "2229"
+     },
+     {
+      "bbox": [
+       143.76,
+       539.28,
+       161.04,
+       547.44
+      ],
+      "text": "206 g"
+     },
+     {
+      "bbox": [
+       191.76,
+       539.52,
+       209.04,
+       547.44
+      ],
+      "text": "135g"
+     },
+     {
+      "bbox": [
+       239.28,
+       539.28,
+       256.56,
+       547.44
+      ],
+      "text": "232g"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.0,
+       550.8,
+       65.76,
+       557.52
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       96.0,
+       549.12,
+       122.88,
+       555.84
+      ],
+      "text": "216-226"
+     },
+     {
+      "bbox": [
+       143.52,
+       549.12,
+       170.64,
+       555.84
+      ],
+      "text": "204-207"
+     },
+     {
+      "bbox": [
+       192.0,
+       549.12,
+       218.4,
+       555.84
+      ],
+      "text": "132-138"
+     },
+     {
+      "bbox": [
+       239.28,
+       549.12,
+       266.16,
+       555.84
+      ],
+      "text": "230-235"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       48.0,
+       558.96,
+       87.12,
+       565.68
+      ],
+      "text": "std deviation"
+     },
+     {
+      "bbox": [
+       95.52,
+       558.96,
+       105.12,
+       565.44
+      ],
+      "text": "4.2"
+     },
+     {
+      "bbox": [
+       143.52,
+       559.2,
+       153.36,
+       565.68
+      ],
+      "text": "2.0"
+     },
+     {
+      "bbox": [
+       191.52,
+       558.96,
+       200.88,
+       565.44
+      ],
+      "text": "2.7"
+     },
+     {
+      "bbox": [
+       239.28,
+       559.2,
+       247.44,
+       565.44
+      ],
+      "text": "2.1"
+     }
+    ]
+   ],
+   "score": 0.9998,
+   "signal": "tatr",
+   "source": "tatr",
+   "text": " \u2018Bluey\u2019 *'Dinkum\u2019 * \u2018Buckley\u2019 * \u2018PSA3\u2019\nPLANT HEIGHT    \nmean 72.8 cm 65.3 cm 116.6 cm 78.0cm\nrange 61-83 34-80 84-148 62-102\nstd deviation 6.64 11.33 14.45 10.57\nDAYS TO FLOWERING    \nmean 107.0 107.4 101.1 110.4\nrange 104-111 102-112 96-105 106-114\nstd deviation 2.87 2.78 2.74 2.08\nPEDUNCLE LENGTH    \nmean 69.3 mm 58.0 mm 81.0 mm 72.2 mm\nrange 54-82 42-74 59-105 62-90\nstd deviation 7.23 7.47 12.98 7.13\nPOD LENGTH    \nmean 70.1 mm 64.3 mm 51.5 mm 69.2 mm\nrange 58-81 57-72 35-62 37-84\nstd deviation 5.77 4.88 8.07 11.32\nPOD WIDTH    \nmean 13.5 mm 12.9mm 12.2 mm 13.2 mm\nrange 12-16 12-14 11-13 11-15\nstd deviation 0.97 0.79 0.68 1.21\nOVULES PER POD    \nmean 6.3 7.3 6.4 68\nrange 5-7 5-9 4-8 5-8\nstd deviation 0.62 0.89 0.91 1.26\nSEEDS PER POD    \nmean 4.3 4.4 3.7 4.2\nrange 3-6 3-6 2-6 1-7\nstd deviation 0.94 1.06 1.35 1.42\nSEED WEIGHT PER 1000 SEEDS (from 4 samples at 11% moisture)    \nmean 2229 206 g 135g 232g\nrange 216-226 204-207 132-138 230-235\nstd deviation 4.2 2.0 2.7 2.1",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    48.72,
+    600.72,
+    132.48,
+    611.28
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      48.72,
+      600.72,
+      132.48,
+      611.28
+     ],
+     "text": "OBJECTIONS"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "OBJECTIONS",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    48.24,
+    632.16,
+    285.6,
+    650.64
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      48.72,
+      632.16,
+      285.6,
+      640.8
+     ],
+     "text": "Formal objections (S20, PVR Act 1987): against any of the"
+    },
+    {
+     "bbox": [
+      48.24,
+      642.24,
+      274.08,
+      650.64
+     ],
+     "text": "above applications can be lodged with the Registrar by a"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Formal objections (S20, PVR Act 1987): against any of the\nabove applications can be lodged with the Registrar by a",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    48.24,
+    652.08,
+    276.72,
+    709.68
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      48.24,
+      652.08,
+      97.2,
+      660.0
+     ],
+     "text": "person who:"
+    },
+    {
+     "bbox": [
+      57.12,
+      667.92,
+      269.76,
+      675.6
+     ],
+     "text": "a) considers their commercial interests would be"
+    },
+    {
+     "bbox": [
+      83.76,
+      677.76,
+      276.72,
+      685.92
+     ],
+     "text": "affected by a grant of PVR to the applicant; AND"
+    },
+    {
+     "bbox": [
+      57.12,
+      693.36,
+      270.72,
+      701.52
+     ],
+     "text": "b) considers that the provisions of S26 cannot be"
+    },
+    {
+     "bbox": [
+      84.24,
+      704.16,
+      100.56,
+      709.68
+     ],
+     "text": "met."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "person who:\na) considers their commercial interests would be\naffected by a grant of PVR to the applicant; AND\nb) considers that the provisions of S26 cannot be\nmet.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    47.76,
+    718.56,
+    282.48,
+    755.04
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      47.76,
+      718.56,
+      268.8,
+      727.2
+     ],
+     "text": "A fee of $200 is payable at the time of lodging a formal"
+    },
+    {
+     "bbox": [
+      47.76,
+      728.64,
+      272.64,
+      737.28
+     ],
+     "text": "objection. An additional $70/hour will be charged if the"
+    },
+    {
+     "bbox": [
+      48.0,
+      738.48,
+      282.48,
+      746.88
+     ],
+     "text": "examination of the objection by the PVR Office takes more"
+    },
+    {
+     "bbox": [
+      47.76,
+      748.56,
+      110.88,
+      755.04
+     ],
+     "text": "than two hours."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "A fee of $200 is payable at the time of lodging a formal\nobjection. An additional $70/hour will be charged if the\nexamination of the objection by the PVR Office takes more\nthan two hours.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.8,
+    52.56,
+    535.92,
+    71.04
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      304.8,
+      52.56,
+      532.32,
+      60.96
+     ],
+     "text": "Comment: Any person may make written comment at no"
+    },
+    {
+     "bbox": [
+      304.8,
+      62.64,
+      535.92,
+      71.04
+     ],
+     "text": "charge on the eligibility of the above applications for PVR."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comment: Any person may make written comment at no\ncharge on the eligibility of the above applications for PVR.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.56,
+    78.96,
+    542.16,
+    126.48
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      304.56,
+      78.96,
+      542.16,
+      87.12
+     ],
+     "text": "A person submitting a formal objection or a comment must"
+    },
+    {
+     "bbox": [
+      305.04,
+      88.56,
+      530.64,
+      96.96
+     ],
+     "text": "provide supporting evidence to substantiate the claim. A"
+    },
+    {
+     "bbox": [
+      304.8,
+      98.4,
+      529.2,
+      106.8
+     ],
+     "text": "copy of the submission will also be sent to the applicant"
+    },
+    {
+     "bbox": [
+      305.04,
+      108.48,
+      521.76,
+      116.64
+     ],
+     "text": "and the latter will be asked to show why the objection"
+    },
+    {
+     "bbox": [
+      304.8,
+      118.32,
+      390.72,
+      126.48
+     ],
+     "text": "should not be upheld."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "A person submitting a formal objection or a comment must\nprovide supporting evidence to substantiate the claim. A\ncopy of the submission will also be sent to the applicant\nand the latter will be asked to show why the objection\nshould not be upheld.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.8,
+    133.92,
+    536.88,
+    161.52
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      304.8,
+      133.92,
+      534.72,
+      142.08
+     ],
+     "text": "All formal objections and comments relating to the above"
+    },
+    {
+     "bbox": [
+      305.04,
+      143.52,
+      536.88,
+      152.16
+     ],
+     "text": "applications must be lodged with the Registrar by close of"
+    },
+    {
+     "bbox": [
+      305.04,
+      153.6,
+      440.64,
+      161.52
+     ],
+     "text": "business on 30 September, 1991."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "All formal objections and comments relating to the above\napplications must be lodged with the Registrar by close of\nbusiness on 30 September, 1991.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.56,
+    180.24,
+    493.44,
+    192.96
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      304.56,
+      180.24,
+      493.44,
+      192.96
+     ],
+     "text": "b) Descriptions to be Finalised"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "b) Descriptions to be Finalised",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.8,
+    211.92,
+    540.24,
+    249.84
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      305.52,
+      211.92,
+      522.96,
+      220.32
+     ],
+     "text": "Descriptions for the Journal are being finalised for the"
+    },
+    {
+     "bbox": [
+      304.8,
+      221.76,
+      535.68,
+      230.4
+     ],
+     "text": "following applications. The six month period for comment"
+    },
+    {
+     "bbox": [
+      305.04,
+      231.84,
+      540.24,
+      240.24
+     ],
+     "text": "or formal objection will not begin until the full descriptions"
+    },
+    {
+     "bbox": [
+      305.04,
+      241.68,
+      474.24,
+      249.84
+     ],
+     "text": "are finalised and published in the Journal."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Descriptions for the Journal are being finalised for the\nfollowing applications. The six month period for comment\nor formal objection will not begin until the full descriptions\nare finalised and published in the Journal.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.32,
+    268.08,
+    398.88,
+    293.76
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      305.04,
+      268.08,
+      365.28,
+      278.16
+     ],
+     "text": "CHERRY"
+    },
+    {
+     "bbox": [
+      304.32,
+      282.0,
+      398.88,
+      293.76
+     ],
+     "text": "(Prunus avium)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "CHERRY\n(Prunus avium)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.08,
+    313.2,
+    524.88,
+    361.68
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      304.32,
+      313.2,
+      524.88,
+      321.6
+     ],
+     "text": "Applicant: Her Majesty the Queen, in right of Canada"
+    },
+    {
+     "bbox": [
+      304.32,
+      323.04,
+      484.8,
+      331.68
+     ],
+     "text": "Agent in Australia: South Australian Cherry"
+    },
+    {
+     "bbox": [
+      304.8,
+      333.12,
+      524.16,
+      341.52
+     ],
+     "text": "Improvement Committee of Adelaide South Australia"
+    },
+    {
+     "bbox": [
+      305.04,
+      343.2,
+      437.28,
+      351.6
+     ],
+     "text": "\u2018Lapins\u2019 Application No.: 90/117"
+    },
+    {
+     "bbox": [
+      304.08,
+      353.52,
+      426.72,
+      361.68
+     ],
+     "text": "Accepted: 26 November, 1990"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Her Majesty the Queen, in right of Canada\nAgent in Australia: South Australian Cherry\nImprovement Committee of Adelaide South Australia\n\u2018Lapins\u2019 Application No.: 90/117\nAccepted: 26 November, 1990",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    303.6,
+    378.96,
+    406.32,
+    404.64
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      304.8,
+      378.96,
+      384.48,
+      389.28
+     ],
+     "text": "RYEGRASS"
+    },
+    {
+     "bbox": [
+      303.6,
+      392.64,
+      406.32,
+      404.64
+     ],
+     "text": "(Lolium perrene)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "RYEGRASS\n(Lolium perrene)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    303.84,
+    424.32,
+    533.28,
+    462.0
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      303.84,
+      424.32,
+      533.28,
+      432.24
+     ],
+     "text": "Applicant: Department of Primary Industry Tasmania of"
+    },
+    {
+     "bbox": [
+      304.56,
+      433.92,
+      407.52,
+      442.08
+     ],
+     "text": "Kings Meadow. Tasmania"
+    },
+    {
+     "bbox": [
+      304.56,
+      443.76,
+      448.8,
+      452.16
+     ],
+     "text": "\u2018Jackaroo\u2019 Application No.: 90/119"
+    },
+    {
+     "bbox": [
+      303.84,
+      453.84,
+      420.96,
+      462.0
+     ],
+     "text": "Accepted: 6 December, 1990"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Department of Primary Industry Tasmania of\nKings Meadow. Tasmania\n\u2018Jackaroo\u2019 Application No.: 90/119\nAccepted: 6 December, 1990",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    303.6,
+    479.04,
+    426.0,
+    505.44
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      305.04,
+      479.04,
+      396.48,
+      489.6
+     ],
+     "text": "RED CLOVER"
+    },
+    {
+     "bbox": [
+      303.6,
+      493.2,
+      426.0,
+      505.44
+     ],
+     "text": "(Trifolium pratense)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "RED CLOVER\n(Trifolium pratense)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.08,
+    526.08,
+    533.76,
+    563.52
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      304.08,
+      526.08,
+      533.76,
+      534.48
+     ],
+     "text": "Applicant: Department of Primary Industry Tasmania of"
+    },
+    {
+     "bbox": [
+      304.8,
+      535.92,
+      407.76,
+      544.08
+     ],
+     "text": "Kings Meadow. Tasmania"
+    },
+    {
+     "bbox": [
+      304.8,
+      545.52,
+      438.48,
+      553.92
+     ],
+     "text": "\u2018Astred\u2019 Application No.: 90/120"
+    },
+    {
+     "bbox": [
+      304.08,
+      555.6,
+      426.48,
+      563.52
+     ],
+     "text": "Accepted: 10 December, 1990"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Department of Primary Industry Tasmania of\nKings Meadow. Tasmania\n\u2018Astred\u2019 Application No.: 90/120\nAccepted: 10 December, 1990",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    303.6,
+    581.76,
+    450.72,
+    608.16
+   ],
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      304.8,
+      581.76,
+      379.92,
+      591.84
+     ],
+     "text": "DIANTHUS"
+    },
+    {
+     "bbox": [
+      303.6,
+      595.44,
+      450.72,
+      608.16
+     ],
+     "text": "(Dianthus caryophyllus)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "DIANTHUS\n(Dianthus caryophyllus)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    303.84,
+    628.8,
+    525.6,
+    686.16
+   ],
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      303.84,
+      628.8,
+      525.6,
+      636.96
+     ],
+     "text": "Applicant: Van Staaveren B V, Aalsmeer, Netherlands,"
+    },
+    {
+     "bbox": [
+      304.08,
+      638.88,
+      480.48,
+      647.28
+     ],
+     "text": "Agent in Australia: Van Wijk & Son Flower"
+    },
+    {
+     "bbox": [
+      304.32,
+      648.48,
+      459.36,
+      657.36
+     ],
+     "text": "Supply Pty Ltd, Keysborough. Victoria"
+    },
+    {
+     "bbox": [
+      304.56,
+      658.32,
+      463.92,
+      666.96
+     ],
+     "text": "\u2018Statas\u2019 commercial synonym \u2018Tasman\u2019"
+    },
+    {
+     "bbox": [
+      303.84,
+      668.4,
+      401.52,
+      676.56
+     ],
+     "text": "Application No.: 90/126"
+    },
+    {
+     "bbox": [
+      303.84,
+      678.24,
+      426.24,
+      686.16
+     ],
+     "text": "Accepted: 11 December, 1990"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Van Staaveren B V, Aalsmeer, Netherlands,\nAgent in Australia: Van Wijk & Son Flower\nSupply Pty Ltd, Keysborough. Victoria\n\u2018Statas\u2019 commercial synonym \u2018Tasman\u2019\nApplication No.: 90/126\nAccepted: 11 December, 1990",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    302.88,
+    704.16,
+    391.44,
+    730.56
+   ],
+   "id": "e22",
+   "lines": [
+    {
+     "bbox": [
+      304.32,
+      704.16,
+      342.72,
+      714.48
+     ],
+     "text": "ROSE"
+    },
+    {
+     "bbox": [
+      302.88,
+      717.84,
+      391.44,
+      730.56
+     ],
+     "text": "(Rosa hybrida)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ROSE\n(Rosa hybrida)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    303.12,
+    751.44,
+    500.4,
+    780.48
+   ],
+   "id": "e23",
+   "lines": [
+    {
+     "bbox": [
+      303.36,
+      751.44,
+      500.4,
+      759.6
+     ],
+     "text": "Applicant: Sam McGredy Rose International, of"
+    },
+    {
+     "bbox": [
+      303.36,
+      761.52,
+      398.4,
+      768.96
+     ],
+     "text": "Auckland, New Zealand"
+    },
+    {
+     "bbox": [
+      303.12,
+      771.6,
+      485.52,
+      780.48
+     ],
+     "text": "Agent in Australia: Swane Brothers Nursery"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Sam McGredy Rose International, of\nAuckland, New Zealand\nAgent in Australia: Swane Brothers Nursery",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    393.12,
+    793.2,
+    542.16,
+    802.56
+   ],
+   "id": "e24",
+   "lines": [
+    {
+     "bbox": [
+      393.12,
+      793.2,
+      542.16,
+      802.56
+     ],
+     "text": "_ \u2014 23"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "_ \u2014 23",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    0.0,
+    825.6,
+    5.52,
+    841.92
+   ],
+   "id": "e25",
+   "lines": [
+    {
+     "bbox": [
+      0.0,
+      825.6,
+      5.52,
+      841.92
+     ],
+     "text": "I"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "I",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

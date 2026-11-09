@@ -17,6 +17,7 @@ side by side: concurrent runs on a small box inflate every timing (post-mortem
   python benchmarks/bakeoff/run_engines.py forced-ocr     # default path, but OCR every page (ignore the layer)
   python benchmarks/bakeoff/run_engines.py trust-layer    # default path before ADR-040 (reads a scan's invisible layer)
   python benchmarks/bakeoff/run_engines.py no-borders     # default path before scanner-band cleanup
+  python benchmarks/bakeoff/run_engines.py tables-tatr    # default path + Table Transformer tables (ADR-046)
   python benchmarks/bakeoff/run_engines.py pre-VARIANT    # default path on preprocessed pixels (preprocess.py;
                                                           #   ident, deskew, norm, sauvola, denoise; roadmap 1.2)
   python benchmarks/bakeoff/run_engines.py rec-MODEL      # psm 3 layout, lines re-read by MODEL (ml_engines.py;
@@ -93,6 +94,15 @@ def hidden_layer_engine():
     yields nothing.
     """
     return lambda data: pymupdf.open(stream=data, filetype="pdf")[0].get_text()
+
+
+def tables_tatr_engine():
+    """The default path with the Table Transformer pass on (ADR-046, WISEAU_TABLES=tatr).
+    Writes the IR as <page>.json too, like `pymupdf`."""
+    import os
+
+    os.environ["WISEAU_TABLES"] = "tatr"
+    return pymupdf_engine()
 
 
 def no_borders_engine():
@@ -262,6 +272,8 @@ def main() -> None:
         run = trust_layer_engine()
     elif engine == "forced-ocr":
         run = forced_ocr_engine()
+    elif engine == "tables-tatr":
+        run = tables_tatr_engine()
     elif engine == "tesseract-psm3":
         run = tesseract_psm3_engine()
     elif engine == "tesseract-adr035":

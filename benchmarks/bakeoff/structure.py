@@ -77,7 +77,7 @@ sys.path.insert(0, str(ROOT / "backend"))
 from parsers import serializer  # noqa: E402
 
 GOLD_DIR = HERE / "structure"
-ENGINES = ["pymupdf", "docling", "glm-ocr", "gemini-3.5-flash"]
+ENGINES = ["pymupdf", "tables-tatr", "docling", "glm-ocr", "gemini-3.5-flash"]
 RELATIONS = ("caption_of", "continues_from", "continues_table", "footnote_for")
 # Gold types an output in Markdown can express; the rest are read as paragraphs.
 MARKDOWN_TYPES = {"heading", "table", "list", "paragraph", "code", "figure", "rule"}

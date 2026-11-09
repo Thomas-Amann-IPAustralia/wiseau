@@ -1,0 +1,1442 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    87.6,
+    49.68,
+    300.24,
+    102.0
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      88.32,
+      49.68,
+      300.24,
+      65.52
+     ],
+     "text": "PART 2\u2014 MATTERS FOR"
+    },
+    {
+     "bbox": [
+      87.84,
+      68.88,
+      221.52,
+      83.52
+     ],
+     "text": "PUBLIC NOTICE"
+    },
+    {
+     "bbox": [
+      87.6,
+      90.72,
+      186.0,
+      102.0
+     ],
+     "text": "PVR GRANTED"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PART 2\u2014 MATTERS FOR\nPUBLIC NOTICE\nPVR GRANTED",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    86.4,
+    110.64,
+    298.56,
+    150.48
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      87.12,
+      110.64,
+      276.0,
+      120.0
+     ],
+     "text": "Plant Variety Rights have been granted under"
+    },
+    {
+     "bbox": [
+      86.88,
+      120.48,
+      298.56,
+      130.56
+     ],
+     "text": "Section 26 of the Plant Variety Rights Act 1987, and"
+    },
+    {
+     "bbox": [
+      86.64,
+      131.28,
+      280.8,
+      140.88
+     ],
+     "text": "an entry has been made in the Register, for the"
+    },
+    {
+     "bbox": [
+      86.4,
+      141.12,
+      166.8,
+      150.48
+     ],
+     "text": "following varieties:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Plant Variety Rights have been granted under\nSection 26 of the Plant Variety Rights Act 1987, and\nan entry has been made in the Register, for the\nfollowing varieties:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    86.88,
+    163.2,
+    280.08,
+    182.4
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      86.88,
+      163.2,
+      280.08,
+      172.56
+     ],
+     "text": "1. \u2018Madame Butterfly\u2019 (Application No 88/003)"
+    },
+    {
+     "bbox": [
+      99.36,
+      173.04,
+      204.96,
+      182.4
+     ],
+     "text": "Schlumbergera x reginae"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "1. \u2018Madame Butterfly\u2019 (Application No 88/003)\nSchlumbergera x reginae",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    98.64,
+    192.72,
+    263.04,
+    241.92
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      99.12,
+      192.72,
+      263.04,
+      202.08
+     ],
+     "text": "Grantee: A D Savio, Bayswater,Victoria"
+    },
+    {
+     "bbox": [
+      98.64,
+      212.88,
+      163.92,
+      220.32
+     ],
+     "text": "Certificate No.3"
+    },
+    {
+     "bbox": [
+      98.64,
+      232.56,
+      212.88,
+      241.92
+     ],
+     "text": "Expiry Date: 25th July 2008"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Grantee: A D Savio, Bayswater,Victoria\nCertificate No.3\nExpiry Date: 25th July 2008",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    98.16,
+    252.96,
+    296.4,
+    272.16
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      98.88,
+      252.96,
+      296.4,
+      261.84
+     ],
+     "text": "Description published in Plant Varieties Journal"
+    },
+    {
+     "bbox": [
+      98.16,
+      263.04,
+      224.64,
+      272.16
+     ],
+     "text": "Vol 1 No.3 of September, 1988"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Description published in Plant Varieties Journal\nVol 1 No.3 of September, 1988",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    84.96,
+    283.44,
+    237.12,
+    302.16
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      84.96,
+      283.44,
+      237.12,
+      292.32
+     ],
+     "text": "2. \u2018Splenda\u2019 (Application No 88/009)"
+    },
+    {
+     "bbox": [
+      97.92,
+      293.04,
+      174.48,
+      302.16
+     ],
+     "text": "Setaria sphacelata"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "2. \u2018Splenda\u2019 (Application No 88/009)\nSetaria sphacelata",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    97.92,
+    312.96,
+    283.92,
+    331.2
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      97.92,
+      312.96,
+      283.92,
+      322.8
+     ],
+     "text": "Grantee: CSIRO Division of Tropical Crops &"
+    },
+    {
+     "bbox": [
+      97.92,
+      323.28,
+      229.2,
+      331.2
+     ],
+     "text": "Pastures, St Lucia, Queensland."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Grantee: CSIRO Division of Tropical Crops &\nPastures, St Lucia, Queensland.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    97.44,
+    342.96,
+    218.88,
+    372.0
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      97.44,
+      342.96,
+      164.4,
+      350.4
+     ],
+     "text": "Certificate No:4"
+    },
+    {
+     "bbox": [
+      97.44,
+      362.4,
+      218.88,
+      372.0
+     ],
+     "text": "Expiry Date: 6th August 2008"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Certificate No:4\nExpiry Date: 6th August 2008",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    96.96,
+    382.8,
+    295.44,
+    401.76
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      97.44,
+      382.8,
+      295.44,
+      391.68
+     ],
+     "text": "Description published in Plant Varieties Journal"
+    },
+    {
+     "bbox": [
+      96.96,
+      392.88,
+      223.44,
+      401.76
+     ],
+     "text": "Vol 1 No.3 of September, 1988"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Description published in Plant Varieties Journal\nVol 1 No.3 of September, 1988",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    83.76,
+    413.28,
+    237.36,
+    432.24
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      83.76,
+      413.28,
+      237.36,
+      422.16
+     ],
+     "text": "3. \u2018Yatsyn 1\u2019 (Application No 88/004)"
+    },
+    {
+     "bbox": [
+      96.96,
+      423.6,
+      162.48,
+      432.24
+     ],
+     "text": "Lolium perenne"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "3. \u2018Yatsyn 1\u2019 (Application No 88/004)\nLolium perenne",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    96.0,
+    443.52,
+    268.08,
+    512.4
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      96.48,
+      443.52,
+      268.08,
+      452.88
+     ],
+     "text": "Grantee: New Zealand Agriseeds Ltd, c/o"
+    },
+    {
+     "bbox": [
+      96.72,
+      453.84,
+      244.32,
+      462.24
+     ],
+     "text": "Primac Association Ltd of Brisbane,"
+    },
+    {
+     "bbox": [
+      96.48,
+      463.44,
+      149.04,
+      470.88
+     ],
+     "text": "Queensland."
+    },
+    {
+     "bbox": [
+      96.0,
+      483.36,
+      162.48,
+      490.8
+     ],
+     "text": "Certificate No:5"
+    },
+    {
+     "bbox": [
+      96.24,
+      503.28,
+      210.48,
+      512.4
+     ],
+     "text": "Expiry Date: 25th July 2008"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Grantee: New Zealand Agriseeds Ltd, c/o\nPrimac Association Ltd of Brisbane,\nQueensland.\nCertificate No:5\nExpiry Date: 25th July 2008",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    95.52,
+    523.44,
+    294.0,
+    542.4
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      96.24,
+      523.44,
+      294.0,
+      532.08
+     ],
+     "text": "Description published in Plant Varieties Journal"
+    },
+    {
+     "bbox": [
+      95.52,
+      533.04,
+      222.0,
+      542.4
+     ],
+     "text": "Vol 1 No.3 of September, 1988"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Description published in Plant Varieties Journal\nVol 1 No.3 of September, 1988",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    83.76,
+    554.64,
+    265.2,
+    573.36
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      83.76,
+      554.64,
+      265.2,
+      563.76
+     ],
+     "text": "4. \u2018Young at Heart\u2019 (Application No 88/003)"
+    },
+    {
+     "bbox": [
+      97.44,
+      564.72,
+      151.44,
+      573.36
+     ],
+     "text": "Rosa hybrida"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "4. \u2018Young at Heart\u2019 (Application No 88/003)\nRosa hybrida",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    96.96,
+    584.4,
+    277.44,
+    601.44
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      96.96,
+      584.4,
+      277.44,
+      593.28
+     ],
+     "text": "Grantee: Swane Bros Pty Ltd of Dural, New"
+    },
+    {
+     "bbox": [
+      96.96,
+      594.24,
+      151.92,
+      601.44
+     ],
+     "text": "South Wales."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Grantee: Swane Bros Pty Ltd of Dural, New\nSouth Wales.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    96.48,
+    613.92,
+    214.08,
+    642.48
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      96.48,
+      613.92,
+      163.44,
+      621.12
+     ],
+     "text": "Certificate No:6"
+    },
+    {
+     "bbox": [
+      96.72,
+      633.84,
+      214.08,
+      642.48
+     ],
+     "text": "Expiry Date: 10th June 2008"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Certificate No:6\nExpiry Date: 10th June 2008",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    96.48,
+    653.76,
+    294.96,
+    671.52
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      96.72,
+      653.76,
+      294.96,
+      661.92
+     ],
+     "text": "Description published in Plant Varieties Journal"
+    },
+    {
+     "bbox": [
+      96.48,
+      663.36,
+      196.8,
+      671.52
+     ],
+     "text": "Vol 1 No.2 of June, 1988"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Description published in Plant Varieties Journal\nVol 1 No.2 of June, 1988",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    83.52,
+    707.76,
+    260.88,
+    719.28
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      83.52,
+      707.76,
+      260.88,
+      719.28
+     ],
+     "text": "APPLICATIONS ACCEPTED"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "APPLICATIONS ACCEPTED",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    83.76,
+    727.68,
+    293.28,
+    755.28
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      83.76,
+      727.68,
+      270.48,
+      737.04
+     ],
+     "text": "The PVR applications listed below have been"
+    },
+    {
+     "bbox": [
+      84.0,
+      738.0,
+      293.28,
+      746.64
+     ],
+     "text": "accepted under $18 of the Plant Variety Rights Act"
+    },
+    {
+     "bbox": [
+      85.2,
+      748.08,
+      105.36,
+      755.28
+     ],
+     "text": "1987."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The PVR applications listed below have been\naccepted under $18 of the Plant Variety Rights Act\n1987.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    83.52,
+    767.52,
+    186.0,
+    776.16
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      83.52,
+      767.52,
+      186.0,
+      776.16
+     ],
+     "text": "a) Descriptions finalised"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a) Descriptions finalised",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    321.36,
+    51.84,
+    411.36,
+    81.12
+   ],
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      321.36,
+      51.84,
+      388.56,
+      62.88
+     ],
+     "text": "SOYBEAN"
+    },
+    {
+     "bbox": [
+      321.84,
+      67.44,
+      411.36,
+      81.12
+     ],
+     "text": "(Glycine max)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "SOYBEAN\n(Glycine max)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    320.64,
+    91.92,
+    482.88,
+    101.52
+   ],
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      320.64,
+      91.92,
+      482.88,
+      101.52
+     ],
+     "text": "Variety: \u2018A5939' Application No. 88/011"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018A5939' Application No. 88/011",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    320.4,
+    112.32,
+    519.84,
+    129.6
+   ],
+   "id": "e22",
+   "lines": [
+    {
+     "bbox": [
+      320.4,
+      112.32,
+      519.84,
+      122.64
+     ],
+     "text": "Applicant: Asgrow Seed Company of Michigan,"
+    },
+    {
+     "bbox": [
+      320.88,
+      122.4,
+      339.36,
+      129.6
+     ],
+     "text": "USA"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Asgrow Seed Company of Michigan,\nUSA",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    319.68,
+    142.8,
+    507.84,
+    160.08
+   ],
+   "id": "e23",
+   "lines": [
+    {
+     "bbox": [
+      320.16,
+      142.8,
+      507.84,
+      152.16
+     ],
+     "text": "Australian Agent: Annand Robinson & Co, of"
+    },
+    {
+     "bbox": [
+      319.68,
+      152.88,
+      392.64,
+      160.08
+     ],
+     "text": "Toowoomba Oid."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Australian Agent: Annand Robinson & Co, of\nToowoomba Oid.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    318.96,
+    173.76,
+    533.04,
+    241.92
+   ],
+   "id": "e24",
+   "lines": [
+    {
+     "bbox": [
+      320.16,
+      173.76,
+      361.2,
+      182.4
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      319.44,
+      183.6,
+      504.72,
+      193.44
+     ],
+     "text": "This variety is distinct from any other known"
+    },
+    {
+     "bbox": [
+      319.44,
+      193.68,
+      508.56,
+      203.28
+     ],
+     "text": "variety in having: a determinate plant growth"
+    },
+    {
+     "bbox": [
+      319.68,
+      203.04,
+      530.88,
+      213.36
+     ],
+     "text": "habit; purple flowers, brown pubescence; a purple"
+    },
+    {
+     "bbox": [
+      319.44,
+      213.12,
+      533.04,
+      223.2
+     ],
+     "text": "hypocoty!; tan pods; a spherical seed with a yellow"
+    },
+    {
+     "bbox": [
+      319.2,
+      223.2,
+      529.92,
+      233.28
+     ],
+     "text": "coat, shiny lustre and a black hilum; and immunity"
+    },
+    {
+     "bbox": [
+      318.96,
+      233.28,
+      459.84,
+      241.92
+     ],
+     "text": "to race 1 of Phytophthora root rot."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\nThis variety is distinct from any other known\nvariety in having: a determinate plant growth\nhabit; purple flowers, brown pubescence; a purple\nhypocoty!; tan pods; a spherical seed with a yellow\ncoat, shiny lustre and a black hilum; and immunity\nto race 1 of Phytophthora root rot.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    318.24,
+    254.88,
+    526.56,
+    303.84
+   ],
+   "id": "e25",
+   "lines": [
+    {
+     "bbox": [
+      318.72,
+      254.88,
+      444.96,
+      263.28
+     ],
+     "text": "Varieties used for comparison"
+    },
+    {
+     "bbox": [
+      318.96,
+      264.72,
+      504.0,
+      273.84
+     ],
+     "text": "*A6520\", \u2018A5474\u2019, \u2018Manark\u2019, \u2018Bragg\u2019, \u2018Forrest\u2019,"
+    },
+    {
+     "bbox": [
+      318.72,
+      274.8,
+      526.56,
+      283.68
+     ],
+     "text": "\u2018Triton\u2019, Nautilus\u2019, \u2018Bossier\u2019, \u2018Nessen\u2019, \u2018Canapolis\u2019,"
+    },
+    {
+     "bbox": [
+      318.72,
+      284.88,
+      496.56,
+      294.0
+     ],
+     "text": "\u2018Davis\u2019, \u2018Centaur\u2019 and \u2018Dragon\u2019 being other"
+    },
+    {
+     "bbox": [
+      318.24,
+      295.2,
+      462.72,
+      303.84
+     ],
+     "text": "varieties with determinate growth."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comparison\n*A6520\", \u2018A5474\u2019, \u2018Manark\u2019, \u2018Bragg\u2019, \u2018Forrest\u2019,\n\u2018Triton\u2019, Nautilus\u2019, \u2018Bossier\u2019, \u2018Nessen\u2019, \u2018Canapolis\u2019,\n\u2018Davis\u2019, \u2018Centaur\u2019 and \u2018Dragon\u2019 being other\nvarieties with determinate growth.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    318.72,
+    316.32,
+    533.76,
+    394.56
+   ],
+   "id": "e26",
+   "lines": [
+    {
+     "bbox": [
+      318.72,
+      316.32,
+      438.48,
+      325.44
+     ],
+     "text": "Comparative Growing Trials"
+    },
+    {
+     "bbox": [
+      318.72,
+      326.4,
+      512.4,
+      334.8
+     ],
+     "text": "All characteristics and comparisons are from a"
+    },
+    {
+     "bbox": [
+      318.72,
+      336.0,
+      517.44,
+      345.12
+     ],
+     "text": "comparative growing trial planted at Hermitage"
+    },
+    {
+     "bbox": [
+      319.2,
+      345.84,
+      494.88,
+      353.76
+     ],
+     "text": "Research Station, southern Queensland in"
+    },
+    {
+     "bbox": [
+      318.96,
+      355.92,
+      533.52,
+      363.6
+     ],
+     "text": "December, 1989. Plots consisted of 5 metre rows 70"
+    },
+    {
+     "bbox": [
+      318.72,
+      366.0,
+      527.04,
+      374.4
+     ],
+     "text": "cm apart, planted at a density of 20 per metre with"
+    },
+    {
+     "bbox": [
+      318.96,
+      375.6,
+      533.76,
+      384.72
+     ],
+     "text": "2 replicates per variety. Measurements in tables are"
+    },
+    {
+     "bbox": [
+      318.72,
+      385.68,
+      446.88,
+      394.56
+     ],
+     "text": "of 20 plants chosen at random."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials\nAll characteristics and comparisons are from a\ncomparative growing trial planted at Hermitage\nResearch Station, southern Queensland in\nDecember, 1989. Plots consisted of 5 metre rows 70\ncm apart, planted at a density of 20 per metre with\n2 replicates per variety. Measurements in tables are\nof 20 plants chosen at random.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    317.52,
+    406.08,
+    530.88,
+    495.36
+   ],
+   "id": "e27",
+   "lines": [
+    {
+     "bbox": [
+      318.48,
+      406.08,
+      523.92,
+      414.72
+     ],
+     "text": "Phytophthora root rot resistance was determined"
+    },
+    {
+     "bbox": [
+      318.72,
+      416.4,
+      519.36,
+      425.52
+     ],
+     "text": "by inoculation, with reference fungal isolates, of"
+    },
+    {
+     "bbox": [
+      318.48,
+      426.72,
+      516.72,
+      435.36
+     ],
+     "text": "seedling roots to determine field resistance and"
+    },
+    {
+     "bbox": [
+      318.72,
+      436.56,
+      517.44,
+      445.2
+     ],
+     "text": "hypocotyl to determine immunity, conducted at"
+    },
+    {
+     "bbox": [
+      318.72,
+      446.64,
+      502.8,
+      455.76
+     ],
+     "text": "Department of Primary Industries Pathology"
+    },
+    {
+     "bbox": [
+      318.72,
+      456.48,
+      530.4,
+      465.36
+     ],
+     "text": "Laboratory, Toowoomba, Queensland. Procedures"
+    },
+    {
+     "bbox": [
+      318.48,
+      466.56,
+      506.4,
+      475.44
+     ],
+     "text": "are as outlined by Irwin & Langdon in Aust. J."
+    },
+    {
+     "bbox": [
+      317.52,
+      476.4,
+      530.88,
+      485.28
+     ],
+     "text": "Agric. Res., 1982, 33 pp 33-39 (root techniques) and"
+    },
+    {
+     "bbox": [
+      318.72,
+      486.24,
+      513.12,
+      495.36
+     ],
+     "text": "in the application form (hypocotyl! techniques)."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Phytophthora root rot resistance was determined\nby inoculation, with reference fungal isolates, of\nseedling roots to determine field resistance and\nhypocotyl to determine immunity, conducted at\nDepartment of Primary Industries Pathology\nLaboratory, Toowoomba, Queensland. Procedures\nare as outlined by Irwin & Langdon in Aust. J.\nAgric. Res., 1982, 33 pp 33-39 (root techniques) and\nin the application form (hypocotyl! techniques).",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    318.0,
+    507.12,
+    532.56,
+    536.4
+   ],
+   "id": "e28",
+   "lines": [
+    {
+     "bbox": [
+      318.0,
+      507.12,
+      343.44,
+      516.0
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      318.24,
+      517.44,
+      532.56,
+      526.08
+     ],
+     "text": "\u2018A5939' was bred by the applicant in lowa, USA and"
+    },
+    {
+     "bbox": [
+      318.24,
+      527.52,
+      499.68,
+      536.4
+     ],
+     "text": "is covered there by Plant Variety Protection."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\n\u2018A5939' was bred by the applicant in lowa, USA and\nis covered there by Plant Variety Protection.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    317.04,
+    547.68,
+    533.04,
+    655.2
+   ],
+   "id": "e29",
+   "lines": [
+    {
+     "bbox": [
+      318.0,
+      547.68,
+      530.88,
+      555.12
+     ],
+     "text": "\u2018A5939\u2019 arises from a controlled cross between two"
+    },
+    {
+     "bbox": [
+      318.0,
+      557.76,
+      530.4,
+      566.64
+     ],
+     "text": "identified breeder\u2019s lines and subsequent selection"
+    },
+    {
+     "bbox": [
+      317.76,
+      567.84,
+      484.8,
+      576.72
+     ],
+     "text": "at F2 and F5 as well as rogueing in other"
+    },
+    {
+     "bbox": [
+      317.76,
+      577.68,
+      508.56,
+      586.56
+     ],
+     "text": "generations for conformity of type. Parentage"
+    },
+    {
+     "bbox": [
+      318.0,
+      587.52,
+      503.76,
+      596.4
+     ],
+     "text": "included plants of several varieties including"
+    },
+    {
+     "bbox": [
+      317.76,
+      597.6,
+      533.04,
+      606.0
+     ],
+     "text": "\u2018Tracy\u2019 and \u2018Forrest\u2019. The same cross and selections"
+    },
+    {
+     "bbox": [
+      317.76,
+      606.96,
+      525.36,
+      615.84
+     ],
+     "text": "also produced the variety \u2018A5474' (application No."
+    },
+    {
+     "bbox": [
+      317.28,
+      616.8,
+      501.6,
+      624.96
+     ],
+     "text": "88/012). The main criterion for selection was"
+    },
+    {
+     "bbox": [
+      318.0,
+      626.88,
+      529.2,
+      635.28
+     ],
+     "text": "resistance to Soybean Cyst Nematode (Heterodera"
+    },
+    {
+     "bbox": [
+      317.04,
+      636.48,
+      521.76,
+      645.6
+     ],
+     "text": "glycines) and, at F2, 13 plants were selected from"
+    },
+    {
+     "bbox": [
+      317.28,
+      646.56,
+      426.0,
+      655.2
+     ],
+     "text": "800 screened for this pest."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018A5939\u2019 arises from a controlled cross between two\nidentified breeder\u2019s lines and subsequent selection\nat F2 and F5 as well as rogueing in other\ngenerations for conformity of type. Parentage\nincluded plants of several varieties including\n\u2018Tracy\u2019 and \u2018Forrest\u2019. The same cross and selections\nalso produced the variety \u2018A5474' (application No.\n88/012). The main criterion for selection was\nresistance to Soybean Cyst Nematode (Heterodera\nglycines) and, at F2, 13 plants were selected from\n800 screened for this pest.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    317.04,
+    667.68,
+    532.08,
+    774.48
+   ],
+   "id": "e30",
+   "lines": [
+    {
+     "bbox": [
+      317.52,
+      667.68,
+      480.72,
+      676.08
+     ],
+     "text": "Morphology \u2014 See comparison tables."
+    },
+    {
+     "bbox": [
+      317.76,
+      677.28,
+      527.52,
+      686.4
+     ],
+     "text": "\u2018A5939\u2019 is distinct from \u2018A6520\u2019 in mature plants of"
+    },
+    {
+     "bbox": [
+      317.76,
+      687.6,
+      532.08,
+      696.72
+     ],
+     "text": "\u2018A5939\u2019 being taller and maturing later (8 days from"
+    },
+    {
+     "bbox": [
+      317.04,
+      697.68,
+      525.12,
+      705.84
+     ],
+     "text": "trials). \u2018A5939\u2019 is distinct from \u2018Bossier\u2019 in \u2018A5939 \u2018"
+    },
+    {
+     "bbox": [
+      317.76,
+      707.76,
+      524.16,
+      716.88
+     ],
+     "text": "being immune to race 1 of Phytophthora whereas"
+    },
+    {
+     "bbox": [
+      317.52,
+      717.84,
+      516.72,
+      726.72
+     ],
+     "text": "\u2018Bossier\u2019 is susceptible and flowers later (7 days"
+    },
+    {
+     "bbox": [
+      317.04,
+      727.92,
+      512.16,
+      735.84
+     ],
+     "text": "from trials). \u2018A5939\u2019 is distinct from \u2018Nessen\u2019 in"
+    },
+    {
+     "bbox": [
+      317.52,
+      738.0,
+      521.28,
+      746.64
+     ],
+     "text": "\u2018A5939\u2019 having brown pubescence and seed with"
+    },
+    {
+     "bbox": [
+      317.28,
+      747.6,
+      521.76,
+      756.48
+     ],
+     "text": "shiny coat and black hilum whereas \u2018Nessen\u2019 has"
+    },
+    {
+     "bbox": [
+      317.28,
+      757.68,
+      507.6,
+      766.56
+     ],
+     "text": "grey pubescence seed with dull coat and grey"
+    },
+    {
+     "bbox": [
+      317.52,
+      767.52,
+      343.2,
+      774.48
+     ],
+     "text": "hilum."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 See comparison tables.\n\u2018A5939\u2019 is distinct from \u2018A6520\u2019 in mature plants of\n\u2018A5939\u2019 being taller and maturing later (8 days from\ntrials). \u2018A5939\u2019 is distinct from \u2018Bossier\u2019 in \u2018A5939 \u2018\nbeing immune to race 1 of Phytophthora whereas\n\u2018Bossier\u2019 is susceptible and flowers later (7 days\nfrom trials). \u2018A5939\u2019 is distinct from \u2018Nessen\u2019 in\n\u2018A5939\u2019 having brown pubescence and seed with\nshiny coat and black hilum whereas \u2018Nessen\u2019 has\ngrey pubescence seed with dull coat and grey\nhilum.",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    597.23,
+    845.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}
