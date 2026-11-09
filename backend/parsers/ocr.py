@@ -35,7 +35,7 @@ from functools import lru_cache
 
 import pymupdf
 
-from . import borders, photo_regions, tesseract_layout
+from . import borders, photo_regions, tables, tesseract_layout
 from . import document as ir
 from .reading_order import Line, order_paragraphs, paragraph_text
 from .serializer import render_elements
@@ -125,14 +125,19 @@ class TesseractEngine(OcrEngine):
         # Tesseract's own layout reads mixed table-and-prose pages that ADR-035's
         # geometry cannot (ADR-038). Its layout analysis occasionally discards a
         # whole column of text, so the geometric text stays as the guard.
-        blocks = tesseract_layout.read_page_blocks(page, dpi=dpi, language=language, mask=mask)
-        if blocks is None:
+        read = tesseract_layout.read_page_layout(page, dpi=dpi, language=language, mask=mask)
+        if read is None:
             return guard
-        layout = layout_elements(tesseract_layout.groups(blocks))
-        if tesseract_layout.keeps_words(render_elements(layout), render_elements(guard),
-                                        plausible=PLAUSIBLE_GUARD):
-            return layout
-        return guard
+        layout = layout_elements(tesseract_layout.groups(read.blocks))
+        if not tesseract_layout.keeps_words(render_elements(layout), render_elements(guard),
+                                            plausible=PLAUSIBLE_GUARD):
+            return guard
+        # Opt-in (ADR-046): tables found by Table Transformer, read cell by cell
+        # from psm 3's own words. Only on psm 3's reading, whose words it reuses.
+        if tables.enabled():
+            present = [ln for el in layout for ln in el.lines]
+            layout = tables.apply(layout, tables.read_tables(page, read.words, present), read.words)
+        return layout
 
     @classmethod
     def _geometric_text(cls, page: pymupdf.Page, *, dpi: int, language: str,

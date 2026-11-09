@@ -258,12 +258,37 @@ def render(blocks: Sequence[Block]) -> str:
     return "\n\n".join(group_text(g) for g in groups(blocks))
 
 
-def read_page_blocks(page: pymupdf.Page, *, dpi: int, language: str,
-                     mask: Optional[photo_regions.PhotoMask] = None) -> Optional[list[Block]]:
-    """Tesseract's psm 3 blocks for ``page`` (PDF points); ``None`` if Tesseract fails.
+class Word(NamedTuple):
+    """One word Tesseract read: its box (PDF points), text and (block, par, line) key."""
 
-    ``mask`` (ADR-037) drops lines read out of photographs.
+    x0: float
+    y0: float
+    x1: float
+    y1: float
+    text: str
+    key: tuple[int, int, int]
+
+
+def parse_words(tsv: str, scale: float = 1.0) -> list[Word]:
+    """Tesseract TSV → its words in Tesseract's order, boxes multiplied by ``scale``.
+
+    The same words `parse_tsv` groups into lines: a line's box is exactly the
+    union of its words' boxes, so a line and its words can be matched up.
     """
+    reader = csv.DictReader(io.StringIO(tsv), delimiter="\t", quoting=csv.QUOTE_NONE)
+    out = []
+    for row in reader:
+        if row.get("level") != "5" or not (row.get("text") or "").strip():
+            continue
+        x0, y0 = int(row["left"]), int(row["top"])
+        x1, y1 = x0 + int(row["width"]), y0 + int(row["height"])
+        out.append(Word(x0 * scale, y0 * scale, x1 * scale, y1 * scale, row["text"].strip(),
+                        (int(row["block_num"]), int(row["par_num"]), int(row["line_num"]))))
+    return out
+
+
+def read_page_tsv(page: pymupdf.Page, *, dpi: int, language: str) -> Optional[str]:
+    """Tesseract's psm 3 TSV for ``page``; ``None`` if Tesseract fails."""
     png = page.get_pixmap(dpi=dpi).tobytes("png")
     try:
         done = subprocess.run([TESSERACT_CMD, "stdin", "stdout", "--psm", "3", "-l", language, "tsv"],
@@ -271,11 +296,42 @@ def read_page_blocks(page: pymupdf.Page, *, dpi: int, language: str,
                               env={**os.environ, **TESSERACT_ENV})
     except (OSError, subprocess.SubprocessError):
         return None
-    blocks = parse_tsv(done.stdout.decode("utf-8", errors="replace"), scale=72.0 / dpi)
+    return done.stdout.decode("utf-8", errors="replace")
+
+
+def blocks_from_tsv(tsv: str, *, dpi: int, mask: Optional[photo_regions.PhotoMask] = None) -> list[Block]:
+    """psm 3 TSV → blocks in PDF points, lines read out of photographs dropped (ADR-037)."""
+    blocks = parse_tsv(tsv, scale=72.0 / dpi)
     if mask is not None and mask.cells:
         kept = [[ln for ln in b.lines if not photo_regions.is_photo_noise(ln, mask)] for b in blocks]
         blocks = [_block(ls) for ls in kept if ls]
     return blocks
+
+
+class Layout(NamedTuple):
+    """One psm 3 reading of a page: its blocks (photo noise dropped) and every word."""
+
+    blocks: list[Block]
+    words: list[Word]
+
+
+def read_page_layout(page: pymupdf.Page, *, dpi: int, language: str,
+                     mask: Optional[photo_regions.PhotoMask] = None) -> Optional[Layout]:
+    """Tesseract's psm 3 blocks and words for ``page``; ``None`` if Tesseract fails."""
+    tsv = read_page_tsv(page, dpi=dpi, language=language)
+    if tsv is None:
+        return None
+    return Layout(blocks_from_tsv(tsv, dpi=dpi, mask=mask), parse_words(tsv, scale=72.0 / dpi))
+
+
+def read_page_blocks(page: pymupdf.Page, *, dpi: int, language: str,
+                     mask: Optional[photo_regions.PhotoMask] = None) -> Optional[list[Block]]:
+    """Tesseract's psm 3 blocks for ``page`` (PDF points); ``None`` if Tesseract fails.
+
+    ``mask`` (ADR-037) drops lines read out of photographs.
+    """
+    tsv = read_page_tsv(page, dpi=dpi, language=language)
+    return None if tsv is None else blocks_from_tsv(tsv, dpi=dpi, mask=mask)
 
 
 def read_page(page: pymupdf.Page, *, dpi: int, language: str,

@@ -1,0 +1,21 @@
+# Optional: tables on scanned pages, read cell by cell by Table Transformer (ADR-046).
+#
+# Off by default. The default path reads a scanned table's words but not its
+# columns; with this installed and WISEAU_TABLES=tatr, each table Table
+# Transformer finds (and that passes the tabularity check) is written as a
+# Markdown or HTML table. It pulls PyTorch, which the default image does not
+# carry: about 1.2 GB of wheels, ~600 MB resident once the two models load, and
+# 1-4 s more per scanned page on one thread (measured in
+# docs/benchmarks/2026-11-09-tables.md).
+#
+# To enable:
+#   pip install --index-url https://download.pytorch.org/whl/cpu torch==2.15.0 torchvision==0.29.2
+#   pip install -r requirements-tables.txt
+#   export WISEAU_TABLES=tatr
+# The two models (265 MB, pinned revisions in parsers/tables.py) download from
+# Hugging Face on first use. Without these packages the pass is skipped, never
+# an error: the conversion is the default path's.
+#
+# transformers 5.x rejects the Table Transformer checkpoints' config; stay on 4.x.
+transformers==4.57.6
+timm==1.0.31

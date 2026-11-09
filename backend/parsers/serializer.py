@@ -46,11 +46,69 @@ _FIGURE = re.compile(r"^ {0,3}!\[")
 SYNTAX_SIGNAL = "markdown-syntax"
 
 
+# The explicit dialect (ADR-045). A table whose cells are real columns is written
+# as a table: a pipe table when its first row is a header and no cell spans
+# others, else an HTML table (which Markdown allows and the scorers strip).
+# Signals whose cells are columns; ADR-038's stitched tables are not among them
+# by default, because their "cells" are Tesseract line fragments.
+CELL_SIGNALS = {"tatr"}
+STITCHED_AS_TABLES = False
+STITCH_SIGNAL = "tesseract-row-stitch"
+
+
 def render_element(el: ir.Element) -> str:
     """One element as Markdown."""
     if el.type == ir.TABLE and el.rows:
+        if el.signal in CELL_SIGNALS or (STITCHED_AS_TABLES and el.signal == STITCH_SIGNAL):
+            return table_markdown(el.rows)
         return ir.rows_text(el.rows)
     return el.text
+
+
+def table_markdown(rows) -> str:
+    """Rows of cells as a pipe table, or as HTML when a pipe table cannot say it."""
+    rows = [list(r) for r in rows if r]
+    if not rows:
+        return ""
+    spans = any(c.row_span > 1 or c.col_span > 1 for r in rows for c in r)
+    width = max(len(r) for r in rows)
+    if spans or not all(c.header for c in rows[0]) or len(rows) < 2:
+        return _html_table(rows)
+    def line(cells):
+        cells = [_pipe_cell(c.text) for c in cells] + [""] * (width - len(cells))
+        return "| " + " | ".join(cells) + " |"
+    out = [line(rows[0]), "|" + "---|" * width]
+    out += [line(r) for r in rows[1:]]
+    return "\n".join(out)
+
+
+def _pipe_cell(text: str) -> str:
+    return " ".join(text.split()).replace("|", "\\|")
+
+
+def _html_cell(text: str) -> str:
+    return " ".join(text.split()).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def _html_table(rows) -> str:
+    covered: set[tuple[int, int]] = set()
+    out = ["<table>"]
+    for r, row in enumerate(rows):
+        cells = []
+        for c, cell in enumerate(row):
+            if (r, c) in covered:
+                continue
+            for dr in range(cell.row_span):
+                for dc in range(cell.col_span):
+                    if dr or dc:
+                        covered.add((r + dr, c + dc))
+            tag = "th" if cell.header else "td"
+            attrs = (f' rowspan="{cell.row_span}"' if cell.row_span > 1 else "") + \
+                    (f' colspan="{cell.col_span}"' if cell.col_span > 1 else "")
+            cells.append(f"<{tag}{attrs}>{_html_cell(cell.text)}</{tag}>")
+        out.append("<tr>" + "".join(cells) + "</tr>")
+    out.append("</table>")
+    return "\n".join(out)
 
 
 def render_elements(elements) -> str:

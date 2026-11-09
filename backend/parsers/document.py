@@ -113,6 +113,8 @@ class Cell:
     bbox: Optional[BBox] = None
     row_span: int = 1
     col_span: int = 1
+    # A column-header cell (the row that names the columns).
+    header: bool = False
 
 
 @dataclass(frozen=True)
@@ -140,6 +142,9 @@ class Element:
     # the signal has no calibrated confidence; it is not invented.
     signal: Optional[str] = None
     confidence: Optional[float] = None
+    # The signal's own raw score when it has one (e.g. a model's probability).
+    # Uncalibrated, so it is not a `confidence`.
+    score: Optional[float] = None
     # How `bbox` was found when the engine did not report it (e.g.
     # "text-layer-alignment", ADR-044), and the measured share of the element's
     # words that method located. None when the box came from the engine itself.
@@ -166,6 +171,8 @@ class Element:
         if self.signal is not None:
             out["signal"] = self.signal
             out["confidence"] = self.confidence
+        if self.score is not None:
+            out["score"] = self.score
         if self.bbox_signal is not None:
             out["bbox_signal"] = self.bbox_signal
             out["bbox_coverage"] = None if self.bbox_coverage is None else round(self.bbox_coverage, 3)
@@ -176,6 +183,8 @@ def _cell_dict(cell: Cell) -> dict:
     out: dict = {"text": cell.text, "bbox": cell.bbox.to_list() if cell.bbox else None}
     if cell.row_span != 1 or cell.col_span != 1:
         out["row_span"], out["col_span"] = cell.row_span, cell.col_span
+    if cell.header:
+        out["header"] = True
     return out
 
 
