@@ -1,0 +1,170 @@
+{
+  "id": "resp_03da9aff5e634707006af135650aec87d1b1611404b20fc84a",
+  "object": "response",
+  "created_at": 1794192741,
+  "status": "completed",
+  "access_programs": null,
+  "background": true,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1794192919,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 32768,
+  "max_tool_calls": null,
+  "model": "gpt-6-astra",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_03da9aff5e634707006af1356edf4087d1a687537a1590ce27",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_03da9aff5e634707006af1357baa6c87d1b100955f186f818f",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_03da9aff5e634707006af135854c9487d19d9633eeba220532",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_03da9aff5e634707006af1358e443887d1a50b3d73103be954",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_03da9aff5e634707006af1359c281487d1847681a6bd532077",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_03da9aff5e634707006af135a40a5887d18a42b2273b0415ee",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_03da9aff5e634707006af135b101b487d1a4075b14cab9a825",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_03da9aff5e634707006af135c1614487d193ed6081e8ea2fa4",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_03da9aff5e634707006af135d14a6487d18b8917e113121a71",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_03da9aff5e634707006af135e4d83887d1ad93bca97df1f3c8",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_03da9aff5e634707006af135f8c8b887d1bda00a41af6b65c2",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_03da9aff5e634707006af13608532887d1a5c4fd47b1afa5f9",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "msg_03da9aff5e634707006af1360aabcc87d1bed0f7a97b5abea3",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "Table of Comparison of Geraldton Wax Flower Varieties\n(* = varieties used for comparison)\n\n\t\u2018Pearl Buttons\u2019\t*\u2018White Spring\u2019\t\u2018Pristine\u2019\t\u2018Triumphant\u2019\t*\u2018Mullering Brook\u2019\n\nSTEM THICKNESS measured 30 cm from apex of branch\nmean\t0.47 cm\t0.27 cm\t0.60 cm\t0.39 cm\t0.41 cm\nrange\t0.39 \u2013 0.60\t0.20 \u2013 0.33\t0.46 \u2013 0.72\t0.27 \u2013 0.50\t0.35 \u2013 0.46\nstd deviation\t0.06\t0.04\t0.08\t0.07\t0.04\n\nLENGTH OF MATURE LEAVES\nmean\t1.79 cm\t2.14 cm\t1.73 cm\t2.04 cm\t1.84 cm\nrange\t1.58 \u2013 2.14\t1.81 \u2013 2.46\t1.43 \u2013 2.20\t1.40 \u2013 2.52\t1.31 \u2013 2.46\nstd deviation\t0.15\t0.18\t0.19\t0.24\t0.33\n\nWIDTH OF MATURE LEAVES\nmean\t1.20 mm\t1.10 mm\t1.24 mm\t0.96 mm\t1.13 mm\nrange\t1.10 \u2013 1.30\t0.90 \u2013 1.20\t0.90 \u2013 1.60\t0.80 \u2013 1.20\t1.00 \u2013 1.30\nstd deviation\t0.10\t0.10\t0.18\t0.11\t0.08\n\nPEDICEL LENGTH\nmean\t1.08 cm\t0.81 cm\t0.76 cm\t0.60 cm\t0.72 cm\nrange\t0.54 \u2013 1.55\t0.59 \u2013 1.10\t0.46 \u2013 1.13\t0.27 \u2013 0.94\t0.40 \u2013 1.10\nstd deviation\t0.34\t0.17\t0.19\t0.17\t0.18\n\nFLORAL TUBE COLOUR \u2014 top region, below sepals\n\tyellow-green\tyellow-green\tgreen & yellow-green\tyellow-green\tgreen\nRHS No.\t145A & 146C\t144A\t143A, 144A & 146A\t144A\t143A\n\nFLORAL TUBE COLOUR \u2014 middle sec: on newly-opened flowers\ncolour\tyellow-green\tyellow-green\tgreen-yellow, yellow &\tyellow-green\tgreyed-orange\n\t\t\tgreyed orange\nRHS No.\t153A,B,C\t151B & 152D\t1A, 2A & 166C-B\t150A & 154A\t166B & 164A\nold flowers\ncolour\tyellow-green\tyellow-green\tyellow & greyed orange\tyellow-green\tgreyed-orange\nRHS No.\t153A,B,C\t151B & 152D\t3A, 163A & 164A\t150A\t166C, 176A & 175A\n\nFLORAL TUBE COLOUR \u2014 cup/nectary newly-opened flowers\ncolour\tyellow\t\u2013\torange\tgreyed-orange\tyellow-orange\nRHS No.\t2A,3A,4A,5A,6A,7A,8A\t\t28C & 29A\t163A & 164B\t15A\nold flowers\ncolour\tgreyed-red & greyed\tyellow-green\tred-purple\tgreyed-purple & red\tgreyed-purple\n\torange\t\t\tpurple\nRHS No\t181B & 171A-B\t150B, 151A-B & 153C-B\t59A-B-C,64A-B, & 71B\t59A,60A,184A-B & 186A\t187B & 183A-B\n\nCOLOUR OF IMMATURE STEMS\ncolour\tyellow-green\tyellow-green & greyed\tgrey-orange & yellow-\tgrey-orange & yellow-\tyellow-green\n\t\torange\tgreen\tgreen\nRHS No.\t153A & 151A\t151A,153A,165B &\t144A,164A,165B\t164A,166C,165B,\t144A\n\t\t166C-D\t\t153A-B & 152D\n\nPOTATO\n(Solanum tuberosum)\n\nVariety: \u2018Wilwash\u2019 Application No. 91/044\nApplication received: 17 April 1991\nApplicant: Daratech Pty Ltd, of Melbourne, Victoria.\n\nDiagnosis\n\u2018Wilwash\u2019 is a smooth-skinned round potato with white\nflesh and white skin. It has few flowers with white corolla\nand the lightsprout base anthocyanin is blue-violet. It is\ndistinct from known varieties in having the following\ncombination of characters: leaflets absent or few in the\naxils of the inflorescence, short flowering period, earlier\nplant maturity.\n\nVarieties used for comparison\n\u2018Coliban\u2019 being the closest known variety, an industry\nstandard variety and one of the parent varieties.\n\nComparative Growing Trials\nAll characteristics described below are from comparative\ngrowing trials conducted at the Potato Research Station,\nToolangi in Victoria in 1989/90 and 1990/91. Two\nhundred plants were grown in three replicates on\nkraznozem soil fertilised with Pivot 800 at 2t/ha.\nMeasurements are from 20 specimens selected at\nrandom. Plants were irrigated as required and prophylactic\nsprays were applied four times for fungal diseases of\nfoliage.\n\nOrigin\nThis variety arose from the controlled pollination of the\nvariety \u2018Norgleam\u2019 by the pollen parent \u2018Coliban\u2019. It was\nbred by Dr Roger Kirkham of Healesville, Victoria between\n1980 and 1991. \u2018Wilwash\u2019 was selected for its superior\nyield, smooth white-skinned tubers of uniform size, shape\nand cooking qualities from 20,000 field grown plants.\n\nMorphology \u2014 see comparison tables.\n\u2018Wilwash\u2019 is an upright and vigorous plant with medium\nfoliage cover. Stem anthocyanin colouration is weaker\n\n17"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "high",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 10478,
+    "input_tokens_details": {
+      "cache_write_tokens": 10475,
+      "cached_tokens": 0
+    },
+    "output_tokens": 7137,
+    "output_tokens_details": {
+      "reasoning_tokens": 5771
+    },
+    "total_tokens": 17615
+  },
+  "user": null,
+  "metadata": {}
+}
