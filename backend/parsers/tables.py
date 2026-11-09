@@ -36,8 +36,10 @@ sort has a total order, so a page converts the same way every time.
 
 from __future__ import annotations
 
+import logging
 import os
 import threading
+import time
 from dataclasses import replace
 from statistics import median
 from typing import NamedTuple, Optional, Sequence
@@ -47,6 +49,8 @@ import pymupdf
 from . import document as ir
 from .reading_order import Line
 from .tesseract_layout import Word
+
+logger = logging.getLogger(__name__)
 
 # Pinned model revisions (Hugging Face commit ids): the same weights every time.
 DETECT_MODEL = ("microsoft/table-transformer-detection", "2357cbe2b5a5d1c03e54f32764f06058933b65ab")
@@ -127,13 +131,22 @@ def _load():
         if not _models:
             import torch
             from transformers import TableTransformerForObjectDetection
+            from transformers.utils import logging as hf_logging
 
+            started = time.perf_counter()
+            # The checkpoints carry three unused batch-norm counters; transformers
+            # warns about them at length on every load. They are expected.
+            hf_logging.set_verbosity_error()
             torch.set_num_threads(THREADS)
+            loaded = {}
             for key, (name, revision) in (("detect", DETECT_MODEL), ("structure", STRUCTURE_MODEL)):
-                _models[key] = TableTransformerForObjectDetection.from_pretrained(
+                loaded[key] = TableTransformerForObjectDetection.from_pretrained(
                     name, revision=revision, use_pretrained_backbone=False).eval()
-            _models["mean"] = torch.tensor([0.485, 0.456, 0.406]).view(3, 1, 1)
-            _models["std"] = torch.tensor([0.229, 0.224, 0.225]).view(3, 1, 1)
+            loaded["mean"] = torch.tensor([0.485, 0.456, 0.406]).view(3, 1, 1)
+            loaded["std"] = torch.tensor([0.229, 0.224, 0.225]).view(3, 1, 1)
+            _models.update(loaded)
+            logger.info("Table Transformer loaded", extra={"wiseau": {
+                "threads": THREADS, "seconds": round(time.perf_counter() - started, 1)}})
         return _models
 
 

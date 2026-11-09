@@ -157,3 +157,22 @@ def test_stitched_tables_stay_plain_unless_asked(monkeypatch, stitched):
     assert serializer.render_element(el).startswith("<table>") == stitched
     if not stitched:
         assert serializer.render_element(el) == "a 1\nb 2"
+
+
+def test_a_failing_table_pass_degrades_to_the_default(monkeypatch):
+    # If the models cannot load (no cache, no network), the page converts as if
+    # the pass were off, rather than the conversion failing (ADR-046).
+    import pymupdf
+
+    from parsers import tesseract_layout
+
+    words = _words(GRID)
+    layout_blocks = tesseract_layout.Layout(
+        [tesseract_layout._block(_layout(words)[0].lines)], words)
+    monkeypatch.setattr(tables, "enabled", lambda: True)
+    monkeypatch.setattr(tables, "read_tables", lambda *a, **k: (_ for _ in ()).throw(OSError("offline")))
+    monkeypatch.setattr(tesseract_layout, "read_page_layout", lambda *a, **k: layout_blocks)
+    monkeypatch.setattr(ocr.TesseractEngine, "_geometric_elements", staticmethod(lambda page, **kw: []))
+    page = pymupdf.open().new_page()
+    out = ocr.TesseractEngine().read_elements(page, dpi=72, language="eng")
+    assert out and all(e.type != "table" for e in out)
