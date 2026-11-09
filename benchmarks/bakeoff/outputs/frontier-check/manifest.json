@@ -1,0 +1,90 @@
+{
+ "prompt": "Transcribe this scanned document page by hand, as a careful human transcriber would.\n\nRules:\n- Reproduce every piece of printed or typed text exactly as it appears: same words, spelling, capitalisation, numbers, units and punctuation (keep curly quotes, en and em dashes as printed). Do not correct, normalise, summarise, translate or add anything, even where the original looks wrong.\n- Keep the original line breaks: one printed line per output line, including words hyphenated at a line end.\n- Follow natural reading order: finish a column before starting the next one.\n- Read tables row by row, left to right across the whole row, with each cell's text in its original order. You may use Markdown tables.\n- Leave out text that is part of a photograph or drawing, and handwritten marks.\n- Output only the transcription.\n",
+ "dpi": 300,
+ "pages": [
+  "V5N1_p18",
+  "V4_p19",
+  "V2_p12",
+  "V4N1_p7",
+  "P63a_p7"
+ ],
+ "images": {
+  "V5N1_p18": "aeae46c826330cd68806c4a7be784c3fe46fb002a289fe49e7f30ce2e1f4a6d9"
+ },
+ "calls": {
+  "gpt-6-astra/V5N1_p18": {
+   "http": 200,
+   "seconds": 64.4,
+   "raw": "gpt-6-astra__V5N1_p18.json",
+   "raw_sha256": "59eb483d9e96ac74b0b37719653db671aa6e85527244c4897d0dec0f190e3994",
+   "image_sha256": "aeae46c826330cd68806c4a7be784c3fe46fb002a289fe49e7f30ce2e1f4a6d9",
+   "sent_at": "2026-11-09T02:50:55Z",
+   "text": "gpt-6-astra/V5N1_p18.md",
+   "text_sha256": "495a28b77531ba66516f3b12a4100f2a51bb9f8297d63cbc88236acbd82f5310",
+   "tokens_in": 10478,
+   "tokens_out": 2796,
+   "finish": "completed",
+   "usd": 0.2446
+  },
+  "gemini-4-argon/V5N1_p18": {
+   "http": 200,
+   "seconds": 46.7,
+   "raw": "gemini-4-argon__V5N1_p18.sse",
+   "raw_sha256": "c9c1c7e9dc51ed6e41b235de285c26d566e40cf5afb96cf96786413d3c906484",
+   "image_sha256": "aeae46c826330cd68806c4a7be784c3fe46fb002a289fe49e7f30ce2e1f4a6d9",
+   "sent_at": "2026-11-09T02:52:20Z",
+   "text": "gemini-4-argon/V5N1_p18.md",
+   "text_sha256": "e31c20313c31eab6260d29155ec3b7e44dbe44ea0e303c86eb5e98474c4c116e",
+   "tokens_in": 2395,
+   "tokens_out": 4060,
+   "finish": "STOP",
+   "usd": 0.0454
+  }
+ },
+ "failed": [
+  {
+   "call": "gemini-4-argon/V5N1_p18",
+   "http": 502,
+   "seconds": 30.3,
+   "raw": "FAILED-1__gemini-4-argon__V5N1_p18.json",
+   "raw_sha256": "53bf0093ee81e5a202402de8b0b06bfa46b6ba796ebfe1606722b05a42172181",
+   "image_sha256": "aeae46c826330cd68806c4a7be784c3fe46fb002a289fe49e7f30ce2e1f4a6d9",
+   "sent_at": "2026-11-09T02:47:57Z",
+   "error": "upstream request failed",
+   "usd": 0.3677
+  },
+  {
+   "call": "gpt-6-astra/V5N1_p18",
+   "http": 502,
+   "seconds": 30.4,
+   "raw": "FAILED-2__gpt-6-astra__V5N1_p18.json",
+   "raw_sha256": "53bf0093ee81e5a202402de8b0b06bfa46b6ba796ebfe1606722b05a42172181",
+   "image_sha256": "aeae46c826330cd68806c4a7be784c3fe46fb002a289fe49e7f30ce2e1f4a6d9",
+   "sent_at": "2026-11-09T02:48:28Z",
+   "error": "upstream request failed",
+   "usd": 1.8384
+  }
+ ],
+ "superseded": [
+  {
+   "call": "gemini-4-argon/V5N1_p18",
+   "http": 200,
+   "seconds": 43.1,
+   "raw": "SUPERSEDED-high__gemini-4-argon__V5N1_p18.sse",
+   "raw_sha256": "8998cad0582895f68a5689c886c009a490dd63daa5d5de047ffab57e8d9a2024",
+   "image_sha256": "aeae46c826330cd68806c4a7be784c3fe46fb002a289fe49e7f30ce2e1f4a6d9",
+   "sent_at": "2026-11-09T02:49:51Z",
+   "text": "raw/SUPERSEDED-high__gemini-4-argon__V5N1_p18.md",
+   "text_sha256": "f88339e8da7efb20a01df5050157d667f223201b2dd592e12c70bc7e05b76d2b",
+   "tokens_in": 1303,
+   "tokens_out": 3875,
+   "finish": "STOP",
+   "usd": 0.0414,
+   "why": "Sent with generationConfig.mediaResolution HIGH (1120 image tokens). Superseded because Gemini's per-part ULTRA_HIGH (2240 tokens) is its highest setting and GPT read the page at detail 'original'; all five Gemini answers shown are at ULTRA_HIGH. Kept unchanged here."
+  }
+ ],
+ "settings": {
+  "gpt-6-astra": "Responses API, background mode, reasoning.effort high, image detail original, max_output_tokens 32768",
+  "gemini-4-argon": "streamGenerateContent (SSE), thinkingLevel high, includeThoughts true (thoughts not shown), image media_resolution ULTRA_HIGH, maxOutputTokens 32768"
+ }
+}
