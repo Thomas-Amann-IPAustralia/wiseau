@@ -614,9 +614,27 @@ No paid API is used for this work unless the user says otherwise.
   edges are painted out before OCR (`parsers/borders.py`). Fires only on the 1985
   patent's pages. P85 p6 wer 0.110 → 0.053; set E 0.084 → 0.079; the other 74
   scored pages byte-identical. *Verified: 529 passed, 8 skipped.*
-- [ ] **ADR-038 guard counts junk as words** (found by ADR-041: P85 p5 lost a
-  line). Count plausible words only; held-out check on every scored set.
-- [ ] **1.2 rest**: deskew, contrast, Sauvola, denoise.
+- [x] **ADR-038 guard counts plausible words (ADR-042).** P85 p5's line is back.
+  Across all 336 scanned test pages the choice flips on 11 (8 better, 3 marginally
+  worse junk-only pages); no scored page changes; P85 vs its own layer wer 0.440 →
+  0.417. Found on the way: the OpenMP `tesseract` CLI timed out under load, so the
+  output depended on machine load; it now runs on one thread (byte-identical text).
+  *Verified: 532 passed, 8 skipped; all 76 scored pages byte-identical.* Write-up:
+  `docs/benchmarks/2026-11-09-guard-and-threads.md`.
+- [x] **1.2 rest: deskew, normalise, Sauvola, denoise — none ships.** Through the
+  default path on all 72 scored scans against a pixel-exact control: wer +0.016,
+  +0.041, +0.051, +0.003. Rotation by 0.1–0.3° breaks psm 3's table blocks;
+  binarising hides photos from the ADR-037 mask. No per-page rule found on the
+  development sets holds on E and F. Write-up:
+  `docs/benchmarks/2026-11-09-preprocessing-ablation.md`.
+- [x] **1.3 Recogniser and table bake-off — nothing ships.** PP-OCRv6 small and
+  English PP-OCRv5 as line recognisers lose (+0.110, +0.078: they drop the spaces in
+  table rows); re-reading Tesseract's word boxes, PP-OCRv6 gains 0.004 for 4× the
+  time and 2.7 GB, and doesn't hold on set E; no help on typewriter faces. Table
+  Transformer fixes V5N1 p18's side-by-side tables (0.327 → 0.062) but calls
+  two-column prose pages tables (+0.101 overall, held out +0.134), and no gate tried
+  separates the cases: lead for 3.7. PP-StructureV3 on the 20 table pages: wer 0.332 against the
+  default's 0.090, loses text, merges side-by-side tables, 8–10.6 GB a page. Write-up: `docs/benchmarks/2026-11-09-recogniser-and-table-bakeoff.md`.
 
 Started 2026-11-08. Tiered plan, gates and rationale in
 [`roadmap-ocr-and-structure.md`](roadmap-ocr-and-structure.md), drawn from the two

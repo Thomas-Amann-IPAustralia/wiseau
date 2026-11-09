@@ -66,9 +66,17 @@ def _parsers():
 
 
 def _is_scan(page: pymupdf.Page) -> bool:
-    """An image covers >= 90% of the page (the scans in every scored set)."""
+    """The default path's own test (file_parser._page_needs_ocr): under 16 characters
+    of text, or an invisible OCR layer over a scan (ADR-040). Copied, not imported,
+    because file_parser pulls in the whole service. A PBR scan can be several image
+    strips, so "one image covers the page" alone is not enough."""
+    if len(page.get_text("text").strip()) < 16:
+        return True
+    if any(t["type"] != 3 for t in page.get_texttrace()):
+        return False
     area = abs(page.rect)
-    return any(abs(pymupdf.Rect(i["bbox"]) & page.rect) >= 0.9 * area for i in page.get_image_info())
+    return any((i["bbox"][2] - i["bbox"][0]) * (i["bbox"][3] - i["bbox"][1]) >= 0.9 * area
+               for i in page.get_image_info())
 
 
 def _copied(key: str) -> str:
@@ -344,7 +352,11 @@ def ppstructure_engine():
     os.environ.setdefault("PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK", "True")
     from paddleocr import PPStructureV3
 
-    pipe = PPStructureV3(lang="en", cpu_threads=int(os.environ.get("PADDLE_THREADS", "4")), use_doc_orientation_classify=False, use_doc_unwarping=False,
+    # Needs paddlepaddle 3.2.2: on 3.3.1 a oneDNN kernel of this pipeline raises
+    # NotImplementedError (ConvertPirAttribute2RuntimeAttribute), and with oneDNN off
+    # one 150 dpi page asked for an 11.4 GB allocation. Peak RSS on 3.2.2: 8.0 GB.
+    pipe = PPStructureV3(lang="en", cpu_threads=int(os.environ.get("PADDLE_THREADS", "4")),
+                         use_doc_orientation_classify=False, use_doc_unwarping=False,
                          use_textline_orientation=False, use_seal_recognition=False,
                          use_formula_recognition=False, use_chart_recognition=False)
 
