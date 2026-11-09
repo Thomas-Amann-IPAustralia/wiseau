@@ -1,0 +1,158 @@
+{
+  "id": "resp_0ebce65213ca09e9006af136ec72a487d1b1bab17546d5db2c",
+  "object": "response",
+  "created_at": 1794193132,
+  "status": "completed",
+  "access_programs": null,
+  "background": true,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1794193280,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 32768,
+  "max_tool_calls": null,
+  "model": "gpt-6-astra",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_0ebce65213ca09e9006af136f0b10887d1817840278639a585",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_0ebce65213ca09e9006af136ff024887d18a1991dbc90fa6c7",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_0ebce65213ca09e9006af137083bac87d189dc2c5cd3354ebf",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_0ebce65213ca09e9006af137106ab887d1a9fef04baf779af2",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_0ebce65213ca09e9006af13716bb6087d19434bc542bc57181",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_0ebce65213ca09e9006af13723956087d187fae4e3e07a2efd",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_0ebce65213ca09e9006af13734ccb087d1942ab7cd5abfc621",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_0ebce65213ca09e9006af1374847a087d182ada83f62a07398",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_0ebce65213ca09e9006af13757e33c87d182f4a14799512667",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_0ebce65213ca09e9006af13766916087d1affc7db8e2776c37",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "msg_0ebce65213ca09e9006af13774bb2087d1828b0e8ca1d0ed2a",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "Applications\n\nApplications for PVR on the varieties described and listed\nbelow have been accepted under S18 of the Plant Variety\nRights Act 1987\n\na) Descriptions Finalised\n\nLECHENAULTIA\n(Lechenaultia biloba)\n\nVariety: \u2018Autumn Blue\u2019 Application No. 89/028\nAccepted: 6 November 1990\nApplicant: George Lullfitz, of Lullfitz\nNursery, Wanneroo, Western Australia.\n\nDiagnosis\nThis variety is distinct from all other varieties in having the\nfollowing combination of characters: a 9 month flowering\nperiod; a compact, erect growth habit; small, blue flowers.\n\nVarieties used for comparison\nA blue form of Lechenaultia biloba, and Lechenaultia\nbiloba \u2018White Flash\u2019.\n\nComparative Growing Trials\nAll characteristics described for \u2018Autumn Blue\u2019 and the\nblue form of L. biloba are from 20 potted plants of each\nvariety grown at Wanneroo, Western Australia. The plants\nwere grown in 140 mm plastic pots in a mix of jarrah\nsawdust, medium grade pine bark, and washed white\nsand. The characteristics of \u2018White Flash\u2019 are described\nfrom specimens growing in the same soil mix in similar\nconditions at Kings Park, Perth. Measurements were taken\nin August 1990 from 20 specimens of each variety, the\nplants being aged 12 months.\n\nOrigin\nThe variety arose as a chance seedling of Lechenaultia\nbiloba found on the applicant\u2019s property at Wanneroo,\nWestern Australia. Selection was on the basis of growth\nhabit and duration of flowering. Subsequent asexual\n\nFrom left to right; flowers of \u2018White Flash\u2019, \u2018Autumn\nBlue\u2019, L. biloba blue form. (Photograph supplied by\napplicant)\n\npropagation over 4 years formed the variety \u2018Autumn\nBlue\u2019.\n\nMorphology \u2014 see comparison tables.\n\u2018Autumn Blue\u2019 is a compact, upright, herbaceous plant\nwhich flowers during autumn, winter and spring. In\ncomparison, the blue form of Lechenaultia biloba, and\n\u2018White Flash\u2019, flower only in spring. \u2018Autumn Blue\u2019 leaves\nare the same width as the comparative varieties, but are\nshorter than those of \u2018White Flash\u2019. \u2018Autumn Blue\u2019 has an\nupright growth habit in contrast to the semi-erect growth\nhabit of the comparative varieties. \u2018Autumn Blue\u2019 flowers\nare narrower in diameter and shorter in height and corolla\nlength than the comparative varieties. The newly opened\nflowers of \u2018Autumn Blue\u2019 are slightly darker violet-blue\nthan the comparative varieties, and when fully opened\nthey are blue. The aged flowers of \u2018Autumn Blue\u2019 are\nviolet-blue, whereas those of the blue form of L. biloba and\n\u2018White Flash\u2019 are blue.\n\nTable of Comparison of Lechenaultia biloba\nVarieties\n(* = varieties used for comparison)\n\n                        \u2018Autumn Blue\u2019 *     \u2018L. biloba\u2019 *       \u2018White Flash\u2019\n                                            blue form\nFLOWERING               autumn              spring              spring\nSEASON                  winter\n                        spring\nGROWTH HABIT            erect               semi-erect          semi-erect\nranking 1 \u2014 9           1                   5                   5\nFLOWER WIDTH\nmean                    25.2 mm             29.2 mm             28.4 mm\nrange                   24 \u2014 28             25 \u2014 35             25 \u2014 30\nstd. deviation          0.8                 2.4                 1.6\nFLOWER HEIGHT\nmean                    25.2 mm             27.6 mm             28.0 mm\nrange                   22 \u2014 30             22 \u2014 36             24 \u2014 30\nstd. deviation          1.9                 3.8                 2.3\nCOROLLA\nLENGTH\nmean                    7.8 mm              9.8 mm              8.4 mm\nrange                   6 \u2014 10              8 \u2014 10              5 \u2014 10\nstd. deviation          1.4                 0.6                 1.3\nOVARY LENGTH\nmean                    17.4 mm             17.9 mm             18.3 mm\nrange                   15 \u2014 20             15 \u2014 20             15 \u2014 20\nstd. deviation          1.9                 3.7                 1.6\nFLOWER WING\nWIDTH\nmean                    5.8 mm              9.3 mm              5.6 mm\nrange                   4 \u2014 7               8 \u2014 12              5 \u2014 7\nstd. deviation          0.7                 1.0                 0.6\nUPPER PETAL\nWING                    small               large               medium\nranking 1 \u2014 9           3                   9                   6\nPETAL COLOURS           blue                blue                blue with white\nRHS No.\njust open               outer 95A           outer 95C           outer 95B\n                        centre white        centre white        centre white\nfully open              outer 104A          outer 104B          whole 100A with\n                        centre white        centre white        white flash\naged                    outer 95A           whole 101A          whole 100A\n                        centre white\nCOROLLA TUBE            orange-white        orange-white        white\nRHS No.                 158A                158B                155D\n\n5"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "high",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 10478,
+    "input_tokens_details": {
+      "cache_write_tokens": 10475,
+      "cached_tokens": 0
+    },
+    "output_tokens": 6318,
+    "output_tokens_details": {
+      "reasoning_tokens": 5136
+    },
+    "total_tokens": 16796
+  },
+  "user": null,
+  "metadata": {}
+}

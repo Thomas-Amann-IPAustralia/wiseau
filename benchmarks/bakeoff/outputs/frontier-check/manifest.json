@@ -11,7 +11,8 @@
  "images": {
   "V5N1_p18": "aeae46c826330cd68806c4a7be784c3fe46fb002a289fe49e7f30ce2e1f4a6d9",
   "V4_p19": "c455e833c3084daf039ebe6facdeb6f26fb33d73933682e3050aa74364a11256",
-  "V2_p12": "07c9c0e91a86fdfa0483309e9fc2e783801419f0f85d2600dabe842688bfd375"
+  "V2_p12": "07c9c0e91a86fdfa0483309e9fc2e783801419f0f85d2600dabe842688bfd375",
+  "V4N1_p7": "53c8a16608c7189567e4d08691f96147ab329077414a62f2b32cbc2fb40ae82f"
  },
  "calls": {
   "gpt-6-astra/V5N1_p18": {
@@ -83,6 +84,20 @@
    "tokens_out": 5353,
    "finish": "completed",
    "usd": 0.3724
+  },
+  "gpt-6-astra/V4N1_p7": {
+   "http": 200,
+   "seconds": 158.7,
+   "raw": "gpt-6-astra__V4N1_p7.json",
+   "raw_sha256": "50bd7fc6284600b5b64f33c70b374a087cb02b4410445b42ec13178eefc1f220",
+   "image_sha256": "53c8a16608c7189567e4d08691f96147ab329077414a62f2b32cbc2fb40ae82f",
+   "sent_at": "2026-11-09T03:01:30Z",
+   "text": "gpt-6-astra/V4N1_p7.md",
+   "text_sha256": "1b10494552eb9c68d7c4fe6b3473c0a8545e5ffb795d2c83c8212b2bbd6d8bcc",
+   "tokens_in": 10478,
+   "tokens_out": 6318,
+   "finish": "completed",
+   "usd": 0.4207
   }
  },
  "failed": [
