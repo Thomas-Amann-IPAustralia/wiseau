@@ -138,7 +138,7 @@ can ship) are noted inline.
 
 ### Tier 2 — the architectural change
 
-- [ ] **2.1 Canonical document IR.** *Core done 2026-11-09 (ADR-043): `parsers/document.py`; adapters for the PyMuPDF4LLM text layer (typed Markdown blocks, no boxes yet), the Tesseract path (psm 3 blocks and stitched tables, ADR-035 paragraphs, every OCR line's box), and Mammoth/docling/GLM-OCR Markdown as unpaged blocks. Still open: a box-bearing text-layer adapter (`get_text("dict")`), docling's JSON tree as an adapter, and the URL path.* A JSON tree with elements (title,
+- [ ] **2.1 Canonical document IR.** *Core done 2026-11-09 (ADR-043): `parsers/document.py`; adapters for the PyMuPDF4LLM text layer (typed Markdown blocks, no boxes yet), the Tesseract path (psm 3 blocks and stitched tables, ADR-035 paragraphs, every OCR line's box), and Mammoth/docling/GLM-OCR Markdown as unpaged blocks. Text-layer blocks got boxes 2026-11-09 (ADR-044: word alignment, 99.3% of V16/V20 blocks boxed, refusal below 0.5 coverage). Still open: docling's JSON tree as an adapter, and the URL path.* A JSON tree with elements (title,
   heading+level, paragraph, list/item, table with cell spans, figure, caption,
   footnote, equation, header/footer, page number) and relationships (parent_of,
   caption_of, footnote_for, continues_from, continues_table, references,
@@ -153,7 +153,7 @@ can ship) are noted inline.
   explicit dialect: CommonMark plus selective HTML. Simple tables use pipe
   syntax; tables with merged cells or nested headers use HTML. That costs no
   WER, because the scorer strips HTML tags. *Effort: moderate.*
-- [ ] **2.3 Structural gold set and metrics.** Annotate 10–15 documents for
+- [x] **2.3 Structural gold set and metrics.** *Done 2026-11-09 (`docs/benchmarks/2026-11-09-structure-gold-set.md`): set S, 12 documents / 20 pages / 399 blocks / 43 relations, blind from page images, frozen in `fb08ab2`; `structure.py` scores block F1, types, split/merge, order, headings (F1, level, tree edit distance), TEDS, emphasis and relations. Gaps: no deeply nested report, no table repeating its header across pages. First scores: the default path recovers no headings, tables or emphasis on scans; docling and GLM-OCR find headings but level all of them `##`; GLM-OCR leads on tables (TEDS 0.72).* Annotate 10–15 documents for
   structure, not just text. For every element record its type, text, parent,
   order, page and relations. Include a multi-column journal, a deeply nested
   report, tables that continue across pages, a footnote-heavy document and a

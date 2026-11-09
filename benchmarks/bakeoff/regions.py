@@ -100,6 +100,11 @@ GROUPS_L = {
     "tables": ["V1N3_p16", "V2N2_p23"],
     "single column": ["V1N3_p12", "V2N2_p29", "V2N2_p30"],
 }
+# Set S (2026-11-09, roadmap 14 item 2.3): the pages of the structural gold set,
+# `structure/S*.md`. Structure, not text, is annotated there; the words come from
+# the references above, or the text layer for V16 p3 and p97. Score with structure.py.
+SAMPLE_S = {"V5N1": [18, 19, 20], "V4": [19, 22, 23, 25, 26, 27], "V2": [11, 12, 20, 21], "V4N1": [7],
+            "P63a": [7], "V5N3": [23, 24], "V16": [3, 90, 97]}
 GROUPS_B = {
     "two-column prose": ["V2_p9", "V2_p11", "V2_p23"],
     "tables": ["V2_p14", "V4_p32"],

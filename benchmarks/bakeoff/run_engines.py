@@ -25,7 +25,7 @@ side by side: concurrent runs on a small box inflate every timing (post-mortem
   python benchmarks/bakeoff/run_engines.py tatr           # psm 3 layout, tables found by Table Transformer (1.3)
   python benchmarks/bakeoff/run_engines.py ppstructure-v3 # PaddleOCR's PP-StructureV3 pipeline (1.3)
 
-Add `--pages KEY,KEY` to run only those pages of the set. Add `--set b`, `--set c`, `--set d`, `--set e`, `--set f` or `--set l` to run another independently
+Add `--pages KEY,KEY` to run only those pages of the set. Add `--set b`, `--set c`, `--set d`, `--set e`, `--set f`, `--set l` or `--set s` (the structural gold set's pages) to run another independently
 transcribed sample (SAMPLE_B ... SAMPLE_L in regions.py) instead of the original one. Timings are merged into the engine's
 timings.json, so running one set never erases the other's.
 
@@ -52,11 +52,11 @@ import pymupdf
 HERE = Path(__file__).parent
 ROOT = HERE.parent.parent
 sys.path.insert(0, str(HERE))
-from regions import DOCS, SAMPLE, SAMPLE_B, SAMPLE_C, SAMPLE_D, SAMPLE_E, SAMPLE_F, SAMPLE_L  # noqa: E402
+from regions import DOCS, SAMPLE, SAMPLE_B, SAMPLE_C, SAMPLE_D, SAMPLE_E, SAMPLE_F, SAMPLE_L, SAMPLE_S  # noqa: E402
 
 _SET = sys.argv[sys.argv.index("--set") + 1].lower() if "--set" in sys.argv else "a"
 ACTIVE = {"a": SAMPLE, "b": SAMPLE_B, "c": SAMPLE_C, "d": SAMPLE_D, "e": SAMPLE_E, "f": SAMPLE_F,
-          "l": SAMPLE_L}[_SET]
+          "l": SAMPLE_L, "s": SAMPLE_S}[_SET]
 
 
 def pages():

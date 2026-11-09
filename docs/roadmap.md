@@ -641,9 +641,15 @@ No paid API is used for this work unless the user says otherwise.
   unedited text, OCR lines, table rows; deterministic JSON) and
   `parsers/serializer.py`; every document path now builds the IR and serializes
   it. Gate passed: byte-for-byte identical on all 15 test PDFs whole (859 pages),
-  a mixed-path PDF and every scored page. Open: box-bearing text-layer adapter,
+  a mixed-path PDF and every scored page. Open:
   docling-JSON adapter, URL path, and the explicit Markdown dialect (its own ADR).
   Write-up: `docs/benchmarks/2026-11-09-ir-neutrality.md`.
+  Text-layer boxes done 2026-11-09 (ADR-044).
+- [x] **2.3 Structural gold set (set S) and `structure.py`.** 12 documents, 20
+  pages, frozen blind; block/type/heading/table/emphasis/relation metrics. The
+  default path scores hd_r 0, TEDS 0.26, em_r 0 on scans; GLM-OCR TEDS 0.72;
+  docling and GLM-OCR level every heading `##`. Write-up:
+  `docs/benchmarks/2026-11-09-structure-gold-set.md`.
 
 Started 2026-11-08. Tiered plan, gates and rationale in
 [`roadmap-ocr-and-structure.md`](roadmap-ocr-and-structure.md), drawn from the two

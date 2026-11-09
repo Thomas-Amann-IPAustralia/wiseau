@@ -93,6 +93,7 @@ wiseau/
 │   │   ├── photo_regions.py  # drop OCR noise read out of photographs (ADR-037)
 │   │   ├── document.py     # the document IR: elements, boxes, provenance (ADR-043)
 │   │   ├── serializer.py   # IR -> Markdown, byte-neutral (ADR-043)
+│   │   ├── text_layer.py   # boxes for text-layer blocks by word alignment (ADR-044)
 │   │   ├── cleaner.py      # regex/Unicode normalization (always runs)
 │   │   ├── chapters.py     # split converted Markdown into chapters (ADR-030)
 │   │   ├── keywords.py     # rank a document's keywords across methods (ADR-032/033)

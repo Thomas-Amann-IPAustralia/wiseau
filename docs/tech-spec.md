@@ -329,6 +329,7 @@ The backend is deliberately small and layered. Each module has one job.
 | `parsers/reading_order.py` | Put a multi-column OCR page's lines back in column order from their bounding boxes (ADR-035). Pure geometry. | Guess when unsure: return `None` (keep MuPDF's order) unless real text columns are found. |
 | `parsers/tesseract_layout.py` | Read a scanned page with Tesseract's own layout analysis (psm 3), stitching side-by-side table cells back into rows (ADR-038). Pure geometry over Tesseract's TSV. The CLI runs on one thread (`OMP_THREAD_LIMIT=1`), and the guard compares *plausible* word counts (ADR-042). | Stitch prose columns; return text when the CLI fails (return `None`, so the caller uses the ADR-035/037 guard). |
 | `parsers/document.py` | The canonical document IR (ADR-043): elements in reading order, each with type, page, box (when the engine reports one), source engine and its text as read; table rows; OCR lines; relations; deterministic JSON (`to_dict`). | Edit an element's `text` (inferred structure goes in its own fields, with `signal`/`confidence`); invent a confidence; depend on docling. |
+| `parsers/text_layer.py` | Boxes for text-layer blocks (ADR-044): align each PyMuPDF4LLM block's words with `page.get_text("words")` and give it the union box, its page lines, `bbox_signal` and `bbox_coverage`. | Touch the Markdown; give a box below `MIN_COVERAGE` (0.5); place a one-word block on one of several candidates. |
 | `parsers/serializer.py` | IR → Markdown, deterministically (`to_markdown`); split an engine's Markdown into typed top-level blocks (`split_markdown`). Its output, normalized, is byte-for-byte what each path returned before the IR (ADR-043). | Change output without its own ADR (the neutrality gate); split inside a code fence; introduce nondeterminism. |
 | `parsers/cleaner.py` | Deterministic Unicode/whitespace/typography normalization; elide base64 data-URI payloads (ADR-024). | Introduce nondeterminism; remove content (it edits payloads, not text). |
 | `parsers/chapters.py` *(Phase 10)* | Split converted Markdown into chapters: read the document's contents page, else its heading structure, else plain-text chapter markers; name and number each chapter's file (§15). | Extract or convert anything; drop or duplicate content; return a split it is not confident in (say `none` instead); introduce nondeterminism. |
@@ -1233,7 +1234,12 @@ is **internal**: no endpoint returns it yet, so the API contract is unchanged
   Markdown; `tesseract-row-stitch` for ADR-038's tables) and a `confidence`, which
   is `null` because neither signal is calibrated.
 * `bbox` is in PDF points, origin top-left; `null` where the engine reports none
-  (PyMuPDF4LLM's Markdown, remote engines). Coordinates are rounded to 0.01 in JSON.
+  (remote engines). Coordinates are rounded to 0.01 in JSON.
+* Text-layer elements get their box by aligning their words with the page's
+  (ADR-044): they carry `bbox_signal: "text-layer-alignment"` and
+  `bbox_coverage`, the share of their words located, plus the page `lines` those
+  words sit on. Below 0.5 coverage the box stays `null` and the coverage is still
+  reported. An element whose box came from its engine has no `bbox_signal`.
 * Types in use: `text` (an OCR block whose role is unknown), `paragraph`,
   `heading` (with `level`), `list`, `table`, `code`, `figure`, `rule`. The
   rest of the vocabulary (`title`, `caption`, `footnote`, `page_header`, …) and

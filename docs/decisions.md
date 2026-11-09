@@ -21,6 +21,49 @@ one `Superseded`.
 
 ---
 
+## ADR-044 — Text-layer blocks get boxes by aligning their words with the page's
+**Date:** 2026-11-09 · **Status:** Accepted (roadmap Phase 14, item 2.1 follow-up; user asked for it)
+**Context:**
+- ADR-043's IR gave OCR elements boxes but left text-layer elements (PyMuPDF4LLM's
+  Markdown blocks) without any: PyMuPDF4LLM's legacy Markdown reports no
+  positions. Page furniture (3.2), paragraph continuation (3.3) and region routing
+  (3.7) all need to know *where* a block sits, on born-digital pages too.
+- PyMuPDF4LLM cannot be switched to its layout mode (ADR-012: non-deterministic),
+  and re-deriving its blocks from `get_text("dict")` would change the Markdown.
+**Decision:** `parsers/text_layer.py`, run on every text-layer page in
+`file_parser._add_native_page` (`TEXT_LAYER_BOXES = False` turns it off).
+- Both sides are cut into the same tokens (letters and digits, lower case; link
+  targets and HTML tags such as `<u>` dropped), and the block tokens are aligned
+  with the page's `get_text("words")` tokens by `difflib.SequenceMatcher`
+  (`autojunk=False`). PyMuPDF4LLM sometimes emits blocks in another order than the
+  page lists its words, so further passes align what is left (runs of 2+ tokens),
+  until a pass aligns nothing (at most 32). A one-word block left over (a page
+  number) is placed only if exactly one unclaimed page token can be it.
+- Each element gets the union box of its aligned words, the page lines they sit
+  on (with boxes) as `lines`, `bbox_signal = "text-layer-alignment"` and
+  `bbox_coverage`, the measured share of its tokens that aligned. **Below 0.5 it
+  gets no box** (refuse rather than guess, ADR-030); the coverage is still reported.
+**Consequences:**
+- V16 and V20 (the two born-digital volumes, 479 text-layer pages, 4,605
+  elements): **99.3% of elements boxed** (4,573), 96.9% with coverage ≥ 0.9.
+  Unboxed (32): footnote markers glued to words by the text layer (`Argentina2`
+  against `Argentina <sup>2</sup>`), struck-through text, repeated labels whose
+  words another block already claimed, and table fragments PyMuPDF4LLM split
+  out of order (V20 p131, p173).
+- Box quality: text blocks do not overlap on a real page, so a box bloated by a
+  stray match would. Of 42,705 same-page pairs, 49 (0.11%) overlap by more than
+  half the smaller box, on 9 pages: repeated caption text (V16 p52–53, "Rose –
+  flower and plant parts" in every caption) and table rows PyMuPDF4LLM itself
+  split into interleaved blocks (V20 p173, p224). Drawn on V16 p8 and V20 p173,
+  the boxes sit on the right text.
+- The Markdown is untouched (the serializer does not read boxes): V16 and V20
+  converted whole are byte-identical to ADR-043's output, and so is every harness
+  page re-run (sets A and S, 26 pages; the alignment only runs on text-layer
+  pages, which in the harness are V16's). Time within noise (V20 whole: 26–28 s
+  either way).
+- JSON gains `bbox_signal` and `bbox_coverage` on such elements (schema stays
+  `0.1`: additive). 555 tests pass, 8 skipped.
+
 ## ADR-043 — A document IR between the engines and the Markdown, serialized byte-neutrally
 **Date:** 2026-11-09 · **Status:** Accepted (roadmap Phase 14, items 2.1–2.2; user asked for Tier 2)
 **Context:**
