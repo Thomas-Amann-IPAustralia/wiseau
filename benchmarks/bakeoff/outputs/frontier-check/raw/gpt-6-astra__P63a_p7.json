@@ -1,0 +1,128 @@
+{
+  "id": "resp_0eb64a0339703ab8006af1382ea29087d1932d5f742e1eb34b",
+  "object": "response",
+  "created_at": 1794193454,
+  "status": "completed",
+  "access_programs": null,
+  "background": true,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1794193519,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 32768,
+  "max_tool_calls": null,
+  "model": "gpt-6-astra",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_0eb64a0339703ab8006af13831a59c87d186c36c98696e4522",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_0eb64a0339703ab8006af13836d32887d18c561e25c0e7b647",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_0eb64a0339703ab8006af1384310ac87d18450053931df4419",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_0eb64a0339703ab8006af13851e60087d1af4521521b523b68",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_0eb64a0339703ab8006af1385f74d087d1b502199754b5659e",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "msg_0eb64a0339703ab8006af1386ad42887d1b4e1d255921a8a76",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "275390\nA hypothesis may be that these\n\nproducts become degraded to yield unsaturated ketones, compounds known to\nshow antimicrobial activity under certain conditions. However, the incorp-\noration of our compositions in such acid systems as certain of the latex\npaints, paper mill water, or even in biological laboratory tests conducted\non the acid side, which would prevent such degradation, nevertheless gives\nresults of excellent order of control of growth of microorganisms. It is\nwell established that these bases remain intact as salts under such acid\nconditions, and tests for the presence of alpha, beta-unsaturated ketones\nhave proved to be negative.\nAs indicated above, the amines employed in preparing the condensates\ncan be cyclic amines in which each N of the formulas is part of a ring. As\ndisclosed hereinafter, the amine groups in each molecule of a condensation\nproduct can be of different types; thus, one group can be cyclic and the\nother not, or they can be different cyclic groups as well as different non-\ncyclic groups. The cyclic amines include morpholine, piperidine, piperazine,\npyrrolidine, parathiazine, meta-thiazolidine and other, preferably saturated,\ncyclic amines with or without an additional hetero atom.\nOne of the most useful applications which we have discovered for the\ncompounds employed in the present invention is in the preservation and dis-\ninfection of emulsions formed from \"soluble oils\". \"Soluble oils\" are in-\ndustrial compositions used in metal-working as coolants, lubricants, flush-\ning agents, and anti-corrosives, after being mixed with and emulsified in\nwater. Other applications are as fluids in hydraulic systems and lubricants\nin extrusion processes. Where metals contact metals, as in the case of cut-\nting tools in lathes, grinders, and drill presses, or even where non-metals\nare extruded through metal dies, the use of these emulsified oils is essen-\ntial.\nThe oils consist generally of chemically complex mixtures of petroleum,\nemulsifying agent, and coupling agent. (L.R. Sabina and H. Pivnick, Applied\nMicrobiology, Vol. 4, p. 173 (1956)). The petroleum fraction is composed of\naliphatic or cyclic compounds of varying molecular weight and degree of com-\nplexity. Fats used may be lard, sperm oil, rape seed oil, etc. Both petro-\nleum and fat may be chlorinated, sulfurized or sulfonated. Emulsifying\nagents may be amine or sodium soaps of high molecular weight, alcohols, poly-\n\n- 7"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "high",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 7358,
+    "input_tokens_details": {
+      "cache_write_tokens": 7355,
+      "cached_tokens": 0
+    },
+    "output_tokens": 3066,
+    "output_tokens_details": {
+      "reasoning_tokens": 2505
+    },
+    "total_tokens": 10424
+  },
+  "user": null,
+  "metadata": {}
+}
