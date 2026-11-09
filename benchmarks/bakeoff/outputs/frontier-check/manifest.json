@@ -98,6 +98,20 @@
    "tokens_out": 6318,
    "finish": "completed",
    "usd": 0.4207
+  },
+  "gemini-4-argon/V2_p12": {
+   "http": 200,
+   "seconds": 77.5,
+   "raw": "gemini-4-argon__V2_p12.sse",
+   "raw_sha256": "6097e39065eb6eeb5b25d38be2d9e7923e41e1dc3bff3811eb611c64593ba0e2",
+   "image_sha256": "07c9c0e91a86fdfa0483309e9fc2e783801419f0f85d2600dabe842688bfd375",
+   "sent_at": "2026-11-09T03:03:13Z",
+   "text": "gemini-4-argon/V2_p12.md",
+   "text_sha256": "7bbc1469a369fb61e78343128fd81acb145c0c91614f27d0e66df3c635fcbb05",
+   "tokens_in": 2395,
+   "tokens_out": 6578,
+   "finish": "STOP",
+   "usd": 0.0706
   }
  },
  "failed": [
