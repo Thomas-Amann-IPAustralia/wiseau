@@ -133,6 +133,13 @@
    "sent_at": "2026-11-09T02:58:51Z",
    "error": "upstream request failed",
    "usd": 0.3677
+  },
+  {
+   "call": "gemini-4-argon/V4N1_p7",
+   "http": null,
+   "usd": 0.368,
+   "error": "runner killed by the session's 10-minute background limit while the request was open; no response received; worst case booked",
+   "sent_at": "2026-11-09T~03:05Z"
   }
  ],
  "superseded": [
