@@ -1,0 +1,963 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    50.88,
+    423.12,
+    241.92,
+    432.0
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      50.88,
+      423.12,
+      241.92,
+      432.0
+     ],
+     "text": "\u2018Moonbeam\u2019 (Photograph supplied by applicant)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Moonbeam\u2019 (Photograph supplied by applicant)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    50.88,
+    452.64,
+    283.2,
+    510.0
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      51.36,
+      452.64,
+      92.16,
+      460.8
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      51.6,
+      461.76,
+      268.8,
+      469.44
+     ],
+     "text": "\u2018Moonbeam\u2019 is a white flowered Galtonia. It is distinct"
+    },
+    {
+     "bbox": [
+      51.12,
+      471.6,
+      283.2,
+      480.24
+     ],
+     "text": "from known varieties in having the following combination"
+    },
+    {
+     "bbox": [
+      51.36,
+      481.68,
+      282.72,
+      490.08
+     ],
+     "text": "of characters: very full flowers, similar in appearance to a"
+    },
+    {
+     "bbox": [
+      50.88,
+      491.28,
+      277.68,
+      499.92
+     ],
+     "text": "double tuberose (Polianthes sp.), opening flat with about"
+    },
+    {
+     "bbox": [
+      51.36,
+      501.12,
+      272.88,
+      510.0
+     ],
+     "text": "forty flowers held erect on a scape of some 1.6 metres."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\n\u2018Moonbeam\u2019 is a white flowered Galtonia. It is distinct\nfrom known varieties in having the following combination\nof characters: very full flowers, similar in appearance to a\ndouble tuberose (Polianthes sp.), opening flat with about\nforty flowers held erect on a scape of some 1.6 metres.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.12,
+    525.12,
+    283.68,
+    553.92
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      51.12,
+      525.12,
+      179.76,
+      533.76
+     ],
+     "text": "Varieties Used for Comparison"
+    },
+    {
+     "bbox": [
+      51.6,
+      535.2,
+      283.68,
+      543.36
+     ],
+     "text": "Galtonia candicans normal form, being the closest known"
+    },
+    {
+     "bbox": [
+      51.36,
+      545.04,
+      271.2,
+      553.92
+     ],
+     "text": "variety and the only other varietal form known to exist."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties Used for Comparison\nGaltonia candicans normal form, being the closest known\nvariety and the only other varietal form known to exist.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    50.88,
+    569.28,
+    289.44,
+    675.36
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      51.36,
+      569.28,
+      169.92,
+      577.92
+     ],
+     "text": "Comparative Growing Trials"
+    },
+    {
+     "bbox": [
+      51.12,
+      579.12,
+      280.08,
+      587.28
+     ],
+     "text": "All characteristics described below are from comparative"
+    },
+    {
+     "bbox": [
+      51.36,
+      588.96,
+      280.56,
+      597.84
+     ],
+     "text": "growing trials conducted at the nurseries of Parva Plants"
+    },
+    {
+     "bbox": [
+      51.6,
+      598.8,
+      285.84,
+      606.24
+     ],
+     "text": "International situated at 200 metres altitude in the Kiamai"
+    },
+    {
+     "bbox": [
+      51.84,
+      608.4,
+      282.72,
+      617.28
+     ],
+     "text": "Hill Range 25 kilometres from Tauranga, in New Zealand."
+    },
+    {
+     "bbox": [
+      50.88,
+      618.48,
+      280.08,
+      626.4
+     ],
+     "text": "The trial was over three flowering seasons from January"
+    },
+    {
+     "bbox": [
+      52.32,
+      627.84,
+      270.48,
+      636.48
+     ],
+     "text": "1987 to April 1989 inclusive. Five thousand trial bulbs"
+    },
+    {
+     "bbox": [
+      51.36,
+      637.44,
+      281.76,
+      646.32
+     ],
+     "text": "were propagated using tissue culture from a single offset"
+    },
+    {
+     "bbox": [
+      51.6,
+      647.28,
+      289.44,
+      656.16
+     ],
+     "text": "separated from the original mother bulb. The tissue culture"
+    },
+    {
+     "bbox": [
+      51.36,
+      656.88,
+      276.24,
+      665.76
+     ],
+     "text": "work was done by Plant Propagation Laboratories Ltd of"
+    },
+    {
+     "bbox": [
+      51.84,
+      667.44,
+      172.32,
+      675.36
+     ],
+     "text": "Havelock North, New Zealand."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials\nAll characteristics described below are from comparative\ngrowing trials conducted at the nurseries of Parva Plants\nInternational situated at 200 metres altitude in the Kiamai\nHill Range 25 kilometres from Tauranga, in New Zealand.\nThe trial was over three flowering seasons from January\n1987 to April 1989 inclusive. Five thousand trial bulbs\nwere propagated using tissue culture from a single offset\nseparated from the original mother bulb. The tissue culture\nwork was done by Plant Propagation Laboratories Ltd of\nHavelock North, New Zealand.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.36,
+    690.48,
+    288.24,
+    768.96
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      51.6,
+      690.48,
+      284.4,
+      701.28
+     ],
+     "text": "Comparison trial plants were grown for a first season trial"
+    },
+    {
+     "bbox": [
+      52.08,
+      701.28,
+      278.4,
+      709.92
+     ],
+     "text": "in standard bark-based potting mix in PVC containers. In"
+    },
+    {
+     "bbox": [
+      51.6,
+      711.6,
+      270.24,
+      719.52
+     ],
+     "text": "the second and third trial seasons plants were in open"
+    },
+    {
+     "bbox": [
+      51.36,
+      721.2,
+      288.24,
+      729.84
+     ],
+     "text": "ground. No protection was given at any time. The trial area"
+    },
+    {
+     "bbox": [
+      51.84,
+      730.8,
+      284.88,
+      739.44
+     ],
+     "text": "has a temperate/maritime climate with an annual rainfall"
+    },
+    {
+     "bbox": [
+      51.36,
+      740.4,
+      267.6,
+      748.8
+     ],
+     "text": "of 1500mm and a mean annual temperature range of"
+    },
+    {
+     "bbox": [
+      51.6,
+      750.72,
+      278.64,
+      758.88
+     ],
+     "text": "\u2014 3\u00b0C to 28\u00b0C. \u2018Moonbeam\u2019 was subsequently grown at"
+    },
+    {
+     "bbox": [
+      51.84,
+      760.32,
+      211.92,
+      768.96
+     ],
+     "text": "Phytotech\u2019s property in South Australia."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparison trial plants were grown for a first season trial\nin standard bark-based potting mix in PVC containers. In\nthe second and third trial seasons plants were in open\nground. No protection was given at any time. The trial area\nhas a temperate/maritime climate with an annual rainfall\nof 1500mm and a mean annual temperature range of\n\u2014 3\u00b0C to 28\u00b0C. \u2018Moonbeam\u2019 was subsequently grown at\nPhytotech\u2019s property in South Australia.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    316.56,
+    60.72,
+    551.04,
+    127.92
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      317.04,
+      60.72,
+      342.24,
+      69.36
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      316.56,
+      70.08,
+      546.0,
+      78.48
+     ],
+     "text": "This variety arose in January 1982 as a sport of Galtonia"
+    },
+    {
+     "bbox": [
+      317.04,
+      80.16,
+      544.32,
+      87.84
+     ],
+     "text": "candicans in Masterton, New Zealand. The material was"
+    },
+    {
+     "bbox": [
+      317.04,
+      90.24,
+      534.48,
+      99.12
+     ],
+     "text": "subsequently propagated asexually to form the variety"
+    },
+    {
+     "bbox": [
+      317.52,
+      100.08,
+      550.8,
+      108.48
+     ],
+     "text": "\u2018Moonbeam\u2019. It has been protected by Plant Variety Rights"
+    },
+    {
+     "bbox": [
+      317.52,
+      110.16,
+      551.04,
+      117.6
+     ],
+     "text": "in New Zealand since 1987 and has been sold there since"
+    },
+    {
+     "bbox": [
+      317.76,
+      120.72,
+      339.84,
+      127.92
+     ],
+     "text": "1989."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\nThis variety arose in January 1982 as a sport of Galtonia\ncandicans in Masterton, New Zealand. The material was\nsubsequently propagated asexually to form the variety\n\u2018Moonbeam\u2019. It has been protected by Plant Variety Rights\nin New Zealand since 1987 and has been sold there since\n1989.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    317.28,
+    144.72,
+    545.76,
+    202.8
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      317.76,
+      144.72,
+      474.48,
+      153.36
+     ],
+     "text": "Morphology \u2014 see comparison tables."
+    },
+    {
+     "bbox": [
+      317.52,
+      154.8,
+      528.48,
+      163.2
+     ],
+     "text": "In all respects except those relating to the scape and"
+    },
+    {
+     "bbox": [
+      317.52,
+      164.64,
+      539.28,
+      171.84
+     ],
+     "text": "flowers \u2018Moonbeam\u2019 is identical to the normal Ga/ftania"
+    },
+    {
+     "bbox": [
+      317.28,
+      174.48,
+      536.64,
+      182.88
+     ],
+     "text": "candicans form. It is a bulbous species of the Liliaceae"
+    },
+    {
+     "bbox": [
+      317.52,
+      184.32,
+      545.76,
+      192.96
+     ],
+     "text": "family having few linear flat leaves, drooping at the ends"
+    },
+    {
+     "bbox": [
+      317.28,
+      194.4,
+      522.24,
+      202.8
+     ],
+     "text": "with a single erect scape produced from each bulb."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 see comparison tables.\nIn all respects except those relating to the scape and\nflowers \u2018Moonbeam\u2019 is identical to the normal Ga/ftania\ncandicans form. It is a bulbous species of the Liliaceae\nfamily having few linear flat leaves, drooping at the ends\nwith a single erect scape produced from each bulb.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    317.52,
+    217.92,
+    552.96,
+    296.4
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      317.76,
+      217.92,
+      539.52,
+      226.08
+     ],
+     "text": "\u2018Moonbeam\u2019 is totally sterile with all sexual parts being"
+    },
+    {
+     "bbox": [
+      317.76,
+      227.76,
+      544.56,
+      236.16
+     ],
+     "text": "petalloid and propagation is only by vegetative means as"
+    },
+    {
+     "bbox": [
+      317.76,
+      237.6,
+      550.32,
+      246.0
+     ],
+     "text": "offset bulbs are very sparingly produced. \u2018Moonbeam\u2019 has"
+    },
+    {
+     "bbox": [
+      317.76,
+      247.68,
+      550.56,
+      256.32
+     ],
+     "text": "a scape carrying 40 or more white flowers compared with"
+    },
+    {
+     "bbox": [
+      317.76,
+      257.52,
+      536.16,
+      264.96
+     ],
+     "text": "about 20 in the normal Ga/tonia candicans. \\t also has"
+    },
+    {
+     "bbox": [
+      318.0,
+      267.84,
+      552.48,
+      276.24
+     ],
+     "text": "nearly four times the number of petals of the normal form."
+    },
+    {
+     "bbox": [
+      318.24,
+      277.92,
+      552.96,
+      286.32
+     ],
+     "text": "\u2018Moonbeam\u2019 has a flower with over 45 petals, opening flat"
+    },
+    {
+     "bbox": [
+      317.52,
+      288.24,
+      475.68,
+      296.4
+     ],
+     "text": "from a globose bud on an erect pedicel."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Moonbeam\u2019 is totally sterile with all sexual parts being\npetalloid and propagation is only by vegetative means as\noffset bulbs are very sparingly produced. \u2018Moonbeam\u2019 has\na scape carrying 40 or more white flowers compared with\nabout 20 in the normal Ga/tonia candicans. \\t also has\nnearly four times the number of petals of the normal form.\n\u2018Moonbeam\u2019 has a flower with over 45 petals, opening flat\nfrom a globose bud on an erect pedicel.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    318.0,
+    319.92,
+    532.56,
+    341.76
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      318.24,
+      319.92,
+      532.56,
+      330.96
+     ],
+     "text": "Table of Comparison of Galtonia Varieties"
+    },
+    {
+     "bbox": [
+      318.0,
+      333.36,
+      457.92,
+      341.76
+     ],
+     "text": "(* = varieties used for comparison)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Galtonia Varieties\n(* = varieties used for comparison)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    318.24,
+    372.48,
+    544.8,
+    408.48
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      401.52,
+      372.48,
+      544.8,
+      382.32
+     ],
+     "text": "\u2018Moonbeam\u2018 * Galtonia candicans"
+    },
+    {
+     "bbox": [
+      479.52,
+      383.04,
+      517.44,
+      390.0
+     ],
+     "text": "normal form"
+    },
+    {
+     "bbox": [
+      318.24,
+      400.32,
+      512.4,
+      408.48
+     ],
+     "text": "PEDICEL ATTITUDE erect pendulous"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Moonbeam\u2018 * Galtonia candicans\nnormal form\nPEDICEL ATTITUDE erect pendulous",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    317.28,
+    414.24,
+    544.56,
+    669.12
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      318.24,
+      414.24,
+      544.56,
+      422.64
+     ],
+     "text": "FLOWER SHAPE rotate narrow campanulate"
+    },
+    {
+     "bbox": [
+      318.0,
+      428.64,
+      429.6,
+      435.6
+     ],
+     "text": "NUMBER OF PETALS PER FLOWER"
+    },
+    {
+     "bbox": [
+      318.24,
+      438.72,
+      482.88,
+      445.44
+     ],
+     "text": "mean 46 6"
+    },
+    {
+     "bbox": [
+      318.0,
+      448.8,
+      498.0,
+      456.96
+     ],
+     "text": "range 42 \u201450 6-6"
+    },
+    {
+     "bbox": [
+      318.0,
+      462.48,
+      382.32,
+      469.2
+     ],
+     "text": "FLOWER DIAMETER"
+    },
+    {
+     "bbox": [
+      318.0,
+      472.32,
+      501.6,
+      479.04
+     ],
+     "text": "mean 44mm 19mm"
+    },
+    {
+     "bbox": [
+      318.24,
+      486.0,
+      431.52,
+      492.96
+     ],
+     "text": "NUMBER OF FLOWERS PER SCAPE"
+    },
+    {
+     "bbox": [
+      318.24,
+      495.84,
+      487.68,
+      502.56
+     ],
+     "text": "mean 39 20"
+    },
+    {
+     "bbox": [
+      318.0,
+      505.68,
+      507.36,
+      513.84
+     ],
+     "text": "range 33 \u2014 46 16 \u2014 26"
+    },
+    {
+     "bbox": [
+      318.48,
+      519.6,
+      373.68,
+      526.32
+     ],
+     "text": "PEDICEL LENGTH"
+    },
+    {
+     "bbox": [
+      318.24,
+      529.68,
+      501.6,
+      536.64
+     ],
+     "text": "mean 80 mm 38 mm"
+    },
+    {
+     "bbox": [
+      318.24,
+      539.76,
+      507.36,
+      548.16
+     ],
+     "text": "range 65 \u2014 88 32 \u2014 43"
+    },
+    {
+     "bbox": [
+      318.0,
+      553.68,
+      367.92,
+      560.64
+     ],
+     "text": "SCAPE LENGTH"
+    },
+    {
+     "bbox": [
+      318.24,
+      563.76,
+      497.28,
+      570.72
+     ],
+     "text": "mean 1.6m 1.2m"
+    },
+    {
+     "bbox": [
+      318.24,
+      572.88,
+      510.96,
+      583.2
+     ],
+     "text": "range 12-19 0.8\u2014 1.5"
+    },
+    {
+     "bbox": [
+      318.72,
+      610.32,
+      383.76,
+      620.64
+     ],
+     "text": "BANKSIA"
+    },
+    {
+     "bbox": [
+      317.52,
+      624.0,
+      491.52,
+      636.24
+     ],
+     "text": "(Banksia hookeriana hybrid)"
+    },
+    {
+     "bbox": [
+      317.28,
+      654.72,
+      332.64,
+      669.12
+     ],
+     "text": "C1"
+    },
+    {
+     "bbox": [
+      325.68,
+      662.16,
+      332.64,
+      669.12
+     ],
+     "text": "="
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "FLOWER SHAPE rotate narrow campanulate\nNUMBER OF PETALS PER FLOWER\nmean 46 6\nrange 42 \u201450 6-6\nFLOWER DIAMETER\nmean 44mm 19mm\nNUMBER OF FLOWERS PER SCAPE\nmean 39 20\nrange 33 \u2014 46 16 \u2014 26\nPEDICEL LENGTH\nmean 80 mm 38 mm\nrange 65 \u2014 88 32 \u2014 43\nSCAPE LENGTH\nmean 1.6m 1.2m\nrange 12-19 0.8\u2014 1.5\nBANKSIA\n(Banksia hookeriana hybrid)\nC1\n=",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    317.28,
+    676.8,
+    544.56,
+    714.0
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      317.28,
+      676.8,
+      512.88,
+      685.44
+     ],
+     "text": "Variety: \u2018Waite Orange\u2019 Application No. 91/020"
+    },
+    {
+     "bbox": [
+      317.28,
+      687.12,
+      460.08,
+      695.52
+     ],
+     "text": "Application received: 6 March 1991"
+    },
+    {
+     "bbox": [
+      317.52,
+      696.96,
+      544.56,
+      705.6
+     ],
+     "text": "Applicant: Luminis Pty Ltd, The University of Adelaide,"
+    },
+    {
+     "bbox": [
+      317.76,
+      707.04,
+      382.56,
+      714.0
+     ],
+     "text": "South Australia."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Waite Orange\u2019 Application No. 91/020\nApplication received: 6 March 1991\nApplicant: Luminis Pty Ltd, The University of Adelaide,\nSouth Australia.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    317.52,
+    730.8,
+    543.36,
+    768.72
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      318.0,
+      730.8,
+      358.8,
+      738.96
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      318.0,
+      740.64,
+      527.04,
+      749.28
+     ],
+     "text": "\u2018Waite Orange\u2019 is a medium height orange flowered"
+    },
+    {
+     "bbox": [
+      318.0,
+      750.48,
+      543.36,
+      759.12
+     ],
+     "text": "Banksia. It is distinct from known varieties in having the"
+    },
+    {
+     "bbox": [
+      317.52,
+      760.32,
+      539.52,
+      768.72
+     ],
+     "text": "following combination of characters: a perennial bushy"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\n\u2018Waite Orange\u2019 is a medium height orange flowered\nBanksia. It is distinct from known varieties in having the\nfollowing combination of characters: a perennial bushy",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

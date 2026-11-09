@@ -138,7 +138,7 @@ can ship) are noted inline.
 
 ### Tier 2 — the architectural change
 
-- [ ] **2.1 Canonical document IR.** A JSON tree with elements (title,
+- [ ] **2.1 Canonical document IR.** *Core done 2026-11-09 (ADR-043): `parsers/document.py`; adapters for the PyMuPDF4LLM text layer (typed Markdown blocks, no boxes yet), the Tesseract path (psm 3 blocks and stitched tables, ADR-035 paragraphs, every OCR line's box), and Mammoth/docling/GLM-OCR Markdown as unpaged blocks. Still open: a box-bearing text-layer adapter (`get_text("dict")`), docling's JSON tree as an adapter, and the URL path.* A JSON tree with elements (title,
   heading+level, paragraph, list/item, table with cell spans, figure, caption,
   footnote, equation, header/footer, page number) and relationships (parent_of,
   caption_of, footnote_for, continues_from, continues_table, references,
@@ -147,7 +147,7 @@ can ship) are noted inline.
   fields with a `confidence`, so nothing overwrites the transcription. Adapter
   order: PyMuPDF text layer and the Tesseract layout path first (the defaults),
   then docling JSON, Mammoth, and the URL path. *Effort: large.*
-- [ ] **2.2 Deterministic Markdown serializer.** IR → Markdown. **Gate: its
+- [ ] **2.2 Deterministic Markdown serializer.** *Gate passed 2026-11-09 (ADR-043, `docs/benchmarks/2026-11-09-ir-neutrality.md`): `parsers/serializer.py` replaces the string path, byte for byte on all 15 test PDFs whole (859 pages), a mixed-path PDF and every scored page. Still open: the explicit dialect (changes output; its own ADR).* IR → Markdown. **Gate: its
   output must match today's Markdown byte for byte before it replaces the current
   path**, so the refactor is provably behaviour-neutral. After that, adopt an
   explicit dialect: CommonMark plus selective HTML. Simple tables use pipe

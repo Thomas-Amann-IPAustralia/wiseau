@@ -12,7 +12,7 @@ calls an external service.
 | `build_references.py` | Rebuilds the V16 references from the text layer. `--draft` writes Tesseract drafts of the scans. |
 | `references/` | One `.txt` per page. Scans are hand-corrected from `references/drafts/`. |
 | `run_engines.py` | Runs one engine over the sample, one page at a time. Writes `outputs/<engine>/`. |
-| `outputs/<engine>/` | Raw Markdown per page, `timings.json`, and `runs.json` (seconds, peak RSS, failures; runs since 2026-11-08). The `docling` engine also writes `<page>.json`, its document tree. |
+| `outputs/<engine>/` | Raw Markdown per page, `timings.json`, and `runs.json` (seconds, peak RSS, failures; runs since 2026-11-08). The `docling` engine also writes `<page>.json`, its document tree; `pymupdf` writes `<page>.json`, the default path's document IR (ADR-043). |
 | `run_gemini.py` | Gemini over the sample, under a hard budget (`--budget`, default $1). Use `--smoke` for one page. Ledger: `outputs/<model>/spend.json`. |
 | `vote.py` | Word-level voting, consensus routers and the per-page oracle over the offline engines' outputs. No engines run. Write-up: `docs/benchmarks/2026-11-03-voting-experiment.md`. |
 | `disagreements.py` | Lists words where engines disagree with a set-B reference, for adjudication against the page image. Log: `adjudication/log.md`. |
@@ -25,6 +25,7 @@ calls an external service.
 | `rule_search.py` | Searches per-page preprocessing rules on the development sets and scores the best on E and F. |
 | `guard_cache.py`, `guard_eval.py` | The two texts the ADR-038 guard chooses between, for any pages; which pages a counting rule flips and whether that helps (ADR-042). |
 | `tatr_detections.py` | Table Transformer's raw table boxes and scores per scored scan. |
+| `whole_docs.py` | Converts whole PDFs with any checkout's default path, one `.md` each: the byte-for-byte gate for refactors (ADR-043), since one-page samples never exercise page joins, the fast path or the mixed path. |
 | `word_errors.py` | Lists every word an engine misread, lost or inserted on a set, against the references (`ENGINE --set l [--summary]`). Says *what* went wrong where `score.py` says how much. |
 
 Two samples: set A (`SAMPLE`, the original 10 pages) and set B (`SAMPLE_B`, 10 scanned pages blind-transcribed on 2026-11-03; see `docs/benchmarks/2026-11-03-set-b.md`). Add `--set b` to `run_engines.py` and `score.py` for set B, or `--set c` for set C (`SAMPLE_C`, held out for ADR-037 and the router; see `docs/benchmarks/2026-11-03-set-c.md`), or `--set d` for set D (`SAMPLE_D`, 12 scans from Vol 5 No 1 and No 3, held out for ADR-038; see `docs/benchmarks/2026-11-06-set-d.md`). Sets E (`SAMPLE_E`, 12 patent/WO pages), F (`SAMPLE_F`, 14 held-out PBR pages) and L (`SAMPLE_L`, 8 random pages from the Acrobat-OCR'd PBR journals) take `--set e`, `--set f` and `--set l`; see `docs/benchmarks/2026-11-08-layer-audit.md`.

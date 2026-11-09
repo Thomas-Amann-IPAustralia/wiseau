@@ -1,0 +1,552 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    79.92,
+    121.44,
+    83.76,
+    128.16
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      79.92,
+      121.44,
+      83.76,
+      128.16
+     ],
+     "text": "Jf"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Jf",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    119.76,
+    362.4,
+    131.04,
+    369.84
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      119.76,
+      362.4,
+      131.04,
+      369.84
+     ],
+     "text": "ic."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ic.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    118.8,
+    536.88,
+    129.12,
+    544.32
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      118.8,
+      537.12,
+      123.36,
+      544.32
+     ],
+     "text": "he"
+    },
+    {
+     "bbox": [
+      124.32,
+      536.88,
+      129.12,
+      544.08
+     ],
+     "text": "co"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "he\nco",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    118.8,
+    623.76,
+    128.88,
+    631.2
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      118.8,
+      623.76,
+      128.88,
+      631.2
+     ],
+     "text": "25"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "25",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    114.24,
+    892.32,
+    211.44,
+    895.44
+   ],
+   "confidence": null,
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      114.24,
+      892.32,
+      120.24,
+      895.44
+     ],
+     "text": "rm"
+    },
+    {
+     "bbox": [
+      150.24,
+      892.32,
+      211.44,
+      895.44
+     ],
+     "text": "RTE eee"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       114.24,
+       892.32,
+       120.24,
+       895.44
+      ],
+      "text": "rm"
+     },
+     {
+      "bbox": [
+       150.24,
+       892.32,
+       211.44,
+       895.44
+      ],
+      "text": "RTE eee"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "rm RTE eee",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    238.32,
+    155.04,
+    504.0,
+    181.2
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      238.32,
+      155.04,
+      504.0,
+      163.68
+     ],
+     "text": "ALKOXYLATED FATTY ALCOHOLS AS AXILLARY"
+    },
+    {
+     "bbox": [
+      259.92,
+      172.56,
+      482.4,
+      181.2
+     ],
+     "text": "BUD INHIBITORS ON TOBACCO PLANTS"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ALKOXYLATED FATTY ALCOHOLS AS AXILLARY\nBUD INHIBITORS ON TOBACCO PLANTS",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    154.08,
+    206.88,
+    605.04,
+    358.32
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      224.64,
+      206.88,
+      566.88,
+      217.92
+     ],
+     "text": "This invention relates to the control of axillary"
+    },
+    {
+     "bbox": [
+      154.56,
+      223.92,
+      594.72,
+      236.16
+     ],
+     "text": "buds (suckers) in tobacco plants by the application of contact-"
+    },
+    {
+     "bbox": [
+      155.28,
+      241.92,
+      552.24,
+      253.68
+     ],
+     "text": "type chemical sucker control agents. In particular it is"
+    },
+    {
+     "bbox": [
+      155.28,
+      259.2,
+      580.32,
+      270.96
+     ],
+     "text": "directed to the use of alkoxylated fatty alcohols having 6-10"
+    },
+    {
+     "bbox": [
+      155.28,
+      276.96,
+      559.92,
+      288.48
+     ],
+     "text": "carbon atoms and a hydrophilic/lipophilic balance (HLB) of"
+    },
+    {
+     "bbox": [
+      155.28,
+      294.72,
+      186.72,
+      303.6
+     ],
+     "text": "8-14,"
+    },
+    {
+     "bbox": [
+      224.64,
+      312.0,
+      588.24,
+      323.52
+     ],
+     "text": "Tobacco leaf quality and yield are greatly increased"
+    },
+    {
+     "bbox": [
+      154.08,
+      329.04,
+      605.04,
+      341.04
+     ],
+     "text": "by \"topping\" tobacco plants in the mid-bud to late-bud stage of \u00a9"
+    },
+    {
+     "bbox": [
+      154.56,
+      346.8,
+      552.24,
+      358.32
+     ],
+     "text": "growth and development. This is achieved by removing the"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "This invention relates to the control of axillary\nbuds (suckers) in tobacco plants by the application of contact-\ntype chemical sucker control agents. In particular it is\ndirected to the use of alkoxylated fatty alcohols having 6-10\ncarbon atoms and a hydrophilic/lipophilic balance (HLB) of\n8-14,\nTobacco leaf quality and yield are greatly increased\nby \"topping\" tobacco plants in the mid-bud to late-bud stage of \u00a9\ngrowth and development. This is achieved by removing the",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    147.84,
+    364.56,
+    545.04,
+    377.28
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      147.84,
+      364.56,
+      545.04,
+      377.28
+     ],
+     "text": "flowers and several adjacent top leaves. As soon as the"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "flowers and several adjacent top leaves. As soon as the",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    153.6,
+    381.84,
+    594.96,
+    688.8
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      155.04,
+      381.84,
+      594.72,
+      393.36
+     ],
+     "text": "inflorescence is removed, many processes become active. One of"
+    },
+    {
+     "bbox": [
+      155.04,
+      395.52,
+      573.6,
+      411.6
+     ],
+     "text": "these is the accumulation of nicotine and other alkaloids in"
+    },
+    {
+     "bbox": [
+      155.28,
+      412.56,
+      536.4,
+      427.68
+     ],
+     "text": "the leaves, particularly in the upper 2/3 of the plant."
+    },
+    {
+     "bbox": [
+      154.32,
+      433.92,
+      580.32,
+      445.2
+     ],
+     "text": "Topping also allows the leaves in the upper part of the plant"
+    },
+    {
+     "bbox": [
+      155.04,
+      451.68,
+      585.6,
+      462.72
+     ],
+     "text": "to continue to grow and consequently increase the total yield."
+    },
+    {
+     "bbox": [
+      223.92,
+      468.72,
+      559.2,
+      480.24
+     ],
+     "text": "Decapitation (topping) of the plant enhances the"
+    },
+    {
+     "bbox": [
+      154.56,
+      485.76,
+      566.88,
+      497.52
+     ],
+     "text": "growth of axillary buds or \"suckers\"; these must be removed"
+    },
+    {
+     "bbox": [
+      155.28,
+      503.52,
+      594.96,
+      515.04
+     ],
+     "text": "continuously or permanently in order to achieve the benefits of"
+    },
+    {
+     "bbox": [
+      155.28,
+      521.04,
+      578.88,
+      532.32
+     ],
+     "text": "topping. Removal of the suckers may be accomplished by hand,"
+    },
+    {
+     "bbox": [
+      153.6,
+      538.08,
+      580.8,
+      549.6
+     ],
+     "text": "which is a very time consuming and laborious operation, or by"
+    },
+    {
+     "bbox": [
+      155.52,
+      555.6,
+      270.72,
+      564.48
+     ],
+     "text": "chemical control."
+    },
+    {
+     "bbox": [
+      224.64,
+      573.12,
+      594.48,
+      584.4
+     ],
+     "text": "Two types of chemical agents are available: systemic"
+    },
+    {
+     "bbox": [
+      155.28,
+      590.64,
+      587.76,
+      603.36
+     ],
+     "text": "and contact. In the United States of America, it is common to"
+    },
+    {
+     "bbox": [
+      154.56,
+      607.68,
+      581.04,
+      619.2
+     ],
+     "text": "use a combination of both types of sucker control agents. An"
+    },
+    {
+     "bbox": [
+      155.52,
+      624.72,
+      587.28,
+      638.16
+     ],
+     "text": "application of a contact control agent will be followed by the"
+    },
+    {
+     "bbox": [
+      155.52,
+      642.48,
+      587.28,
+      654.24
+     ],
+     "text": "application of a systemic material such as the sorts of maleic"
+    },
+    {
+     "bbox": [
+      154.8,
+      659.28,
+      587.52,
+      670.8
+     ],
+     "text": "hydrazide, followed by another possible application of contact"
+    },
+    {
+     "bbox": [
+      155.76,
+      673.2,
+      579.12,
+      688.8
+     ],
+     "text": "desuckerant. In Canada, owing to the shorter growing seasen,"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "inflorescence is removed, many processes become active. One of\nthese is the accumulation of nicotine and other alkaloids in\nthe leaves, particularly in the upper 2/3 of the plant.\nTopping also allows the leaves in the upper part of the plant\nto continue to grow and consequently increase the total yield.\nDecapitation (topping) of the plant enhances the\ngrowth of axillary buds or \"suckers\"; these must be removed\ncontinuously or permanently in order to achieve the benefits of\ntopping. Removal of the suckers may be accomplished by hand,\nwhich is a very time consuming and laborious operation, or by\nchemical control.\nTwo types of chemical agents are available: systemic\nand contact. In the United States of America, it is common to\nuse a combination of both types of sucker control agents. An\napplication of a contact control agent will be followed by the\napplication of a systemic material such as the sorts of maleic\nhydrazide, followed by another possible application of contact\ndesuckerant. In Canada, owing to the shorter growing seasen,",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    155.04,
+    711.6,
+    258.48,
+    732.48
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      155.04,
+      711.6,
+      236.16,
+      720.72
+     ],
+     "text": "Atkemix Inc,"
+    },
+    {
+     "bbox": [
+      155.28,
+      723.12,
+      258.48,
+      732.48
+     ],
+     "text": "Dereket No. 1512"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Atkemix Inc,\nDereket No. 1512",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    691.2,
+    1006.08
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

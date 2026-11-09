@@ -21,6 +21,65 @@ one `Superseded`.
 
 ---
 
+## ADR-043 — A document IR between the engines and the Markdown, serialized byte-neutrally
+**Date:** 2026-11-09 · **Status:** Accepted (roadmap Phase 14, items 2.1–2.2; user asked for Tier 2)
+**Context:**
+- Every converter went straight from its engine's output to a Markdown string.
+  What the engine knew about the text (each OCR line's box, which psm 3 groups
+  ADR-038 stitched into a table, which page a block came from, which engine read
+  it) was dropped at once, so no later stage could use it. Both external reviews
+  (`docs/Document structure suggestion`, `docs/Wiseau OCR methodology review`)
+  name this as the architectural gap: structure recovery (headings, furniture,
+  continuations, captions) and region-level routing (roadmap 3.7, where Table
+  Transformer is the lead) need elements with pages, boxes and provenance.
+- The roadmap set the gate: the refactor must be provably behaviour-neutral
+  before anything is built on it.
+**Decision:**
+- `parsers/document.py`: a `Document` is `pages` (number, size, `method`
+  text-layer/ocr/remote, source engine), `elements` in reading order, and
+  `relations`. An `Element` has `type`, `text` (as the engine produced it, never
+  edited), `text_format` (plain/markdown), `source`, `page`, `bbox` (PDF points;
+  `None` where the engine gives none), OCR `lines`, table `rows` of `Cell`s, a
+  heading `level`, and the `signal`/`confidence` behind any inferred type
+  (`confidence` is `None` unless calibrated: ADR-030's rule). `to_dict()` is
+  deterministic (fixed field order, coordinates to 0.01). The vocabulary for Tier
+  3 (caption, footnote, page_header, `caption_of`, `continues_from`, …) is
+  defined but not yet produced.
+- Adapters, the default path first: PyMuPDF4LLM's Markdown, split per page into
+  typed top-level blocks (`serializer.split_markdown`, never inside a code fence;
+  the fast path keeps one whole-document call with `page_chunks=True`, so heading
+  sizes are still judged over all pages); the Tesseract path as psm 3 text blocks
+  and row-stitched tables with every line's box, or ADR-035 paragraphs, or
+  MuPDF's own OCR text; Mammoth, docling and GLM-OCR Markdown as unpaged blocks.
+  `reading_order.order_paragraphs` and `tesseract_layout.groups` return the
+  structure their string functions used to flatten; the string functions remain,
+  as renders of it.
+- `parsers/serializer.py` renders the IR with fixed joins: an element as its text
+  (a table row by row), a page's elements by a blank line, the page stripped,
+  blank pages skipped, pages by a blank line. `file_to_markdown` is
+  `clean_markdown(to_markdown(file_to_document(...)))`.
+- The IR is internal: no endpoint returns it, so there is no contract change (API
+  stays 0.14.0). The harness writes it per page (`outputs/pymupdf/<page>.json`).
+**Consequences:**
+- **The gate held: byte-for-byte identical output.** All 15 test PDFs converted
+  whole (859 pages: 382 OCR'd, 477 from a text layer; the fast path, the mixed
+  path and the all-scanned path all exercised), a synthetic 8-page PDF
+  interleaving text-layer, image-only and Acrobat-layer pages, and every scored
+  benchmark page against its committed `outputs/pymupdf/` output. Whole-corpus
+  time is unchanged (the 4-worker run took the same 1–5 s a page).
+- One edge differs and is documented: a whitespace-only document now normalizes
+  to `""` instead of `"\n"`. Every caller tests `markdown.strip()`, so both mean
+  "no text" (the property test in `tests/test_document_ir.py` pins it).
+- Tests that stubbed `_geometric_text`/`read_page` now stub
+  `_geometric_elements`/`read_page_blocks`; the harness's `tesseract-unordered`
+  engine patches `order_paragraphs`. 548 tests pass, 8 skipped.
+- PyMuPDF4LLM's blocks have no boxes and their types are only as good as its
+  Markdown (`signal="markdown-syntax"`); a box-bearing text-layer adapter (from
+  `page.get_text("dict")`) is the follow-up, and must keep this gate.
+- Next on top of it: the explicit dialect (pipe/HTML tables; changes output, so
+  its own ADR), the structural gold set (2.3), then Tier 3 and TATR region routing
+  (3.7) as IR passes. `docs/benchmarks/2026-11-09-ir-neutrality.md`.
+
 ## ADR-042 — The ADR-038 guard counts plausible words; Tesseract runs on one thread
 **Date:** 2026-11-09 · **Status:** Accepted (hand-over 2026-11-08c item 0; the thread limit was found doing it)
 **Context:**

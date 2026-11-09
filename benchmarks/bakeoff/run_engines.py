@@ -6,7 +6,7 @@ timings to outputs/<engine>/timings.json. Run engines one after another, never
 side by side: concurrent runs on a small box inflate every timing (post-mortem
 2026-11-01).
 
-  python benchmarks/bakeoff/run_engines.py pymupdf   # wiseau default path, in-process
+  python benchmarks/bakeoff/run_engines.py pymupdf   # wiseau default path, in-process; also writes <page>.json (its IR)
   python benchmarks/bakeoff/run_engines.py docling   # docling library, EasyOCR; also writes <page>.json (its document tree)
   python benchmarks/bakeoff/run_engines.py glm-ocr [URL]  # glm-ocr/service.py over HTTP
   python benchmarks/bakeoff/run_engines.py tesseract-psm3     # Tesseract's own layout analysis
@@ -69,10 +69,19 @@ def pages():
 
 
 def pymupdf_engine():
+    """The default path. Also returns the page's document IR (ADR-043), written as
+    <page>.json: elements with type, box, source engine and OCR lines."""
     sys.path.insert(0, str(ROOT / "backend"))
-    from parsers.file_parser import file_to_markdown
+    from parsers import serializer
+    from parsers.cleaner import clean_markdown
+    from parsers.file_parser import file_to_document
 
-    return lambda data: file_to_markdown(data, "page.pdf", engine="pymupdf")
+    def run(data: bytes) -> tuple[str, dict]:
+        doc = file_to_document(data, "page.pdf", engine="pymupdf")
+        # Exactly file_to_markdown's output, from the same conversion.
+        return clean_markdown(serializer.to_markdown(doc)), doc.to_dict()
+
+    return run
 
 
 def hidden_layer_engine():
@@ -182,7 +191,7 @@ def tesseract_unordered_engine():
     from parsers import ocr
     from parsers.file_parser import file_to_markdown
 
-    ocr.order_lines = lambda lines: None
+    ocr.order_paragraphs = lambda lines: None
     return lambda data: file_to_markdown(data, "page.pdf", engine="pymupdf")
 
 

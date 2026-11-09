@@ -91,6 +91,8 @@ wiseau/
 │   │   ├── reading_order.py  # column order for OCR'd lines (ADR-035/037)
 │   │   ├── tesseract_layout.py  # psm 3 layout + table-row stitching (ADR-038)
 │   │   ├── photo_regions.py  # drop OCR noise read out of photographs (ADR-037)
+│   │   ├── document.py     # the document IR: elements, boxes, provenance (ADR-043)
+│   │   ├── serializer.py   # IR -> Markdown, byte-neutral (ADR-043)
 │   │   ├── cleaner.py      # regex/Unicode normalization (always runs)
 │   │   ├── chapters.py     # split converted Markdown into chapters (ADR-030)
 │   │   ├── keywords.py     # rank a document's keywords across methods (ADR-032/033)
@@ -202,6 +204,12 @@ pip install -r requirements-keywords.txt
   shape as `/convert/batch` (ADR-033)** — one request, one result per document in
   send order, each carrying the `.md` filename it belongs to via
   `parsers/naming.py`, so the two sets of results always line up.
+- **Documents go engine → IR → serializer → normalizer (ADR-043).** A new
+  document adapter builds `document.Element`s (text as the engine produced it,
+  never edited; inferred structure in its own fields with a `signal`), and only
+  `serializer.py` writes Markdown. A change to the serializer's output is a
+  behaviour change: it needs its own ADR and the whole-document gate
+  (`benchmarks/bakeoff/whole_docs.py`).
 - **All extracted output flows through `cleaner.clean_markdown()`.** Don't return
   Markdown from any parser (docling included) without running it through the shared
   normalizer.

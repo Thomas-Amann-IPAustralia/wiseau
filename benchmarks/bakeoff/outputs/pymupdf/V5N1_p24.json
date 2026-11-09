@@ -1,0 +1,1081 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    52.56,
+    62.16,
+    241.44,
+    67.92
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      52.56,
+      62.16,
+      241.44,
+      67.92
+     ],
+     "text": "TABLE OF COMPARISON OF OAT VARIETIES\u2014Continued"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "TABLE OF COMPARISON OF OAT VARIETIES\u2014Continued",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    52.32,
+    76.08,
+    551.28,
+    382.8
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      143.04,
+      76.08,
+      534.72,
+      86.16
+     ],
+     "text": "\u2018Riel\u2019 \u201cAlgerian\u201d *Cleanleaf\u2019 *Cluan\u2019 *\u2018Minhafer\u2019 *\u2018Nobby\u2019"
+    },
+    {
+     "bbox": [
+      52.56,
+      91.92,
+      109.92,
+      99.6
+     ],
+     "text": "AWNS (primary)"
+    },
+    {
+     "bbox": [
+      142.56,
+      101.52,
+      515.04,
+      108.96
+     ],
+     "text": "few present present rare rare few"
+    },
+    {
+     "bbox": [
+      52.8,
+      116.16,
+      102.24,
+      122.16
+     ],
+     "text": "BASAL SCAR"
+    },
+    {
+     "bbox": [
+      143.04,
+      124.32,
+      535.44,
+      133.92
+     ],
+     "text": "intermed. oblique intermed. flat intermed. intermed."
+    },
+    {
+     "bbox": [
+      53.04,
+      139.92,
+      123.36,
+      146.16
+     ],
+     "text": "FLAG LEAF WIDTH"
+    },
+    {
+     "bbox": [
+      53.04,
+      149.28,
+      533.28,
+      155.52
+     ],
+     "text": "mean 28.0 mm 17.3mm 26.0 mm 39.5 mm 25.1 mm 21.8mm"
+    },
+    {
+     "bbox": [
+      52.8,
+      157.2,
+      524.88,
+      166.8
+     ],
+     "text": "range 23-33 14-19 23-30 33-43 19-32 19-28"
+    },
+    {
+     "bbox": [
+      52.8,
+      167.76,
+      517.92,
+      174.0
+     ],
+     "text": "std dev 2.93 1.16 1.97 2.74 3.14 2.46"
+    },
+    {
+     "bbox": [
+      53.04,
+      182.16,
+      129.6,
+      188.16
+     ],
+     "text": "FLAG LEAF LENGTH"
+    },
+    {
+     "bbox": [
+      52.8,
+      191.52,
+      530.64,
+      197.76
+     ],
+     "text": "mean 27.7cm 30.4 cm 20.1 cm 34.3 cm 22.0 cm 31.4 cm"
+    },
+    {
+     "bbox": [
+      52.8,
+      199.92,
+      523.44,
+      209.52
+     ],
+     "text": "range 21-35 24-35 16-32 26-42 17-28 23-41"
+    },
+    {
+     "bbox": [
+      52.32,
+      210.72,
+      517.92,
+      216.96
+     ],
+     "text": "std.dev 3.28 2.89 4.09 4.84 2.92 3.88"
+    },
+    {
+     "bbox": [
+      53.04,
+      225.36,
+      125.52,
+      231.36
+     ],
+     "text": "RACHILLA LENGTH"
+    },
+    {
+     "bbox": [
+      52.8,
+      234.72,
+      533.04,
+      240.96
+     ],
+     "text": "mean 2.62 mm 2.10 mm 2.31 mm 2.42 mm 2.28 mm 2.12mm"
+    },
+    {
+     "bbox": [
+      52.56,
+      244.32,
+      528.72,
+      252.0
+     ],
+     "text": "range 2.3-2.9 1.9-2.3 1,9-2.8 2.1-2.7 1.7-2.6 1.8-2.4"
+    },
+    {
+     "bbox": [
+      52.32,
+      253.92,
+      517.68,
+      260.16
+     ],
+     "text": "std.dev 0.15 0.12 0.19 0.16 0.21 0.15"
+    },
+    {
+     "bbox": [
+      52.32,
+      268.08,
+      104.64,
+      274.32
+     ],
+     "text": "AWN LENGTH"
+    },
+    {
+     "bbox": [
+      52.8,
+      277.68,
+      533.04,
+      283.92
+     ],
+     "text": "mean 32.1 mm 32.7 mm 25.4mm 24.0 mm 20.5 mm 29.3 mm"
+    },
+    {
+     "bbox": [
+      52.56,
+      287.04,
+      524.4,
+      294.72
+     ],
+     "text": "range 27-36 30-36 22-29 19-27 16-27 20-35"
+    },
+    {
+     "bbox": [
+      52.32,
+      296.4,
+      517.44,
+      302.64
+     ],
+     "text": "std. dev 2.35 1.76 2.16 2.37 2.45 3.77"
+    },
+    {
+     "bbox": [
+      52.8,
+      310.56,
+      218.88,
+      317.52
+     ],
+     "text": "REACTIONS TO LEAF RUST\u2014races 264, 384"
+    },
+    {
+     "bbox": [
+      142.8,
+      318.72,
+      507.6,
+      328.56
+     ],
+     "text": "R Ss R R Ss R"
+    },
+    {
+     "bbox": [
+      52.56,
+      334.32,
+      220.8,
+      341.28
+     ],
+     "text": "REACTIONS TO STEM RUST\u2014races 1, 20, 22"
+    },
+    {
+     "bbox": [
+      142.56,
+      342.72,
+      514.32,
+      352.32
+     ],
+     "text": "MR-MS Ss R MR VS MR"
+    },
+    {
+     "bbox": [
+      52.56,
+      372.48,
+      551.28,
+      382.8
+     ],
+     "text": "LETTUCE Varieties were seeded in February and transplanted into the"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Riel\u2019 \u201cAlgerian\u201d *Cleanleaf\u2019 *Cluan\u2019 *\u2018Minhafer\u2019 *\u2018Nobby\u2019\nAWNS (primary)\nfew present present rare rare few\nBASAL SCAR\nintermed. oblique intermed. flat intermed. intermed.\nFLAG LEAF WIDTH\nmean 28.0 mm 17.3mm 26.0 mm 39.5 mm 25.1 mm 21.8mm\nrange 23-33 14-19 23-30 33-43 19-32 19-28\nstd dev 2.93 1.16 1.97 2.74 3.14 2.46\nFLAG LEAF LENGTH\nmean 27.7cm 30.4 cm 20.1 cm 34.3 cm 22.0 cm 31.4 cm\nrange 21-35 24-35 16-32 26-42 17-28 23-41\nstd.dev 3.28 2.89 4.09 4.84 2.92 3.88\nRACHILLA LENGTH\nmean 2.62 mm 2.10 mm 2.31 mm 2.42 mm 2.28 mm 2.12mm\nrange 2.3-2.9 1.9-2.3 1,9-2.8 2.1-2.7 1.7-2.6 1.8-2.4\nstd.dev 0.15 0.12 0.19 0.16 0.21 0.15\nAWN LENGTH\nmean 32.1 mm 32.7 mm 25.4mm 24.0 mm 20.5 mm 29.3 mm\nrange 27-36 30-36 22-29 19-27 16-27 20-35\nstd. dev 2.35 1.76 2.16 2.37 2.45 3.77\nREACTIONS TO LEAF RUST\u2014races 264, 384\nR Ss R R Ss R\nREACTIONS TO STEM RUST\u2014races 1, 20, 22\nMR-MS Ss R MR VS MR\nLETTUCE Varieties were seeded in February and transplanted into the",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    52.56,
+    387.12,
+    122.16,
+    395.28
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      52.56,
+      387.12,
+      122.16,
+      395.28
+     ],
+     "text": "Lactuca sativa"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Lactuca sativa",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.84,
+    403.68,
+    66.96,
+    418.56
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      51.84,
+      403.68,
+      66.96,
+      418.56
+     ],
+     "text": "[|"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "[|",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    52.08,
+    423.12,
+    277.92,
+    474.0
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      52.32,
+      423.12,
+      230.64,
+      431.76
+     ],
+     "text": "Variety: \u2018Impact\u2019. See fig. 10 in colour section"
+    },
+    {
+     "bbox": [
+      52.32,
+      434.16,
+      141.36,
+      442.8
+     ],
+     "text": "Application No. 91/128"
+    },
+    {
+     "bbox": [
+      52.08,
+      445.2,
+      212.88,
+      453.84
+     ],
+     "text": "Application Received: 16 December 1991"
+    },
+    {
+     "bbox": [
+      52.32,
+      456.24,
+      277.92,
+      464.88
+     ],
+     "text": "Applicant: Arthur Yates & Co. Pty Ltd, of Milperra, New"
+    },
+    {
+     "bbox": [
+      52.08,
+      467.28,
+      98.88,
+      474.0
+     ],
+     "text": "South Wales"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Impact\u2019. See fig. 10 in colour section\nApplication No. 91/128\nApplication Received: 16 December 1991\nApplicant: Arthur Yates & Co. Pty Ltd, of Milperra, New\nSouth Wales",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    52.32,
+    484.8,
+    228.48,
+    493.92
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      52.32,
+      484.8,
+      228.48,
+      493.92
+     ],
+     "text": "Description\u2014see also comparison tables"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Description\u2014see also comparison tables",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.12,
+    498.48,
+    288.0,
+    702.24
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      52.8,
+      498.48,
+      287.76,
+      507.12
+     ],
+     "text": "\u2018Impact\u2019 is a \u2018Salinas\u2019 type of crisphead lettuce resistant to"
+    },
+    {
+     "bbox": [
+      51.6,
+      509.52,
+      287.52,
+      518.16
+     ],
+     "text": "known isolates of Bremia lactucae in Australia, possessing the"
+    },
+    {
+     "bbox": [
+      51.36,
+      520.8,
+      287.52,
+      529.2
+     ],
+     "text": "Dm genes | and 3 for resistance to Bremia. It is a medium"
+    },
+    {
+     "bbox": [
+      52.08,
+      531.6,
+      287.28,
+      540.72
+     ],
+     "text": "maturing variety producing a firm, round, well-covered head."
+    },
+    {
+     "bbox": [
+      51.6,
+      542.64,
+      287.28,
+      551.52
+     ],
+     "text": "There is no anthocyanin in the foliage; wrapper leaves are dark-"
+    },
+    {
+     "bbox": [
+      51.6,
+      553.68,
+      287.28,
+      562.08
+     ],
+     "text": "green; at the 34 true leaf stage leaves are erect, lobed, narrow"
+    },
+    {
+     "bbox": [
+      51.6,
+      564.48,
+      242.64,
+      573.12
+     ],
+     "text": "elliptical and medium to dark green; seed is white."
+    },
+    {
+     "bbox": [
+      51.84,
+      581.76,
+      78.72,
+      590.88
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      51.36,
+      595.2,
+      287.04,
+      603.6
+     ],
+     "text": "The breeder is Mr Dan Trimboli of Arthur Yates & Co. Pty Ltd."
+    },
+    {
+     "bbox": [
+      52.32,
+      606.0,
+      287.28,
+      614.4
+     ],
+     "text": "\u2018Impact\u2019 arose from the controlled pollination of \u2018Jackpot\u2019 by"
+    },
+    {
+     "bbox": [
+      52.32,
+      616.8,
+      287.28,
+      625.44
+     ],
+     "text": "\u2018Narromar\u2019. The resultant progeny was backcrossed 5 times to"
+    },
+    {
+     "bbox": [
+      52.32,
+      627.6,
+      287.28,
+      636.48
+     ],
+     "text": "\u2018Jackpot\u2019. Prior to backcrossing on each occasion, the progeny"
+    },
+    {
+     "bbox": [
+      51.6,
+      638.88,
+      288.0,
+      645.6
+     ],
+     "text": "was screened in vitro for resistance to an Australian isolate of"
+    },
+    {
+     "bbox": [
+      51.12,
+      649.68,
+      286.8,
+      658.56
+     ],
+     "text": "Bremia lactucae. Subsequent to the completion of backcross-"
+    },
+    {
+     "bbox": [
+      51.12,
+      660.72,
+      286.8,
+      669.36
+     ],
+     "text": "ing, 10 resistant plants were selfed in October 1988. From these"
+    },
+    {
+     "bbox": [
+      52.32,
+      671.76,
+      287.04,
+      680.4
+     ],
+     "text": "14 resistant plants were again selfed and the progeny screened"
+    },
+    {
+     "bbox": [
+      51.12,
+      682.56,
+      286.8,
+      691.2
+     ],
+     "text": "for homozygosity for resistance to mildew. Field nurseries"
+    },
+    {
+     "bbox": [
+      51.36,
+      693.36,
+      286.56,
+      702.24
+     ],
+     "text": "identified phenotypically acceptable plants over two seasons."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Impact\u2019 is a \u2018Salinas\u2019 type of crisphead lettuce resistant to\nknown isolates of Bremia lactucae in Australia, possessing the\nDm genes | and 3 for resistance to Bremia. It is a medium\nmaturing variety producing a firm, round, well-covered head.\nThere is no anthocyanin in the foliage; wrapper leaves are dark-\ngreen; at the 34 true leaf stage leaves are erect, lobed, narrow\nelliptical and medium to dark green; seed is white.\nOrigin\nThe breeder is Mr Dan Trimboli of Arthur Yates & Co. Pty Ltd.\n\u2018Impact\u2019 arose from the controlled pollination of \u2018Jackpot\u2019 by\n\u2018Narromar\u2019. The resultant progeny was backcrossed 5 times to\n\u2018Jackpot\u2019. Prior to backcrossing on each occasion, the progeny\nwas screened in vitro for resistance to an Australian isolate of\nBremia lactucae. Subsequent to the completion of backcross-\ning, 10 resistant plants were selfed in October 1988. From these\n14 resistant plants were again selfed and the progeny screened\nfor homozygosity for resistance to mildew. Field nurseries\nidentified phenotypically acceptable plants over two seasons.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.12,
+    711.12,
+    286.56,
+    732.96
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      51.12,
+      711.12,
+      186.0,
+      720.0
+     ],
+     "text": "Varieties used for comparison"
+    },
+    {
+     "bbox": [
+      52.08,
+      724.32,
+      286.56,
+      732.96
+     ],
+     "text": "\u2018Jackpot\u2019 being a parent variety and the closest known variety."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comparison\n\u2018Jackpot\u2019 being a parent variety and the closest known variety.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.12,
+    741.6,
+    176.64,
+    750.72
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      51.12,
+      741.6,
+      176.64,
+      750.72
+     ],
+     "text": "Comparative Growing Trials"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.12,
+    755.04,
+    286.8,
+    773.76
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      51.12,
+      755.04,
+      286.8,
+      763.92
+     ],
+     "text": "All characteristics described are from comparative growing tri-"
+    },
+    {
+     "bbox": [
+      51.12,
+      765.84,
+      286.32,
+      773.76
+     ],
+     "text": "als conducted at Narromine, New South Wales in autumn 1990."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "All characteristics described are from comparative growing tri-\nals conducted at Narromine, New South Wales in autumn 1990.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    315.6,
+    384.72,
+    551.04,
+    469.92
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      315.6,
+      384.72,
+      551.04,
+      393.6
+     ],
+     "text": "field in March 1990. Plants were spaced 36 cm within a row"
+    },
+    {
+     "bbox": [
+      315.84,
+      396.0,
+      551.04,
+      402.96
+     ],
+     "text": "and 50 cm between rows on 75 cm beds. Kerb herbicide was"
+    },
+    {
+     "bbox": [
+      315.6,
+      406.8,
+      551.04,
+      415.44
+     ],
+     "text": "applied subsequent to transplanting and Ridomil MZ was"
+    },
+    {
+     "bbox": [
+      315.6,
+      417.84,
+      550.8,
+      426.48
+     ],
+     "text": "applied twice during the latter half of the growing period."
+    },
+    {
+     "bbox": [
+      315.6,
+      428.64,
+      551.04,
+      437.04
+     ],
+     "text": "Measurements are from 50 plants chosen at random from each"
+    },
+    {
+     "bbox": [
+      315.84,
+      439.44,
+      551.04,
+      448.08
+     ],
+     "text": "variety. Identification of Dm genes to Bremia lactucae were"
+    },
+    {
+     "bbox": [
+      315.6,
+      450.24,
+      550.8,
+      459.12
+     ],
+     "text": "determined by assay at the Horticultural Research Institute,"
+    },
+    {
+     "bbox": [
+      315.6,
+      461.28,
+      473.76,
+      469.92
+     ],
+     "text": "Wellesbourne, England in 1990 and 1991."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "field in March 1990. Plants were spaced 36 cm within a row\nand 50 cm between rows on 75 cm beds. Kerb herbicide was\napplied subsequent to transplanting and Ridomil MZ was\napplied twice during the latter half of the growing period.\nMeasurements are from 50 plants chosen at random from each\nvariety. Identification of Dm genes to Bremia lactucae were\ndetermined by assay at the Horticultural Research Institute,\nWellesbourne, England in 1990 and 1991.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    315.36,
+    479.76,
+    362.16,
+    488.88
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      315.36,
+      479.76,
+      362.16,
+      488.88
+     ],
+     "text": "Agronomy"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Agronomy",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    315.36,
+    499.68,
+    551.04,
+    531.36
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      316.08,
+      499.68,
+      550.8,
+      508.32
+     ],
+     "text": "\u2018Impact\u2019 is suitable for culture in coastal areas of Australia and"
+    },
+    {
+     "bbox": [
+      315.36,
+      510.72,
+      551.04,
+      518.16
+     ],
+     "text": "California and inland areas of New South Wales wherever"
+    },
+    {
+     "bbox": [
+      316.08,
+      521.76,
+      517.92,
+      531.36
+     ],
+     "text": "\u2018Jackpot\u2019 is grown during autumn and spring periods."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Impact\u2019 is suitable for culture in coastal areas of Australia and\nCalifornia and inland areas of New South Wales wherever\n\u2018Jackpot\u2019 is grown during autumn and spring periods.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    319.92,
+    566.4,
+    493.2,
+    575.04
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      319.92,
+      566.4,
+      493.2,
+      575.04
+     ],
+     "text": "Table of Comparison of Lettuce Varieties"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Lettuce Varieties",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    315.36,
+    582.0,
+    425.76,
+    589.92
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      315.36,
+      582.0,
+      425.76,
+      589.92
+     ],
+     "text": "(*=variety used for comparison)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(*=variety used for comparison)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    314.4,
+    597.12,
+    531.84,
+    767.52
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      423.36,
+      597.12,
+      531.84,
+      606.72
+     ],
+     "text": "\u2018Impact\u2019 Jackpot\u2019"
+    },
+    {
+     "bbox": [
+      315.12,
+      613.2,
+      456.72,
+      621.36
+     ],
+     "text": "MATURITY (no. of days from transplant)"
+    },
+    {
+     "bbox": [
+      315.36,
+      624.0,
+      510.0,
+      629.76
+     ],
+     "text": "mean 65.2 67.7"
+    },
+    {
+     "bbox": [
+      315.12,
+      633.84,
+      516.48,
+      640.8
+     ],
+     "text": "range 65-69 64-70"
+    },
+    {
+     "bbox": [
+      314.88,
+      643.68,
+      509.76,
+      649.92
+     ],
+     "text": "standard error 0.27"
+    },
+    {
+     "bbox": [
+      315.12,
+      659.28,
+      383.28,
+      665.52
+     ],
+     "text": "PLANT DIAMETER"
+    },
+    {
+     "bbox": [
+      315.12,
+      669.84,
+      522.48,
+      675.84
+     ],
+     "text": "mean 45.5cm 46.5cm"
+    },
+    {
+     "bbox": [
+      315.12,
+      678.72,
+      516.24,
+      688.08
+     ],
+     "text": "range 43-47 44-50"
+    },
+    {
+     "bbox": [
+      314.64,
+      689.52,
+      514.08,
+      695.76
+     ],
+     "text": "standard error 0.237"
+    },
+    {
+     "bbox": [
+      314.88,
+      704.88,
+      368.64,
+      711.12
+     ],
+     "text": "HEAD HEIGHT"
+    },
+    {
+     "bbox": [
+      314.88,
+      715.68,
+      522.24,
+      721.44
+     ],
+     "text": "mean 12.4cem 12.9cm"
+    },
+    {
+     "bbox": [
+      314.88,
+      725.28,
+      522.72,
+      732.24
+     ],
+     "text": "range 11-14 12-14.5"
+    },
+    {
+     "bbox": [
+      314.4,
+      734.64,
+      509.28,
+      741.12
+     ],
+     "text": "standard error 0.13"
+    },
+    {
+     "bbox": [
+      314.88,
+      750.24,
+      386.88,
+      757.68
+     ],
+     "text": "Dm genes to Bremia"
+    },
+    {
+     "bbox": [
+      423.12,
+      760.56,
+      504.96,
+      767.52
+     ],
+     "text": "1,3,5/8 5/8"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Impact\u2019 Jackpot\u2019\nMATURITY (no. of days from transplant)\nmean 65.2 67.7\nrange 65-69 64-70\nstandard error 0.27\nPLANT DIAMETER\nmean 45.5cm 46.5cm\nrange 43-47 44-50\nstandard error 0.237\nHEAD HEIGHT\nmean 12.4cem 12.9cm\nrange 11-14 12-14.5\nstandard error 0.13\nDm genes to Bremia\n1,3,5/8 5/8",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    538.32,
+    795.84,
+    550.08,
+    804.0
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      538.32,
+      795.84,
+      550.08,
+      804.0
+     ],
+     "text": "23"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "23",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

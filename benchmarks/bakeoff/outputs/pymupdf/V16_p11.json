@@ -1,0 +1,503 @@
+{
+ "elements": [
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e1",
+   "level": 1,
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "# **Part 2 \u2013 Public Notices**",
+   "text_format": "markdown",
+   "type": "heading"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e2",
+   "level": 2,
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "## ~~**Varieties Included in this Issue**~~",
+   "text_format": "markdown",
+   "type": "heading"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e3",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "An index reference for common names with botanical\nnames is published in Appendix 9.",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e4",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Botanical** **Variety** **Page**\n**Name** **Name** **No.**\n_Acacia pravissima_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e5",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018NE 02\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . 18\n_Ajania pacifica_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e6",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Bea\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69\n\u2018Bess\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69\n_Alstroemeria_ hybrid",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e7",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Zalsamay\u2019 syn Mayfair . . . . . . . . . . . . . . . 12\n\u2018Zalsasenan\u2019 syn Senna . . . . . . . . . . . . . . . 12\n\u2018Zanrina\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 70\n_Angelonia angustifolia_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e8",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Balangdeum\u2019 . . . . . . . . . . . . . . . . . . . . . . 71\n\u2018Balanglav\u2019 . . . . . . . . . . . . . . . . . . . . . . . . 71\n\u2018Balangpink\u2019 . . . . . . . . . . . . . . . . . . . . . . . 71\n\u2018Balangpurp\u2019 . . . . . . . . . . . . . . . . . . . . . . . 71\n\u2018Balangwhit\u2019 . . . . . . . . . . . . . . . . . . . . . . . 71\n_Angelonia_ hybrid",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e9",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Balangdepi\u2019 . . . . . . . . . . . . . . . . . . . . . . . 12\n\u2018Balangimla\u2019 . . . . . . . . . . . . . . . . . . . . . . . 12\n\u2018Balangimpu\u2019. . . . . . . . . . . . . . . . . . . . . . . 12\n\u2018Balanglapi\u2019. . . . . . . . . . . . . . . . . . . . . . . . 12\n\u2018Balangpili\u2019 . . . . . . . . . . . . . . . . . . . . . . . . 12\n_Anigozanthos_ hybrid",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e10",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Joey Lipstick\u2019. . . . . . . . . . . . . . . . . . . . . . 71\n_Anthurium andraeanum_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e11",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Rijn199922\u2019 . . . . . . . . . . . . . . . . . . . . . . 12\n\u2018Whispering Love\u2019 . . . . . . . . . . . . . . . . . . 12\n_Arachis hypogaea_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e12",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Middleton\u2019 . . . . . . . . . . . . . . . . . . . . . . . . 19\n\u2018Wheeler\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . 19\n_Arctotis fastuosa_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e13",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Archley\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . . . 65\n\u2018Archnah\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . . 65\n_Arctotis_ hybrid",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e14",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Pink Posy\u2019 . . . . . . . . . . . . . . . . . . . . . . . . 13\n\u2018Silverdust Glow\u2019 . . . . . . . . . . . . . . . . . . . 13\n_Asteriscus maritimus_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e15",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Double Gold Coin\u2019 syn Typ Gefull . . . . . . 71\n_Atriplex nummularia_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e16",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Eyres Green\u2019 . . . . . . . . . . . . . . . . . . . . . . 20\n_Avena sativa_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e17",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Brusher\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 21\n\u2018Quokka\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 22\n\u2018Volta\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13\n_Betula nigra_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e18",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Chameleon\u2019 . . . . . . . . . . . . . . . . . . . . . . . 13\n_Bidens ferulifolia_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e19",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Bidtis 1\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 69\n_Bidens triplinervia_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e20",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Sunbideki\u2019 syn Yellow Spark . . . . . . . . . . 13\n_Boronia heterophylla_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e21",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Ice Charlotte\u2019 . . . . . . . . . . . . . . . . . . . . . . 23\n_Bougainvillea spectabilis_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e22",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018LYNNVERA\u2019 . . . . . . . . . . . . . . . . . . . . . . 13\n\u2018Vera White\u2019 . . . . . . . . . . . . . . . . . . . . . . . 13\n_Brassica napus_ var. _oleifera_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e23",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u201844C73\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . . . . 65\n\u201845C75\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . . . . 65\n\u201846C74\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . . . . 65\n\u2018AG-Castle\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . 65",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e24",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "<u>PLANT VARIETIES JOURNAL 2003 VOL 16 NO. 3</u>",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e25",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Botanical** **Variety** **Page**\n**Name** **Name** **No.**\n_Brassica napus_ var. _oleifera_ (continued)",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e26",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018AG-Spectrum\u2019 . . . . . . . . . . . . . . . . . . . 13,69\n\u2018ATR-EYRE\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . 65\n\u2018ATR-Stubby\u2019 . . . . . . . . . . . . . . . . . . . . 13,69\n\u2018Georgie\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 71\n\u2018Grouse\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 71\n\u2018Lantern\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . . . 65\n_Buddleia_ hybrid",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e27",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Little Honey\u2019 . . . . . . . . . . . . . . . . . . . . . . 13\n_Calibrachoa_ hybrid",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e28",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018KLEC00066\u2019 . . . . . . . . . . . . . . . . . . . . . . 24\n\u2018KLEC00072\u2019 . . . . . . . . . . . . . . . . . . . . . . 25\n\u2018KLEC01056\u2019 . . . . . . . . . . . . . . . . . . . . . . 25\n\u2018KLEC01057\u2019 . . . . . . . . . . . . . . . . . . . . . . 26\n\u2018KLEC01058\u2019 syn Selecta White . . . . . . . . 27\n\u2018KLEC01062\u2019syn Selecta Sweet Heart Pink. 13,27\n\u2018Rosestar\u2019 syn Selecta Pink . . . . . . . . . . . . 28\n\u2018Sunbel-apu\u2019 . . . . . . . . . . . . . . . . . . . . . . . 28\n\u2018Sunbelho\u2019 syn White Chimes . . . . . . . . 13,29\n\u2018Sunbelkos\u2019 syn Coral Chimes . . . . . . . . . . 30\n\u2018Sunbelkufepi\u2019 . . . . . . . . . . . . . . . . . . . . . . 30\n\u2018Sunbelre\u2019 syn Red Chimes . . . . . . . . . . . . 32\n_Callistemon viminalis_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e29",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018UnicalOne\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13,32\n_Ceanothus griseus_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e30",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Silver Heights\u2019 . . . . . . . . . . . . . . . . . . . . . 70\n_Cicer arietinum_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e31",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018WACPE2012\u2019 syn Moti . . . . . . . . . . . . . . . 13\n_Citrus australasica_ var. _sanguinea_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e32",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Rainforest Pearl\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . 65\n_Citrus reticulata_ x _Citrus sinensis_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e33",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018IrM1\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33\n_Codiaeum variegatum_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e34",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Congo\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . . . . 65\n\u2018Masaii\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . . . 66\n\u2018Zulu\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . . . . . 66\n_Cordyline australis_ x _Cordyline banksii_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e35",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Purple Sensation\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . 66\n_Corymbia ficifolia_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e36",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018C89.2.7\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . . . . 66\n_Dactylis glomerata_ ssp. _hispanica_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e37",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Sendace\u2019. . . . . . . . . . . . . . . . . . . . . . . . . . 13\n\u2018Uplands\u2019. . . . . . . . . . . . . . . . . . . . . . . . . . 13\n_Diascia barbarae_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e38",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Pendan\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 13\n_Duranta stenostachya_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e39",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Mini Gold\u2019 . . . . . . . . . . . . . . . . . . . . . . . . 14\n_Euphorbia pulcherrima_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e40",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "268 Pink\u2019 <sup>A</sup> syn Eckespoint\nCelebrate 2 Pink <sup>A</sup> . . . . . . . . . . . . . . . . . . . 69\n490 Marble\u2019 <sup>A</sup> syn Eckespoint\nFreedom Marble <sup>A</sup> . . . . . . . . . . . . . . . . . . . 69\n490 Red\u2019 <sup>A</sup> syn Eckespoint\nFreedom Red <sup>A</sup> . . . . . . . . . . . . . . . . . . . . . . 69\nWhite Freedom\u2019 <sup>A</sup> syn Eckespoint\nFreedom White <sup>A</sup> . . . . . . . . . . . . . . . . . . . . 69\n\u2018Windark\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . 69\n_Euryops pectinatus_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e41",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Emperor\u2019s Gold\u2019 <sup>A</sup> . . . . . . . . . . . . . . . . . . 66\n_Ficus elastica_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e42",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Sylvie\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . . 71\n_Fragaria_ x _ananassa_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e43",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u2018Aromas\u2019 . . . . . . . . . . . . . . . . . . . . . . . . . . 14\n\u2018Cal Giant 2\u2019 . . . . . . . . . . . . . . . . . . . . . . . 14\n\u2018Cal Giant 3\u2019 . . . . . . . . . . . . . . . . . . . . . . . 14\n\u2018Cal Giant 4\u2019 . . . . . . . . . . . . . . . . . . . . . . . 14",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e44",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "9",
+   "text_format": "markdown",
+   "type": "paragraph"
+  }
+ ],
+ "pages": [
+  {
+   "method": "text-layer",
+   "number": 1,
+   "size": [
+    651.0,
+    898.0
+   ],
+   "source": "pymupdf4llm"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

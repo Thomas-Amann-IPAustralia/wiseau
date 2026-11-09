@@ -636,6 +636,15 @@ No paid API is used for this work unless the user says otherwise.
   separates the cases: lead for 3.7. PP-StructureV3 on the 20 table pages: wer 0.332 against the
   default's 0.090, loses text, merges side-by-side tables, 8–10.6 GB a page. Write-up: `docs/benchmarks/2026-11-09-recogniser-and-table-bakeoff.md`.
 
+- [~] **2.1–2.2 Document IR and byte-neutral serializer (ADR-043).** Done
+  2026-11-09: `parsers/document.py` (elements with type, page, box, source engine,
+  unedited text, OCR lines, table rows; deterministic JSON) and
+  `parsers/serializer.py`; every document path now builds the IR and serializes
+  it. Gate passed: byte-for-byte identical on all 15 test PDFs whole (859 pages),
+  a mixed-path PDF and every scored page. Open: box-bearing text-layer adapter,
+  docling-JSON adapter, URL path, and the explicit Markdown dialect (its own ADR).
+  Write-up: `docs/benchmarks/2026-11-09-ir-neutrality.md`.
+
 Started 2026-11-08. Tiered plan, gates and rationale in
 [`roadmap-ocr-and-structure.md`](roadmap-ocr-and-structure.md), drawn from the two
 external reviews in `docs/`. Headline order: Tier 0 quick fixes (cleaner keeps

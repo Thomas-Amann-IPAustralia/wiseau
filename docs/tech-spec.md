@@ -328,6 +328,8 @@ The backend is deliberately small and layered. Each module has one job.
 | `parsers/photo_regions.py` | Find photograph regions on a scanned page image, and tell OCR noise inside them from real words (ADR-037). Pure pixel arithmetic. | Drop a line outside a photo region, or one that reads as words. |
 | `parsers/reading_order.py` | Put a multi-column OCR page's lines back in column order from their bounding boxes (ADR-035). Pure geometry. | Guess when unsure: return `None` (keep MuPDF's order) unless real text columns are found. |
 | `parsers/tesseract_layout.py` | Read a scanned page with Tesseract's own layout analysis (psm 3), stitching side-by-side table cells back into rows (ADR-038). Pure geometry over Tesseract's TSV. The CLI runs on one thread (`OMP_THREAD_LIMIT=1`), and the guard compares *plausible* word counts (ADR-042). | Stitch prose columns; return text when the CLI fails (return `None`, so the caller uses the ADR-035/037 guard). |
+| `parsers/document.py` | The canonical document IR (ADR-043): elements in reading order, each with type, page, box (when the engine reports one), source engine and its text as read; table rows; OCR lines; relations; deterministic JSON (`to_dict`). | Edit an element's `text` (inferred structure goes in its own fields, with `signal`/`confidence`); invent a confidence; depend on docling. |
+| `parsers/serializer.py` | IR → Markdown, deterministically (`to_markdown`); split an engine's Markdown into typed top-level blocks (`split_markdown`). Its output, normalized, is byte-for-byte what each path returned before the IR (ADR-043). | Change output without its own ADR (the neutrality gate); split inside a code fence; introduce nondeterminism. |
 | `parsers/cleaner.py` | Deterministic Unicode/whitespace/typography normalization; elide base64 data-URI payloads (ADR-024). | Introduce nondeterminism; remove content (it edits payloads, not text). |
 | `parsers/chapters.py` *(Phase 10)* | Split converted Markdown into chapters: read the document's contents page, else its heading structure, else plain-text chapter markers; name and number each chapter's file (§15). | Extract or convert anything; drop or duplicate content; return a split it is not confident in (say `none` instead); introduce nondeterminism. |
 | `parsers/keywords.py` *(Phase 12)* | Rank the keywords of already-converted Markdown across four methods and fuse the rankings; render the result as a Markdown table and prepend it to a document (§17). | Convert or extract anything; hard-depend on an optional method; let one method's failure fail the request; return a ranking for a document too short to characterise. |
@@ -359,8 +361,10 @@ return the empty viewer shell. See ADR-017.
 
 **PDF:** `pymupdf.open(stream=...)` → per-page: native pages via
 `pymupdf4llm.to_markdown` (legacy mode), scanned pages via the OCR engine (§10) →
-assemble in page order → `clean_markdown()`. A fully digital PDF keeps the single
-whole-document `to_markdown(doc)` fast path.
+document IR in page order (§19) → `serializer.to_markdown()` → `clean_markdown()`.
+A fully digital PDF keeps the single whole-document PyMuPDF4LLM call (with
+`page_chunks=True`, so each page's Markdown stays apart; heading sizes are still
+judged across the whole document).
 
 **DOCX:** `mammoth.convert_to_html(..., convert_image=<no payload>)` →
 `markdownify(..., heading_style="ATX")` → `clean_markdown()`. Mammoth's *default*
@@ -1187,3 +1191,57 @@ on — a deployment that cares should bound the request body at its proxy. With
 a gateway's idle timeout long before it outlasts the document cap; the UI's
 progress estimate sums the per-document estimates so it at least reads honestly,
 but bulk keyword work wants the fast default methods.
+
+## 19. Document IR (ADR-043)
+
+Every document conversion (`file_to_markdown`, and through it the URL path's
+direct-PDF branch) now builds an intermediate representation first:
+`parsers.file_parser.file_to_document()` returns a `parsers.document.Document`,
+and `file_to_markdown` is `clean_markdown(serializer.to_markdown(doc))`. The IR
+is **internal**: no endpoint returns it yet, so the API contract is unchanged
+(version stays 0.14.0). The benchmark harness writes it per page
+(`benchmarks/bakeoff/outputs/pymupdf/<page>.json`).
+
+**Shape** (`schema` `"0.1"`):
+
+```json
+{"schema": "0.1",
+ "pages": [{"number": 1, "method": "ocr", "source": "tesseract", "size": [612.0, 792.0]}],
+ "elements": [
+   {"id": "e1", "type": "text", "page": 1, "bbox": [72.0, 70.1, 540.2, 120.9],
+    "source": "tesseract-psm3", "text_format": "plain", "text": "…",
+    "lines": [{"bbox": […], "text": "…"}]},
+   {"id": "e2", "type": "table", "page": 1, "bbox": […], "source": "tesseract-psm3",
+    "text_format": "plain", "text": "Name No.\nRose 12",
+    "rows": [[{"text": "Name", "bbox": […]}, {"text": "No.", "bbox": […]}], …],
+    "lines": […], "signal": "tesseract-row-stitch", "confidence": null}],
+ "relations": []}
+```
+
+* `pages[].method`: `text-layer` (PyMuPDF4LLM read the page's own text), `ocr`
+  (the OCR engine read its pixels), `remote` (a GLM-OCR run covered it).
+* `elements` are in reading order; `id` is `e<n>` in that order; `page` is 1-based,
+  or `null` for Markdown from an engine that answers for the whole document
+  (docling, GLM-OCR, Mammoth).
+* `source`: `pymupdf4llm`, `tesseract-psm3` (ADR-038's layout),
+  `tesseract-geometric` (MuPDF's OCR lines in ADR-035 column order), `mupdf-ocr`
+  (MuPDF's OCR text in its own order), `mammoth`, `docling`, `glm-ocr`, or an OCR
+  engine's name.
+* `text` is what that engine produced, never edited; `text_format` says whether it
+  is `plain` (OCR) or a `markdown` fragment. Types inferred from it carry the
+  `signal` that inferred them (`markdown-syntax` for a block typed by its leading
+  Markdown; `tesseract-row-stitch` for ADR-038's tables) and a `confidence`, which
+  is `null` because neither signal is calibrated.
+* `bbox` is in PDF points, origin top-left; `null` where the engine reports none
+  (PyMuPDF4LLM's Markdown, remote engines). Coordinates are rounded to 0.01 in JSON.
+* Types in use: `text` (an OCR block whose role is unknown), `paragraph`,
+  `heading` (with `level`), `list`, `table`, `code`, `figure`, `rule`. The
+  rest of the vocabulary (`title`, `caption`, `footnote`, `page_header`, …) and
+  the relation types (`caption_of`, `continues_from`, …) are defined for roadmap
+  Tier 3 and not yet produced.
+
+**Serialization rules** (behaviour-neutral, ADR-043): an element renders as its
+`text` (a table with `rows` row by row, cells joined by spaces); a page's elements
+are joined by a blank line and the page stripped; blank pages are skipped; pages
+(and the unpaged group) are joined by a blank line. A whitespace-only document
+normalizes to `""` rather than `"\n"`; both are "no text" to every caller.

@@ -208,8 +208,8 @@ def _groups(blocks: Sequence[Block]) -> list[list[int]]:
     return sorted(groups.values(), key=lambda g: g[0])
 
 
-def _rows(lines: Sequence[Line]) -> list[str]:
-    """Lines of a stitched table, read row by row (left to right within a row)."""
+def table_rows(lines: Sequence[Line]) -> list[list[Line]]:
+    """Lines of a stitched table grouped into rows, each row left to right."""
     line_height = median(ln.y1 - ln.y0 for ln in lines)
     rows: list[tuple[float, list[Line]]] = []
     for ln in sorted(lines, key=lambda l: ((l.y0 + l.y1) / 2, l.x0, l.text)):
@@ -218,27 +218,51 @@ def _rows(lines: Sequence[Line]) -> list[str]:
             rows[-1][1].append(ln)
         else:
             rows.append((centre, [ln]))
-    return [" ".join(ln.text for ln in sorted(row, key=lambda l: (l.x0, l.text))) for _, row in rows]
+    return [sorted(row, key=lambda l: (l.x0, l.text)) for _, row in rows]
+
+
+class Group(NamedTuple):
+    """One unit of the page in reading order: a lone block, or a stitched table.
+
+    ``rows`` is empty for a lone block (read as its ``lines``, in Tesseract's
+    order) and holds the table's rows for a stitched group of cells.
+    """
+
+    lines: tuple[Line, ...]
+    rows: tuple[tuple[Line, ...], ...] = ()
+
+
+def groups(blocks: Sequence[Block]) -> list[Group]:
+    """Blocks in Tesseract's order, neighbouring table cells stitched into one group."""
+    if not blocks:
+        return []
+    out = []
+    for group in _groups(blocks):
+        if len(group) == 1:
+            out.append(Group(blocks[group[0]].lines))
+        else:
+            lines = [ln for i in group for ln in blocks[i].lines]
+            out.append(Group(tuple(lines), tuple(tuple(r) for r in table_rows(lines))))
+    return out
+
+
+def group_text(group: Group) -> str:
+    """A group's text: a block line by line, a table row by row."""
+    if group.rows:
+        return "\n".join(" ".join(ln.text for ln in row) for row in group.rows)
+    return "\n".join(ln.text for ln in group.lines)
 
 
 def render(blocks: Sequence[Block]) -> str:
     """Blocks in Tesseract's order, stitched table groups read row by row."""
-    if not blocks:
-        return ""
-    out = []
-    for group in _groups(blocks):
-        if len(group) == 1:
-            out.append("\n".join(ln.text for ln in blocks[group[0]].lines))
-        else:
-            out.append("\n".join(_rows([ln for i in group for ln in blocks[i].lines])))
-    return "\n\n".join(out)
+    return "\n\n".join(group_text(g) for g in groups(blocks))
 
 
-def read_page(page: pymupdf.Page, *, dpi: int, language: str,
-              mask: Optional[photo_regions.PhotoMask] = None) -> Optional[str]:
-    """OCR ``page`` with Tesseract's own layout analysis; ``None`` if Tesseract fails.
+def read_page_blocks(page: pymupdf.Page, *, dpi: int, language: str,
+                     mask: Optional[photo_regions.PhotoMask] = None) -> Optional[list[Block]]:
+    """Tesseract's psm 3 blocks for ``page`` (PDF points); ``None`` if Tesseract fails.
 
-    ``mask`` (ADR-037) drops lines read out of photographs before stitching.
+    ``mask`` (ADR-037) drops lines read out of photographs.
     """
     png = page.get_pixmap(dpi=dpi).tobytes("png")
     try:
@@ -251,7 +275,17 @@ def read_page(page: pymupdf.Page, *, dpi: int, language: str,
     if mask is not None and mask.cells:
         kept = [[ln for ln in b.lines if not photo_regions.is_photo_noise(ln, mask)] for b in blocks]
         blocks = [_block(ls) for ls in kept if ls]
-    return render(blocks)
+    return blocks
+
+
+def read_page(page: pymupdf.Page, *, dpi: int, language: str,
+              mask: Optional[photo_regions.PhotoMask] = None) -> Optional[str]:
+    """OCR ``page`` with Tesseract's own layout analysis; ``None`` if Tesseract fails.
+
+    ``mask`` (ADR-037) drops lines read out of photographs before stitching.
+    """
+    blocks = read_page_blocks(page, dpi=dpi, language=language, mask=mask)
+    return None if blocks is None else render(blocks)
 
 
 def keeps_words(text: str, guard_text: str, *, plausible: bool = True) -> bool:

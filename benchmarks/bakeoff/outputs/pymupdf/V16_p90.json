@@ -1,0 +1,95 @@
+{
+ "elements": [
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e1",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "<u>PLANT VARIETIES JOURNAL</u> <u>2003 VOL 16 NO. 3</u>",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e2",
+   "level": 1,
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "# **TABLE 2**",
+   "text_format": "markdown",
+   "type": "heading"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e3",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**NAME** **TELEPHONE** **AREA OF OPERATION**",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e4",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "Aberdeen, Ian 03 5782 1029\n03 5782 2073 fax SE Australia\nAllen, Paul 07 3824 0263 ph/fax SE QLD, Northern NSW\nAnderson, Malcolm 03 5573 0900\n03 5571 1523 fax\n017 870 252 mobile Victoria\nAngus, Tim (64 4) 565 3121\nplantatim@aol.com Australia and New Zealand\nArmitage, Paul 03 9756 7233\n03 9756 6948 fax Victoria\nAvery, Angela 02 6030 4500\n02 6030 4600 fax South Eastern Australia\nBarrett, Mike 02 9875 3087\n02 9980 1662 fax\n0407 062 494 mobile NSW/ACT\nBarth, Gail 08 8389 7479 SA and Victoria\nBaxter, Leslie 03 6224 4481\n03 6224 4468 fax\n0181 21943 mobile Tasmania\nBazzani, Luigi 08 9772 1207\n08 9772 1333 fax Western Australia\nBennett, Malcolm 08 8973 9733\n08 8973 9777 fax NT, QLD, NSW, WA\nBestow, Sue 02 6795 4695\n02 6795 4358 fax\n0418 953 050 mobile Australia\nBiggs, Eric 03 5023 2400\n03 5023 3922 fax Mildura Area\nBoyd, Rodger 08 9380 2553\n08 9380 1108 fax Western Australia\nBrouwer, Jan 03 53846293\njanbertb@wimmera.com.au",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e5",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "South Eastern Australia\nChequer, Robert 03 5382 1269\n0419 145 262 mobile Victoria\nCollins, David 08 9623 2343 ph/fax\n0154 42694 mobile Central Western Wheatbelt of\nWestern Australia\nCooper, Katharine 08 8303 6563\n08 8303 7119 fax Australia\nCox, Mike 07 4132 5200\n07 4132 5253 fax Queensland and NSW\nCramond, Gregory 08 8390 0299\n08 8390 0033 fax\n0417 842 558 mobile Australia\nCroft, Valerie 03 5573 0900\n03 5571 1523 fax Victoria\nCross, Richard 64 3 325 6400\n64 3 325 2074 fax New Zealand\nCruickshank, Alan 07 4160 0722\n07 4162 3238 fax QLD\nCunneen, Thomas 02 4889 8647\n02 4889 8657 fax Sydney Region\nDarmody, Liz 03 9756 6105\n03 9752 0005 fax Australia\nDavidson, James 02 6246 5071\n02 6246 5399 fax High rainfall zone of temperate\nAustralia\nDawson, Iain 02 6251 2293 ACT, South East NSW\nDerera, Nicholas AM 02 9639 3072\n02 9639 0345 fax\n0414 639 307 mobile Australia\nDownes, Ross 02 6255 1461 ph\n02 6278 4676 fax\n0414 955258 mobile ACT, South East Australia\nDunstone, Bob 02 6281 1754 ph/fax South East NSW\nEaston, Andrew 07 4690 2666\n07 4630 1063 fax QLD and NSW\nEggleton, Steve 03 9876 1097\n03 9876 1696 fax Melbourne Region\nEllison, Don 07 5533 2955 QLD and NSW\nEngel, Richard 08 9397 5941\n08 9397 5941 fax WA\nFennell, John 03 5334 7871\n03 5334 7892 fax\n0419 881 887 Australia\nFleming, Graham 03 9756 6105\n03 9752 0005 fax Australia\nFoster, Kevin 08 9368 3804\n08 9474 2840 fax Mediterranean areas of\nAustralia\nFrkovic, Edward 02 6962 7333\n02 6964 1311 fax Australia",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e6",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "80",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e7",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "George, Doug 07 5460 1308\n07 5460 1112 fax Australia\nGoulden, David 64 3 325 6400\n64 3 325 2074 fax New Zealand\nGuertsen, Paul 02 6845 3789\n02 6845 3382 fax\n0407 658 105 mobile NSW, VIC, SE QLD\nHanger, Brian 03 9837 5547 ph/fax\n0418 598106 mobile Victoria\nHare, Ray 02 6763 1232\n02 6763 1222 fax QLD, NSW VIC & SA\nHarrison, Peter 08 8948 1894 ph\n08 8948 3894 fax\n0407 034 083 mobile Tropical/Sub-tropical\nAustralia, including NT and\nNW of WA and tropical arid\nareas\nHempel, Maciej 02 4628 0376\n02 4625 2293 fax NSW, QLD, VIC, SA\nHenry, Robert J 02 6620 3010\n02 6622 2080 fax Australia\nHerrington, Mark 07 5441 2211\n07 5441 2235 fax Southern Queensland\nHill, Jeff 08 8303 9487\n08 8303 9607 fax South Australia\nHockings, David 07 5494 3385 ph/fax Southern Queensland\nImrie, Bruce 02 4474 0951\n02 4474 0952\nimriecsc@sci.net.au SE Australia\nIredell, Janet Willa 07 3202 6351 ph/fax SE Queensland\nJack, Brian 08 9952 5040\n08 9952 5053 fax South West WA\nJames, Andrew 07 3214 2278\n07 3214 2272 fax Australia\nJohnston, Margaret 07 5460 1240\n07 5460 1455 fax SE Queensland\nKadkol, Gururaj 03 5382 1269\n03 5381 1210 fax North Western Victoria\nKennedy, Peter 02 6382 7600\n02 6382 2228 fax New South Wales\nKhan, Akram 02 9351 8821\n02 9351 8875 fax New South Wales\nKidd, Charles 08 8842 3591\n08 8842 3066 fax\n0417 336 458 mobile Southern Australia\nKirby, Greg 08 8201 2176\n08 8201 3015 fax South Australia\nKirby, Neil 02 4754 2637\n02 4754 2640 fax New South Wales\nKirkham, Roger 03 5957 1200\n03 5957 1210 fax\n0153 23713 mobile Victoria\nKirkness, Colin 08 9443 1099\n0419 196661 mobile Perth\nKnights, Edmund 02 6763 1100\n02 6763 1222 fax North Western NSW\nKulkarni, Vinod 08 9992 2221\n08 9992 2049 fax Australia\nLake, Andrew 08 8177 0558\n0418 818 798 mobile\nlake@arcom.com.au SE Australia\nLaker, Richard 08 87258987\n08 8723 0142 fax\n0417 855 592 mobile Australia\nLamont, Greg 02 8778 5388\n02 9734 9866 fax Sydney region\nLangford, Garry 03 6266 4344\n03 6266 4023 fax\n0418 312 910 mobile Australia\nLarkman, Clive 03 9735 3831\n03 9739 6370\nlarkman@tpgi.com.au Victoria\nLaw, Mary Ann 07 4637 9960\n07 4637 9962 fax\nmalaw@bigpond.com Toowoomba region\nLee, Peter 03 6330 1147\n03 6330 1927 fax SE Australia\nLee, Slade 02 6620 3410\n02 6622 2080 fax Queensland/Northern New\nSouth Wales\nLenoir, Roland 02 6231 9063 ph/fax Australia\nLeske, Richard 07 4671 3136\n07 4671 3113 fax Cotton growing regions of\nQLD & NSW\nLight, Kate 03 5362 2175\n0419 145 768 mobile Victoria\nLoch, Don 07 3286 1488\n07 3286 3094 fax Queensland",
+   "text_format": "markdown",
+   "type": "paragraph"
+  }
+ ],
+ "pages": [
+  {
+   "method": "text-layer",
+   "number": 1,
+   "size": [
+    651.0,
+    898.0
+   ],
+   "source": "pymupdf4llm"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

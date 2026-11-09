@@ -36,7 +36,9 @@ from functools import lru_cache
 import pymupdf
 
 from . import borders, photo_regions, tesseract_layout
-from .reading_order import Line, order_lines
+from . import document as ir
+from .reading_order import Line, order_paragraphs, paragraph_text
+from .serializer import render_elements
 
 # Drop OCR noise read out of photographs (ADR-037). False restores the ADR-035
 # behaviour, which the bake-off keeps as a baseline.
@@ -83,6 +85,18 @@ class OcrEngine(ABC):
     def ocr_page(self, page: pymupdf.Page, *, dpi: int, language: str) -> str:
         """Return the text recognized on ``page`` (rasterized at ``dpi``)."""
 
+    def read_elements(self, page: pymupdf.Page, *, dpi: int, language: str) -> list[ir.Element]:
+        """The page as IR elements in reading order (ADR-043).
+
+        An engine that knows no more than its text returns it as one element.
+        """
+        return text_elements(self.ocr_page(page, dpi=dpi, language=language), source=self.name)
+
+
+def text_elements(text: str, *, source: str) -> list[ir.Element]:
+    """A page's whole text as one element, or none when it is blank."""
+    return [ir.Element(type=ir.TEXT, text=text, source=source)] if text and text.strip() else []
+
 
 class TesseractEngine(OcrEngine):
     """Default engine: MuPDF's built-in Tesseract via ``get_textpage_ocr``.
@@ -94,6 +108,9 @@ class TesseractEngine(OcrEngine):
     name = "tesseract"
 
     def ocr_page(self, page: pymupdf.Page, *, dpi: int, language: str) -> str:
+        return render_elements(self.read_elements(page, dpi=dpi, language=language))
+
+    def read_elements(self, page: pymupdf.Page, *, dpi: int, language: str) -> list[ir.Element]:
         # Every pass below reads the same cleaned pixels: a guard that still saw the
         # junk could otherwise out-count, and override, the cleaned text.
         cleaned = borders.cleaned_page(page) if BORDER_CLEANUP else None
@@ -102,20 +119,30 @@ class TesseractEngine(OcrEngine):
         # full=True rasterizes and OCRs the whole page (the right choice for an
         # image-only page), so it also works when forcing OCR over a text layer.
         mask = photo_regions.photo_mask(page) if SKIP_PHOTO_REGIONS else None
-        guard = self._geometric_text(page, dpi=dpi, language=language, mask=mask)
+        guard = self._geometric_elements(page, dpi=dpi, language=language, mask=mask)
         if not TESSERACT_LAYOUT:
             return guard
         # Tesseract's own layout reads mixed table-and-prose pages that ADR-035's
         # geometry cannot (ADR-038). Its layout analysis occasionally discards a
         # whole column of text, so the geometric text stays as the guard.
-        text = tesseract_layout.read_page(page, dpi=dpi, language=language, mask=mask)
-        if text is not None and tesseract_layout.keeps_words(text, guard, plausible=PLAUSIBLE_GUARD):
-            return text
+        blocks = tesseract_layout.read_page_blocks(page, dpi=dpi, language=language, mask=mask)
+        if blocks is None:
+            return guard
+        layout = layout_elements(tesseract_layout.groups(blocks))
+        if tesseract_layout.keeps_words(render_elements(layout), render_elements(guard),
+                                        plausible=PLAUSIBLE_GUARD):
+            return layout
         return guard
 
-    @staticmethod
-    def _geometric_text(page: pymupdf.Page, *, dpi: int, language: str,
+    @classmethod
+    def _geometric_text(cls, page: pymupdf.Page, *, dpi: int, language: str,
                         mask: "photo_regions.PhotoMask | None") -> str:
+        """The ADR-035/037 path's text (the guard), for the harness."""
+        return render_elements(cls._geometric_elements(page, dpi=dpi, language=language, mask=mask))
+
+    @staticmethod
+    def _geometric_elements(page: pymupdf.Page, *, dpi: int, language: str,
+                            mask: "photo_regions.PhotoMask | None") -> list[ir.Element]:
         """MuPDF's OCR, photo noise dropped (ADR-037), columns ordered (ADR-035)."""
         textpage = page.get_textpage_ocr(flags=0, language=language, dpi=dpi, full=True)
         # MuPDF groups OCR'd lines into blocks that run across columns, so a
@@ -128,12 +155,42 @@ class TesseractEngine(OcrEngine):
             kept = [ln for ln in lines if not photo_regions.is_photo_noise(ln, mask)]
             dropped = len(kept) < len(lines)
             lines = kept
-        ordered = order_lines(lines)
-        if ordered is not None:
-            return ordered
+        paragraphs = order_paragraphs(lines)
+        if paragraphs is not None:
+            return [_lines_element(paragraph_text(p), [ln for row in p for ln in row], GEOMETRIC)
+                    for p in paragraphs]
         if dropped:  # MuPDF's order, minus the photo noise
-            return "\n".join(ln.text for ln in lines if ln.text)
-        return page.get_text("text", textpage=textpage)
+            text = "\n".join(ln.text for ln in lines if ln.text)
+        else:
+            text = page.get_text("text", textpage=textpage)
+        return [_lines_element(text, lines, MUPDF_OCR)] if text.strip() else []
+
+
+# Element sources on the Tesseract path (ADR-043).
+GEOMETRIC = "tesseract-geometric"  # MuPDF's OCR lines, ordered by ADR-035's geometry
+MUPDF_OCR = "mupdf-ocr"            # MuPDF's OCR text in its own order
+PSM3 = "tesseract-psm3"            # Tesseract's own layout (ADR-038)
+# What made a psm 3 group a table: ADR-038's row stitching.
+ROW_STITCH = "tesseract-row-stitch"
+
+
+def _lines_element(text: str, lines, source: str) -> ir.Element:
+    return ir.Element(type=ir.TEXT, text=text, source=source, lines=tuple(lines),
+                      bbox=ir.BBox.around(lines))
+
+
+def layout_elements(groups) -> list[ir.Element]:
+    """Tesseract psm 3 groups as IR elements: text blocks, and stitched tables."""
+    out = []
+    for g in groups:
+        text = tesseract_layout.group_text(g)
+        if not g.rows:
+            out.append(_lines_element(text, g.lines, PSM3))
+            continue
+        rows = tuple(tuple(ir.Cell(ln.text, ir.BBox.around([ln])) for ln in row) for row in g.rows)
+        out.append(ir.Element(type=ir.TABLE, text=text, source=PSM3, lines=g.lines,
+                              bbox=ir.BBox.around(g.lines), rows=rows, signal=ROW_STITCH))
+    return out
 
 
 def _ocr_lines(page: pymupdf.Page, textpage) -> list[Line]:

@@ -1,0 +1,226 @@
+{
+ "elements": [
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e1",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "<u>PLANT VARIETIES JOURNAL 2003 VOL 16 NO. 3</u>",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e2",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Table 5** **_Avena_** **varieties**",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e3",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**\u2018Quokka\u2019** ***\u2018Quoll\u2019** <sup>A</sup> ***\u2018Swan\u2019** ***\u2018Euro\u2019** ***\u2018Echidna\u2019**\n______________________________________________________________________________________________________________\nPLANT: GROWTH HABIT",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e4",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "intermediate intermediate intermediate semi-erect intermediate\n______________________________________________________________________________________________________________\nPLANT: LENGTH",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e5",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "long short long medium very short\n______________________________________________________________________________________________________________\nPLANT: HEIGHT (mm)\nmean 934 570 852 664 524\nstd deviation 88 43 82 62 60\nLSD/sig 42 P\u22640.01 P\u22640.01 P\u22640.01 P\u22640.01\n______________________________________________________________________________________________________________\nSTEM: HAIRINESS OF UPPERMOST NODE",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e6",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "present present absent present present\n______________________________________________________________________________________________________________\nSTEM: INTENSITY OF HAIRINESS OF UPPERMOST NODE",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e7",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "weak weak n/a medium medium\n______________________________________________________________________________________________________________\nLEAF BLADE: HAIRINESS OF MARGINS OF LEAF BELOW FLAG LEAF",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e8",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "absent or weak absent or weak weak\nvery weak very weak\n______________________________________________________________________________________________________________\nTIME OF PANICLE EMERGENCE",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e9",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "very early medium early medium medium\n______________________________________________________________________________________________________________\nPANICLE: LENGTH",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e10",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "long long long medium medium\n______________________________________________________________________________________________________________\nPANICLE: LENGTH (mm)\nmean 203 201 199 172 175\nstd deviation 17 21 12 15 13\nLSD/sig 11 ns ns P\u22640.01 P\u22640.01\n______________________________________________________________________________________________________________\nGLUMES: LENGTH",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e11",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "short medium to long long medium medium\n______________________________________________________________________________________________________________\nGLUMES: LENGTH (mm)\nmean 21.7 25.3 27.3 23.3 23.5\nstd deviation 1.4 1.2 1.3 1.1 1.2\nLSD/sig 1.4 P\u22640.01 P\u22640.01 P\u22640.01 P\u22640.01\n______________________________________________________________________________________________________________\nPRIMARY GRAIN: HAIRINESS OF BASE",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e12",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "absent or very strong weak medium to weak\nvery weak weak\n______________________________________________________________________________________________________________\nGRAIN: COLOUR OF LEMMA",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e13",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "yellow yellow brown yellow yellow\n______________________________________________________________________________________________________________",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e14",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_~~Boronia heterophylla~~_\n**~~Red Boronia~~**",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e15",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**\u2018Ice Charlotte\u2019**\nApplication No: 2000/334 Accepted: 7 Dec 2000.\nApplicant: **Anthony & Karyn Ward**, Tauranga, New\nZealand.\nAgent: **Greenhills Propagation Nursery Pty Ltd**,\nTynong, VIC.",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e16",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Characteristics** (Table 6, Figure 21) Stem: shape in cross\nsection round. Leaf: type pinnate, number of leaflets three\nto seven, margin entire, colour of upper side in relation to\ncolour of lower side same, hairiness of lower side absent to",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e17",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "very weak, hairiness of upper side absent to very weak,\ntexture of upper side warty. Flowering stem: position of\nflowers axillary. Inflorescence: number of flowers one.\nFlower: shape closed bell. Petal: main colour white (RHS\n155C), secondary colour red, position of secondary colour\npredominantly on midrib, prominence of midvein weak.\nStigma: colour greyed-red, swelling present. Anther:\ncolour greyed-red. (RHS 139A), colour lower side yellowgreen (RHS 147B. (Note: All RHS colour chart numbers\nrefer to 2001 edition.)",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e18",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Origin and Breeding** Spontaneous mutation: from\n_Boronia heterophylla_ at owners property in Tauranga, New\nZealand in 1995. The parental form is characterised by\npink flowers. A mutant was selected for further",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "confidence": null,
+   "id": "e19",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "23",
+   "text_format": "markdown",
+   "type": "paragraph"
+  }
+ ],
+ "pages": [
+  {
+   "method": "text-layer",
+   "number": 1,
+   "size": [
+    651.0,
+    898.0
+   ],
+   "source": "pymupdf4llm"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}
