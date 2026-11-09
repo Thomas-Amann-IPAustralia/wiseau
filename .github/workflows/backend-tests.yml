@@ -101,7 +101,18 @@ jobs:
             -H 'Content-Type: application/json' \
             -d '{"url":"https://example.com"}')
           echo "$body"
-          echo "$body" | grep -q "Example Domain" || { echo "expected extracted content not found"; docker logs md-engine; exit 1; }
+          # Assert that a real page came back as real Markdown, not a phrase from
+          # it: example.com's copy is somebody else's and changes (its November
+          # 2026 page no longer extracts "Example Domain", which turned this step
+          # red on main for reasons unrelated to any commit here).
+          printf '%s' "$body" | python3 -c '
+          import json, sys
+          r = json.load(sys.stdin)
+          assert r["source"].startswith("https://example.com"), r["source"]
+          words = r["markdown"].split()
+          assert len(words) >= 20, f"too little text extracted: {r['"'"'markdown'"'"']!r}"
+          print(f"extracted {len(words)} words")
+          ' || { echo "expected extracted content not found"; docker logs md-engine; exit 1; }
           # example.com extracts to well under Trafilatura's 250-character
           # threshold, so it is exactly the shape that used to come back with its
           # body duplicated (ADR-020). One copy, on a real page, in the image.
