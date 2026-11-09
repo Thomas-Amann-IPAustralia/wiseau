@@ -107,6 +107,17 @@
    "sent_at": "2026-11-09T02:48:28Z",
    "error": "upstream request failed",
    "usd": 1.8384
+  },
+  {
+   "call": "gemini-4-argon/V2_p12",
+   "http": 502,
+   "seconds": 30.2,
+   "raw": "FAILED-3__gemini-4-argon__V2_p12.sse",
+   "raw_sha256": "53bf0093ee81e5a202402de8b0b06bfa46b6ba796ebfe1606722b05a42172181",
+   "image_sha256": "07c9c0e91a86fdfa0483309e9fc2e783801419f0f85d2600dabe842688bfd375",
+   "sent_at": "2026-11-09T02:58:51Z",
+   "error": "upstream request failed",
+   "usd": 0.3677
   }
  ],
  "superseded": [
