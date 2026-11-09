@@ -59,7 +59,8 @@ ENGINES = ["pymupdf", "no-borders", "trust-layer", "hidden-layer", "forced-ocr",
            "router-rule", "oracle-best-single",
            # roadmap 14 item 1.2 (preprocess.py) and 1.3 (ml_engines.py), 2026-11-09
            "pre-ident", "pre-deskew", "pre-norm", "pre-sauvola", "pre-denoise",
-           "rec-tesseract", "rec-PP-OCRv6_small_rec", "rec-en_PP-OCRv5_mobile_rec", "tatr", "ppstructure-v3"]
+           "rec-tesseract", "rec-PP-OCRv6_small_rec", "rec-en_PP-OCRv5_mobile_rec",
+           "wrec-PP-OCRv6_small_rec", "wrec-en_PP-OCRv5_mobile_rec", "tatr", "ppstructure-v3"]
 METRICS = ["wer", "cer", "ord", "bow_r", "bow_p", "num_r", "num_p", "pun_r", "pun_p"]
 
 

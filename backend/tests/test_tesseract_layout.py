@@ -9,13 +9,14 @@ from __future__ import annotations
 
 import io
 import shutil
+import subprocess
 
 import pymupdf
 import pytest
 
 from parsers import ocr, tesseract_layout
 from parsers.reading_order import Line
-from parsers.tesseract_layout import Block, keeps_words, parse_tsv, render
+from parsers.tesseract_layout import Block, keeps_words, parse_tsv, plausible_word_count, render
 
 HEADER = "level\tpage_num\tblock_num\tpar_num\tline_num\tword_num\tleft\ttop\twidth\theight\tconf\ttext\n"
 
@@ -104,6 +105,23 @@ def test_guard_rejects_a_layout_that_lost_words():
     assert not keeps_words("Agapanthus Alstroemeria Anthurium Asparagus", guard)
 
 
+def test_plausible_words_leave_out_speckle():
+    # Printed words, short words, numbers and codes count...
+    assert plausible_word_count("Address of Applicant: 12 mm, V2 4CB 1985") == 8
+    # ...speckle read as letters does not (ADR-042).
+    assert plausible_word_count("ee eee Ss NaS oO t snes ee nsn bago") == 2  # snes, bago
+
+
+def test_guard_ignores_junk_when_counting():
+    # P85 p5 (ADR-042): the guard read more junk out of a stamp box than the layout
+    # did, so a raw count made the worse text win.
+    layout = "Address of Applicant: New Murphy Road and Concord Pike"
+    guard = "Address of Applicant: Concord Pike ee eee ee Ss oO eee ee nn"
+    assert keeps_words(layout, guard)
+    assert not keeps_words(layout, guard, plausible=False)  # the rule before ADR-042
+    assert not keeps_words("Address", guard + " New Murphy Road")
+
+
 def test_missing_binary_returns_none(monkeypatch):
     monkeypatch.setattr(tesseract_layout, "TESSERACT_CMD", "no-such-tesseract-binary")
     doc = pymupdf.open()
@@ -143,6 +161,22 @@ def test_layout_failure_or_lost_words_falls_back(monkeypatch, page, geometric, l
     monkeypatch.setattr(ocr, "TESSERACT_LAYOUT", True)
     monkeypatch.setattr(tesseract_layout, "read_page", lambda *a, **kw: layout_text)
     assert ocr.TesseractEngine().ocr_page(page, dpi=72, language="eng") == "one two three four five six seven"
+
+
+def test_tesseract_runs_on_one_thread(monkeypatch):
+    # ADR-042: an OpenMP Tesseract under load ran past TIMEOUT_S, so the output
+    # depended on the machine's load. Each run is held to one thread.
+    seen = {}
+
+    def fake_run(cmd, **kw):
+        seen.update(kw["env"])
+        raise subprocess.TimeoutExpired(cmd, 1)
+
+    monkeypatch.setattr(tesseract_layout.subprocess, "run", fake_run)
+    doc = pymupdf.open()
+    doc.new_page(width=100, height=100)
+    assert tesseract_layout.read_page(doc[0], dpi=72, language="eng") is None
+    assert seen["OMP_THREAD_LIMIT"] == "1"
 
 
 # --- End to end, with the real binary ---------------------------------------

@@ -21,6 +21,7 @@ side by side: concurrent runs on a small box inflate every timing (post-mortem
                                                           #   ident, deskew, norm, sauvola, denoise; roadmap 1.2)
   python benchmarks/bakeoff/run_engines.py rec-MODEL      # psm 3 layout, lines re-read by MODEL (ml_engines.py;
                                                           #   tesseract = control, PP-OCRv6_small_rec, ...; roadmap 1.3)
+  python benchmarks/bakeoff/run_engines.py wrec-MODEL     # as rec-MODEL, but each Tesseract word box re-read
   python benchmarks/bakeoff/run_engines.py tatr           # psm 3 layout, tables found by Table Transformer (1.3)
   python benchmarks/bakeoff/run_engines.py ppstructure-v3 # PaddleOCR's PP-StructureV3 pipeline (1.3)
 
@@ -267,6 +268,9 @@ def main() -> None:
     elif engine.startswith("rec-"):
         import ml_engines
         run, wants_key = ml_engines.rec_engine(engine[4:]), True
+    elif engine.startswith("wrec-"):
+        import ml_engines
+        run, wants_key = ml_engines.word_rec_engine(engine[5:]), True
     elif engine == "tatr":
         import ml_engines
         run, wants_key = ml_engines.tatr_engine(), True

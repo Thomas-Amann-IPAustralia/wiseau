@@ -23,7 +23,10 @@ page comes out one column at a time. This module repairs that one failure:
 The caller (``ocr.TesseractEngine``) keeps the ADR-035/037 text as a guard: if
 this layout reads markedly fewer words than that path did (``KEEP_WORD_SHARE``),
 Tesseract's layout analysis threw text away (it can mistake a column of dates
-for an image), and the guard text is used instead.
+for an image), and the guard text is used instead. Both sides count only
+*plausible* words (``plausible_word_count``): the two passes read the same
+speckle differently, and junk such as ``ee eee Ss`` made a worse guard text
+out-count a better layout text (ADR-042).
 
 Determinism: Tesseract's output is fixed for fixed pixels, and everything here is
 geometry with total sort orders, so identical pages give identical text (ADR-013:
@@ -34,6 +37,7 @@ from __future__ import annotations
 
 import csv
 import io
+import os
 import re
 import subprocess
 from statistics import median
@@ -48,6 +52,12 @@ from .reading_order import Line
 TESSERACT_CMD = "tesseract"
 # Seconds before a Tesseract run is abandoned and the guard text is used.
 TIMEOUT_S = 120
+# Tesseract's OpenMP build spreads one page over every core. Several pages at once
+# (MAX_CONCURRENT_JOBS, or any other load) then oversubscribe the CPU, and a page
+# that takes 10 s alone took over 120 s, so the timeout fired and the guard text
+# came back instead: the output depended on the machine's load. One thread per run
+# keeps a page's time near its own cost (ADR-042).
+TESSERACT_ENV = {"OMP_THREAD_LIMIT": "1"}
 
 # A block looks like a table cell when its lines have at most this many words on
 # median...
@@ -70,6 +80,8 @@ EDGE_LINE_SHARE = 0.9
 KEEP_WORD_SHARE = 0.85
 
 _WORD = re.compile(r"[^\W_]+")
+_CASE_FLIP = re.compile(r"[a-z][A-Z]")
+_VOWEL = re.compile(r"[aeiouyAEIOUY]")
 
 
 class Block(NamedTuple):
@@ -83,8 +95,29 @@ class Block(NamedTuple):
 
 
 def word_count(text: str) -> int:
-    """Runs of letters and digits: the unit the guard compares."""
+    """Runs of letters and digits."""
     return len(_WORD.findall(text))
+
+
+def _plausible(token: str) -> bool:
+    """A token that could be printed text rather than OCR speckle (ADR-042).
+
+    Anything with a digit counts (dates, numbers and codes are what the guard
+    protects), as do the common short words. Otherwise a token needs three or more
+    letters, at least two different ones (``eee`` is speckle), a vowel, and no
+    capital after a small letter (``NaS``, ``oO``).
+    """
+    if any(ch.isdigit() for ch in token):
+        return True
+    if token.lower() in photo_regions.SHORT_WORDS:
+        return True
+    return (len(token) >= 3 and len(set(token.lower())) >= 2
+            and _CASE_FLIP.search(token) is None and _VOWEL.search(token) is not None)
+
+
+def plausible_word_count(text: str) -> int:
+    """The words the guard compares: runs of letters and digits that look printed."""
+    return sum(1 for t in _WORD.findall(text) if _plausible(t))
 
 
 def parse_tsv(tsv: str, scale: float = 1.0) -> list[Block]:
@@ -210,7 +243,8 @@ def read_page(page: pymupdf.Page, *, dpi: int, language: str,
     png = page.get_pixmap(dpi=dpi).tobytes("png")
     try:
         done = subprocess.run([TESSERACT_CMD, "stdin", "stdout", "--psm", "3", "-l", language, "tsv"],
-                              input=png, capture_output=True, timeout=TIMEOUT_S, check=True)
+                              input=png, capture_output=True, timeout=TIMEOUT_S, check=True,
+                              env={**os.environ, **TESSERACT_ENV})
     except (OSError, subprocess.SubprocessError):
         return None
     blocks = parse_tsv(done.stdout.decode("utf-8", errors="replace"), scale=72.0 / dpi)
@@ -220,6 +254,10 @@ def read_page(page: pymupdf.Page, *, dpi: int, language: str,
     return render(blocks)
 
 
-def keeps_words(text: str, guard_text: str) -> bool:
-    """True unless ``text`` lost a large share of the words ``guard_text`` has."""
-    return word_count(text) >= KEEP_WORD_SHARE * word_count(guard_text)
+def keeps_words(text: str, guard_text: str, *, plausible: bool = True) -> bool:
+    """True unless ``text`` lost a large share of the plausible words ``guard_text`` has.
+
+    ``plausible=False`` counts every run of letters and digits (the rule before ADR-042).
+    """
+    count = plausible_word_count if plausible else word_count
+    return count(text) >= KEEP_WORD_SHARE * count(guard_text)

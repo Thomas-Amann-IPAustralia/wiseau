@@ -47,6 +47,10 @@ SKIP_PHOTO_REGIONS = True
 # False restores the ADR-037 path, which the bake-off keeps as a baseline.
 TESSERACT_LAYOUT = True
 
+# The ADR-038 guard counts only plausible words, not OCR speckle (ADR-042). False
+# restores the raw count, which the bake-off keeps as a baseline.
+PLAUSIBLE_GUARD = True
+
 # Paint out solid scanner bands at the page edges before OCR (borders.py), so
 # their speckle is not read as junk words. False restores the path before it,
 # which the bake-off keeps as a baseline.
@@ -105,7 +109,7 @@ class TesseractEngine(OcrEngine):
         # geometry cannot (ADR-038). Its layout analysis occasionally discards a
         # whole column of text, so the geometric text stays as the guard.
         text = tesseract_layout.read_page(page, dpi=dpi, language=language, mask=mask)
-        if text is not None and tesseract_layout.keeps_words(text, guard):
+        if text is not None and tesseract_layout.keeps_words(text, guard, plausible=PLAUSIBLE_GUARD):
             return text
         return guard
 

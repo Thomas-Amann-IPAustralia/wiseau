@@ -9,6 +9,9 @@ held fixed, so a score difference belongs to the one stage that changed:
   control, the same code with nothing swapped. The PaddleOCR models are
   ``PP-OCRv6_small_rec`` (the roadmap's candidate) and ``en_PP-OCRv5_mobile_rec``
   (PaddleOCR's English model).
+  ``word_rec_engine(model)`` (``wrec-MODEL``) re-reads each Tesseract *word* box
+  instead, keeping Tesseract's word boundaries, because line-level PP-OCR drops
+  the spaces in widely spaced table rows.
 * **Tables.** ``tatr_engine()`` keeps the same layout and recogniser (Tesseract)
   but finds tables with Table Transformer (PubTables-1M detection, v1.1 structure
   recognition) instead of ADR-038's row stitching. Each detected table is read row
@@ -131,6 +134,39 @@ def rec_engine(model: str):
             # An empty read keeps Tesseract's text, so a line is never silently lost.
             blocks = [tl._block([ln._replace(text=(t.strip() or ln.text)) for ln, t in zip(b.lines, texts)])
                       for b in blocks]
+        blocks = _masked(tl, pr, page, _scaled(tl, blocks, 72.0 / DPI))
+        return cleaner.clean_markdown(tl.render(blocks))
+
+    return run
+
+
+def word_rec_engine(model: str):
+    """As ``rec_engine``, but every Tesseract *word* box is re-read, and words are
+    joined with Tesseract's spaces. Line-level PP-OCR drops the spaces in widely
+    spaced table rows (``range42 5746``); this keeps Tesseract's word segmentation
+    and swaps only the reading of each word."""
+    tl, pr, cleaner = _parsers()
+    os.environ.setdefault("PADDLE_PDX_MODEL_SOURCE", "huggingface")
+    os.environ.setdefault("PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK", "True")
+    from paddleocr import TextRecognition
+
+    rec = TextRecognition(model_name=model, cpu_threads=int(os.environ.get("PADDLE_THREADS", "4")))
+
+    def run(data: bytes, key: str) -> str:
+        page = pymupdf.open(stream=data, filetype="pdf")[0]
+        if not _is_scan(page):
+            return _copied(key)
+        img = _image(page)
+        words = _tsv_words(_tsv(img), 1.0)
+        h, w = img.shape[:2]
+        crops = [img[max(0, int(wd.y0) - LINE_PAD):min(h, int(wd.y1) + LINE_PAD),
+                     max(0, int(wd.x0) - LINE_PAD):min(w, int(wd.x1) + LINE_PAD), ::-1].copy() for wd in words]
+        texts = [r["rec_text"] for r in rec.predict(crops, batch_size=16)] if crops else []
+        for wd, t in zip(words, texts):
+            t = "".join(t.split())          # one box, one word
+            if t:                           # an empty read keeps Tesseract's word
+                wd.text = t
+        blocks = [b for _, b in _blocks_from_words(tl, words)]
         blocks = _masked(tl, pr, page, _scaled(tl, blocks, 72.0 / DPI))
         return cleaner.clean_markdown(tl.render(blocks))
 
