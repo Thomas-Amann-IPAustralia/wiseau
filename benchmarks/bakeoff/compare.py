@@ -9,7 +9,9 @@ how many pages got better, worse or stayed the same (a wer change under 0.0005 i
   python benchmarks/bakeoff/compare.py rec-tesseract rec-PP-OCRv6_small_rec --pages   # also list changed pages
 
 The first engine named is the control. ``--sets`` defaults to every set; set A's
-born-digital V16 pages are left out unless ``--digital`` is given.
+born-digital V16 pages are left out unless ``--digital`` is given. ``--by-type``
+adds rows per scan type (bilevel, mixed, colour/grey; from
+``survey/preprocess-features.json``, written by ``preprocess.py``).
 """
 from __future__ import annotations
 
@@ -60,6 +62,19 @@ def main() -> None:
                   f"{sum(dc) / len(dc):+.3f} | {better} | {worse} | {len(ks) - better - worse} |")
             if s == "all":
                 total = ks
+        if "--by-type" in flags:
+            feats = json.loads((HERE / "survey" / "preprocess-features.json").read_text())
+            for kind in ("bilevel", "mixed", "colour/grey"):
+                ks = [k for k in total if k in feats
+                      and {"bilevel": "bilevel", "mixed": "mixed"}.get(feats[k]["type"], "colour/grey") == kind]
+                if not ks:
+                    continue
+                d = [pages[k]["wer"] - base[k]["wer"] for k in ks]
+                dc = [pages[k]["cer"] - base[k]["cer"] for k in ks]
+                better, worse = sum(x < -SAME for x in d), sum(x > SAME for x in d)
+                print(f"| {engine} | {kind} | {len(ks)} | {sum(pages[k]['wer'] for k in ks) / len(ks):.3f} | "
+                      f"{sum(d) / len(d):+.3f} | {sum(pages[k]['cer'] for k in ks) / len(ks):.3f} | "
+                      f"{sum(dc) / len(dc):+.3f} | {better} | {worse} | {len(ks) - better - worse} |")
         changed += [(engine, k, base[k]["wer"], pages[k]["wer"]) for k in total
                     if abs(pages[k]["wer"] - base[k]["wer"]) > SAME]
     if "--pages" in flags:
