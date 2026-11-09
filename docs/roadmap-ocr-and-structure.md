@@ -122,13 +122,13 @@ can ship) are noted inline.
   `Volume 4 Number 1.pdf` (36 pp, image-only) and `Volume 2 Number 2.pdf` (40
   pp, hidden OCR layer, about 8 table pages), both partly lower-resolution (150
   or 200 dpi). Draw from these; see `handover-2026-11-08.md`.
-- [ ] **1.2 Preprocessing ablation.** *Border cleanup done 2026-11-08 (ADR-041, `docs/benchmarks/2026-11-08-border-cleanup.md`): scanner bands painted out; P85 p6 wer 0.110 → 0.053, set E 0.084 → 0.079, no other scored page changed. Follow-up: the ADR-038 guard counts junk as words (cost P85 p5 a line). Deskew, contrast, Sauvola, denoise not started.* Run four variants of each page: the
+- [x] **1.2 Preprocessing ablation.** *Border cleanup done 2026-11-08 (ADR-041, `docs/benchmarks/2026-11-08-border-cleanup.md`): scanner bands painted out; P85 p6 wer 0.110 → 0.053, set E 0.084 → 0.079, no other scored page changed. Guard follow-up done 2026-11-09 (ADR-042). Deskew, normalisation, Sauvola and denoise done 2026-11-09 (`docs/benchmarks/2026-11-09-preprocessing-ablation.md`): all four lose against a pixel-exact control (wer +0.016, +0.041, +0.051, +0.003 on 72 scans); no per-page rule designed on the development sets holds on E and F, so the original pixels stay.* Run four variants of each page: the
   original, deskew + contrast/background normalisation, Sauvola thresholding,
   and light denoise. Score each through the current default, broken down by page
   type, and log skew, contrast, blur and noise per page. Keep the original as a
   candidate: only a per-page rule that beats it on held-out pages ships. OpenCV
   only. *Effort: low.*
-- [ ] **1.3 Specialist table and recogniser bake-off.** Add Table Transformer
+- [x] **1.3 Specialist table and recogniser bake-off.** *Done 2026-11-09 (`docs/benchmarks/2026-11-09-recogniser-and-table-bakeoff.md`); nothing ships. PaddleOCR recognisers lose as line readers (spaces dropped in table rows) and gain only 0.004 re-reading Tesseract's word boxes, at 4× the time and up to 2.7 GB; no help on the 1963 typewriter faces. Table Transformer fixes V5N1 p18 (0.327 → 0.062) but reads two-column prose pages as tables (+0.101 overall); no gate tried separates them, so it moves to 3.7 with a prose-vs-table check. PP-StructureV3 is worse than the default on its own target pages (20 table pages: wer 0.332 vs 0.090), merges V5N1 p18's side-by-side tables, and needs 8–10.6 GB a page and PaddlePaddle 3.2.2.* Add Table Transformer
   (PubTables-1M) and PP-StructureV3's table module as harness engines. Run them
   on the known failure pages: V5N1 p18 side-by-side tables, V5N3 p24 directory,
   V16 p90, V2 p17 typewriter table, narrow-column, merged-cell and

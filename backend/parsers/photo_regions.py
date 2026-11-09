@@ -44,7 +44,7 @@ LINE_IN_PHOTO = 0.5
 KEEP_MIN_WORDS = 3
 KEEP_WORD_SHARE = 0.8
 
-_SHORT_WORDS = frozenset({"a", "i", "an", "of", "to", "in", "on", "by", "is", "at", "or", "as",
+SHORT_WORDS = frozenset({"a", "i", "an", "of", "to", "in", "on", "by", "is", "at", "or", "as",
                           "be", "it", "we", "no", "mm", "cm"})
 
 
@@ -106,7 +106,7 @@ def photo_mask(page: pymupdf.Page) -> PhotoMask:
 def _word_like(token: str) -> bool:
     if token.isdigit():
         return True
-    if token.lower() in _SHORT_WORDS:
+    if token.lower() in SHORT_WORDS:
         return True
     return len(token) >= 3 and token.isalpha() and re.search(r"[aeiouyAEIOUY]", token) is not None
 

@@ -21,6 +21,45 @@ one `Superseded`.
 
 ---
 
+## ADR-042 — The ADR-038 guard counts plausible words; Tesseract runs on one thread
+**Date:** 2026-11-09 · **Status:** Accepted (hand-over 2026-11-08c item 0; the thread limit was found doing it)
+**Context:**
+- ADR-038 keeps MuPDF's OCR text as a guard: psm 3's text is used only if it has
+  ≥ 85% of the guard's words. The count took every run of letters and digits, so
+  speckle counted. After ADR-041 the guard read *more* junk than psm 3 out of P85
+  p5's stamp box (243 runs against 192) and its worse text replaced psm 3's, losing
+  "Address of Applicant: New Murphy Road and Concord Pike".
+- While measuring that, psm 3 timed out (`TIMEOUT_S` = 120 s) on five set F pages
+  that take about 10 s alone, because other jobs were running: the `tesseract` CLI
+  is built with OpenMP and spreads each page over every core, and several such runs
+  oversubscribe the CPU badly. On timeout the guard text is returned, so **the
+  default output depended on the machine's load**. The service runs up to
+  `MAX_CONCURRENT_JOBS` (4) conversions at once; the live test in the suite hit the
+  same timeout under load.
+**Decision:**
+- `tesseract_layout.keeps_words` compares `plausible_word_count`s: a token counts
+  if it has a digit, is a common short word, or has ≥ 3 letters, ≥ 2 different
+  letters, a vowel and no capital after a small letter. `ocr.PLAUSIBLE_GUARD =
+  False` restores the raw count.
+- `read_page` runs the CLI with `OMP_THREAD_LIMIT=1`. On 12 pages across every test
+  journal and patent the text is byte-identical to the multi-threaded run, and psm 3
+  took 2–5 s a page with another OCR job running beside it.
+**Consequences:**
+- All 76 scored pages are byte-identical (the guard picks the same text on all of
+  them), re-run with three other jobs on the box and no timeout.
+- Across all 336 scanned pages of the 16 test PDFs (cached guard and psm 3 texts),
+  the choice flips on 11. Eight get clearly better: junk dropped and real lines
+  recovered (P85 p5, p8, p22; V4N1 p19; V5N1 p1, p17, p31; V5N3 p1, e.g. "Plant
+  Varieties Journal", a printer's imprint). Three are pages of junk either way that
+  get marginally worse (P85 p25, P97 p23's chemical drawing, P00 p41 loses a "FIG.
+  3B" label). P85 against its own hidden layer (23 pages): wer 0.440 → 0.417,
+  recall 0.851 → 0.858, precision 0.772 → 0.793.
+- The rule was written looking at P85; the other 310 pages are the held-out check,
+  and only 7 of them flip, so the evidence is mostly "no harm".
+- A page whose psm 3 run genuinely needs more than 120 s still falls back to the
+  guard; with one thread per run that now means a slow page, not a busy machine.
+- `docs/benchmarks/2026-11-09-guard-and-threads.md`.
+
 ## ADR-041 — Scanner bands at a page's edges are painted out before OCR
 **Date:** 2026-11-08 · **Status:** Accepted (roadmap 14 item 1.2, border cleanup; user asked for it 2026-11-08)
 **Context:**

@@ -1,0 +1,122 @@
+{
+  "P63a_p3": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 6338.8,
+    "seconds": 20.5
+  },
+  "P85_p6": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 10623.9,
+    "seconds": 23.7
+  },
+  "V16_p90": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 8232.1,
+    "seconds": 50.8
+  },
+  "V1N3_p16": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 7922.4,
+    "seconds": 25.4
+  },
+  "V2N2_p10": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 7968.9,
+    "seconds": 28.2
+  },
+  "V2N2_p12": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 8965.9,
+    "seconds": 20.6
+  },
+  "V2N2_p16": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 9093.9,
+    "seconds": 26.5
+  },
+  "V2N2_p23": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 9052.5,
+    "seconds": 29.0
+  },
+  "V2N2_p32": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 9093.9,
+    "seconds": 23.5
+  },
+  "V2_p12": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 7993.8,
+    "seconds": 53.2
+  },
+  "V2_p14": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 7997.8,
+    "seconds": 45.1
+  },
+  "V2_p17": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 9013.7,
+    "seconds": 38.8
+  },
+  "V4N1_p25": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 9144.5,
+    "seconds": 30.4
+  },
+  "V4_p19": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 8611.4,
+    "seconds": 31.9
+  },
+  "V4_p32": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 8344.9,
+    "seconds": 27.9
+  },
+  "V5N1_p11": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 8005.3,
+    "seconds": 39.1
+  },
+  "V5N1_p18": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 8530.2,
+    "seconds": 23.2
+  },
+  "V5N1_p20": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 8670.3,
+    "seconds": 26.9
+  },
+  "V5N3_p19": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 8934.8,
+    "seconds": 24.2
+  },
+  "V5N3_p24": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 8934.8,
+    "seconds": 22.2
+  }
+}

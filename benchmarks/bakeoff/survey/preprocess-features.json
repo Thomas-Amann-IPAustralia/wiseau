@@ -1,0 +1,578 @@
+{
+ "P00_p15": {
+  "blur_lapvar": 6134.7,
+  "contrast": 255,
+  "native_dpi": 300,
+  "skew_deg": 0.2,
+  "specks_per_mpx": 1.2,
+  "type": "bilevel"
+ },
+ "P00_p4": {
+  "blur_lapvar": 4293.4,
+  "contrast": 255,
+  "native_dpi": 300,
+  "skew_deg": 0.5,
+  "specks_per_mpx": 2.3,
+  "type": "bilevel"
+ },
+ "P63a_p3": {
+  "blur_lapvar": 6460.8,
+  "contrast": 255,
+  "native_dpi": 300,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 21.4,
+  "type": "bilevel"
+ },
+ "P63a_p7": {
+  "blur_lapvar": 8242.0,
+  "contrast": 255,
+  "native_dpi": 300,
+  "skew_deg": 0.3,
+  "specks_per_mpx": 25.6,
+  "type": "bilevel"
+ },
+ "P63b_p14": {
+  "blur_lapvar": 5567.7,
+  "contrast": 255,
+  "native_dpi": 300,
+  "skew_deg": 0.25,
+  "specks_per_mpx": 43.5,
+  "type": "bilevel"
+ },
+ "P63b_p20": {
+  "blur_lapvar": 3179.8,
+  "contrast": 255,
+  "native_dpi": 300,
+  "skew_deg": -0.35,
+  "specks_per_mpx": 16.2,
+  "type": "bilevel"
+ },
+ "P85_p21": {
+  "blur_lapvar": 6456.2,
+  "contrast": 255,
+  "native_dpi": 300,
+  "skew_deg": -0.1,
+  "specks_per_mpx": 239.4,
+  "type": "bilevel"
+ },
+ "P85_p6": {
+  "blur_lapvar": 8015.7,
+  "contrast": 255,
+  "native_dpi": 300,
+  "skew_deg": -0.75,
+  "specks_per_mpx": 423.0,
+  "type": "bilevel"
+ },
+ "P97_p13": {
+  "blur_lapvar": 2944.5,
+  "contrast": 255,
+  "native_dpi": 300,
+  "skew_deg": 0.1,
+  "specks_per_mpx": 149.5,
+  "type": "bilevel"
+ },
+ "P97_p15": {
+  "blur_lapvar": 2531.1,
+  "contrast": 255,
+  "native_dpi": 300,
+  "skew_deg": -0.25,
+  "specks_per_mpx": 140.5,
+  "type": "bilevel"
+ },
+ "V1N3_p12": {
+  "blur_lapvar": 476.1,
+  "contrast": 215,
+  "native_dpi": 300,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 11.0,
+  "type": "mixed"
+ },
+ "V1N3_p16": {
+  "blur_lapvar": 4066.1,
+  "contrast": 255,
+  "native_dpi": 300,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 0.5,
+  "type": "bilevel"
+ },
+ "V1N3_p19": {
+  "blur_lapvar": 2081.2,
+  "contrast": 255,
+  "native_dpi": 298,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 0.6,
+  "type": "bilevel"
+ },
+ "V1N3_p7": {
+  "blur_lapvar": 696.3,
+  "contrast": 217,
+  "native_dpi": 300,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 4.2,
+  "type": "colour"
+ },
+ "V2N2_p10": {
+  "blur_lapvar": 152.6,
+  "contrast": 210,
+  "native_dpi": 150,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 0.2,
+  "type": "colour"
+ },
+ "V2N2_p12": {
+  "blur_lapvar": 1572.0,
+  "contrast": 255,
+  "native_dpi": 298,
+  "skew_deg": -0.1,
+  "specks_per_mpx": 0.2,
+  "type": "bilevel"
+ },
+ "V2N2_p16": {
+  "blur_lapvar": 166.1,
+  "contrast": 211,
+  "native_dpi": 150,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 0.1,
+  "type": "colour"
+ },
+ "V2N2_p23": {
+  "blur_lapvar": 948.3,
+  "contrast": 217,
+  "native_dpi": 299,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 0.2,
+  "type": "colour"
+ },
+ "V2N2_p29": {
+  "blur_lapvar": 2938.6,
+  "contrast": 255,
+  "native_dpi": 299,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 0.2,
+  "type": "bilevel"
+ },
+ "V2N2_p3": {
+  "blur_lapvar": 78.4,
+  "contrast": 208,
+  "native_dpi": 150,
+  "skew_deg": 0.1,
+  "specks_per_mpx": 0.6,
+  "type": "mixed"
+ },
+ "V2N2_p30": {
+  "blur_lapvar": 2821.7,
+  "contrast": 255,
+  "native_dpi": 299,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 0.7,
+  "type": "bilevel"
+ },
+ "V2N2_p31": {
+  "blur_lapvar": 4538.3,
+  "contrast": 255,
+  "native_dpi": 298,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 652.4,
+  "type": "bilevel"
+ },
+ "V2N2_p32": {
+  "blur_lapvar": 5895.7,
+  "contrast": 255,
+  "native_dpi": 300,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 1.0,
+  "type": "bilevel"
+ },
+ "V2N2_p33": {
+  "blur_lapvar": 2920.4,
+  "contrast": 255,
+  "native_dpi": 299,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 0.3,
+  "type": "bilevel"
+ },
+ "V2N2_p4": {
+  "blur_lapvar": 283.4,
+  "contrast": 216,
+  "native_dpi": 150,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 0.0,
+  "type": "colour"
+ },
+ "V2N2_p6": {
+  "blur_lapvar": 3229.7,
+  "contrast": 255,
+  "native_dpi": 295,
+  "skew_deg": -0.1,
+  "specks_per_mpx": 0.3,
+  "type": "bilevel"
+ },
+ "V2_p11": {
+  "blur_lapvar": 775.9,
+  "contrast": 215,
+  "native_dpi": 200,
+  "skew_deg": 0.1,
+  "specks_per_mpx": 33.9,
+  "type": "mixed"
+ },
+ "V2_p12": {
+  "blur_lapvar": 420.7,
+  "contrast": 183,
+  "native_dpi": 196,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 8.9,
+  "type": "mixed"
+ },
+ "V2_p14": {
+  "blur_lapvar": 1264.2,
+  "contrast": 255,
+  "native_dpi": 199,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 3.1,
+  "type": "bilevel"
+ },
+ "V2_p17": {
+  "blur_lapvar": 2040.4,
+  "contrast": 255,
+  "native_dpi": 299,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 5.5,
+  "type": "bilevel"
+ },
+ "V2_p2": {
+  "blur_lapvar": 574.7,
+  "contrast": 215,
+  "native_dpi": 199,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 0.1,
+  "type": "bilevel"
+ },
+ "V2_p20": {
+  "blur_lapvar": 2651.6,
+  "contrast": 255,
+  "native_dpi": 299,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 0.7,
+  "type": "bilevel"
+ },
+ "V2_p21": {
+  "blur_lapvar": 1917.8,
+  "contrast": 255,
+  "native_dpi": 299,
+  "skew_deg": 0.1,
+  "specks_per_mpx": 0.5,
+  "type": "bilevel"
+ },
+ "V2_p23": {
+  "blur_lapvar": 7275.6,
+  "contrast": 255,
+  "native_dpi": 300,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 1.5,
+  "type": "bilevel"
+ },
+ "V2_p4": {
+  "blur_lapvar": 1567.7,
+  "contrast": 215,
+  "native_dpi": 200,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 0.7,
+  "type": "bilevel"
+ },
+ "V2_p6": {
+  "blur_lapvar": 1908.3,
+  "contrast": 255,
+  "native_dpi": 199,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 1.3,
+  "type": "bilevel"
+ },
+ "V2_p8": {
+  "blur_lapvar": 496.6,
+  "contrast": 215,
+  "native_dpi": 199,
+  "skew_deg": -0.1,
+  "specks_per_mpx": 28.2,
+  "type": "mixed"
+ },
+ "V2_p9": {
+  "blur_lapvar": 766.3,
+  "contrast": 215,
+  "native_dpi": 200,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 29.0,
+  "type": "mixed"
+ },
+ "V4N1_p13": {
+  "blur_lapvar": 1236.2,
+  "contrast": 215,
+  "native_dpi": 198,
+  "skew_deg": 0.1,
+  "specks_per_mpx": 29.3,
+  "type": "mixed"
+ },
+ "V4N1_p21": {
+  "blur_lapvar": 1270.7,
+  "contrast": 215,
+  "native_dpi": 199,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 12.9,
+  "type": "mixed"
+ },
+ "V4N1_p22": {
+  "blur_lapvar": 1232.9,
+  "contrast": 215,
+  "native_dpi": 200,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 6.1,
+  "type": "mixed"
+ },
+ "V4N1_p25": {
+  "blur_lapvar": 1896.3,
+  "contrast": 255,
+  "native_dpi": 296,
+  "skew_deg": 0.1,
+  "specks_per_mpx": 3.8,
+  "type": "bilevel"
+ },
+ "V4N1_p27": {
+  "blur_lapvar": 2392.3,
+  "contrast": 255,
+  "native_dpi": 295,
+  "skew_deg": 0.3,
+  "specks_per_mpx": 0.3,
+  "type": "bilevel"
+ },
+ "V4N1_p7": {
+  "blur_lapvar": 1113.4,
+  "contrast": 215,
+  "native_dpi": 199,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 32.4,
+  "type": "mixed"
+ },
+ "V4_p10": {
+  "blur_lapvar": 1225.1,
+  "contrast": 215,
+  "native_dpi": 195,
+  "skew_deg": 0.1,
+  "specks_per_mpx": 8.2,
+  "type": "mixed"
+ },
+ "V4_p11": {
+  "blur_lapvar": 987.9,
+  "contrast": 215,
+  "native_dpi": 196,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 15.6,
+  "type": "mixed"
+ },
+ "V4_p14": {
+  "blur_lapvar": 1050.3,
+  "contrast": 215,
+  "native_dpi": 198,
+  "skew_deg": 0.1,
+  "specks_per_mpx": 7.6,
+  "type": "mixed"
+ },
+ "V4_p17": {
+  "blur_lapvar": 1083.8,
+  "contrast": 215,
+  "native_dpi": 197,
+  "skew_deg": -0.1,
+  "specks_per_mpx": 1.8,
+  "type": "mixed"
+ },
+ "V4_p19": {
+  "blur_lapvar": 1193.7,
+  "contrast": 215,
+  "native_dpi": 195,
+  "skew_deg": -0.1,
+  "specks_per_mpx": 10.0,
+  "type": "mixed"
+ },
+ "V4_p22": {
+  "blur_lapvar": 1099.2,
+  "contrast": 215,
+  "native_dpi": 199,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 10.9,
+  "type": "mixed"
+ },
+ "V4_p23": {
+  "blur_lapvar": 2970.8,
+  "contrast": 255,
+  "native_dpi": 299,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 5.2,
+  "type": "bilevel"
+ },
+ "V4_p25": {
+  "blur_lapvar": 1407.3,
+  "contrast": 255,
+  "native_dpi": 296,
+  "skew_deg": 0.3,
+  "specks_per_mpx": 0.1,
+  "type": "bilevel"
+ },
+ "V4_p26": {
+  "blur_lapvar": 934.7,
+  "contrast": 255,
+  "native_dpi": 298,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 0.3,
+  "type": "bilevel"
+ },
+ "V4_p27": {
+  "blur_lapvar": 1681.3,
+  "contrast": 255,
+  "native_dpi": 297,
+  "skew_deg": 0.1,
+  "specks_per_mpx": 0.0,
+  "type": "bilevel"
+ },
+ "V4_p3": {
+  "blur_lapvar": 534.8,
+  "contrast": 215,
+  "native_dpi": 198,
+  "skew_deg": 0.1,
+  "specks_per_mpx": 38.4,
+  "type": "mixed"
+ },
+ "V4_p32": {
+  "blur_lapvar": 1377.2,
+  "contrast": 255,
+  "native_dpi": 299,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 0.8,
+  "type": "bilevel"
+ },
+ "V4_p7": {
+  "blur_lapvar": 1164.7,
+  "contrast": 215,
+  "native_dpi": 197,
+  "skew_deg": -0.1,
+  "specks_per_mpx": 10.6,
+  "type": "mixed"
+ },
+ "V4_p8": {
+  "blur_lapvar": 1277.6,
+  "contrast": 215,
+  "native_dpi": 197,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 11.6,
+  "type": "mixed"
+ },
+ "V5N1_p11": {
+  "blur_lapvar": 2437.6,
+  "contrast": 255,
+  "native_dpi": 296,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 298.6,
+  "type": "bilevel"
+ },
+ "V5N1_p18": {
+  "blur_lapvar": 5585.3,
+  "contrast": 255,
+  "native_dpi": 299,
+  "skew_deg": 0.1,
+  "specks_per_mpx": 2326.8,
+  "type": "bilevel"
+ },
+ "V5N1_p19": {
+  "blur_lapvar": 3696.9,
+  "contrast": 255,
+  "native_dpi": 299,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 10.7,
+  "type": "bilevel"
+ },
+ "V5N1_p20": {
+  "blur_lapvar": 3052.7,
+  "contrast": 255,
+  "native_dpi": 299,
+  "skew_deg": 0.1,
+  "specks_per_mpx": 9.3,
+  "type": "bilevel"
+ },
+ "V5N1_p24": {
+  "blur_lapvar": 3487.3,
+  "contrast": 255,
+  "native_dpi": 298,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 2.4,
+  "type": "bilevel"
+ },
+ "V5N1_p9": {
+  "blur_lapvar": 2536.3,
+  "contrast": 255,
+  "native_dpi": 297,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 4.6,
+  "type": "bilevel"
+ },
+ "V5N3_p12": {
+  "blur_lapvar": 1850.3,
+  "contrast": 255,
+  "native_dpi": 298,
+  "skew_deg": 0.1,
+  "specks_per_mpx": 17.0,
+  "type": "bilevel"
+ },
+ "V5N3_p17": {
+  "blur_lapvar": 3619.3,
+  "contrast": 255,
+  "native_dpi": 297,
+  "skew_deg": 0.1,
+  "specks_per_mpx": 36.4,
+  "type": "bilevel"
+ },
+ "V5N3_p19": {
+  "blur_lapvar": 2506.3,
+  "contrast": 255,
+  "native_dpi": 297,
+  "skew_deg": 0.1,
+  "specks_per_mpx": 1.6,
+  "type": "bilevel"
+ },
+ "V5N3_p23": {
+  "blur_lapvar": 2054.7,
+  "contrast": 255,
+  "native_dpi": 296,
+  "skew_deg": -0.1,
+  "specks_per_mpx": 0.2,
+  "type": "bilevel"
+ },
+ "V5N3_p24": {
+  "blur_lapvar": 2766.3,
+  "contrast": 255,
+  "native_dpi": 295,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 15.4,
+  "type": "bilevel"
+ },
+ "V5N3_p4": {
+  "blur_lapvar": 5278.4,
+  "contrast": 255,
+  "native_dpi": 298,
+  "skew_deg": 0.1,
+  "specks_per_mpx": 761.0,
+  "type": "bilevel"
+ },
+ "WO06_p16": {
+  "blur_lapvar": 2193.6,
+  "contrast": 255,
+  "native_dpi": 300,
+  "skew_deg": -0.2,
+  "specks_per_mpx": 0.6,
+  "type": "bilevel"
+ },
+ "WO06_p4": {
+  "blur_lapvar": 2381.1,
+  "contrast": 255,
+  "native_dpi": 300,
+  "skew_deg": 0.0,
+  "specks_per_mpx": 1.3,
+  "type": "bilevel"
+ }
+}

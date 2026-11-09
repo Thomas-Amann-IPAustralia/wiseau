@@ -17,8 +17,15 @@ side by side: concurrent runs on a small box inflate every timing (post-mortem
   python benchmarks/bakeoff/run_engines.py forced-ocr     # default path, but OCR every page (ignore the layer)
   python benchmarks/bakeoff/run_engines.py trust-layer    # default path before ADR-040 (reads a scan's invisible layer)
   python benchmarks/bakeoff/run_engines.py no-borders     # default path before scanner-band cleanup
+  python benchmarks/bakeoff/run_engines.py pre-VARIANT    # default path on preprocessed pixels (preprocess.py;
+                                                          #   ident, deskew, norm, sauvola, denoise; roadmap 1.2)
+  python benchmarks/bakeoff/run_engines.py rec-MODEL      # psm 3 layout, lines re-read by MODEL (ml_engines.py;
+                                                          #   tesseract = control, PP-OCRv6_small_rec, ...; roadmap 1.3)
+  python benchmarks/bakeoff/run_engines.py wrec-MODEL     # as rec-MODEL, but each Tesseract word box re-read
+  python benchmarks/bakeoff/run_engines.py tatr           # psm 3 layout, tables found by Table Transformer (1.3)
+  python benchmarks/bakeoff/run_engines.py ppstructure-v3 # PaddleOCR's PP-StructureV3 pipeline (1.3)
 
-Add `--set b`, `--set c`, `--set d`, `--set e`, `--set f` or `--set l` to run another independently
+Add `--pages KEY,KEY` to run only those pages of the set. Add `--set b`, `--set c`, `--set d`, `--set e`, `--set f` or `--set l` to run another independently
 transcribed sample (SAMPLE_B ... SAMPLE_L in regions.py) instead of the original one. Timings are merged into the engine's
 timings.json, so running one set never erases the other's.
 
@@ -110,6 +117,27 @@ def forced_ocr_engine():
     from parsers.file_parser import file_to_markdown
 
     return lambda data: file_to_markdown(data, "page.pdf", engine="pymupdf")
+
+
+def preprocess_engine(variant: str):
+    """The default path on a page whose pixels went through ``preprocess.apply(variant)``.
+
+    Only pages the default path would OCR are changed; a born-digital page is
+    converted as it is, so it scores the same as ``pymupdf``.
+    """
+    sys.path.insert(0, str(ROOT / "backend"))
+    import preprocess
+    from parsers.file_parser import _page_needs_ocr, file_to_markdown
+
+    if variant not in preprocess.VARIANTS:
+        raise SystemExit(f"unknown preprocessing variant {variant}; one of {preprocess.VARIANTS}")
+
+    def run(data: bytes) -> str:
+        if _page_needs_ocr(pymupdf.open(stream=data, filetype="pdf")[0]):
+            data = preprocess.apply(variant, data)
+        return file_to_markdown(data, "page.pdf", engine="pymupdf")
+
+    return run
 
 
 def tesseract_adr035_engine():
@@ -209,6 +237,7 @@ def glm_engine(url: str):
 
 def main() -> None:
     engine = sys.argv[1]
+    wants_key = False   # ml_engines' engines also take the page key
     if engine == "pymupdf":
         run = pymupdf_engine()
     elif engine == "docling":
@@ -234,6 +263,20 @@ def main() -> None:
         run = tesseract_adr037_engine()
     elif engine == "tesseract-unordered":
         run = tesseract_unordered_engine()
+    elif engine.startswith("pre-"):
+        run = preprocess_engine(engine[4:])
+    elif engine.startswith("rec-"):
+        import ml_engines
+        run, wants_key = ml_engines.rec_engine(engine[4:]), True
+    elif engine.startswith("wrec-"):
+        import ml_engines
+        run, wants_key = ml_engines.word_rec_engine(engine[5:]), True
+    elif engine == "tatr":
+        import ml_engines
+        run, wants_key = ml_engines.tatr_engine(), True
+    elif engine == "ppstructure-v3":
+        import ml_engines
+        run, wants_key = ml_engines.ppstructure_engine(), True
     else:
         raise SystemExit(f"unknown engine {engine}")
     out = HERE / "outputs" / engine
@@ -243,11 +286,14 @@ def main() -> None:
     timings = json.loads(timings_file.read_text()) if timings_file.exists() else {}
     runs = json.loads(runs_file.read_text()) if runs_file.exists() else {}
     failures = 0
+    only = set(sys.argv[sys.argv.index("--pages") + 1].split(",")) if "--pages" in sys.argv else None
     for key, data in pages():
+        if only is not None and key not in only:
+            continue
         t = time.perf_counter()
         tree = None
         try:
-            md, error = run(data), None
+            md, error = (run(data, key) if wants_key else run(data)), None
             if isinstance(md, tuple):          # an engine that also returns its document tree
                 md, tree = md
         except Exception as exc:  # recorded, not fatal: a failure rate needs the rest of the run
