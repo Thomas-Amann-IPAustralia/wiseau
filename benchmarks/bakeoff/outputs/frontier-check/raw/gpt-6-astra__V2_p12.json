@@ -1,0 +1,146 @@
+{
+  "id": "resp_05942f3a87e7834c006af1364eb31887d1bfa1144ec3db5c07",
+  "object": "response",
+  "created_at": 1794192974,
+  "status": "completed",
+  "access_programs": null,
+  "background": true,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1794193096,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 32768,
+  "max_tool_calls": null,
+  "model": "gpt-6-astra",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_05942f3a87e7834c006af136534e6487d1b059d7b9507bbd08",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_05942f3a87e7834c006af1365e3c2087d1844c35021b291f1e",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_05942f3a87e7834c006af136692a7c87d193919bae14bd1126",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_05942f3a87e7834c006af13670a2b487d1a25c3c04d76c8e28",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_05942f3a87e7834c006af1367fbedc87d1a0502f82fe46b311",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_05942f3a87e7834c006af1369093d087d19796df2c0bcb4caf",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_05942f3a87e7834c006af1369d79a087d1b85c5b0b142d4d9a",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "rs_05942f3a87e7834c006af136ad3cf487d1a218bc59c3c23365",
+      "type": "reasoning",
+      "content": [],
+      "summary": []
+    },
+    {
+      "id": "msg_05942f3a87e7834c006af136bbdd9c87d19ea4b345a3902156",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "Table of Comparison of Carnation Varieties\n\n                                       'Charodeyka'             'Valya'                  'Prolet'                 'Rubinen'\nMEAN DAYS TO FLOWERING                  90-100 days             90-100 days              90-100 days              100-110 days\n\nBUD SHAPE\n(before colour shows)                  ovoid                   ellipsoid                cylindrical              cylindrical\n\nFLOWER SIZE                            very large              medium large             medium large             large\n\nDiameter             Mean              8.5 cm                  7.9 cm                   7.6 cm                   8.3 cm\n                     Range             8.1-8.9 cm              7.4-8.2 cm               7.3 - 8 cm               8-8.7 cm\n  Standard deviation                   1.3                     0.7                      0.4                      1.1\n\nFLOWER SHAPE IN PROFILE\n   - UPPER COROLLA                     flat convex             flat convex              flat convex              flat convex\n   - LOWER COROLLA                     concave                 concave                  concave                  concave\n\nFLOWER COLOURS                         dark red-pink           violet lilac with        bright milky pink        dark claret\n                                       with paler border       lighter border           tips lighter pink\n\nCOLOUR DETAILS\n   OUTER PETAL                         RHS 50A                 RHS 74B                  RHS 55B                  RHS 61A\n\n        BORDER                         RHS 50D                 RHS 74D                  RHS 55C\n  BORDER WIDTH                         3-4 mm                  6 mm\n\nCLUSTER PETALS                         RHS 50B                 RHS 74C                  RHS 55B                  RHS 61B\n\n        BORDER                         RHS 50D                 RHS 74D                  RHS 55D\n  BORDER WIDTH                         2-3 mm                  3-4 mm\n\nPETAL ARRANGEMENT                      thick central           loose central            evenly spaced            thick central\n                                       cluster                 cluster                                           cluster\n\nOUTER PETAL WIDTH\n                     Mean              3.0 cm                  3.3 cm                   3.0 cm                   3.4 cm\n                     Range             2.8-3.3 cm              2.7-3.5 cm               2.6 - 3.3 cm             3.1-4.0 cm\n\nPETAL COUNT TOTAL\n                     Mean              63                      64                       46                       49\n                     Range             57-69                   52-69                    40 - 52                  43-56\n\nCENTRAL CLUSTER\n                     Mean              53                      52                       33                       35\n                     Range             51-66                   51-58                    30 - 36                  24-39\n\n                                                                                                                 large\nPETAL MARGINS                          uneven serrations       even serrations          fine even serrations     uneven serrations\n\nPERFUME                                very strong             medium                   medium                   medium\n(ranked 1 to 9)                        9                       4                        4                        4\n\nCALYX SPLITTING                        0 %                     0 %                      0 %                      0 %\n(as % of sample)\n\nCALYX\n      No. lobes:                       5                       5                        5                        5\n    Overlapping:                       yes                     yes                      no                       yes\n\n - HEIGHT              Mean            3.1 cm                  3.2 cm                   3.2 cm                   3.4 cm\n                       Range           3.0-3.3 cm              3-3.5 cm                 2.9 - 3.4 cm             3.1-3.5 cm\n\n - DIAMETER            Mean            2.4 cm                  2.4 cm                   1.7 cm                   2.1 cm\n                       Range           2.2-2.7 cm              2.1-2.6 cm               1.6 - 1.9 cm             1.9-2.3 cm\n\n - COLOUR           Main               RHS 146B                RHS 138A                 RHS 144A                 RHS 137B\n       Lobe edges                      RHS 146C                RHS 138B                 RHS 144C                 RHS 137C\n\nEPICALYX LOBES                         3 pairs                 3 pairs                  3 pairs                  3 pairs\n\nSTEM THICKNESS                         thick                   medium thick             medium thick             thick\n                     Mean              6 mm                    4 mm                     4.5 mm                   5.5 mm\n                     Range             5-7.5 mm                3-5 mm                   3.8 - 5 mm               5-6 mm\n\nSTEM LENGTH                            long                    medium long              medium long              long\n                     Mean              62 cm                                            56 cm                    70 cm\n                     Range             60-70 cms               45-60 cms                47 - 62 cm               60-80 cms\n\nLEAF LENGTH          Mean              10.5 cm                 9 cm                     10 cm                    11 cm\n                     Range             8-12 cm                 8-11 cm                  8 - 12 cm                10-13 cm\n\nLEAF WIDTH           Mean              10 mm                   9 mm                     9 mm                     10 mm\n                     Range             9-13 mm                 8-10 mm                  0.8 - 1.0 cm             9-13 mm\n\nLEAF WAXINESS                          very waxy               very waxy                waxy                     very waxy\n(on scale of 1-9)                      8                       7                        6                        8.5\n\n10"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "high",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 10478,
+    "input_tokens_details": {
+      "cache_write_tokens": 10475,
+      "cached_tokens": 0
+    },
+    "output_tokens": 5353,
+    "output_tokens_details": {
+      "reasoning_tokens": 4142
+    },
+    "total_tokens": 15831
+  },
+  "user": null,
+  "metadata": {}
+}
