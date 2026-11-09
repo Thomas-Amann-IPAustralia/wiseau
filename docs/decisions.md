@@ -21,6 +21,47 @@ one `Superseded`.
 
 ---
 
+## ADR-047 — The image ships the table pass on; MuPDF's OCR call is serialised
+**Date:** 2026-11-09 · **Status:** Accepted (the user accepted ADR-046's recommendation)
+**Context:**
+- ADR-046 built the Table Transformer pass opt-in and recommended turning it on in
+  the deployed Space: table structure on scans more than doubles (TEDS 0.26 →
+  0.56), no word changes, +26% per scanned page, ~1 GB more memory.
+- The same image is documented for three hosts (`docs/hosting.md`): HF Spaces
+  (16 GB), Cloud Run (2 GiB recommended) and Render (512 MB).
+- Load-testing the built image found that **four concurrent scanned conversions
+  failed** with `Attempt to use Leptonica from 2 threads at once!`: MuPDF's
+  `Page.get_textpage_ocr` (the ADR-035/037 guard read on every scanned page) is
+  not thread-safe, and the service runs up to `MAX_CONCURRENT_JOBS` (4)
+  conversions in threads. The lean image fails the same way: this predates the
+  table pass and affected every deployment.
+**Decision:**
+- `backend/Dockerfile`: build arg `TABLES=1` (default) installs CPU PyTorch
+  2.15.0, torchvision 0.29.2 and `requirements-tables.txt`, and fetches the two
+  pinned models (`fetch_table_models.py`, which reads the ids and revisions from
+  `parsers/tables.py`) into `HF_HOME=/opt/hf`, root-owned and world-readable.
+  The image sets `WISEAU_TABLES=tatr`, `WISEAU_TABLE_THREADS=1` and
+  `HF_HUB_OFFLINE=1`: no conversion depends on Hugging Face at run time.
+  `--build-arg TABLES=0` builds the lean image; `WISEAU_TABLES=` (empty)
+  switches the pass off at run time.
+- The code default stays off (`WISEAU_TABLES` unset outside the image), and a
+  failure inside the pass (models missing, inference error) is logged and the
+  page is kept without it, never failing the conversion.
+- `ocr.py` holds a process-wide lock around `get_textpage_ocr`; Tesseract's psm 3
+  pass runs as its own process and stays parallel.
+- Hosting guide: Spaces need nothing; Cloud Run either 4 GiB or the pass off;
+  Render the pass off.
+**Consequences:**
+- Image 2.0 GB → 3.9 GB uncompressed (PyTorch and dependencies 1.4 GB, models
+  230 MB); first build several minutes longer. Verified built and run with no
+  network: `/ping`, OCR, a scanned table returned as a pipe table, as UID 1000.
+- In the container: V5N1 p18 over HTTP 14.7 s cold (model load included), 10.8 s
+  warm; **four at once all succeed** (26.9 s wall), peak process memory 1.9 GB.
+- CI builds both images: the full one must turn a rasterised table into a
+  table offline; the lean one must convert without PyTorch.
+- `tests/test_ocr.py::test_scanned_pages_convert_concurrently` failed before the
+  lock and passes after. Output is unchanged (the lock only orders calls).
+
 ## ADR-046 — Table Transformer reads scanned tables cell by cell; opt-in, refuses prose
 **Date:** 2026-11-09 · **Status:** Accepted as opt-in (`WISEAU_TABLES=tatr`); whether to turn it on in the deployed Space is the user's call (roadmap 3.7; user asked for it)
 **Context:**
@@ -59,8 +100,8 @@ run only on psm 3's reading (not when ADR-038's guard text wins).
 - The check holds out of sample: on E and F, all 8 accepted regions are harmless
   (none costs > 0.1 wer) and all 7 damaging regions were refused.
 - Cost: 7.1 → 9.0 s per scanned page on one thread (+26%; +8% on four), 2.8 s
-  model load per process, peak memory 0.28 → 1.17 GB, +1.2 GB installed
-  (PyTorch, transformers, timm, 265 MB of weights). Born-digital pages cost
+  model load per process, peak memory 0.28 → 1.17 GB, +1.9 GB of Docker image
+  (PyTorch and its dependencies, 230 MB of weights; measured in ADR-047). Born-digital pages cost
   nothing. Deterministic across repeat runs and thread counts.
 - Not covered: born-digital tables, tables TATR misses, list-like tables with
   long cells, spanning cells, headings, emphasis.

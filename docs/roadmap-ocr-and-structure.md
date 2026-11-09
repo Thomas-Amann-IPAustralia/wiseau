@@ -185,7 +185,7 @@ unsure (ADR-030):
   render with `[^n]`.
 - [ ] **3.6 Cross-page tables.** Merge table fragments and drop repeated header
   rows, with an image fallback when the structure can't be rebuilt.
-- [~] **3.7 Region-level routing.** *Tables done 2026-11-09 as an opt-in pass (ADR-046, `WISEAU_TABLES=tatr`, `docs/benchmarks/2026-11-09-tables.md`): TATR regions read into cells from psm 3's words; a region averaging > 2.5 words a cell is refused as prose (held out: all 7 damaging regions refused, no accepted one damaging). Set S TEDS 0.258 → 0.558; no word changes; +26% time per scanned page on one thread, +0.9 GB peak memory. Open: whether to deploy it on; re-OCR of suspicious regions; born-digital tables.* Once a layout detector feeds IR regions,
+- [~] **3.7 Region-level routing.** *Tables done 2026-11-09 as an opt-in pass (ADR-046, `WISEAU_TABLES=tatr`, `docs/benchmarks/2026-11-09-tables.md`): TATR regions read into cells from psm 3's words; a region averaging > 2.5 words a cell is refused as prose (held out: all 7 damaging regions refused, no accepted one damaging). Set S TEDS 0.258 → 0.558; no word changes; +26% time per scanned page on one thread, +0.9 GB peak memory. On in the Docker image since ADR-047 (user accepted). Open: re-OCR of suspicious regions; born-digital tables.* Once a layout detector feeds IR regions,
   send prose to Tesseract and tables to the table pipeline, and re-OCR only
   regions that look suspicious (low calibrated confidence, missing rows,
   uneven column lengths). This replaces page-level routing, which failed its

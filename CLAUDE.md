@@ -99,7 +99,8 @@ wiseau/
 │   │   ├── chapters.py     # split converted Markdown into chapters (ADR-030)
 │   │   ├── keywords.py     # rank a document's keywords across methods (ADR-032/033)
 │   │   └── naming.py       # the one filename rule: chapters + batches (ADR-031)
-│   ├── Dockerfile          # version-locks Chromium + Python
+│   ├── Dockerfile          # version-locks Chromium + Python; table pass on (TABLES=0 for lean)
+│   ├── fetch_table_models.py  # build-time fetch of the pinned table models (ADR-047)
 │   ├── requirements.txt
 │   ├── requirements-keywords.txt  # opt-in keyword methods: spaCy, KeyBERT
 │   └── requirements-tables.txt    # opt-in table pass: PyTorch, transformers, timm

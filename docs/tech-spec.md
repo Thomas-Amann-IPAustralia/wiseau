@@ -424,7 +424,8 @@ All backend configuration is via environment variables (12-factor).
 | `WISEAU_OCR_ENGINE` | `tesseract` | OCR backend: `tesseract` (default) or `easyocr` (opt-in neural, handwriting). |
 | `WISEAU_OCR_DPI` | `300` | Rasterization DPI for OCR (fixed for reproducibility). |
 | `WISEAU_OCR_LANG` | `eng` | OCR language(s); Tesseract 639-2/T code(s), `+`-joined. |
-| `WISEAU_TABLES` | unset (off) | `tatr` turns on the Table Transformer pass on OCR'd pages (ADR-046). Needs `requirements-tables.txt` (PyTorch); without it the pass is skipped, never an error. |
+| `WISEAU_TABLES` | unset in code; **`tatr` in the Docker image** (ADR-047) | `tatr` turns on the Table Transformer pass on OCR'd pages (ADR-046). Needs `requirements-tables.txt` (PyTorch); without it, or if the models fail to load, the pass is skipped, never an error. Empty switches it off. |
+| `HF_HUB_OFFLINE` / `HF_HOME` | `1` / `/opt/hf` in the image | The table models are fetched at build time into `HF_HOME`; the container never reaches Hugging Face. |
 | `WISEAU_TABLE_THREADS` | `1` | CPU threads for that pass's inference. Fixed per deployment so the arithmetic, and so the output, is the same on every run. |
 | `WISEAU_PDF_ENGINE` | `pymupdf` | **Default** document engine: `pymupdf` (the fast, deterministic local parser — ADR-027), `docling` (via docling-serve, for fidelity), or `glm-ocr` (via the GLM-OCR service, for scans — ADR-034). A request's `engine` field overrides it per conversion (ADR-025). |
 | `WISEAU_DOCLING_BASE` | — | *(Phase 6)* Base URL of the internal docling-serve service (HF Space #2). Unset ⇒ docling is skipped even when it is selected. |

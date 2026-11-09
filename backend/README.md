@@ -171,6 +171,19 @@ Tuning knobs (all optional): `WISEAU_OCR_MODE` (`auto`/`force`/`off`),
 `WISEAU_OCR_DPI` (default `300`), `WISEAU_OCR_LANG` (default `eng`). See
 [`../docs/tech-spec.md`](../docs/tech-spec.md) §10 and ADR-012 for the design.
 
+**Tables on scanned pages** (ADR-046/047) are read cell by cell by Table
+Transformer and written as Markdown tables. The Docker image has it on
+(`WISEAU_TABLES=tatr`, CPU PyTorch, the two pinned models fetched at build
+time; it runs offline). It adds about 2 s per scanned page and about 1 GB of
+memory. Set `WISEAU_TABLES` to empty to switch it off, or build a lean image
+without PyTorch: `docker build --build-arg TABLES=0 .` Locally:
+
+```bash
+pip install --index-url https://download.pytorch.org/whl/cpu torch==2.15.0 torchvision==0.29.2
+pip install -r requirements-tables.txt
+export WISEAU_TABLES=tatr
+```
+
 ## Run locally
 
 Chromium and chromedriver must be on `PATH` (or set `CHROME_BIN` /
@@ -192,6 +205,8 @@ The image version-locks Chromium, Python, and system libraries.
 docker build -t markdown-engine .
 docker run -p 7860:7860 markdown-engine
 ```
+
+The image is about 3.9 GB with the table pass (2.0 GB with `--build-arg TABLES=0`).
 
 ## Deploying
 

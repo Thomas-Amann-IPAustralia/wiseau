@@ -649,7 +649,7 @@ No paid API is used for this work unless the user says otherwise.
   are written as pipe/HTML tables; an opt-in Table Transformer pass
   (`WISEAU_TABLES=tatr`, `requirements-tables.txt`) reads scanned tables into
   cells and refuses prose. Set S TEDS 0.258 → 0.558, no word changes, +26% time
-  per scanned page. Off by default; turning it on in the Space is the user's call.
+  per scanned page. On in the Docker image since ADR-047 (user accepted); off in code.
   Write-up: `docs/benchmarks/2026-11-09-tables.md`.
 - [x] **2.3 Structural gold set (set S) and `structure.py`.** 12 documents, 20
   pages, frozen blind; block/type/heading/table/emphasis/relation metrics. The
