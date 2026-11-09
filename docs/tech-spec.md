@@ -329,6 +329,7 @@ The backend is deliberately small and layered. Each module has one job.
 | `parsers/reading_order.py` | Put a multi-column OCR page's lines back in column order from their bounding boxes (ADR-035). Pure geometry. | Guess when unsure: return `None` (keep MuPDF's order) unless real text columns are found. |
 | `parsers/tesseract_layout.py` | Read a scanned page with Tesseract's own layout analysis (psm 3), stitching side-by-side table cells back into rows (ADR-038). Pure geometry over Tesseract's TSV. The CLI runs on one thread (`OMP_THREAD_LIMIT=1`), and the guard compares *plausible* word counts (ADR-042). | Stitch prose columns; return text when the CLI fails (return `None`, so the caller uses the ADR-035/037 guard). |
 | `parsers/document.py` | The canonical document IR (ADR-043): elements in reading order, each with type, page, box (when the engine reports one), source engine and its text as read; table rows; OCR lines; relations; deterministic JSON (`to_dict`). | Edit an element's `text` (inferred structure goes in its own fields, with `signal`/`confidence`); invent a confidence; depend on docling. |
+| `parsers/tables.py` | Opt-in (`WISEAU_TABLES=tatr`, ADR-046): Table Transformer finds table regions on an OCR'd page and their rows/columns; psm 3's words fill the cells; a region whose cells average more than 2.5 words is refused as prose; accepted regions replace their words in the page's elements with one `table` element. Models pinned by revision; fixed CPU threads. | Re-read, add or drop a word (the words are partitioned exactly); import PyTorch unless enabled; run on the guard text's page (only on psm 3's reading, whose words it reuses). |
 | `parsers/text_layer.py` | Boxes for text-layer blocks (ADR-044): align each PyMuPDF4LLM block's words with `page.get_text("words")` and give it the union box, its page lines, `bbox_signal` and `bbox_coverage`. | Touch the Markdown; give a box below `MIN_COVERAGE` (0.5); place a one-word block on one of several candidates. |
 | `parsers/serializer.py` | IR → Markdown, deterministically (`to_markdown`); split an engine's Markdown into typed top-level blocks (`split_markdown`). Its output, normalized, is byte-for-byte what each path returned before the IR (ADR-043). | Change output without its own ADR (the neutrality gate); split inside a code fence; introduce nondeterminism. |
 | `parsers/cleaner.py` | Deterministic Unicode/whitespace/typography normalization; elide base64 data-URI payloads (ADR-024). | Introduce nondeterminism; remove content (it edits payloads, not text). |
@@ -423,6 +424,8 @@ All backend configuration is via environment variables (12-factor).
 | `WISEAU_OCR_ENGINE` | `tesseract` | OCR backend: `tesseract` (default) or `easyocr` (opt-in neural, handwriting). |
 | `WISEAU_OCR_DPI` | `300` | Rasterization DPI for OCR (fixed for reproducibility). |
 | `WISEAU_OCR_LANG` | `eng` | OCR language(s); Tesseract 639-2/T code(s), `+`-joined. |
+| `WISEAU_TABLES` | unset (off) | `tatr` turns on the Table Transformer pass on OCR'd pages (ADR-046). Needs `requirements-tables.txt` (PyTorch); without it the pass is skipped, never an error. |
+| `WISEAU_TABLE_THREADS` | `1` | CPU threads for that pass's inference. Fixed per deployment so the arithmetic, and so the output, is the same on every run. |
 | `WISEAU_PDF_ENGINE` | `pymupdf` | **Default** document engine: `pymupdf` (the fast, deterministic local parser — ADR-027), `docling` (via docling-serve, for fidelity), or `glm-ocr` (via the GLM-OCR service, for scans — ADR-034). A request's `engine` field overrides it per conversion (ADR-025). |
 | `WISEAU_DOCLING_BASE` | — | *(Phase 6)* Base URL of the internal docling-serve service (HF Space #2). Unset ⇒ docling is skipped even when it is selected. |
 | `WISEAU_DOCLING_TOKEN` | — | *(Phase 6)* Sent as `Authorization: Bearer` — the *platform gateway* credential (an HF token when Space #2 is private). |
@@ -1240,14 +1243,24 @@ is **internal**: no endpoint returns it yet, so the API contract is unchanged
   `bbox_coverage`, the share of their words located, plus the page `lines` those
   words sit on. Below 0.5 coverage the box stays `null` and the coverage is still
   reported. An element whose box came from its engine has no `bbox_signal`.
+* A table's `rows` hold `Cell`s (`text`, `bbox`, `row_span`, `col_span`, and
+  `header: true` for column-header cells). Tables from the Table Transformer pass
+  (ADR-046) carry `signal: "tatr"` and `score`, the detector's own probability
+  (uncalibrated, so not a `confidence`); their cells are real columns. Tables
+  from ADR-038's row stitching carry `signal: "tesseract-row-stitch"`; their
+  "cells" are Tesseract line fragments.
 * Types in use: `text` (an OCR block whose role is unknown), `paragraph`,
   `heading` (with `level`), `list`, `table`, `code`, `figure`, `rule`. The
   rest of the vocabulary (`title`, `caption`, `footnote`, `page_header`, …) and
   the relation types (`caption_of`, `continues_from`, …) are defined for roadmap
   Tier 3 and not yet produced.
 
-**Serialization rules** (behaviour-neutral, ADR-043): an element renders as its
-`text` (a table with `rows` row by row, cells joined by spaces); a page's elements
+**Serialization rules** (behaviour-neutral, ADR-043; tables ADR-045): an element
+renders as its `text`; a table whose cells are real columns (`signal` `tatr`) as a
+**pipe table** when its first row is all header cells and nothing spans, else as
+an **HTML `<table>`** (`<th>` for header cells, `colspan`/`rowspan` for spans;
+`|` escaped in pipe cells, `& < >` in HTML ones); any other table with `rows`
+(ADR-038's stitched rows) row by row, cells joined by spaces, as before; a page's elements
 are joined by a blank line and the page stripped; blank pages are skipped; pages
 (and the unpaged group) are joined by a blank line. A whitespace-only document
 normalizes to `""` rather than `"\n"`; both are "no text" to every caller.

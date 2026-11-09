@@ -645,6 +645,12 @@ No paid API is used for this work unless the user says otherwise.
   docling-JSON adapter, URL path, and the explicit Markdown dialect (its own ADR).
   Write-up: `docs/benchmarks/2026-11-09-ir-neutrality.md`.
   Text-layer boxes done 2026-11-09 (ADR-044).
+- [x] **2.2 (dialect) and 3.7 (tables) — ADR-045, ADR-046.** Tables with real cells
+  are written as pipe/HTML tables; an opt-in Table Transformer pass
+  (`WISEAU_TABLES=tatr`, `requirements-tables.txt`) reads scanned tables into
+  cells and refuses prose. Set S TEDS 0.258 → 0.558, no word changes, +26% time
+  per scanned page. Off by default; turning it on in the Space is the user's call.
+  Write-up: `docs/benchmarks/2026-11-09-tables.md`.
 - [x] **2.3 Structural gold set (set S) and `structure.py`.** 12 documents, 20
   pages, frozen blind; block/type/heading/table/emphasis/relation metrics. The
   default path scores hd_r 0, TEDS 0.26, em_r 0 on scans; GLM-OCR TEDS 0.72;

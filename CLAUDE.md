@@ -94,13 +94,15 @@ wiseau/
 │   │   ├── document.py     # the document IR: elements, boxes, provenance (ADR-043)
 │   │   ├── serializer.py   # IR -> Markdown, byte-neutral (ADR-043)
 │   │   ├── text_layer.py   # boxes for text-layer blocks by word alignment (ADR-044)
+│   │   ├── tables.py       # opt-in: Table Transformer tables on scans (ADR-046)
 │   │   ├── cleaner.py      # regex/Unicode normalization (always runs)
 │   │   ├── chapters.py     # split converted Markdown into chapters (ADR-030)
 │   │   ├── keywords.py     # rank a document's keywords across methods (ADR-032/033)
 │   │   └── naming.py       # the one filename rule: chapters + batches (ADR-031)
 │   ├── Dockerfile          # version-locks Chromium + Python
 │   ├── requirements.txt
-│   └── requirements-keywords.txt  # opt-in keyword methods: spaCy, KeyBERT
+│   ├── requirements-keywords.txt  # opt-in keyword methods: spaCy, KeyBERT
+│   └── requirements-tables.txt    # opt-in table pass: PyTorch, transformers, timm
 ├── docling/                # [Phase 6] docling-serve converter — HF Space #2
 │   ├── Dockerfile          # upstream docling-serve-cpu image, tag+digest pinned
 │   └── README.md           # HF Space card + deployment/verification steps

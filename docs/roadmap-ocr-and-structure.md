@@ -147,7 +147,7 @@ can ship) are noted inline.
   fields with a `confidence`, so nothing overwrites the transcription. Adapter
   order: PyMuPDF text layer and the Tesseract layout path first (the defaults),
   then docling JSON, Mammoth, and the URL path. *Effort: large.*
-- [ ] **2.2 Deterministic Markdown serializer.** *Gate passed 2026-11-09 (ADR-043, `docs/benchmarks/2026-11-09-ir-neutrality.md`): `parsers/serializer.py` replaces the string path, byte for byte on all 15 test PDFs whole (859 pages), a mixed-path PDF and every scored page. Still open: the explicit dialect (changes output; its own ADR).* IR → Markdown. **Gate: its
+- [ ] **2.2 Deterministic Markdown serializer.** *Gate passed 2026-11-09 (ADR-043, `docs/benchmarks/2026-11-09-ir-neutrality.md`): `parsers/serializer.py` replaces the string path, byte for byte on all 15 test PDFs whole (859 pages), a mixed-path PDF and every scored page. Dialect done 2026-11-09 (ADR-045): tables with real cells are written as pipe or HTML tables; ADR-038's stitched rows stay plain (no gain, false columns).* IR → Markdown. **Gate: its
   output must match today's Markdown byte for byte before it replaces the current
   path**, so the refactor is provably behaviour-neutral. After that, adopt an
   explicit dialect: CommonMark plus selective HTML. Simple tables use pipe
@@ -185,7 +185,7 @@ unsure (ADR-030):
   render with `[^n]`.
 - [ ] **3.6 Cross-page tables.** Merge table fragments and drop repeated header
   rows, with an image fallback when the structure can't be rebuilt.
-- [ ] **3.7 Region-level routing.** Once a layout detector feeds IR regions,
+- [~] **3.7 Region-level routing.** *Tables done 2026-11-09 as an opt-in pass (ADR-046, `WISEAU_TABLES=tatr`, `docs/benchmarks/2026-11-09-tables.md`): TATR regions read into cells from psm 3's words; a region averaging > 2.5 words a cell is refused as prose (held out: all 7 damaging regions refused, no accepted one damaging). Set S TEDS 0.258 → 0.558; no word changes; +26% time per scanned page on one thread, +0.9 GB peak memory. Open: whether to deploy it on; re-OCR of suspicious regions; born-digital tables.* Once a layout detector feeds IR regions,
   send prose to Tesseract and tables to the table pipeline, and re-OCR only
   regions that look suspicious (low calibrated confidence, missing rows,
   uneven column lengths). This replaces page-level routing, which failed its

@@ -21,6 +21,74 @@ one `Superseded`.
 
 ---
 
+## ADR-046 — Table Transformer reads scanned tables cell by cell; opt-in, refuses prose
+**Date:** 2026-11-09 · **Status:** Accepted as opt-in (`WISEAU_TABLES=tatr`); whether to turn it on in the deployed Space is the user's call (roadmap 3.7; user asked for it)
+**Context:**
+- Set S showed the default path recovers no table structure on scans (TEDS
+  0.26): Tesseract reads the words, but ADR-038's stitched rows hold line
+  fragments, not columns, and side-by-side tables interleave (V5N1 p18, wer 0.30).
+- The Tier 1 bake-off found Table Transformer (TATR) fixes those tables but, as a
+  page-level switch, boxes two-column prose as tables and loses overall (+0.10
+  wer); neither its confidence nor the box size separated the cases.
+**Decision:** `parsers/tables.py`, an IR pass in `TesseractEngine.read_elements`,
+run only on psm 3's reading (not when ADR-038's guard text wins).
+- TATR detection (≥ 0.8) and structure recognition (v1.1-all), pinned revisions,
+  Microsoft's reference pre-processing, a fixed number of CPU threads
+  (`WISEAU_TABLE_THREADS`, default 1).
+- Cells are filled with psm 3's own words: each word to the row and column it
+  overlaps most, rows assigned per Tesseract line (skew), membership decided word
+  by word (psm 3 reads a line straight across side-by-side tables, so such a line
+  is split between them). The page's words are partitioned exactly.
+- A TATR row stacking records (2+ cells with the same number ≥ 2 of printed
+  lines) is split into one row per line, counted per column; a projected row
+  header keeps its words in the first cell only if they run on without a column
+  gap; TATR's spanning cells are not used.
+- **The check refuses a region whose cells average more than 2.5 words**, and a
+  region under 2 × 2. On the scored scans, prose boxed as a table averaged 3–67 words a cell; accepted tables 1.3–2.5.
+- Chosen on the development sets only (`tatr_eval.py`, cached TATR runs), then
+  run unchanged on the held-out sets and end to end.
+- Opt-in, with PyTorch an optional dependency (`requirements-tables.txt`):
+  without it, or with the variable unset, the pass is skipped, never an error.
+**Consequences:**
+- Set S table structure: TEDS 0.258 → 0.558 on the 8 documents all engines share
+  (docling 0.513, GLM-OCR 0.717); S01 0.23 → 0.96, S07 0.23 → 0.88, held-out S04
+  0.22 → 0.75. Block F1 0.718 → 0.756.
+- No text changes: every changed page has exactly the default's words. Order
+  moves with the cell reading: set D wer 0.072 → 0.052 (V5N1 p18 0.299 → 0.024),
+  the other sets +0.001 to +0.007, held-out E unchanged, F +0.007.
+- The check holds out of sample: on E and F, all 8 accepted regions are harmless
+  (none costs > 0.1 wer) and all 7 damaging regions were refused.
+- Cost: 7.1 → 9.0 s per scanned page on one thread (+26%; +8% on four), 2.8 s
+  model load per process, peak memory 0.28 → 1.17 GB, +1.2 GB installed
+  (PyTorch, transformers, timm, 265 MB of weights). Born-digital pages cost
+  nothing. Deterministic across repeat runs and thread counts.
+- Not covered: born-digital tables, tables TATR misses, list-like tables with
+  long cells, spanning cells, headings, emphasis.
+- `docs/benchmarks/2026-11-09-tables.md`.
+
+## ADR-045 — The serializer writes tables with real cells as tables
+**Date:** 2026-11-09 · **Status:** Accepted (roadmap 2.2, the explicit dialect; user asked for it)
+**Context:**
+- ADR-043's serializer reproduced the old output byte for byte. The IR now holds
+  tables whose cells are real columns (ADR-046), and Markdown can say so.
+**Decision:**
+- A `table` element whose signal says its cells are columns (`CELL_SIGNALS`,
+  today `tatr`) is written as a **pipe table** when its first row is all header
+  cells and no cell spans others, else as an **HTML `<table>`** (`<th>` for
+  headers, `colspan`/`rowspan`); `|` is escaped in pipe cells, `& < >` in HTML
+  ones. HTML is valid Markdown and both scorers strip its tags.
+- ADR-038's stitched tables stay plain rows of text (`STITCHED_AS_TABLES =
+  False`): their "cells" are Tesseract line fragments, and written as tables
+  they gain nothing (set S TEDS 0.279 → 0.288, typed F1 down) while claiming
+  columns they don't have.
+- Headings: OCR elements have none yet (roadmap 3.1); text-layer blocks keep
+  PyMuPDF4LLM's own `#`. Plain OCR text is still not escaped.
+**Consequences:**
+- With the table pass off, every output is byte-identical to ADR-043/044's (15
+  test PDFs whole, all scored pages): the dialect only applies where the IR has
+  real cells.
+- `docs/benchmarks/2026-11-09-tables.md`.
+
 ## ADR-044 — Text-layer blocks get boxes by aligning their words with the page's
 **Date:** 2026-11-09 · **Status:** Accepted (roadmap Phase 14, item 2.1 follow-up; user asked for it)
 **Context:**
