@@ -1,0 +1,14 @@
+V2N2_p4	two-column prose
+V5N3_p12	two-column prose
+V2N2_p31	two-column prose
+V4_p14	two-column + data
+V4_p8	two-column + data
+V4_p10	two-column + data
+V5N3_p19	tables
+V2N2_p32	tables
+V4N1_p27	single column
+V2N2_p3	single column
+P63b_p20	1963 typewritten
+P85_p6	1985 typewritten
+P00_p4	1997-2000 typeset
+WO06_p4	2006 WO (image-only)
