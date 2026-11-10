@@ -1,0 +1,238 @@
+{
+ "model": "PaddlePaddle/PP-DocLayoutV3_safetensors",
+ "revision": "e4f489dc536556fc1be02b973ba06756e0d4a2ac",
+ "threshold": 0.5,
+ "load_seconds": 0.54,
+ "device": "cpu",
+ "dtype": "fp32",
+ "threads": 4,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.18",
+  "platform": "Linux-6.18.44-fc-v338-x86_64-with-glibc2.39",
+  "torch": "2.15.0+cpu",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "regions": [
+  {
+   "bbox": [
+    110.1,
+    69.4,
+    474.4,
+    394.4
+   ],
+   "category": "image",
+   "score": 0.9805
+  },
+  {
+   "bbox": [
+    108.6,
+    401.7,
+    407.7,
+    415.0
+   ],
+   "category": "figure_title",
+   "score": 0.703
+  },
+  {
+   "bbox": [
+    107.7,
+    426.4,
+    471.1,
+    511.4
+   ],
+   "category": "text",
+   "score": 0.9436
+  },
+  {
+   "bbox": [
+    104.7,
+    520.5,
+    464.9,
+    593.3
+   ],
+   "category": "text",
+   "score": 0.9289
+  },
+  {
+   "bbox": [
+    104.8,
+    602.8,
+    394.2,
+    616.5
+   ],
+   "category": "text",
+   "score": 0.8294
+  },
+  {
+   "bbox": [
+    105.1,
+    626.1,
+    180.1,
+    638.8
+   ],
+   "category": "paragraph_title",
+   "score": 0.778
+  },
+  {
+   "bbox": [
+    104.4,
+    638.3,
+    434.7,
+    675.6
+   ],
+   "category": "text",
+   "score": 0.9038
+  },
+  {
+   "bbox": [
+    108.4,
+    689.7,
+    375.5,
+    703.5
+   ],
+   "category": "text",
+   "score": 0.5708
+  },
+  {
+   "bbox": [
+    108.4,
+    707.8,
+    473.0,
+    930.8
+   ],
+   "category": "image",
+   "score": 0.9684
+  },
+  {
+   "bbox": [
+    511.3,
+    67.1,
+    874.1,
+    175.8
+   ],
+   "category": "text",
+   "score": 0.9559
+  },
+  {
+   "bbox": [
+    510.6,
+    184.7,
+    790.1,
+    198.8
+   ],
+   "category": "text",
+   "score": 0.5598
+  },
+  {
+   "bbox": [
+    510.1,
+    208.6,
+    875.8,
+    269.4
+   ],
+   "category": "text",
+   "score": 0.9398
+  },
+  {
+   "bbox": [
+    510.1,
+    278.8,
+    800.4,
+    292.5
+   ],
+   "category": "text",
+   "score": 0.8093
+  },
+  {
+   "bbox": [
+    511.5,
+    302.9,
+    586.8,
+    314.8
+   ],
+   "category": "paragraph_title",
+   "score": 0.7645
+  },
+  {
+   "bbox": [
+    510.2,
+    315.3,
+    841.0,
+    352.0
+   ],
+   "category": "text",
+   "score": 0.9052
+  },
+  {
+   "bbox": [
+    510.1,
+    362.9,
+    876.1,
+    447.7
+   ],
+   "category": "text",
+   "score": 0.9465
+  },
+  {
+   "bbox": [
+    510.1,
+    457.0,
+    730.5,
+    470.6
+   ],
+   "category": "paragraph_title",
+   "score": 0.7355
+  },
+  {
+   "bbox": [
+    509.6,
+    471.4,
+    861.8,
+    529.9
+   ],
+   "category": "text",
+   "score": 0.888
+  },
+  {
+   "bbox": [
+    511.3,
+    548.0,
+    778.5,
+    561.4
+   ],
+   "category": "figure_title",
+   "score": 0.7989
+  },
+  {
+   "bbox": [
+    511.6,
+    565.9,
+    874.1,
+    931.7
+   ],
+   "category": "image",
+   "score": 0.9781
+  },
+  {
+   "bbox": [
+    864.0,
+    953.2,
+    873.8,
+    964.6
+   ],
+   "category": "number",
+   "score": 0.6106
+  }
+ ],
+ "seconds": 0.78,
+ "peak_rss_mb": 1462.1,
+ "image_px": [
+  1653,
+  2339
+ ],
+ "page": "V2_p9"
+}

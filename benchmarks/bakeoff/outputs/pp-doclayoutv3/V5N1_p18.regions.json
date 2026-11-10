@@ -1,0 +1,188 @@
+{
+ "model": "PaddlePaddle/PP-DocLayoutV3_safetensors",
+ "revision": "e4f489dc536556fc1be02b973ba06756e0d4a2ac",
+ "threshold": 0.5,
+ "load_seconds": 0.58,
+ "device": "cpu",
+ "dtype": "fp32",
+ "threads": 4,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.18",
+  "platform": "Linux-6.18.44-fc-v338-x86_64-with-glibc2.39",
+  "torch": "2.15.0+cpu",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "regions": [
+  {
+   "bbox": [
+    84.4,
+    81.3,
+    490.9,
+    338.9
+   ],
+   "category": "table",
+   "score": 0.8137
+  },
+  {
+   "bbox": [
+    527.1,
+    106.2,
+    930.5,
+    338.1
+   ],
+   "category": "table",
+   "score": 0.7931
+  },
+  {
+   "bbox": [
+    81.3,
+    371.8,
+    612.3,
+    615.1
+   ],
+   "category": "image",
+   "score": 0.8803
+  },
+  {
+   "bbox": [
+    637.6,
+    474.8,
+    843.1,
+    488.9
+   ],
+   "category": "text",
+   "score": 0.5459
+  },
+  {
+   "bbox": [
+    637.3,
+    490.9,
+    920.6,
+    529.5
+   ],
+   "category": "text",
+   "score": 0.7391
+  },
+  {
+   "bbox": [
+    84.9,
+    619.0,
+    835.0,
+    643.3
+   ],
+   "category": "vision_footnote",
+   "score": 0.8847
+  },
+  {
+   "bbox": [
+    83.9,
+    714.4,
+    188.1,
+    729.4
+   ],
+   "category": "paragraph_title",
+   "score": 0.7586
+  },
+  {
+   "bbox": [
+    85.0,
+    751.0,
+    117.6,
+    771.1
+   ],
+   "category": "text",
+   "score": 0.514
+  },
+  {
+   "bbox": [
+    84.0,
+    800.9,
+    364.4,
+    814.4
+   ],
+   "category": "text",
+   "score": 0.5079
+  },
+  {
+   "bbox": [
+    82.8,
+    814.6,
+    486.7,
+    842.2
+   ],
+   "category": "text",
+   "score": 0.5385
+  },
+  {
+   "bbox": [
+    82.9,
+    848.1,
+    388.2,
+    862.4
+   ],
+   "category": "paragraph_title",
+   "score": 0.7413
+  },
+  {
+   "bbox": [
+    81.7,
+    865.2,
+    488.1,
+    918.0
+   ],
+   "category": "text",
+   "score": 0.919
+  },
+  {
+   "bbox": [
+    525.4,
+    718.7,
+    930.5,
+    760.1
+   ],
+   "category": "text",
+   "score": 0.9115
+  },
+  {
+   "bbox": [
+    526.2,
+    766.9,
+    580.7,
+    781.7
+   ],
+   "category": "paragraph_title",
+   "score": 0.7833
+  },
+  {
+   "bbox": [
+    523.9,
+    784.9,
+    930.9,
+    917.0
+   ],
+   "category": "text",
+   "score": 0.9488
+  },
+  {
+   "bbox": [
+    903.8,
+    939.4,
+    928.2,
+    952.0
+   ],
+   "category": "number",
+   "score": 0.7003
+  }
+ ],
+ "seconds": 0.88,
+ "peak_rss_mb": 1419.1,
+ "image_px": [
+  1653,
+  2339
+ ],
+ "page": "V5N1_p18"
+}
