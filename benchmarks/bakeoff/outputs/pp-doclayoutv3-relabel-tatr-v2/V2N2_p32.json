@@ -1,0 +1,2505 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    86.4,
+    50.4,
+    375.12,
+    60.0
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      86.4,
+      50.4,
+      375.12,
+      60.0
+     ],
+     "text": "TABLE OF COMPARISON WITH CLOVER VARIETIES"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "TABLE OF COMPARISON WITH CLOVER VARIETIES",
+   "text_format": "plain",
+   "type": "caption",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "figure_title",
+   "score": 0.5211
+  },
+  {
+   "bbox": [
+    85.8,
+    76.54,
+    522.99,
+    367.59
+   ],
+   "confidence": null,
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      229.68,
+      79.44,
+      520.56,
+      87.6
+     ],
+     "text": "Ladino ‘Grasslands ‘Tamar’ ‘Grasslands ‘Haifa’ ‘Irrigation’"
+    },
+    {
+     "bbox": [
+      229.2,
+      87.6,
+      402.48,
+      96.96
+     ],
+     "text": "variety Tahora’ Kopu’"
+    },
+    {
+     "bbox": [
+      86.16,
+      106.08,
+      518.16,
+      112.8
+     ],
+     "text": "TERMINAL LEAFLET Mean 34.23 mm 16.28 mm 35.11 mm 30.43 mm 29.29 mm 24.08 mm"
+    },
+    {
+     "bbox": [
+      86.4,
+      114.72,
+      503.76,
+      123.84
+     ],
+     "text": "LENGTH Range 22-53 9.5-22.5 22-47 17-50.5 17-45 15-40"
+    },
+    {
+     "bbox": [
+      162.0,
+      124.08,
+      497.04,
+      130.8
+     ],
+     "text": "Std deviation 6.83 3.15 5.59 7.66 5.54 4.92"
+    },
+    {
+     "bbox": [
+      85.68,
+      142.32,
+      517.68,
+      149.04
+     ],
+     "text": "TERMINAL LEAFLET Mean 30.36 mm 15.19 mm 28.42 mm 27.55 mm 24.75 mm 21.81 mm"
+    },
+    {
+     "bbox": [
+      85.68,
+      150.48,
+      503.76,
+      160.56
+     ],
+     "text": "WIDTH Range 21-40.5 9-21 19-36 16-38 15-33 11-29"
+    },
+    {
+     "bbox": [
+      161.76,
+      160.8,
+      497.04,
+      167.28
+     ],
+     "text": "Std deviation 5.51 3.89 5.33 5.49 4.97 4.67"
+    },
+    {
+     "bbox": [
+      85.92,
+      178.32,
+      522.24,
+      184.8
+     ],
+     "text": "PETIOLE LENGTH Mean 281.91mm 161.41mm 198.42mm 255.65mm 185.73mm 224.40mm"
+    },
+    {
+     "bbox": [
+      187.68,
+      186.72,
+      512.4,
+      195.84
+     ],
+     "text": "Range 141-440 69-252 120-310 101-446 115-496 114-355"
+    },
+    {
+     "bbox": [
+      161.52,
+      196.32,
+      501.12,
+      202.56
+     ],
+     "text": "Std deviation 75.34 51.61 46.73 77.20 63.51 59.47"
+    },
+    {
+     "bbox": [
+      85.68,
+      213.84,
+      513.12,
+      221.04
+     ],
+     "text": "STOLON WIDTH Mean 3.12 mm 1.73 mm 2.62 mm 2.74mm 2.71mm 2.04 mm"
+    },
+    {
+     "bbox": [
+      187.44,
+      222.96,
+      501.12,
+      230.4
+     ],
+     "text": "Range 2-4 1-2 1-4 2-4 1-4.5 1.5-3"
+    },
+    {
+     "bbox": [
+      161.28,
+      231.6,
+      496.8,
+      238.32
+     ],
+     "text": "Std deviation 0.51 0.33 0.64 0.55 0.71 0.35"
+    },
+    {
+     "bbox": [
+      85.68,
+      250.08,
+      496.8,
+      256.32
+     ],
+     "text": "LEAF MARK INTENSITY 2.59 2.38 3.30 2.45 4,24 2.60"
+    },
+    {
+     "bbox": [
+      85.44,
+      258.96,
+      130.56,
+      266.16
+     ],
+     "text": "(ranked 1-5)"
+    },
+    {
+     "bbox": [
+      85.44,
+      277.44,
+      517.44,
+      283.92
+     ],
+     "text": "FLOWER SIZE Mean 24.59 mm 22.77 mm 37.73 mm 25.33 mm 34.87 mm 24.08 mm"
+    },
+    {
+     "bbox": [
+      187.2,
+      285.36,
+      503.04,
+      294.96
+     ],
+     "text": "Range 16-37 17-33 20-46 18-40 20-49 17-32"
+    },
+    {
+     "bbox": [
+      161.04,
+      295.44,
+      496.56,
+      301.68
+     ],
+     "text": "Std deviation 4.27 4.81 5.64 4.73 5.90 4.19"
+    },
+    {
+     "bbox": [
+      85.2,
+      310.32,
+      505.44,
+      319.68
+     ],
+     "text": "CYANOGENESIS FREQUENCY 3.6 %% 55.9 % 100 % 43.6 % 89% 72.5%"
+    },
+    {
+     "bbox": [
+      85.2,
+      322.32,
+      147.6,
+      329.28
+     ],
+     "text": "(from 1985 trials)"
+    },
+    {
+     "bbox": [
+      85.44,
+      339.84,
+      495.36,
+      346.56
+     ],
+     "text": "NO. OF STOLONS Mean 6.38 52.59 5.47 7.02 9.54 8.61"
+    },
+    {
+     "bbox": [
+      84.72,
+      347.76,
+      498.48,
+      357.12
+     ],
+     "text": "AT 8 WEEKS Range 1-21 26-96 2-11 2-23 4-30 3-32"
+    },
+    {
+     "bbox": [
+      161.04,
+      357.36,
+      496.56,
+      363.84
+     ],
+     "text": "Std deviation 2.84 21.61 1.82 3.64 5.17 6.16"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       229.68,
+       79.44,
+       254.16,
+       85.68
+      ],
+      "header": true,
+      "text": "Ladino"
+     },
+     {
+      "bbox": [
+       280.32,
+       79.44,
+       323.52,
+       85.68
+      ],
+      "header": true,
+      "text": "‘Grasslands"
+     },
+     {
+      "bbox": [
+       330.96,
+       79.44,
+       358.56,
+       85.68
+      ],
+      "header": true,
+      "text": "‘Tamar’"
+     },
+     {
+      "bbox": [
+       381.6,
+       79.68,
+       424.8,
+       85.92
+      ],
+      "header": true,
+      "text": "‘Grasslands"
+     },
+     {
+      "bbox": [
+       432.24,
+       79.68,
+       454.8,
+       85.92
+      ],
+      "header": true,
+      "text": "‘Haifa’"
+     },
+     {
+      "bbox": [
+       482.88,
+       79.68,
+       520.56,
+       87.6
+      ],
+      "header": true,
+      "text": "‘Irrigation’"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       229.2,
+       88.56,
+       254.4,
+       95.76
+      ],
+      "header": true,
+      "text": "variety"
+     },
+     {
+      "bbox": [
+       279.84,
+       87.6,
+       307.68,
+       96.96
+      ],
+      "header": true,
+      "text": "Tahora’"
+     },
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       381.6,
+       88.8,
+       402.48,
+       96.24
+      ],
+      "header": true,
+      "text": "Kopu’"
+     },
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       86.16,
+       106.08,
+       162.24,
+       112.32
+      ],
+      "text": "TERMINAL LEAFLET"
+     },
+     {
+      "bbox": [
+       190.8,
+       106.32,
+       210.72,
+       112.56
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       229.2,
+       106.32,
+       264.96,
+       112.32
+      ],
+      "text": "34.23 mm"
+     },
+     {
+      "bbox": [
+       280.56,
+       106.56,
+       315.6,
+       112.56
+      ],
+      "text": "16.28 mm"
+     },
+     {
+      "bbox": [
+       330.72,
+       106.56,
+       366.24,
+       112.56
+      ],
+      "text": "35.11 mm"
+     },
+     {
+      "bbox": [
+       381.12,
+       106.8,
+       416.88,
+       112.8
+      ],
+      "text": "30.43 mm"
+     },
+     {
+      "bbox": [
+       432.0,
+       106.8,
+       467.28,
+       112.8
+      ],
+      "text": "29.29 mm"
+     },
+     {
+      "bbox": [
+       482.4,
+       106.8,
+       518.16,
+       112.8
+      ],
+      "text": "24.08 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       86.4,
+       114.96,
+       117.36,
+       121.2
+      ],
+      "text": "LENGTH"
+     },
+     {
+      "bbox": [
+       188.16,
+       115.44,
+       210.96,
+       122.88
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       229.2,
+       115.44,
+       250.32,
+       121.44
+      ],
+      "text": "22-53"
+     },
+     {
+      "bbox": [
+       279.84,
+       114.72,
+       310.32,
+       123.84
+      ],
+      "text": "9.5-22.5"
+     },
+     {
+      "bbox": [
+       330.72,
+       115.44,
+       351.84,
+       121.44
+      ],
+      "text": "22-47"
+     },
+     {
+      "bbox": [
+       381.6,
+       115.68,
+       409.44,
+       121.68
+      ],
+      "text": "17-50.5"
+     },
+     {
+      "bbox": [
+       432.48,
+       115.68,
+       453.36,
+       121.68
+      ],
+      "text": "17-45"
+     },
+     {
+      "bbox": [
+       482.88,
+       115.68,
+       503.76,
+       121.68
+      ],
+      "text": "15-40"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       162.0,
+       124.08,
+       210.48,
+       130.56
+      ],
+      "text": "Std deviation"
+     },
+     {
+      "bbox": [
+       229.2,
+       124.32,
+       243.6,
+       130.56
+      ],
+      "text": "6.83"
+     },
+     {
+      "bbox": [
+       279.84,
+       124.8,
+       294.72,
+       130.8
+      ],
+      "text": "3.15"
+     },
+     {
+      "bbox": [
+       330.72,
+       124.56,
+       345.6,
+       130.56
+      ],
+      "text": "5.59"
+     },
+     {
+      "bbox": [
+       381.12,
+       124.56,
+       396.0,
+       130.8
+      ],
+      "text": "7.66"
+     },
+     {
+      "bbox": [
+       432.0,
+       124.8,
+       446.88,
+       130.8
+      ],
+      "text": "5.54"
+     },
+     {
+      "bbox": [
+       482.16,
+       124.8,
+       497.04,
+       130.8
+      ],
+      "text": "4.92"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       85.68,
+       142.32,
+       161.76,
+       148.56
+      ],
+      "text": "TERMINAL LEAFLET"
+     },
+     {
+      "bbox": [
+       190.56,
+       142.56,
+       210.24,
+       148.8
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       229.2,
+       142.8,
+       264.96,
+       148.8
+      ],
+      "text": "30.36 mm"
+     },
+     {
+      "bbox": [
+       280.32,
+       142.8,
+       315.12,
+       148.8
+      ],
+      "text": "15.19 mm"
+     },
+     {
+      "bbox": [
+       330.48,
+       142.8,
+       366.0,
+       148.8
+      ],
+      "text": "28.42 mm"
+     },
+     {
+      "bbox": [
+       381.12,
+       143.04,
+       416.64,
+       148.8
+      ],
+      "text": "27.55 mm"
+     },
+     {
+      "bbox": [
+       431.76,
+       143.04,
+       467.28,
+       149.04
+      ],
+      "text": "24.75 mm"
+     },
+     {
+      "bbox": [
+       482.4,
+       143.04,
+       517.68,
+       149.04
+      ],
+      "text": "21.81 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       85.68,
+       151.44,
+       111.36,
+       157.68
+      ],
+      "text": "WIDTH"
+     },
+     {
+      "bbox": [
+       187.68,
+       151.68,
+       210.48,
+       159.36
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       229.2,
+       151.68,
+       257.04,
+       157.68
+      ],
+      "text": "21-40.5"
+     },
+     {
+      "bbox": [
+       278.64,
+       150.48,
+       295.44,
+       160.32
+      ],
+      "text": "9-21"
+     },
+     {
+      "bbox": [
+       330.96,
+       150.48,
+       352.08,
+       160.32
+      ],
+      "text": "19-36"
+     },
+     {
+      "bbox": [
+       381.6,
+       150.48,
+       402.48,
+       160.32
+      ],
+      "text": "16-38"
+     },
+     {
+      "bbox": [
+       432.24,
+       150.72,
+       452.88,
+       160.56
+      ],
+      "text": "15-33"
+     },
+     {
+      "bbox": [
+       482.88,
+       152.16,
+       503.76,
+       158.16
+      ],
+      "text": "11-29"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       161.76,
+       160.8,
+       210.24,
+       167.04
+      ],
+      "text": "Std deviation"
+     },
+     {
+      "bbox": [
+       229.2,
+       161.04,
+       242.64,
+       167.04
+      ],
+      "text": "5.51"
+     },
+     {
+      "bbox": [
+       279.84,
+       161.04,
+       294.24,
+       167.04
+      ],
+      "text": "3.89"
+     },
+     {
+      "bbox": [
+       330.24,
+       161.04,
+       345.12,
+       167.28
+      ],
+      "text": "5.33"
+     },
+     {
+      "bbox": [
+       381.12,
+       161.04,
+       395.76,
+       167.28
+      ],
+      "text": "5.49"
+     },
+     {
+      "bbox": [
+       431.52,
+       161.28,
+       446.16,
+       167.28
+      ],
+      "text": "4.97"
+     },
+     {
+      "bbox": [
+       481.92,
+       161.28,
+       497.04,
+       167.28
+      ],
+      "text": "4.67"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       85.92,
+       178.32,
+       151.2,
+       184.8
+      ],
+      "text": "PETIOLE LENGTH"
+     },
+     {
+      "bbox": [
+       190.32,
+       178.56,
+       210.0,
+       184.56
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       228.96,
+       178.8,
+       269.04,
+       184.8
+      ],
+      "text": "281.91mm"
+     },
+     {
+      "bbox": [
+       280.32,
+       178.8,
+       319.68,
+       184.8
+      ],
+      "text": "161.41mm"
+     },
+     {
+      "bbox": [
+       330.72,
+       178.8,
+       370.32,
+       184.8
+      ],
+      "text": "198.42mm"
+     },
+     {
+      "bbox": [
+       380.88,
+       178.8,
+       420.96,
+       184.8
+      ],
+      "text": "255.65mm"
+     },
+     {
+      "bbox": [
+       432.24,
+       178.8,
+       471.36,
+       184.8
+      ],
+      "text": "185.73mm"
+     },
+     {
+      "bbox": [
+       482.16,
+       179.04,
+       522.24,
+       184.8
+      ],
+      "text": "224.40mm"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       187.68,
+       187.68,
+       210.48,
+       195.12
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       229.44,
+       187.68,
+       258.96,
+       193.44
+      ],
+      "text": "141-440"
+     },
+     {
+      "bbox": [
+       279.6,
+       186.72,
+       305.28,
+       195.84
+      ],
+      "text": "69-252"
+     },
+     {
+      "bbox": [
+       330.48,
+       186.72,
+       360.48,
+       195.84
+      ],
+      "text": "120-310"
+     },
+     {
+      "bbox": [
+       381.36,
+       187.68,
+       411.36,
+       193.68
+      ],
+      "text": "101-446"
+     },
+     {
+      "bbox": [
+       432.24,
+       186.72,
+       461.76,
+       195.84
+      ],
+      "text": "115-496"
+     },
+     {
+      "bbox": [
+       482.64,
+       187.92,
+       512.4,
+       193.92
+      ],
+      "text": "114-355"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       161.52,
+       196.32,
+       210.24,
+       202.56
+      ],
+      "text": "Std deviation"
+     },
+     {
+      "bbox": [
+       228.72,
+       196.56,
+       248.16,
+       202.56
+      ],
+      "text": "75.34"
+     },
+     {
+      "bbox": [
+       279.6,
+       196.32,
+       297.6,
+       202.32
+      ],
+      "text": "51.61"
+     },
+     {
+      "bbox": [
+       330.0,
+       196.32,
+       349.2,
+       202.32
+      ],
+      "text": "46.73"
+     },
+     {
+      "bbox": [
+       380.64,
+       196.56,
+       399.84,
+       202.32
+      ],
+      "text": "77.20"
+     },
+     {
+      "bbox": [
+       431.76,
+       196.32,
+       449.52,
+       202.32
+      ],
+      "text": "63.51"
+     },
+     {
+      "bbox": [
+       481.92,
+       196.56,
+       501.12,
+       202.56
+      ],
+      "text": "59.47"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       85.68,
+       213.84,
+       145.92,
+       220.08
+      ],
+      "text": "STOLON WIDTH"
+     },
+     {
+      "bbox": [
+       190.08,
+       214.08,
+       210.0,
+       220.08
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       228.72,
+       214.08,
+       259.68,
+       220.32
+      ],
+      "text": "3.12 mm"
+     },
+     {
+      "bbox": [
+       280.08,
+       214.32,
+       310.56,
+       220.08
+      ],
+      "text": "1.73 mm"
+     },
+     {
+      "bbox": [
+       330.24,
+       214.08,
+       361.44,
+       220.08
+      ],
+      "text": "2.62 mm"
+     },
+     {
+      "bbox": [
+       380.64,
+       214.32,
+       411.84,
+       221.04
+      ],
+      "text": "2.74mm"
+     },
+     {
+      "bbox": [
+       431.52,
+       214.08,
+       462.72,
+       220.08
+      ],
+      "text": "2.71mm"
+     },
+     {
+      "bbox": [
+       482.16,
+       214.32,
+       513.12,
+       220.08
+      ],
+      "text": "2.04 mm"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       187.44,
+       222.96,
+       210.24,
+       230.4
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       228.72,
+       222.96,
+       241.44,
+       228.96
+      ],
+      "text": "2-4"
+     },
+     {
+      "bbox": [
+       279.84,
+       223.2,
+       291.6,
+       228.72
+      ],
+      "text": "1-2"
+     },
+     {
+      "bbox": [
+       330.48,
+       222.96,
+       342.96,
+       228.72
+      ],
+      "text": "1-4"
+     },
+     {
+      "bbox": [
+       380.64,
+       222.96,
+       393.12,
+       228.96
+      ],
+      "text": "2-4"
+     },
+     {
+      "bbox": [
+       432.0,
+       222.96,
+       450.48,
+       228.96
+      ],
+      "text": "1-4.5"
+     },
+     {
+      "bbox": [
+       482.64,
+       222.96,
+       501.12,
+       228.96
+      ],
+      "text": "1.5-3"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       161.28,
+       231.6,
+       209.76,
+       238.08
+      ],
+      "text": "Std deviation"
+     },
+     {
+      "bbox": [
+       228.72,
+       231.84,
+       242.4,
+       237.84
+      ],
+      "text": "0.51"
+     },
+     {
+      "bbox": [
+       279.12,
+       232.08,
+       293.76,
+       238.32
+      ],
+      "text": "0.33"
+     },
+     {
+      "bbox": [
+       330.0,
+       231.84,
+       345.12,
+       238.08
+      ],
+      "text": "0.64"
+     },
+     {
+      "bbox": [
+       380.64,
+       232.08,
+       395.28,
+       238.08
+      ],
+      "text": "0.55"
+     },
+     {
+      "bbox": [
+       431.28,
+       231.84,
+       444.96,
+       238.08
+      ],
+      "text": "0.71"
+     },
+     {
+      "bbox": [
+       481.92,
+       231.84,
+       496.8,
+       238.08
+      ],
+      "text": "0.35"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       85.44,
+       250.08,
+       173.76,
+       266.16
+      ],
+      "text": "LEAF MARK INTENSITY (ranked 1-5)"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       228.72,
+       250.08,
+       243.36,
+       256.08
+      ],
+      "text": "2.59"
+     },
+     {
+      "bbox": [
+       279.36,
+       250.32,
+       294.24,
+       256.32
+      ],
+      "text": "2.38"
+     },
+     {
+      "bbox": [
+       329.76,
+       250.08,
+       344.88,
+       256.08
+      ],
+      "text": "3.30"
+     },
+     {
+      "bbox": [
+       380.64,
+       250.08,
+       395.28,
+       256.32
+      ],
+      "text": "2.45"
+     },
+     {
+      "bbox": [
+       431.28,
+       250.08,
+       446.16,
+       256.08
+      ],
+      "text": "4,24"
+     },
+     {
+      "bbox": [
+       481.92,
+       250.08,
+       496.8,
+       256.08
+      ],
+      "text": "2.60"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       85.44,
+       277.44,
+       136.56,
+       283.68
+      ],
+      "text": "FLOWER SIZE"
+     },
+     {
+      "bbox": [
+       190.08,
+       277.68,
+       209.76,
+       283.92
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       228.48,
+       277.68,
+       264.24,
+       283.68
+      ],
+      "text": "24.59 mm"
+     },
+     {
+      "bbox": [
+       279.36,
+       277.44,
+       314.88,
+       283.44
+      ],
+      "text": "22.77 mm"
+     },
+     {
+      "bbox": [
+       330.0,
+       277.44,
+       365.52,
+       283.44
+      ],
+      "text": "37.73 mm"
+     },
+     {
+      "bbox": [
+       380.64,
+       277.44,
+       416.16,
+       283.44
+      ],
+      "text": "25.33 mm"
+     },
+     {
+      "bbox": [
+       431.28,
+       277.44,
+       466.56,
+       283.68
+      ],
+      "text": "34.87 mm"
+     },
+     {
+      "bbox": [
+       481.92,
+       277.44,
+       517.44,
+       283.44
+      ],
+      "text": "24.08 mm"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       187.2,
+       286.56,
+       210.0,
+       294.0
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       228.96,
+       285.6,
+       249.6,
+       294.96
+      ],
+      "text": "16-37"
+     },
+     {
+      "bbox": [
+       279.6,
+       286.56,
+       300.24,
+       292.56
+      ],
+      "text": "17-33"
+     },
+     {
+      "bbox": [
+       329.76,
+       285.6,
+       351.6,
+       294.48
+      ],
+      "text": "20-46"
+     },
+     {
+      "bbox": [
+       380.88,
+       285.6,
+       401.76,
+       294.72
+      ],
+      "text": "18-40"
+     },
+     {
+      "bbox": [
+       431.28,
+       285.36,
+       452.64,
+       294.72
+      ],
+      "text": "20-49"
+     },
+     {
+      "bbox": [
+       482.16,
+       286.56,
+       503.04,
+       292.32
+      ],
+      "text": "17-32"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       161.04,
+       295.44,
+       209.76,
+       301.68
+      ],
+      "text": "Std deviation"
+     },
+     {
+      "bbox": [
+       228.24,
+       295.68,
+       242.88,
+       301.44
+      ],
+      "text": "4.27"
+     },
+     {
+      "bbox": [
+       278.88,
+       295.44,
+       292.8,
+       301.44
+      ],
+      "text": "4.81"
+     },
+     {
+      "bbox": [
+       329.76,
+       295.44,
+       344.88,
+       301.44
+      ],
+      "text": "5.64"
+     },
+     {
+      "bbox": [
+       380.16,
+       295.44,
+       394.8,
+       301.44
+      ],
+      "text": "4.73"
+     },
+     {
+      "bbox": [
+       431.28,
+       295.44,
+       445.92,
+       301.44
+      ],
+      "text": "5.90"
+     },
+     {
+      "bbox": [
+       481.68,
+       295.44,
+       496.56,
+       301.44
+      ],
+      "text": "4.19"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       85.2,
+       313.44,
+       148.08,
+       329.28
+      ],
+      "text": "CYANOGENESIS (from 1985 trials)"
+     },
+     {
+      "bbox": [
+       150.96,
+       313.44,
+       198.72,
+       319.68
+      ],
+      "text": "FREQUENCY"
+     },
+     {
+      "bbox": [
+       227.04,
+       310.32,
+       254.64,
+       319.68
+      ],
+      "text": "3.6 %%"
+     },
+     {
+      "bbox": [
+       279.12,
+       313.68,
+       302.64,
+       319.68
+      ],
+      "text": "55.9 %"
+     },
+     {
+      "bbox": [
+       330.24,
+       313.44,
+       351.36,
+       319.44
+      ],
+      "text": "100 %"
+     },
+     {
+      "bbox": [
+       380.4,
+       313.44,
+       403.92,
+       319.44
+      ],
+      "text": "43.6 %"
+     },
+     {
+      "bbox": [
+       431.04,
+       313.2,
+       448.08,
+       319.2
+      ],
+      "text": "89%"
+     },
+     {
+      "bbox": [
+       481.68,
+       313.44,
+       505.44,
+       319.2
+      ],
+      "text": "72.5%"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       85.44,
+       340.08,
+       151.44,
+       346.56
+      ],
+      "text": "NO. OF STOLONS"
+     },
+     {
+      "bbox": [
+       189.6,
+       340.08,
+       209.52,
+       346.08
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       228.24,
+       340.08,
+       243.12,
+       346.32
+      ],
+      "text": "6.38"
+     },
+     {
+      "bbox": [
+       279.12,
+       340.08,
+       298.32,
+       346.08
+      ],
+      "text": "52.59"
+     },
+     {
+      "bbox": [
+       329.52,
+       340.08,
+       344.4,
+       345.84
+      ],
+      "text": "5.47"
+     },
+     {
+      "bbox": [
+       380.4,
+       340.08,
+       394.8,
+       345.84
+      ],
+      "text": "7.02"
+     },
+     {
+      "bbox": [
+       430.8,
+       339.84,
+       445.92,
+       345.84
+      ],
+      "text": "9.54"
+     },
+     {
+      "bbox": [
+       481.44,
+       339.84,
+       495.36,
+       345.84
+      ],
+      "text": "8.61"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       84.72,
+       348.96,
+       131.04,
+       355.2
+      ],
+      "text": "AT 8 WEEKS"
+     },
+     {
+      "bbox": [
+       187.2,
+       349.2,
+       209.76,
+       356.4
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       228.72,
+       348.96,
+       244.08,
+       354.72
+      ],
+      "text": "1-21"
+     },
+     {
+      "bbox": [
+       279.12,
+       348.0,
+       300.48,
+       357.12
+      ],
+      "text": "26-96"
+     },
+     {
+      "bbox": [
+       329.52,
+       348.96,
+       345.6,
+       354.72
+      ],
+      "text": "2-11"
+     },
+     {
+      "bbox": [
+       380.4,
+       348.96,
+       396.96,
+       354.72
+      ],
+      "text": "2-23"
+     },
+     {
+      "bbox": [
+       431.04,
+       347.76,
+       447.84,
+       356.88
+      ],
+      "text": "4-30"
+     },
+     {
+      "bbox": [
+       481.44,
+       348.72,
+       498.48,
+       354.72
+      ],
+      "text": "3-32"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       161.04,
+       357.6,
+       209.52,
+       363.84
+      ],
+      "text": "Std deviation"
+     },
+     {
+      "bbox": [
+       228.24,
+       357.6,
+       243.12,
+       363.6
+      ],
+      "text": "2.84"
+     },
+     {
+      "bbox": [
+       279.12,
+       357.84,
+       297.12,
+       363.6
+      ],
+      "text": "21.61"
+     },
+     {
+      "bbox": [
+       330.24,
+       357.6,
+       344.4,
+       363.6
+      ],
+      "text": "1.82"
+     },
+     {
+      "bbox": [
+       380.16,
+       357.6,
+       395.04,
+       363.6
+      ],
+      "text": "3.64"
+     },
+     {
+      "bbox": [
+       431.28,
+       357.6,
+       445.68,
+       363.36
+      ],
+      "text": "5.17"
+     },
+     {
+      "bbox": [
+       481.44,
+       357.36,
+       496.56,
+       363.12
+      ],
+      "text": "6.16"
+     }
+    ]
+   ],
+   "score": 0.9996,
+   "signal": "tatr",
+   "source": "tatr",
+   "text": "  Ladino ‘Grasslands ‘Tamar’ ‘Grasslands ‘Haifa’ ‘Irrigation’\n  variety Tahora’  Kopu’  \nTERMINAL LEAFLET Mean 34.23 mm 16.28 mm 35.11 mm 30.43 mm 29.29 mm 24.08 mm\nLENGTH Range 22-53 9.5-22.5 22-47 17-50.5 17-45 15-40\n Std deviation 6.83 3.15 5.59 7.66 5.54 4.92\nTERMINAL LEAFLET Mean 30.36 mm 15.19 mm 28.42 mm 27.55 mm 24.75 mm 21.81 mm\nWIDTH Range 21-40.5 9-21 19-36 16-38 15-33 11-29\n Std deviation 5.51 3.89 5.33 5.49 4.97 4.67\nPETIOLE LENGTH Mean 281.91mm 161.41mm 198.42mm 255.65mm 185.73mm 224.40mm\n Range 141-440 69-252 120-310 101-446 115-496 114-355\n Std deviation 75.34 51.61 46.73 77.20 63.51 59.47\nSTOLON WIDTH Mean 3.12 mm 1.73 mm 2.62 mm 2.74mm 2.71mm 2.04 mm\n Range 2-4 1-2 1-4 2-4 1-4.5 1.5-3\n Std deviation 0.51 0.33 0.64 0.55 0.71 0.35\nLEAF MARK INTENSITY (ranked 1-5)  2.59 2.38 3.30 2.45 4,24 2.60\nFLOWER SIZE Mean 24.59 mm 22.77 mm 37.73 mm 25.33 mm 34.87 mm 24.08 mm\n Range 16-37 17-33 20-46 18-40 20-49 17-32\n Std deviation 4.27 4.81 5.64 4.73 5.90 4.19\nCYANOGENESIS (from 1985 trials) FREQUENCY 3.6 %% 55.9 % 100 % 43.6 % 89% 72.5%\nNO. OF STOLONS Mean 6.38 52.59 5.47 7.02 9.54 8.61\nAT 8 WEEKS Range 1-21 26-96 2-11 2-23 4-30 3-32\n Std deviation 2.84 21.61 1.82 3.64 5.17 6.16",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    84.0,
+    422.4,
+    293.28,
+    480.72
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      84.0,
+      422.4,
+      210.0,
+      431.28
+     ],
+     "text": "5) Descriptions to be finalised"
+    },
+    {
+     "bbox": [
+      84.72,
+      432.72,
+      293.28,
+      441.36
+     ],
+     "text": "Descriptions for the Journal are being finalised for"
+    },
+    {
+     "bbox": [
+      84.24,
+      442.56,
+      285.36,
+      451.2
+     ],
+     "text": "the following applications. The six month period"
+    },
+    {
+     "bbox": [
+      84.24,
+      452.4,
+      278.16,
+      461.28
+     ],
+     "text": "for comment or formal objection will not begin"
+    },
+    {
+     "bbox": [
+      84.72,
+      462.72,
+      257.76,
+      470.88
+     ],
+     "text": "until the full descriptions are finalised and"
+    },
+    {
+     "bbox": [
+      84.48,
+      472.32,
+      187.2,
+      480.72
+     ],
+     "text": "published in the Journal."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "5) Descriptions to be finalised\nDescriptions for the Journal are being finalised for\nthe following applications. The six month period\nfor comment or formal objection will not begin\nuntil the full descriptions are finalised and\npublished in the Journal.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9085
+  },
+  {
+   "bbox": [
+    83.04,
+    524.16,
+    131.76,
+    552.96
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      83.04,
+      524.16,
+      121.44,
+      537.84
+     ],
+     "text": "Apple"
+    },
+    {
+     "bbox": [
+      84.0,
+      540.0,
+      131.76,
+      552.96
+     ],
+     "text": "(Malus)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Apple\n(Malus)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    82.8,
+    565.2,
+    260.4,
+    583.92
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      82.8,
+      565.2,
+      260.4,
+      573.84
+     ],
+     "text": "Applicant: N.V.Jomobel of Halen, Belgium"
+    },
+    {
+     "bbox": [
+      83.28,
+      575.28,
+      231.6,
+      583.92
+     ],
+     "text": "‘Jonagored’ Application No.:89/013"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: N.V.Jomobel of Halen, Belgium\n‘Jonagored’ Application No.:89/013",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.8713
+  },
+  {
+   "bbox": [
+    83.04,
+    606.0,
+    297.12,
+    673.92
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      83.76,
+      606.0,
+      106.08,
+      616.32
+     ],
+     "text": "Pea"
+    },
+    {
+     "bbox": [
+      84.24,
+      620.88,
+      132.72,
+      633.84
+     ],
+     "text": "(Pisum)"
+    },
+    {
+     "bbox": [
+      83.28,
+      645.12,
+      297.12,
+      654.24
+     ],
+     "text": "Applicant: Cebeco Handelsraad of The Netherlands"
+    },
+    {
+     "bbox": [
+      83.04,
+      664.8,
+      296.4,
+      673.92
+     ],
+     "text": "Agent in Australia: Pea & Grain Exporters Australia"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Pea\n(Pisum)\nApplicant: Cebeco Handelsraad of The Netherlands\nAgent in Australia: Pea & Grain Exporters Australia",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    83.28,
+    674.88,
+    240.48,
+    694.08
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      83.28,
+      674.88,
+      240.48,
+      683.76
+     ],
+     "text": "Pty Ltd, of Two Wells, South Australia"
+    },
+    {
+     "bbox": [
+      83.28,
+      685.44,
+      213.6,
+      694.08
+     ],
+     "text": "‘Solara’ Application No.:89/019"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Pty Ltd, of Two Wells, South Australia\n‘Solara’ Application No.:89/019",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.8903
+  },
+  {
+   "bbox": [
+    82.32,
+    726.0,
+    270.96,
+    743.76
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      82.32,
+      726.0,
+      270.96,
+      734.64
+     ],
+     "text": "Applicant:Rogers Brothers Seed Company of"
+    },
+    {
+     "bbox": [
+      83.04,
+      735.84,
+      129.36,
+      743.76
+     ],
+     "text": "Boise, USA"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant:Rogers Brothers Seed Company of\nBoise, USA",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.8397
+  },
+  {
+   "bbox": [
+    82.08,
+    756.0,
+    273.36,
+    774.24
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      82.08,
+      756.0,
+      273.36,
+      764.4
+     ],
+     "text": "Agent in Australia: Northrup King Pty Limited"
+    },
+    {
+     "bbox": [
+      82.32,
+      765.6,
+      208.8,
+      774.24
+     ],
+     "text": "‘Frolic’ Application No.:89/026"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Agent in Australia: Northrup King Pty Limited\n‘Frolic’ Application No.:89/026",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.8225
+  },
+  {
+   "bbox": [
+    84.0,
+    796.08,
+    92.16,
+    802.08
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      84.0,
+      796.08,
+      92.16,
+      802.08
+     ],
+     "text": "30"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "30",
+   "text_format": "plain",
+   "type": "page_number",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "number",
+   "score": 0.7347
+  },
+  {
+   "bbox": [
+    317.52,
+    423.12,
+    507.12,
+    456.48
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      317.76,
+      423.12,
+      369.12,
+      436.32
+     ],
+     "text": "Choisya"
+    },
+    {
+     "bbox": [
+      317.52,
+      447.6,
+      507.12,
+      456.48
+     ],
+     "text": "Applicant: P Catt, Liss Forest Nursery Ltd, UK."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Choisya\nApplicant: P Catt, Liss Forest Nursery Ltd, UK.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.8277
+  },
+  {
+   "bbox": [
+    317.28,
+    467.52,
+    529.92,
+    495.6
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      317.28,
+      467.52,
+      529.92,
+      476.16
+     ],
+     "text": "Agent in Australia: Plant Growers Australia Pty Ltd"
+    },
+    {
+     "bbox": [
+      317.52,
+      477.36,
+      414.48,
+      486.0
+     ],
+     "text": "of Wonga Park, Victoria"
+    },
+    {
+     "bbox": [
+      317.52,
+      487.2,
+      462.48,
+      495.6
+     ],
+     "text": "‘Sundance’ Application No.:89/020"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Agent in Australia: Plant Growers Australia Pty Ltd\nof Wonga Park, Victoria\n‘Sundance’ Application No.:89/020",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.8977
+  },
+  {
+   "bbox": [
+    318.0,
+    521.04,
+    461.52,
+    532.08
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      318.0,
+      521.04,
+      461.52,
+      532.08
+     ],
+     "text": "Provisional Protection"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Provisional Protection",
+   "text_format": "plain",
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.8197
+  },
+  {
+   "bbox": [
+    316.8,
+    546.0,
+    530.88,
+    582.96
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      317.52,
+      546.0,
+      445.44,
+      554.64
+     ],
+     "text": "Provisional Protection granted"
+    },
+    {
+     "bbox": [
+      317.04,
+      556.08,
+      528.48,
+      564.72
+     ],
+     "text": "The following varieties have provisional protection"
+    },
+    {
+     "bbox": [
+      317.52,
+      566.16,
+      530.88,
+      574.56
+     ],
+     "text": "under S22 of the Plant Variety Rights Act 1987 since"
+    },
+    {
+     "bbox": [
+      316.8,
+      576.0,
+      433.68,
+      582.96
+     ],
+     "text": "the last issue of the Journal:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Provisional Protection granted\nThe following varieties have provisional protection\nunder S22 of the Plant Variety Rights Act 1987 since\nthe last issue of the Journal:",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.8698
+  },
+  {
+   "bbox": [
+    316.8,
+    595.68,
+    531.6,
+    744.96
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      317.28,
+      595.68,
+      531.36,
+      604.56
+     ],
+     "text": "‘Jonagored’ Application No.:89/013"
+    },
+    {
+     "bbox": [
+      317.28,
+      614.64,
+      531.6,
+      624.96
+     ],
+     "text": "‘Kyambro’ Application No.:89/014"
+    },
+    {
+     "bbox": [
+      317.28,
+      634.08,
+      531.36,
+      644.64
+     ],
+     "text": "‘Rosedale’ Application No. :89/015"
+    },
+    {
+     "bbox": [
+      317.04,
+      654.72,
+      531.36,
+      663.12
+     ],
+     "text": "‘Gresham’ Application No.:89/016"
+    },
+    {
+     "bbox": [
+      316.8,
+      673.92,
+      531.36,
+      684.24
+     ],
+     "text": "‘Natsukaze’ Application No.:89/017"
+    },
+    {
+     "bbox": [
+      317.04,
+      694.08,
+      531.6,
+      704.88
+     ],
+     "text": "‘Franklin’ Application No.:89/018"
+    },
+    {
+     "bbox": [
+      317.04,
+      714.72,
+      531.12,
+      723.36
+     ],
+     "text": "‘Solara’ Application No.:89/019"
+    },
+    {
+     "bbox": [
+      316.8,
+      733.68,
+      531.12,
+      744.96
+     ],
+     "text": "‘Sundance’ Application No. :89/020"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "‘Jonagored’ Application No.:89/013\n‘Kyambro’ Application No.:89/014\n‘Rosedale’ Application No. :89/015\n‘Gresham’ Application No.:89/016\n‘Natsukaze’ Application No.:89/017\n‘Franklin’ Application No.:89/018\n‘Solara’ Application No.:89/019\n‘Sundance’ Application No. :89/020",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "table",
+   "score": 0.898
+  },
+  {
+   "bbox": [
+    316.8,
+    754.56,
+    530.16,
+    772.8
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      316.8,
+      754.56,
+      459.12,
+      763.2
+     ],
+     "text": "‘Meipinjid’ (syn Duke Meillandina)"
+    },
+    {
+     "bbox": [
+      435.12,
+      764.4,
+      530.16,
+      772.8
+     ],
+     "text": "Application No.:89/021"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "‘Meipinjid’ (syn Duke Meillandina)\nApplication No.:89/021",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    0.96,
+    829.92,
+    594.72,
+    842.4
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      0.96,
+      829.92,
+      594.72,
+      842.4
+     ],
+     "text": "ell"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ell",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    594.72,
+    842.4
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

@@ -1,0 +1,98 @@
+{
+ "model": "PaddlePaddle/PP-DocLayoutV3_safetensors",
+ "revision": "e4f489dc536556fc1be02b973ba06756e0d4a2ac",
+ "threshold": 0.5,
+ "load_seconds": 10.89,
+ "device": "cpu",
+ "dtype": "fp32",
+ "threads": 4,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.18",
+  "platform": "Linux-6.18.44-fc-v338-x86_64-with-glibc2.39",
+  "torch": "2.15.0+cpu",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "regions": [
+  {
+   "bbox": [
+    566.5,
+    65.4,
+    687.1,
+    90.3
+   ],
+   "category": "header",
+   "score": 0.5412
+  },
+  {
+   "bbox": [
+    294.8,
+    326.4,
+    316.3,
+    340.6
+   ],
+   "category": "aside_text",
+   "score": 0.7531
+  },
+  {
+   "bbox": [
+    303.6,
+    206.5,
+    316.0,
+    220.8
+   ],
+   "category": "aside_text",
+   "score": 0.7766
+  },
+  {
+   "bbox": [
+    295.5,
+    447.0,
+    316.4,
+    461.8
+   ],
+   "category": "aside_text",
+   "score": 0.7182
+  },
+  {
+   "bbox": [
+    345.7,
+    102.9,
+    882.3,
+    389.9
+   ],
+   "category": "text",
+   "score": 0.9475
+  },
+  {
+   "bbox": [
+    344.7,
+    394.9,
+    893.0,
+    533.6
+   ],
+   "category": "text",
+   "score": 0.9125
+  },
+  {
+   "bbox": [
+    580.6,
+    874.1,
+    607.2,
+    887.8
+   ],
+   "category": "number",
+   "score": 0.7128
+  }
+ ],
+ "seconds": 0.89,
+ "peak_rss_mb": 1456.1,
+ "image_px": [
+  1393,
+  1950
+ ],
+ "page": "P63b_p20"
+}

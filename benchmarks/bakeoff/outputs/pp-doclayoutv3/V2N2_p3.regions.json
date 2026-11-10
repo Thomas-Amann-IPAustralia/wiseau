@@ -1,0 +1,148 @@
+{
+ "model": "PaddlePaddle/PP-DocLayoutV3_safetensors",
+ "revision": "e4f489dc536556fc1be02b973ba06756e0d4a2ac",
+ "threshold": 0.5,
+ "load_seconds": 10.89,
+ "device": "cpu",
+ "dtype": "fp32",
+ "threads": 4,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.18",
+  "platform": "Linux-6.18.44-fc-v338-x86_64-with-glibc2.39",
+  "torch": "2.15.0+cpu",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "regions": [
+  {
+   "bbox": [
+    100.6,
+    55.6,
+    458.1,
+    79.7
+   ],
+   "category": "doc_title",
+   "score": 0.809
+  },
+  {
+   "bbox": [
+    102.2,
+    110.7,
+    334.8,
+    304.3
+   ],
+   "category": "image",
+   "score": 0.9516
+  },
+  {
+   "bbox": [
+    99.7,
+    341.2,
+    809.7,
+    380.1
+   ],
+   "category": "text",
+   "score": 0.9121
+  },
+  {
+   "bbox": [
+    99.7,
+    388.6,
+    812.6,
+    462.7
+   ],
+   "category": "text",
+   "score": 0.9359
+  },
+  {
+   "bbox": [
+    99.3,
+    471.9,
+    787.8,
+    521.6
+   ],
+   "category": "text",
+   "score": 0.9291
+  },
+  {
+   "bbox": [
+    99.1,
+    530.5,
+    818.2,
+    556.8
+   ],
+   "category": "text",
+   "score": 0.884
+  },
+  {
+   "bbox": [
+    100.4,
+    640.2,
+    230.6,
+    654.2
+   ],
+   "category": "text",
+   "score": 0.5277
+  },
+  {
+   "bbox": [
+    399.0,
+    639.8,
+    661.2,
+    653.9
+   ],
+   "category": "text",
+   "score": 0.5449
+  },
+  {
+   "bbox": [
+    100.5,
+    653.3,
+    358.5,
+    669.1
+   ],
+   "category": "text",
+   "score": 0.5575
+  },
+  {
+   "bbox": [
+    400.1,
+    653.5,
+    514.3,
+    666.8
+   ],
+   "category": "text",
+   "score": 0.5706
+  },
+  {
+   "bbox": [
+    399.8,
+    666.5,
+    575.0,
+    680.5
+   ],
+   "category": "text",
+   "score": 0.5323
+  },
+  {
+   "bbox": [
+    99.6,
+    807.3,
+    823.8,
+    863.2
+   ],
+   "category": "table",
+   "score": 0.6405
+  }
+ ],
+ "seconds": 5.46,
+ "peak_rss_mb": 1408.3,
+ "image_px": [
+  1662,
+  2343
+ ],
+ "page": "V2N2_p3"
+}
