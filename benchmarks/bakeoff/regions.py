@@ -105,6 +105,10 @@ GROUPS_L = {
 # the references above, or the text layer for V16 p3 and p97. Score with structure.py.
 SAMPLE_S = {"V5N1": [18, 19, 20], "V4": [19, 22, 23, 25, 26, 27], "V2": [11, 12, 20, 21], "V4N1": [7],
             "P63a": [7], "V5N3": [23, 24], "V16": [3, 90, 97]}
+# Set T (2026-11-10, roadmap 14 item 3.7b): a second, held-out structural gold set,
+# `structure-t/T*.md`; drawn by survey/set-t/draw.py (seed 20261110).
+SAMPLE_T = {"V2N2": [3, 4, 31, 32], "V5N3": [12, 19], "V4": [8, 10, 14], "V4N1": [27], "P63b": [20],
+            "P85": [6], "P00": [4], "WO06": [4]}
 GROUPS_B = {
     "two-column prose": ["V2_p9", "V2_p11", "V2_p23"],
     "tables": ["V2_p14", "V4_p32"],

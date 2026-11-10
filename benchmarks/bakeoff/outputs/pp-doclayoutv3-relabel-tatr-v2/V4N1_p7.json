@@ -1,0 +1,2574 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    44.64,
+    53.28,
+    117.84,
+    66.24
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      44.64,
+      53.28,
+      117.84,
+      66.24
+     ],
+     "text": "Applications"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applications",
+   "text_format": "plain",
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.8082
+  },
+  {
+   "bbox": [
+    43.92,
+    83.28,
+    275.28,
+    113.76
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      43.92,
+      83.28,
+      273.6,
+      93.12
+     ],
+     "text": "Applications for PVR on the varieties described and listed"
+    },
+    {
+     "bbox": [
+      44.64,
+      93.36,
+      275.28,
+      102.72
+     ],
+     "text": "below have been accepted under $18 of the Plant Variety"
+    },
+    {
+     "bbox": [
+      44.16,
+      104.64,
+      108.96,
+      113.76
+     ],
+     "text": "Rights Act 1987"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applications for PVR on the varieties described and listed\nbelow have been accepted under $18 of the Plant Variety\nRights Act 1987",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9012
+  },
+  {
+   "bbox": [
+    44.88,
+    140.16,
+    198.24,
+    153.36
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      44.88,
+      140.16,
+      198.24,
+      153.36
+     ],
+     "text": "a) Descriptions Finalised"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a) Descriptions Finalised",
+   "text_format": "plain",
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.5511
+  },
+  {
+   "bbox": [
+    45.36,
+    160.08,
+    174.48,
+    186.24
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      46.08,
+      160.08,
+      155.04,
+      170.88
+     ],
+     "text": "LECHENAULTIA"
+    },
+    {
+     "bbox": [
+      45.36,
+      173.76,
+      174.48,
+      186.24
+     ],
+     "text": "(Lechenaultia biloba)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "LECHENAULTIA\n(Lechenaultia biloba)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    44.64,
+    246.72,
+    237.36,
+    266.4
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      45.6,
+      246.72,
+      237.36,
+      256.32
+     ],
+     "text": "Variety: ‘Autumn Blue’ Application No. 89/028"
+    },
+    {
+     "bbox": [
+      44.64,
+      257.52,
+      159.12,
+      266.4
+     ],
+     "text": "Accepted: 6 November 1990"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: ‘Autumn Blue’ Application No. 89/028\nAccepted: 6 November 1990",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    44.64,
+    267.12,
+    203.76,
+    285.36
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      44.64,
+      267.12,
+      191.52,
+      276.0
+     ],
+     "text": "Applicant: George Lullfitz, of Luilfitz"
+    },
+    {
+     "bbox": [
+      45.36,
+      276.96,
+      203.76,
+      285.36
+     ],
+     "text": "Nursery, Wanneroo, Western Australia."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: George Lullfitz, of Luilfitz\nNursery, Wanneroo, Western Australia.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    44.4,
+    293.28,
+    280.8,
+    331.2
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      45.6,
+      293.28,
+      86.4,
+      301.68
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      44.4,
+      301.92,
+      280.8,
+      311.04
+     ],
+     "text": "This variety is distinct from all other varieties in having the"
+    },
+    {
+     "bbox": [
+      45.12,
+      312.0,
+      275.76,
+      321.36
+     ],
+     "text": "following combination of characters: a 9 month flowering"
+    },
+    {
+     "bbox": [
+      45.12,
+      321.84,
+      277.92,
+      331.2
+     ],
+     "text": "period; a compact, erect growth habit; small, blue flowers."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\nThis variety is distinct from all other varieties in having the\nfollowing combination of characters: a 9 month flowering\nperiod; a compact, erect growth habit; small, blue flowers.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.858
+  },
+  {
+   "bbox": [
+    44.64,
+    338.16,
+    258.0,
+    365.52
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      45.12,
+      338.16,
+      169.68,
+      346.32
+     ],
+     "text": "Varieties used for comparison"
+    },
+    {
+     "bbox": [
+      44.88,
+      347.28,
+      258.0,
+      355.68
+     ],
+     "text": "A blue form of Lechenaultia biloba, and Lechenauttia"
+    },
+    {
+     "bbox": [
+      44.64,
+      358.56,
+      126.24,
+      365.52
+     ],
+     "text": "biloba ‘White Flash’."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comparison\nA blue form of Lechenaultia biloba, and Lechenauttia\nbiloba ‘White Flash’.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.7257
+  },
+  {
+   "bbox": [
+    44.88,
+    374.4,
+    282.24,
+    538.08
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      45.36,
+      374.4,
+      163.68,
+      383.04
+     ],
+     "text": "Comparative Growing Trials"
+    },
+    {
+     "bbox": [
+      45.12,
+      384.0,
+      265.92,
+      391.68
+     ],
+     "text": "All characteristics described for ‘Autumn Biue’ and the"
+    },
+    {
+     "bbox": [
+      45.36,
+      393.6,
+      266.64,
+      402.48
+     ],
+     "text": "blue form of £. biloba are from 20 potted plants of each"
+    },
+    {
+     "bbox": [
+      45.12,
+      404.16,
+      280.08,
+      413.28
+     ],
+     "text": "variety grown at Wanneroo, Western Australia. The plants"
+    },
+    {
+     "bbox": [
+      45.12,
+      413.76,
+      258.96,
+      422.88
+     ],
+     "text": "were grown in 140 mm plastic pots in a mix of jarrah"
+    },
+    {
+     "bbox": [
+      45.36,
+      423.6,
+      260.64,
+      432.72
+     ],
+     "text": "sawdust, medium grade pine bark, and washed white"
+    },
+    {
+     "bbox": [
+      45.6,
+      433.68,
+      267.6,
+      441.36
+     ],
+     "text": "sand. The characteristics of ‘White Flash’ are described"
+    },
+    {
+     "bbox": [
+      45.6,
+      443.52,
+      268.56,
+      452.64
+     ],
+     "text": "from specimens growing in the same soil mix in similar"
+    },
+    {
+     "bbox": [
+      45.6,
+      453.12,
+      282.24,
+      462.24
+     ],
+     "text": "conditions at Kings Park, Perth. Measurements were taken"
+    },
+    {
+     "bbox": [
+      46.08,
+      463.2,
+      267.36,
+      471.84
+     ],
+     "text": "in August 1990 from 20 specimens of each variety, the"
+    },
+    {
+     "bbox": [
+      45.6,
+      473.52,
+      164.16,
+      482.16
+     ],
+     "text": "plants being aged 12 months."
+    },
+    {
+     "bbox": [
+      45.84,
+      489.36,
+      70.8,
+      498.24
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      44.88,
+      498.48,
+      265.92,
+      508.08
+     ],
+     "text": "The variety arose as a chance seedling of Lechenaultia"
+    },
+    {
+     "bbox": [
+      45.12,
+      509.28,
+      261.6,
+      517.68
+     ],
+     "text": "biloba found on the applicant’s property at Wanneroo,"
+    },
+    {
+     "bbox": [
+      45.6,
+      519.12,
+      272.4,
+      527.76
+     ],
+     "text": "Western Australia. Selection was on the basis of growth"
+    },
+    {
+     "bbox": [
+      46.32,
+      529.44,
+      256.08,
+      538.08
+     ],
+     "text": "habit and duration of flowering. Subsequent asexual"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials\nAll characteristics described for ‘Autumn Biue’ and the\nblue form of £. biloba are from 20 potted plants of each\nvariety grown at Wanneroo, Western Australia. The plants\nwere grown in 140 mm plastic pots in a mix of jarrah\nsawdust, medium grade pine bark, and washed white\nsand. The characteristics of ‘White Flash’ are described\nfrom specimens growing in the same soil mix in similar\nconditions at Kings Park, Perth. Measurements were taken\nin August 1990 from 20 specimens of each variety, the\nplants being aged 12 months.\nOrigin\nThe variety arose as a chance seedling of Lechenaultia\nbiloba found on the applicant’s property at Wanneroo,\nWestern Australia. Selection was on the basis of growth\nhabit and duration of flowering. Subsequent asexual",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9282
+  },
+  {
+   "bbox": [
+    204.72,
+    600.0,
+    249.84,
+    640.56
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      210.48,
+      600.0,
+      244.56,
+      614.16
+     ],
+     "text": "Lt"
+    },
+    {
+     "bbox": [
+      204.72,
+      615.6,
+      249.84,
+      640.56
+     ],
+     "text": "yr"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Lt\nyr",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "image",
+   "score": 0.5321
+  },
+  {
+   "bbox": [
+    62.64,
+    659.28,
+    276.72,
+    671.76
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      62.64,
+      659.28,
+      276.72,
+      667.68
+     ],
+     "text": "ees mm OFFUUAE UAT OALELY VMELIELLED COMESHRGA VELA OND EDT UULPYS DO) RALLY ERENT RCRA A"
+    },
+    {
+     "bbox": [
+      66.48,
+      660.96,
+      173.28,
+      671.76
+     ],
+     "text": "A A"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ees mm OFFUUAE UAT OALELY VMELIELLED COMESHRGA VELA OND EDT UULPYS DO) RALLY ERENT RCRA A\nA A",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "image",
+   "score": 0.7113
+  },
+  {
+   "bbox": [
+    66.48,
+    664.08,
+    249.6,
+    675.6
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      211.68,
+      664.08,
+      213.36,
+      666.96
+     ],
+     "text": "T"
+    },
+    {
+     "bbox": [
+      66.48,
+      670.08,
+      249.6,
+      675.6
+     ],
+     "text": "to 8 om 800 cee ee Ds"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "T\nto 8 om 800 cee ee Ds",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "image",
+   "score": 0.7113
+  },
+  {
+   "bbox": [
+    275.52,
+    660.0,
+    284.16,
+    674.88
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      278.64,
+      660.0,
+      284.16,
+      664.32
+     ],
+     "text": "™"
+    },
+    {
+     "bbox": [
+      276.0,
+      665.52,
+      282.96,
+      669.6
+     ],
+     "text": "{20"
+    },
+    {
+     "bbox": [
+      275.52,
+      671.04,
+      283.44,
+      674.88
+     ],
+     "text": "oo"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "™\n{20\noo",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "image",
+   "score": 0.7113
+  },
+  {
+   "bbox": [
+    141.6,
+    687.12,
+    188.64,
+    690.72
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      141.6,
+      687.12,
+      188.64,
+      690.72
+     ],
+     "text": "METRIC ASI212-2"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "METRIC ASI212-2",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "image",
+   "score": 0.7113
+  },
+  {
+   "bbox": [
+    68.64,
+    702.24,
+    279.12,
+    717.36
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      75.36,
+      702.24,
+      238.08,
+      708.96
+     ],
+     "text": "ce 1 os ge, ge, ge, ge te ce, oe [a"
+    },
+    {
+     "bbox": [
+      68.64,
+      704.64,
+      264.0,
+      717.36
+     ],
+     "text": "muoOe | GOR” COME [COLE OOE Come | Core | COLE ba pal Nac :"
+    },
+    {
+     "bbox": [
+      79.68,
+      712.56,
+      279.12,
+      717.36
+     ],
+     "text": "PUTT Pe TEE EEE ee eee"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ce 1 os ge, ge, ge, ge te ce, oe [a\nmuoOe | GOR” COME [COLE OOE Come | Core | COLE ba pal Nac :\nPUTT Pe TEE EEE ee eee",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "image",
+   "score": 0.7113
+  },
+  {
+   "bbox": [
+    45.12,
+    732.48,
+    252.96,
+    759.84
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      45.36,
+      732.48,
+      252.96,
+      740.64
+     ],
+     "text": "From left to right; flowers of ‘White Flash’, ‘Autumn"
+    },
+    {
+     "bbox": [
+      45.36,
+      742.32,
+      247.2,
+      750.72
+     ],
+     "text": "Blue’, £. biloba blue form. (Photograph supplied by"
+    },
+    {
+     "bbox": [
+      45.12,
+      751.92,
+      83.76,
+      759.84
+     ],
+     "text": "applicant}"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "From left to right; flowers of ‘White Flash’, ‘Autumn\nBlue’, £. biloba blue form. (Photograph supplied by\napplicant}",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    252.24,
+    703.2,
+    284.64,
+    712.8
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      254.64,
+      704.16,
+      282.0,
+      706.56
+     ],
+     "text": "P a"
+    },
+    {
+     "bbox": [
+      252.24,
+      703.2,
+      284.64,
+      712.8
+     ],
+     "text": "tee i oo"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "P a\ntee i oo",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "image",
+   "score": 0.7113
+  },
+  {
+   "bbox": [
+    300.24,
+    51.36,
+    513.12,
+    68.88
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      300.24,
+      51.36,
+      513.12,
+      60.96
+     ],
+     "text": "propagation over 4 years formed the variety ‘Autumn"
+    },
+    {
+     "bbox": [
+      300.48,
+      62.16,
+      322.32,
+      68.88
+     ],
+     "text": "Blue’."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "propagation over 4 years formed the variety ‘Autumn\nBlue’.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.8604
+  },
+  {
+   "bbox": [
+    300.48,
+    78.0,
+    537.6,
+    234.48
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      300.48,
+      78.0,
+      456.96,
+      86.64
+     ],
+     "text": "Morphology — see comparison tables."
+    },
+    {
+     "bbox": [
+      300.96,
+      87.84,
+      519.12,
+      96.48
+     ],
+     "text": "‘Autumn Blue’ is a compact, upright, herbaceous plant"
+    },
+    {
+     "bbox": [
+      300.48,
+      97.92,
+      507.6,
+      106.8
+     ],
+     "text": "which flowers during autumn, winter and spring. In"
+    },
+    {
+     "bbox": [
+      300.48,
+      108.0,
+      516.96,
+      116.64
+     ],
+     "text": "comparison, the blue form of Leehenauitia biloba, and"
+    },
+    {
+     "bbox": [
+      301.2,
+      118.08,
+      532.08,
+      126.72
+     ],
+     "text": "‘White Flash’, flower only in spring. ‘Autumn Blue’ leaves"
+    },
+    {
+     "bbox": [
+      300.72,
+      127.68,
+      527.04,
+      136.32
+     ],
+     "text": "are the same width as the comparative varieties, but are"
+    },
+    {
+     "bbox": [
+      300.72,
+      137.76,
+      533.04,
+      145.2
+     ],
+     "text": "shorter than those of ‘White Flash’. ‘Autumn Blue’ has an"
+    },
+    {
+     "bbox": [
+      301.2,
+      147.6,
+      530.16,
+      156.72
+     ],
+     "text": "upright growth habit in contrast to the semi-erect growth"
+    },
+    {
+     "bbox": [
+      301.2,
+      157.44,
+      530.16,
+      166.08
+     ],
+     "text": "habit of the comparative varieties. ‘Autumn Blue’ flowers"
+    },
+    {
+     "bbox": [
+      300.72,
+      167.04,
+      535.2,
+      175.44
+     ],
+     "text": "are narrower in diameter and shorter in height and corolla"
+    },
+    {
+     "bbox": [
+      300.96,
+      177.12,
+      528.96,
+      185.76
+     ],
+     "text": "length than the comparative varieties. The newly opened"
+    },
+    {
+     "bbox": [
+      300.72,
+      187.2,
+      521.04,
+      195.36
+     ],
+     "text": "flowers of ‘Autumn Blue’ are slightly darker violet-blue"
+    },
+    {
+     "bbox": [
+      300.96,
+      197.04,
+      519.36,
+      205.68
+     ],
+     "text": "than the comparative varieties, and when fully opened"
+    },
+    {
+     "bbox": [
+      300.72,
+      206.88,
+      513.84,
+      215.76
+     ],
+     "text": "they are blue. The aged flowers of ‘Autumn Blue’ are"
+    },
+    {
+     "bbox": [
+      300.72,
+      216.72,
+      537.6,
+      224.64
+     ],
+     "text": "violet-blue, whereas those of the blue form of Z. biloba and"
+    },
+    {
+     "bbox": [
+      301.44,
+      227.52,
+      390.24,
+      234.48
+     ],
+     "text": "‘White Flash’ are blue."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology — see comparison tables.\n‘Autumn Blue’ is a compact, upright, herbaceous plant\nwhich flowers during autumn, winter and spring. In\ncomparison, the blue form of Leehenauitia biloba, and\n‘White Flash’, flower only in spring. ‘Autumn Blue’ leaves\nare the same width as the comparative varieties, but are\nshorter than those of ‘White Flash’. ‘Autumn Blue’ has an\nupright growth habit in contrast to the semi-erect growth\nhabit of the comparative varieties. ‘Autumn Blue’ flowers\nare narrower in diameter and shorter in height and corolla\nlength than the comparative varieties. The newly opened\nflowers of ‘Autumn Blue’ are slightly darker violet-blue\nthan the comparative varieties, and when fully opened\nthey are blue. The aged flowers of ‘Autumn Blue’ are\nviolet-blue, whereas those of the blue form of Z. biloba and\n‘White Flash’ are blue.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9345
+  },
+  {
+   "bbox": [
+    300.96,
+    245.28,
+    523.44,
+    279.6
+   ],
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      301.2,
+      245.28,
+      523.44,
+      256.8
+     ],
+     "text": "Table of Comparison of Lechenaultia biloba"
+    },
+    {
+     "bbox": [
+      301.68,
+      257.76,
+      343.92,
+      266.16
+     ],
+     "text": "Varieties"
+    },
+    {
+     "bbox": [
+      300.96,
+      271.2,
+      440.64,
+      279.6
+     ],
+     "text": "(* = varieties used for comparison)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Lechenaultia biloba\nVarieties\n(* = varieties used for comparison)",
+   "text_format": "plain",
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.5778
+  },
+  {
+   "bbox": [
+    302.06,
+    300.49,
+    534.2,
+    756.57
+   ],
+   "confidence": null,
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      360.96,
+      300.48,
+      522.0,
+      307.44
+     ],
+     "text": "‘Autumn Blue’ * ‘L. biloba’ * ‘White Flash’"
+    },
+    {
+     "bbox": [
+      420.24,
+      310.56,
+      450.96,
+      317.04
+     ],
+     "text": "blue form"
+    },
+    {
+     "bbox": [
+      301.2,
+      327.36,
+      498.48,
+      335.76
+     ],
+     "text": "FLOWERING autumn spring spring"
+    },
+    {
+     "bbox": [
+      301.2,
+      337.2,
+      380.4,
+      344.16
+     ],
+     "text": "SEASON winter"
+    },
+    {
+     "bbox": [
+      360.48,
+      347.52,
+      379.68,
+      355.92
+     ],
+     "text": "spring"
+    },
+    {
+     "bbox": [
+      301.2,
+      360.24,
+      512.4,
+      370.56
+     ],
+     "text": "GROWTH HABIT erecl semi-erect semi-erect"
+    },
+    {
+     "bbox": [
+      300.96,
+      371.52,
+      483.36,
+      380.16
+     ],
+     "text": "ranking 1—9 1 5 5"
+    },
+    {
+     "bbox": [
+      301.44,
+      385.68,
+      352.8,
+      392.4
+     ],
+     "text": "FLOWER WIDTH"
+    },
+    {
+     "bbox": [
+      301.44,
+      395.52,
+      507.36,
+      402.48
+     ],
+     "text": "mean 25.2 mm 29.2 mm 28.4 mm"
+    },
+    {
+     "bbox": [
+      301.44,
+      405.36,
+      507.12,
+      414.0
+     ],
+     "text": "range 24 — 28 25 — 36 25 -- 30"
+    },
+    {
+     "bbox": [
+      300.96,
+      415.44,
+      489.6,
+      422.4
+     ],
+     "text": "std. deviation 08 24 1.6"
+    },
+    {
+     "bbox": [
+      301.2,
+      429.12,
+      356.16,
+      436.32
+     ],
+     "text": "FLOWER HEIGHT"
+    },
+    {
+     "bbox": [
+      301.2,
+      438.24,
+      507.6,
+      448.08
+     ],
+     "text": "mean 25.2 mm 27.6 mm 28.0 mm"
+    },
+    {
+     "bbox": [
+      301.2,
+      449.04,
+      507.36,
+      457.68
+     ],
+     "text": "range 22 — 30 22 — 36 24 — 30"
+    },
+    {
+     "bbox": [
+      301.2,
+      458.88,
+      489.6,
+      465.84
+     ],
+     "text": "std. deviation 19 3.8 23"
+    },
+    {
+     "bbox": [
+      301.2,
+      472.8,
+      332.88,
+      479.52
+     ],
+     "text": "COROLLA"
+    },
+    {
+     "bbox": [
+      301.68,
+      482.16,
+      327.12,
+      488.88
+     ],
+     "text": "LENGTH"
+    },
+    {
+     "bbox": [
+      301.44,
+      492.24,
+      503.52,
+      499.2
+     ],
+     "text": "mean 7.8mm 9.8 mm 8.4mm"
+    },
+    {
+     "bbox": [
+      301.44,
+      502.56,
+      502.8,
+      510.96
+     ],
+     "text": "range 6-10 8-10 5 —10"
+    },
+    {
+     "bbox": [
+      301.2,
+      512.64,
+      489.84,
+      519.84
+     ],
+     "text": "std. deviation 1.4 0.6 1.3"
+    },
+    {
+     "bbox": [
+      301.44,
+      526.56,
+      352.8,
+      534.0
+     ],
+     "text": "OVARY LENGTH"
+    },
+    {
+     "bbox": [
+      301.92,
+      536.88,
+      507.84,
+      543.6
+     ],
+     "text": "mean 174mm 17.9 mm 18.3 mm"
+    },
+    {
+     "bbox": [
+      301.92,
+      545.76,
+      507.12,
+      556.08
+     ],
+     "text": "range 15 — 20 15 — 20 15 — 20"
+    },
+    {
+     "bbox": [
+      301.44,
+      556.56,
+      489.84,
+      563.52
+     ],
+     "text": "std. deviation 1.9 3.7 1.6"
+    },
+    {
+     "bbox": [
+      301.68,
+      570.24,
+      349.68,
+      577.2
+     ],
+     "text": "FLOWER WING"
+    },
+    {
+     "bbox": [
+      301.44,
+      580.32,
+      323.04,
+      586.8
+     ],
+     "text": "WIDTH"
+    },
+    {
+     "bbox": [
+      301.68,
+      590.16,
+      503.76,
+      596.88
+     ],
+     "text": "mean 5.8mm 93mm 5.6mm"
+    },
+    {
+     "bbox": [
+      301.68,
+      600.0,
+      498.72,
+      608.16
+     ],
+     "text": "range 4—7 8—12 5-7"
+    },
+    {
+     "bbox": [
+      301.44,
+      609.84,
+      490.08,
+      616.56
+     ],
+     "text": "sid. deviation 07 1.0 0.6"
+    },
+    {
+     "bbox": [
+      301.68,
+      619.68,
+      345.6,
+      626.16
+     ],
+     "text": "UPPER PETAL"
+    },
+    {
+     "bbox": [
+      301.2,
+      628.56,
+      505.44,
+      639.12
+     ],
+     "text": "WING small large medium"
+    },
+    {
+     "bbox": [
+      301.44,
+      639.12,
+      483.84,
+      647.28
+     ],
+     "text": "rankingt—9 3 9 6"
+    },
+    {
+     "bbox": [
+      301.68,
+      653.04,
+      528.96,
+      660.0
+     ],
+     "text": "PETAL COLOURS blue blue blue with white"
+    },
+    {
+     "bbox": [
+      301.68,
+      662.88,
+      326.88,
+      669.6
+     ],
+     "text": "RHS No."
+    },
+    {
+     "bbox": [
+      301.44,
+      672.96,
+      510.72,
+      681.12
+     ],
+     "text": "just open outer 95A outer 95C outer 95B"
+    },
+    {
+     "bbox": [
+      360.96,
+      683.52,
+      519.36,
+      690.24
+     ],
+     "text": "centre white centre white centre white"
+    },
+    {
+     "bbox": [
+      301.44,
+      693.12,
+      534.24,
+      701.04
+     ],
+     "text": "fully open outer 1044 outer 104B whole 100A with"
+    },
+    {
+     "bbox": [
+      360.96,
+      703.2,
+      514.8,
+      709.92
+     ],
+     "text": "centre white centre white white flash"
+    },
+    {
+     "bbox": [
+      301.44,
+      712.8,
+      518.64,
+      720.72
+     ],
+     "text": "aged outer 954 whole 101A whole 100A"
+    },
+    {
+     "bbox": [
+      361.2,
+      722.64,
+      400.08,
+      729.12
+     ],
+     "text": "centre white"
+    },
+    {
+     "bbox": [
+      301.44,
+      734.88,
+      497.52,
+      745.68
+     ],
+     "text": "COROLLA TUBE — orange-white orange-wiite white"
+    },
+    {
+     "bbox": [
+      301.68,
+      745.68,
+      497.04,
+      752.4
+     ],
+     "text": "RHS No. 158A 1588 155D"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       360.96,
+       300.72,
+       412.8,
+       307.44
+      ],
+      "header": true,
+      "text": "‘Autumn Blue’ *"
+     },
+     {
+      "bbox": [
+       420.24,
+       300.72,
+       456.72,
+       317.04
+      ],
+      "header": true,
+      "text": "‘L. biloba’ * blue form"
+     },
+     {
+      "bbox": [
+       480.24,
+       300.48,
+       522.0,
+       307.2
+      ],
+      "header": true,
+      "text": "‘White Flash’"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.2,
+       327.36,
+       340.56,
+       344.16
+      ],
+      "text": "FLOWERING SEASON"
+     },
+     {
+      "bbox": [
+       360.48,
+       328.8,
+       384.48,
+       355.92
+      ],
+      "text": "autumn winter spring"
+     },
+     {
+      "bbox": [
+       420.24,
+       327.6,
+       439.2,
+       335.76
+      ],
+      "text": "spring"
+     },
+     {
+      "bbox": [
+       480.0,
+       327.6,
+       498.48,
+       335.52
+      ],
+      "text": "spring"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.2,
+       361.44,
+       353.28,
+       368.4
+      ],
+      "text": "GROWTH HABIT"
+     },
+     {
+      "bbox": [
+       360.48,
+       363.12,
+       375.6,
+       368.16
+      ],
+      "text": "erecl"
+     },
+     {
+      "bbox": [
+       420.24,
+       360.24,
+       453.12,
+       370.56
+      ],
+      "text": "semi-erect"
+     },
+     {
+      "bbox": [
+       480.0,
+       361.44,
+       512.4,
+       367.92
+      ],
+      "text": "semi-erect"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       300.96,
+       371.52,
+       345.12,
+       380.16
+      ],
+      "text": "ranking 1—9"
+     },
+     {
+      "bbox": [
+       361.2,
+       372.0,
+       363.12,
+       378.24
+      ],
+      "text": "1"
+     },
+     {
+      "bbox": [
+       420.24,
+       371.76,
+       423.84,
+       378.24
+      ],
+      "text": "5"
+     },
+     {
+      "bbox": [
+       480.0,
+       371.52,
+       483.36,
+       378.0
+      ],
+      "text": "5"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.44,
+       385.68,
+       352.8,
+       402.48
+      ],
+      "text": "FLOWER WIDTH mean"
+     },
+     {
+      "bbox": [
+       361.2,
+       395.76,
+       388.32,
+       402.24
+      ],
+      "text": "25.2 mm"
+     },
+     {
+      "bbox": [
+       420.48,
+       395.52,
+       448.08,
+       402.48
+      ],
+      "text": "29.2 mm"
+     },
+     {
+      "bbox": [
+       480.0,
+       395.52,
+       507.36,
+       402.24
+      ],
+      "text": "28.4 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.44,
+       407.76,
+       318.72,
+       414.0
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       361.2,
+       405.84,
+       387.36,
+       412.32
+      ],
+      "text": "24 — 28"
+     },
+     {
+      "bbox": [
+       420.48,
+       405.6,
+       446.88,
+       412.56
+      ],
+      "text": "25 — 36"
+     },
+     {
+      "bbox": [
+       480.24,
+       405.36,
+       507.12,
+       412.32
+      ],
+      "text": "25 -- 30"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       300.96,
+       415.92,
+       342.24,
+       422.4
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       360.48,
+       415.44,
+       370.32,
+       422.4
+      ],
+      "text": "08"
+     },
+     {
+      "bbox": [
+       420.48,
+       415.68,
+       429.84,
+       422.16
+      ],
+      "text": "24"
+     },
+     {
+      "bbox": [
+       480.72,
+       415.44,
+       489.6,
+       422.16
+      ],
+      "text": "1.6"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.2,
+       429.12,
+       356.16,
+       448.08
+      ],
+      "text": "FLOWER HEIGHT mean"
+     },
+     {
+      "bbox": [
+       360.96,
+       439.2,
+       388.56,
+       445.92
+      ],
+      "text": "25.2 mm"
+     },
+     {
+      "bbox": [
+       420.72,
+       439.44,
+       448.32,
+       445.92
+      ],
+      "text": "27.6 mm"
+     },
+     {
+      "bbox": [
+       480.48,
+       439.2,
+       507.6,
+       446.16
+      ],
+      "text": "28.0 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.2,
+       451.2,
+       318.72,
+       457.68
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       360.96,
+       449.04,
+       387.84,
+       456.0
+      ],
+      "text": "22 — 30"
+     },
+     {
+      "bbox": [
+       420.72,
+       449.04,
+       447.12,
+       455.76
+      ],
+      "text": "22 — 36"
+     },
+     {
+      "bbox": [
+       480.24,
+       449.04,
+       507.36,
+       455.76
+      ],
+      "text": "24 — 30"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.2,
+       459.36,
+       342.48,
+       465.84
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       361.44,
+       459.12,
+       370.56,
+       465.6
+      ],
+      "text": "19"
+     },
+     {
+      "bbox": [
+       420.48,
+       458.88,
+       429.84,
+       465.84
+      ],
+      "text": "3.8"
+     },
+     {
+      "bbox": [
+       480.24,
+       458.88,
+       489.6,
+       465.6
+      ],
+      "text": "23"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.2,
+       472.8,
+       332.88,
+       498.96
+      ],
+      "text": "COROLLA LENGTH mean"
+     },
+     {
+      "bbox": [
+       361.44,
+       492.48,
+       384.48,
+       499.2
+      ],
+      "text": "7.8mm"
+     },
+     {
+      "bbox": [
+       420.72,
+       492.24,
+       443.76,
+       499.2
+      ],
+      "text": "9.8 mm"
+     },
+     {
+      "bbox": [
+       480.48,
+       492.48,
+       503.52,
+       498.96
+      ],
+      "text": "8.4mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.44,
+       504.72,
+       318.96,
+       510.96
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       360.96,
+       502.56,
+       383.76,
+       509.28
+      ],
+      "text": "6-10"
+     },
+     {
+      "bbox": [
+       420.72,
+       502.56,
+       443.52,
+       509.28
+      ],
+      "text": "8-10"
+     },
+     {
+      "bbox": [
+       480.24,
+       502.56,
+       502.8,
+       509.04
+      ],
+      "text": "5 —10"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.2,
+       513.12,
+       342.24,
+       519.6
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       361.68,
+       512.64,
+       370.56,
+       519.36
+      ],
+      "text": "1.4"
+     },
+     {
+      "bbox": [
+       420.48,
+       512.88,
+       430.08,
+       519.84
+      ],
+      "text": "0.6"
+     },
+     {
+      "bbox": [
+       480.72,
+       512.64,
+       489.84,
+       519.6
+      ],
+      "text": "1.3"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.44,
+       526.56,
+       352.8,
+       543.6
+      ],
+      "text": "OVARY LENGTH mean"
+     },
+     {
+      "bbox": [
+       361.68,
+       536.88,
+       388.56,
+       543.36
+      ],
+      "text": "174mm"
+     },
+     {
+      "bbox": [
+       421.44,
+       536.88,
+       448.08,
+       543.6
+      ],
+      "text": "17.9 mm"
+     },
+     {
+      "bbox": [
+       481.2,
+       536.88,
+       507.84,
+       543.6
+      ],
+      "text": "18.3 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.92,
+       548.64,
+       319.2,
+       555.12
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       361.68,
+       546.96,
+       387.84,
+       553.44
+      ],
+      "text": "15 — 20"
+     },
+     {
+      "bbox": [
+       421.44,
+       546.72,
+       447.6,
+       553.68
+      ],
+      "text": "15 — 20"
+     },
+     {
+      "bbox": [
+       481.2,
+       545.76,
+       507.12,
+       556.08
+      ],
+      "text": "15 — 20"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.44,
+       557.04,
+       342.24,
+       563.52
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       361.44,
+       556.8,
+       370.56,
+       563.28
+      ],
+      "text": "1.9"
+     },
+     {
+      "bbox": [
+       420.48,
+       556.8,
+       430.08,
+       563.28
+      ],
+      "text": "3.7"
+     },
+     {
+      "bbox": [
+       481.2,
+       556.56,
+       489.84,
+       563.04
+      ],
+      "text": "1.6"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.44,
+       570.24,
+       349.68,
+       586.8
+      ],
+      "text": "FLOWER WING WIDTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.68,
+       592.32,
+       318.24,
+       596.88
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       361.44,
+       590.16,
+       384.48,
+       596.64
+      ],
+      "text": "5.8mm"
+     },
+     {
+      "bbox": [
+       420.96,
+       590.16,
+       444.48,
+       596.88
+      ],
+      "text": "93mm"
+     },
+     {
+      "bbox": [
+       480.72,
+       590.16,
+       503.76,
+       596.88
+      ],
+      "text": "5.6mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.68,
+       601.92,
+       318.96,
+       608.16
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       361.2,
+       600.0,
+       379.44,
+       606.48
+      ],
+      "text": "4—7"
+     },
+     {
+      "bbox": [
+       420.48,
+       600.0,
+       442.8,
+       606.48
+      ],
+      "text": "8—12"
+     },
+     {
+      "bbox": [
+       480.72,
+       600.0,
+       498.72,
+       606.72
+      ],
+      "text": "5-7"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.44,
+       609.84,
+       345.6,
+       626.16
+      ],
+      "text": "sid. deviation UPPER PETAL"
+     },
+     {
+      "bbox": [
+       360.72,
+       610.08,
+       370.56,
+       616.56
+      ],
+      "text": "07"
+     },
+     {
+      "bbox": [
+       421.2,
+       609.84,
+       430.56,
+       616.32
+      ],
+      "text": "1.0"
+     },
+     {
+      "bbox": [
+       480.24,
+       609.84,
+       490.08,
+       616.32
+      ],
+      "text": "0.6"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.2,
+       629.28,
+       319.44,
+       635.76
+      ],
+      "text": "WING"
+     },
+     {
+      "bbox": [
+       360.96,
+       628.56,
+       377.28,
+       639.12
+      ],
+      "text": "small"
+     },
+     {
+      "bbox": [
+       421.2,
+       629.76,
+       436.08,
+       637.92
+      ],
+      "text": "large"
+     },
+     {
+      "bbox": [
+       480.48,
+       629.76,
+       505.44,
+       635.76
+      ],
+      "text": "medium"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.44,
+       639.36,
+       345.6,
+       647.28
+      ],
+      "text": "rankingt—9"
+     },
+     {
+      "bbox": [
+       360.96,
+       639.12,
+       364.32,
+       646.08
+      ],
+      "text": "3"
+     },
+     {
+      "bbox": [
+       420.72,
+       639.12,
+       424.56,
+       646.08
+      ],
+      "text": "9"
+     },
+     {
+      "bbox": [
+       480.48,
+       639.36,
+       483.84,
+       645.84
+      ],
+      "text": "6"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.68,
+       653.04,
+       356.4,
+       669.6
+      ],
+      "text": "PETAL COLOURS RHS No."
+     },
+     {
+      "bbox": [
+       361.44,
+       653.52,
+       373.92,
+       659.76
+      ],
+      "text": "blue"
+     },
+     {
+      "bbox": [
+       420.72,
+       653.28,
+       433.68,
+       659.52
+      ],
+      "text": "blue"
+     },
+     {
+      "bbox": [
+       480.48,
+       653.28,
+       528.96,
+       660.0
+      ],
+      "text": "blue with white"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.44,
+       673.2,
+       329.76,
+       681.12
+      ],
+      "text": "just open"
+     },
+     {
+      "bbox": [
+       361.44,
+       672.96,
+       391.92,
+       679.44
+      ],
+      "text": "outer 95A"
+     },
+     {
+      "bbox": [
+       420.72,
+       673.2,
+       451.44,
+       679.68
+      ],
+      "text": "outer 95C"
+     },
+     {
+      "bbox": [
+       480.48,
+       672.96,
+       510.72,
+       679.68
+      ],
+      "text": "outer 95B"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       360.96,
+       683.52,
+       399.84,
+       690.0
+      ],
+      "text": "centre white"
+     },
+     {
+      "bbox": [
+       420.72,
+       683.52,
+       459.6,
+       690.24
+      ],
+      "text": "centre white"
+     },
+     {
+      "bbox": [
+       480.48,
+       683.76,
+       519.36,
+       690.0
+      ],
+      "text": "centre white"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.44,
+       693.12,
+       331.44,
+       701.04
+      ],
+      "text": "fully open"
+     },
+     {
+      "bbox": [
+       361.2,
+       693.12,
+       396.24,
+       699.6
+      ],
+      "text": "outer 1044"
+     },
+     {
+      "bbox": [
+       420.72,
+       693.36,
+       455.28,
+       699.84
+      ],
+      "text": "outer 104B"
+     },
+     {
+      "bbox": [
+       480.48,
+       693.36,
+       534.24,
+       700.08
+      ],
+      "text": "whole 100A with"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       360.96,
+       703.2,
+       399.84,
+       709.68
+      ],
+      "text": "centre white"
+     },
+     {
+      "bbox": [
+       420.72,
+       703.44,
+       459.6,
+       709.92
+      ],
+      "text": "centre white"
+     },
+     {
+      "bbox": [
+       480.48,
+       703.2,
+       514.8,
+       709.68
+      ],
+      "text": "white flash"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.44,
+       713.28,
+       316.08,
+       720.72
+      ],
+      "text": "aged"
+     },
+     {
+      "bbox": [
+       360.96,
+       713.04,
+       400.08,
+       729.12
+      ],
+      "text": "outer 954 centre white"
+     },
+     {
+      "bbox": [
+       420.24,
+       712.8,
+       458.88,
+       719.52
+      ],
+      "text": "whole 101A"
+     },
+     {
+      "bbox": [
+       480.0,
+       712.8,
+       518.64,
+       719.52
+      ],
+      "text": "whole 100A"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.44,
+       734.88,
+       357.36,
+       745.68
+      ],
+      "text": "COROLLA TUBE —"
+     },
+     {
+      "bbox": [
+       360.96,
+       736.32,
+       402.72,
+       744.24
+      ],
+      "text": "orange-white"
+     },
+     {
+      "bbox": [
+       420.72,
+       736.56,
+       462.0,
+       744.48
+      ],
+      "text": "orange-wiite"
+     },
+     {
+      "bbox": [
+       480.48,
+       736.32,
+       497.52,
+       742.8
+      ],
+      "text": "white"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       301.68,
+       745.68,
+       327.12,
+       752.4
+      ],
+      "text": "RHS No."
+     },
+     {
+      "bbox": [
+       361.92,
+       745.68,
+       377.76,
+       752.16
+      ],
+      "text": "158A"
+     },
+     {
+      "bbox": [
+       421.44,
+       745.92,
+       436.8,
+       752.4
+      ],
+      "text": "1588"
+     },
+     {
+      "bbox": [
+       481.2,
+       745.92,
+       497.04,
+       752.4
+      ],
+      "text": "155D"
+     }
+    ]
+   ],
+   "score": 0.9998,
+   "signal": "tatr",
+   "source": "tatr",
+   "text": " ‘Autumn Blue’ * ‘L. biloba’ * blue form ‘White Flash’\nFLOWERING SEASON autumn winter spring spring spring\nGROWTH HABIT erecl semi-erect semi-erect\nranking 1—9 1 5 5\nFLOWER WIDTH mean 25.2 mm 29.2 mm 28.4 mm\nrange 24 — 28 25 — 36 25 -- 30\nstd. deviation 08 24 1.6\nFLOWER HEIGHT mean 25.2 mm 27.6 mm 28.0 mm\nrange 22 — 30 22 — 36 24 — 30\nstd. deviation 19 3.8 23\nCOROLLA LENGTH mean 7.8mm 9.8 mm 8.4mm\nrange 6-10 8-10 5 —10\nstd. deviation 1.4 0.6 1.3\nOVARY LENGTH mean 174mm 17.9 mm 18.3 mm\nrange 15 — 20 15 — 20 15 — 20\nstd. deviation 1.9 3.7 1.6\nFLOWER WING WIDTH   \nmean 5.8mm 93mm 5.6mm\nrange 4—7 8—12 5-7\nsid. deviation UPPER PETAL 07 1.0 0.6\nWING small large medium\nrankingt—9 3 9 6\nPETAL COLOURS RHS No. blue blue blue with white\njust open outer 95A outer 95C outer 95B\n centre white centre white centre white\nfully open outer 1044 outer 104B whole 100A with\n centre white centre white white flash\naged outer 954 centre white whole 101A whole 100A\nCOROLLA TUBE — orange-white orange-wiite white\nRHS No. 158A 1588 155D",
+   "text_format": "plain",
+   "type": "table"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

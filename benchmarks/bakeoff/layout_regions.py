@@ -24,9 +24,10 @@ The settings (OVERLAP, CATEGORY_TYPES) were fixed from the categories' meaning
 before any page was scored, and are not tuned on set S (which holds pages from
 held-out sets D, E and F).
 
-  python layout_regions.py build MODEL [--base pymupdf|tables-tatr]
-      -> outputs/<MODEL>-<variant>[-tatr]/<page>.md + .json for every page MODEL has regions for
-  python layout_regions.py score ENGINE [ENGINE ...]
+  python layout_regions.py build MODEL [--base pymupdf|tables-tatr] [--v2]
+      -> outputs/<MODEL>-<variant>[-tatr][-v2]/<page>.md + .json for every page MODEL has regions for
+         (--v2: the two fixes declared from set S before set T was scored; see V2)
+  python layout_regions.py score ENGINE [ENGINE ...] [--gold s|t]
       -> set S structure metrics (structure.py's, unchanged) plus `lab`, the
          element types Markdown cannot write (caption, page furniture, footnote)
          read from the IR, and a word check: the output's words must equal its
@@ -61,6 +62,13 @@ CATEGORY_TYPES = {
     "display_formula": ("equation", None), "formula": ("equation", None),
 }
 BODY = ("text", None)
+# Variant v2 (declared 2026-11-10 from set S, before set T was scored): two fixes
+# for what set S showed. (1) An ADR-038 stitched table is kept whole, like a
+# Table Transformer table: a layout model that calls its columns separate text
+# regions otherwise reads a header-less list column by column (S06). (2)
+# `vision_footnote` (a photo credit under a figure) is a caption, not a footnote.
+V2 = False
+V2_CATEGORY_TYPES = {**CATEGORY_TYPES, "vision_footnote": ("caption", None)}
 # Types compared by `lab`, as classes (title and heading are one class).
 LABEL_CLASS = {"title": "heading", "heading": "heading", "caption": "caption",
                "page_header": "furniture", "page_footer": "furniture", "page_number": "furniture",
@@ -107,7 +115,7 @@ def best_region(box, boxes) -> int | None:
 
 
 def _typed(el: dict, category: str, model: str, score) -> dict:
-    kind, level = CATEGORY_TYPES.get(category, BODY)
+    kind, level = (V2_CATEGORY_TYPES if V2 else CATEGORY_TYPES).get(category, BODY)
     out = {**el, "type": kind, "signal": f"layout:{model}", "confidence": None, "layout_category": category}
     out.pop("level", None)
     if level is not None:
@@ -118,8 +126,11 @@ def _typed(el: dict, category: str, model: str, score) -> dict:
 
 
 def _is_kept(el: dict) -> bool:
-    """An element the layout pass never touches: a Table Transformer table."""
-    return el["type"] == "table" and el.get("signal") == "tatr"
+    """An element the layout pass never touches: a Table Transformer table, and
+    in v2 an ADR-038 stitched table too."""
+    if el["type"] != "table":
+        return False
+    return el.get("signal") == "tatr" or (V2 and el.get("signal") == "tesseract-row-stitch")
 
 
 def relabel(elements: list[dict], regions: list[dict], boxes, model: str) -> list[dict]:
@@ -218,9 +229,11 @@ def _element(d: dict) -> "ir.Element":
                       rows=rows, signal=d.get("signal"))
 
 
-def build(model: str, base: str) -> None:
+def build(model: str, base: str, v2: bool = False) -> None:
+    global V2
+    V2 = v2
     for variant, fn in (("relabel", relabel), ("regroup", regroup)):
-        name = f"{model}-{variant}" + ("-tatr" if base == "tables-tatr" else "")
+        name = f"{model}-{variant}" + ("-tatr" if base == "tables-tatr" else "") + ("-v2" if v2 else "")
         out_dir = OUT / name
         out_dir.mkdir(parents=True, exist_ok=True)
         n = 0
@@ -287,21 +300,35 @@ def label_scores(gold, out) -> dict:
     return res
 
 
-def score(engines: list[str]) -> dict:
+GOLD_T = HERE / "structure-t"
+
+
+def gold_documents(gold: str = "s") -> list:
+    """Set S's documents (structure.py), or set T's single pages."""
+    if gold == "s":
+        return structure.gold_documents()
+    docs = []
+    for path in sorted(GOLD_T.glob("T*.md")):
+        name, key, page = path.stem.split("_")
+        docs.append((name, key, [int(page[1:])], path))
+    return docs
+
+
+def score(engines: list[str], gold: str = "s") -> dict:
     results = {}
     for engine in engines:
         rows = {}
-        for name, key, pages, path in structure.gold_documents():
+        for name, key, pages, path in gold_documents(gold):
             mds = [OUT / engine / f"{key}_p{n}.md" for n in pages]
             irs = [OUT / engine / f"{key}_p{n}.json" for n in pages]
             if not all(f.exists() for f in mds + irs):
                 continue
-            gold = structure.parse_gold(path)
+            blocks = structure.parse_gold(path)
             pages_in = [(n, json.loads(j.read_text()), m.read_text(encoding="utf-8"))
                         for n, j, m in zip(pages, irs, mds)]
             out = _ir_blocks(pages_in)
-            r = structure.score_document(gold, out)
-            r.update(label_scores(gold, out))
+            r = structure.score_document(blocks, out)
+            r.update(label_scores(blocks, out))
             rows[name] = r
         results[engine] = rows
     return results
@@ -322,11 +349,14 @@ def _pooled(rows: dict, cls: str, kind: str = "r"):
 def main() -> None:
     if sys.argv[1] == "build":
         base = sys.argv[sys.argv.index("--base") + 1] if "--base" in sys.argv else "pymupdf"
-        build(sys.argv[2], base)
+        build(sys.argv[2], base, v2="--v2" in sys.argv)
         return
-    engines = [a for a in sys.argv[2:] if not a.startswith("--")]
-    results = score(engines)
-    (HERE / "results-layout.json").write_text(json.dumps(results, indent=1, sort_keys=True) + "\n")
+    gold = sys.argv[sys.argv.index("--gold") + 1].lower() if "--gold" in sys.argv else "s"
+    engines = [a for i, a in enumerate(sys.argv[2:], 2)
+               if not a.startswith("--") and sys.argv[i - 1] != "--gold"]
+    results = score(engines, gold)
+    out = "results-layout.json" if gold == "s" else f"results-layout-{gold}.json"
+    (HERE / out).write_text(json.dumps(results, indent=1, sort_keys=True) + "\n")
     cols = ["blk_f", "typ_f", "split", "merge", "ord", "hd_p", "hd_r", "htree", "teds"]
     print(f"{'engine':34s} docs " + " ".join(f"{c:>6s}" for c in cols)
           + "   hd R/P     cap R/P     fur R/P  (IR types, pooled)")

@@ -1,0 +1,2713 @@
+{
+ "elements": [
+  {
+   "id": "r1",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "characteristics are based on 20 measurements from these\nplants, aged 2 years.",
+   "lines": [
+    {
+     "bbox": [
+      53.76,
+      60.96,
+      288.72,
+      69.6
+     ],
+     "text": "characteristics are based on 20 measurements from these"
+    },
+    {
+     "bbox": [
+      54.0,
+      72.24,
+      136.08,
+      80.88
+     ],
+     "text": "plants, aged 2 years."
+    }
+   ],
+   "bbox": [
+    53.76,
+    60.96,
+    288.72,
+    80.88
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r2",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Origin",
+   "lines": [
+    {
+     "bbox": [
+      54.0,
+      96.48,
+      79.2,
+      104.88
+     ],
+     "text": "Origin"
+    }
+   ],
+   "bbox": [
+    54.0,
+    96.48,
+    79.2,
+    104.88
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r3",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "The breeder is W. Kordes Sohne Rosenschulen GmbH of\nWest Germany. ‘Coco’ (Korferse) originated from a\ncontrolled pollination of a seedling x Flamingo, by an\nunnamed seedling. ‘Coco’ (Korferse) has been protected by\nPlant Variety Rights in West Germany since 1989.",
+   "lines": [
+    {
+     "bbox": [
+      53.52,
+      104.88,
+      282.24,
+      113.28
+     ],
+     "text": "The breeder is W. Kordes Sohne Rosenschulen GmbH of"
+    },
+    {
+     "bbox": [
+      53.76,
+      115.2,
+      256.8,
+      124.32
+     ],
+     "text": "West Germany. ‘Coco’ (Korferse) originated from a"
+    },
+    {
+     "bbox": [
+      54.0,
+      125.28,
+      265.68,
+      134.4
+     ],
+     "text": "controlled pollination of a seedling x Flamingo, by an"
+    },
+    {
+     "bbox": [
+      54.72,
+      135.36,
+      290.88,
+      144.48
+     ],
+     "text": "unnamed seedling. ‘Coco’ (Korferse) has been protected by"
+    },
+    {
+     "bbox": [
+      54.72,
+      145.2,
+      256.56,
+      154.56
+     ],
+     "text": "Plant Variety Rights in West Germany since 1989."
+    }
+   ],
+   "bbox": [
+    53.52,
+    104.88,
+    290.88,
+    154.56
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r4",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Table of Comparison of Rose Varieties",
+   "lines": [
+    {
+     "bbox": [
+      54.96,
+      172.32,
+      250.8,
+      183.6
+     ],
+     "text": "Table of Comparison of Rose Varieties"
+    }
+   ],
+   "bbox": [
+    54.96,
+    172.32,
+    250.8,
+    183.6
+   ],
+   "type": "caption",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "figure_title"
+  },
+  {
+   "id": "r5",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(* = varieties used for comparison)",
+   "lines": [
+    {
+     "bbox": [
+      54.48,
+      186.48,
+      194.88,
+      195.12
+     ],
+     "text": "(* = varieties used for comparison)"
+    }
+   ],
+   "bbox": [
+    54.48,
+    186.48,
+    194.88,
+    195.12
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    53.97,
+    215.56,
+    264.73,
+    766.12
+   ],
+   "confidence": null,
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      114.48,
+      214.56,
+      266.4,
+      224.88
+     ],
+     "text": "‘Korferse’ *Kardinal’ *'Toscana’"
+    },
+    {
+     "bbox": [
+      113.76,
+      225.84,
+      136.8,
+      233.52
+     ],
+     "text": "(‘Coco’)"
+    },
+    {
+     "bbox": [
+      55.2,
+      242.64,
+      113.04,
+      249.6
+     ],
+     "text": "FLOWER COLOUR"
+    },
+    {
+     "bbox": [
+      55.2,
+      252.48,
+      263.76,
+      259.68
+     ],
+     "text": "GROUP medium red medium red red blend"
+    },
+    {
+     "bbox": [
+      55.44,
+      267.12,
+      119.04,
+      273.84
+     ],
+     "text": "FLOWER DIAMETER"
+    },
+    {
+     "bbox": [
+      54.96,
+      276.48,
+      260.88,
+      283.92
+     ],
+     "text": "mean 73.0mm 76.0mm 79.0mm"
+    },
+    {
+     "bbox": [
+      55.2,
+      286.56,
+      254.16,
+      295.44
+     ],
+     "text": "range 52-95 73-82 75-85"
+    },
+    {
+     "bbox": [
+      54.96,
+      296.16,
+      244.08,
+      303.6
+     ],
+     "text": "std. deviation 10.6 3.0 3.5"
+    },
+    {
+     "bbox": [
+      55.44,
+      310.56,
+      109.44,
+      317.28
+     ],
+     "text": "PETAL COLOURS"
+    },
+    {
+     "bbox": [
+      55.2,
+      320.64,
+      81.36,
+      327.12
+     ],
+     "text": "midzone"
+    },
+    {
+     "bbox": [
+      54.96,
+      329.28,
+      247.2,
+      339.36
+     ],
+     "text": "outside RHS 45D 45B 46A"
+    },
+    {
+     "bbox": [
+      55.2,
+      340.32,
+      81.36,
+      346.8
+     ],
+     "text": "midzone"
+    },
+    {
+     "bbox": [
+      55.2,
+      349.44,
+      247.2,
+      356.4
+     ],
+     "text": "inside RHS 44C 45C 43A"
+    },
+    {
+     "bbox": [
+      55.2,
+      360.0,
+      76.8,
+      368.16
+     ],
+     "text": "margin"
+    },
+    {
+     "bbox": [
+      54.96,
+      368.64,
+      247.44,
+      378.48
+     ],
+     "text": "outside RHS 45D 45B 47A"
+    },
+    {
+     "bbox": [
+      55.2,
+      379.92,
+      76.8,
+      388.08
+     ],
+     "text": "margin"
+    },
+    {
+     "bbox": [
+      54.96,
+      389.28,
+      247.2,
+      396.48
+     ],
+     "text": "inside RHS 44B 45C 43A"
+    },
+    {
+     "bbox": [
+      55.2,
+      400.08,
+      86.88,
+      408.0
+     ],
+     "text": "basal spot"
+    },
+    {
+     "bbox": [
+      54.96,
+      408.96,
+      251.76,
+      419.04
+     ],
+     "text": "outside RHS — 160A 155A"
+    },
+    {
+     "bbox": [
+      55.2,
+      420.0,
+      87.12,
+      428.16
+     ],
+     "text": "basal spot"
+    },
+    {
+     "bbox": [
+      55.2,
+      429.36,
+      251.76,
+      436.32
+     ],
+     "text": "inside RHS 45D 160A 155A"
+    },
+    {
+     "bbox": [
+      55.44,
+      443.28,
+      253.92,
+      450.24
+     ],
+     "text": "PETAL NUMBERS 26-50 26-50 13-25"
+    },
+    {
+     "bbox": [
+      54.96,
+      453.36,
+      247.2,
+      460.08
+     ],
+     "text": "—REFLEXING medium medium mild"
+    },
+    {
+     "bbox": [
+      55.2,
+      467.04,
+      82.32,
+      473.76
+     ],
+     "text": "STAMEN"
+    },
+    {
+     "bbox": [
+      54.96,
+      475.92,
+      243.84,
+      485.76
+     ],
+     "text": "FILAMENT red pink red"
+    },
+    {
+     "bbox": [
+      54.96,
+      490.8,
+      243.36,
+      497.28
+     ],
+     "text": "STYLE COLOUR red red red"
+    },
+    {
+     "bbox": [
+      54.96,
+      504.48,
+      121.2,
+      511.2
+     ],
+     "text": "STIGMAS...ANTHERS"
+    },
+    {
+     "bbox": [
+      114.72,
+      514.32,
+      252.48,
+      521.04
+     ],
+     "text": "above below above"
+    },
+    {
+     "bbox": [
+      54.48,
+      528.24,
+      146.16,
+      534.96
+     ],
+     "text": "TERMINAL LEAFLET LENGTH"
+    },
+    {
+     "bbox": [
+      54.96,
+      538.08,
+      254.4,
+      545.04
+     ],
+     "text": "mean 35mm 36mm 53mm"
+    },
+    {
+     "bbox": [
+      55.2,
+      548.16,
+      254.4,
+      556.8
+     ],
+     "text": "range 28-46 30-40 47-60"
+    },
+    {
+     "bbox": [
+      54.96,
+      558.48,
+      244.08,
+      565.44
+     ],
+     "text": "std deviation 43 3.6 3.8"
+    },
+    {
+     "bbox": [
+      54.48,
+      572.4,
+      142.56,
+      579.12
+     ],
+     "text": "TERMINAL LEAFLET WIDTH"
+    },
+    {
+     "bbox": [
+      54.96,
+      582.24,
+      254.4,
+      589.2
+     ],
+     "text": "mean 21mm 30mm 33mm"
+    },
+    {
+     "bbox": [
+      54.96,
+      592.08,
+      253.92,
+      600.72
+     ],
+     "text": "range 16-30 27-31 30-35"
+    },
+    {
+     "bbox": [
+      54.72,
+      601.92,
+      243.84,
+      608.88
+     ],
+     "text": "std deviation 3.9 0.2 0.2"
+    },
+    {
+     "bbox": [
+      54.48,
+      615.6,
+      154.08,
+      622.32
+     ],
+     "text": "TERMINAL PETIOLULE LENGTH"
+    },
+    {
+     "bbox": [
+      54.96,
+      625.2,
+      260.64,
+      631.92
+     ],
+     "text": "mean 8.25mm 145mm 14.0mm"
+    },
+    {
+     "bbox": [
+      54.96,
+      635.04,
+      253.68,
+      643.68
+     ],
+     "text": "range 5-14 12-17 10-16"
+    },
+    {
+     "bbox": [
+      54.72,
+      644.88,
+      243.84,
+      651.84
+     ],
+     "text": "std deviation 2.3 1.6 3.2"
+    },
+    {
+     "bbox": [
+      54.48,
+      659.04,
+      106.8,
+      665.52
+     ],
+     "text": "THORN PROFILE"
+    },
+    {
+     "bbox": [
+      54.48,
+      669.12,
+      259.92,
+      675.6
+     ],
+     "text": "above concave concave concave"
+    },
+    {
+     "bbox": [
+      54.96,
+      679.2,
+      266.16,
+      685.68
+     ],
+     "text": "below v-concave v-concave v-concave"
+    },
+    {
+     "bbox": [
+      54.24,
+      692.88,
+      105.36,
+      699.6
+     ],
+     "text": "THORN LENGTH"
+    },
+    {
+     "bbox": [
+      54.72,
+      702.72,
+      256.08,
+      709.68
+     ],
+     "text": "mean 6.7mm 6.6mm 6.5mm"
+    },
+    {
+     "bbox": [
+      54.96,
+      712.56,
+      244.56,
+      721.2
+     ],
+     "text": "range 4-10 5-9 4-9"
+    },
+    {
+     "bbox": [
+      54.72,
+      722.64,
+      243.6,
+      729.36
+     ],
+     "text": "std deviation 19 13 1.2"
+    },
+    {
+     "bbox": [
+      55.2,
+      736.56,
+      82.56,
+      743.04
+     ],
+     "text": "PEDICEL"
+    },
+    {
+     "bbox": [
+      54.24,
+      744.96,
+      86.88,
+      755.04
+     ],
+     "text": "THORNS /"
+    },
+    {
+     "bbox": [
+      55.2,
+      755.04,
+      254.88,
+      764.88
+     ],
+     "text": "PRICKLES absent few absent"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       113.76,
+       214.8,
+       144.24,
+       233.52
+      ],
+      "header": true,
+      "text": "‘Korferse’ (‘Coco’)"
+     },
+     {
+      "bbox": [
+       174.24,
+       214.56,
+       206.88,
+       224.64
+      ],
+      "header": true,
+      "text": "*Kardinal’"
+     },
+     {
+      "bbox": [
+       234.0,
+       215.28,
+       266.4,
+       222.0
+      ],
+      "header": true,
+      "text": "*'Toscana’"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       55.2,
+       242.64,
+       113.04,
+       259.68
+      ],
+      "text": "FLOWER COLOUR GROUP"
+     },
+     {
+      "bbox": [
+       114.96,
+       252.96,
+       152.16,
+       259.44
+      ],
+      "text": "medium red"
+     },
+     {
+      "bbox": [
+       174.48,
+       252.72,
+       211.92,
+       259.2
+      ],
+      "text": "medium red"
+     },
+     {
+      "bbox": [
+       234.24,
+       252.48,
+       263.76,
+       259.2
+      ],
+      "text": "red blend"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       55.44,
+       267.12,
+       119.04,
+       273.84
+      ],
+      "text": "FLOWER DIAMETER"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.96,
+       279.12,
+       71.76,
+       283.92
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       114.96,
+       276.96,
+       141.36,
+       283.44
+      ],
+      "text": "73.0mm"
+     },
+     {
+      "bbox": [
+       174.72,
+       276.72,
+       201.12,
+       283.44
+      ],
+      "text": "76.0mm"
+     },
+     {
+      "bbox": [
+       234.48,
+       276.48,
+       260.88,
+       283.2
+      ],
+      "text": "79.0mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       55.2,
+       289.2,
+       72.48,
+       295.44
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       114.96,
+       287.04,
+       134.64,
+       293.52
+      ],
+      "text": "52-95"
+     },
+     {
+      "bbox": [
+       174.48,
+       286.8,
+       194.16,
+       293.28
+      ],
+      "text": "73-82"
+     },
+     {
+      "bbox": [
+       234.24,
+       286.56,
+       254.16,
+       293.28
+      ],
+      "text": "75-85"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.96,
+       297.12,
+       96.72,
+       303.6
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       115.44,
+       296.64,
+       128.88,
+       303.36
+      ],
+      "text": "10.6"
+     },
+     {
+      "bbox": [
+       174.48,
+       296.64,
+       184.32,
+       303.12
+      ],
+      "text": "3.0"
+     },
+     {
+      "bbox": [
+       234.24,
+       296.16,
+       244.08,
+       303.12
+      ],
+      "text": "3.5"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       55.44,
+       310.56,
+       109.44,
+       317.28
+      ],
+      "text": "PETAL COLOURS"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       55.2,
+       320.64,
+       81.36,
+       327.12
+      ],
+      "text": "midzone"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.96,
+       329.28,
+       81.36,
+       346.8
+      ],
+      "text": "outside midzone"
+     },
+     {
+      "bbox": [
+       97.44,
+       330.24,
+       128.16,
+       336.72
+      ],
+      "text": "RHS 45D"
+     },
+     {
+      "bbox": [
+       174.48,
+       330.0,
+       187.2,
+       336.48
+      ],
+      "text": "45B"
+     },
+     {
+      "bbox": [
+       234.24,
+       329.76,
+       247.2,
+       336.48
+      ],
+      "text": "46A"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       55.2,
+       349.92,
+       73.44,
+       356.4
+      ],
+      "text": "inside"
+     },
+     {
+      "bbox": [
+       97.44,
+       349.68,
+       127.68,
+       356.16
+      ],
+      "text": "RHS 44C"
+     },
+     {
+      "bbox": [
+       174.48,
+       349.68,
+       187.44,
+       356.16
+      ],
+      "text": "45C"
+     },
+     {
+      "bbox": [
+       234.24,
+       349.44,
+       247.2,
+       356.16
+      ],
+      "text": "43A"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.96,
+       360.0,
+       78.0,
+       378.48
+      ],
+      "text": "margin outside"
+     },
+     {
+      "bbox": [
+       97.44,
+       369.6,
+       128.16,
+       376.08
+      ],
+      "text": "RHS 45D"
+     },
+     {
+      "bbox": [
+       174.48,
+       369.36,
+       187.2,
+       376.08
+      ],
+      "text": "45B"
+     },
+     {
+      "bbox": [
+       234.24,
+       369.36,
+       247.44,
+       375.84
+      ],
+      "text": "47A"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.96,
+       379.92,
+       76.8,
+       396.48
+      ],
+      "text": "margin inside"
+     },
+     {
+      "bbox": [
+       97.44,
+       389.76,
+       127.2,
+       396.24
+      ],
+      "text": "RHS 44B"
+     },
+     {
+      "bbox": [
+       174.24,
+       389.52,
+       187.2,
+       396.0
+      ],
+      "text": "45C"
+     },
+     {
+      "bbox": [
+       234.0,
+       389.28,
+       247.2,
+       396.0
+      ],
+      "text": "43A"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.96,
+       400.08,
+       86.88,
+       419.04
+      ],
+      "text": "basal spot outside"
+     },
+     {
+      "bbox": [
+       97.44,
+       409.68,
+       120.72,
+       416.16
+      ],
+      "text": "RHS —"
+     },
+     {
+      "bbox": [
+       175.2,
+       409.44,
+       192.0,
+       416.16
+      ],
+      "text": "160A"
+     },
+     {
+      "bbox": [
+       234.96,
+       409.44,
+       251.76,
+       416.16
+      ],
+      "text": "155A"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       55.2,
+       420.0,
+       87.12,
+       428.16
+      ],
+      "text": "basal spot"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       55.2,
+       429.84,
+       73.44,
+       436.32
+      ],
+      "text": "inside"
+     },
+     {
+      "bbox": [
+       97.44,
+       429.6,
+       128.16,
+       436.32
+      ],
+      "text": "RHS 45D"
+     },
+     {
+      "bbox": [
+       175.2,
+       429.36,
+       192.0,
+       436.08
+      ],
+      "text": "160A"
+     },
+     {
+      "bbox": [
+       234.96,
+       429.6,
+       251.76,
+       436.32
+      ],
+      "text": "155A"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       55.44,
+       443.52,
+       110.4,
+       450.24
+      ],
+      "text": "PETAL NUMBERS"
+     },
+     {
+      "bbox": [
+       114.96,
+       443.28,
+       134.64,
+       450.0
+      ],
+      "text": "26-50"
+     },
+     {
+      "bbox": [
+       174.72,
+       443.28,
+       194.4,
+       450.0
+      ],
+      "text": "26-50"
+     },
+     {
+      "bbox": [
+       234.96,
+       443.52,
+       253.92,
+       450.0
+      ],
+      "text": "13-25"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.96,
+       453.36,
+       99.6,
+       460.08
+      ],
+      "text": "—REFLEXING"
+     },
+     {
+      "bbox": [
+       114.96,
+       453.36,
+       139.92,
+       459.84
+      ],
+      "text": "medium"
+     },
+     {
+      "bbox": [
+       174.72,
+       453.36,
+       199.44,
+       459.84
+      ],
+      "text": "medium"
+     },
+     {
+      "bbox": [
+       234.48,
+       453.36,
+       247.2,
+       459.84
+      ],
+      "text": "mild"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       55.2,
+       467.04,
+       82.32,
+       473.76
+      ],
+      "text": "STAMEN"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.96,
+       475.92,
+       87.84,
+       485.76
+      ],
+      "text": "FILAMENT"
+     },
+     {
+      "bbox": [
+       114.72,
+       477.12,
+       124.32,
+       483.36
+      ],
+      "text": "red"
+     },
+     {
+      "bbox": [
+       174.48,
+       476.88,
+       187.44,
+       484.56
+      ],
+      "text": "pink"
+     },
+     {
+      "bbox": [
+       234.24,
+       476.88,
+       243.84,
+       483.36
+      ],
+      "text": "red"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.96,
+       490.8,
+       104.88,
+       497.28
+      ],
+      "text": "STYLE COLOUR"
+     },
+     {
+      "bbox": [
+       114.72,
+       490.8,
+       123.84,
+       497.04
+      ],
+      "text": "red"
+     },
+     {
+      "bbox": [
+       174.48,
+       490.8,
+       183.6,
+       497.04
+      ],
+      "text": "red"
+     },
+     {
+      "bbox": [
+       234.24,
+       490.8,
+       243.36,
+       497.04
+      ],
+      "text": "red"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.96,
+       504.48,
+       121.2,
+       511.2
+      ],
+      "text": "STIGMAS...ANTHERS"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       114.72,
+       514.56,
+       132.96,
+       521.04
+      ],
+      "text": "above"
+     },
+     {
+      "bbox": [
+       174.48,
+       514.32,
+       192.96,
+       520.8
+      ],
+      "text": "below"
+     },
+     {
+      "bbox": [
+       234.0,
+       514.56,
+       252.48,
+       521.04
+      ],
+      "text": "above"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.48,
+       528.24,
+       146.16,
+       534.96
+      ],
+      "text": "TERMINAL LEAFLET LENGTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.96,
+       540.24,
+       71.52,
+       545.04
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       114.72,
+       538.32,
+       134.88,
+       544.8
+      ],
+      "text": "35mm"
+     },
+     {
+      "bbox": [
+       174.48,
+       538.08,
+       194.64,
+       544.8
+      ],
+      "text": "36mm"
+     },
+     {
+      "bbox": [
+       234.48,
+       538.08,
+       254.4,
+       544.8
+      ],
+      "text": "53mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       55.2,
+       550.56,
+       72.48,
+       556.8
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       114.72,
+       548.4,
+       134.16,
+       555.12
+      ],
+      "text": "28-46"
+     },
+     {
+      "bbox": [
+       174.48,
+       548.16,
+       194.4,
+       554.88
+      ],
+      "text": "30-40"
+     },
+     {
+      "bbox": [
+       234.0,
+       548.16,
+       254.4,
+       554.88
+      ],
+      "text": "47-60"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.96,
+       558.72,
+       95.04,
+       565.44
+      ],
+      "text": "std deviation"
+     },
+     {
+      "bbox": [
+       114.72,
+       558.48,
+       124.32,
+       564.96
+      ],
+      "text": "43"
+     },
+     {
+      "bbox": [
+       174.48,
+       558.48,
+       184.08,
+       565.2
+      ],
+      "text": "3.6"
+     },
+     {
+      "bbox": [
+       234.24,
+       558.48,
+       244.08,
+       565.2
+      ],
+      "text": "3.8"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.48,
+       572.4,
+       142.56,
+       579.12
+      ],
+      "text": "TERMINAL LEAFLET WIDTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.96,
+       584.64,
+       71.52,
+       589.2
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       114.72,
+       582.72,
+       134.88,
+       588.96
+      ],
+      "text": "21mm"
+     },
+     {
+      "bbox": [
+       174.24,
+       582.24,
+       194.64,
+       588.96
+      ],
+      "text": "30mm"
+     },
+     {
+      "bbox": [
+       234.0,
+       582.24,
+       254.4,
+       588.96
+      ],
+      "text": "33mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.96,
+       594.48,
+       72.48,
+       600.72
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       115.44,
+       592.08,
+       134.4,
+       599.04
+      ],
+      "text": "16-30"
+     },
+     {
+      "bbox": [
+       174.24,
+       592.32,
+       192.72,
+       598.8
+      ],
+      "text": "27-31"
+     },
+     {
+      "bbox": [
+       234.0,
+       592.08,
+       253.92,
+       599.04
+      ],
+      "text": "30-35"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.72,
+       602.16,
+       94.8,
+       608.88
+      ],
+      "text": "std deviation"
+     },
+     {
+      "bbox": [
+       114.72,
+       601.92,
+       124.32,
+       608.4
+      ],
+      "text": "3.9"
+     },
+     {
+      "bbox": [
+       174.24,
+       602.16,
+       183.84,
+       608.64
+      ],
+      "text": "0.2"
+     },
+     {
+      "bbox": [
+       234.0,
+       601.92,
+       243.84,
+       608.64
+      ],
+      "text": "0.2"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.48,
+       615.84,
+       88.32,
+       622.08
+      ],
+      "text": "TERMINAL"
+     },
+     {
+      "bbox": [
+       91.2,
+       615.6,
+       154.08,
+       622.32
+      ],
+      "text": "PETIOLULE LENGTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.96,
+       627.36,
+       71.52,
+       631.92
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       114.72,
+       625.2,
+       141.12,
+       631.92
+      ],
+      "text": "8.25mm"
+     },
+     {
+      "bbox": [
+       174.96,
+       625.44,
+       200.88,
+       631.92
+      ],
+      "text": "145mm"
+     },
+     {
+      "bbox": [
+       234.96,
+       625.2,
+       260.64,
+       631.92
+      ],
+      "text": "14.0mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.96,
+       637.2,
+       72.48,
+       643.68
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       114.96,
+       635.28,
+       129.84,
+       641.76
+      ],
+      "text": "5-14"
+     },
+     {
+      "bbox": [
+       174.96,
+       635.28,
+       193.92,
+       641.52
+      ],
+      "text": "12-17"
+     },
+     {
+      "bbox": [
+       234.72,
+       635.04,
+       253.68,
+       641.76
+      ],
+      "text": "10-16"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.72,
+       645.12,
+       94.8,
+       651.84
+      ],
+      "text": "std deviation"
+     },
+     {
+      "bbox": [
+       114.96,
+       645.12,
+       124.32,
+       651.6
+      ],
+      "text": "2.3"
+     },
+     {
+      "bbox": [
+       175.2,
+       644.88,
+       184.08,
+       651.36
+      ],
+      "text": "1.6"
+     },
+     {
+      "bbox": [
+       234.24,
+       644.88,
+       243.84,
+       651.36
+      ],
+      "text": "3.2"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.48,
+       659.04,
+       106.8,
+       665.52
+      ],
+      "text": "THORN PROFILE"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.48,
+       669.12,
+       73.44,
+       675.6
+      ],
+      "text": "above"
+     },
+     {
+      "bbox": [
+       114.48,
+       670.8,
+       140.64,
+       675.6
+      ],
+      "text": "concave"
+     },
+     {
+      "bbox": [
+       174.24,
+       670.8,
+       200.4,
+       675.36
+      ],
+      "text": "concave"
+     },
+     {
+      "bbox": [
+       234.0,
+       670.8,
+       259.92,
+       675.6
+      ],
+      "text": "concave"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.96,
+       679.2,
+       73.68,
+       685.68
+      ],
+      "text": "below"
+     },
+     {
+      "bbox": [
+       114.0,
+       680.64,
+       146.64,
+       685.68
+      ],
+      "text": "v-concave"
+     },
+     {
+      "bbox": [
+       173.76,
+       680.64,
+       206.4,
+       685.44
+      ],
+      "text": "v-concave"
+     },
+     {
+      "bbox": [
+       233.52,
+       680.64,
+       266.16,
+       685.44
+      ],
+      "text": "v-concave"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.24,
+       692.88,
+       105.36,
+       699.6
+      ],
+      "text": "THORN LENGTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.72,
+       704.88,
+       71.52,
+       709.68
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       114.48,
+       702.96,
+       136.56,
+       709.44
+      ],
+      "text": "6.7mm"
+     },
+     {
+      "bbox": [
+       174.24,
+       702.72,
+       196.32,
+       709.44
+      ],
+      "text": "6.6mm"
+     },
+     {
+      "bbox": [
+       234.0,
+       702.96,
+       256.08,
+       709.44
+      ],
+      "text": "6.5mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.96,
+       714.72,
+       72.48,
+       721.2
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       114.24,
+       712.56,
+       129.84,
+       719.52
+      ],
+      "text": "4-10"
+     },
+     {
+      "bbox": [
+       174.48,
+       712.8,
+       184.56,
+       719.28
+      ],
+      "text": "5-9"
+     },
+     {
+      "bbox": [
+       234.0,
+       712.8,
+       244.56,
+       719.28
+      ],
+      "text": "4-9"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.72,
+       722.88,
+       94.8,
+       729.36
+      ],
+      "text": "std deviation"
+     },
+     {
+      "bbox": [
+       115.2,
+       722.64,
+       124.08,
+       729.12
+      ],
+      "text": "19"
+     },
+     {
+      "bbox": [
+       174.96,
+       722.64,
+       183.84,
+       729.12
+      ],
+      "text": "13"
+     },
+     {
+      "bbox": [
+       234.72,
+       722.88,
+       243.6,
+       729.12
+      ],
+      "text": "1.2"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       55.2,
+       736.56,
+       82.56,
+       743.04
+      ],
+      "text": "PEDICEL"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.24,
+       744.96,
+       86.88,
+       755.04
+      ],
+      "text": "THORNS /"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       55.2,
+       756.0,
+       86.16,
+       762.48
+      ],
+      "text": "PRICKLES"
+     },
+     {
+      "bbox": [
+       114.48,
+       755.04,
+       135.36,
+       764.88
+      ],
+      "text": "absent"
+     },
+     {
+      "bbox": [
+       173.76,
+       756.0,
+       184.8,
+       762.48
+      ],
+      "text": "few"
+     },
+     {
+      "bbox": [
+       233.76,
+       756.24,
+       254.88,
+       762.48
+      ],
+      "text": "absent"
+     }
+    ]
+   ],
+   "score": 0.9995,
+   "signal": "tatr",
+   "source": "tatr",
+   "text": " ‘Korferse’ (‘Coco’) *Kardinal’ *'Toscana’\nFLOWER COLOUR GROUP medium red medium red red blend\nFLOWER DIAMETER   \nmean 73.0mm 76.0mm 79.0mm\nrange 52-95 73-82 75-85\nstd. deviation 10.6 3.0 3.5\nPETAL COLOURS   \nmidzone   \noutside midzone RHS 45D 45B 46A\ninside RHS 44C 45C 43A\nmargin outside RHS 45D 45B 47A\nmargin inside RHS 44B 45C 43A\nbasal spot outside RHS — 160A 155A\nbasal spot   \ninside RHS 45D 160A 155A\nPETAL NUMBERS 26-50 26-50 13-25\n—REFLEXING medium medium mild\nSTAMEN   \nFILAMENT red pink red\nSTYLE COLOUR red red red\nSTIGMAS...ANTHERS   \n above below above\nTERMINAL LEAFLET LENGTH   \nmean 35mm 36mm 53mm\nrange 28-46 30-40 47-60\nstd deviation 43 3.6 3.8\nTERMINAL LEAFLET WIDTH   \nmean 21mm 30mm 33mm\nrange 16-30 27-31 30-35\nstd deviation 3.9 0.2 0.2\nTERMINAL PETIOLULE LENGTH  \nmean 8.25mm 145mm 14.0mm\nrange 5-14 12-17 10-16\nstd deviation 2.3 1.6 3.2\nTHORN PROFILE   \nabove concave concave concave\nbelow v-concave v-concave v-concave\nTHORN LENGTH   \nmean 6.7mm 6.6mm 6.5mm\nrange 4-10 5-9 4-9\nstd deviation 19 13 1.2\nPEDICEL   \nTHORNS /   \nPRICKLES absent few absent",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "id": "r7",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Morphology — see comparison tables",
+   "lines": [
+    {
+     "bbox": [
+      320.16,
+      60.24,
+      474.72,
+      68.88
+     ],
+     "text": "Morphology — see comparison tables"
+    }
+   ],
+   "bbox": [
+    320.16,
+    60.24,
+    474.72,
+    68.88
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r8",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Coco’ (Korferse) is a medium red glasshouse rose of\nupright to bushy habit with flowers approximately the\nsame size as ‘Kardinal’ and ‘Toscana’. Flowers are\nflattened convex in profile. Sepals have a moderate\nnumber of extensions. Seed vessels are small and funnel-\nshaped. Fragrance is absent. Foliage is medium-green and\nleaf upper surfaces are glossy.",
+   "lines": [
+    {
+     "bbox": [
+      320.4,
+      69.6,
+      531.36,
+      78.48
+     ],
+     "text": "‘Coco’ (Korferse) is a medium red glasshouse rose of"
+    },
+    {
+     "bbox": [
+      320.64,
+      79.68,
+      535.68,
+      89.04
+     ],
+     "text": "upright to bushy habit with flowers approximately the"
+    },
+    {
+     "bbox": [
+      319.92,
+      90.24,
+      522.72,
+      97.44
+     ],
+     "text": "same size as ‘Kardinal’ and ‘Toscana’. Flowers are"
+    },
+    {
+     "bbox": [
+      319.92,
+      100.08,
+      526.08,
+      108.48
+     ],
+     "text": "flattened convex in profile. Sepals have a moderate"
+    },
+    {
+     "bbox": [
+      320.4,
+      109.92,
+      553.44,
+      117.6
+     ],
+     "text": "number of extensions. Seed vessels are small and funnel-"
+    },
+    {
+     "bbox": [
+      320.4,
+      120.0,
+      555.6,
+      129.36
+     ],
+     "text": "shaped. Fragrance is absent. Foliage is medium-green and"
+    },
+    {
+     "bbox": [
+      320.64,
+      130.8,
+      442.08,
+      139.2
+     ],
+     "text": "leaf upper surfaces are glossy."
+    }
+   ],
+   "bbox": [
+    319.92,
+    69.6,
+    555.6,
+    139.2
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r9",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Coco’ (Korferse) has purple anthocyanin in the young\nshoots whereas ‘Toscana’ has none. ‘Coco’ (Korferse) has\nno prickles on the pedicel while ‘Kardinal’ has some.\n‘Coco’ (Korferse) has no basal spot on the outside of the\npetals unlike ‘Kardinal’ and ‘Toscana’. The petiolule in\n‘Coco’ (Korferse) is shorter than those of either ‘Kardinal’\nor ‘Toscana’.",
+   "lines": [
+    {
+     "bbox": [
+      320.88,
+      154.32,
+      536.16,
+      162.72
+     ],
+     "text": "‘Coco’ (Korferse) has purple anthocyanin in the young"
+    },
+    {
+     "bbox": [
+      320.4,
+      163.92,
+      552.72,
+      172.08
+     ],
+     "text": "shoots whereas ‘Toscana’ has none. ‘Coco’ (Korferse) has"
+    },
+    {
+     "bbox": [
+      320.88,
+      174.24,
+      531.84,
+      182.64
+     ],
+     "text": "no prickles on the pedicel while ‘Kardinal’ has some."
+    },
+    {
+     "bbox": [
+      320.88,
+      183.84,
+      545.04,
+      192.24
+     ],
+     "text": "‘Coco’ (Korferse) has no basal spot on the outside of the"
+    },
+    {
+     "bbox": [
+      320.4,
+      193.92,
+      537.84,
+      202.32
+     ],
+     "text": "petals unlike ‘Kardinal’ and ‘Toscana’. The petiolule in"
+    },
+    {
+     "bbox": [
+      320.64,
+      203.52,
+      549.84,
+      211.92
+     ],
+     "text": "‘Coco’ (Korferse) is shorter than those of either ‘Kardinal’"
+    },
+    {
+     "bbox": [
+      320.64,
+      213.84,
+      370.56,
+      220.56
+     ],
+     "text": "or ‘Toscana’."
+    }
+   ],
+   "bbox": [
+    320.4,
+    154.32,
+    552.72,
+    220.56
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r10",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "OBJECTIONS",
+   "lines": [
+    {
+     "bbox": [
+      320.64,
+      239.04,
+      404.64,
+      250.32
+     ],
+     "text": "OBJECTIONS"
+    }
+   ],
+   "bbox": [
+    320.64,
+    239.04,
+    404.64,
+    250.32
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r11",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Formal objections (S20 of the PVR Act) against any of the\nabove applications can be lodged by a person who:",
+   "lines": [
+    {
+     "bbox": [
+      321.36,
+      267.6,
+      555.6,
+      276.24
+     ],
+     "text": "Formal objections (S20 of the PVR Act) against any of the"
+    },
+    {
+     "bbox": [
+      321.12,
+      277.68,
+      524.16,
+      286.32
+     ],
+     "text": "above applications can be lodged by a person who:"
+    }
+   ],
+   "bbox": [
+    321.12,
+    267.6,
+    555.6,
+    286.32
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r12",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "a) considers their commercial interests would be\naffected by a grant of PVR to the applicant; AND",
+   "lines": [
+    {
+     "bbox": [
+      329.76,
+      287.76,
+      525.6,
+      295.68
+     ],
+     "text": "a) considers their commercial interests would be"
+    },
+    {
+     "bbox": [
+      339.6,
+      297.36,
+      535.2,
+      305.76
+     ],
+     "text": "affected by a grant of PVR to the applicant; AND"
+    }
+   ],
+   "bbox": [
+    329.76,
+    287.76,
+    535.2,
+    305.76
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r13",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "b) considers that the provisions of S26 cannot be met.",
+   "lines": [
+    {
+     "bbox": [
+      330.0,
+      321.12,
+      546.72,
+      329.28
+     ],
+     "text": "b) considers that the provisions of S26 cannot be met."
+    }
+   ],
+   "bbox": [
+    330.0,
+    321.12,
+    546.72,
+    329.28
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r14",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "A fee of $200 is payable at the time of lodging a formal\nobjection and $70/hour will be charged if the examination\nof the objection by the PVR Office takes more than 2\nhours.",
+   "lines": [
+    {
+     "bbox": [
+      320.64,
+      344.88,
+      542.16,
+      353.28
+     ],
+     "text": "A fee of $200 is payable at the time of lodging a formal"
+    },
+    {
+     "bbox": [
+      321.12,
+      354.72,
+      556.8,
+      363.12
+     ],
+     "text": "objection and $70/hour will be charged if the examination"
+    },
+    {
+     "bbox": [
+      321.12,
+      364.56,
+      531.84,
+      372.96
+     ],
+     "text": "of the objection by the PVR Office takes more than 2"
+    },
+    {
+     "bbox": [
+      321.36,
+      374.64,
+      345.6,
+      381.36
+     ],
+     "text": "hours."
+    }
+   ],
+   "bbox": [
+    320.64,
+    344.88,
+    556.8,
+    381.36
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r15",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Comment: Any person not falling into the above category\nmay make comment on the eligibility of any of the above\napplications for PVR. There is no charge for this.",
+   "lines": [
+    {
+     "bbox": [
+      321.12,
+      398.64,
+      553.44,
+      407.28
+     ],
+     "text": "Comment: Any person not falling into the above category"
+    },
+    {
+     "bbox": [
+      321.36,
+      408.72,
+      547.44,
+      417.36
+     ],
+     "text": "may make comment on the eligibility of any of the above"
+    },
+    {
+     "bbox": [
+      321.12,
+      418.8,
+      514.8,
+      427.44
+     ],
+     "text": "applications for PVR. There is no charge for this."
+    }
+   ],
+   "bbox": [
+    321.12,
+    398.64,
+    553.44,
+    427.44
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r16",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "A person submitting a formal objection or a comment must\nprovide supporting evidence to substantiate the claim. A\ncopy of the submission will also be sent to the applicant\nand the latter will be asked to show why the objection\nshould not be upheld.",
+   "lines": [
+    {
+     "bbox": [
+      320.88,
+      442.8,
+      558.72,
+      451.2
+     ],
+     "text": "A person submitting a formal objection or a comment must"
+    },
+    {
+     "bbox": [
+      321.36,
+      452.88,
+      547.44,
+      461.04
+     ],
+     "text": "provide supporting evidence to substantiate the claim. A"
+    },
+    {
+     "bbox": [
+      321.12,
+      462.48,
+      546.0,
+      470.64
+     ],
+     "text": "copy of the submission will also be sent to the applicant"
+    },
+    {
+     "bbox": [
+      321.36,
+      472.32,
+      538.32,
+      480.48
+     ],
+     "text": "and the latter will be asked to show why the objection"
+    },
+    {
+     "bbox": [
+      321.12,
+      482.16,
+      407.52,
+      490.32
+     ],
+     "text": "should not be upheld."
+    }
+   ],
+   "bbox": [
+    320.88,
+    442.8,
+    558.72,
+    490.32
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r17",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Ail formal objections and comments relating to the above\napplications must be lodged with the Registrar by close of\nbusiness on 31 December 1991._",
+   "lines": [
+    {
+     "bbox": [
+      320.64,
+      505.68,
+      551.28,
+      514.32
+     ],
+     "text": "Ail formal objections and comments relating to the above"
+    },
+    {
+     "bbox": [
+      321.12,
+      516.0,
+      553.2,
+      524.16
+     ],
+     "text": "applications must be lodged with the Registrar by close of"
+    },
+    {
+     "bbox": [
+      321.36,
+      525.84,
+      463.2,
+      532.8
+     ],
+     "text": "business on 31 December 1991._"
+    }
+   ],
+   "bbox": [
+    320.64,
+    505.68,
+    553.2,
+    532.8
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r18",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "21",
+   "lines": [
+    {
+     "bbox": [
+      546.24,
+      791.76,
+      556.8,
+      800.16
+     ],
+     "text": "21"
+    }
+   ],
+   "bbox": [
+    546.24,
+    791.76,
+    556.8,
+    800.16
+   ],
+   "type": "page_number",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

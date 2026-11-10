@@ -1,0 +1,2535 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    35.28,
+    61.2,
+    271.2,
+    156.72
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      35.76,
+      61.2,
+      271.2,
+      69.6
+     ],
+     "text": "been paid. Inactive applications will be examined and, should"
+    },
+    {
+     "bbox": [
+      36.0,
+      72.0,
+      270.72,
+      80.4
+     ],
+     "text": "they not fully comply with Section 26 of the PVR Act 1987,"
+    },
+    {
+     "bbox": [
+      35.52,
+      82.8,
+      270.72,
+      91.44
+     ],
+     "text": "they will be refused. As a result provisional protection will"
+    },
+    {
+     "bbox": [
+      35.76,
+      93.84,
+      270.96,
+      102.48
+     ],
+     "text": "lapse, priority claims on that variety will be lost and should the"
+    },
+    {
+     "bbox": [
+      35.76,
+      104.64,
+      270.72,
+      113.28
+     ],
+     "text": "variety have been sold, it will be ineligible for plant variety"
+    },
+    {
+     "bbox": [
+      35.76,
+      115.44,
+      271.2,
+      124.08
+     ],
+     "text": "rights on reapplication. Continued use of labels or any other"
+    },
+    {
+     "bbox": [
+      35.28,
+      126.48,
+      270.72,
+      134.88
+     ],
+     "text": "means to falsely imply that a variety is protected after the appli-"
+    },
+    {
+     "bbox": [
+      35.52,
+      137.28,
+      270.72,
+      145.68
+     ],
+     "text": "cation has been refused is an offence under Section 52 (2) (b)"
+    },
+    {
+     "bbox": [
+      35.28,
+      148.08,
+      73.44,
+      156.72
+     ],
+     "text": "of the Act."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "been paid. Inactive applications will be examined and, should\nthey not fully comply with Section 26 of the PVR Act 1987,\nthey will be refused. As a result provisional protection will\nlapse, priority claims on that variety will be lost and should the\nvariety have been sold, it will be ineligible for plant variety\nrights on reapplication. Continued use of labels or any other\nmeans to falsely imply that a variety is protected after the appli-\ncation has been refused is an offence under Section 52 (2) (b)\nof the Act.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    35.52,
+    221.52,
+    105.84,
+    230.4
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      35.52,
+      221.52,
+      105.84,
+      230.4
+     ],
+     "text": "APPENDIX 2"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "APPENDIX 2",
+   "text_format": "plain",
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "bbox": [
+    35.28,
+    240.48,
+    247.92,
+    263.04
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      35.76,
+      240.48,
+      247.92,
+      251.04
+     ],
+     "text": "Plant Variety Rights Advisory Committee"
+    },
+    {
+     "bbox": [
+      35.28,
+      252.72,
+      80.4,
+      263.04
+     ],
+     "text": "(PVRAC)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Plant Variety Rights Advisory Committee\n(PVRAC)",
+   "text_format": "plain",
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "bbox": [
+    35.28,
+    268.56,
+    266.4,
+    288.24
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      35.52,
+      268.56,
+      266.4,
+      277.2
+     ],
+     "text": "(Members of the PVRAC were appointed in accordance with"
+    },
+    {
+     "bbox": [
+      35.28,
+      279.84,
+      194.16,
+      288.24
+     ],
+     "text": "S45 of the Plant Variety Rights Act 1987)."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(Members of the PVRAC were appointed in accordance with\nS45 of the Plant Variety Rights Act 1987).",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    35.28,
+    297.84,
+    268.8,
+    365.04
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      35.28,
+      297.84,
+      99.84,
+      304.56
+     ],
+     "text": "Dr Robert Boden"
+    },
+    {
+     "bbox": [
+      35.28,
+      309.6,
+      268.8,
+      317.76
+     ],
+     "text": "Consultant in Conservation & Natural Resource Management"
+    },
+    {
+     "bbox": [
+      35.28,
+      321.6,
+      93.84,
+      328.56
+     ],
+     "text": "36 Carstensz St"
+    },
+    {
+     "bbox": [
+      35.52,
+      333.6,
+      119.76,
+      340.32
+     ],
+     "text": "GRIFFITH ACT 2603"
+    },
+    {
+     "bbox": [
+      35.28,
+      344.88,
+      226.32,
+      354.0
+     ],
+     "text": "Representative with appropriate qualifications and"
+    },
+    {
+     "bbox": [
+      35.28,
+      356.64,
+      77.76,
+      365.04
+     ],
+     "text": "experience."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Dr Robert Boden\nConsultant in Conservation & Natural Resource Management\n36 Carstensz St\nGRIFFITH ACT 2603\nRepresentative with appropriate qualifications and\nexperience.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    35.52,
+    374.4,
+    202.56,
+    453.12
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      36.0,
+      374.4,
+      96.96,
+      382.56
+     ],
+     "text": "Dr Kevin Boyce"
+    },
+    {
+     "bbox": [
+      35.52,
+      385.68,
+      156.0,
+      394.32
+     ],
+     "text": "Principal Officer, Seed Services"
+    },
+    {
+     "bbox": [
+      35.76,
+      397.2,
+      123.84,
+      404.16
+     ],
+     "text": "Plant Services Division"
+    },
+    {
+     "bbox": [
+      35.52,
+      408.72,
+      202.56,
+      417.12
+     ],
+     "text": "South Australian Department of Agriculture"
+    },
+    {
+     "bbox": [
+      35.76,
+      420.72,
+      92.16,
+      427.44
+     ],
+     "text": "GPO Box 1671"
+    },
+    {
+     "bbox": [
+      36.0,
+      432.24,
+      117.6,
+      439.2
+     ],
+     "text": "ADELAIDE SA 5001"
+    },
+    {
+     "bbox": [
+      35.76,
+      444.24,
+      138.24,
+      453.12
+     ],
+     "text": "Representative of breeders."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Dr Kevin Boyce\nPrincipal Officer, Seed Services\nPlant Services Division\nSouth Australian Department of Agriculture\nGPO Box 1671\nADELAIDE SA 5001\nRepresentative of breeders.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    35.52,
+    462.48,
+    143.76,
+    506.4
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      35.76,
+      462.48,
+      100.56,
+      470.64
+     ],
+     "text": "Mr Rodney Field"
+    },
+    {
+     "bbox": [
+      35.76,
+      474.24,
+      93.36,
+      480.96
+     ],
+     "text": "WMR Box 758"
+    },
+    {
+     "bbox": [
+      36.0,
+      486.0,
+      127.92,
+      492.72
+     ],
+     "text": "ESPERANCE WA 6450"
+    },
+    {
+     "bbox": [
+      35.52,
+      497.52,
+      143.76,
+      506.4
+     ],
+     "text": "Representative of producers."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Mr Rodney Field\nWMR Box 758\nESPERANCE WA 6450\nRepresentative of producers.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    35.76,
+    515.04,
+    183.36,
+    570.24
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      35.76,
+      515.04,
+      103.2,
+      522.0
+     ],
+     "text": "Dr David Godden"
+    },
+    {
+     "bbox": [
+      36.24,
+      526.56,
+      183.36,
+      535.44
+     ],
+     "text": "Department of Agricultural Economics"
+    },
+    {
+     "bbox": [
+      35.76,
+      538.32,
+      116.16,
+      546.72
+     ],
+     "text": "University of Sydney"
+    },
+    {
+     "bbox": [
+      36.0,
+      550.08,
+      77.76,
+      556.8
+     ],
+     "text": "NSW 2006"
+    },
+    {
+     "bbox": [
+      35.76,
+      561.6,
+      147.12,
+      570.24
+     ],
+     "text": "Representative of consumers."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Dr David Godden\nDepartment of Agricultural Economics\nUniversity of Sydney\nNSW 2006\nRepresentative of consumers.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    36.0,
+    579.36,
+    142.56,
+    646.56
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      36.0,
+      579.36,
+      89.52,
+      585.84
+     ],
+     "text": "Dr Brian Hare"
+    },
+    {
+     "bbox": [
+      36.48,
+      590.88,
+      114.24,
+      597.6
+     ],
+     "text": "Director of Research"
+    },
+    {
+     "bbox": [
+      36.0,
+      602.64,
+      86.4,
+      609.6
+     ],
+     "text": "Pacific Seeds"
+    },
+    {
+     "bbox": [
+      36.24,
+      614.4,
+      82.32,
+      621.12
+     ],
+     "text": "PO Box 337"
+    },
+    {
+     "bbox": [
+      36.0,
+      626.16,
+      142.56,
+      634.32
+     ],
+     "text": "TOOWOOMBA QLD 4350"
+    },
+    {
+     "bbox": [
+      36.24,
+      637.68,
+      138.72,
+      646.56
+     ],
+     "text": "Representative of breeders."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Dr Brian Hare\nDirector of Research\nPacific Seeds\nPO Box 337\nTOOWOOMBA QLD 4350\nRepresentative of breeders.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    36.24,
+    655.2,
+    149.28,
+    696.72
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      36.24,
+      655.2,
+      122.64,
+      663.6
+     ],
+     "text": "Dr Mick Lloyd (Chair)"
+    },
+    {
+     "bbox": [
+      36.24,
+      666.48,
+      149.28,
+      675.36
+     ],
+     "text": "Registrar Plant Variety Rights"
+    },
+    {
+     "bbox": [
+      36.48,
+      678.48,
+      89.28,
+      684.96
+     ],
+     "text": "GPO Box 858"
+    },
+    {
+     "bbox": [
+      36.24,
+      689.76,
+      128.88,
+      696.72
+     ],
+     "text": "CANBERRA ACT 2601"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Dr Mick Lloyd (Chair)\nRegistrar Plant Variety Rights\nGPO Box 858\nCANBERRA ACT 2601",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    36.48,
+    707.52,
+    513.6,
+    774.24
+   ],
+   "confidence": null,
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      36.48,
+      707.52,
+      123.84,
+      716.16
+     ],
+     "text": "Mr Edgar (Ben) Swane"
+    },
+    {
+     "bbox": [
+      36.48,
+      719.04,
+      131.76,
+      726.0
+     ],
+     "text": "Director Swane Bros P/L"
+    },
+    {
+     "bbox": [
+      36.48,
+      731.04,
+      87.6,
+      737.76
+     ],
+     "text": "Galston Road"
+    },
+    {
+     "bbox": [
+      36.48,
+      742.56,
+      113.28,
+      749.28
+     ],
+     "text": "DURAL NSW 2158"
+    },
+    {
+     "bbox": [
+      36.48,
+      753.6,
+      227.28,
+      763.2
+     ],
+     "text": "Representative with appropriate qualifications and"
+    },
+    {
+     "bbox": [
+      36.72,
+      765.36,
+      79.2,
+      774.24
+     ],
+     "text": "experience."
+    },
+    {
+     "bbox": [
+      299.76,
+      708.96,
+      338.88,
+      715.68
+     ],
+     "text": "IRELAND"
+    },
+    {
+     "bbox": [
+      299.28,
+      721.92,
+      366.24,
+      728.4
+     ],
+     "text": "Controller of Plant"
+    },
+    {
+     "bbox": [
+      301.92,
+      732.48,
+      361.92,
+      740.64
+     ],
+     "text": "Breeders’ Rights"
+    },
+    {
+     "bbox": [
+      299.52,
+      743.28,
+      365.52,
+      751.44
+     ],
+     "text": "Agriculture House"
+    },
+    {
+     "bbox": [
+      300.0,
+      753.6,
+      348.96,
+      760.08
+     ],
+     "text": "Kildare Street"
+    },
+    {
+     "bbox": [
+      300.0,
+      764.64,
+      330.48,
+      771.12
+     ],
+     "text": "Dublin 2"
+    },
+    {
+     "bbox": [
+      422.4,
+      720.96,
+      513.6,
+      729.36
+     ],
+     "text": "Telephone 353.1.78 90 11"
+    },
+    {
+     "bbox": [
+      422.4,
+      731.76,
+      466.08,
+      738.48
+     ],
+     "text": "Telex 93607"
+    },
+    {
+     "bbox": [
+      422.64,
+      742.32,
+      504.48,
+      749.04
+     ],
+     "text": "Telefax 353.1.61 62 63"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       36.48,
+       707.52,
+       123.84,
+       716.16
+      ],
+      "text": "Mr Edgar (Ben) Swane"
+     },
+     {
+      "bbox": [
+       299.76,
+       708.96,
+       338.88,
+       715.68
+      ],
+      "text": "IRELAND"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       36.48,
+       719.04,
+       131.76,
+       726.0
+      ],
+      "text": "Director Swane Bros P/L"
+     },
+     {
+      "bbox": [
+       299.28,
+       721.92,
+       366.24,
+       728.4
+      ],
+      "text": "Controller of Plant"
+     },
+     {
+      "bbox": [
+       422.4,
+       720.96,
+       513.6,
+       729.36
+      ],
+      "text": "Telephone 353.1.78 90 11"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       36.48,
+       731.04,
+       87.6,
+       737.76
+      ],
+      "text": "Galston Road"
+     },
+     {
+      "bbox": [
+       301.92,
+       732.48,
+       361.92,
+       740.64
+      ],
+      "text": "Breeders’ Rights"
+     },
+     {
+      "bbox": [
+       422.4,
+       731.76,
+       466.08,
+       738.48
+      ],
+      "text": "Telex 93607"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       36.48,
+       742.56,
+       113.28,
+       749.28
+      ],
+      "text": "DURAL NSW 2158"
+     },
+     {
+      "bbox": [
+       299.52,
+       743.28,
+       365.52,
+       751.44
+      ],
+      "text": "Agriculture House"
+     },
+     {
+      "bbox": [
+       422.64,
+       742.32,
+       504.48,
+       749.04
+      ],
+      "text": "Telefax 353.1.61 62 63"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       36.48,
+       753.6,
+       227.28,
+       763.2
+      ],
+      "text": "Representative with appropriate qualifications and"
+     },
+     {
+      "bbox": [
+       300.0,
+       753.6,
+       348.96,
+       760.08
+      ],
+      "text": "Kildare Street"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       36.72,
+       765.36,
+       79.2,
+       774.24
+      ],
+      "text": "experience."
+     },
+     {
+      "bbox": [
+       300.0,
+       764.64,
+       330.48,
+       771.12
+      ],
+      "text": "Dublin 2"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "Mr Edgar (Ben) Swane IRELAND\nDirector Swane Bros P/L Controller of Plant Telephone 353.1.78 90 11\nGalston Road Breeders’ Rights Telex 93607\nDURAL NSW 2158 Agriculture House Telefax 353.1.61 62 63\nRepresentative with appropriate qualifications and Kildare Street\nexperience. Dublin 2",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    298.8,
+    61.44,
+    369.12,
+    70.32
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      298.8,
+      61.44,
+      369.12,
+      70.32
+     ],
+     "text": "APPENDIX 3"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "APPENDIX 3",
+   "text_format": "plain",
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "bbox": [
+    298.56,
+    79.92,
+    493.68,
+    100.08
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      298.56,
+      79.92,
+      493.68,
+      90.48
+     ],
+     "text": "Addresses of Plant Variety Protection"
+    },
+    {
+     "bbox": [
+      298.8,
+      91.68,
+      463.2,
+      100.08
+     ],
+     "text": "Offices in UPOV Member States"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Addresses of Plant Variety Protection\nOffices in UPOV Member States",
+   "text_format": "plain",
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "bbox": [
+    298.56,
+    112.56,
+    511.2,
+    163.68
+   ],
+   "confidence": null,
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      298.56,
+      112.56,
+      349.68,
+      119.28
+     ],
+     "text": "AUSTRALIA"
+    },
+    {
+     "bbox": [
+      298.8,
+      125.76,
+      330.96,
+      133.68
+     ],
+     "text": "Registrar"
+    },
+    {
+     "bbox": [
+      298.8,
+      136.08,
+      370.08,
+      144.24
+     ],
+     "text": "Plant Variety Rights"
+    },
+    {
+     "bbox": [
+      298.8,
+      146.88,
+      342.24,
+      153.12
+     ],
+     "text": "PO Box 858"
+    },
+    {
+     "bbox": [
+      298.56,
+      157.44,
+      385.92,
+      163.68
+     ],
+     "text": "CANBERRA ACT 2601"
+    },
+    {
+     "bbox": [
+      421.2,
+      125.76,
+      511.2,
+      133.44
+     ],
+     "text": "Telephone (06) 271 6472"
+    },
+    {
+     "bbox": [
+      421.44,
+      136.08,
+      467.52,
+      142.32
+     ],
+     "text": "Telex 61 289"
+    },
+    {
+     "bbox": [
+      421.2,
+      146.64,
+      500.88,
+      154.32
+     ],
+     "text": "Telefax (06) 272 3650"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       298.56,
+       112.56,
+       349.68,
+       119.28
+      ],
+      "text": "AUSTRALIA"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       298.8,
+       125.76,
+       330.96,
+       133.68
+      ],
+      "text": "Registrar"
+     },
+     {
+      "bbox": [
+       421.2,
+       125.76,
+       511.2,
+       133.44
+      ],
+      "text": "Telephone (06) 271 6472"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       298.8,
+       136.08,
+       370.08,
+       144.24
+      ],
+      "text": "Plant Variety Rights"
+     },
+     {
+      "bbox": [
+       421.44,
+       136.08,
+       467.52,
+       142.32
+      ],
+      "text": "Telex 61 289"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       298.8,
+       146.88,
+       342.24,
+       153.12
+      ],
+      "text": "PO Box 858"
+     },
+     {
+      "bbox": [
+       421.2,
+       146.64,
+       500.88,
+       154.32
+      ],
+      "text": "Telefax (06) 272 3650"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       298.56,
+       157.44,
+       385.92,
+       163.68
+      ],
+      "text": "CANBERRA ACT 2601"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "AUSTRALIA\nRegistrar Telephone (06) 271 6472\nPlant Variety Rights Telex 61 289\nPO Box 858 Telefax (06) 272 3650\nCANBERRA ACT 2601",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    298.32,
+    176.64,
+    509.28,
+    259.68
+   ],
+   "confidence": null,
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      298.8,
+      176.64,
+      338.88,
+      183.6
+     ],
+     "text": "BELGIUM"
+    },
+    {
+     "bbox": [
+      298.56,
+      190.08,
+      389.52,
+      198.24
+     ],
+     "text": "Ministere de l’agriculture"
+    },
+    {
+     "bbox": [
+      298.56,
+      200.64,
+      396.96,
+      208.8
+     ],
+     "text": "Service de la protection des"
+    },
+    {
+     "bbox": [
+      302.64,
+      211.2,
+      375.36,
+      219.12
+     ],
+     "text": "obtentions vegetales"
+    },
+    {
+     "bbox": [
+      298.32,
+      221.76,
+      362.4,
+      228.24
+     ],
+     "text": "Manhattan Centre"
+    },
+    {
+     "bbox": [
+      298.32,
+      232.32,
+      394.8,
+      240.24
+     ],
+     "text": "Office Tower, 14eme etage"
+    },
+    {
+     "bbox": [
+      298.32,
+      242.88,
+      387.84,
+      249.84
+     ],
+     "text": "Avenue du Boulevard, 21"
+    },
+    {
+     "bbox": [
+      298.56,
+      253.2,
+      360.96,
+      259.68
+     ],
+     "text": "B-1210 Bruxelles"
+    },
+    {
+     "bbox": [
+      421.2,
+      190.08,
+      509.28,
+      198.0
+     ],
+     "text": "Telephone (02) 211 7211"
+    },
+    {
+     "bbox": [
+      421.2,
+      200.64,
+      490.32,
+      208.8
+     ],
+     "text": "Telex 22 033 agrila"
+    },
+    {
+     "bbox": [
+      421.2,
+      211.2,
+      500.4,
+      218.4
+     ],
+     "text": "Telefax (02) 211 7216"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       298.8,
+       176.64,
+       338.88,
+       183.6
+      ],
+      "text": "BELGIUM"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       298.56,
+       190.08,
+       389.52,
+       198.24
+      ],
+      "text": "Ministere de l’agriculture"
+     },
+     {
+      "bbox": [
+       421.2,
+       190.08,
+       509.28,
+       198.0
+      ],
+      "text": "Telephone (02) 211 7211"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       298.56,
+       200.64,
+       396.96,
+       208.8
+      ],
+      "text": "Service de la protection des"
+     },
+     {
+      "bbox": [
+       421.2,
+       200.64,
+       490.32,
+       208.8
+      ],
+      "text": "Telex 22 033 agrila"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       302.64,
+       211.2,
+       375.36,
+       219.12
+      ],
+      "text": "obtentions vegetales"
+     },
+     {
+      "bbox": [
+       421.2,
+       211.2,
+       500.4,
+       218.4
+      ],
+      "text": "Telefax (02) 211 7216"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       298.32,
+       221.76,
+       362.4,
+       228.24
+      ],
+      "text": "Manhattan Centre"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       298.32,
+       232.32,
+       394.8,
+       240.24
+      ],
+      "text": "Office Tower, 14eme etage"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       298.32,
+       242.88,
+       387.84,
+       249.84
+      ],
+      "text": "Avenue du Boulevard, 21"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       298.56,
+       253.2,
+       360.96,
+       259.68
+      ],
+      "text": "B-1210 Bruxelles"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "BELGIUM\nMinistere de l’agriculture Telephone (02) 211 7211\nService de la protection des Telex 22 033 agrila\nobtentions vegetales Telefax (02) 211 7216\nManhattan Centre\nOffice Tower, 14eme etage\nAvenue du Boulevard, 21\nB-1210 Bruxelles",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    298.32,
+    272.4,
+    336.48,
+    279.12
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      298.32,
+      272.4,
+      336.48,
+      279.12
+     ],
+     "text": "CANADA"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "CANADA",
+   "text_format": "plain",
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "bbox": [
+    298.32,
+    284.88,
+    521.52,
+    356.16
+   ],
+   "confidence": null,
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      298.32,
+      285.36,
+      396.72,
+      291.6
+     ],
+     "text": "The Commissioner of Plant"
+    },
+    {
+     "bbox": [
+      303.12,
+      295.92,
+      362.64,
+      304.08
+     ],
+     "text": "Breeders’ Rights"
+    },
+    {
+     "bbox": [
+      298.32,
+      306.72,
+      382.8,
+      313.2
+     ],
+     "text": "Plant Products Division"
+    },
+    {
+     "bbox": [
+      298.56,
+      317.52,
+      366.0,
+      325.68
+     ],
+     "text": "K.W. Neatby Bldg."
+    },
+    {
+     "bbox": [
+      298.32,
+      328.32,
+      358.8,
+      336.48
+     ],
+     "text": "960 Carling Ave."
+    },
+    {
+     "bbox": [
+      298.32,
+      338.88,
+      355.44,
+      345.84
+     ],
+     "text": "Ottawa, Ontario"
+    },
+    {
+     "bbox": [
+      298.56,
+      349.92,
+      332.4,
+      356.16
+     ],
+     "text": "KIA 0C6"
+    },
+    {
+     "bbox": [
+      421.2,
+      284.88,
+      515.76,
+      293.28
+     ],
+     "text": "Telephone (613) 995 7900"
+    },
+    {
+     "bbox": [
+      420.96,
+      295.44,
+      521.52,
+      303.6
+     ],
+     "text": "Telex 053-3283 canagric ott"
+    },
+    {
+     "bbox": [
+      421.2,
+      306.24,
+      504.96,
+      313.92
+     ],
+     "text": "Telefax (613) 992 5219"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       298.32,
+       285.36,
+       396.72,
+       291.6
+      ],
+      "text": "The Commissioner of Plant"
+     },
+     {
+      "bbox": [
+       421.2,
+       284.88,
+       515.76,
+       293.28
+      ],
+      "text": "Telephone (613) 995 7900"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       303.12,
+       295.92,
+       362.64,
+       304.08
+      ],
+      "text": "Breeders’ Rights"
+     },
+     {
+      "bbox": [
+       420.96,
+       295.44,
+       521.52,
+       303.6
+      ],
+      "text": "Telex 053-3283 canagric ott"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       298.32,
+       306.72,
+       382.8,
+       313.2
+      ],
+      "text": "Plant Products Division"
+     },
+     {
+      "bbox": [
+       421.2,
+       306.24,
+       504.96,
+       313.92
+      ],
+      "text": "Telefax (613) 992 5219"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       298.56,
+       317.52,
+       366.0,
+       325.68
+      ],
+      "text": "K.W. Neatby Bldg."
+     }
+    ],
+    [
+     {
+      "bbox": [
+       298.32,
+       328.32,
+       358.8,
+       336.48
+      ],
+      "text": "960 Carling Ave."
+     }
+    ],
+    [
+     {
+      "bbox": [
+       298.32,
+       338.88,
+       355.44,
+       345.84
+      ],
+      "text": "Ottawa, Ontario"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       298.56,
+       349.92,
+       332.4,
+       356.16
+      ],
+      "text": "KIA 0C6"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "The Commissioner of Plant Telephone (613) 995 7900\nBreeders’ Rights Telex 053-3283 canagric ott\nPlant Products Division Telefax (613) 992 5219\nK.W. Neatby Bldg.\n960 Carling Ave.\nOttawa, Ontario\nKIA 0C6",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    298.56,
+    368.88,
+    522.24,
+    442.56
+   ],
+   "confidence": null,
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      298.56,
+      368.88,
+      381.36,
+      375.84
+     ],
+     "text": "CZECHOSLOVAKIA"
+    },
+    {
+     "bbox": [
+      298.56,
+      381.84,
+      368.4,
+      389.76
+     ],
+     "text": "Federal Ministry of"
+    },
+    {
+     "bbox": [
+      303.12,
+      392.4,
+      336.72,
+      400.08
+     ],
+     "text": "Economy"
+    },
+    {
+     "bbox": [
+      298.56,
+      402.72,
+      381.84,
+      410.64
+     ],
+     "text": "Division of Agriculture"
+    },
+    {
+     "bbox": [
+      303.12,
+      413.28,
+      336.0,
+      419.52
+     ],
+     "text": "and Food"
+    },
+    {
+     "bbox": [
+      298.56,
+      423.84,
+      378.48,
+      432.0
+     ],
+     "text": "Nabr. kpt. Jarose 1000"
+    },
+    {
+     "bbox": [
+      299.76,
+      434.64,
+      356.4,
+      442.56
+     ],
+     "text": "170 32 Prague 7"
+    },
+    {
+     "bbox": [
+      421.2,
+      380.88,
+      522.24,
+      389.04
+     ],
+     "text": "Telephone 0042-2-389 2279"
+    },
+    {
+     "bbox": [
+      421.44,
+      391.92,
+      472.08,
+      398.16
+     ],
+     "text": "Telex 121 404"
+    },
+    {
+     "bbox": [
+      421.2,
+      402.24,
+      482.16,
+      408.72
+     ],
+     "text": "Telexfax 37 5641"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       298.56,
+       368.88,
+       381.36,
+       375.84
+      ],
+      "text": "CZECHOSLOVAKIA"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       298.56,
+       381.84,
+       368.4,
+       389.76
+      ],
+      "text": "Federal Ministry of"
+     },
+     {
+      "bbox": [
+       421.2,
+       380.88,
+       522.24,
+       389.04
+      ],
+      "text": "Telephone 0042-2-389 2279"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       303.12,
+       392.4,
+       336.72,
+       400.08
+      ],
+      "text": "Economy"
+     },
+     {
+      "bbox": [
+       421.44,
+       391.92,
+       472.08,
+       398.16
+      ],
+      "text": "Telex 121 404"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       298.56,
+       402.72,
+       381.84,
+       410.64
+      ],
+      "text": "Division of Agriculture"
+     },
+     {
+      "bbox": [
+       421.2,
+       402.24,
+       482.16,
+       408.72
+      ],
+      "text": "Telexfax 37 5641"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       303.12,
+       413.28,
+       336.0,
+       419.52
+      ],
+      "text": "and Food"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       298.56,
+       423.84,
+       378.48,
+       432.0
+      ],
+      "text": "Nabr. kpt. Jarose 1000"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       299.76,
+       434.64,
+       356.4,
+       442.56
+      ],
+      "text": "170 32 Prague 7"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "CZECHOSLOVAKIA\nFederal Ministry of Telephone 0042-2-389 2279\nEconomy Telex 121 404\nDivision of Agriculture Telexfax 37 5641\nand Food\nNabr. kpt. Jarose 1000\n170 32 Prague 7",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    298.8,
+    454.08,
+    344.16,
+    460.8
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      298.8,
+      454.08,
+      344.16,
+      460.8
+     ],
+     "text": "DENMARK"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "DENMARK",
+   "text_format": "plain",
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "bbox": [
+    298.56,
+    466.56,
+    499.44,
+    505.68
+   ],
+   "confidence": null,
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      298.56,
+      467.28,
+      373.92,
+      475.68
+     ],
+     "text": "Plantenyhedsnaevnet"
+    },
+    {
+     "bbox": [
+      298.56,
+      478.08,
+      359.76,
+      486.0
+     ],
+     "text": "Teglvaerksvej 10"
+    },
+    {
+     "bbox": [
+      298.56,
+      488.88,
+      327.36,
+      496.8
+     ],
+     "text": "Tystofte"
+    },
+    {
+     "bbox": [
+      299.04,
+      499.2,
+      374.16,
+      505.68
+     ],
+     "text": "DK-4230 Skaelskoer"
+    },
+    {
+     "bbox": [
+      421.44,
+      466.56,
+      499.44,
+      474.72
+     ],
+     "text": "Telephone 53 59 6141"
+    },
+    {
+     "bbox": [
+      421.68,
+      477.84,
+      445.92,
+      483.84
+     ],
+     "text": "Telex -"
+    },
+    {
+     "bbox": [
+      421.68,
+      488.16,
+      490.56,
+      494.4
+     ],
+     "text": "Telefax 53 59 0166"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       298.56,
+       467.28,
+       373.92,
+       475.68
+      ],
+      "text": "Plantenyhedsnaevnet"
+     },
+     {
+      "bbox": [
+       421.44,
+       466.56,
+       499.44,
+       474.72
+      ],
+      "text": "Telephone 53 59 6141"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       298.56,
+       478.08,
+       359.76,
+       486.0
+      ],
+      "text": "Teglvaerksvej 10"
+     },
+     {
+      "bbox": [
+       421.68,
+       477.84,
+       445.92,
+       483.84
+      ],
+      "text": "Telex -"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       298.56,
+       488.88,
+       327.36,
+       496.8
+      ],
+      "text": "Tystofte"
+     },
+     {
+      "bbox": [
+       421.68,
+       488.16,
+       490.56,
+       494.4
+      ],
+      "text": "Telefax 53 59 0166"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       299.04,
+       499.2,
+       374.16,
+       505.68
+      ],
+      "text": "DK-4230 Skaelskoer"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "Plantenyhedsnaevnet Telephone 53 59 6141\nTeglvaerksvej 10 Telex -\nTystofte Telefax 53 59 0166\nDK-4230 Skaelskoer",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    299.04,
+    518.16,
+    335.52,
+    525.12
+   ],
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      299.04,
+      518.16,
+      335.52,
+      525.12
+     ],
+     "text": "FRANCE"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "FRANCE",
+   "text_format": "plain",
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "bbox": [
+    298.8,
+    530.4,
+    501.12,
+    568.8
+   ],
+   "confidence": null,
+   "id": "e22",
+   "lines": [
+    {
+     "bbox": [
+      298.8,
+      530.88,
+      396.96,
+      539.04
+     ],
+     "text": "Comite de la protection des"
+    },
+    {
+     "bbox": [
+      303.36,
+      541.44,
+      375.84,
+      549.36
+     ],
+     "text": "obtentions vegetales"
+    },
+    {
+     "bbox": [
+      300.24,
+      552.0,
+      363.12,
+      558.24
+     ],
+     "text": "1. rue Jean Nicot"
+    },
+    {
+     "bbox": [
+      299.28,
+      562.56,
+      348.96,
+      568.8
+     ],
+     "text": "F-75007 Paris"
+    },
+    {
+     "bbox": [
+      421.68,
+      530.4,
+      501.12,
+      538.32
+     ],
+     "text": "Telephone 42 75 9314"
+    },
+    {
+     "bbox": [
+      421.92,
+      540.96,
+      472.32,
+      547.2
+     ],
+     "text": "Telex 250 648"
+    },
+    {
+     "bbox": [
+      421.92,
+      551.28,
+      490.32,
+      557.76
+     ],
+     "text": "Telefax 42 75 9425"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       298.8,
+       530.88,
+       396.96,
+       539.04
+      ],
+      "text": "Comite de la protection des"
+     },
+     {
+      "bbox": [
+       421.68,
+       530.4,
+       501.12,
+       538.32
+      ],
+      "text": "Telephone 42 75 9314"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       303.36,
+       541.44,
+       375.84,
+       549.36
+      ],
+      "text": "obtentions vegetales"
+     },
+     {
+      "bbox": [
+       421.92,
+       540.96,
+       472.32,
+       547.2
+      ],
+      "text": "Telex 250 648"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       300.24,
+       552.0,
+       363.12,
+       558.24
+      ],
+      "text": "1. rue Jean Nicot"
+     },
+     {
+      "bbox": [
+       421.92,
+       551.28,
+       490.32,
+       557.76
+      ],
+      "text": "Telefax 42 75 9425"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       299.28,
+       562.56,
+       348.96,
+       568.8
+      ],
+      "text": "F-75007 Paris"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "Comite de la protection des Telephone 42 75 9314\nobtentions vegetales Telex 250 648\n1. rue Jean Nicot Telefax 42 75 9425\nF-75007 Paris",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    299.04,
+    581.76,
+    373.68,
+    633.36
+   ],
+   "id": "e23",
+   "lines": [
+    {
+     "bbox": [
+      299.04,
+      581.76,
+      344.16,
+      588.72
+     ],
+     "text": "GERMANY"
+    },
+    {
+     "bbox": [
+      299.28,
+      594.96,
+      356.16,
+      601.44
+     ],
+     "text": "Budessortenamt"
+    },
+    {
+     "bbox": [
+      299.28,
+      605.52,
+      365.76,
+      612.0
+     ],
+     "text": "Osterfelddamm 80"
+    },
+    {
+     "bbox": [
+      299.04,
+      616.08,
+      363.12,
+      622.56
+     ],
+     "text": "Postfach 61 04 40"
+    },
+    {
+     "bbox": [
+      299.52,
+      626.88,
+      373.68,
+      633.36
+     ],
+     "text": "D-3000 Hannover 61"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "GERMANY\nBudessortenamt\nOsterfelddamm 80\nPostfach 61 04 40\nD-3000 Hannover 61",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    299.28,
+    645.6,
+    506.88,
+    697.68
+   ],
+   "confidence": null,
+   "id": "e24",
+   "lines": [
+    {
+     "bbox": [
+      299.52,
+      645.6,
+      343.44,
+      652.8
+     ],
+     "text": "HUNGARY"
+    },
+    {
+     "bbox": [
+      299.28,
+      658.56,
+      406.56,
+      665.04
+     ],
+     "text": "Office national des inventions"
+    },
+    {
+     "bbox": [
+      299.28,
+      668.64,
+      402.96,
+      677.04
+     ],
+     "text": "Orszagos Talalmanyi Hivatal"
+    },
+    {
+     "bbox": [
+      299.52,
+      679.2,
+      384.48,
+      685.68
+     ],
+     "text": "Garibaldi-u.2 - B.P. 552"
+    },
+    {
+     "bbox": [
+      299.52,
+      689.76,
+      368.4,
+      697.68
+     ],
+     "text": "H-1370 Budapest 5"
+    },
+    {
+     "bbox": [
+      422.16,
+      657.6,
+      506.88,
+      666.0
+     ],
+     "text": "Telephone (01) 112 893"
+    },
+    {
+     "bbox": [
+      422.16,
+      668.16,
+      493.44,
+      674.64
+     ],
+     "text": "Telex 224 700 oth h"
+    },
+    {
+     "bbox": [
+      422.16,
+      678.72,
+      453.36,
+      684.96
+     ],
+     "text": "Telefax -"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       299.52,
+       645.6,
+       343.44,
+       652.8
+      ],
+      "text": "HUNGARY"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       299.28,
+       658.56,
+       406.56,
+       665.04
+      ],
+      "text": "Office national des inventions"
+     },
+     {
+      "bbox": [
+       422.16,
+       657.6,
+       506.88,
+       666.0
+      ],
+      "text": "Telephone (01) 112 893"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       299.28,
+       668.64,
+       402.96,
+       677.04
+      ],
+      "text": "Orszagos Talalmanyi Hivatal"
+     },
+     {
+      "bbox": [
+       422.16,
+       668.16,
+       493.44,
+       674.64
+      ],
+      "text": "Telex 224 700 oth h"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       299.52,
+       679.2,
+       384.48,
+       685.68
+      ],
+      "text": "Garibaldi-u.2 - B.P. 552"
+     },
+     {
+      "bbox": [
+       422.16,
+       678.72,
+       453.36,
+       684.96
+      ],
+      "text": "Telefax -"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       299.52,
+       689.76,
+       368.4,
+       697.68
+      ],
+      "text": "H-1370 Budapest 5"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "HUNGARY\nOffice national des inventions Telephone (01) 112 893\nOrszagos Talalmanyi Hivatal Telex 224 700 oth h\nGaribaldi-u.2 - B.P. 552 Telefax -\nH-1370 Budapest 5",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    421.92,
+    594.0,
+    510.96,
+    622.56
+   ],
+   "id": "e25",
+   "lines": [
+    {
+     "bbox": [
+      421.92,
+      594.0,
+      510.96,
+      602.64
+     ],
+     "text": "Telephone (0511) 5704-1"
+    },
+    {
+     "bbox": [
+      421.92,
+      604.8,
+      501.84,
+      611.28
+     ],
+     "text": "Telex 921 {09 bsaha d"
+    },
+    {
+     "bbox": [
+      422.16,
+      615.36,
+      507.6,
+      622.56
+     ],
+     "text": "Telefax (0511) 56 33 62"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Telephone (0511) 5704-1\nTelex 921 {09 bsaha d\nTelefax (0511) 56 33 62",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    36.72,
+    794.16,
+    48.24,
+    801.84
+   ],
+   "id": "e26",
+   "lines": [
+    {
+     "bbox": [
+      36.72,
+      794.16,
+      48.24,
+      801.84
+     ],
+     "text": "22"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "22",
+   "text_format": "plain",
+   "type": "page_number",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

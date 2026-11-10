@@ -16,7 +16,7 @@ Tesseract's own words and scores them; this script only runs models.
   python layout_models.py ovisocr3-layout --set b           # generative, layout-only prompt
   python layout_models.py ovisocr3-layout --pages V4_p27 --device cuda --dtype fp16   # Kaggle T4
 
-Options: --set a..s (regions.py), --pages KEY,KEY, --device cpu|cuda,
+Options: --set a..t (regions.py), --pages KEY,KEY, --device cpu|cuda,
 --dtype fp32|fp16|bf16, --threads N (CPU), --dpi N (render, default 200),
 --max-new-tokens N (generative, default 4096), --out DIR (default outputs/).
 Pages already done are skipped unless --force. Run one engine at a time,
@@ -41,10 +41,10 @@ from pathlib import Path
 HERE = Path(__file__).parent
 ROOT = HERE.parent.parent
 sys.path.insert(0, str(HERE))
-from regions import DOCS, SAMPLE, SAMPLE_B, SAMPLE_C, SAMPLE_D, SAMPLE_E, SAMPLE_F, SAMPLE_L, SAMPLE_S  # noqa: E402
+from regions import DOCS, SAMPLE, SAMPLE_B, SAMPLE_C, SAMPLE_D, SAMPLE_E, SAMPLE_F, SAMPLE_L, SAMPLE_S, SAMPLE_T  # noqa: E402
 
 SETS = {"a": SAMPLE, "b": SAMPLE_B, "c": SAMPLE_C, "d": SAMPLE_D, "e": SAMPLE_E, "f": SAMPLE_F,
-        "l": SAMPLE_L, "s": SAMPLE_S}
+        "l": SAMPLE_L, "s": SAMPLE_S, "t": SAMPLE_T}
 
 REVISIONS = {
     # The revision the GLM-OCR service pins (glm-ocr/Dockerfile).
