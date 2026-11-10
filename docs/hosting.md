@@ -71,15 +71,22 @@ covers Spaces if you would rather use those.
 A billing account is required on Google Cloud even to use the free tier. §6 sets
 up a budget alert so you find out immediately if anything ever bills.
 
-> **Tables on scanned pages need memory (ADR-046/047).** The image ships with
-> Table Transformer switched on: scanned tables come back as real Markdown
-> tables. It costs about 1 GB more memory (four scanned conversions at once peak
-> near 1.9 GB) and makes the image about 3.9 GB instead of 2.0 GB. On **Hugging
-> Face Spaces** (16 GB) there is nothing to do. On **Cloud Run**, either give the
-> service **4 GiB** (§4.6) or switch tables off with `WISEAU_TABLES` set to an
-> empty value (§7). On **Render** (512 MB), switch them off. Switching off keeps
-> everything else exactly as it was; scanned tables then come back as lines of
-> text.
+> **The model passes on scanned pages need memory (ADR-046/047/048).** The
+> image ships with two passes switched on:
+> - **Table Transformer**: scanned tables come back as real Markdown tables.
+> - **PP-DocLayoutV3**: scanned pages get `##` headings and proper paragraph
+>   breaks.
+>
+> Together they cost about 1.5 GB more memory (four scanned conversions at once
+> peak near 2.2 GB) and about 5–8 s more per scanned page. They make the image
+> about 4.4 GB instead of 2.0 GB.
+> - On **Hugging Face Spaces** (16 GB) there is nothing to do.
+> - On **Cloud Run**, either give the service **4 GiB** (§4.6), or switch both
+>   off with `WISEAU_TABLES` and `WISEAU_LAYOUT` set to empty values (§7).
+> - On **Render** (512 MB), switch them off.
+>
+> Switching off keeps everything else exactly as it was. Scanned tables then
+> come back as lines of text, and scanned pages without headings.
 
 ---
 
@@ -169,7 +176,7 @@ tab:
 | Setting | Value | Why |
 | ------- | ----- | --- |
 | **Container port** | `8080` (leave the default) | Cloud Run injects `PORT=8080` and the image binds whatever `$PORT` says (ADR-029). Do not change it to 7860. |
-| **Memory** | **2 GiB** (4 GiB to keep tables on) | Headless Chromium plus a PDF parse will exceed 512 MB and be killed mid-request. The table pass on scanned pages adds about 1 GB more: at 2 GiB, set `WISEAU_TABLES` to empty (§7); at 4 GiB, leave it. 4 GiB uses the free allowance of GiB-seconds twice as fast (§6). |
+| **Memory** | **2 GiB** (4 GiB to keep tables on) | Headless Chromium plus a PDF parse will exceed 512 MB and be killed mid-request. The model passes on scanned pages (tables, layout) add about 1.5 GB more: at 2 GiB, set `WISEAU_TABLES` and `WISEAU_LAYOUT` to empty (§7); at 4 GiB, leave them. 4 GiB uses the free allowance of GiB-seconds twice as fast (§6). |
 | **CPU** | 1 | Enough; more only burns free-tier seconds faster. |
 | **Request timeout** | **300** seconds | A cold start plus a slow render can take a while. The default is usually already 300. |
 | **CPU allocation** | **CPU is only allocated during request processing** | This is what makes idle time free. |
@@ -288,6 +295,7 @@ service (or as environment variables on any other host). None are required.
 | `WISEAU_PDF_ENGINE` | `pymupdf` | `docling` makes the slow, high-fidelity engine the default. Needs `WISEAU_DOCLING_BASE` too, and a second service to run docling — see `docling/README.md`. `glm-ocr` does the same for the scan-oriented GLM-OCR engine (`WISEAU_GLM_OCR_BASE`, `glm-ocr/README.md`). GLM-OCR only receives a PDF's image-only pages; pages with a text layer are read locally (ADR-036). Leave it alone for now. |
 | `WISEAU_KEYWORD_METHODS` | unset (`frequency,yake`) | Which keyword methods `POST /keywords` runs by default (ADR-032). The default pair needs nothing beyond the image. Set it to `all` **only** after installing `requirements-keywords.txt` in the Dockerfile — `spacy` adds a model download and `keybert` pulls PyTorch, which is a much bigger image and tens of seconds per request on free CPU. A caller can always name the slow methods per request without you changing this. |
 | `WISEAU_TABLES` | `tatr` (in the image) | Table Transformer on scanned pages: tables come back as Markdown tables (ADR-046). **Set it to an empty value on a host with 2 GiB or less** (Cloud Run at 2 GiB, Render): it needs about 1 GB more memory. Off, everything else is unchanged. |
+| `WISEAU_LAYOUT` | `ppdl` (in the image) | PP-DocLayoutV3 on scanned pages: headings come back as `##` headings and run-together blocks are split, every word unchanged (ADR-048). About 3.6 s more per scanned page and 0.8 GB more memory under load. **Set it to an empty value on a host with 2 GiB or less**, alongside `WISEAU_TABLES`. Off, everything else is unchanged. |
 | `WISEAU_ALLOW_PRIVATE_URLS` | *(unset)* | Leave unset. Setting it lets callers make your server fetch private/internal addresses (ADR-021). |
 
 After changing any of these, Cloud Run deploys a new revision automatically —
@@ -406,9 +414,9 @@ rendering to struggle in 512 MB.
 7. **Create Web Service.**
 
 Render injects its own `PORT`; the image follows it (ADR-029). One thing to
-set: under **Environment**, add `WISEAU_TABLES` with an **empty** value. The
-table pass on scanned pages needs about 1 GB more than Render's 512 MB has
-(§2). Your URL is `https://<name>.onrender.com` and your
+set: under **Environment**, add `WISEAU_TABLES` and `WISEAU_LAYOUT`, each with an
+**empty** value. The model passes on scanned pages need about 1.5 GB more than
+Render's 512 MB has (§2). Your URL is `https://<name>.onrender.com` and your
 connector URL is `https://<name>.onrender.com/mcp`.
 
 Free services sleep after 15 minutes idle and take ~50 seconds to wake, so the

@@ -60,10 +60,11 @@ jobs:
           docker build --build-arg TABLES=0 -t markdown-engine-lean ./backend
           docker run --rm -i markdown-engine-lean python - <<'PY'
           import pymupdf
-          from parsers import tables
+          from parsers import layout, tables
           from parsers.file_parser import pdf_to_markdown
 
           assert not tables.enabled(), "the lean image should not carry PyTorch"
+          assert not layout.enabled(), "the lean image should not carry the layout pass"
           src = pymupdf.open()
           src.new_page().insert_text((72, 120), "Lean Image OCR", fontsize=48)
           pix = src[0].get_pixmap(dpi=200)
@@ -155,6 +156,46 @@ jobs:
           assert "| Height |" in out or "<td>Height</td>" in out, "the table did not come back as a table"
           assert "three sites" in out, "the prose below the table was lost"
           print("in-container table pass OK")
+          PY
+
+      - name: Recover headings on a scanned page inside the container (ADR-048)
+        run: |
+          # The image ships the PP-DocLayoutV3 layout pass on (WISEAU_LAYOUT=ppdl),
+          # its model fetched at build time and loaded offline. Two bold headings on
+          # an image-only page must come back as ## headings, the body text intact.
+          docker exec md-engine sh -c 'test "$WISEAU_LAYOUT" = ppdl'
+          docker exec -i md-engine python - <<'PY'
+          import pymupdf
+          from parsers import layout
+          from parsers.file_parser import pdf_to_markdown
+
+          assert layout.enabled(), "the image should carry the layout pass"
+          src = pymupdf.open()
+          page = src.new_page()
+          page.insert_text((72, 90), "Comparative Growing Trials", fontsize=16, fontname="hebo")
+          body = ["All characteristics described below are from comparative growing",
+                  "trials conducted at two sites over two seasons. Twenty plants of",
+                  "each variety were grown under commercial conditions."]
+          y = 120
+          for line in body:
+              page.insert_text((72, y), line, fontsize=11)
+              y += 15
+          page.insert_text((72, y + 30), "Origin", fontsize=16, fontname="hebo")
+          y += 60
+          for line in ["The variety arose as a chance seedling found on the applicant's",
+                       "property and was selected for its compact growth habit."]:
+              page.insert_text((72, y), line, fontsize=11)
+              y += 15
+          pix = src[0].get_pixmap(dpi=200)
+          scan = pymupdf.open()
+          p = scan.new_page(width=pix.width * 72 / 200, height=pix.height * 72 / 200)
+          p.insert_image(p.rect, pixmap=pix)   # image only: no text layer
+
+          out = pdf_to_markdown(scan.tobytes())
+          print(out)
+          assert "## Comparative Growing Trials" in out and "## Origin" in out, "headings did not come back"
+          assert "commercial conditions" in out and "compact growth habit" in out, "body text lost"
+          print("in-container layout pass OK")
           PY
 
       - name: Render a real external URL end-to-end

@@ -35,7 +35,7 @@ from functools import lru_cache
 
 import pymupdf
 
-from . import borders, photo_regions, tables, tesseract_layout
+from . import borders, layout as layout_pass, photo_regions, tables, tesseract_layout
 from . import document as ir
 from .reading_order import Line, order_paragraphs, paragraph_text
 from .serializer import render_elements
@@ -118,6 +118,19 @@ class TesseractEngine(OcrEngine):
         return render_elements(self.read_elements(page, dpi=dpi, language=language))
 
     def read_elements(self, page: pymupdf.Page, *, dpi: int, language: str) -> list[ir.Element]:
+        elements = self._read_elements(page, dpi=dpi, language=language)
+        # Opt-in (ADR-048): block boundaries and types from a layout detector,
+        # regrouping the lines already read; no word changes. It sees the page as
+        # printed (before border cleanup), as it was validated.
+        if layout_pass.enabled() and elements:
+            try:
+                elements = layout_pass.read_layout(page, elements)
+            except Exception as exc:  # the pass is optional: degrade, never fail (ADR-048)
+                layout_pass.logger.warning("layout pass failed; page kept without it",
+                                           extra={"wiseau": {"error": f"{type(exc).__name__}: {exc}"}})
+        return elements
+
+    def _read_elements(self, page: pymupdf.Page, *, dpi: int, language: str) -> list[ir.Element]:
         # Every pass below reads the same cleaned pixels: a guard that still saw the
         # junk could otherwise out-count, and override, the cleaned text.
         cleaned = borders.cleaned_page(page) if BORDER_CLEANUP else None

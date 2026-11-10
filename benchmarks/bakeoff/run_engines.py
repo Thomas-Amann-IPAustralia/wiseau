@@ -18,6 +18,7 @@ side by side: concurrent runs on a small box inflate every timing (post-mortem
   python benchmarks/bakeoff/run_engines.py trust-layer    # default path before ADR-040 (reads a scan's invisible layer)
   python benchmarks/bakeoff/run_engines.py no-borders     # default path before scanner-band cleanup
   python benchmarks/bakeoff/run_engines.py tables-tatr    # default path + Table Transformer tables (ADR-046)
+  python benchmarks/bakeoff/run_engines.py layout-ppdl    # the image's path: tables + PP-DocLayoutV3 layout regions (ADR-048)
   python benchmarks/bakeoff/run_engines.py pre-VARIANT    # default path on preprocessed pixels (preprocess.py;
                                                           #   ident, deskew, norm, sauvola, denoise; roadmap 1.2)
   python benchmarks/bakeoff/run_engines.py rec-MODEL      # psm 3 layout, lines re-read by MODEL (ml_engines.py;
@@ -53,11 +54,11 @@ import pymupdf
 HERE = Path(__file__).parent
 ROOT = HERE.parent.parent
 sys.path.insert(0, str(HERE))
-from regions import DOCS, SAMPLE, SAMPLE_B, SAMPLE_C, SAMPLE_D, SAMPLE_E, SAMPLE_F, SAMPLE_L, SAMPLE_S  # noqa: E402
+from regions import DOCS, SAMPLE, SAMPLE_B, SAMPLE_C, SAMPLE_D, SAMPLE_E, SAMPLE_F, SAMPLE_L, SAMPLE_S, SAMPLE_T  # noqa: E402
 
 _SET = sys.argv[sys.argv.index("--set") + 1].lower() if "--set" in sys.argv else "a"
 ACTIVE = {"a": SAMPLE, "b": SAMPLE_B, "c": SAMPLE_C, "d": SAMPLE_D, "e": SAMPLE_E, "f": SAMPLE_F,
-          "l": SAMPLE_L, "s": SAMPLE_S}[_SET]
+          "l": SAMPLE_L, "s": SAMPLE_S, "t": SAMPLE_T}[_SET]
 
 
 def pages():
@@ -102,6 +103,16 @@ def tables_tatr_engine():
     import os
 
     os.environ["WISEAU_TABLES"] = "tatr"
+    return pymupdf_engine()
+
+
+def layout_ppdl_engine():
+    """The Docker image's path: tables (ADR-046) and layout regions (ADR-048) on.
+    Writes the IR as <page>.json too, like `pymupdf`."""
+    import os
+
+    os.environ["WISEAU_TABLES"] = "tatr"
+    os.environ["WISEAU_LAYOUT"] = "ppdl"
     return pymupdf_engine()
 
 
@@ -274,6 +285,8 @@ def main() -> None:
         run = forced_ocr_engine()
     elif engine == "tables-tatr":
         run = tables_tatr_engine()
+    elif engine == "layout-ppdl":
+        run = layout_ppdl_engine()
     elif engine == "tesseract-psm3":
         run = tesseract_psm3_engine()
     elif engine == "tesseract-adr035":

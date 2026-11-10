@@ -29,28 +29,33 @@ WORKDIR /app
 COPY requirements.txt requirements-mcp.txt ./
 RUN pip install --no-cache-dir -r requirements.txt -r requirements-mcp.txt
 
-# Tables on scanned pages, read cell by cell by Table Transformer (ADR-046): on
-# by default in this image. It adds CPU PyTorch and two pinned models (~1.2 GB of
-# image, ~1 GB more memory, +2 s per scanned page), which suits the 16 GB Space.
+# The model passes on scanned pages, on by default in this image: tables read
+# cell by cell by Table Transformer (ADR-046/047) and layout regions from
+# PP-DocLayoutV3 (ADR-048: headings, block boundaries, captions, page furniture).
+# They add CPU PyTorch and three pinned models (~1.3 GB of image, ~1.5 GB more
+# memory, about +5-8 s per scanned page on one thread), which suits the 16 GB Space.
 # For a host with 2 GiB or less (Cloud Run, Render; docs/hosting.md) build with
 #   docker build --build-arg TABLES=0 .
-# or set WISEAU_TABLES to empty at run time. Without the packages the pass is
-# skipped, never an error. The models are fetched here, at build time, and the
-# container runs offline from them: no conversion depends on Hugging Face.
+# or set WISEAU_TABLES / WISEAU_LAYOUT to empty at run time. Without the packages a
+# pass is skipped, never an error. The models are fetched here, at build time, and
+# the container runs offline from them: no conversion depends on Hugging Face.
 ARG TABLES=1
 ENV HF_HOME=/opt/hf \
     WISEAU_TABLES=tatr \
-    WISEAU_TABLE_THREADS=1
+    WISEAU_TABLE_THREADS=1 \
+    WISEAU_LAYOUT=ppdl \
+    WISEAU_LAYOUT_THREADS=1
 COPY requirements-tables.txt fetch_table_models.py ./
 COPY parsers/tables.py ./pinned_tables.py
+COPY parsers/layout.py ./pinned_layout.py
 RUN if [ "$TABLES" = "1" ]; then \
         pip install --no-cache-dir --index-url https://download.pytorch.org/whl/cpu \
             torch==2.15.0 torchvision==0.29.2 \
         && pip install --no-cache-dir -r requirements-tables.txt \
-        && python fetch_table_models.py pinned_tables.py \
+        && python fetch_table_models.py pinned_tables.py:2 pinned_layout.py:1 \
         && chmod -R a+rX /opt/hf; \
     fi \
-    && rm pinned_tables.py
+    && rm pinned_tables.py pinned_layout.py
 ENV HF_HUB_OFFLINE=1
 
 COPY . .
