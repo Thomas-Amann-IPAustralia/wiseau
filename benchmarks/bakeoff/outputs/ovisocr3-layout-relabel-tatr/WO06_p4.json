@@ -1,0 +1,609 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    43.68,
+    261.36,
+    54.0,
+    269.76
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      43.68,
+      261.36,
+      54.0,
+      269.76
+     ],
+     "text": "10"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "10",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "aside_text"
+  },
+  {
+   "bbox": [
+    43.92,
+    365.52,
+    53.76,
+    374.16
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      43.92,
+      365.52,
+      53.76,
+      374.16
+     ],
+     "text": "15"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "15",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "aside_text"
+  },
+  {
+   "bbox": [
+    42.96,
+    469.92,
+    54.48,
+    478.32
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      42.96,
+      469.92,
+      54.48,
+      478.32
+     ],
+     "text": "20"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "20",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "aside_text"
+  },
+  {
+   "bbox": [
+    43.2,
+    573.36,
+    54.24,
+    582.0
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      43.2,
+      573.36,
+      54.24,
+      582.0
+     ],
+     "text": "25"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "25",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "aside_text"
+  },
+  {
+   "bbox": [
+    43.44,
+    676.56,
+    54.96,
+    685.2
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      43.44,
+      676.56,
+      54.96,
+      685.2
+     ],
+     "text": "30"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "30",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "aside_text"
+  },
+  {
+   "bbox": [
+    86.64,
+    42.48,
+    508.8,
+    49.92
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      86.64,
+      42.48,
+      508.8,
+      49.92
+     ],
+     "text": "WO 2006/070397 PCT/IN2004/000434"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "WO 2006/070397 PCT/IN2004/000434",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    90.0,
+    73.2,
+    526.08,
+    688.32
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      90.0,
+      73.2,
+      523.2,
+      86.16
+     ],
+     "text": "vapors which combine with the water vapors present in the air. The gas thus formed, is"
+    },
+    {
+     "bbox": [
+      90.24,
+      94.8,
+      523.44,
+      106.8
+     ],
+     "text": "highly corrosive and attacks all metallic objects including building structures, sprinkler"
+    },
+    {
+     "bbox": [
+      90.24,
+      115.68,
+      522.96,
+      127.2
+     ],
+     "text": "heads, copper wiring, stainless steel, etc. Therefore, it must be properly vented or used"
+    },
+    {
+     "bbox": [
+      90.48,
+      136.32,
+      312.96,
+      147.6
+     ],
+     "text": "outdoors where the gasses can easily dissipate."
+    },
+    {
+     "bbox": [
+      90.0,
+      157.44,
+      523.44,
+      169.2
+     ],
+     "text": "Nitric Acid (HNO3) though a widely used chemical in many industries it does not enjoy"
+    },
+    {
+     "bbox": [
+      90.24,
+      173.52,
+      523.44,
+      189.6
+     ],
+     "text": "the popularity of hydrochloric or sulfuric acid, as it is more expensive to use than either"
+    },
+    {
+     "bbox": [
+      90.48,
+      198.72,
+      523.44,
+      210.48
+     ],
+     "text": "of them. Nitric acid evolves noxious gas which on combines with water vapors present in"
+    },
+    {
+     "bbox": [
+      90.24,
+      219.6,
+      523.2,
+      230.88
+     ],
+     "text": "the air. The gas is highly corrosive and attacks all metallic objects including building"
+    },
+    {
+     "bbox": [
+      90.72,
+      239.52,
+      523.44,
+      256.32
+     ],
+     "text": "structures, sprinkler heads, copper wiring, stainless steel, etc. Therefore, it must be"
+    },
+    {
+     "bbox": [
+      90.24,
+      255.84,
+      430.08,
+      272.4
+     ],
+     "text": "properly vented or used outdoors where the gasses can easily dissipate."
+    },
+    {
+     "bbox": [
+      90.48,
+      282.0,
+      523.44,
+      295.2
+     ],
+     "text": "Phosphoric Acid (H3PO«), very widely used in the production of agricultural fertilizers"
+    },
+    {
+     "bbox": [
+      90.72,
+      302.88,
+      523.68,
+      314.16
+     ],
+     "text": "and detergent products it is a relatively inexpensive acid. However it still does not"
+    },
+    {
+     "bbox": [
+      90.72,
+      323.28,
+      523.44,
+      334.8
+     ],
+     "text": "compete well with sulfuric and hydrochloric acid as it is a weak acid and does not fully"
+    },
+    {
+     "bbox": [
+      90.72,
+      343.92,
+      522.96,
+      355.44
+     ],
+     "text": "disassociate in water at normal concentrations. This renders it safer to use compared to"
+    },
+    {
+     "bbox": [
+      90.96,
+      364.56,
+      523.44,
+      376.32
+     ],
+     "text": "sulfuric or hydrochloric acid and the evolution of gasses is rare. It tends to buffer"
+    },
+    {
+     "bbox": [
+      90.48,
+      380.88,
+      526.08,
+      394.56
+     ],
+     "text": "neutralization reactions and this makes for a slower reaction that is easier to control. Due"
+    },
+    {
+     "bbox": [
+      90.48,
+      401.76,
+      523.44,
+      418.08
+     ],
+     "text": "to its cost (as compared to sulfuric acid) and availability, phosphoric acid is not"
+    },
+    {
+     "bbox": [
+      90.96,
+      426.96,
+      285.84,
+      438.24
+     ],
+     "text": "commonly used in neutralization system."
+    },
+    {
+     "bbox": [
+      90.96,
+      447.6,
+      523.2,
+      459.36
+     ],
+     "text": "Carbon Dioxide (COz), the third most concentrated gas found in earth’s atmosphere, CO2"
+    },
+    {
+     "bbox": [
+      90.72,
+      468.72,
+      523.44,
+      480.0
+     ],
+     "text": "is itself not an acid. It forms carbonic acid (H2CO3) when dissolved in water; and it is this"
+    },
+    {
+     "bbox": [
+      91.2,
+      489.12,
+      523.68,
+      500.88
+     ],
+     "text": "carbonic acid that brings about the neutralization of alkalinity in solution. The most"
+    },
+    {
+     "bbox": [
+      91.2,
+      509.76,
+      523.44,
+      521.76
+     ],
+     "text": "appealing feature of CO is that it will not lower the pH of water below 7.0 for all"
+    },
+    {
+     "bbox": [
+      90.96,
+      530.16,
+      523.68,
+      542.4
+     ],
+     "text": "practical purposes. Additionally CO. is non corrosive. However as it is heavier than air"
+    },
+    {
+     "bbox": [
+      91.2,
+      551.04,
+      523.68,
+      563.04
+     ],
+     "text": "asphyxiation is a hazard. Carbon dioxide is difficult to use and its use is limited because"
+    },
+    {
+     "bbox": [
+      90.96,
+      571.44,
+      523.2,
+      583.92
+     ],
+     "text": "the gas must be dissolved into solution to be used. This requires the use of a carbonator,"
+    },
+    {
+     "bbox": [
+      91.2,
+      592.32,
+      522.96,
+      603.84
+     ],
+     "text": "or some method to dissolve the gas into solution. Significant out-gassing also occurs,"
+    },
+    {
+     "bbox": [
+      90.72,
+      612.72,
+      523.92,
+      624.72
+     ],
+     "text": "which does not hold a problem unless the process also requires the settling of solids. In"
+    },
+    {
+     "bbox": [
+      91.2,
+      630.48,
+      523.92,
+      645.6
+     ],
+     "text": "cement pouring operations large amounts of alkaline wastewaters are generated. It is an"
+    },
+    {
+     "bbox": [
+      91.2,
+      654.24,
+      522.96,
+      666.0
+     ],
+     "text": "excellent choice for such applications as the site is temporary, the gas is non-hazardous,"
+    },
+    {
+     "bbox": [
+      91.2,
+      674.64,
+      523.44,
+      688.32
+     ],
+     "text": "can be used in-line assuming retention and mixing is considered and is self-buffering so"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "vapors which combine with the water vapors present in the air. The gas thus formed, is\nhighly corrosive and attacks all metallic objects including building structures, sprinkler\nheads, copper wiring, stainless steel, etc. Therefore, it must be properly vented or used\noutdoors where the gasses can easily dissipate.\nNitric Acid (HNO3) though a widely used chemical in many industries it does not enjoy\nthe popularity of hydrochloric or sulfuric acid, as it is more expensive to use than either\nof them. Nitric acid evolves noxious gas which on combines with water vapors present in\nthe air. The gas is highly corrosive and attacks all metallic objects including building\nstructures, sprinkler heads, copper wiring, stainless steel, etc. Therefore, it must be\nproperly vented or used outdoors where the gasses can easily dissipate.\nPhosphoric Acid (H3PO«), very widely used in the production of agricultural fertilizers\nand detergent products it is a relatively inexpensive acid. However it still does not\ncompete well with sulfuric and hydrochloric acid as it is a weak acid and does not fully\ndisassociate in water at normal concentrations. This renders it safer to use compared to\nsulfuric or hydrochloric acid and the evolution of gasses is rare. It tends to buffer\nneutralization reactions and this makes for a slower reaction that is easier to control. Due\nto its cost (as compared to sulfuric acid) and availability, phosphoric acid is not\ncommonly used in neutralization system.\nCarbon Dioxide (COz), the third most concentrated gas found in earth’s atmosphere, CO2\nis itself not an acid. It forms carbonic acid (H2CO3) when dissolved in water; and it is this\ncarbonic acid that brings about the neutralization of alkalinity in solution. The most\nappealing feature of CO is that it will not lower the pH of water below 7.0 for all\npractical purposes. Additionally CO. is non corrosive. However as it is heavier than air\nasphyxiation is a hazard. Carbon dioxide is difficult to use and its use is limited because\nthe gas must be dissolved into solution to be used. This requires the use of a carbonator,\nor some method to dissolve the gas into solution. Significant out-gassing also occurs,\nwhich does not hold a problem unless the process also requires the settling of solids. In\ncement pouring operations large amounts of alkaline wastewaters are generated. It is an\nexcellent choice for such applications as the site is temporary, the gas is non-hazardous,\ncan be used in-line assuming retention and mixing is considered and is self-buffering so",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    90.96,
+    696.0,
+    374.88,
+    707.52
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      90.96,
+      696.0,
+      374.88,
+      707.52
+     ],
+     "text": "regardless of dosage it will not lower the pH below 7.5-7.0."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "regardless of dosage it will not lower the pH below 7.5-7.0.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    72.72,
+    717.6,
+    133.2,
+    728.64
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      72.72,
+      717.6,
+      133.2,
+      728.64
+     ],
+     "text": "Alkaliphiles"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Alkaliphiles",
+   "text_format": "plain",
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "bbox": [
+    109.2,
+    736.8,
+    523.92,
+    748.8
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      109.2,
+      736.8,
+      523.92,
+      748.8
+     ],
+     "text": "Several microorganisms exhibit more than one pH optimum for growth depending on"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Several microorganisms exhibit more than one pH optimum for growth depending on",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    72.96,
+    757.44,
+    522.96,
+    770.16
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      72.96,
+      757.44,
+      522.96,
+      770.16
+     ],
+     "text": "growth conditions, particularly nutrients, metal ions, and temperature. The term “alkaliphile”"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "growth conditions, particularly nutrients, metal ions, and temperature. The term “alkaliphile”",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    295.68,
+    778.32,
+    300.0,
+    786.48
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      295.68,
+      778.32,
+      300.0,
+      786.48
+     ],
+     "text": "3"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "3",
+   "text_format": "plain",
+   "type": "page_number",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    842.0
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

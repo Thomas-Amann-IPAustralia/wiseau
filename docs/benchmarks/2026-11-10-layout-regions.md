@@ -133,6 +133,14 @@ Against docling and GLM-OCR, on the 8 documents every engine has:
    **Heading levels:** every `paragraph_title` is level 2. Level recovery is
    still roadmap 3.1's job.
 
+> **Update (set T, same day):** on 14 held-out pages
+> ([`2026-11-10-layout-regions-set-t.md`](2026-11-10-layout-regions-set-t.md)),
+> OvisOCR3 labels headings and captions better than the detector. Its blocks
+> are the same. Over both sets: 147 vs 139 of 170 headings, and 14 vs 8 of
+> 45 captions. The recommendation below to drop it is withdrawn. Its cost
+> stands, so on CPU the detector is still the practical choice, and the
+> Kaggle GPU leg is worth running.
+
 ## Recommendation
 
 - **Drop OvisOCR3 (and TeleOCR) as candidates.** On the same label set they

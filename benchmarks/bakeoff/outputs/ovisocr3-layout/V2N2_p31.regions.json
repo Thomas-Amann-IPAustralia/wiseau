@@ -1,0 +1,226 @@
+{
+ "model": "ATH-MaaS/OvisOCR3",
+ "revision": "17f255e2c8ae6d18d5d5edb0a474bd4ed39aef90",
+ "prompt": "document_layout",
+ "prompt_sha256": "89bcc73c7340ff9fd83673c1aee2354c2cc735c6eded0ce2aa4501f28b914361",
+ "max_new_tokens": 4096,
+ "do_sample": false,
+ "min_pixels": 200704,
+ "max_pixels": 8294400,
+ "route": "transformers",
+ "load_seconds": 68.19,
+ "device": "cpu",
+ "dtype": "fp32",
+ "threads": 4,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.18",
+  "platform": "Linux-6.18.44-fc-v338-x86_64-with-glibc2.39",
+  "torch": "2.15.0+cpu",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "raw": "[\n    {\n        \"bbox\": [\n            101,\n            58,\n            458,\n            74\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            101,\n            82,\n            449,\n            121\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            102,\n            132,\n            178,\n            146\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            101,\n            143,\n            452,\n            207\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            103,\n            216,\n            323,\n            230\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            103,\n            227,\n            453,\n            254\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            103,\n            264,\n            312,\n            278\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            103,\n            276,\n            467,\n            398\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            105,\n            408,\n            156,\n            422\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            104,\n            418,\n            471,\n            470\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            104,\n            477,\n            472,\n            588\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            492,\n            55,\n            773,\n            69\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            492,\n            67,\n            858,\n            189\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            493,\n            195,\n            859,\n            329\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            493,\n            335,\n            861,\n            504\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            494,\n            512,\n            577,\n            526\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            493,\n            525,\n            856,\n            586\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            104,\n            599,\n            850,\n            884\n        ],\n        \"category\": \"image\"\n    },\n    {\n        \"bbox\": [\n            105,\n            894,\n            866,\n            922\n        ],\n        \"category\": \"vision_footnote\"\n    },\n    {\n        \"bbox\": [\n            848,\n            941,\n            868,\n            953\n        ],\n        \"category\": \"number\"\n    }\n]",
+ "finish_reason": "stop",
+ "input_tokens": 4030,
+ "new_tokens": 1006,
+ "image_grid_thw": [
+  [
+   1,
+   148,
+   104
+  ]
+ ],
+ "generate_seconds": 147.48,
+ "regions": [
+  {
+   "bbox": [
+    101.0,
+    58.0,
+    458.0,
+    74.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    101.0,
+    82.0,
+    449.0,
+    121.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    102.0,
+    132.0,
+    178.0,
+    146.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    101.0,
+    143.0,
+    452.0,
+    207.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    103.0,
+    216.0,
+    323.0,
+    230.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    103.0,
+    227.0,
+    453.0,
+    254.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    103.0,
+    264.0,
+    312.0,
+    278.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    103.0,
+    276.0,
+    467.0,
+    398.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    105.0,
+    408.0,
+    156.0,
+    422.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    104.0,
+    418.0,
+    471.0,
+    470.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    104.0,
+    477.0,
+    472.0,
+    588.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    492.0,
+    55.0,
+    773.0,
+    69.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    492.0,
+    67.0,
+    858.0,
+    189.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    493.0,
+    195.0,
+    859.0,
+    329.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    493.0,
+    335.0,
+    861.0,
+    504.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    494.0,
+    512.0,
+    577.0,
+    526.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    493.0,
+    525.0,
+    856.0,
+    586.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    104.0,
+    599.0,
+    850.0,
+    884.0
+   ],
+   "category": "image"
+  },
+  {
+   "bbox": [
+    105.0,
+    894.0,
+    866.0,
+    922.0
+   ],
+   "category": "vision_footnote"
+  },
+  {
+   "bbox": [
+    848.0,
+    941.0,
+    868.0,
+    953.0
+   ],
+   "category": "number"
+  }
+ ],
+ "seconds": 147.54,
+ "peak_rss_mb": 5244.9,
+ "image_px": [
+  1661,
+  2352
+ ],
+ "page": "V2N2_p31"
+}

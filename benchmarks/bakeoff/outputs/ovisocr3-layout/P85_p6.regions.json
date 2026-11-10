@@ -1,0 +1,100 @@
+{
+ "model": "ATH-MaaS/OvisOCR3",
+ "revision": "17f255e2c8ae6d18d5d5edb0a474bd4ed39aef90",
+ "prompt": "document_layout",
+ "prompt_sha256": "89bcc73c7340ff9fd83673c1aee2354c2cc735c6eded0ce2aa4501f28b914361",
+ "max_new_tokens": 4096,
+ "do_sample": false,
+ "min_pixels": 200704,
+ "max_pixels": 8294400,
+ "route": "transformers",
+ "load_seconds": 68.19,
+ "device": "cpu",
+ "dtype": "fp32",
+ "threads": 4,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.18",
+  "platform": "Linux-6.18.44-fc-v338-x86_64-with-glibc2.39",
+  "torch": "2.15.0+cpu",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "raw": "[\n    {\n        \"bbox\": [\n            341,\n            151,\n            734,\n            185\n        ],\n        \"category\": \"doc_title\"\n    },\n    {\n        \"bbox\": [\n            218,\n            203,\n            865,\n            306\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            218,\n            307,\n            867,\n            463\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            218,\n            464,\n            866,\n            565\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            218,\n            567,\n            863,\n            688\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            220,\n            705,\n            380,\n            732\n        ],\n        \"category\": \"text\"\n    }\n]",
+ "finish_reason": "stop",
+ "input_tokens": 5402,
+ "new_tokens": 305,
+ "image_grid_thw": [
+  [
+   1,
+   174,
+   120
+  ]
+ ],
+ "generate_seconds": 100.64,
+ "regions": [
+  {
+   "bbox": [
+    341.0,
+    151.0,
+    734.0,
+    185.0
+   ],
+   "category": "doc_title"
+  },
+  {
+   "bbox": [
+    218.0,
+    203.0,
+    865.0,
+    306.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    218.0,
+    307.0,
+    867.0,
+    463.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    218.0,
+    464.0,
+    866.0,
+    565.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    218.0,
+    567.0,
+    863.0,
+    688.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    220.0,
+    705.0,
+    380.0,
+    732.0
+   ],
+   "category": "text"
+  }
+ ],
+ "seconds": 100.73,
+ "peak_rss_mb": 5244.9,
+ "image_px": [
+  1920,
+  2795
+ ],
+ "page": "P85_p6"
+}
