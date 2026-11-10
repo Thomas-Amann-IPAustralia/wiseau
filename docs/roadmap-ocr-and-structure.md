@@ -190,7 +190,7 @@ unsure (ADR-030):
   regions that look suspicious (low calibrated confidence, missing rows,
   uneven column lengths). This replaces page-level routing, which failed its
   held-out test on set C.
-- [ ] **3.7b Layout-region bake-off for scans (spike, no production change).**
+- [x] **3.7b Layout-region bake-off for scans (spike, no production change).** *CPU leg done 2026-11-10 (`docs/benchmarks/2026-11-10-layout-regions.md`): every word kept; PP-DocLayoutV3 regions regrouped over `tables-tatr` lift set S blk_f 0.649 → 0.766, merge 0.332 → 0.138, hd_r 0.10 → 0.75, htree 0.08 → 0.50, TEDS unchanged, ord 0.029 → 0.041; regresses S06 (stitched list read by column; directory split per entry). OvisOCR3 is level with the detector (boxes nearly identical, same label set) at ~180× the time (150 s vs 0.82 s a page, 5.2 vs 1.6 GB): dropped, with TeleOCR. Kaggle T4 leg prepared (`benchmarks/bakeoff/kaggle/`), optional now. Next: a detector-regroup candidate behind its own ADR, fresh held-out structure pages, the S06 and `vision_footnote` fixes, the serializer gate.*
   *Proposed 2026-11-09 (`docs/assessment-2026-11-09-ovisocr3-teleocr.md`, from
   `Alt-solution-investigation.md`).* 3.7 has no general layout detector yet
   (headings, captions, page furniture, figures). Compare OvisOCR3's layout-only

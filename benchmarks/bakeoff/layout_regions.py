@@ -178,7 +178,14 @@ def regroup(elements: list[dict], regions: list[dict], boxes, model: str) -> lis
         elif kind == "rest":
             el = elements[n]
             lines = rests[n]
-            out.append({**el, "text": "\n".join(ln["text"] for ln in lines), "lines": lines,
+            if len(lines) == len(el["lines"]):  # no region took any of it: unchanged
+                out.append(el)
+                continue
+            # What is left of an element (an ADR-038 stitched table included: its
+            # rows would re-emit the lines a region took) is plain text.
+            rest = {k: v for k, v in el.items() if k not in ("rows", "level")}
+            out.append({**rest, "type": "text" if el["type"] == "table" else el["type"],
+                        "text": "\n".join(ln["text"] for ln in lines), "lines": lines,
                         "bbox": _around(lines), "text_format": "plain"})
         else:
             lines = region_lines[n]
@@ -255,21 +262,28 @@ def _ir_blocks(pages: list[tuple[int, dict, str]]) -> list[structure.Block]:
         if len(els) == len(md_blocks):
             for b, el in zip(md_blocks, els):
                 b.ir_type = el["type"]
+        else:
+            print(f"  warning: page {page}: {len(md_blocks)} Markdown blocks, {len(els)} elements; "
+                  "IR types not used", file=sys.stderr)
         blocks.extend(md_blocks)
     return blocks
 
 
 def label_scores(gold, out) -> dict:
-    """Recall and precision of the non-Markdown types over matched blocks."""
+    """Recall and precision of the types Markdown cannot write, from the IR: a hit
+    is a matched block pair whose gold type and output IR type share a class.
+    Recall is over every gold block of the class, precision over every output
+    block the IR gives that class (as structure.py's hd_p / hd_r)."""
     matched = structure.matched_blocks(gold, out)
     res = {}
     for cls in ("heading", "caption", "furniture", "footnote"):
-        g = [(gi, oi) for gi, oi in matched if LABEL_CLASS.get(gold[gi].type) == cls]
-        o = [(gi, oi) for gi, oi in matched if LABEL_CLASS.get(getattr(out[oi], "ir_type", "")) == cls]
-        hit = [(gi, oi) for gi, oi in g if LABEL_CLASS.get(getattr(out[oi], "ir_type", "")) == cls]
-        res[f"{cls}_r"] = len(hit) / len(g) if g else None
-        res[f"{cls}_p"] = len(hit) / len(o) if o else None
-        res[f"{cls}_n"] = len(g)
+        n_g = sum(1 for b in gold if b.tokens and LABEL_CLASS.get(b.type) == cls)
+        n_o = sum(1 for b in out if b.tokens and LABEL_CLASS.get(getattr(b, "ir_type", "")) == cls)
+        hit = sum(1 for gi, oi in matched if LABEL_CLASS.get(gold[gi].type) == cls
+                  and LABEL_CLASS.get(getattr(out[oi], "ir_type", "")) == cls)
+        res[f"{cls}_hit"], res[f"{cls}_n"], res[f"{cls}_out"] = hit, n_g, n_o
+        res[f"{cls}_r"] = hit / n_g if n_g else None
+        res[f"{cls}_p"] = hit / n_o if n_o else None
     return res
 
 
@@ -298,10 +312,10 @@ def _mean(rows: dict, k: str):
     return sum(vals) / len(vals) if vals else None
 
 
-def _pooled(rows: dict, cls: str):
-    """Recall pooled over documents (blocks, not documents, weigh)."""
-    n = sum(r[f"{cls}_n"] for r in rows.values())
-    hit = sum(round((r[f"{cls}_r"] or 0) * r[f"{cls}_n"]) for r in rows.values())
+def _pooled(rows: dict, cls: str, kind: str = "r"):
+    """Recall (or precision) pooled over documents: blocks, not documents, weigh."""
+    hit = sum(r[f"{cls}_hit"] for r in rows.values())
+    n = sum(r[f"{cls}_n" if kind == "r" else f"{cls}_out"] for r in rows.values())
     return hit / n if n else None
 
 
@@ -315,11 +329,11 @@ def main() -> None:
     (HERE / "results-layout.json").write_text(json.dumps(results, indent=1, sort_keys=True) + "\n")
     cols = ["blk_f", "typ_f", "split", "merge", "ord", "hd_p", "hd_r", "htree", "teds"]
     print(f"{'engine':34s} docs " + " ".join(f"{c:>6s}" for c in cols)
-          + "  hd_R  cap_R  fur_R  fn_R  (pooled recall, IR types)")
+          + "   hd R/P     cap R/P     fur R/P  (IR types, pooled)")
     for engine, rows in results.items():
         vals = " ".join(f"{_mean(rows, c):6.3f}" if _mean(rows, c) is not None else "     -" for c in cols)
-        lab = " ".join(f"{_pooled(rows, c):5.3f}" if _pooled(rows, c) is not None else "    -"
-                       for c in ("heading", "caption", "furniture", "footnote"))
+        lab = " ".join("/".join(f"{_pooled(rows, c, k):.2f}" if _pooled(rows, c, k) is not None else "  - "
+                                for k in ("r", "p")) for c in ("heading", "caption", "furniture"))
         print(f"{engine:34s} {len(rows):4d} {vals}  {lab}")
 
 

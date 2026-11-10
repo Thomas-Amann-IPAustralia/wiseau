@@ -1,0 +1,1848 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    58.32,
+    63.36,
+    264.48,
+    72.0
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      58.32,
+      63.36,
+      264.48,
+      72.0
+     ],
+     "text": "Table of Comparison of.Grazing Brome Varieties"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of.Grazing Brome Varieties",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    53.76,
+    78.24,
+    168.48,
+    85.92
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      53.76,
+      78.24,
+      168.48,
+      85.92
+     ],
+     "text": "(* = variety used for comparison)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(* = variety used for comparison)",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "table",
+   "score": 0.8137
+  },
+  {
+   "bbox": [
+    52.93,
+    83.64,
+    284.75,
+    282.63
+   ],
+   "confidence": null,
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      132.0,
+      93.84,
+      287.52,
+      100.32
+     ],
+     "text": "‘Grasslands Gala’ * ‘Grasslands Matua’"
+    },
+    {
+     "bbox": [
+      53.52,
+      109.68,
+      387.6,
+      116.4
+     ],
+     "text": "AWN LENGTH FLAG LEAF WIDTH"
+    },
+    {
+     "bbox": [
+      53.76,
+      120.24,
+      498.96,
+      126.48
+     ],
+     "text": "mean 7.74mm 4.09 mm mean 10.8 mm 9.9mm"
+    },
+    {
+     "bbox": [
+      54.0,
+      130.08,
+      490.32,
+      138.24
+     ],
+     "text": "range 3-10 2-10 range 7-14 8-12"
+    },
+    {
+     "bbox": [
+      53.28,
+      139.92,
+      486.72,
+      146.64
+     ],
+     "text": "std. deviation 1.51 1.46 std. deviation 1.46 1.21"
+    },
+    {
+     "bbox": [
+      53.28,
+      149.52,
+      501.12,
+      159.36
+     ],
+     "text": "significance P=0.001 significance P=0.001"
+    },
+    {
+     "bbox": [
+      53.76,
+      171.84,
+      421.92,
+      178.56
+     ],
+     "text": "PANICLE LENGTH VEGETATIVE LEAF LENGTH"
+    },
+    {
+     "bbox": [
+      53.52,
+      182.16,
+      500.88,
+      188.4
+     ],
+     "text": "mean 21.49 cm 24.42 cm mean 232 mm 226 mm"
+    },
+    {
+     "bbox": [
+      53.76,
+      192.0,
+      503.28,
+      199.92
+     ],
+     "text": "range 15-32.5 14-32.8 range 121-345 120-520"
+    },
+    {
+     "bbox": [
+      53.28,
+      201.6,
+      487.92,
+      208.08
+     ],
+     "text": "std. deviation 3.95 3.56 std. deviation 52.8 63.5"
+    },
+    {
+     "bbox": [
+      53.28,
+      210.48,
+      483.36,
+      220.8
+     ],
+     "text": "significance P=0.001 significance NS"
+    },
+    {
+     "bbox": [
+      53.76,
+      233.04,
+      415.68,
+      239.76
+     ],
+     "text": "FLAG LEAF LENGTH VEGETATIVE LEAF WIDTH"
+    },
+    {
+     "bbox": [
+      53.76,
+      243.6,
+      498.72,
+      249.84
+     ],
+     "text": "mean 169 mm 225 mm mean 5.8mm 6.5mm"
+    },
+    {
+     "bbox": [
+      53.76,
+      253.68,
+      490.08,
+      261.36
+     ],
+     "text": "range 70-290 108-305 range 2-10 3-10"
+    },
+    {
+     "bbox": [
+      53.28,
+      263.52,
+      487.92,
+      270.0
+     ],
+     "text": "std. deviation 54.8 36.1 std. deviation 1.66 1.66"
+    },
+    {
+     "bbox": [
+      53.28,
+      272.64,
+      497.76,
+      282.24
+     ],
+     "text": "significance P=0.001 significance P=0.05"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       132.0,
+       93.84,
+       198.48,
+       100.32
+      ],
+      "header": true,
+      "text": "‘Grasslands Gala’"
+     },
+     {
+      "bbox": [
+       209.76,
+       93.84,
+       287.52,
+       100.08
+      ],
+      "header": true,
+      "text": "* ‘Grasslands Matua’"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       53.52,
+       110.16,
+       105.84,
+       116.4
+      ],
+      "text": "AWN LENGTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       53.76,
+       122.16,
+       72.72,
+       126.48
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       131.76,
+       120.72,
+       162.0,
+       126.24
+      ],
+      "text": "7.74mm"
+     },
+     {
+      "bbox": [
+       209.76,
+       120.48,
+       240.0,
+       126.24
+      ],
+      "text": "4.09 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       54.0,
+       132.0,
+       73.44,
+       138.24
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       131.76,
+       130.8,
+       148.8,
+       136.56
+      ],
+      "text": "3-10"
+     },
+     {
+      "bbox": [
+       209.76,
+       130.32,
+       226.8,
+       136.08
+      ],
+      "text": "2-10"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       53.28,
+       140.64,
+       100.08,
+       146.64
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       132.24,
+       140.64,
+       145.44,
+       146.4
+      ],
+      "text": "1.51"
+     },
+     {
+      "bbox": [
+       210.24,
+       140.4,
+       224.64,
+       146.16
+      ],
+      "text": "1.46"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       53.28,
+       149.52,
+       94.8,
+       159.36
+      ],
+      "text": "significance"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       210.0,
+       150.48,
+       237.84,
+       156.48
+      ],
+      "text": "P=0.001"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       53.76,
+       172.32,
+       120.96,
+       178.56
+      ],
+      "text": "PANICLE LENGTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       53.52,
+       183.84,
+       72.72,
+       188.4
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       131.52,
+       182.64,
+       163.68,
+       188.4
+      ],
+      "text": "21.49 cm"
+     },
+     {
+      "bbox": [
+       209.52,
+       182.4,
+       241.68,
+       188.16
+      ],
+      "text": "24.42 cm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       53.76,
+       193.92,
+       73.2,
+       199.92
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       132.0,
+       192.48,
+       159.84,
+       198.24
+      ],
+      "text": "15-32.5"
+     },
+     {
+      "bbox": [
+       210.24,
+       192.24,
+       237.84,
+       198.24
+      ],
+      "text": "14-32.8"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       53.28,
+       202.08,
+       99.84,
+       208.08
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       131.52,
+       202.32,
+       146.4,
+       208.08
+      ],
+      "text": "3.95"
+     },
+     {
+      "bbox": [
+       209.52,
+       202.08,
+       224.4,
+       207.84
+      ],
+      "text": "3.56"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       53.28,
+       210.96,
+       94.56,
+       220.8
+      ],
+      "text": "significance"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       210.0,
+       211.92,
+       237.84,
+       217.92
+      ],
+      "text": "P=0.001"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       53.76,
+       233.52,
+       130.56,
+       239.76
+      ],
+      "text": "FLAG LEAF LENGTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       53.76,
+       245.28,
+       72.72,
+       249.6
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       132.0,
+       244.08,
+       159.6,
+       249.84
+      ],
+      "text": "169 mm"
+     },
+     {
+      "bbox": [
+       209.52,
+       243.84,
+       237.6,
+       249.6
+      ],
+      "text": "225 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       53.76,
+       255.36,
+       73.2,
+       261.36
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       131.76,
+       253.92,
+       157.68,
+       259.92
+      ],
+      "text": "70-290"
+     },
+     {
+      "bbox": [
+       210.24,
+       253.68,
+       240.24,
+       259.68
+      ],
+      "text": "108-305"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       53.28,
+       264.0,
+       99.84,
+       270.0
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       131.52,
+       264.24,
+       146.4,
+       270.0
+      ],
+      "text": "54.8"
+     },
+     {
+      "bbox": [
+       209.52,
+       264.0,
+       223.2,
+       269.76
+      ],
+      "text": "36.1"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       53.28,
+       274.08,
+       94.32,
+       281.52
+      ],
+      "text": "significance"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       209.76,
+       273.84,
+       237.84,
+       279.84
+      ],
+      "text": "P=0.001"
+     }
+    ]
+   ],
+   "score": 0.9995,
+   "signal": "tatr",
+   "source": "tatr",
+   "text": " ‘Grasslands Gala’ * ‘Grasslands Matua’\nAWN LENGTH  \nmean 7.74mm 4.09 mm\nrange 3-10 2-10\nstd. deviation 1.51 1.46\nsignificance  P=0.001\nPANICLE LENGTH  \nmean 21.49 cm 24.42 cm\nrange 15-32.5 14-32.8\nstd. deviation 3.95 3.56\nsignificance  P=0.001\nFLAG LEAF LENGTH  \nmean 169 mm 225 mm\nrange 70-290 108-305\nstd. deviation 54.8 36.1\nsignificance  P=0.001",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    311.44,
+    92.02,
+    549.58,
+    282.5
+   ],
+   "confidence": null,
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      395.28,
+      93.6,
+      550.8,
+      99.84
+     ],
+     "text": "‘Grasslands Gala’ * ‘Grasslands Matua’"
+    },
+    {
+     "bbox": [
+      53.52,
+      109.68,
+      387.6,
+      116.4
+     ],
+     "text": "AWN LENGTH FLAG LEAF WIDTH"
+    },
+    {
+     "bbox": [
+      53.76,
+      120.24,
+      498.96,
+      126.48
+     ],
+     "text": "mean 7.74mm 4.09 mm mean 10.8 mm 9.9mm"
+    },
+    {
+     "bbox": [
+      54.0,
+      130.08,
+      490.32,
+      138.24
+     ],
+     "text": "range 3-10 2-10 range 7-14 8-12"
+    },
+    {
+     "bbox": [
+      53.28,
+      139.92,
+      486.72,
+      146.64
+     ],
+     "text": "std. deviation 1.51 1.46 std. deviation 1.46 1.21"
+    },
+    {
+     "bbox": [
+      53.28,
+      149.52,
+      501.12,
+      159.36
+     ],
+     "text": "significance P=0.001 significance P=0.001"
+    },
+    {
+     "bbox": [
+      53.76,
+      171.84,
+      421.92,
+      178.56
+     ],
+     "text": "PANICLE LENGTH VEGETATIVE LEAF LENGTH"
+    },
+    {
+     "bbox": [
+      53.52,
+      182.16,
+      500.88,
+      188.4
+     ],
+     "text": "mean 21.49 cm 24.42 cm mean 232 mm 226 mm"
+    },
+    {
+     "bbox": [
+      53.76,
+      192.0,
+      503.28,
+      199.92
+     ],
+     "text": "range 15-32.5 14-32.8 range 121-345 120-520"
+    },
+    {
+     "bbox": [
+      53.28,
+      201.6,
+      487.92,
+      208.08
+     ],
+     "text": "std. deviation 3.95 3.56 std. deviation 52.8 63.5"
+    },
+    {
+     "bbox": [
+      53.28,
+      210.48,
+      483.36,
+      220.8
+     ],
+     "text": "significance P=0.001 significance NS"
+    },
+    {
+     "bbox": [
+      53.76,
+      233.04,
+      415.68,
+      239.76
+     ],
+     "text": "FLAG LEAF LENGTH VEGETATIVE LEAF WIDTH"
+    },
+    {
+     "bbox": [
+      53.76,
+      243.6,
+      498.72,
+      249.84
+     ],
+     "text": "mean 169 mm 225 mm mean 5.8mm 6.5mm"
+    },
+    {
+     "bbox": [
+      53.76,
+      253.68,
+      490.08,
+      261.36
+     ],
+     "text": "range 70-290 108-305 range 2-10 3-10"
+    },
+    {
+     "bbox": [
+      53.28,
+      263.52,
+      487.92,
+      270.0
+     ],
+     "text": "std. deviation 54.8 36.1 std. deviation 1.66 1.66"
+    },
+    {
+     "bbox": [
+      53.28,
+      272.64,
+      497.76,
+      282.24
+     ],
+     "text": "significance P=0.001 significance P=0.05"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       395.28,
+       93.6,
+       461.76,
+       99.84
+      ],
+      "header": true,
+      "text": "‘Grasslands Gala’"
+     },
+     {
+      "bbox": [
+       473.04,
+       93.6,
+       550.8,
+       99.84
+      ],
+      "header": true,
+      "text": "* ‘Grasslands Matua’"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       317.28,
+       109.68,
+       387.6,
+       115.92
+      ],
+      "text": "FLAG LEAF WIDTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       317.28,
+       121.44,
+       336.24,
+       125.76
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       395.52,
+       120.24,
+       425.28,
+       126.0
+      ],
+      "text": "10.8 mm"
+     },
+     {
+      "bbox": [
+       473.04,
+       120.24,
+       498.96,
+       126.24
+      ],
+      "text": "9.9mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       317.28,
+       131.28,
+       336.72,
+       137.52
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       395.04,
+       130.32,
+       412.08,
+       135.84
+      ],
+      "text": "7-14"
+     },
+     {
+      "bbox": [
+       473.04,
+       130.08,
+       490.32,
+       136.08
+      ],
+      "text": "8-12"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       317.04,
+       139.92,
+       363.36,
+       146.16
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       395.52,
+       140.4,
+       409.92,
+       146.16
+      ],
+      "text": "1.46"
+     },
+     {
+      "bbox": [
+       473.52,
+       140.4,
+       486.72,
+       146.16
+      ],
+      "text": "1.21"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       316.8,
+       150.0,
+       358.08,
+       157.44
+      ],
+      "text": "significance"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       473.28,
+       150.24,
+       501.12,
+       156.24
+      ],
+      "text": "P=0.001"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       316.8,
+       171.84,
+       421.92,
+       178.32
+      ],
+      "text": "VEGETATIVE LEAF LENGTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       317.04,
+       183.36,
+       336.0,
+       187.92
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       394.8,
+       182.4,
+       422.88,
+       188.16
+      ],
+      "text": "232 mm"
+     },
+     {
+      "bbox": [
+       472.8,
+       182.16,
+       500.88,
+       188.16
+      ],
+      "text": "226 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       317.04,
+       193.2,
+       336.48,
+       199.2
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       395.28,
+       192.24,
+       425.28,
+       198.0
+      ],
+      "text": "121-345"
+     },
+     {
+      "bbox": [
+       473.28,
+       192.0,
+       503.28,
+       198.0
+      ],
+      "text": "120-520"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       316.8,
+       201.6,
+       363.12,
+       207.6
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       394.8,
+       202.08,
+       409.68,
+       207.84
+      ],
+      "text": "52.8"
+     },
+     {
+      "bbox": [
+       472.8,
+       202.08,
+       487.92,
+       208.08
+      ],
+      "text": "63.5"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       316.8,
+       210.48,
+       357.84,
+       220.32
+      ],
+      "text": "significance"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       473.28,
+       211.68,
+       483.36,
+       217.92
+      ],
+      "text": "NS"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       316.8,
+       233.04,
+       415.68,
+       239.52
+      ],
+      "text": "VEGETATIVE LEAF WIDTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       317.04,
+       244.8,
+       336.0,
+       249.36
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       394.8,
+       243.6,
+       420.72,
+       249.36
+      ],
+      "text": "5.8mm"
+     },
+     {
+      "bbox": [
+       473.04,
+       243.84,
+       498.72,
+       249.6
+      ],
+      "text": "6.5mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       317.28,
+       254.88,
+       336.48,
+       260.88
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       394.8,
+       253.68,
+       412.08,
+       259.44
+      ],
+      "text": "2-10"
+     },
+     {
+      "bbox": [
+       473.04,
+       253.68,
+       490.08,
+       259.68
+      ],
+      "text": "3-10"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       316.8,
+       263.52,
+       363.12,
+       269.52
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       395.28,
+       264.0,
+       409.92,
+       269.52
+      ],
+      "text": "1.66"
+     },
+     {
+      "bbox": [
+       473.28,
+       263.76,
+       487.92,
+       269.76
+      ],
+      "text": "1.66"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       316.56,
+       272.64,
+       357.84,
+       282.24
+      ],
+      "text": "significance"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       473.04,
+       273.84,
+       497.76,
+       280.08
+      ],
+      "text": "P=0.05"
+     }
+    ]
+   ],
+   "score": 0.9993,
+   "signal": "tatr",
+   "source": "tatr",
+   "text": " ‘Grasslands Gala’ * ‘Grasslands Matua’\nFLAG LEAF WIDTH  \nmean 10.8 mm 9.9mm\nrange 7-14 8-12\nstd. deviation 1.46 1.21\nsignificance  P=0.001\nVEGETATIVE LEAF LENGTH  \nmean 232 mm 226 mm\nrange 121-345 120-520\nstd. deviation 52.8 63.5\nsignificance  NS\nVEGETATIVE LEAF WIDTH  \nmean 5.8mm 6.5mm\nrange 2-10 3-10\nstd. deviation 1.66 1.66\nsignificance  P=0.05",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    72.0,
+    316.08,
+    474.48,
+    364.08
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      72.0,
+      316.08,
+      459.6,
+      329.52
+     ],
+     "text": "+ o —_= 1. —molecular ref."
+    },
+    {
+     "bbox": [
+      382.32,
+      330.72,
+      467.28,
+      338.4
+     ],
+     "text": "2. G.GALA (cb1486)"
+    },
+    {
+     "bbox": [
+      363.84,
+      336.48,
+      464.16,
+      356.16
+     ],
+     "text": "| 3. —(Experimental)"
+    },
+    {
+     "bbox": [
+      382.32,
+      356.4,
+      474.48,
+      364.08
+     ],
+     "text": "4, G.MATUA (cb1421)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "+ o —_= 1. —molecular ref.\n2. G.GALA (cb1486)\n| 3. —(Experimental)\n4, G.MATUA (cb1421)",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "image",
+   "score": 0.8803
+  },
+  {
+   "bbox": [
+    397.68,
+    366.48,
+    479.28,
+    373.92
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      397.68,
+      366.48,
+      479.28,
+      373.92
+     ],
+     "text": "(Bromus willdenowii)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(Bromus willdenowii)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    363.6,
+    389.28,
+    505.2,
+    409.92
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      382.32,
+      389.28,
+      505.2,
+      396.72
+     ],
+     "text": "5. G.GALA (cb1486) breeders."
+    },
+    {
+     "bbox": [
+      363.6,
+      400.8,
+      498.48,
+      409.92
+     ],
+     "text": "{ 6. G.GALA (cb1485)nucleus."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "5. G.GALA (cb1486) breeders.\n{ 6. G.GALA (cb1485)nucleus.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.5459
+  },
+  {
+   "bbox": [
+    382.08,
+    415.44,
+    545.76,
+    443.52
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      382.08,
+      415.44,
+      530.88,
+      423.84
+     ],
+     "text": "7. —cb1315. The original seed from"
+    },
+    {
+     "bbox": [
+      397.2,
+      425.52,
+      545.76,
+      433.92
+     ],
+     "text": "which selections were made to produce"
+    },
+    {
+     "bbox": [
+      397.44,
+      435.84,
+      477.6,
+      443.52
+     ],
+     "text": "the variety G.GALA."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "7. —cb1315. The original seed from\nwhich selections were made to produce\nthe variety G.GALA.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.7391
+  },
+  {
+   "bbox": [
+    53.04,
+    523.44,
+    495.84,
+    531.84
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      53.04,
+      523.44,
+      495.84,
+      531.84
+     ],
+     "text": "Electrophoretic gel of seed proteins of two generations of ‘Grasslands Gala’(bands 2 and 5) and ‘Grasslands Matua’ (band 4)."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Electrophoretic gel of seed proteins of two generations of ‘Grasslands Gala’(bands 2 and 5) and ‘Grasslands Matua’ (band 4).",
+   "text_format": "plain",
+   "type": "footnote",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "vision_footnote",
+   "score": 0.8847
+  },
+  {
+   "bbox": [
+    53.28,
+    532.32,
+    177.6,
+    540.0
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      53.28,
+      532.32,
+      177.6,
+      540.0
+     ],
+     "text": "(Photograph supplied by applicant)."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(Photograph supplied by applicant).",
+   "text_format": "plain",
+   "type": "footnote",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "vision_footnote",
+   "score": 0.8847
+  },
+  {
+   "bbox": [
+    52.32,
+    604.08,
+    123.84,
+    625.68
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      52.32,
+      604.08,
+      109.2,
+      612.24
+     ],
+     "text": "TRITICALE"
+    },
+    {
+     "bbox": [
+      52.56,
+      617.52,
+      123.84,
+      625.68
+     ],
+     "text": "X Triticosecale"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "TRITICALE\nX Triticosecale",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    52.08,
+    633.36,
+    67.44,
+    648.24
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      52.08,
+      633.36,
+      67.44,
+      648.24
+     ],
+     "text": "|"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "|",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.514
+  },
+  {
+   "bbox": [
+    52.32,
+    653.76,
+    287.52,
+    706.08
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      52.56,
+      653.76,
+      229.2,
+      662.4
+     ],
+     "text": "Variety: ‘Abacus’. See fig. 5 in colour section."
+    },
+    {
+     "bbox": [
+      52.32,
+      665.28,
+      141.6,
+      673.68
+     ],
+     "text": "Application No. 91/092"
+    },
+    {
+     "bbox": [
+      52.32,
+      676.56,
+      214.32,
+      684.96
+     ],
+     "text": "Application Received: 25 November 1991"
+    },
+    {
+     "bbox": [
+      52.32,
+      688.32,
+      287.52,
+      697.2
+     ],
+     "text": "Applicant: Luminis Pty. Ltd., The University of Adelaide,"
+    },
+    {
+     "bbox": [
+      52.32,
+      699.36,
+      111.12,
+      706.08
+     ],
+     "text": "South Australia"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: ‘Abacus’. See fig. 5 in colour section.\nApplication No. 91/092\nApplication Received: 25 November 1991\nApplicant: Luminis Pty. Ltd., The University of Adelaide,\nSouth Australia",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.6,
+    716.16,
+    287.76,
+    771.36
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      52.56,
+      716.16,
+      228.48,
+      725.28
+     ],
+     "text": "Description—see also comparison tables"
+    },
+    {
+     "bbox": [
+      51.84,
+      730.08,
+      287.28,
+      739.2
+     ],
+     "text": "This variety is a late-maturing, spring type, hexaploid triticale."
+    },
+    {
+     "bbox": [
+      52.8,
+      741.12,
+      287.52,
+      750.0
+     ],
+     "text": "‘Abacus’ has brown chaff, long tapering heads, strongly pig-"
+    },
+    {
+     "bbox": [
+      52.08,
+      751.92,
+      287.52,
+      761.04
+     ],
+     "text": "mented flag leaf auricles and pubescence present on the pedun-"
+    },
+    {
+     "bbox": [
+      51.6,
+      762.72,
+      287.76,
+      771.36
+     ],
+     "text": "cle. ‘Abacus’ has a longer head than ‘Muir’ or ‘Tahara’ and a"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Description—see also comparison tables\nThis variety is a late-maturing, spring type, hexaploid triticale.\n‘Abacus’ has brown chaff, long tapering heads, strongly pig-\nmented flag leaf auricles and pubescence present on the pedun-\ncle. ‘Abacus’ has a longer head than ‘Muir’ or ‘Tahara’ and a",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.919
+  },
+  {
+   "bbox": [
+    315.36,
+    607.68,
+    551.52,
+    770.64
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      316.08,
+      607.68,
+      551.52,
+      616.8
+     ],
+     "text": "denser head with shorter awns than ‘Currency’. Unlike"
+    },
+    {
+     "bbox": [
+      316.8,
+      618.24,
+      551.28,
+      627.6
+     ],
+     "text": "‘Currency’ but like ‘Muir’ and ‘Tahara’, ‘Abacus’ has good"
+    },
+    {
+     "bbox": [
+      315.84,
+      629.04,
+      551.04,
+      637.92
+     ],
+     "text": "resistance to Puccinia graminis ssp. tritici race 34—2, 12, 13."
+    },
+    {
+     "bbox": [
+      315.84,
+      648.24,
+      342.72,
+      657.12
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      315.36,
+      662.64,
+      551.28,
+      672.0
+     ],
+     "text": "The breeder is K V Cooper of the University of Adelaide, South"
+    },
+    {
+     "bbox": [
+      315.84,
+      673.44,
+      551.04,
+      683.04
+     ],
+     "text": "Australia. ‘Abacus’ derives from a locally produced primary"
+    },
+    {
+     "bbox": [
+      315.84,
+      684.48,
+      551.04,
+      694.08
+     ],
+     "text": "triticale topcrossed to advanced triticale varieties. The pedigree"
+    },
+    {
+     "bbox": [
+      315.36,
+      695.52,
+      550.8,
+      705.12
+     ],
+     "text": "of ‘Abacus’ is K875/‘Snoopy’//T2893/3/ ‘Currency’. K875"
+    },
+    {
+     "bbox": [
+      315.6,
+      706.8,
+      551.04,
+      715.92
+     ],
+     "text": "(bread wheat), ‘Anza’/‘Raven’//‘Olympic’/Siete Cerros 66"
+    },
+    {
+     "bbox": [
+      315.36,
+      717.6,
+      550.8,
+      727.2
+     ],
+     "text": "obtained from A.J. Rathjen was crossed with ‘Snoopy’ Rye,"
+    },
+    {
+     "bbox": [
+      315.36,
+      728.64,
+      551.04,
+      738.0
+     ],
+     "text": "and amphiploids were obtained by embryo culture and"
+    },
+    {
+     "bbox": [
+      315.36,
+      739.44,
+      550.8,
+      748.8
+     ],
+     "text": "colchicine treatment. The resulting primary triticale was"
+    },
+    {
+     "bbox": [
+      315.6,
+      750.72,
+      551.28,
+      759.84
+     ],
+     "text": "topcrossed with T2898(BGL”s”/ARS—Mexipak Mut //"
+    },
+    {
+     "bbox": [
+      315.36,
+      761.28,
+      550.08,
+      770.64
+     ],
+     "text": "BGL”s”, entry 192 in 10th ITSN) and ‘Currency’. ‘Abacus’"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "denser head with shorter awns than ‘Currency’. Unlike\n‘Currency’ but like ‘Muir’ and ‘Tahara’, ‘Abacus’ has good\nresistance to Puccinia graminis ssp. tritici race 34—2, 12, 13.\nOrigin\nThe breeder is K V Cooper of the University of Adelaide, South\nAustralia. ‘Abacus’ derives from a locally produced primary\ntriticale topcrossed to advanced triticale varieties. The pedigree\nof ‘Abacus’ is K875/‘Snoopy’//T2893/3/ ‘Currency’. K875\n(bread wheat), ‘Anza’/‘Raven’//‘Olympic’/Siete Cerros 66\nobtained from A.J. Rathjen was crossed with ‘Snoopy’ Rye,\nand amphiploids were obtained by embryo culture and\ncolchicine treatment. The resulting primary triticale was\ntopcrossed with T2898(BGL”s”/ARS—Mexipak Mut //\nBGL”s”, entry 192 in 10th ITSN) and ‘Currency’. ‘Abacus’",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9488
+  },
+  {
+   "bbox": [
+    540.0,
+    792.48,
+    550.56,
+    799.92
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      540.0,
+      792.48,
+      550.56,
+      799.92
+     ],
+     "text": "17"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "17",
+   "text_format": "plain",
+   "type": "page_number",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "number",
+   "score": 0.7003
+  },
+  {
+   "bbox": [
+    0.0,
+    828.0,
+    592.32,
+    841.92
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      0.0,
+      828.0,
+      592.32,
+      841.92
+     ],
+     "text": "sa"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "sa",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}
