@@ -1,0 +1,371 @@
+"""Layout regions → IR → Markdown, scored on set S (roadmap 14 item 3.7b).
+
+The sidecar test for layout models (`docs/assessment-2026-11-09-ovisocr3-teleocr.md`):
+the existing OCR supplies every word, the model only supplies regions and their
+categories. Nothing here re-reads a page. Each page starts from the default
+path's own document IR (`outputs/<base>/<page>.json`, ADR-043), and a model's
+regions (`outputs/<model>/<page>.regions.json`, `layout_models.py`) are applied
+to its lines in one of two ways:
+
+  relabel  every element keeps its text and place; an element whose lines lie
+           mostly (>= OVERLAP of their area) inside one region takes that
+           region's type (paragraph_title -> heading, figure_title -> caption,
+           header/footer/number -> page furniture, ...).
+  regroup  every line goes to the region holding most of its area (>= OVERLAP);
+           each region becomes one element of its type, in the model's reading
+           order. A line no region holds stays in what is left of its element,
+           placed after the region that took the element's previous line.
+
+Only OCR'd pages change: a born-digital page keeps PyMuPDF4LLM's structure
+(the item is about scans). Table Transformer tables (base `tables-tatr`) are
+never split or relabelled; they keep their cells and move as one unit.
+
+The settings (OVERLAP, CATEGORY_TYPES) were fixed from the categories' meaning
+before any page was scored, and are not tuned on set S (which holds pages from
+held-out sets D, E and F).
+
+  python layout_regions.py build MODEL [--base pymupdf|tables-tatr] [--v2]
+      -> outputs/<MODEL>-<variant>[-tatr][-v2]/<page>.md + .json for every page MODEL has regions for
+         (--v2: the two fixes declared from set S before set T was scored; see V2)
+  python layout_regions.py score ENGINE [ENGINE ...] [--gold s|t]
+      -> set S structure metrics (structure.py's, unchanged) plus `lab`, the
+         element types Markdown cannot write (caption, page furniture, footnote)
+         read from the IR, and a word check: the output's words must equal its
+         base's words, page by page, as a multiset.
+
+No model runs here and nothing external is called.
+"""
+from __future__ import annotations
+
+import json
+import sys
+from collections import Counter
+from pathlib import Path
+
+HERE = Path(__file__).parent
+sys.path.insert(0, str(HERE))
+import structure  # noqa: E402
+from parsers import document as ir, serializer  # noqa: E402  (structure.py put backend/ on the path)
+
+OUT = HERE / "outputs"
+OVERLAP = 0.5
+# A layout category -> (IR element type, heading level or None). Unlisted
+# categories are body text.
+CATEGORY_TYPES = {
+    "doc_title": ("title", 1),
+    "paragraph_title": ("heading", 2),
+    "figure_title": ("caption", None),
+    "header": ("page_header", None), "header_image": ("page_header", None),
+    "footer": ("page_footer", None), "footer_image": ("page_footer", None),
+    "number": ("page_number", None),
+    "footnote": ("footnote", None), "vision_footnote": ("footnote", None),
+    "display_formula": ("equation", None), "formula": ("equation", None),
+}
+BODY = ("text", None)
+# Variant v2 (declared 2026-11-10 from set S, before set T was scored): two fixes
+# for what set S showed. (1) An ADR-038 stitched table is kept whole, like a
+# Table Transformer table: a layout model that calls its columns separate text
+# regions otherwise reads a header-less list column by column (S06). (2)
+# `vision_footnote` (a photo credit under a figure) is a caption, not a footnote.
+V2 = False
+V2_CATEGORY_TYPES = {**CATEGORY_TYPES, "vision_footnote": ("caption", None)}
+# Types compared by `lab`, as classes (title and heading are one class).
+LABEL_CLASS = {"title": "heading", "heading": "heading", "caption": "caption",
+               "page_header": "furniture", "page_footer": "furniture", "page_number": "furniture",
+               "footnote": "footnote"}
+
+
+# --- geometry -------------------------------------------------------------------
+
+
+def _inter(a, b) -> float:
+    w = min(a[2], b[2]) - max(a[0], b[0])
+    h = min(a[3], b[3]) - max(a[1], b[1])
+    return w * h if w > 0 and h > 0 else 0.0
+
+
+def _area(b) -> float:
+    return max(0.0, b[2] - b[0]) * max(0.0, b[3] - b[1])
+
+
+def region_boxes(regions: list[dict], page_size) -> list[list[float]]:
+    """Regions' 0-1000 boxes in PDF points (the IR's unit)."""
+    w, h = page_size
+    return [[r["bbox"][0] * w / 1000, r["bbox"][1] * h / 1000, r["bbox"][2] * w / 1000, r["bbox"][3] * h / 1000]
+            for r in regions]
+
+
+def best_region(box, boxes) -> int | None:
+    """The region holding the largest share (>= OVERLAP) of ``box``'s area; ties go
+    to the smaller region (the more specific one)."""
+    area = _area(box)
+    if area <= 0:
+        return None
+    best, best_key = None, None
+    for i, rb in enumerate(boxes):
+        share = _inter(box, rb) / area
+        if share >= OVERLAP:
+            key = (share, -_area(rb))
+            if best_key is None or key > best_key:
+                best, best_key = i, key
+    return best
+
+
+# --- building -------------------------------------------------------------------
+
+
+def _typed(el: dict, category: str, model: str, score) -> dict:
+    kind, level = (V2_CATEGORY_TYPES if V2 else CATEGORY_TYPES).get(category, BODY)
+    out = {**el, "type": kind, "signal": f"layout:{model}", "confidence": None, "layout_category": category}
+    out.pop("level", None)
+    if level is not None:
+        out["level"] = level
+    if score is not None:
+        out["score"] = score
+    return out
+
+
+def _is_kept(el: dict) -> bool:
+    """An element the layout pass never touches: a Table Transformer table, and
+    in v2 an ADR-038 stitched table too."""
+    if el["type"] != "table":
+        return False
+    return el.get("signal") == "tatr" or (V2 and el.get("signal") == "tesseract-row-stitch")
+
+
+def relabel(elements: list[dict], regions: list[dict], boxes, model: str) -> list[dict]:
+    out = []
+    for el in elements:
+        if _is_kept(el) or not el.get("lines"):
+            out.append(el)
+            continue
+        held = Counter()
+        total = 0.0
+        for ln in el["lines"]:
+            a = _area(ln["bbox"])
+            total += a
+            i = best_region(ln["bbox"], boxes)
+            if i is not None:
+                held[i] += a
+        if total and held:
+            i, a = held.most_common(1)[0]
+            if a / total >= OVERLAP:
+                out.append(_typed(el, regions[i]["category"], model, regions[i].get("score")))
+                continue
+        out.append(el)
+    return out
+
+
+def regroup(elements: list[dict], regions: list[dict], boxes, model: str) -> list[dict]:
+    """Lines regrouped into regions, in the model's order (see module docstring)."""
+    # Units: ("region", i) or ("rest", element index) or ("kept", element index).
+    region_lines: dict[int, list[dict]] = {}
+    rests: dict[int, list[dict]] = {}
+    keys: dict[tuple, float] = {}
+    last_region = -1.0  # the model rank of the region that took the latest line
+    sub = 0
+    for e, el in enumerate(elements):
+        if _is_kept(el) or not el.get("lines"):
+            i = best_region(el["bbox"], boxes) if el.get("bbox") else None
+            sub += 1
+            keys[("kept", e)] = (i if i is not None else last_region) + sub * 1e-6 + (0 if i is not None else 0.5)
+            continue
+        for ln in el["lines"]:
+            i = best_region(ln["bbox"], boxes)
+            if i is None:
+                if e not in rests:
+                    sub += 1
+                    keys[("rest", e)] = last_region + 0.5 + sub * 1e-6
+                rests.setdefault(e, []).append(ln)
+            else:
+                region_lines.setdefault(i, []).append(ln)
+                keys.setdefault(("region", i), float(i))
+                last_region = float(i)
+    out = []
+    for unit in sorted(keys, key=keys.get):
+        kind, n = unit
+        if kind == "kept":
+            out.append(elements[n])
+        elif kind == "rest":
+            el = elements[n]
+            lines = rests[n]
+            if len(lines) == len(el["lines"]):  # no region took any of it: unchanged
+                out.append(el)
+                continue
+            # What is left of an element (an ADR-038 stitched table included: its
+            # rows would re-emit the lines a region took) is plain text.
+            rest = {k: v for k, v in el.items() if k not in ("rows", "level")}
+            out.append({**rest, "type": "text" if el["type"] == "table" else el["type"],
+                        "text": "\n".join(ln["text"] for ln in lines), "lines": lines,
+                        "bbox": _around(lines), "text_format": "plain"})
+        else:
+            lines = region_lines[n]
+            base = {"id": f"r{n + 1}", "page": elements[0].get("page"), "source": "layout-regroup",
+                    "text_format": "plain", "text": "\n".join(ln["text"] for ln in lines), "lines": lines,
+                    "bbox": _around(lines)}
+            out.append(_typed(base, regions[n]["category"], model, regions[n].get("score")))
+    return out
+
+
+def _around(lines):
+    return [min(ln["bbox"][0] for ln in lines), min(ln["bbox"][1] for ln in lines),
+            max(ln["bbox"][2] for ln in lines), max(ln["bbox"][3] for ln in lines)]
+
+
+def render(el: dict) -> str:
+    """One element as Markdown for scoring: the serializer's own rendering of the
+    element, with a heading marker for a heading or title the layout pass typed
+    (the serializer has no rule for typed plain text yet; that is 3.1's job)."""
+    if el.get("signal", "").startswith("layout:") and el["type"] in ("heading", "title"):
+        return "#" * (el.get("level") or 2) + " " + " ".join(el["text"].split("\n"))
+    return serializer.render_element(_element(el))
+
+
+def _element(d: dict) -> "ir.Element":
+    """Just enough of a `document.Element` from its JSON for the serializer."""
+    rows = tuple(tuple(ir.Cell(c["text"], header=c.get("header", False), row_span=c.get("row_span", 1),
+                               col_span=c.get("col_span", 1)) for c in row) for row in d.get("rows") or ())
+    return ir.Element(type=d["type"], text=d["text"], source=d["source"], text_format=d["text_format"],
+                      rows=rows, signal=d.get("signal"))
+
+
+def build(model: str, base: str, v2: bool = False) -> None:
+    global V2
+    V2 = v2
+    for variant, fn in (("relabel", relabel), ("regroup", regroup)):
+        name = f"{model}-{variant}" + ("-tatr" if base == "tables-tatr" else "") + ("-v2" if v2 else "")
+        out_dir = OUT / name
+        out_dir.mkdir(parents=True, exist_ok=True)
+        n = 0
+        for rpath in sorted((OUT / model).glob("*.regions.json")):
+            page = rpath.name[: -len(".regions.json")]
+            ir_path = OUT / base / f"{page}.json"
+            if not ir_path.exists():
+                continue
+            ir = json.loads(ir_path.read_text())
+            rec = json.loads(rpath.read_text())
+            elements = ir["elements"]
+            if ir["pages"][0]["method"] == "ocr" and rec.get("regions"):
+                boxes = region_boxes(rec["regions"], ir["pages"][0]["size"])
+                elements = fn(elements, rec["regions"], boxes, model)
+            # A failed or empty model page keeps the base's IR: the pass degrades.
+            md = "\n\n".join(t for t in (render(el) for el in elements) if t.strip())
+            base_md = (OUT / base / f"{page}.md").read_text(encoding="utf-8")
+            if Counter(t for t, _ in structure.block_tokens(md)) != \
+                    Counter(t for t, _ in structure.block_tokens(base_md)):
+                raise SystemExit(f"{name} {page}: words differ from {base}")
+            (out_dir / f"{page}.md").write_text(md + "\n", encoding="utf-8")
+            (out_dir / f"{page}.json").write_text(json.dumps({**ir, "elements": elements}, indent=1,
+                                                             ensure_ascii=False) + "\n", encoding="utf-8")
+            n += 1
+        print(f"{name}: {n} pages")
+
+
+# --- scoring --------------------------------------------------------------------
+
+
+def _ir_blocks(pages: list[tuple[int, dict, str]]) -> list[structure.Block]:
+    """Output blocks from the Markdown (as structure.py reads them), each carrying
+    its IR element's type: block i of a page's Markdown is element i (empty
+    elements are skipped on both sides)."""
+    blocks = []
+    for page, ir, md in pages:
+        md_blocks = structure.parse_output([(page, md)])
+        els = [el for el in ir["elements"] if render(el).strip()]
+        if len(els) == len(md_blocks):
+            for b, el in zip(md_blocks, els):
+                b.ir_type = el["type"]
+        else:
+            print(f"  warning: page {page}: {len(md_blocks)} Markdown blocks, {len(els)} elements; "
+                  "IR types not used", file=sys.stderr)
+        blocks.extend(md_blocks)
+    return blocks
+
+
+def label_scores(gold, out) -> dict:
+    """Recall and precision of the types Markdown cannot write, from the IR: a hit
+    is a matched block pair whose gold type and output IR type share a class.
+    Recall is over every gold block of the class, precision over every output
+    block the IR gives that class (as structure.py's hd_p / hd_r)."""
+    matched = structure.matched_blocks(gold, out)
+    res = {}
+    for cls in ("heading", "caption", "furniture", "footnote"):
+        n_g = sum(1 for b in gold if b.tokens and LABEL_CLASS.get(b.type) == cls)
+        n_o = sum(1 for b in out if b.tokens and LABEL_CLASS.get(getattr(b, "ir_type", "")) == cls)
+        hit = sum(1 for gi, oi in matched if LABEL_CLASS.get(gold[gi].type) == cls
+                  and LABEL_CLASS.get(getattr(out[oi], "ir_type", "")) == cls)
+        res[f"{cls}_hit"], res[f"{cls}_n"], res[f"{cls}_out"] = hit, n_g, n_o
+        res[f"{cls}_r"] = hit / n_g if n_g else None
+        res[f"{cls}_p"] = hit / n_o if n_o else None
+    return res
+
+
+GOLD_T = HERE / "structure-t"
+
+
+def gold_documents(gold: str = "s") -> list:
+    """Set S's documents (structure.py), or set T's single pages."""
+    if gold == "s":
+        return structure.gold_documents()
+    docs = []
+    for path in sorted(GOLD_T.glob("T*.md")):
+        name, key, page = path.stem.split("_")
+        docs.append((name, key, [int(page[1:])], path))
+    return docs
+
+
+def score(engines: list[str], gold: str = "s") -> dict:
+    results = {}
+    for engine in engines:
+        rows = {}
+        for name, key, pages, path in gold_documents(gold):
+            mds = [OUT / engine / f"{key}_p{n}.md" for n in pages]
+            irs = [OUT / engine / f"{key}_p{n}.json" for n in pages]
+            if not all(f.exists() for f in mds + irs):
+                continue
+            blocks = structure.parse_gold(path)
+            pages_in = [(n, json.loads(j.read_text()), m.read_text(encoding="utf-8"))
+                        for n, j, m in zip(pages, irs, mds)]
+            out = _ir_blocks(pages_in)
+            r = structure.score_document(blocks, out)
+            r.update(label_scores(blocks, out))
+            rows[name] = r
+        results[engine] = rows
+    return results
+
+
+def _mean(rows: dict, k: str):
+    vals = [r[k] for r in rows.values() if r.get(k) is not None]
+    return sum(vals) / len(vals) if vals else None
+
+
+def _pooled(rows: dict, cls: str, kind: str = "r"):
+    """Recall (or precision) pooled over documents: blocks, not documents, weigh."""
+    hit = sum(r[f"{cls}_hit"] for r in rows.values())
+    n = sum(r[f"{cls}_n" if kind == "r" else f"{cls}_out"] for r in rows.values())
+    return hit / n if n else None
+
+
+def main() -> None:
+    if sys.argv[1] == "build":
+        base = sys.argv[sys.argv.index("--base") + 1] if "--base" in sys.argv else "pymupdf"
+        build(sys.argv[2], base, v2="--v2" in sys.argv)
+        return
+    gold = sys.argv[sys.argv.index("--gold") + 1].lower() if "--gold" in sys.argv else "s"
+    engines = [a for i, a in enumerate(sys.argv[2:], 2)
+               if not a.startswith("--") and sys.argv[i - 1] != "--gold"]
+    results = score(engines, gold)
+    out = "results-layout.json" if gold == "s" else f"results-layout-{gold}.json"
+    (HERE / out).write_text(json.dumps(results, indent=1, sort_keys=True) + "\n")
+    cols = ["blk_f", "typ_f", "split", "merge", "ord", "hd_p", "hd_r", "htree", "teds"]
+    print(f"{'engine':34s} docs " + " ".join(f"{c:>6s}" for c in cols)
+          + "   hd R/P     cap R/P     fur R/P  (IR types, pooled)")
+    for engine, rows in results.items():
+        vals = " ".join(f"{_mean(rows, c):6.3f}" if _mean(rows, c) is not None else "     -" for c in cols)
+        lab = " ".join("/".join(f"{_pooled(rows, c, k):.2f}" if _pooled(rows, c, k) is not None else "  - "
+                                for k in ("r", "p")) for c in ("heading", "caption", "furniture"))
+        print(f"{engine:34s} {len(rows):4d} {vals}  {lab}")
+
+
+if __name__ == "__main__":
+    main()

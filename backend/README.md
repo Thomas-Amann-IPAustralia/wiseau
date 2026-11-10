@@ -184,6 +184,15 @@ pip install -r requirements-tables.txt
 export WISEAU_TABLES=tatr
 ```
 
+**Headings and paragraph breaks on scanned pages** (ADR-048) come from
+PP-DocLayoutV3, a layout detector. It regroups the lines OCR already read into
+the page's regions, and writes its headings as `##` / `#`. No word is changed
+or re-read. The Docker image has it on as well (`WISEAU_LAYOUT=ppdl`, the same
+`requirements-tables.txt`, model fetched at build time). It adds about 3.6 s per
+scanned page on one thread and about 0.8 GB of memory under load. Set
+`WISEAU_LAYOUT` to empty to switch it off. Locally, after the install above:
+`export WISEAU_LAYOUT=ppdl`.
+
 ## Run locally
 
 Chromium and chromedriver must be on `PATH` (or set `CHROME_BIN` /
@@ -206,7 +215,7 @@ docker build -t markdown-engine .
 docker run -p 7860:7860 markdown-engine
 ```
 
-The image is about 3.9 GB with the table pass (2.0 GB with `--build-arg TABLES=0`).
+The image is about 4.4 GB with the table and layout passes (2.0 GB with `--build-arg TABLES=0`).
 
 ## Deploying
 

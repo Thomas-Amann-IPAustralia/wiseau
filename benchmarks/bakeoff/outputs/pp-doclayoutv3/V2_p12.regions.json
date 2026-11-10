@@ -1,0 +1,58 @@
+{
+ "model": "PaddlePaddle/PP-DocLayoutV3_safetensors",
+ "revision": "e4f489dc536556fc1be02b973ba06756e0d4a2ac",
+ "threshold": 0.5,
+ "load_seconds": 0.58,
+ "device": "cpu",
+ "dtype": "fp32",
+ "threads": 4,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.18",
+  "platform": "Linux-6.18.44-fc-v338-x86_64-with-glibc2.39",
+  "torch": "2.15.0+cpu",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "regions": [
+  {
+   "bbox": [
+    121.0,
+    70.2,
+    602.2,
+    89.1
+   ],
+   "category": "figure_title",
+   "score": 0.7578
+  },
+  {
+   "bbox": [
+    111.3,
+    86.4,
+    872.0,
+    939.4
+   ],
+   "category": "table",
+   "score": 0.9607
+  },
+  {
+   "bbox": [
+    119.5,
+    956.8,
+    138.8,
+    967.3
+   ],
+   "category": "number",
+   "score": 0.6914
+  }
+ ],
+ "seconds": 0.86,
+ "peak_rss_mb": 1528.3,
+ "image_px": [
+  1653,
+  2339
+ ],
+ "page": "V2_p12"
+}

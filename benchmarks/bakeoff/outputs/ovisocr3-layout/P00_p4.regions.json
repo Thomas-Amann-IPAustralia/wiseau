@@ -1,0 +1,100 @@
+{
+ "model": "ATH-MaaS/OvisOCR3",
+ "revision": "17f255e2c8ae6d18d5d5edb0a474bd4ed39aef90",
+ "prompt": "document_layout",
+ "prompt_sha256": "89bcc73c7340ff9fd83673c1aee2354c2cc735c6eded0ce2aa4501f28b914361",
+ "max_new_tokens": 4096,
+ "do_sample": false,
+ "min_pixels": 200704,
+ "max_pixels": 8294400,
+ "route": "transformers",
+ "load_seconds": 68.19,
+ "device": "cpu",
+ "dtype": "fp32",
+ "threads": 4,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.18",
+  "platform": "Linux-6.18.44-fc-v338-x86_64-with-glibc2.39",
+  "torch": "2.15.0+cpu",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "raw": "[\n    {\n        \"bbox\": [\n            351,\n            248,\n            776,\n            261\n        ],\n        \"category\": \"doc_title\"\n    },\n    {\n        \"bbox\": [\n            186,\n            320,\n            577,\n            335\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            104,\n            341,\n            906,\n            478\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            184,\n            506,\n            514,\n            520\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            93,\n            527,\n            902,\n            852\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            478,\n            909,\n            500,\n            921\n        ],\n        \"category\": \"number\"\n    }\n]",
+ "finish_reason": "stop",
+ "input_tokens": 4082,
+ "new_tokens": 306,
+ "image_grid_thw": [
+  [
+   1,
+   150,
+   104
+  ]
+ ],
+ "generate_seconds": 74.8,
+ "regions": [
+  {
+   "bbox": [
+    351.0,
+    248.0,
+    776.0,
+    261.0
+   ],
+   "category": "doc_title"
+  },
+  {
+   "bbox": [
+    186.0,
+    320.0,
+    577.0,
+    335.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    104.0,
+    341.0,
+    906.0,
+    478.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    184.0,
+    506.0,
+    514.0,
+    520.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    93.0,
+    527.0,
+    902.0,
+    852.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    478.0,
+    909.0,
+    500.0,
+    921.0
+   ],
+   "category": "number"
+  }
+ ],
+ "seconds": 74.87,
+ "peak_rss_mb": 5244.9,
+ "image_px": [
+  1664,
+  2411
+ ],
+ "page": "P00_p4"
+}

@@ -1,0 +1,253 @@
+{
+ "model": "ATH-MaaS/OvisOCR3",
+ "revision": "17f255e2c8ae6d18d5d5edb0a474bd4ed39aef90",
+ "prompt": "document_layout",
+ "prompt_sha256": "89bcc73c7340ff9fd83673c1aee2354c2cc735c6eded0ce2aa4501f28b914361",
+ "max_new_tokens": 4096,
+ "do_sample": false,
+ "min_pixels": 200704,
+ "max_pixels": 8294400,
+ "route": "transformers",
+ "load_seconds": 1.38,
+ "device": "cpu",
+ "dtype": "fp32",
+ "threads": 4,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.18",
+  "platform": "Linux-6.18.44-fc-v338-x86_64-with-glibc2.39",
+  "torch": "2.15.0+cpu",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "raw": "[\n    {\n        \"bbox\": [\n            110,\n            74,\n            477,\n            333\n        ],\n        \"category\": \"image\"\n    },\n    {\n        \"bbox\": [\n            112,\n            337,\n            358,\n            352\n        ],\n        \"category\": \"vision_footnote\"\n    },\n    {\n        \"bbox\": [\n            110,\n            360,\n            376,\n            374\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            110,\n            384,\n            184,\n            398\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            110,\n            397,\n            437,\n            433\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            110,\n            444,\n            469,\n            552\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            109,\n            562,\n            465,\n            623\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            108,\n            636,\n            474,\n            919\n        ],\n        \"category\": \"image\"\n    },\n    {\n        \"bbox\": [\n            110,\n            926,\n            378,\n            941\n        ],\n        \"category\": \"vision_footnote\"\n    },\n    {\n        \"bbox\": [\n            515,\n            69,\n            804,\n            83\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            515,\n            94,\n            588,\n            107\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            515,\n            106,\n            842,\n            141\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            515,\n            152,\n            874,\n            273\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            515,\n            284,\n            792,\n            297\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            515,\n            296,\n            866,\n            344\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            514,\n            362,\n            878,\n            663\n        ],\n        \"category\": \"image\"\n    },\n    {\n        \"bbox\": [\n            515,\n            666,\n            770,\n            680\n        ],\n        \"category\": \"vision_footnote\"\n    },\n    {\n        \"bbox\": [\n            515,\n            691,\n            791,\n            705\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            515,\n            715,\n            588,\n            728\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            515,\n            727,\n            841,\n            763\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            515,\n            774,\n            876,\n            869\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            512,\n            879,\n            868,\n            941\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            866,\n            958,\n            876,\n            969\n        ],\n        \"category\": \"number\"\n    }\n]",
+ "finish_reason": "stop",
+ "input_tokens": 3978,
+ "new_tokens": 1160,
+ "image_grid_thw": [
+  [
+   1,
+   146,
+   104
+  ]
+ ],
+ "generate_seconds": 155.34,
+ "regions": [
+  {
+   "bbox": [
+    110.0,
+    74.0,
+    477.0,
+    333.0
+   ],
+   "category": "image"
+  },
+  {
+   "bbox": [
+    112.0,
+    337.0,
+    358.0,
+    352.0
+   ],
+   "category": "vision_footnote"
+  },
+  {
+   "bbox": [
+    110.0,
+    360.0,
+    376.0,
+    374.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    110.0,
+    384.0,
+    184.0,
+    398.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    110.0,
+    397.0,
+    437.0,
+    433.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    110.0,
+    444.0,
+    469.0,
+    552.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    109.0,
+    562.0,
+    465.0,
+    623.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    108.0,
+    636.0,
+    474.0,
+    919.0
+   ],
+   "category": "image"
+  },
+  {
+   "bbox": [
+    110.0,
+    926.0,
+    378.0,
+    941.0
+   ],
+   "category": "vision_footnote"
+  },
+  {
+   "bbox": [
+    515.0,
+    69.0,
+    804.0,
+    83.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    515.0,
+    94.0,
+    588.0,
+    107.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    515.0,
+    106.0,
+    842.0,
+    141.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    515.0,
+    152.0,
+    874.0,
+    273.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    515.0,
+    284.0,
+    792.0,
+    297.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    515.0,
+    296.0,
+    866.0,
+    344.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    514.0,
+    362.0,
+    878.0,
+    663.0
+   ],
+   "category": "image"
+  },
+  {
+   "bbox": [
+    515.0,
+    666.0,
+    770.0,
+    680.0
+   ],
+   "category": "vision_footnote"
+  },
+  {
+   "bbox": [
+    515.0,
+    691.0,
+    791.0,
+    705.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    515.0,
+    715.0,
+    588.0,
+    728.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    515.0,
+    727.0,
+    841.0,
+    763.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    515.0,
+    774.0,
+    876.0,
+    869.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    512.0,
+    879.0,
+    868.0,
+    941.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    866.0,
+    958.0,
+    876.0,
+    969.0
+   ],
+   "category": "number"
+  }
+ ],
+ "seconds": 155.41,
+ "peak_rss_mb": 5245.0,
+ "image_px": [
+  1653,
+  2339
+ ],
+ "page": "V2_p11"
+}

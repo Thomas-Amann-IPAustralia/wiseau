@@ -1,0 +1,226 @@
+{
+ "model": "ATH-MaaS/OvisOCR3",
+ "revision": "17f255e2c8ae6d18d5d5edb0a474bd4ed39aef90",
+ "prompt": "document_layout",
+ "prompt_sha256": "89bcc73c7340ff9fd83673c1aee2354c2cc735c6eded0ce2aa4501f28b914361",
+ "max_new_tokens": 4096,
+ "do_sample": false,
+ "min_pixels": 200704,
+ "max_pixels": 8294400,
+ "route": "transformers",
+ "load_seconds": 68.19,
+ "device": "cpu",
+ "dtype": "fp32",
+ "threads": 4,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.18",
+  "platform": "Linux-6.18.44-fc-v338-x86_64-with-glibc2.39",
+  "torch": "2.15.0+cpu",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "raw": "[\n    {\n        \"bbox\": [\n            81,\n            61,\n            329,\n            81\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            81,\n            98,\n            467,\n            135\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            81,\n            145,\n            485,\n            169\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            81,\n            191,\n            327,\n            204\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            81,\n            216,\n            467,\n            252\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            81,\n            263,\n            485,\n            700\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            512,\n            61,\n            765,\n            80\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            512,\n            98,\n            907,\n            135\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            512,\n            141,\n            712,\n            165\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            512,\n            171,\n            806,\n            207\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            512,\n            213,\n            890,\n            262\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            512,\n            262,\n            811,\n            286\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            512,\n            292,\n            890,\n            363\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            512,\n            382,\n            625,\n            401\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            512,\n            418,\n            706,\n            485\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            512,\n            505,\n            838,\n            547\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            512,\n            555,\n            866,\n            603\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            512,\n            619,\n            655,\n            669\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            512,\n            690,\n            851,\n            750\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            885,\n            941,\n            909,\n            955\n        ],\n        \"category\": \"number\"\n    }\n]",
+ "finish_reason": "stop",
+ "input_tokens": 3978,
+ "new_tokens": 998,
+ "image_grid_thw": [
+  [
+   1,
+   146,
+   104
+  ]
+ ],
+ "generate_seconds": 153.22,
+ "regions": [
+  {
+   "bbox": [
+    81.0,
+    61.0,
+    329.0,
+    81.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    81.0,
+    98.0,
+    467.0,
+    135.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    81.0,
+    145.0,
+    485.0,
+    169.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    81.0,
+    191.0,
+    327.0,
+    204.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    81.0,
+    216.0,
+    467.0,
+    252.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    81.0,
+    263.0,
+    485.0,
+    700.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    512.0,
+    61.0,
+    765.0,
+    80.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    512.0,
+    98.0,
+    907.0,
+    135.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    512.0,
+    141.0,
+    712.0,
+    165.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    512.0,
+    171.0,
+    806.0,
+    207.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    512.0,
+    213.0,
+    890.0,
+    262.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    512.0,
+    262.0,
+    811.0,
+    286.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    512.0,
+    292.0,
+    890.0,
+    363.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    512.0,
+    382.0,
+    625.0,
+    401.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    512.0,
+    418.0,
+    706.0,
+    485.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    512.0,
+    505.0,
+    838.0,
+    547.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    512.0,
+    555.0,
+    866.0,
+    603.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    512.0,
+    619.0,
+    655.0,
+    669.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    512.0,
+    690.0,
+    851.0,
+    750.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    885.0,
+    941.0,
+    909.0,
+    955.0
+   ],
+   "category": "number"
+  }
+ ],
+ "seconds": 153.27,
+ "peak_rss_mb": 5244.9,
+ "image_px": [
+  1653,
+  2339
+ ],
+ "page": "V4N1_p27"
+}

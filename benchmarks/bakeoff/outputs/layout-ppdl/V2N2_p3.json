@@ -1,0 +1,446 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    62.88,
+    49.68,
+    271.92,
+    65.04
+   ],
+   "confidence": null,
+   "id": "e1",
+   "level": 1,
+   "lines": [
+    {
+     "bbox": [
+      62.88,
+      49.68,
+      271.92,
+      65.04
+     ],
+     "text": "REGISTRAR\u2019S REMARKS"
+    }
+   ],
+   "page": 1,
+   "score": 0.809,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "REGISTRAR\u2019S REMARKS",
+   "text_format": "plain",
+   "type": "title"
+  },
+  {
+   "bbox": [
+    63.12,
+    229.2,
+    117.84,
+    256.32
+   ],
+   "confidence": null,
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      63.12,
+      229.2,
+      117.84,
+      256.32
+     ],
+     "text": "fa"
+    }
+   ],
+   "page": 1,
+   "score": 0.9516,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "fa",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.4,
+    289.92,
+    481.68,
+    317.52
+   ],
+   "confidence": null,
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      62.4,
+      289.92,
+      481.44,
+      299.04
+     ],
+     "text": "The first half of 1989 has seen a continuing increase in the number of PVR applications. The quality of"
+    },
+    {
+     "bbox": [
+      62.64,
+      299.76,
+      481.68,
+      309.12
+     ],
+     "text": "applications is also improving as applicants gain a better understanding of the type of data needed to"
+    },
+    {
+     "bbox": [
+      62.4,
+      310.08,
+      182.88,
+      317.52
+     ],
+     "text": "define their varieties for PVR."
+    }
+   ],
+   "page": 1,
+   "score": 0.9121,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "The first half of 1989 has seen a continuing increase in the number of PVR applications. The quality of\napplications is also improving as applicants gain a better understanding of the type of data needed to\ndefine their varieties for PVR.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.16,
+    329.52,
+    484.08,
+    387.36
+   ],
+   "confidence": null,
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      62.16,
+      329.52,
+      445.2,
+      338.16
+     ],
+     "text": "There is close interaction between the PVR Office and applicants to ensure that the quality of"
+    },
+    {
+     "bbox": [
+      62.64,
+      339.12,
+      484.08,
+      348.48
+     ],
+     "text": "applications continues to improve and that a high standard, cost effective PVR scheme is in operation."
+    },
+    {
+     "bbox": [
+      62.4,
+      348.96,
+      460.8,
+      358.32
+     ],
+     "text": "This level of involvement is stretching the resources (3 people) of the Office considerably but we"
+    },
+    {
+     "bbox": [
+      62.64,
+      359.28,
+      478.08,
+      368.4
+     ],
+     "text": "believe it is an essential element in the development of PVR and continue to encourage applicants to"
+    },
+    {
+     "bbox": [
+      62.64,
+      369.36,
+      463.68,
+      378.48
+     ],
+     "text": "contact us as early as possible to ensure that the comparative growing trials will provide the data"
+    },
+    {
+     "bbox": [
+      62.64,
+      380.4,
+      95.52,
+      387.36
+     ],
+     "text": "needed."
+    }
+   ],
+   "page": 1,
+   "score": 0.9359,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "There is close interaction between the PVR Office and applicants to ensure that the quality of\napplications continues to improve and that a high standard, cost effective PVR scheme is in operation.\nThis level of involvement is stretching the resources (3 people) of the Office considerably but we\nbelieve it is an essential element in the development of PVR and continue to encourage applicants to\ncontact us as early as possible to ensure that the comparative growing trials will provide the data\nneeded.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.16,
+    399.84,
+    468.24,
+    438.24
+   ],
+   "confidence": null,
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      62.16,
+      399.84,
+      448.32,
+      408.72
+     ],
+     "text": "The value of close contact with industry groups has been highlighted in recent months by the"
+    },
+    {
+     "bbox": [
+      62.4,
+      409.68,
+      467.52,
+      418.8
+     ],
+     "text": "development of new rose application forms, based on proposals from the rose introducers group,"
+    },
+    {
+     "bbox": [
+      62.88,
+      419.52,
+      468.24,
+      428.64
+     ],
+     "text": "RIAUS. Several meetings with this group has resulted in a more appropriate form both in terms of"
+    },
+    {
+     "bbox": [
+      62.4,
+      429.6,
+      216.96,
+      438.24
+     ],
+     "text": "characteristics measured and design."
+    }
+   ],
+   "page": 1,
+   "score": 0.9291,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "The value of close contact with industry groups has been highlighted in recent months by the\ndevelopment of new rose application forms, based on proposals from the rose introducers group,\nRIAUS. Several meetings with this group has resulted in a more appropriate form both in terms of\ncharacteristics measured and design.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.4,
+    449.04,
+    486.96,
+    467.76
+   ],
+   "confidence": null,
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      62.88,
+      449.04,
+      486.96,
+      457.92
+     ],
+     "text": "| have also met with several other industry groups in the last months at Conferences and seminars and"
+    },
+    {
+     "bbox": [
+      62.4,
+      458.88,
+      411.84,
+      467.76
+     ],
+     "text": "each time | find the feedback invaluable in assisting with the implementation of PVR."
+    }
+   ],
+   "page": 1,
+   "score": 0.884,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "| have also met with several other industry groups in the last months at Conferences and seminars and\neach time | find the feedback invaluable in assisting with the implementation of PVR.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.88,
+    541.68,
+    393.6,
+    551.28
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      62.88,
+      541.68,
+      393.6,
+      551.28
+     ],
+     "text": "Kathryn Adams PLANT VARIETY RIGHTS OFFICE"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Kathryn Adams PLANT VARIETY RIGHTS OFFICE",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.64,
+    552.48,
+    305.28,
+    562.32
+   ],
+   "confidence": null,
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      62.64,
+      552.48,
+      305.28,
+      562.32
+     ],
+     "text": "Registrar of Plant Variety Rights GPO BOX 858"
+    }
+   ],
+   "page": 1,
+   "score": 0.5575,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Registrar of Plant Variety Rights GPO BOX 858",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    241.44,
+    563.52,
+    340.8,
+    571.44
+   ],
+   "confidence": null,
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      241.44,
+      563.52,
+      340.8,
+      571.44
+     ],
+     "text": "CANBERRA ACT 2601"
+    }
+   ],
+   "page": 1,
+   "score": 0.5323,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "CANBERRA ACT 2601",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    77.52,
+    619.2,
+    334.32,
+    627.6
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      77.52,
+      619.2,
+      334.32,
+      627.6
+     ],
+     "text": "CLOSING DATE FOR SEPTEMBER ISSUE: 24 JULY 1989"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "CLOSING DATE FOR SEPTEMBER ISSUE: 24 JULY 1989",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.16,
+    684.24,
+    490.56,
+    725.76
+   ],
+   "confidence": null,
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      62.16,
+      684.24,
+      490.32,
+      693.12
+     ],
+     "text": "CONTACT NUMBERS: REGISTRAR 062 716472"
+    },
+    {
+     "bbox": [
+      170.4,
+      695.04,
+      490.32,
+      703.92
+     ],
+     "text": "EXAMINER 062 716476"
+    },
+    {
+     "bbox": [
+      170.16,
+      706.08,
+      490.56,
+      714.72
+     ],
+     "text": "ADMINISTRATION/GENERAL 062 724228"
+    },
+    {
+     "bbox": [
+      170.64,
+      716.64,
+      490.32,
+      725.76
+     ],
+     "text": "FACSIMILE 062 724753"
+    }
+   ],
+   "page": 1,
+   "score": 0.6405,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "CONTACT NUMBERS: REGISTRAR 062 716472\nEXAMINER 062 716476\nADMINISTRATION/GENERAL 062 724228\nFACSIMILE 062 724753",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    598.32,
+    843.36
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

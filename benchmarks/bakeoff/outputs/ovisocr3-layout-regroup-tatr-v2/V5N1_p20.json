@@ -1,0 +1,2489 @@
+{
+ "elements": [
+  {
+   "id": "r1",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Comparative Growing Trials",
+   "lines": [
+    {
+     "bbox": [
+      50.16,
+      62.4,
+      175.68,
+      72.0
+     ],
+     "text": "Comparative Growing Trials"
+    }
+   ],
+   "bbox": [
+    50.16,
+    62.4,
+    175.68,
+    72.0
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r2",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "All characteristics and comparisons are from a comparative\ngrowing trial conducted at the Agricultural Research Centre,\nTamworth in 1990 and 1991. Transplanted seedlings were\nsown in the field on 16 July 1990. Plants were sown on a |\nmetre square grid in 30 metre rows. Rows were randomly allo-\ncated among lines and each consisted of 3 replicates of 10\nplants of each line. Morphological characteristics were mea-\nsured on cither 20 or 30 plants of each type. Plots were main-\ntained weed-free by cultivation, fertilised annually and watcred\nby spray irrigation as required.",
+   "lines": [
+    {
+     "bbox": [
+      50.16,
+      76.08,
+      285.84,
+      84.96
+     ],
+     "text": "All characteristics and comparisons are from a comparative"
+    },
+    {
+     "bbox": [
+      50.16,
+      86.88,
+      285.84,
+      96.96
+     ],
+     "text": "growing trial conducted at the Agricultural Research Centre,"
+    },
+    {
+     "bbox": [
+      50.16,
+      97.92,
+      286.08,
+      107.04
+     ],
+     "text": "Tamworth in 1990 and 1991. Transplanted seedlings were"
+    },
+    {
+     "bbox": [
+      50.64,
+      108.24,
+      284.64,
+      119.52
+     ],
+     "text": "sown in the field on 16 July 1990. Plants were sown on a |"
+    },
+    {
+     "bbox": [
+      50.64,
+      120.24,
+      286.08,
+      130.32
+     ],
+     "text": "metre square grid in 30 metre rows. Rows were randomly allo-"
+    },
+    {
+     "bbox": [
+      50.4,
+      131.52,
+      286.56,
+      141.36
+     ],
+     "text": "cated among lines and each consisted of 3 replicates of 10"
+    },
+    {
+     "bbox": [
+      50.64,
+      142.8,
+      286.32,
+      152.4
+     ],
+     "text": "plants of each line. Morphological characteristics were mea-"
+    },
+    {
+     "bbox": [
+      50.88,
+      153.6,
+      286.08,
+      162.48
+     ],
+     "text": "sured on cither 20 or 30 plants of each type. Plots were main-"
+    },
+    {
+     "bbox": [
+      50.88,
+      164.4,
+      286.32,
+      173.76
+     ],
+     "text": "tained weed-free by cultivation, fertilised annually and watcred"
+    },
+    {
+     "bbox": [
+      50.88,
+      175.68,
+      166.8,
+      184.8
+     ],
+     "text": "by spray irrigation as required."
+    }
+   ],
+   "bbox": [
+    50.16,
+    76.08,
+    286.56,
+    184.8
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r3",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Agronomy",
+   "lines": [
+    {
+     "bbox": [
+      313.68,
+      61.2,
+      360.72,
+      70.08
+     ],
+     "text": "Agronomy"
+    }
+   ],
+   "bbox": [
+    313.68,
+    61.2,
+    360.72,
+    70.08
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r4",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Taranna’ is a perennial grass native to Australia and so should\nbe adapted to dry conditions and low soil fertility. It is intended\nfor use in temperate areas either for aerial establishment into\nnon-arable, hilly country or as a pasture grass in degraded crop-\nping lands. It produces more growth in spring, early-summer\nthan ‘Hume’ and has a high rate of seed retention.",
+   "lines": [
+    {
+     "bbox": [
+      314.64,
+      84.48,
+      549.6,
+      93.84
+     ],
+     "text": "‘Taranna’ is a perennial grass native to Australia and so should"
+    },
+    {
+     "bbox": [
+      314.16,
+      95.52,
+      549.36,
+      105.12
+     ],
+     "text": "be adapted to dry conditions and low soil fertility. It is intended"
+    },
+    {
+     "bbox": [
+      313.92,
+      106.8,
+      549.6,
+      116.16
+     ],
+     "text": "for use in temperate areas either for aerial establishment into"
+    },
+    {
+     "bbox": [
+      314.4,
+      118.08,
+      549.6,
+      127.2
+     ],
+     "text": "non-arable, hilly country or as a pasture grass in degraded crop-"
+    },
+    {
+     "bbox": [
+      314.4,
+      129.36,
+      550.08,
+      138.72
+     ],
+     "text": "ping lands. It produces more growth in spring, early-summer"
+    },
+    {
+     "bbox": [
+      314.16,
+      140.64,
+      503.28,
+      149.28
+     ],
+     "text": "than ‘Hume’ and has a high rate of seed retention."
+    }
+   ],
+   "bbox": [
+    313.92,
+    84.48,
+    550.08,
+    149.28
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r5",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "This work was supported by a grant from the Wool Research\nand Development Corporation.",
+   "lines": [
+    {
+     "bbox": [
+      314.16,
+      164.4,
+      549.84,
+      173.28
+     ],
+     "text": "This work was supported by a grant from the Wool Research"
+    },
+    {
+     "bbox": [
+      314.4,
+      175.68,
+      431.28,
+      184.32
+     ],
+     "text": "and Development Corporation."
+    }
+   ],
+   "bbox": [
+    314.16,
+    164.4,
+    549.84,
+    184.32
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r6",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Table of Comparison of Danthonia Varieties :\n(* = variety used for comparison)\nmean mm mm mm mm\n19",
+   "lines": [
+    {
+     "bbox": [
+      55.44,
+      210.0,
+      448.8,
+      222.48
+     ],
+     "text": "Table of Comparison of Danthonia Varieties :"
+    },
+    {
+     "bbox": [
+      51.12,
+      226.8,
+      166.08,
+      234.72
+     ],
+     "text": "(* = variety used for comparison)"
+    },
+    {
+     "bbox": [
+      51.36,
+      762.96,
+      482.16,
+      767.76
+     ],
+     "text": "mean mm mm mm mm"
+    },
+    {
+     "bbox": [
+      539.28,
+      794.16,
+      549.84,
+      801.84
+     ],
+     "text": "19"
+    }
+   ],
+   "bbox": [
+    51.12,
+    210.0,
+    549.84,
+    801.84
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "table"
+  },
+  {
+   "bbox": [
+    50.88,
+    237.0,
+    490.32,
+    764.91
+   ],
+   "confidence": null,
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      195.36,
+      241.2,
+      489.84,
+      250.56
+     ],
+     "text": "‘Taranna’ *Hume’ *Ecotype 1’ *Ecotype 2"
+    },
+    {
+     "bbox": [
+      51.36,
+      258.96,
+      146.64,
+      265.2
+     ],
+     "text": "INFLORESCENCE WIDTH"
+    },
+    {
+     "bbox": [
+      51.36,
+      268.32,
+      477.6,
+      275.04
+     ],
+     "text": "mean 33.4 mm 17.7 mm 14.5 mm 18.9 mm"
+    },
+    {
+     "bbox": [
+      51.36,
+      277.68,
+      477.84,
+      287.04
+     ],
+     "text": "range 17.9-64.1 9.5-27.4 5.3-24.4 7.9-33.4"
+    },
+    {
+     "bbox": [
+      51.12,
+      288.72,
+      457.92,
+      295.2
+     ],
+     "text": "std. deviation 12.8 4.3 3.7 5.7"
+    },
+    {
+     "bbox": [
+      51.12,
+      297.6,
+      471.12,
+      307.68
+     ],
+     "text": "significance P=0.01 P=0.01 P=0.01"
+    },
+    {
+     "bbox": [
+      51.36,
+      320.64,
+      152.88,
+      326.88
+     ],
+     "text": "INFLORESCENCE LENGTH"
+    },
+    {
+     "bbox": [
+      51.36,
+      330.0,
+      477.6,
+      336.48
+     ],
+     "text": "mean 75.6 mm 80.2 mm 63.3 mm 45.8 mm"
+    },
+    {
+     "bbox": [
+      51.36,
+      339.84,
+      482.64,
+      347.76
+     ],
+     "text": "range 41.6-100.1 55.6-104.1 27.1-95.2 30.1-80.6"
+    },
+    {
+     "bbox": [
+      51.12,
+      349.68,
+      457.92,
+      356.16
+     ],
+     "text": "std. deviation 12.3 10.9 10.8 8.9"
+    },
+    {
+     "bbox": [
+      51.12,
+      359.04,
+      471.12,
+      368.64
+     ],
+     "text": "significance P=0.01 P=0.01 P=0.01"
+    },
+    {
+     "bbox": [
+      51.36,
+      381.84,
+      201.12,
+      389.52
+     ],
+     "text": "GLUME WIDTH (1st glume on 3rd branch)"
+    },
+    {
+     "bbox": [
+      51.36,
+      391.92,
+      477.84,
+      398.16
+     ],
+     "text": "mean 1.97 mm 1.73 mm 1.43 mm 2.07 mm"
+    },
+    {
+     "bbox": [
+      51.36,
+      402.0,
+      473.76,
+      409.92
+     ],
+     "text": "range 1.0-3.3 0.8-3.2 0.7-2.5 1.3-3.3"
+    },
+    {
+     "bbox": [
+      50.88,
+      412.08,
+      462.48,
+      418.56
+     ],
+     "text": "std. deviation 0.43 0.44 0.38 0.39"
+    },
+    {
+     "bbox": [
+      51.12,
+      421.44,
+      387.12,
+      431.28
+     ],
+     "text": "significance P=0.01 P=0.01"
+    },
+    {
+     "bbox": [
+      51.6,
+      443.76,
+      335.04,
+      451.44
+     ],
+     "text": "INFLORESCENCE INTERBRANCH LENGTH (between the 1st and 2nd branch)"
+    },
+    {
+     "bbox": [
+      51.36,
+      454.08,
+      473.28,
+      460.08
+     ],
+     "text": "mean 12.2 mm 12.3 mm 10.7 mm 7.3mm"
+    },
+    {
+     "bbox": [
+      51.6,
+      463.92,
+      477.6,
+      471.6
+     ],
+     "text": "range 6.4-18.6 8.2-18.2 5.0-15.8 2.9-11.3"
+    },
+    {
+     "bbox": [
+      51.36,
+      473.76,
+      458.16,
+      480.0
+     ],
+     "text": "std. deviation 2.4 2.4 1.8 1.5"
+    },
+    {
+     "bbox": [
+      51.12,
+      482.88,
+      471.36,
+      492.24
+     ],
+     "text": "significance P=0.01 P=0.01"
+    },
+    {
+     "bbox": [
+      51.36,
+      505.44,
+      272.64,
+      512.88
+     ],
+     "text": "NUMBER OF REPRODUCTIVE TILLERS (over 10 day period)"
+    },
+    {
+     "bbox": [
+      51.36,
+      515.52,
+      457.92,
+      521.52
+     ],
+     "text": "mean 13.8 10.4 16.0 3.2"
+    },
+    {
+     "bbox": [
+      51.36,
+      525.36,
+      464.64,
+      533.28
+     ],
+     "text": "range 5-24 4-20 6-27 0-13"
+    },
+    {
+     "bbox": [
+      51.12,
+      535.68,
+      457.92,
+      541.68
+     ],
+     "text": "std. deviation 44 5.0 46 3.4"
+    },
+    {
+     "bbox": [
+      51.12,
+      544.8,
+      471.12,
+      554.64
+     ],
+     "text": "significance P=0.05 P=0.01 P=0.01"
+    },
+    {
+     "bbox": [
+      51.12,
+      567.84,
+      107.76,
+      574.08
+     ],
+     "text": "CULM LENGTH"
+    },
+    {
+     "bbox": [
+      51.36,
+      577.92,
+      475.2,
+      583.92
+     ],
+     "text": "mean 56.0 cm 57.3. cm 46.4 cm 46.1cm"
+    },
+    {
+     "bbox": [
+      51.36,
+      587.76,
+      468.96,
+      595.44
+     ],
+     "text": "range 37-69 40-70 32-61 28-59"
+    },
+    {
+     "bbox": [
+      51.12,
+      597.36,
+      457.92,
+      603.36
+     ],
+     "text": "std. deviation 7.0 6.0 74 8.0"
+    },
+    {
+     "bbox": [
+      51.12,
+      606.24,
+      471.12,
+      615.84
+     ],
+     "text": "significance P=0.01 P=0.01"
+    },
+    {
+     "bbox": [
+      51.6,
+      629.04,
+      132.24,
+      634.8
+     ],
+     "text": "INTERNODE LENGTH"
+    },
+    {
+     "bbox": [
+      51.6,
+      638.64,
+      482.4,
+      644.64
+     ],
+     "text": "mean 149.3 mm 128.2 mm 145.8 mm 129.7 mm"
+    },
+    {
+     "bbox": [
+      51.6,
+      648.48,
+      473.52,
+      656.16
+     ],
+     "text": "range 82-192 76-180 60-194 43-189"
+    },
+    {
+     "bbox": [
+      50.88,
+      658.32,
+      462.48,
+      664.56
+     ],
+     "text": "std. deviation 22.6 22.3 27.7 31.0"
+    },
+    {
+     "bbox": [
+      51.12,
+      667.44,
+      471.12,
+      676.8
+     ],
+     "text": "significance P=0.01 P=0.01"
+    },
+    {
+     "bbox": [
+      51.36,
+      690.48,
+      127.92,
+      696.48
+     ],
+     "text": "FLAG LEAF LENGTH"
+    },
+    {
+     "bbox": [
+      51.36,
+      700.56,
+      477.6,
+      706.56
+     ],
+     "text": "mean 95.4mm 81.0 mm 43.0 mm 46.0 mm"
+    },
+    {
+     "bbox": [
+      51.36,
+      710.4,
+      468.96,
+      718.32
+     ],
+     "text": "range 46-170 33-150 15-80 25-79"
+    },
+    {
+     "bbox": [
+      51.12,
+      720.48,
+      462.24,
+      726.48
+     ],
+     "text": "std. deviation 28.2 27.8 19.1 12.5"
+    },
+    {
+     "bbox": [
+      51.12,
+      729.36,
+      471.12,
+      738.72
+     ],
+     "text": "significance P=0.01 P=0.01 P=0.01"
+    },
+    {
+     "bbox": [
+      50.88,
+      751.68,
+      174.48,
+      759.12
+     ],
+     "text": "TILLER LEAF LENGTH (third tiller)"
+    },
+    {
+     "bbox": [
+      51.36,
+      761.76,
+      482.16,
+      767.76
+     ],
+     "text": "mean 176.4 mm 172.3 mm 120.2 mm 100.3 mm"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       195.36,
+       242.4,
+       229.2,
+       248.64
+      ],
+      "header": true,
+      "text": "‘Taranna’"
+     },
+     {
+      "bbox": [
+       279.12,
+       241.2,
+       308.16,
+       250.56
+      ],
+      "header": true,
+      "text": "*Hume’"
+     },
+     {
+      "bbox": [
+       363.36,
+       242.16,
+       407.76,
+       249.6
+      ],
+      "header": true,
+      "text": "*Ecotype 1’"
+     },
+     {
+      "bbox": [
+       447.36,
+       241.92,
+       489.84,
+       249.36
+      ],
+      "header": true,
+      "text": "*Ecotype 2"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.36,
+       258.96,
+       146.64,
+       265.2
+      ],
+      "text": "INFLORESCENCE WIDTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.36,
+       270.72,
+       70.08,
+       275.04
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       195.12,
+       268.8,
+       225.36,
+       274.56
+      ],
+      "text": "33.4 mm"
+     },
+     {
+      "bbox": [
+       279.6,
+       268.56,
+       309.6,
+       274.08
+      ],
+      "text": "17.7 mm"
+     },
+     {
+      "bbox": [
+       363.84,
+       268.56,
+       393.6,
+       274.08
+      ],
+      "text": "14.5 mm"
+     },
+     {
+      "bbox": [
+       447.84,
+       268.32,
+       477.6,
+       274.08
+      ],
+      "text": "18.9 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.36,
+       280.8,
+       70.8,
+       286.8
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       195.6,
+       277.68,
+       228.96,
+       287.04
+      ],
+      "text": "17.9-64.1"
+     },
+     {
+      "bbox": [
+       279.36,
+       278.64,
+       309.84,
+       284.4
+      ],
+      "text": "9.5-27.4"
+     },
+     {
+      "bbox": [
+       363.6,
+       278.64,
+       393.84,
+       284.4
+      ],
+      "text": "5.3-24.4"
+     },
+     {
+      "bbox": [
+       447.6,
+       278.4,
+       477.84,
+       284.16
+      ],
+      "text": "7.9-33.4"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.12,
+       289.2,
+       97.44,
+       295.2
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       195.6,
+       288.96,
+       210.0,
+       294.48
+      ],
+      "text": "12.8"
+     },
+     {
+      "bbox": [
+       279.12,
+       288.72,
+       289.92,
+       294.24
+      ],
+      "text": "4.3"
+     },
+     {
+      "bbox": [
+       363.6,
+       288.72,
+       373.92,
+       294.24
+      ],
+      "text": "3.7"
+     },
+     {
+      "bbox": [
+       447.6,
+       288.72,
+       457.92,
+       294.24
+      ],
+      "text": "5.7"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.12,
+       297.6,
+       92.4,
+       307.68
+      ],
+      "text": "significance"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       279.84,
+       298.56,
+       303.12,
+       304.32
+      ],
+      "text": "P=0.01"
+     },
+     {
+      "bbox": [
+       363.84,
+       298.56,
+       387.12,
+       304.32
+      ],
+      "text": "P=0.01"
+     },
+     {
+      "bbox": [
+       447.84,
+       298.56,
+       471.12,
+       304.32
+      ],
+      "text": "P=0.01"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.36,
+       320.64,
+       152.88,
+       326.88
+      ],
+      "text": "INFLORESCENCE LENGTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.36,
+       331.92,
+       70.56,
+       336.48
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       195.36,
+       330.24,
+       225.36,
+       336.0
+      ],
+      "text": "75.6 mm"
+     },
+     {
+      "bbox": [
+       279.36,
+       330.0,
+       309.6,
+       335.76
+      ],
+      "text": "80.2 mm"
+     },
+     {
+      "bbox": [
+       363.36,
+       330.24,
+       393.6,
+       335.76
+      ],
+      "text": "63.3 mm"
+     },
+     {
+      "bbox": [
+       447.36,
+       330.24,
+       477.6,
+       335.76
+      ],
+      "text": "45.8 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.36,
+       341.76,
+       70.8,
+       347.76
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       195.12,
+       340.08,
+       233.28,
+       345.84
+      ],
+      "text": "41.6-100.1"
+     },
+     {
+      "bbox": [
+       279.6,
+       339.84,
+       317.52,
+       345.6
+      ],
+      "text": "55.6-104.1"
+     },
+     {
+      "bbox": [
+       363.6,
+       339.84,
+       398.4,
+       345.6
+      ],
+      "text": "27.1-95.2"
+     },
+     {
+      "bbox": [
+       447.6,
+       340.08,
+       482.64,
+       345.6
+      ],
+      "text": "30.1-80.6"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.12,
+       350.4,
+       97.44,
+       356.16
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       195.84,
+       350.16,
+       210.24,
+       355.68
+      ],
+      "text": "12.3"
+     },
+     {
+      "bbox": [
+       279.84,
+       349.68,
+       294.24,
+       355.44
+      ],
+      "text": "10.9"
+     },
+     {
+      "bbox": [
+       363.84,
+       349.92,
+       378.24,
+       355.68
+      ],
+      "text": "10.8"
+     },
+     {
+      "bbox": [
+       447.6,
+       349.92,
+       457.92,
+       355.68
+      ],
+      "text": "8.9"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.12,
+       359.04,
+       92.4,
+       368.64
+      ],
+      "text": "significance"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       279.84,
+       359.76,
+       303.12,
+       365.28
+      ],
+      "text": "P=0.01"
+     },
+     {
+      "bbox": [
+       363.84,
+       359.76,
+       387.12,
+       365.52
+      ],
+      "text": "P=0.01"
+     },
+     {
+      "bbox": [
+       447.84,
+       359.76,
+       471.12,
+       365.52
+      ],
+      "text": "P=0.01"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.36,
+       382.08,
+       171.84,
+       389.52
+      ],
+      "text": "GLUME WIDTH (1st glume on 3rd"
+     },
+     {
+      "bbox": [
+       174.96,
+       381.84,
+       201.12,
+       389.28
+      ],
+      "text": "branch)"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.36,
+       393.84,
+       70.32,
+       398.16
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       195.84,
+       392.16,
+       225.6,
+       397.68
+      ],
+      "text": "1.97 mm"
+     },
+     {
+      "bbox": [
+       280.08,
+       391.92,
+       309.84,
+       397.68
+      ],
+      "text": "1.73 mm"
+     },
+     {
+      "bbox": [
+       364.08,
+       392.16,
+       393.84,
+       397.68
+      ],
+      "text": "1.43 mm"
+     },
+     {
+      "bbox": [
+       447.6,
+       392.16,
+       477.84,
+       397.92
+      ],
+      "text": "2.07 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.36,
+       403.92,
+       71.04,
+       409.92
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       195.84,
+       402.24,
+       221.52,
+       408.0
+      ],
+      "text": "1.0-3.3"
+     },
+     {
+      "bbox": [
+       279.36,
+       402.0,
+       305.52,
+       407.76
+      ],
+      "text": "0.8-3.2"
+     },
+     {
+      "bbox": [
+       363.36,
+       402.24,
+       389.52,
+       407.76
+      ],
+      "text": "0.7-2.5"
+     },
+     {
+      "bbox": [
+       448.08,
+       402.24,
+       473.76,
+       408.0
+      ],
+      "text": "1.3-3.3"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       50.88,
+       412.56,
+       97.44,
+       418.56
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       195.36,
+       412.32,
+       210.24,
+       418.08
+      ],
+      "text": "0.43"
+     },
+     {
+      "bbox": [
+       279.36,
+       412.08,
+       294.24,
+       417.84
+      ],
+      "text": "0.44"
+     },
+     {
+      "bbox": [
+       363.36,
+       412.32,
+       378.24,
+       417.84
+      ],
+      "text": "0.38"
+     },
+     {
+      "bbox": [
+       447.36,
+       412.32,
+       462.48,
+       418.08
+      ],
+      "text": "0.39"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.12,
+       421.44,
+       92.4,
+       431.28
+      ],
+      "text": "significance"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       279.6,
+       422.16,
+       303.12,
+       427.92
+      ],
+      "text": "P=0.01"
+     },
+     {
+      "bbox": [
+       363.84,
+       422.16,
+       387.12,
+       427.92
+      ],
+      "text": "P=0.01"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.6,
+       443.76,
+       335.04,
+       451.44
+      ],
+      "text": "INFLORESCENCE INTERBRANCH LENGTH (between the 1st and 2nd branch)"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.36,
+       455.76,
+       70.32,
+       460.08
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       195.84,
+       454.08,
+       225.6,
+       459.6
+      ],
+      "text": "12.2 mm"
+     },
+     {
+      "bbox": [
+       279.84,
+       454.08,
+       309.84,
+       459.6
+      ],
+      "text": "12.3 mm"
+     },
+     {
+      "bbox": [
+       364.08,
+       454.08,
+       393.84,
+       459.84
+      ],
+      "text": "10.7 mm"
+     },
+     {
+      "bbox": [
+       447.84,
+       454.32,
+       473.28,
+       459.84
+      ],
+      "text": "7.3mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.6,
+       465.6,
+       71.04,
+       471.6
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       195.36,
+       464.16,
+       225.84,
+       469.68
+      ],
+      "text": "6.4-18.6"
+     },
+     {
+      "bbox": [
+       279.6,
+       463.92,
+       309.84,
+       469.68
+      ],
+      "text": "8.2-18.2"
+     },
+     {
+      "bbox": [
+       363.6,
+       464.16,
+       394.08,
+       469.68
+      ],
+      "text": "5.0-15.8"
+     },
+     {
+      "bbox": [
+       447.6,
+       464.16,
+       477.6,
+       469.92
+      ],
+      "text": "2.9-11.3"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.36,
+       474.0,
+       97.68,
+       480.0
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       195.36,
+       474.0,
+       205.92,
+       479.52
+      ],
+      "text": "2.4"
+     },
+     {
+      "bbox": [
+       279.36,
+       473.76,
+       289.92,
+       479.28
+      ],
+      "text": "2.4"
+     },
+     {
+      "bbox": [
+       364.08,
+       474.0,
+       374.16,
+       479.52
+      ],
+      "text": "1.8"
+     },
+     {
+      "bbox": [
+       448.08,
+       474.0,
+       458.16,
+       479.52
+      ],
+      "text": "1.5"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.12,
+       482.88,
+       92.64,
+       492.24
+      ],
+      "text": "significance"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       364.08,
+       483.84,
+       387.12,
+       489.6
+      ],
+      "text": "P=0.01"
+     },
+     {
+      "bbox": [
+       448.08,
+       483.84,
+       471.36,
+       489.6
+      ],
+      "text": "P=0.01"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.36,
+       505.44,
+       272.64,
+       512.88
+      ],
+      "text": "NUMBER OF REPRODUCTIVE TILLERS (over 10 day period)"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.36,
+       516.96,
+       70.32,
+       521.52
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       195.84,
+       515.52,
+       210.0,
+       521.28
+      ],
+      "text": "13.8"
+     },
+     {
+      "bbox": [
+       279.84,
+       515.52,
+       294.24,
+       521.04
+      ],
+      "text": "10.4"
+     },
+     {
+      "bbox": [
+       364.08,
+       515.76,
+       378.48,
+       521.28
+      ],
+      "text": "16.0"
+     },
+     {
+      "bbox": [
+       447.36,
+       516.0,
+       457.92,
+       521.52
+      ],
+      "text": "3.2"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.36,
+       527.04,
+       71.04,
+       533.28
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       195.36,
+       525.6,
+       212.4,
+       531.12
+      ],
+      "text": "5-24"
+     },
+     {
+      "bbox": [
+       279.36,
+       525.36,
+       296.4,
+       531.12
+      ],
+      "text": "4-20"
+     },
+     {
+      "bbox": [
+       363.36,
+       525.6,
+       380.64,
+       531.36
+      ],
+      "text": "6-27"
+     },
+     {
+      "bbox": [
+       447.36,
+       525.84,
+       464.64,
+       531.36
+      ],
+      "text": "0-13"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.12,
+       535.92,
+       97.44,
+       541.68
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       195.12,
+       535.68,
+       205.68,
+       541.44
+      ],
+      "text": "44"
+     },
+     {
+      "bbox": [
+       279.6,
+       535.68,
+       289.68,
+       541.44
+      ],
+      "text": "5.0"
+     },
+     {
+      "bbox": [
+       363.36,
+       535.92,
+       373.92,
+       541.44
+      ],
+      "text": "46"
+     },
+     {
+      "bbox": [
+       447.36,
+       535.92,
+       457.92,
+       541.68
+      ],
+      "text": "3.4"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.12,
+       544.8,
+       92.4,
+       554.64
+      ],
+      "text": "significance"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       279.84,
+       545.76,
+       304.32,
+       551.52
+      ],
+      "text": "P=0.05"
+     },
+     {
+      "bbox": [
+       363.84,
+       545.76,
+       387.12,
+       551.76
+      ],
+      "text": "P=0.01"
+     },
+     {
+      "bbox": [
+       447.84,
+       546.0,
+       471.12,
+       551.76
+      ],
+      "text": "P=0.01"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.12,
+       567.84,
+       107.76,
+       574.08
+      ],
+      "text": "CULM LENGTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.36,
+       579.36,
+       70.32,
+       583.92
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       195.36,
+       577.92,
+       223.2,
+       583.68
+      ],
+      "text": "56.0 cm"
+     },
+     {
+      "bbox": [
+       279.36,
+       577.92,
+       307.2,
+       583.44
+      ],
+      "text": "57.3. cm"
+     },
+     {
+      "bbox": [
+       363.36,
+       577.92,
+       391.2,
+       583.68
+      ],
+      "text": "46.4 cm"
+     },
+     {
+      "bbox": [
+       447.12,
+       578.16,
+       475.2,
+       583.92
+      ],
+      "text": "46.1cm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.36,
+       589.2,
+       71.04,
+       595.44
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       195.12,
+       587.76,
+       216.96,
+       593.52
+      ],
+      "text": "37-69"
+     },
+     {
+      "bbox": [
+       279.12,
+       587.76,
+       300.96,
+       593.28
+      ],
+      "text": "40-70"
+     },
+     {
+      "bbox": [
+       363.36,
+       588.0,
+       383.76,
+       593.52
+      ],
+      "text": "32-61"
+     },
+     {
+      "bbox": [
+       447.36,
+       588.0,
+       468.96,
+       593.76
+      ],
+      "text": "28-59"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.12,
+       597.6,
+       97.44,
+       603.36
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       195.36,
+       597.36,
+       205.44,
+       603.12
+      ],
+      "text": "7.0"
+     },
+     {
+      "bbox": [
+       279.12,
+       597.36,
+       289.68,
+       603.12
+      ],
+      "text": "6.0"
+     },
+     {
+      "bbox": [
+       363.6,
+       597.6,
+       373.68,
+       603.36
+      ],
+      "text": "74"
+     },
+     {
+      "bbox": [
+       447.36,
+       597.6,
+       457.92,
+       603.36
+      ],
+      "text": "8.0"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.12,
+       606.24,
+       92.4,
+       615.84
+      ],
+      "text": "significance"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       363.84,
+       607.2,
+       387.12,
+       612.96
+      ],
+      "text": "P=0.01"
+     },
+     {
+      "bbox": [
+       447.84,
+       607.44,
+       471.12,
+       613.2
+      ],
+      "text": "P=0.01"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.6,
+       629.04,
+       132.24,
+       644.64
+      ],
+      "text": "INTERNODE LENGTH mean"
+     },
+     {
+      "bbox": [
+       195.84,
+       638.64,
+       230.16,
+       644.4
+      ],
+      "text": "149.3 mm"
+     },
+     {
+      "bbox": [
+       279.84,
+       638.64,
+       314.16,
+       644.16
+      ],
+      "text": "128.2 mm"
+     },
+     {
+      "bbox": [
+       364.08,
+       638.88,
+       398.16,
+       644.4
+      ],
+      "text": "145.8 mm"
+     },
+     {
+      "bbox": [
+       448.08,
+       638.88,
+       482.4,
+       644.64
+      ],
+      "text": "129.7 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.6,
+       649.92,
+       71.04,
+       656.16
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       195.36,
+       648.48,
+       221.28,
+       654.24
+      ],
+      "text": "82-192"
+     },
+     {
+      "bbox": [
+       279.6,
+       648.48,
+       305.52,
+       654.24
+      ],
+      "text": "76-180"
+     },
+     {
+      "bbox": [
+       363.36,
+       648.72,
+       389.52,
+       654.48
+      ],
+      "text": "60-194"
+     },
+     {
+      "bbox": [
+       447.36,
+       648.72,
+       473.52,
+       654.48
+      ],
+      "text": "43-189"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       50.88,
+       658.56,
+       97.68,
+       664.56
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       195.12,
+       658.56,
+       210.24,
+       664.08
+      ],
+      "text": "22.6"
+     },
+     {
+      "bbox": [
+       279.36,
+       658.32,
+       294.48,
+       664.08
+      ],
+      "text": "22.3"
+     },
+     {
+      "bbox": [
+       363.6,
+       658.56,
+       378.48,
+       664.32
+      ],
+      "text": "27.7"
+     },
+     {
+      "bbox": [
+       447.6,
+       658.8,
+       462.48,
+       664.32
+      ],
+      "text": "31.0"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.12,
+       667.44,
+       92.16,
+       676.8
+      ],
+      "text": "significance"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       279.6,
+       668.16,
+       303.12,
+       674.16
+      ],
+      "text": "P=0.01"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       447.6,
+       668.64,
+       471.12,
+       674.4
+      ],
+      "text": "P=0.01"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.36,
+       690.48,
+       127.92,
+       696.48
+      ],
+      "text": "FLAG LEAF LENGTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.36,
+       702.0,
+       70.32,
+       706.56
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       195.36,
+       700.56,
+       225.6,
+       706.32
+      ],
+      "text": "95.4mm"
+     },
+     {
+      "bbox": [
+       279.36,
+       700.56,
+       309.6,
+       706.08
+      ],
+      "text": "81.0 mm"
+     },
+     {
+      "bbox": [
+       363.12,
+       700.8,
+       393.6,
+       706.32
+      ],
+      "text": "43.0 mm"
+     },
+     {
+      "bbox": [
+       447.12,
+       700.8,
+       477.6,
+       706.56
+      ],
+      "text": "46.0 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.36,
+       711.84,
+       71.04,
+       718.32
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       195.12,
+       710.4,
+       221.04,
+       716.16
+      ],
+      "text": "46-170"
+     },
+     {
+      "bbox": [
+       279.36,
+       710.4,
+       305.28,
+       716.16
+      ],
+      "text": "33-150"
+     },
+     {
+      "bbox": [
+       363.84,
+       710.64,
+       384.72,
+       716.4
+      ],
+      "text": "15-80"
+     },
+     {
+      "bbox": [
+       447.36,
+       710.88,
+       468.96,
+       716.4
+      ],
+      "text": "25-79"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.12,
+       720.48,
+       97.44,
+       726.48
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       195.12,
+       720.48,
+       210.0,
+       726.0
+      ],
+      "text": "28.2"
+     },
+     {
+      "bbox": [
+       279.36,
+       720.48,
+       294.24,
+       726.0
+      ],
+      "text": "27.8"
+     },
+     {
+      "bbox": [
+       363.84,
+       720.48,
+       377.04,
+       726.24
+      ],
+      "text": "19.1"
+     },
+     {
+      "bbox": [
+       447.84,
+       720.72,
+       462.24,
+       726.48
+      ],
+      "text": "12.5"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       51.12,
+       729.36,
+       92.4,
+       738.72
+      ],
+      "text": "significance"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       279.6,
+       730.32,
+       302.88,
+       736.08
+      ],
+      "text": "P=0.01"
+     },
+     {
+      "bbox": [
+       363.84,
+       730.56,
+       386.88,
+       736.08
+      ],
+      "text": "P=0.01"
+     },
+     {
+      "bbox": [
+       447.6,
+       730.56,
+       471.12,
+       736.32
+      ],
+      "text": "P=0.01"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       50.88,
+       751.68,
+       174.48,
+       759.12
+      ],
+      "text": "TILLER LEAF LENGTH (third tiller)"
+     },
+     {
+      "bbox": [
+       195.6,
+       761.76,
+       214.32,
+       767.28
+      ],
+      "text": "176.4"
+     },
+     {
+      "bbox": [
+       279.6,
+       761.76,
+       298.56,
+       767.28
+      ],
+      "text": "172.3"
+     },
+     {
+      "bbox": [
+       363.6,
+       762.0,
+       382.32,
+       767.52
+      ],
+      "text": "120.2"
+     },
+     {
+      "bbox": [
+       447.6,
+       762.0,
+       466.56,
+       767.76
+      ],
+      "text": "100.3"
+     }
+    ]
+   ],
+   "score": 0.9997,
+   "signal": "tatr",
+   "source": "tatr",
+   "text": " ‘Taranna’ *Hume’ *Ecotype 1’ *Ecotype 2\nINFLORESCENCE WIDTH    \nmean 33.4 mm 17.7 mm 14.5 mm 18.9 mm\nrange 17.9-64.1 9.5-27.4 5.3-24.4 7.9-33.4\nstd. deviation 12.8 4.3 3.7 5.7\nsignificance  P=0.01 P=0.01 P=0.01\nINFLORESCENCE LENGTH    \nmean 75.6 mm 80.2 mm 63.3 mm 45.8 mm\nrange 41.6-100.1 55.6-104.1 27.1-95.2 30.1-80.6\nstd. deviation 12.3 10.9 10.8 8.9\nsignificance  P=0.01 P=0.01 P=0.01\nGLUME WIDTH (1st glume on 3rd branch)   \nmean 1.97 mm 1.73 mm 1.43 mm 2.07 mm\nrange 1.0-3.3 0.8-3.2 0.7-2.5 1.3-3.3\nstd. deviation 0.43 0.44 0.38 0.39\nsignificance  P=0.01 P=0.01 \nINFLORESCENCE INTERBRANCH LENGTH (between the 1st and 2nd branch)    \nmean 12.2 mm 12.3 mm 10.7 mm 7.3mm\nrange 6.4-18.6 8.2-18.2 5.0-15.8 2.9-11.3\nstd. deviation 2.4 2.4 1.8 1.5\nsignificance   P=0.01 P=0.01\nNUMBER OF REPRODUCTIVE TILLERS (over 10 day period)    \nmean 13.8 10.4 16.0 3.2\nrange 5-24 4-20 6-27 0-13\nstd. deviation 44 5.0 46 3.4\nsignificance  P=0.05 P=0.01 P=0.01\nCULM LENGTH    \nmean 56.0 cm 57.3. cm 46.4 cm 46.1cm\nrange 37-69 40-70 32-61 28-59\nstd. deviation 7.0 6.0 74 8.0\nsignificance   P=0.01 P=0.01\nINTERNODE LENGTH mean 149.3 mm 128.2 mm 145.8 mm 129.7 mm\nrange 82-192 76-180 60-194 43-189\nstd. deviation 22.6 22.3 27.7 31.0\nsignificance  P=0.01  P=0.01\nFLAG LEAF LENGTH    \nmean 95.4mm 81.0 mm 43.0 mm 46.0 mm\nrange 46-170 33-150 15-80 25-79\nstd. deviation 28.2 27.8 19.1 12.5\nsignificance  P=0.01 P=0.01 P=0.01\nTILLER LEAF LENGTH (third tiller) 176.4 172.3 120.2 100.3",
+   "text_format": "plain",
+   "type": "table"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

@@ -1,0 +1,318 @@
+{
+ "model": "PaddlePaddle/PP-DocLayoutV3_safetensors",
+ "revision": "e4f489dc536556fc1be02b973ba06756e0d4a2ac",
+ "threshold": 0.5,
+ "load_seconds": 0.58,
+ "device": "cpu",
+ "dtype": "fp32",
+ "threads": 4,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.18",
+  "platform": "Linux-6.18.44-fc-v338-x86_64-with-glibc2.39",
+  "torch": "2.15.0+cpu",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "regions": [
+  {
+   "bbox": [
+    95.5,
+    67.0,
+    166.1,
+    81.9
+   ],
+   "category": "paragraph_title",
+   "score": 0.7447
+  },
+  {
+   "bbox": [
+    94.8,
+    95.6,
+    479.2,
+    134.8
+   ],
+   "category": "text",
+   "score": 0.5558
+  },
+  {
+   "bbox": [
+    95.2,
+    134.4,
+    490.6,
+    162.6
+   ],
+   "category": "text",
+   "score": 0.5692
+  },
+  {
+   "bbox": [
+    96.4,
+    204.4,
+    219.4,
+    222.9
+   ],
+   "category": "paragraph_title",
+   "score": 0.7948
+  },
+  {
+   "bbox": [
+    97.4,
+    229.1,
+    285.5,
+    245.3
+   ],
+   "category": "paragraph_title",
+   "score": 0.5454
+  },
+  {
+   "bbox": [
+    95.7,
+    281.9,
+    475.7,
+    335.9
+   ],
+   "category": "text",
+   "score": 0.8368
+  },
+  {
+   "bbox": [
+    96.7,
+    346.7,
+    260.2,
+    362.2
+   ],
+   "category": "paragraph_title",
+   "score": 0.7834
+  },
+  {
+   "bbox": [
+    95.6,
+    382.9,
+    474.4,
+    424.8
+   ],
+   "category": "text",
+   "score": 0.8036
+  },
+  {
+   "bbox": [
+    97.1,
+    435.9,
+    201.7,
+    451.2
+   ],
+   "category": "paragraph_title",
+   "score": 0.7559
+  },
+  {
+   "bbox": [
+    95.7,
+    472.4,
+    474.0,
+    513.7
+   ],
+   "category": "text",
+   "score": 0.6991
+  },
+  {
+   "bbox": [
+    97.3,
+    607.3,
+    220.6,
+    623.9
+   ],
+   "category": "paragraph_title",
+   "score": 0.7343
+  },
+  {
+   "bbox": [
+    96.2,
+    647.6,
+    468.9,
+    914.6
+   ],
+   "category": "table",
+   "score": 0.9111
+  },
+  {
+   "bbox": [
+    537.0,
+    65.2,
+    690.8,
+    82.0
+   ],
+   "category": "paragraph_title",
+   "score": 0.7628
+  },
+  {
+   "bbox": [
+    536.1,
+    163.6,
+    940.3,
+    191.3
+   ],
+   "category": "text",
+   "score": 0.841
+  },
+  {
+   "bbox": [
+    536.8,
+    196.7,
+    942.2,
+    316.8
+   ],
+   "category": "text",
+   "score": 0.943
+  },
+  {
+   "bbox": [
+    538.8,
+    333.7,
+    929.5,
+    350.3
+   ],
+   "category": "paragraph_title",
+   "score": 0.6359
+  },
+  {
+   "bbox": [
+    538.8,
+    355.5,
+    660.8,
+    370.3
+   ],
+   "category": "paragraph_title",
+   "score": 0.6601
+  },
+  {
+   "bbox": [
+    537.3,
+    372.9,
+    942.3,
+    428.1
+   ],
+   "category": "text",
+   "score": 0.9199
+  },
+  {
+   "bbox": [
+    538.7,
+    436.3,
+    667.7,
+    450.5
+   ],
+   "category": "paragraph_title",
+   "score": 0.8047
+  },
+  {
+   "bbox": [
+    536.8,
+    453.5,
+    942.4,
+    532.5
+   ],
+   "category": "text",
+   "score": 0.9424
+  },
+  {
+   "bbox": [
+    537.4,
+    538.5,
+    941.9,
+    580.2
+   ],
+   "category": "text",
+   "score": 0.9173
+  },
+  {
+   "bbox": [
+    537.0,
+    585.8,
+    941.9,
+    627.0
+   ],
+   "category": "text",
+   "score": 0.9134
+  },
+  {
+   "bbox": [
+    538.7,
+    634.8,
+    651.3,
+    648.9
+   ],
+   "category": "paragraph_title",
+   "score": 0.7781
+  },
+  {
+   "bbox": [
+    536.4,
+    652.2,
+    942.9,
+    731.8
+   ],
+   "category": "text",
+   "score": 0.9379
+  },
+  {
+   "bbox": [
+    538.0,
+    739.9,
+    637.7,
+    754.0
+   ],
+   "category": "paragraph_title",
+   "score": 0.7668
+  },
+  {
+   "bbox": [
+    536.3,
+    757.0,
+    942.1,
+    811.5
+   ],
+   "category": "text",
+   "score": 0.9289
+  },
+  {
+   "bbox": [
+    537.7,
+    818.6,
+    702.3,
+    833.2
+   ],
+   "category": "paragraph_title",
+   "score": 0.8129
+  },
+  {
+   "bbox": [
+    535.8,
+    836.0,
+    943.1,
+    915.9
+   ],
+   "category": "text",
+   "score": 0.946
+  },
+  {
+   "bbox": [
+    914.1,
+    936.6,
+    938.9,
+    949.5
+   ],
+   "category": "number",
+   "score": 0.717
+  }
+ ],
+ "seconds": 0.77,
+ "peak_rss_mb": 1555.7,
+ "image_px": [
+  1653,
+  2339
+ ],
+ "page": "V5N3_p23"
+}

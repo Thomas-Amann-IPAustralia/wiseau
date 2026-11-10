@@ -1,0 +1,380 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    420.56,
+    56.35,
+    575.46,
+    63.67
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      420.56,
+      56.35,
+      575.46,
+      63.67
+     ],
+     "text": "PLANT VARIETIES JOURNAL 2003 VOL 16 NO. 3"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "<u>PLANT VARIETIES JOURNAL</u> <u>2003 VOL 16 NO. 3</u>",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    565.36,
+    821.07,
+    575.36,
+    830.23
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      565.36,
+      821.07,
+      575.36,
+      830.23
+     ],
+     "text": "87"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "87",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    85.01,
+    218.8,
+    123.78
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      76.46,
+      85.01,
+      218.8,
+      93.78
+     ],
+     "text": "CURRENT STATUS OF PLANT"
+    },
+    {
+     "bbox": [
+      76.46,
+      95.01,
+      190.89,
+      103.78
+     ],
+     "text": "VARIETY PROTECTION"
+    },
+    {
+     "bbox": [
+      76.46,
+      105.01,
+      192.9,
+      113.78
+     ],
+     "text": "LEGISLATURE IN UPOV"
+    },
+    {
+     "bbox": [
+      76.46,
+      115.01,
+      184.77,
+      123.78
+     ],
+     "text": "MEMBER COUNTRIES"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**CURRENT STATUS OF PLANT**\n**VARIETY PROTECTION**\n**LEGISLATURE IN UPOV**\n**MEMBER COUNTRIES**",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "bbox_coverage": 0.207,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e4",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "Argentina <sup>2</sup>\nAustralia <sup>3</sup>\nAustria <sup>2,4</sup>\nBelarus <sup>3</sup>\nBelgium <sup>1,4</sup>\nBolivia <sup>2</sup>\nBrazil <sup>2</sup>\nBulgaria <sup>3</sup>\nCanada <sup>2</sup>\nChile <sup>2</sup>\nChina <sup>2</sup>\nColumbia <sup>2</sup>\nCroatia <sup>3</sup>\nCzech Republic <sup>2</sup>\nDenmark <sup>3,4</sup>\nEcuador <sup>2</sup>\nEstonia <sup>3</sup>\nFinland <sup>3,4</sup>\nFrance <sup>2,4</sup>\nGermany <sup>3,4</sup>\nHungary <sup>3</sup>\nIreland <sup>2,4</sup>\nIsrael <sup>3</sup>\nItaly <sup>2,4</sup>\nJapan <sup>3</sup>\nKenya <sup>2</sup>\nKyrgyzstan <sup>3</sup>\nLatvia <sup>3</sup>\nMexico <sup>2</sup>\nNetherlands <sup>3,4</sup>\nNew Zealand <sup>2</sup>\nNicaragua <sup>3</sup>\nNorway <sup>2</sup>\nPanama <sup>2</sup>\nParaguay <sup>2</sup>\nPoland <sup>2,5</sup>\nPortugal <sup>2,4</sup>\nRepublic of Korea <sup>3</sup>\nRepublic of Moldova <sup>3</sup>\nRomania <sup>3</sup>\nRussian Federation <sup>3</sup>\nSlovakia <sup>2,5</sup>\nSlovenia <sup>5</sup>\nSouth Africa <sup>2,5</sup>\nSpain <sup>1,4</sup>\nSweden <sup>3,4</sup>\nSwitzerland <sup>2</sup>\nTrinidad and Tobago <sup>2</sup>\nTunisia <sup>3</sup>\nUkraine <sup>2</sup>\nUnited Kingdom <sup>3,4</sup>\nUSA <sup>3</sup>\nUruguay <sup>2</sup>\n(Total 53)",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    252.21,
+    84.69,
+    399.63,
+    223.78
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      252.21,
+      84.69,
+      254.71,
+      89.23
+     ],
+     "text": "1"
+    },
+    {
+     "bbox": [
+      266.34,
+      84.69,
+      399.62,
+      93.78
+     ],
+     "text": "Bound by the 1961 Act as"
+    },
+    {
+     "bbox": [
+      266.34,
+      94.69,
+      399.63,
+      103.78
+     ],
+     "text": "amended by the Additional Act"
+    },
+    {
+     "bbox": [
+      266.34,
+      104.69,
+      299.92,
+      113.78
+     ],
+     "text": "of 1972."
+    },
+    {
+     "bbox": [
+      252.21,
+      114.69,
+      254.71,
+      119.23
+     ],
+     "text": "2"
+    },
+    {
+     "bbox": [
+      266.39,
+      114.69,
+      362.67,
+      123.78
+     ],
+     "text": "Bound by the 1978 Act."
+    },
+    {
+     "bbox": [
+      252.21,
+      124.69,
+      254.71,
+      129.23
+     ],
+     "text": "3"
+    },
+    {
+     "bbox": [
+      266.39,
+      124.69,
+      362.67,
+      133.78
+     ],
+     "text": "Bound by the 1991 Act."
+    },
+    {
+     "bbox": [
+      252.21,
+      134.69,
+      254.71,
+      139.23
+     ],
+     "text": "4"
+    },
+    {
+     "bbox": [
+      266.34,
+      134.69,
+      301.22,
+      143.78
+     ],
+     "text": "Member"
+    },
+    {
+     "bbox": [
+      313.73,
+      134.69,
+      322.26,
+      143.78
+     ],
+     "text": "of"
+    },
+    {
+     "bbox": [
+      334.77,
+      134.69,
+      347.39,
+      143.78
+     ],
+     "text": "the"
+    },
+    {
+     "bbox": [
+      359.91,
+      134.69,
+      399.63,
+      143.78
+     ],
+     "text": "European"
+    },
+    {
+     "bbox": [
+      266.34,
+      144.69,
+      315.73,
+      153.78
+     ],
+     "text": "Community"
+    },
+    {
+     "bbox": [
+      338.19,
+      144.69,
+      363.43,
+      153.78
+     ],
+     "text": "which"
+    },
+    {
+     "bbox": [
+      385.89,
+      144.69,
+      399.62,
+      153.78
+     ],
+     "text": "has"
+    },
+    {
+     "bbox": [
+      266.34,
+      154.69,
+      399.63,
+      163.78
+     ],
+     "text": "introduced a (supranational)"
+    },
+    {
+     "bbox": [
+      266.34,
+      164.69,
+      399.63,
+      173.78
+     ],
+     "text": "Community plant variety rights"
+    },
+    {
+     "bbox": [
+      266.34,
+      174.69,
+      399.25,
+      183.78
+     ],
+     "text": "system based upon the 1991 Act."
+    },
+    {
+     "bbox": [
+      252.21,
+      184.69,
+      254.71,
+      189.23
+     ],
+     "text": "5"
+    },
+    {
+     "bbox": [
+      266.34,
+      184.69,
+      399.63,
+      193.78
+     ],
+     "text": "Has already amended its law to"
+    },
+    {
+     "bbox": [
+      266.34,
+      194.69,
+      399.63,
+      203.78
+     ],
+     "text": "conform to the 1991 Act; most"
+    },
+    {
+     "bbox": [
+      266.34,
+      204.69,
+      399.63,
+      213.78
+     ],
+     "text": "other states are in the process of"
+    },
+    {
+     "bbox": [
+      266.34,
+      214.69,
+      303.26,
+      223.78
+     ],
+     "text": "doing so."
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "1 Bound by the 1961 Act as\namended by the Additional Act\nof 1972.\n2 Bound by the 1978 Act.\n3 Bound by the 1991 Act.\n4 Member of the European\nCommunity which has\nintroduced a (supranational)\nCommunity plant variety rights\nsystem based upon the 1991 Act.\n5 Has already amended its law to\nconform to the 1991 Act; most\nother states are in the process of\ndoing so.",
+   "text_format": "markdown",
+   "type": "paragraph"
+  }
+ ],
+ "pages": [
+  {
+   "method": "text-layer",
+   "number": 1,
+   "size": [
+    651.0,
+    898.0
+   ],
+   "source": "pymupdf4llm"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

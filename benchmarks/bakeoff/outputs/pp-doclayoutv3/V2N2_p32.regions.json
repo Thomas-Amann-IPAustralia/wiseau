@@ -1,0 +1,198 @@
+{
+ "model": "PaddlePaddle/PP-DocLayoutV3_safetensors",
+ "revision": "e4f489dc536556fc1be02b973ba06756e0d4a2ac",
+ "threshold": 0.5,
+ "load_seconds": 10.89,
+ "device": "cpu",
+ "dtype": "fp32",
+ "threads": 4,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.18",
+  "platform": "Linux-6.18.44-fc-v338-x86_64-with-glibc2.39",
+  "torch": "2.15.0+cpu",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "regions": [
+  {
+   "bbox": [
+    141.6,
+    56.4,
+    634.8,
+    74.6
+   ],
+   "category": "figure_title",
+   "score": 0.5211
+  },
+  {
+   "bbox": [
+    138.1,
+    85.9,
+    897.5,
+    437.9
+   ],
+   "category": "table",
+   "score": 0.9743
+  },
+  {
+   "bbox": [
+    137.7,
+    499.0,
+    357.2,
+    512.3
+   ],
+   "category": "paragraph_title",
+   "score": 0.7877
+  },
+  {
+   "bbox": [
+    137.2,
+    511.1,
+    496.7,
+    573.3
+   ],
+   "category": "text",
+   "score": 0.9085
+  },
+  {
+   "bbox": [
+    134.6,
+    667.9,
+    441.8,
+    695.9
+   ],
+   "category": "text",
+   "score": 0.8713
+  },
+  {
+   "bbox": [
+    135.1,
+    762.9,
+    503.0,
+    779.0
+   ],
+   "category": "text",
+   "score": 0.827
+  },
+  {
+   "bbox": [
+    134.6,
+    786.1,
+    502.5,
+    826.8
+   ],
+   "category": "text",
+   "score": 0.8903
+  },
+  {
+   "bbox": [
+    134.2,
+    858.7,
+    460.1,
+    885.5
+   ],
+   "category": "text",
+   "score": 0.8397
+  },
+  {
+   "bbox": [
+    134.5,
+    894.3,
+    464.0,
+    921.1
+   ],
+   "category": "text",
+   "score": 0.8225
+  },
+  {
+   "bbox": [
+    530.7,
+    499.7,
+    625.0,
+    519.6
+   ],
+   "category": "paragraph_title",
+   "score": 0.8504
+  },
+  {
+   "bbox": [
+    529.7,
+    528.0,
+    855.6,
+    544.0
+   ],
+   "category": "text",
+   "score": 0.8277
+  },
+  {
+   "bbox": [
+    529.2,
+    551.8,
+    894.6,
+    590.9
+   ],
+   "category": "text",
+   "score": 0.8977
+  },
+  {
+   "bbox": [
+    529.3,
+    616.0,
+    780.3,
+    635.1
+   ],
+   "category": "paragraph_title",
+   "score": 0.8197
+  },
+  {
+   "bbox": [
+    529.1,
+    645.5,
+    752.8,
+    659.0
+   ],
+   "category": "paragraph_title",
+   "score": 0.6999
+  },
+  {
+   "bbox": [
+    528.5,
+    657.5,
+    895.8,
+    695.9
+   ],
+   "category": "text",
+   "score": 0.8698
+  },
+  {
+   "bbox": [
+    527.7,
+    704.1,
+    897.3,
+    888.3
+   ],
+   "category": "table",
+   "score": 0.898
+  },
+  {
+   "bbox": [
+    138.2,
+    943.1,
+    158.0,
+    954.5
+   ],
+   "category": "number",
+   "score": 0.7347
+  }
+ ],
+ "seconds": 0.95,
+ "peak_rss_mb": 1420.2,
+ "image_px": [
+  1652,
+  2340
+ ],
+ "page": "V2N2_p32"
+}

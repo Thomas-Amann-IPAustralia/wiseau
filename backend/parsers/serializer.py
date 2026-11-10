@@ -54,10 +54,17 @@ SYNTAX_SIGNAL = "markdown-syntax"
 CELL_SIGNALS = {"tatr"}
 STITCHED_AS_TABLES = False
 STITCH_SIGNAL = "tesseract-row-stitch"
+# Signals whose headings and titles are written as ATX headings (ADR-048): the
+# layout pass's. Their level is the element's (title 1, heading 2), their text
+# joined onto one line. Elements from other sources keep their text as it is
+# (PyMuPDF4LLM's and docling's headings already carry their `#`).
+HEADING_SIGNALS = {"pp-doclayoutv3"}
 
 
 def render_element(el: ir.Element) -> str:
     """One element as Markdown."""
+    if el.signal in HEADING_SIGNALS and el.type in (ir.HEADING, ir.TITLE):
+        return "#" * (el.level or 2) + " " + " ".join(el.text.split("\n"))
     if el.type == ir.TABLE and el.rows:
         if el.signal in CELL_SIGNALS or (STITCHED_AS_TABLES and el.signal == STITCH_SIGNAL):
             return table_markdown(el.rows)

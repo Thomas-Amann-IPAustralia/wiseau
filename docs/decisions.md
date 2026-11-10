@@ -21,6 +21,90 @@ one `Superseded`.
 
 ---
 
+## ADR-048 — Layout regions on scans (PP-DocLayoutV3), on in the image; transformers 5.x for both model passes
+**Date:** 2026-11-10 · **Status:** Accepted (the user: "deploy the CPU detector only for now")
+**Context:**
+- Set S showed that the default path finds no structure on scans: no headings
+  (hd_r 0.10), a third of blocks merged. Roadmap item 3.7b tested two layout
+  sources as a sidecar, with the OCR words kept and the regions supplying
+  blocks and types.
+  - PP-DocLayoutV3 is a CPU detector, the one GLM-OCR already pins.
+  - OvisOCR3 is a 0.8B generative model.
+- Validated on set S, then on a new held-out blind set T (14 pages, 4 of them
+  patent/WO publications, frozen before anything ran on them;
+  `docs/benchmarks/2026-11-10-layout-regions{,-set-t}.md`). On set T, over the
+  table pass:
+  - block F1 0.668 → 0.830, typed-block F1 0.537 → 0.765;
+  - merged blocks 24% → 5%;
+  - headings found 0% → 78% (95% precision), heading tree 0 → 0.59;
+  - reading order 0.007 → 0.003; tables and every word unchanged.
+- OvisOCR3 labels a little better (headings 147 vs 139 of 170, captions 14 vs
+  8 of 45, over both sets) but takes ~2½ min a page on CPU. The user wants it
+  tested on a GPU before any opt-in (`docs/kaggle-gpu-guide.md`).
+- **Dependency conflict.** PP-DocLayoutV3 exists only in transformers 5.x.
+  `requirements-tables.txt` pinned 4.57.6 because "5.x rejects the Table
+  Transformer checkpoints' config". The actual 5.x failures were two:
+  - the `use_pretrained_backbone` keyword is gone (5.x reads it from the
+    checkpoint's backbone config, already false);
+  - strict config validation rejects the structure model's `"dilation": null`.
+**Decision:**
+- New pass `parsers/layout.py`, opt-in in code (`WISEAU_LAYOUT=ppdl`) and **on in
+  the Docker image**, beside the table pass (`WISEAU_LAYOUT_THREADS=1`).
+  - On an OCR'd page, PP-DocLayoutV3 (revision `e4f489dc`, 200 dpi, threshold
+    0.5) proposes regions in reading order.
+  - Each line moves to the region holding ≥ 50% of its area. Each region
+    becomes one element typed by its category, in the detector's order. Lines
+    outside every region stay where they were.
+  - Table Transformer tables and ADR-038 stitched tables move whole.
+  - `vision_footnote` (photo credits) → caption.
+  - These are the pre-declared "v2" settings scored on set T. They are
+    identical to the as-tested variant there except captions (R/P 0.38/0.83 vs
+    0.31/1.00); the stitched-table rule guards against set S's S06 failure, a
+    list read column by column.
+- `serializer.render_element` writes the pass's headings and titles as `##` /
+  `#`, the text joined onto one line (`HEADING_SIGNALS`). Captions, page
+  furniture and footnotes are typed in the IR only; the Markdown is unchanged
+  for them.
+- Born-digital pages are untouched: PyMuPDF4LLM's structure stands.
+- A failure inside the pass is logged, and the page kept without it.
+- **transformers 5.22.1 for both passes.** `tables._load` drops the keyword on
+  5.x and loads the checkpoints through `_config_5x` (null `dilation` → false,
+  which 4.x read it as). `requirements-tables.txt` now pins
+  `transformers==5.22.1`, `timm==1.0.31` and `opencv-python-headless==5.0.0.93`
+  (PP-DocLayoutV3's processor needs cv2).
+- `fetch_table_models.py` takes `module:count` arguments and also fetches a
+  model's `preprocessor_config.json`. The image fetches all three models at
+  build time and runs offline.
+- No API version bump: the response schema is unchanged. As with ADR-047's
+  tables, the Markdown of scanned pages gains structure.
+**Consequences:**
+- **Tables under transformers 5.22.1 are byte-identical** to 4.57.6 on all 96
+  scored pages (sets A–F, L, S), with no pass failures.
+- **The production pass reproduces the validated scores exactly** on sets S
+  and T (`run_engines.py layout-ppdl` vs the harness's
+  `pp-doclayoutv3-regroup-tatr-v2`). The Markdown matches on 33 of 34 pages.
+  On V4 p27 one line sitting at ~50% overlap tips into its own block: the
+  harness's 4-thread run rounds boxes differently (≤ 0.04 pt). No score moves.
+- **Cost, measured in the built image** (offline, UID 1000, 4 vCPU):
+  - image 3.9 → 4.44 GB;
+  - the pass ~3.6 s per scanned page on one thread (load ~4 s, once);
+  - V4N1 p7 over HTTP 13.1 s warm with the pass, 10.1 s without (17.9 s cold);
+  - four scanned conversions at once all succeed: 30.2 s wall, peak 2.24 GiB
+    against 1.46 GiB without the pass (+0.8 GiB).
+  - On 4 threads the pass is 0.8 s a page, but the image keeps 1 for
+    repeatable arithmetic.
+- **Hosting:** HF Spaces (16 GB) need nothing. Cloud Run at 4 GiB keeps both
+  passes on; at 2 GiB set `WISEAU_TABLES` and `WISEAU_LAYOUT` empty. Render:
+  both off. The lean image (`TABLES=0`) has neither.
+- The default path with the variables unset is unchanged: byte for byte on
+  every scored page. The serializer branch fires only for this pass's signal.
+- Still missing: heading levels (every `paragraph_title` is level 2; roadmap
+  3.1), captions (recall ≤ 0.38), page-furniture precision (0.75).
+- CI: the full image must turn two bold headings on a rasterised page into
+  `##` headings offline; the lean image must not carry the pass. 581 tests
+  pass (13 new, `tests/test_layout.py`, no PyTorch needed), 8 skipped, both
+  without PyTorch and under transformers 5.22.1.
+
 ## ADR-047 — The image ships the table pass on; MuPDF's OCR call is serialised
 **Date:** 2026-11-09 · **Status:** Accepted (the user accepted ADR-046's recommendation)
 **Context:**

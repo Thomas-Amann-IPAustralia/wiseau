@@ -1,0 +1,2752 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    56.4,
+    66.48,
+    344.16,
+    78.24
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      56.4,
+      66.48,
+      344.16,
+      78.24
+     ],
+     "text": "Table of Comparison of Geraldton Wax Flower Varieties"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Geraldton Wax Flower Varieties",
+   "text_format": "plain",
+   "type": "caption",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "figure_title"
+  },
+  {
+   "bbox": [
+    56.16,
+    81.12,
+    196.32,
+    89.52
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      56.16,
+      81.12,
+      196.32,
+      89.52
+     ],
+     "text": "(* = varieties used for comparison)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(* = varieties used for comparison)",
+   "text_format": "plain",
+   "type": "caption",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "figure_title"
+  },
+  {
+   "bbox": [
+    55.65,
+    101.27,
+    534.31,
+    525.47
+   ],
+   "confidence": null,
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      134.16,
+      103.44,
+      525.36,
+      113.76
+     ],
+     "text": "‘Pearl Buttons’ “White Spring’ ‘Pristine’ Triumphant’ *'Mullering Brook’"
+    },
+    {
+     "bbox": [
+      56.4,
+      121.44,
+      238.08,
+      129.36
+     ],
+     "text": "STEM THICKNESS measured 30 cm from apex of branch"
+    },
+    {
+     "bbox": [
+      56.4,
+      130.56,
+      494.88,
+      138.24
+     ],
+     "text": "mean 0.47 cm 0.2? cm 0.60 cm 0.39 cm 04!) en"
+    },
+    {
+     "bbox": [
+      56.4,
+      139.68,
+      509.28,
+      150.24
+     ],
+     "text": "range 0.39 — 0.60 020 —0.32 046 —C.72 027 —0.50 0.35 — 0.46"
+    },
+    {
+     "bbox": [
+      56.4,
+      150.72,
+      482.64,
+      158.4
+     ],
+     "text": "std deviation 006 004 0.08 0.07 0.04"
+    },
+    {
+     "bbox": [
+      56.64,
+      165.12,
+      150.0,
+      172.32
+     ],
+     "text": "LENGTH OF MATURE LEAVES"
+    },
+    {
+     "bbox": [
+      56.64,
+      174.72,
+      494.88,
+      182.16
+     ],
+     "text": "mean 179m 214¢~ 173m 2 04 em 1 84cm"
+    },
+    {
+     "bbox": [
+      56.4,
+      183.84,
+      509.04,
+      194.64
+     ],
+     "text": "range 158 — 2.14 1.81 — 2.46 143 —2.20 * 40 — 2.52 1.31 — 2.46"
+    },
+    {
+     "bbox": [
+      56.16,
+      194.88,
+      483.12,
+      202.32
+     ],
+     "text": "std deviation 0.15 0.18 O19 6.24 0.33"
+    },
+    {
+     "bbox": [
+      56.16,
+      209.28,
+      146.4,
+      216.24
+     ],
+     "text": "WIDTH OF MATURE LEAVES"
+    },
+    {
+     "bbox": [
+      56.4,
+      219.12,
+      497.28,
+      226.08
+     ],
+     "text": "mean 120mm 110mm 1.24 mm 0.96 mm 123mm"
+    },
+    {
+     "bbox": [
+      56.4,
+      227.76,
+      509.52,
+      238.56
+     ],
+     "text": "range 1.10 — 1.30 C36 — 1.20 0.90 — 1.60 0.80 — 1 20 1.00 — 1 30"
+    },
+    {
+     "bbox": [
+      56.16,
+      238.56,
+      483.36,
+      246.0
+     ],
+     "text": "ste dev ation 0.10 0.19 0.18 0.11 0.08"
+    },
+    {
+     "bbox": [
+      56.64,
+      252.72,
+      112.32,
+      259.68
+     ],
+     "text": "PEDICEL LENGTH"
+    },
+    {
+     "bbox": [
+      56.4,
+      262.08,
+      495.12,
+      269.28
+     ],
+     "text": "mean 1 08 cm 08icm 0.78 om 0.60 cm 0.72 cm"
+    },
+    {
+     "bbox": [
+      56.16,
+      270.96,
+      509.28,
+      281.76
+     ],
+     "text": "range 0.54 — 1.55 0.59 — 1.10 0.48 —1.13 0.27? —094 040— 710"
+    },
+    {
+     "bbox": [
+      56.16,
+      281.76,
+      483.36,
+      289.2
+     ],
+     "text": "std deviation 0.34 0.17 0.19 0.17 018"
+    },
+    {
+     "bbox": [
+      56.64,
+      295.92,
+      220.8,
+      304.32
+     ],
+     "text": "FLORAL TUBE COLOUR — top region, below sepals"
+    },
+    {
+     "bbox": [
+      134.16,
+      306.0,
+      486.48,
+      314.64
+     ],
+     "text": "yellow-green yellow-eresn green & yeliow-green yellow-green gree?"
+    },
+    {
+     "bbox": [
+      56.64,
+      315.84,
+      486.48,
+      322.8
+     ],
+     "text": "RHS No 145A & 146C 144A 143A, 1444 & 146A 144A 143A"
+    },
+    {
+     "bbox": [
+      56.64,
+      329.76,
+      262.08,
+      337.68
+     ],
+     "text": "FLORAL TUBE COLOUR — middle sec? on newly-opened flowers"
+    },
+    {
+     "bbox": [
+      56.4,
+      338.88,
+      515.04,
+      349.68
+     ],
+     "text": "colour yellow-green yellow-green green-yellow. yel'ow & — yellow-green greyed-orange"
+    },
+    {
+     "bbox": [
+      301.2,
+      350.4,
+      347.04,
+      358.32
+     ],
+     "text": "greyed orange"
+    },
+    {
+     "bbox": [
+      56.88,
+      358.8,
+      513.6,
+      369.6
+     ],
+     "text": "RHS No. 153A.B.C 191B & 1520 1A, 24 & 166C-B 15CA & i S4A 166B & 164A"
+    },
+    {
+     "bbox": [
+      56.4,
+      369.84,
+      91.44,
+      376.56
+     ],
+     "text": "old fowers"
+    },
+    {
+     "bbox": [
+      56.4,
+      379.92,
+      515.04,
+      388.56
+     ],
+     "text": "colour yellow-green yellow-green yeliow & greyed orange yellow-green greyed-orange"
+    },
+    {
+     "bbox": [
+      56.4,
+      388.56,
+      535.68,
+      399.36
+     ],
+     "text": "RHS No. 153A,B.C 151B & 152D 34, 162A & 164A 150A 166C. 176A & 1754"
+    },
+    {
+     "bbox": [
+      56.4,
+      403.2,
+      254.88,
+      411.6
+     ],
+     "text": "FLORAL TUBE COLOUR — cup/nectary newly-opened flowers"
+    },
+    {
+     "bbox": [
+      56.16,
+      413.52,
+      513.36,
+      422.4
+     ],
+     "text": "colour yellow - orange greyed-orange yellow-crange"
+    },
+    {
+     "bbox": [
+      56.4,
+      422.88,
+      481.68,
+      430.56
+     ],
+     "text": "RHS No 24 3A 4A.5A.6A, 7A. 8A 28C & 295A 163A & 164B i5A"
+    },
+    {
+     "bbox": [
+      56.16,
+      432.72,
+      90.96,
+      439.68
+     ],
+     "text": "old flowers"
+    },
+    {
+     "bbox": [
+      56.16,
+      442.56,
+      512.88,
+      451.92
+     ],
+     "text": "colaur greyed-red & greyed yellow-green red-purple greyed-purple & red greyed-purple"
+    },
+    {
+     "bbox": [
+      133.68,
+      453.36,
+      404.64,
+      461.52
+     ],
+     "text": "orange purple"
+    },
+    {
+     "bbox": [
+      56.4,
+      462.48,
+      519.6,
+      470.4
+     ],
+     "text": "RHS No 1818 &171A-B 150B, 151A-B & 153C-8 59A-2-C.64A-B.& 718 59A.G0A,1844-B & 186A187B & 1834-8"
+    },
+    {
+     "bbox": [
+      56.16,
+      476.64,
+      158.88,
+      483.84
+     ],
+     "text": "COLOUR OF IMMATURE STEMS"
+    },
+    {
+     "bbox": [
+      55.92,
+      486.96,
+      288.72,
+      495.6
+     ],
+     "text": "colour yellow-green yellow-green & greyed"
+    },
+    {
+     "bbox": [
+      217.44,
+      498.96,
+      239.52,
+      505.2
+     ],
+     "text": "orange"
+    },
+    {
+     "bbox": [
+      56.4,
+      505.92,
+      282.24,
+      516.48
+     ],
+     "text": "RHS No 153A &@151A 1514,153A4.165B &"
+    },
+    {
+     "bbox": [
+      218.64,
+      516.96,
+      243.12,
+      523.68
+     ],
+     "text": "i66C-D"
+    },
+    {
+     "bbox": [
+      300.96,
+      487.92,
+      371.04,
+      496.08
+     ],
+     "text": "grey-orange & yellow-"
+    },
+    {
+     "bbox": [
+      300.96,
+      499.2,
+      318.72,
+      505.68
+     ],
+     "text": "green"
+    },
+    {
+     "bbox": [
+      301.92,
+      507.36,
+      319.92,
+      514.56
+     ],
+     "text": "144A,"
+    },
+    {
+     "bbox": [
+      384.72,
+      487.92,
+      455.04,
+      496.32
+     ],
+     "text": "grey-orance & yellow-"
+    },
+    {
+     "bbox": [
+      384.96,
+      499.44,
+      402.24,
+      505.92
+     ],
+     "text": "green"
+    },
+    {
+     "bbox": [
+      385.68,
+      507.84,
+      444.24,
+      514.8
+     ],
+     "text": "164A, 166C.1658."
+    },
+    {
+     "bbox": [
+      385.68,
+      517.44,
+      437.04,
+      524.4
+     ],
+     "text": "153A-B & 152D"
+    },
+    {
+     "bbox": [
+      468.24,
+      488.16,
+      509.04,
+      496.32
+     ],
+     "text": "yellow-green"
+    },
+    {
+     "bbox": [
+      322.08,
+      507.6,
+      486.0,
+      514.32
+     ],
+     "text": "164A,165B 144A"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       134.16,
+       104.88,
+       179.76,
+       111.6
+      ],
+      "header": true,
+      "text": "‘Pearl Buttons’"
+     },
+     {
+      "bbox": [
+       217.92,
+       104.64,
+       265.44,
+       112.8
+      ],
+      "header": true,
+      "text": "“White Spring’"
+     },
+     {
+      "bbox": [
+       301.44,
+       104.4,
+       328.08,
+       111.12
+      ],
+      "header": true,
+      "text": "‘Pristine’"
+     },
+     {
+      "bbox": [
+       384.96,
+       103.44,
+       424.56,
+       113.76
+      ],
+      "header": true,
+      "text": "Triumphant’"
+     },
+     {
+      "bbox": [
+       468.48,
+       103.92,
+       525.36,
+       112.32
+      ],
+      "header": true,
+      "text": "*'Mullering Brook’"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.4,
+       121.44,
+       238.08,
+       129.36
+      ],
+      "text": "STEM THICKNESS measured 30 cm from apex of branch"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.4,
+       133.68,
+       73.44,
+       138.24
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       134.16,
+       131.28,
+       160.56,
+       138.24
+      ],
+      "text": "0.47 cm"
+     },
+     {
+      "bbox": [
+       217.92,
+       131.04,
+       244.08,
+       137.76
+      ],
+      "text": "0.2? cm"
+     },
+     {
+      "bbox": [
+       301.44,
+       130.8,
+       327.6,
+       137.76
+      ],
+      "text": "0.60 cm"
+     },
+     {
+      "bbox": [
+       384.96,
+       130.56,
+       411.12,
+       137.76
+      ],
+      "text": "0.39 cm"
+     },
+     {
+      "bbox": [
+       468.72,
+       130.8,
+       494.88,
+       137.52
+      ],
+      "text": "04!) en"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.4,
+       143.52,
+       74.16,
+       149.76
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       134.16,
+       141.12,
+       174.96,
+       148.32
+      ],
+      "text": "0.39 — 0.60"
+     },
+     {
+      "bbox": [
+       217.92,
+       140.88,
+       258.24,
+       147.84
+      ],
+      "text": "020 —0.32"
+     },
+     {
+      "bbox": [
+       301.44,
+       140.88,
+       341.76,
+       147.6
+      ],
+      "text": "046 —C.72"
+     },
+     {
+      "bbox": [
+       384.96,
+       140.64,
+       426.0,
+       147.6
+      ],
+      "text": "027 —0.50"
+     },
+     {
+      "bbox": [
+       468.48,
+       139.68,
+       509.28,
+       150.24
+      ],
+      "text": "0.35 — 0.46"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.4,
+       151.44,
+       96.48,
+       158.4
+      ],
+      "text": "std deviation"
+     },
+     {
+      "bbox": [
+       134.16,
+       151.2,
+       148.56,
+       157.92
+      ],
+      "text": "006"
+     },
+     {
+      "bbox": [
+       217.68,
+       150.96,
+       232.08,
+       157.68
+      ],
+      "text": "004"
+     },
+     {
+      "bbox": [
+       301.2,
+       150.72,
+       315.6,
+       157.44
+      ],
+      "text": "0.08"
+     },
+     {
+      "bbox": [
+       384.72,
+       150.72,
+       399.36,
+       157.44
+      ],
+      "text": "0.07"
+     },
+     {
+      "bbox": [
+       468.72,
+       150.72,
+       482.64,
+       157.44
+      ],
+      "text": "0.04"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.64,
+       165.12,
+       150.0,
+       172.32
+      ],
+      "text": "LENGTH OF MATURE LEAVES"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.64,
+       177.36,
+       73.2,
+       182.16
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       135.6,
+       175.2,
+       160.32,
+       181.92
+      ],
+      "text": "179m"
+     },
+     {
+      "bbox": [
+       217.92,
+       175.2,
+       243.84,
+       181.68
+      ],
+      "text": "214¢~"
+     },
+     {
+      "bbox": [
+       302.64,
+       174.72,
+       327.6,
+       181.68
+      ],
+      "text": "173m"
+     },
+     {
+      "bbox": [
+       385.44,
+       174.72,
+       411.36,
+       181.68
+      ],
+      "text": "2 04 em"
+     },
+     {
+      "bbox": [
+       470.16,
+       174.72,
+       494.88,
+       181.44
+      ],
+      "text": "1 84cm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.4,
+       187.44,
+       74.16,
+       193.68
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       135.36,
+       184.32,
+       174.72,
+       194.64
+      ],
+      "text": "158 — 2.14"
+     },
+     {
+      "bbox": [
+       219.36,
+       185.04,
+       258.72,
+       191.76
+      ],
+      "text": "1.81 — 2.46"
+     },
+     {
+      "bbox": [
+       302.4,
+       184.8,
+       342.48,
+       191.76
+      ],
+      "text": "143 —2.20"
+     },
+     {
+      "bbox": [
+       385.92,
+       183.84,
+       425.52,
+       194.4
+      ],
+      "text": "* 40 — 2.52"
+     },
+     {
+      "bbox": [
+       469.92,
+       184.8,
+       509.04,
+       191.52
+      ],
+      "text": "1.31 — 2.46"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.16,
+       195.84,
+       96.72,
+       202.32
+      ],
+      "text": "std deviation"
+     },
+     {
+      "bbox": [
+       133.92,
+       195.6,
+       148.56,
+       202.32
+      ],
+      "text": "0.15"
+     },
+     {
+      "bbox": [
+       217.68,
+       195.12,
+       232.32,
+       202.08
+      ],
+      "text": "0.18"
+     },
+     {
+      "bbox": [
+       301.44,
+       195.12,
+       316.08,
+       201.84
+      ],
+      "text": "O19"
+     },
+     {
+      "bbox": [
+       384.96,
+       195.12,
+       399.6,
+       201.84
+      ],
+      "text": "6.24"
+     },
+     {
+      "bbox": [
+       468.96,
+       194.88,
+       483.12,
+       201.84
+      ],
+      "text": "0.33"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.16,
+       209.52,
+       119.52,
+       216.24
+      ],
+      "text": "WIDTH OF MATURE"
+     },
+     {
+      "bbox": [
+       122.4,
+       209.28,
+       146.4,
+       216.24
+      ],
+      "text": "LEAVES"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.4,
+       221.28,
+       73.2,
+       226.08
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       135.12,
+       219.12,
+       162.72,
+       226.08
+      ],
+      "text": "120mm"
+     },
+     {
+      "bbox": [
+       218.88,
+       219.36,
+       246.72,
+       225.84
+      ],
+      "text": "110mm"
+     },
+     {
+      "bbox": [
+       302.16,
+       219.12,
+       330.0,
+       225.84
+      ],
+      "text": "1.24 mm"
+     },
+     {
+      "bbox": [
+       384.96,
+       219.12,
+       413.76,
+       226.08
+      ],
+      "text": "0.96 mm"
+     },
+     {
+      "bbox": [
+       469.68,
+       219.12,
+       497.28,
+       226.08
+      ],
+      "text": "123mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.16,
+       239.52,
+       96.48,
+       246.0
+      ],
+      "text": "ste dev ation"
+     },
+     {
+      "bbox": [
+       133.92,
+       239.04,
+       148.8,
+       245.52
+      ],
+      "text": "0.10"
+     },
+     {
+      "bbox": [
+       217.92,
+       238.8,
+       232.8,
+       245.52
+      ],
+      "text": "0.19"
+     },
+     {
+      "bbox": [
+       301.44,
+       238.56,
+       316.08,
+       245.52
+      ],
+      "text": "0.18"
+     },
+     {
+      "bbox": [
+       384.96,
+       239.04,
+       398.4,
+       245.76
+      ],
+      "text": "0.11"
+     },
+     {
+      "bbox": [
+       468.72,
+       238.8,
+       483.36,
+       246.0
+      ],
+      "text": "0.08"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.4,
+       231.12,
+       74.16,
+       237.6
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       135.6,
+       229.2,
+       175.2,
+       235.92
+      ],
+      "text": "1.10 — 1.30"
+     },
+     {
+      "bbox": [
+       217.68,
+       228.72,
+       258.72,
+       235.68
+      ],
+      "text": "C36 — 1.20"
+     },
+     {
+      "bbox": [
+       301.44,
+       227.76,
+       342.48,
+       238.56
+      ],
+      "text": "0.90 — 1.60"
+     },
+     {
+      "bbox": [
+       384.96,
+       228.96,
+       426.0,
+       236.16
+      ],
+      "text": "0.80 — 1 20"
+     },
+     {
+      "bbox": [
+       470.16,
+       229.2,
+       509.52,
+       235.92
+      ],
+      "text": "1.00 — 1 30"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.4,
+       252.72,
+       112.32,
+       269.28
+      ],
+      "text": "PEDICEL LENGTH mean"
+     },
+     {
+      "bbox": [
+       135.36,
+       262.32,
+       160.32,
+       269.28
+      ],
+      "text": "1 08 cm"
+     },
+     {
+      "bbox": [
+       217.68,
+       262.08,
+       244.08,
+       269.04
+      ],
+      "text": "08icm"
+     },
+     {
+      "bbox": [
+       301.44,
+       262.32,
+       327.6,
+       269.28
+      ],
+      "text": "0.78 om"
+     },
+     {
+      "bbox": [
+       384.96,
+       262.56,
+       411.6,
+       269.28
+      ],
+      "text": "0.60 cm"
+     },
+     {
+      "bbox": [
+       468.48,
+       262.56,
+       495.12,
+       269.28
+      ],
+      "text": "0.72 cm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.16,
+       274.32,
+       74.4,
+       280.56
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       134.16,
+       271.2,
+       174.96,
+       281.52
+      ],
+      "text": "0.54 — 1.55"
+     },
+     {
+      "bbox": [
+       217.68,
+       270.96,
+       258.72,
+       281.28
+      ],
+      "text": "0.59 — 1.10"
+     },
+     {
+      "bbox": [
+       301.44,
+       272.16,
+       342.0,
+       278.88
+      ],
+      "text": "0.48 —1.13"
+     },
+     {
+      "bbox": [
+       384.72,
+       271.44,
+       425.52,
+       281.76
+      ],
+      "text": "0.27? —094"
+     },
+     {
+      "bbox": [
+       468.72,
+       272.16,
+       509.28,
+       279.12
+      ],
+      "text": "040— 710"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.16,
+       282.72,
+       96.48,
+       289.2
+      ],
+      "text": "std deviation"
+     },
+     {
+      "bbox": [
+       133.92,
+       282.0,
+       148.32,
+       288.72
+      ],
+      "text": "0.34"
+     },
+     {
+      "bbox": [
+       217.68,
+       282.0,
+       232.08,
+       288.72
+      ],
+      "text": "0.17"
+     },
+     {
+      "bbox": [
+       301.44,
+       281.76,
+       315.84,
+       288.48
+      ],
+      "text": "0.19"
+     },
+     {
+      "bbox": [
+       384.96,
+       282.24,
+       399.36,
+       288.96
+      ],
+      "text": "0.17"
+     },
+     {
+      "bbox": [
+       468.72,
+       282.24,
+       483.36,
+       289.2
+      ],
+      "text": "018"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.64,
+       295.92,
+       220.8,
+       304.32
+      ],
+      "text": "FLORAL TUBE COLOUR — top region, below sepals"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       134.16,
+       306.24,
+       174.72,
+       314.4
+      ],
+      "text": "yellow-green"
+     },
+     {
+      "bbox": [
+       217.68,
+       306.0,
+       258.24,
+       314.4
+      ],
+      "text": "yellow-eresn"
+     },
+     {
+      "bbox": [
+       301.2,
+       306.0,
+       369.12,
+       314.16
+      ],
+      "text": "green & yeliow-green"
+     },
+     {
+      "bbox": [
+       384.72,
+       306.24,
+       425.52,
+       314.64
+      ],
+      "text": "yellow-green"
+     },
+     {
+      "bbox": [
+       468.72,
+       308.16,
+       486.48,
+       314.4
+      ],
+      "text": "gree?"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.64,
+       316.08,
+       80.88,
+       322.8
+      ],
+      "text": "RHS No"
+     },
+     {
+      "bbox": [
+       135.12,
+       315.84,
+       178.8,
+       322.8
+      ],
+      "text": "145A & 146C"
+     },
+     {
+      "bbox": [
+       218.64,
+       316.08,
+       235.68,
+       322.56
+      ],
+      "text": "144A"
+     },
+     {
+      "bbox": [
+       302.4,
+       316.08,
+       368.16,
+       322.8
+      ],
+      "text": "143A, 1444 & 146A"
+     },
+     {
+      "bbox": [
+       385.68,
+       316.08,
+       402.72,
+       322.56
+      ],
+      "text": "144A"
+     },
+     {
+      "bbox": [
+       469.68,
+       316.32,
+       486.48,
+       322.8
+      ],
+      "text": "143A"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.64,
+       329.76,
+       100.56,
+       336.72
+      ],
+      "text": "FLORAL TUBE"
+     },
+     {
+      "bbox": [
+       103.44,
+       329.76,
+       189.36,
+       336.72
+      ],
+      "text": "COLOUR — middle sec? on"
+     },
+     {
+      "bbox": [
+       192.48,
+       329.76,
+       262.08,
+       337.68
+      ],
+      "text": "newly-opened flowers"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.4,
+       339.12,
+       76.32,
+       349.68
+      ],
+      "text": "colour"
+     },
+     {
+      "bbox": [
+       134.4,
+       340.08,
+       174.72,
+       348.48
+      ],
+      "text": "yellow-green"
+     },
+     {
+      "bbox": [
+       217.68,
+       340.32,
+       258.24,
+       348.24
+      ],
+      "text": "yellow-green"
+     },
+     {
+      "bbox": [
+       301.2,
+       338.88,
+       381.6,
+       358.32
+      ],
+      "text": "green-yellow. yel'ow & — greyed orange"
+     },
+     {
+      "bbox": [
+       384.96,
+       340.8,
+       425.28,
+       348.72
+      ],
+      "text": "yellow-green"
+     },
+     {
+      "bbox": [
+       468.72,
+       340.56,
+       515.04,
+       348.96
+      ],
+      "text": "greyed-orange"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.4,
+       359.76,
+       91.44,
+       376.56
+      ],
+      "text": "RHS No. old fowers"
+     },
+     {
+      "bbox": [
+       135.12,
+       359.76,
+       164.16,
+       366.72
+      ],
+      "text": "153A.B.C"
+     },
+     {
+      "bbox": [
+       218.64,
+       358.8,
+       263.04,
+       369.12
+      ],
+      "text": "191B & 1520"
+     },
+     {
+      "bbox": [
+       302.4,
+       358.8,
+       356.88,
+       369.36
+      ],
+      "text": "1A, 24 & 166C-B"
+     },
+     {
+      "bbox": [
+       386.16,
+       359.04,
+       430.08,
+       369.36
+      ],
+      "text": "15CA & i S4A"
+     },
+     {
+      "bbox": [
+       469.92,
+       359.04,
+       513.6,
+       369.6
+      ],
+      "text": "166B & 164A"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.4,
+       379.92,
+       76.32,
+       386.4
+      ],
+      "text": "colour"
+     },
+     {
+      "bbox": [
+       134.4,
+       380.16,
+       174.72,
+       388.08
+      ],
+      "text": "yellow-green"
+     },
+     {
+      "bbox": [
+       217.44,
+       379.92,
+       258.24,
+       387.84
+      ],
+      "text": "yellow-green"
+     },
+     {
+      "bbox": [
+       301.44,
+       379.92,
+       376.32,
+       388.32
+      ],
+      "text": "yeliow & greyed orange"
+     },
+     {
+      "bbox": [
+       384.96,
+       380.4,
+       425.28,
+       388.32
+      ],
+      "text": "yellow-green"
+     },
+     {
+      "bbox": [
+       468.48,
+       380.4,
+       515.04,
+       388.56
+      ],
+      "text": "greyed-orange"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.4,
+       389.52,
+       82.32,
+       396.24
+      ],
+      "text": "RHS No."
+     },
+     {
+      "bbox": [
+       135.36,
+       389.52,
+       164.4,
+       396.72
+      ],
+      "text": "153A,B.C"
+     },
+     {
+      "bbox": [
+       218.64,
+       389.28,
+       263.04,
+       396.48
+      ],
+      "text": "151B & 152D"
+     },
+     {
+      "bbox": [
+       301.44,
+       388.56,
+       358.8,
+       399.12
+      ],
+      "text": "34, 162A & 164A"
+     },
+     {
+      "bbox": [
+       385.92,
+       389.76,
+       402.72,
+       396.72
+      ],
+      "text": "150A"
+     },
+     {
+      "bbox": [
+       469.68,
+       389.04,
+       535.68,
+       399.36
+      ],
+      "text": "166C. 176A & 1754"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.4,
+       403.2,
+       254.88,
+       411.6
+      ],
+      "text": "FLORAL TUBE COLOUR — cup/nectary newly-opened flowers"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.16,
+       413.76,
+       76.08,
+       420.0
+      ],
+      "text": "colour"
+     },
+     {
+      "bbox": [
+       133.68,
+       413.52,
+       153.84,
+       421.44
+      ],
+      "text": "yellow"
+     },
+     {
+      "bbox": [
+       217.92,
+       417.12,
+       223.44,
+       418.08
+      ],
+      "text": "-"
+     },
+     {
+      "bbox": [
+       301.44,
+       415.44,
+       323.28,
+       421.92
+      ],
+      "text": "orange"
+     },
+     {
+      "bbox": [
+       384.96,
+       414.0,
+       431.28,
+       422.4
+      ],
+      "text": "greyed-orange"
+     },
+     {
+      "bbox": [
+       468.48,
+       414.24,
+       513.36,
+       422.4
+      ],
+      "text": "yellow-crange"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.16,
+       422.88,
+       90.96,
+       439.68
+      ],
+      "text": "RHS No old flowers"
+     },
+     {
+      "bbox": [
+       134.4,
+       422.88,
+       208.08,
+       430.08
+      ],
+      "text": "24 3A 4A.5A.6A, 7A. 8A"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       301.68,
+       423.12,
+       337.44,
+       430.08
+      ],
+      "text": "28C & 295A"
+     },
+     {
+      "bbox": [
+       385.92,
+       423.6,
+       429.12,
+       430.56
+      ],
+      "text": "163A & 164B"
+     },
+     {
+      "bbox": [
+       469.44,
+       423.84,
+       481.68,
+       430.56
+      ],
+      "text": "i5A"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.16,
+       442.8,
+       76.32,
+       449.52
+      ],
+      "text": "colaur"
+     },
+     {
+      "bbox": [
+       133.92,
+       442.56,
+       198.72,
+       451.2
+      ],
+      "text": "greyed-red & greyed"
+     },
+     {
+      "bbox": [
+       217.44,
+       443.28,
+       258.24,
+       451.2
+      ],
+      "text": "yellow-green"
+     },
+     {
+      "bbox": [
+       301.68,
+       443.76,
+       334.08,
+       451.44
+      ],
+      "text": "red-purple"
+     },
+     {
+      "bbox": [
+       384.72,
+       443.76,
+       448.56,
+       451.68
+      ],
+      "text": "greyed-purple & red"
+     },
+     {
+      "bbox": [
+       468.48,
+       444.48,
+       512.88,
+       451.92
+      ],
+      "text": "greyed-purple"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       133.68,
+       454.56,
+       156.0,
+       461.04
+      ],
+      "text": "orange"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       384.96,
+       453.36,
+       404.64,
+       461.52
+      ],
+      "text": "purple"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.4,
+       462.72,
+       80.4,
+       469.68
+      ],
+      "text": "RHS No"
+     },
+     {
+      "bbox": [
+       135.12,
+       462.48,
+       185.52,
+       469.68
+      ],
+      "text": "1818 &171A-B"
+     },
+     {
+      "bbox": [
+       218.88,
+       462.72,
+       298.56,
+       469.68
+      ],
+      "text": "150B, 151A-B & 153C-8"
+     },
+     {
+      "bbox": [
+       301.68,
+       462.96,
+       375.6,
+       469.92
+      ],
+      "text": "59A-2-C.64A-B.& 718"
+     },
+     {
+      "bbox": [
+       385.2,
+       462.96,
+       447.12,
+       470.4
+      ],
+      "text": "59A.G0A,1844-B &"
+     },
+     {
+      "bbox": [
+       450.96,
+       463.2,
+       519.6,
+       470.16
+      ],
+      "text": "186A187B & 1834-8"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.16,
+       476.64,
+       95.28,
+       483.84
+      ],
+      "text": "COLOUR OF"
+     },
+     {
+      "bbox": [
+       97.92,
+       476.88,
+       158.88,
+       483.84
+      ],
+      "text": "IMMATURE STEMS"
+     },
+     {
+      "bbox": [
+       217.44,
+       486.96,
+       288.72,
+       495.6
+      ],
+      "text": "yellow-green & greyed"
+     },
+     {
+      "bbox": [
+       300.96,
+       487.92,
+       371.04,
+       496.08
+      ],
+      "text": "grey-orange & yellow-"
+     },
+     {
+      "bbox": [
+       384.72,
+       487.92,
+       455.04,
+       496.32
+      ],
+      "text": "grey-orance & yellow-"
+     },
+     {
+      "bbox": [
+       468.24,
+       488.16,
+       509.04,
+       496.32
+      ],
+      "text": "yellow-green"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       55.92,
+       487.44,
+       76.32,
+       494.16
+      ],
+      "text": "colour"
+     },
+     {
+      "bbox": [
+       133.68,
+       487.44,
+       174.24,
+       495.36
+      ],
+      "text": "yellow-green"
+     },
+     {
+      "bbox": [
+       217.44,
+       498.96,
+       239.52,
+       505.2
+      ],
+      "text": "orange"
+     },
+     {
+      "bbox": [
+       300.96,
+       499.2,
+       318.72,
+       505.68
+      ],
+      "text": "green"
+     },
+     {
+      "bbox": [
+       384.96,
+       499.44,
+       402.24,
+       505.92
+      ],
+      "text": "green"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       56.4,
+       506.88,
+       80.16,
+       513.84
+      ],
+      "text": "RHS No"
+     },
+     {
+      "bbox": [
+       134.88,
+       505.92,
+       178.56,
+       516.48
+      ],
+      "text": "153A &@151A"
+     },
+     {
+      "bbox": [
+       218.88,
+       505.92,
+       282.24,
+       516.48
+      ],
+      "text": "1514,153A4.165B &"
+     },
+     {
+      "bbox": [
+       301.92,
+       507.36,
+       358.32,
+       514.56
+      ],
+      "text": "144A, 164A,165B"
+     },
+     {
+      "bbox": [
+       385.68,
+       507.84,
+       444.24,
+       514.8
+      ],
+      "text": "164A, 166C.1658."
+     },
+     {
+      "bbox": [
+       469.2,
+       508.08,
+       486.0,
+       514.32
+      ],
+      "text": "144A"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       218.64,
+       516.96,
+       243.12,
+       523.68
+      ],
+      "text": "i66C-D"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       385.68,
+       517.44,
+       437.04,
+       524.4
+      ],
+      "text": "153A-B & 152D"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ]
+   ],
+   "score": 0.9999,
+   "signal": "tatr",
+   "source": "tatr",
+   "text": " ‘Pearl Buttons’ “White Spring’ ‘Pristine’ Triumphant’ *'Mullering Brook’\nSTEM THICKNESS measured 30 cm from apex of branch     \nmean 0.47 cm 0.2? cm 0.60 cm 0.39 cm 04!) en\nrange 0.39 — 0.60 020 —0.32 046 —C.72 027 —0.50 0.35 — 0.46\nstd deviation 006 004 0.08 0.07 0.04\nLENGTH OF MATURE LEAVES     \nmean 179m 214¢~ 173m 2 04 em 1 84cm\nrange 158 — 2.14 1.81 — 2.46 143 —2.20 * 40 — 2.52 1.31 — 2.46\nstd deviation 0.15 0.18 O19 6.24 0.33\nWIDTH OF MATURE LEAVES    \nmean 120mm 110mm 1.24 mm 0.96 mm 123mm\nste dev ation 0.10 0.19 0.18 0.11 0.08\nrange 1.10 — 1.30 C36 — 1.20 0.90 — 1.60 0.80 — 1 20 1.00 — 1 30\nPEDICEL LENGTH mean 1 08 cm 08icm 0.78 om 0.60 cm 0.72 cm\nrange 0.54 — 1.55 0.59 — 1.10 0.48 —1.13 0.27? —094 040— 710\nstd deviation 0.34 0.17 0.19 0.17 018\nFLORAL TUBE COLOUR — top region, below sepals     \n yellow-green yellow-eresn green & yeliow-green yellow-green gree?\nRHS No 145A & 146C 144A 143A, 1444 & 146A 144A 143A\nFLORAL TUBE COLOUR — middle sec? on newly-opened flowers   \ncolour yellow-green yellow-green green-yellow. yel'ow & — greyed orange yellow-green greyed-orange\nRHS No. old fowers 153A.B.C 191B & 1520 1A, 24 & 166C-B 15CA & i S4A 166B & 164A\ncolour yellow-green yellow-green yeliow & greyed orange yellow-green greyed-orange\nRHS No. 153A,B.C 151B & 152D 34, 162A & 164A 150A 166C. 176A & 1754\nFLORAL TUBE COLOUR — cup/nectary newly-opened flowers     \ncolour yellow - orange greyed-orange yellow-crange\nRHS No old flowers 24 3A 4A.5A.6A, 7A. 8A  28C & 295A 163A & 164B i5A\ncolaur greyed-red & greyed yellow-green red-purple greyed-purple & red greyed-purple\n orange   purple \nRHS No 1818 &171A-B 150B, 151A-B & 153C-8 59A-2-C.64A-B.& 718 59A.G0A,1844-B & 186A187B & 1834-8\nCOLOUR OF IMMATURE STEMS yellow-green & greyed grey-orange & yellow- grey-orance & yellow- yellow-green\ncolour yellow-green orange green green \nRHS No 153A &@151A 1514,153A4.165B & 144A, 164A,165B 164A, 166C.1658. 144A\n  i66C-D  153A-B & 152D ",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    54.48,
+    550.08,
+    190.32,
+    576.48
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      55.44,
+      550.08,
+      112.08,
+      560.88
+     ],
+     "text": "POTATO"
+    },
+    {
+     "bbox": [
+      54.48,
+      564.24,
+      190.32,
+      576.48
+     ],
+     "text": "(Solanum tuberosum)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "POTATO\n(Solanum tuberosum)",
+   "text_format": "plain",
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "bbox": [
+    54.72,
+    587.04,
+    70.08,
+    601.44
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      54.72,
+      587.04,
+      70.08,
+      601.44
+     ],
+     "text": "LJ"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "LJ",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "image"
+  },
+  {
+   "bbox": [
+    54.72,
+    608.64,
+    266.4,
+    637.44
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      54.96,
+      608.64,
+      228.24,
+      617.28
+     ],
+     "text": "Variety: “Wilwash’ Application No. 91/044"
+    },
+    {
+     "bbox": [
+      54.72,
+      618.72,
+      196.08,
+      627.12
+     ],
+     "text": "Application received: 17 April 1991"
+    },
+    {
+     "bbox": [
+      54.96,
+      628.56,
+      266.4,
+      637.44
+     ],
+     "text": "Applicant: Daratech Pty Ltd, of Melbourne, Victoria."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: “Wilwash’ Application No. 91/044\nApplication received: 17 April 1991\nApplicant: Daratech Pty Ltd, of Melbourne, Victoria.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    54.24,
+    652.56,
+    288.0,
+    729.12
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      55.2,
+      652.56,
+      96.0,
+      660.96
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      54.96,
+      662.16,
+      277.92,
+      670.8
+     ],
+     "text": "‘Wilwash’ is a smooth-skinned round potato with white"
+    },
+    {
+     "bbox": [
+      54.96,
+      672.0,
+      288.0,
+      679.44
+     ],
+     "text": "flesh and white skin. It has few flowers with white corolla"
+    },
+    {
+     "bbox": [
+      54.72,
+      682.08,
+      277.92,
+      690.24
+     ],
+     "text": "and the lightsprout base anthocyanin is blue-violet. It is"
+    },
+    {
+     "bbox": [
+      54.48,
+      691.44,
+      266.4,
+      700.32
+     ],
+     "text": "distinct from known varieties in having the following"
+    },
+    {
+     "bbox": [
+      54.24,
+      701.28,
+      276.96,
+      708.72
+     ],
+     "text": "combination of characters: leaflets absent or few in the"
+    },
+    {
+     "bbox": [
+      54.48,
+      711.12,
+      279.6,
+      719.76
+     ],
+     "text": "axils of the inflorescence, short flowering period, eartier"
+    },
+    {
+     "bbox": [
+      54.72,
+      721.2,
+      112.32,
+      729.12
+     ],
+     "text": "plant maturity."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\n‘Wilwash’ is a smooth-skinned round potato with white\nflesh and white skin. It has few flowers with white corolla\nand the lightsprout base anthocyanin is blue-violet. It is\ndistinct from known varieties in having the following\ncombination of characters: leaflets absent or few in the\naxils of the inflorescence, short flowering period, eartier\nplant maturity.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    54.24,
+    744.72,
+    269.52,
+    773.04
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      54.24,
+      744.72,
+      179.28,
+      753.36
+     ],
+     "text": "Varieties used for comparison"
+    },
+    {
+     "bbox": [
+      54.48,
+      754.56,
+      269.52,
+      763.68
+     ],
+     "text": "Caliban’ being the closest known variety, an industry"
+    },
+    {
+     "bbox": [
+      54.48,
+      764.88,
+      246.48,
+      773.04
+     ],
+     "text": "standard variety and one of the parent varieties."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comparison\nCaliban’ being the closest known variety, an industry\nstandard variety and one of the parent varieties.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    320.64,
+    549.84,
+    557.52,
+    647.76
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      321.12,
+      549.84,
+      439.44,
+      558.72
+     ],
+     "text": "Comparative Growing Trials"
+    },
+    {
+     "bbox": [
+      320.88,
+      559.92,
+      549.84,
+      568.8
+     ],
+     "text": "All characteristics described below are from comparative"
+    },
+    {
+     "bbox": [
+      320.88,
+      570.0,
+      547.92,
+      578.4
+     ],
+     "text": "growing trials conducted at the Potato Research Station,"
+    },
+    {
+     "bbox": [
+      320.64,
+      579.6,
+      528.0,
+      588.24
+     ],
+     "text": "Toolangi in Victoria in 1989/90 and 1990/91. Two"
+    },
+    {
+     "bbox": [
+      321.36,
+      589.92,
+      520.56,
+      598.8
+     ],
+     "text": "hundred plants were grown in three replicates on"
+    },
+    {
+     "bbox": [
+      320.88,
+      599.76,
+      517.2,
+      607.44
+     ],
+     "text": "kraznozem soil fertilised with Pivot 800 at 2t/ha."
+    },
+    {
+     "bbox": [
+      321.12,
+      609.6,
+      523.44,
+      618.24
+     ],
+     "text": "Measurements are from 20 specimens selected at"
+    },
+    {
+     "bbox": [
+      321.12,
+      619.92,
+      557.52,
+      628.8
+     ],
+     "text": "random. Plants were irrigated as required and prophylactic"
+    },
+    {
+     "bbox": [
+      320.88,
+      629.76,
+      533.28,
+      638.64
+     ],
+     "text": "sprays were applied four times for fungal diseases of"
+    },
+    {
+     "bbox": [
+      320.88,
+      639.36,
+      348.96,
+      647.76
+     ],
+     "text": "foliage."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials\nAll characteristics described below are from comparative\ngrowing trials conducted at the Potato Research Station,\nToolangi in Victoria in 1989/90 and 1990/91. Two\nhundred plants were grown in three replicates on\nkraznozem soil fertilised with Pivot 800 at 2t/ha.\nMeasurements are from 20 specimens selected at\nrandom. Plants were irrigated as required and prophylactic\nsprays were applied four times for fungal diseases of\nfoliage.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    320.16,
+    663.12,
+    553.92,
+    731.04
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      320.88,
+      663.12,
+      346.08,
+      671.52
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      320.4,
+      673.2,
+      541.44,
+      681.84
+     ],
+     "text": "This variety arose from the controlled pollination of the"
+    },
+    {
+     "bbox": [
+      320.4,
+      682.8,
+      543.36,
+      691.44
+     ],
+     "text": "variety ‘Norgleam’ by the pollen parent ‘Coliban’. It was"
+    },
+    {
+     "bbox": [
+      320.16,
+      692.64,
+      553.92,
+      701.04
+     ],
+     "text": "bred by Dr Roger Kirkham of Healesville, Victoria between"
+    },
+    {
+     "bbox": [
+      321.36,
+      702.24,
+      544.08,
+      711.12
+     ],
+     "text": "1980 and 1991. ‘Wilwash’ was selected for its superior"
+    },
+    {
+     "bbox": [
+      320.16,
+      712.08,
+      553.68,
+      721.2
+     ],
+     "text": "yield, smooth white-skinned tubers of uniform size, shape"
+    },
+    {
+     "bbox": [
+      320.4,
+      722.16,
+      534.96,
+      731.04
+     ],
+     "text": "and cooking qualities fram 20,000 field grown plants."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\nThis variety arose from the controlled pollination of the\nvariety ‘Norgleam’ by the pollen parent ‘Coliban’. It was\nbred by Dr Roger Kirkham of Healesville, Victoria between\n1980 and 1991. ‘Wilwash’ was selected for its superior\nyield, smooth white-skinned tubers of uniform size, shape\nand cooking qualities fram 20,000 field grown plants.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    319.92,
+    745.68,
+    546.0,
+    774.24
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      320.64,
+      745.68,
+      477.12,
+      754.32
+     ],
+     "text": "Morphology — see comparison tables."
+    },
+    {
+     "bbox": [
+      320.64,
+      755.76,
+      546.0,
+      764.64
+     ],
+     "text": "‘Wilwash’ is an upright and vigorous plant with medium"
+    },
+    {
+     "bbox": [
+      319.92,
+      765.36,
+      539.04,
+      774.24
+     ],
+     "text": "foliage cover. Stem anthocyanin colouration is weaker"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology — see comparison tables.\n‘Wilwash’ is an upright and vigorous plant with medium\nfoliage cover. Stem anthocyanin colouration is weaker",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    546.24,
+    798.96,
+    557.52,
+    807.84
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      546.24,
+      798.96,
+      557.52,
+      807.84
+     ],
+     "text": "17"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "17",
+   "text_format": "plain",
+   "type": "page_number",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

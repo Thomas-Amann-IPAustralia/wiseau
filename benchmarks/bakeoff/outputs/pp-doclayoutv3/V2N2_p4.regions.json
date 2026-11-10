@@ -1,0 +1,308 @@
+{
+ "model": "PaddlePaddle/PP-DocLayoutV3_safetensors",
+ "revision": "e4f489dc536556fc1be02b973ba06756e0d4a2ac",
+ "threshold": 0.5,
+ "load_seconds": 10.89,
+ "device": "cpu",
+ "dtype": "fp32",
+ "threads": 4,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.18",
+  "platform": "Linux-6.18.44-fc-v338-x86_64-with-glibc2.39",
+  "torch": "2.15.0+cpu",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "regions": [
+  {
+   "bbox": [
+    147.3,
+    56.0,
+    446.9,
+    102.4
+   ],
+   "category": "paragraph_title",
+   "score": 0.8882
+  },
+  {
+   "bbox": [
+    146.3,
+    127.7,
+    436.7,
+    160.8
+   ],
+   "category": "paragraph_title",
+   "score": 0.884
+  },
+  {
+   "bbox": [
+    146.1,
+    171.5,
+    505.2,
+    210.9
+   ],
+   "category": "text",
+   "score": 0.9133
+  },
+  {
+   "bbox": [
+    145.7,
+    218.7,
+    508.0,
+    282.0
+   ],
+   "category": "text",
+   "score": 0.9407
+  },
+  {
+   "bbox": [
+    146.8,
+    299.5,
+    489.0,
+    316.1
+   ],
+   "category": "paragraph_title",
+   "score": 0.8642
+  },
+  {
+   "bbox": [
+    146.2,
+    327.4,
+    500.0,
+    365.7
+   ],
+   "category": "text",
+   "score": 0.9199
+  },
+  {
+   "bbox": [
+    146.8,
+    374.7,
+    498.3,
+    413.4
+   ],
+   "category": "text",
+   "score": 0.9171
+  },
+  {
+   "bbox": [
+    145.6,
+    536.2,
+    495.5,
+    552.8
+   ],
+   "category": "paragraph_title",
+   "score": 0.8519
+  },
+  {
+   "bbox": [
+    146.1,
+    422.2,
+    511.8,
+    520.8
+   ],
+   "category": "text",
+   "score": 0.9502
+  },
+  {
+   "bbox": [
+    144.9,
+    563.5,
+    501.9,
+    626.6
+   ],
+   "category": "text",
+   "score": 0.9421
+  },
+  {
+   "bbox": [
+    144.9,
+    635.0,
+    507.9,
+    696.5
+   ],
+   "category": "text",
+   "score": 0.9361
+  },
+  {
+   "bbox": [
+    144.6,
+    704.8,
+    511.5,
+    814.3
+   ],
+   "category": "text",
+   "score": 0.9498
+  },
+  {
+   "bbox": [
+    143.9,
+    823.4,
+    511.3,
+    920.3
+   ],
+   "category": "text",
+   "score": 0.94
+  },
+  {
+   "bbox": [
+    538.6,
+    57.8,
+    889.7,
+    96.5
+   ],
+   "category": "text",
+   "score": 0.9161
+  },
+  {
+   "bbox": [
+    538.4,
+    119.7,
+    897.0,
+    169.8
+   ],
+   "category": "paragraph_title",
+   "score": 0.9164
+  },
+  {
+   "bbox": [
+    537.7,
+    180.1,
+    887.3,
+    242.2
+   ],
+   "category": "text",
+   "score": 0.9384
+  },
+  {
+   "bbox": [
+    534.9,
+    252.6,
+    892.4,
+    303.2
+   ],
+   "category": "text",
+   "score": 0.9277
+  },
+  {
+   "bbox": [
+    534.5,
+    312.2,
+    888.0,
+    373.5
+   ],
+   "category": "text",
+   "score": 0.937
+  },
+  {
+   "bbox": [
+    533.0,
+    392.4,
+    835.4,
+    426.0
+   ],
+   "category": "paragraph_title",
+   "score": 0.8995
+  },
+  {
+   "bbox": [
+    534.4,
+    437.8,
+    893.5,
+    535.0
+   ],
+   "category": "text",
+   "score": 0.9499
+  },
+  {
+   "bbox": [
+    533.9,
+    543.8,
+    888.3,
+    606.5
+   ],
+   "category": "text",
+   "score": 0.9416
+  },
+  {
+   "bbox": [
+    533.9,
+    626.5,
+    893.3,
+    660.2
+   ],
+   "category": "paragraph_title",
+   "score": 0.8962
+  },
+  {
+   "bbox": [
+    534.3,
+    671.1,
+    887.2,
+    708.6
+   ],
+   "category": "text",
+   "score": 0.9215
+  },
+  {
+   "bbox": [
+    534.2,
+    717.1,
+    872.4,
+    767.9
+   ],
+   "category": "text",
+   "score": 0.9254
+  },
+  {
+   "bbox": [
+    533.7,
+    776.2,
+    895.7,
+    826.5
+   ],
+   "category": "text",
+   "score": 0.9346
+  },
+  {
+   "bbox": [
+    533.6,
+    847.4,
+    900.9,
+    882.2
+   ],
+   "category": "paragraph_title",
+   "score": 0.8927
+  },
+  {
+   "bbox": [
+    533.1,
+    891.4,
+    887.3,
+    918.9
+   ],
+   "category": "text",
+   "score": 0.9042
+  },
+  {
+   "bbox": [
+    143.1,
+    943.2,
+    155.5,
+    954.1
+   ],
+   "category": "number",
+   "score": 0.6941
+  }
+ ],
+ "seconds": 0.99,
+ "peak_rss_mb": 1419.8,
+ "image_px": [
+  1659,
+  2345
+ ],
+ "page": "V2N2_p4"
+}

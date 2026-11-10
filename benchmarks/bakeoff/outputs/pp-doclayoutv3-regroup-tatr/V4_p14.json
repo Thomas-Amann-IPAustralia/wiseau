@@ -1,0 +1,2378 @@
+{
+ "elements": [
+  {
+   "id": "r1",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Poorinda Royal Mantle’ is entirely dark green suffused\nwith dark red corresponding to RHS 187A. As the foliage\nmatures, the red colours disappear in both varieties.\nMature foliage is light green and variegated in ‘Sunkissed\nWaters’ but uniformly dark green in ‘Poorinda Royal\nMantle’. The leaves of both are broadly lanceolate to\nelliptic, with deeply lobed margins on fully-expanded\nleaves. ‘Sunkissed Waters’ has shorter leaves and is more\nbranched than ‘Poorinda Royal Mantle’.",
+   "lines": [
+    {
+     "bbox": [
+      45.12,
+      58.56,
+      265.68,
+      69.36
+     ],
+     "text": "‘Poorinda Royal Mantle’ is entirely dark green suffused"
+    },
+    {
+     "bbox": [
+      44.4,
+      69.12,
+      273.6,
+      80.16
+     ],
+     "text": "with dark red corresponding to RHS 187A. As the foliage"
+    },
+    {
+     "bbox": [
+      44.88,
+      79.68,
+      253.44,
+      88.8
+     ],
+     "text": "matures, the red colours disappear in both varieties."
+    },
+    {
+     "bbox": [
+      44.64,
+      89.28,
+      276.96,
+      99.36
+     ],
+     "text": "Mature foliage is light green and variegated in ‘Sunkissed"
+    },
+    {
+     "bbox": [
+      43.92,
+      99.36,
+      252.96,
+      111.12
+     ],
+     "text": "Waters’ but uniformly dark green in ‘Poorinda Royal"
+    },
+    {
+     "bbox": [
+      44.16,
+      109.44,
+      255.12,
+      119.28
+     ],
+     "text": "Mantle’. The leaves of both are broadly lanceolate to"
+    },
+    {
+     "bbox": [
+      44.16,
+      119.52,
+      255.6,
+      129.36
+     ],
+     "text": "elliptic, with deeply lobed margins on fully-expanded"
+    },
+    {
+     "bbox": [
+      44.16,
+      129.12,
+      278.64,
+      138.48
+     ],
+     "text": "leaves. ‘Sunkissed Waters’ has shorter leaves and is more"
+    },
+    {
+     "bbox": [
+      43.68,
+      139.2,
+      202.8,
+      148.56
+     ],
+     "text": "branched than ‘Poorinda Royal Mantle’."
+    }
+   ],
+   "bbox": [
+    43.68,
+    58.56,
+    278.64,
+    148.56
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9467
+  },
+  {
+   "id": "r2",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Cultivation",
+   "lines": [
+    {
+     "bbox": [
+      43.44,
+      162.96,
+      88.8,
+      170.4
+     ],
+     "text": "Cultivation"
+    }
+   ],
+   "bbox": [
+    43.44,
+    162.96,
+    88.8,
+    170.4
+   ],
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.7299
+  },
+  {
+   "id": "r3",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Sunkissed Waters’ is suited to sub-tropical to cool\ntemperate climates.",
+   "lines": [
+    {
+     "bbox": [
+      43.68,
+      173.04,
+      246.24,
+      182.88
+     ],
+     "text": "‘Sunkissed Waters’ is suited to sub-tropical to cool"
+    },
+    {
+     "bbox": [
+      43.2,
+      183.84,
+      121.68,
+      191.76
+     ],
+     "text": "temperate climates."
+    }
+   ],
+   "bbox": [
+    43.2,
+    173.04,
+    246.24,
+    191.76
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.8545
+  },
+  {
+   "id": "r4",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "ROSE",
+   "lines": [
+    {
+     "bbox": [
+      43.68,
+      215.76,
+      83.04,
+      226.56
+     ],
+     "text": "ROSE"
+    }
+   ],
+   "bbox": [
+    43.68,
+    215.76,
+    83.04,
+    226.56
+   ],
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.7163
+  },
+  {
+   "id": "r5",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(Rosa hybrida}",
+   "lines": [
+    {
+     "bbox": [
+      42.48,
+      229.92,
+      131.52,
+      243.12
+     ],
+     "text": "(Rosa hybrida}"
+    }
+   ],
+   "bbox": [
+    42.48,
+    229.92,
+    131.52,
+    243.12
+   ],
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.6643
+  },
+  {
+   "id": "r6",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Comparative Growing Trials",
+   "lines": [
+    {
+     "bbox": [
+      42.96,
+      261.36,
+      161.52,
+      270.24
+     ],
+     "text": "Comparative Growing Trials"
+    }
+   ],
+   "bbox": [
+    42.96,
+    261.36,
+    161.52,
+    270.24
+   ],
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.762
+  },
+  {
+   "id": "r7",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "All characteristics described below are from comparative\ngrowing trials conducted at Narre Warren North, Victoria.\nTwenty plants of each variety were planted out into\ncommercial beds in January 1991 and grown under\ncommercial conditions and management regime.",
+   "lines": [
+    {
+     "bbox": [
+      42.24,
+      271.44,
+      271.44,
+      280.56
+     ],
+     "text": "All characteristics described below are from comparative"
+    },
+    {
+     "bbox": [
+      42.72,
+      281.52,
+      273.36,
+      289.68
+     ],
+     "text": "growing trials conducted at Narre Warren North, Victoria."
+    },
+    {
+     "bbox": [
+      42.72,
+      291.12,
+      249.12,
+      300.0
+     ],
+     "text": "Twenty plants of each variety were planted out into"
+    },
+    {
+     "bbox": [
+      42.48,
+      301.68,
+      252.0,
+      310.32
+     ],
+     "text": "commercial beds in January 1991 and grown under"
+    },
+    {
+     "bbox": [
+      42.72,
+      311.76,
+      239.28,
+      320.4
+     ],
+     "text": "commercial conditions and management regime."
+    }
+   ],
+   "bbox": [
+    42.24,
+    271.44,
+    273.36,
+    320.4
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9035
+  },
+  {
+   "id": "r9",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Variety: ‘Remember Me’ (Synonym: ‘Cocdestin’}\nApplication No. 90/034\nApplication received: 19 February 1990\nApplicant: James Cocker & Sons, of Aberdeen, Scotland.\nAustralian Agent: S Brundrett & Sons (Roses) Pty Ltd, of\nNarre Warren North, Victoria.",
+   "lines": [
+    {
+     "bbox": [
+      41.52,
+      365.76,
+      238.32,
+      374.64
+     ],
+     "text": "Variety: ‘Remember Me’ (Synonym: ‘Cocdestin’}"
+    },
+    {
+     "bbox": [
+      41.76,
+      375.84,
+      136.8,
+      384.24
+     ],
+     "text": "Application No. 90/034"
+    },
+    {
+     "bbox": [
+      41.76,
+      385.92,
+      200.88,
+      394.32
+     ],
+     "text": "Application received: 19 February 1990"
+    },
+    {
+     "bbox": [
+      41.52,
+      395.52,
+      275.28,
+      403.92
+     ],
+     "text": "Applicant: James Cocker & Sons, of Aberdeen, Scotland."
+    },
+    {
+     "bbox": [
+      41.52,
+      405.84,
+      278.16,
+      414.0
+     ],
+     "text": "Australian Agent: S Brundrett & Sons (Roses) Pty Ltd, of"
+    },
+    {
+     "bbox": [
+      42.0,
+      415.44,
+      160.08,
+      423.12
+     ],
+     "text": "Narre Warren North, Victoria."
+    }
+   ],
+   "bbox": [
+    41.52,
+    365.76,
+    278.16,
+    423.12
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9175
+  },
+  {
+   "id": "r11",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Remember Me’ (Cocdestin) (left), ‘Anne Marie Treschlin’\n{middle}, and ‘Royal Dane’ (right) (Photograph supplied by\napplicant)",
+   "lines": [
+    {
+     "bbox": [
+      41.76,
+      601.44,
+      270.24,
+      609.84
+     ],
+     "text": "‘Remember Me’ (Cocdestin) (left), ‘Anne Marie Treschlin’"
+    },
+    {
+     "bbox": [
+      41.28,
+      611.28,
+      271.68,
+      620.16
+     ],
+     "text": "{middle}, and ‘Royal Dane’ (right) (Photograph supplied by"
+    },
+    {
+     "bbox": [
+      41.28,
+      621.36,
+      80.16,
+      629.28
+     ],
+     "text": "applicant)"
+    }
+   ],
+   "bbox": [
+    41.28,
+    601.44,
+    271.68,
+    629.28
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.5894
+  },
+  {
+   "id": "r12",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Diagnosis",
+   "lines": [
+    {
+     "bbox": [
+      41.52,
+      649.68,
+      82.32,
+      658.08
+     ],
+     "text": "Diagnosis"
+    }
+   ],
+   "bbox": [
+    41.52,
+    649.68,
+    82.32,
+    658.08
+   ],
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.7545
+  },
+  {
+   "id": "r13",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Remember Me’ (Cocdestin) is a russet shrub rose. It is\ndistinct from other known varieties in having the following\ncombination of characters: pointed buds; large flowers;\nvery strong sepal extensions; small pitcher shaped seed\nvessel; yellow stamen filaments and strong fragrance;\nnarrow terminal leaflet in ratio to its length and a short\nterminal leaflet petiolule.",
+   "lines": [
+    {
+     "bbox": [
+      41.52,
+      659.52,
+      261.6,
+      667.44
+     ],
+     "text": "‘Remember Me’ (Cocdestin) is a russet shrub rose. It is"
+    },
+    {
+     "bbox": [
+      40.8,
+      669.36,
+      276.48,
+      678.24
+     ],
+     "text": "distinct from other known varieties in having the following"
+    },
+    {
+     "bbox": [
+      41.04,
+      679.44,
+      262.08,
+      687.84
+     ],
+     "text": "combination of characters: pointed buds; large flowers;"
+    },
+    {
+     "bbox": [
+      41.04,
+      689.52,
+      265.44,
+      697.44
+     ],
+     "text": "very strong sepal extensions; small pitcher shaped seed"
+    },
+    {
+     "bbox": [
+      40.8,
+      699.12,
+      258.24,
+      707.28
+     ],
+     "text": "vessel; yellow stamen filaments and strong fragrance;"
+    },
+    {
+     "bbox": [
+      41.04,
+      708.96,
+      263.04,
+      717.12
+     ],
+     "text": "narrow terminal leaflet in ratio to its length and a short"
+    },
+    {
+     "bbox": [
+      41.28,
+      718.56,
+      140.64,
+      726.96
+     ],
+     "text": "terminal leaflet petiolule."
+    }
+   ],
+   "bbox": [
+    40.8,
+    659.52,
+    276.48,
+    726.96
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9213
+  },
+  {
+   "id": "r14",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Varieties used for comparison",
+   "lines": [
+    {
+     "bbox": [
+      41.04,
+      742.32,
+      166.08,
+      750.48
+     ],
+     "text": "Varieties used for comparison"
+    }
+   ],
+   "bbox": [
+    41.04,
+    742.32,
+    166.08,
+    750.48
+   ],
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.5684
+  },
+  {
+   "id": "r15",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Royal Dane’ and ‘Anne Marie Treschlin’ being the closest\nknown varieties.",
+   "lines": [
+    {
+     "bbox": [
+      41.52,
+      751.92,
+      274.8,
+      760.56
+     ],
+     "text": "‘Royal Dane’ and ‘Anne Marie Treschlin’ being the closest"
+    },
+    {
+     "bbox": [
+      41.04,
+      762.24,
+      106.08,
+      768.96
+     ],
+     "text": "known varieties."
+    }
+   ],
+   "bbox": [
+    41.04,
+    751.92,
+    274.8,
+    768.96
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.6782
+  },
+  {
+   "id": "r16",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Origin",
+   "lines": [
+    {
+     "bbox": [
+      311.28,
+      62.16,
+      336.24,
+      70.8
+     ],
+     "text": "Origin"
+    }
+   ],
+   "bbox": [
+    311.28,
+    62.16,
+    336.24,
+    70.8
+   ],
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.7643
+  },
+  {
+   "id": "r17",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "This variety arose from the controlled pollination of\n‘Alexander’ by ‘Silver Jubilee'in 1979. This seedling was\nselected on the basis of its colour. ‘Remember Me’\n(Cocdestin) has been protected by Plant Breeders Rights in\nUK since 1984.",
+   "lines": [
+    {
+     "bbox": [
+      310.8,
+      72.48,
+      516.24,
+      82.32
+     ],
+     "text": "This variety arose from the controlled pollination of"
+    },
+    {
+     "bbox": [
+      311.28,
+      82.56,
+      539.04,
+      93.12
+     ],
+     "text": "‘Alexander’ by ‘Silver Jubilee'in 1979. This seedling was"
+    },
+    {
+     "bbox": [
+      310.8,
+      92.88,
+      514.32,
+      101.04
+     ],
+     "text": "selected on the basis of its colour. ‘Remember Me’"
+    },
+    {
+     "bbox": [
+      310.32,
+      102.72,
+      546.0,
+      112.56
+     ],
+     "text": "(Cocdestin) has been protected by Plant Breeders Rights in"
+    },
+    {
+     "bbox": [
+      310.8,
+      112.56,
+      371.76,
+      119.52
+     ],
+     "text": "UK since 1984."
+    }
+   ],
+   "bbox": [
+    310.32,
+    72.48,
+    546.0,
+    119.52
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9163
+  },
+  {
+   "bbox": [
+    310.56,
+    135.84,
+    467.04,
+    144.96
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      310.56,
+      135.84,
+      467.04,
+      144.96
+     ],
+     "text": "Morphology — see comparison tables."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology — see comparison tables.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "id": "r18",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Remember Me’ (Cocdestin) is a russet flowered upright\nshrub rose which differs from ‘Royal Dane’ and ‘Anne\nMarie Treschlin’ in having lighter coloured petals, smaller\nflowers and narrower terminal leaflets in ratio to their\ntength.",
+   "lines": [
+    {
+     "bbox": [
+      310.32,
+      145.68,
+      534.48,
+      155.76
+     ],
+     "text": "‘Remember Me’ (Cocdestin) is a russet flowered upright"
+    },
+    {
+     "bbox": [
+      310.08,
+      155.76,
+      526.8,
+      164.88
+     ],
+     "text": "shrub rose which differs from ‘Royal Dane’ and ‘Anne"
+    },
+    {
+     "bbox": [
+      309.84,
+      165.84,
+      542.16,
+      175.2
+     ],
+     "text": "Marie Treschlin’ in having lighter coloured petals, smaller"
+    },
+    {
+     "bbox": [
+      309.84,
+      175.44,
+      527.04,
+      183.6
+     ],
+     "text": "flowers and narrower terminal leaflets in ratio to their"
+    },
+    {
+     "bbox": [
+      309.84,
+      185.76,
+      336.24,
+      193.92
+     ],
+     "text": "tength."
+    }
+   ],
+   "bbox": [
+    309.84,
+    145.68,
+    542.16,
+    193.92
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.8168
+  },
+  {
+   "id": "r19",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Remember Me’ (Cocdestin) is a midseason rose with\nglossy medium green foliage as is ‘Royal Dane’ while\n‘Anne Marie Treschlin’ is an early flowering variety with\ndull dark green foliage. ‘Remember Me’ (Cocdestin) and\n‘Anne Marie Treschlin’ both have yellow stamens while\n‘Royal Dane’ has bronze stamens.",
+   "lines": [
+    {
+     "bbox": [
+      309.84,
+      210.0,
+      522.96,
+      218.4
+     ],
+     "text": "‘Remember Me’ (Cocdestin) is a midseason rose with"
+    },
+    {
+     "bbox": [
+      309.12,
+      220.08,
+      523.68,
+      228.96
+     ],
+     "text": "glossy medium green foliage as is ‘Royal Dane’ while"
+    },
+    {
+     "bbox": [
+      309.6,
+      229.92,
+      535.68,
+      239.28
+     ],
+     "text": "‘Anne Marie Treschlin’ is an early flowering variety with"
+    },
+    {
+     "bbox": [
+      308.88,
+      240.24,
+      532.56,
+      248.88
+     ],
+     "text": "dull dark green foliage. ‘Remember Me’ (Cocdestin) and"
+    },
+    {
+     "bbox": [
+      309.6,
+      250.08,
+      533.76,
+      258.48
+     ],
+     "text": "‘Anne Marie Treschlin’ both have yellow stamens while"
+    },
+    {
+     "bbox": [
+      309.36,
+      260.16,
+      444.96,
+      268.08
+     ],
+     "text": "‘Royal Dane’ has bronze stamens."
+    }
+   ],
+   "bbox": [
+    308.88,
+    210.0,
+    535.68,
+    268.08
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9204
+  },
+  {
+   "bbox": [
+    308.4,
+    317.04,
+    504.72,
+    339.36
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      308.64,
+      317.04,
+      504.72,
+      328.08
+     ],
+     "text": "Table of Comparison of Rose Varieties"
+    },
+    {
+     "bbox": [
+      308.4,
+      330.96,
+      448.56,
+      339.36
+     ],
+     "text": "(* = varieties used for comparison)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Rose Varieties\n(* = varieties used for comparison)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    308.8,
+    362.03,
+    532.25,
+    769.6
+   ],
+   "confidence": null,
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      368.16,
+      360.24,
+      531.36,
+      370.32
+     ],
+     "text": "‘Cocdestin‘ * ‘Royal * ‘Anne Marie"
+    },
+    {
+     "bbox": [
+      367.44,
+      371.28,
+      517.68,
+      378.96
+     ],
+     "text": "{Remember Me} Dane’ Treschlin’"
+    },
+    {
+     "bbox": [
+      308.16,
+      387.84,
+      506.16,
+      394.8
+     ],
+     "text": "BLOOM COLOUR russel russel russet"
+    },
+    {
+     "bbox": [
+      308.16,
+      397.68,
+      499.92,
+      404.64
+     ],
+     "text": "RHS 338 4CB 40B"
+    },
+    {
+     "bbox": [
+      308.4,
+      408.0,
+      360.24,
+      414.48
+     ],
+     "text": "midzone outs ce"
+    },
+    {
+     "bbox": [
+      308.16,
+      417.6,
+      499.92,
+      424.32
+     ],
+     "text": "RHS 334 408 408"
+    },
+    {
+     "bbox": [
+      308.4,
+      427.68,
+      355.44,
+      434.16
+     ],
+     "text": "midzone inside"
+    },
+    {
+     "bbox": [
+      308.16,
+      437.28,
+      500.16,
+      444.0
+     ],
+     "text": "RHS 24A 498 408"
+    },
+    {
+     "bbox": [
+      308.16,
+      447.6,
+      355.44,
+      455.28
+     ],
+     "text": "margin outside"
+    },
+    {
+     "bbox": [
+      307.92,
+      456.96,
+      499.92,
+      463.92
+     ],
+     "text": "RHS 33h 40C 4GB"
+    },
+    {
+     "bbox": [
+      308.16,
+      467.28,
+      350.88,
+      475.44
+     ],
+     "text": "margin inside"
+    },
+    {
+     "bbox": [
+      308.16,
+      477.12,
+      500.4,
+      483.84
+     ],
+     "text": "RHS 28A 40B 404"
+    },
+    {
+     "bbox": [
+      308.16,
+      491.28,
+      372.24,
+      498.24
+     ],
+     "text": "FLOWER DIAMETER"
+    },
+    {
+     "bbox": [
+      307.92,
+      500.4,
+      520.32,
+      510.72
+     ],
+     "text": "mean 108 5 mm 12). 2mm 124.2 mm"
+    },
+    {
+     "bbox": [
+      307.92,
+      510.72,
+      524.16,
+      521.04
+     ],
+     "text": "range 99—115 100 — 137 113 — 139"
+    },
+    {
+     "bbox": [
+      307.68,
+      521.52,
+      496.8,
+      528.24
+     ],
+     "text": "std. deviation 3 | 94 72"
+    },
+    {
+     "bbox": [
+      307.68,
+      535.2,
+      506.64,
+      543.36
+     ],
+     "text": "STAMEN COLOUR yellow bronze yellow"
+    },
+    {
+     "bbox": [
+      307.68,
+      549.12,
+      520.08,
+      557.52
+     ],
+     "text": "STYLE COLOUR red-green yellow-green green with"
+    },
+    {
+     "bbox": [
+      487.2,
+      559.2,
+      506.88,
+      566.88
+     ],
+     "text": "red tip"
+    },
+    {
+     "bbox": [
+      307.92,
+      572.64,
+      501.84,
+      580.56
+     ],
+     "text": "FLOWERING TIME mid season mid season early"
+    },
+    {
+     "bbox": [
+      308.16,
+      586.32,
+      408.48,
+      594.0
+     ],
+     "text": "LEAF GLOSSINESS (upper side)"
+    },
+    {
+     "bbox": [
+      367.44,
+      596.4,
+      496.32,
+      604.32
+     ],
+     "text": "glossy glossy dul"
+    },
+    {
+     "bbox": [
+      308.16,
+      609.84,
+      520.32,
+      618.48
+     ],
+     "text": "LEAF COLOUR medium green mediumgreen dark green"
+    },
+    {
+     "bbox": [
+      307.44,
+      624.0,
+      399.12,
+      630.96
+     ],
+     "text": "TERMINAL LEAFLET LENGTH"
+    },
+    {
+     "bbox": [
+      307.68,
+      633.84,
+      515.76,
+      640.8
+     ],
+     "text": "mean 74.2 mm 68.4 mm 76.9 mm"
+    },
+    {
+     "bbox": [
+      307.68,
+      642.96,
+      515.04,
+      653.28
+     ],
+     "text": "range 57-91 50 — 88 46 — 92"
+    },
+    {
+     "bbox": [
+      307.68,
+      654.0,
+      501.6,
+      660.96
+     ],
+     "text": "std. deviaticn 104 109 150"
+    },
+    {
+     "bbox": [
+      307.2,
+      667.68,
+      395.28,
+      674.4
+     ],
+     "text": "TERMINAL LEAFLET WIDTH"
+    },
+    {
+     "bbox": [
+      307.68,
+      677.52,
+      515.52,
+      684.24
+     ],
+     "text": "mean 43.5 mm 54.2 mm 52.9 mm"
+    },
+    {
+     "bbox": [
+      307.68,
+      686.4,
+      514.8,
+      697.2
+     ],
+     "text": "range 37-51 43-6) 45 — 67"
+    },
+    {
+     "bbox": [
+      307.44,
+      697.2,
+      496.8,
+      703.92
+     ],
+     "text": "sid. deviation 56 60 6.7"
+    },
+    {
+     "bbox": [
+      307.92,
+      710.88,
+      335.04,
+      717.36
+     ],
+     "text": "PEDICEL"
+    },
+    {
+     "bbox": [
+      307.68,
+      719.52,
+      497.76,
+      729.6
+     ],
+     "text": "PRICKLES few absent few"
+    },
+    {
+     "bbox": [
+      307.68,
+      734.4,
+      506.4,
+      742.8
+     ],
+     "text": "FRAGRANCE strong medium strong"
+    },
+    {
+     "bbox": [
+      307.68,
+      748.08,
+      393.6,
+      755.04
+     ],
+     "text": "NUMBER OF TRUE*PETALS"
+    },
+    {
+     "bbox": [
+      367.68,
+      757.92,
+      500.4,
+      765.12
+     ],
+     "text": "26 — 50 26 — 50 >50"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       368.16,
+       360.24,
+       402.0,
+       370.32
+      ],
+      "header": true,
+      "text": "‘Cocdestin‘"
+     },
+     {
+      "bbox": [
+       428.16,
+       361.44,
+       451.44,
+       369.36
+      ],
+      "header": true,
+      "text": "* ‘Royal"
+     },
+     {
+      "bbox": [
+       487.92,
+       361.44,
+       531.36,
+       368.16
+      ],
+      "header": true,
+      "text": "* ‘Anne Marie"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       367.44,
+       371.28,
+       417.84,
+       378.96
+      ],
+      "header": true,
+      "text": "{Remember Me}"
+     },
+     {
+      "bbox": [
+       427.92,
+       371.28,
+       445.68,
+       377.76
+      ],
+      "header": true,
+      "text": "Dane’"
+     },
+     {
+      "bbox": [
+       486.96,
+       371.52,
+       517.68,
+       378.0
+      ],
+      "header": true,
+      "text": "Treschlin’"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       308.16,
+       387.84,
+       363.6,
+       394.56
+      ],
+      "text": "BLOOM COLOUR"
+     },
+     {
+      "bbox": [
+       367.92,
+       389.52,
+       386.4,
+       394.8
+      ],
+      "text": "russel"
+     },
+     {
+      "bbox": [
+       427.68,
+       390.0,
+       446.16,
+       394.8
+      ],
+      "text": "russel"
+     },
+     {
+      "bbox": [
+       487.44,
+       389.52,
+       506.16,
+       394.8
+      ],
+      "text": "russet"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       308.16,
+       397.68,
+       360.24,
+       414.48
+      ],
+      "text": "RHS midzone outs ce"
+     },
+     {
+      "bbox": [
+       367.92,
+       397.92,
+       380.4,
+       404.64
+      ],
+      "text": "338"
+     },
+     {
+      "bbox": [
+       427.68,
+       398.16,
+       440.4,
+       404.4
+      ],
+      "text": "4CB"
+     },
+     {
+      "bbox": [
+       487.44,
+       398.16,
+       499.92,
+       404.64
+      ],
+      "text": "40B"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       308.16,
+       417.6,
+       355.44,
+       434.16
+      ],
+      "text": "RHS midzone inside"
+     },
+     {
+      "bbox": [
+       368.16,
+       417.84,
+       380.88,
+       424.32
+      ],
+      "text": "334"
+     },
+     {
+      "bbox": [
+       427.68,
+       417.6,
+       440.16,
+       424.32
+      ],
+      "text": "408"
+     },
+     {
+      "bbox": [
+       487.44,
+       417.6,
+       499.92,
+       424.08
+      ],
+      "text": "408"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       308.16,
+       437.28,
+       355.44,
+       455.28
+      ],
+      "text": "RHS margin outside"
+     },
+     {
+      "bbox": [
+       368.16,
+       437.28,
+       380.88,
+       443.76
+      ],
+      "text": "24A"
+     },
+     {
+      "bbox": [
+       427.2,
+       437.52,
+       440.4,
+       443.76
+      ],
+      "text": "498"
+     },
+     {
+      "bbox": [
+       487.44,
+       437.52,
+       500.16,
+       444.0
+      ],
+      "text": "408"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       307.92,
+       456.96,
+       350.88,
+       475.44
+      ],
+      "text": "RHS margin inside"
+     },
+     {
+      "bbox": [
+       368.16,
+       456.96,
+       380.64,
+       463.68
+      ],
+      "text": "33h"
+     },
+     {
+      "bbox": [
+       427.44,
+       456.96,
+       440.4,
+       463.92
+      ],
+      "text": "40C"
+     },
+     {
+      "bbox": [
+       487.68,
+       457.2,
+       499.92,
+       463.68
+      ],
+      "text": "4GB"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       308.16,
+       477.12,
+       320.88,
+       483.84
+      ],
+      "text": "RHS"
+     },
+     {
+      "bbox": [
+       367.68,
+       477.12,
+       380.88,
+       483.84
+      ],
+      "text": "28A"
+     },
+     {
+      "bbox": [
+       427.68,
+       477.12,
+       440.16,
+       483.84
+      ],
+      "text": "40B"
+     },
+     {
+      "bbox": [
+       487.44,
+       477.12,
+       500.4,
+       483.84
+      ],
+      "text": "404"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       308.16,
+       491.28,
+       372.24,
+       498.24
+      ],
+      "text": "FLOWER DIAMETER"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       307.92,
+       503.52,
+       324.96,
+       508.32
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       368.64,
+       501.36,
+       400.8,
+       508.32
+      ],
+      "text": "108 5 mm"
+     },
+     {
+      "bbox": [
+       428.64,
+       500.4,
+       460.8,
+       510.72
+      ],
+      "text": "12). 2mm"
+     },
+     {
+      "bbox": [
+       488.16,
+       500.4,
+       520.32,
+       510.48
+      ],
+      "text": "124.2 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       307.92,
+       513.6,
+       325.68,
+       519.84
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       367.92,
+       511.68,
+       400.08,
+       518.4
+      ],
+      "text": "99—115"
+     },
+     {
+      "bbox": [
+       428.64,
+       511.68,
+       464.4,
+       518.4
+      ],
+      "text": "100 — 137"
+     },
+     {
+      "bbox": [
+       488.4,
+       510.72,
+       524.16,
+       521.04
+      ],
+      "text": "113 — 139"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       307.68,
+       521.76,
+       349.68,
+       528.24
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       368.16,
+       521.52,
+       376.08,
+       528.0
+      ],
+      "text": "3 |"
+     },
+     {
+      "bbox": [
+       427.44,
+       521.76,
+       437.28,
+       528.24
+      ],
+      "text": "94"
+     },
+     {
+      "bbox": [
+       487.68,
+       521.76,
+       496.8,
+       528.24
+      ],
+      "text": "72"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       307.68,
+       535.2,
+       366.24,
+       542.16
+      ],
+      "text": "STAMEN COLOUR"
+     },
+     {
+      "bbox": [
+       369.6,
+       535.68,
+       389.52,
+       543.36
+      ],
+      "text": "yellow"
+     },
+     {
+      "bbox": [
+       427.44,
+       535.68,
+       448.32,
+       542.16
+      ],
+      "text": "bronze"
+     },
+     {
+      "bbox": [
+       486.96,
+       535.92,
+       506.64,
+       543.36
+      ],
+      "text": "yellow"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       307.68,
+       549.12,
+       358.32,
+       555.84
+      ],
+      "text": "STYLE COLOUR"
+     },
+     {
+      "bbox": [
+       367.44,
+       549.36,
+       397.92,
+       557.28
+      ],
+      "text": "red-green"
+     },
+     {
+      "bbox": [
+       427.2,
+       549.6,
+       467.76,
+       557.52
+      ],
+      "text": "yellow-green"
+     },
+     {
+      "bbox": [
+       487.2,
+       550.56,
+       520.08,
+       557.28
+      ],
+      "text": "green with"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       487.2,
+       559.2,
+       506.88,
+       566.88
+      ],
+      "text": "red tip"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       307.92,
+       572.64,
+       365.04,
+       579.36
+      ],
+      "text": "FLOWERING TIME"
+     },
+     {
+      "bbox": [
+       367.68,
+       573.12,
+       403.2,
+       579.36
+      ],
+      "text": "mid season"
+     },
+     {
+      "bbox": [
+       427.44,
+       573.12,
+       462.96,
+       579.36
+      ],
+      "text": "mid season"
+     },
+     {
+      "bbox": [
+       487.2,
+       573.12,
+       501.84,
+       580.56
+      ],
+      "text": "early"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       308.16,
+       586.32,
+       367.92,
+       593.04
+      ],
+      "text": "LEAF GLOSSINESS"
+     },
+     {
+      "bbox": [
+       371.04,
+       586.8,
+       408.48,
+       594.0
+      ],
+      "text": "(upper side)"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       367.44,
+       596.4,
+       387.12,
+       604.32
+      ],
+      "text": "glossy"
+     },
+     {
+      "bbox": [
+       427.2,
+       596.4,
+       447.12,
+       604.32
+      ],
+      "text": "glossy"
+     },
+     {
+      "bbox": [
+       486.96,
+       596.4,
+       496.32,
+       602.64
+      ],
+      "text": "dul"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       308.16,
+       609.84,
+       353.76,
+       616.56
+      ],
+      "text": "LEAF COLOUR"
+     },
+     {
+      "bbox": [
+       367.44,
+       610.32,
+       413.04,
+       618.24
+      ],
+      "text": "medium green"
+     },
+     {
+      "bbox": [
+       427.44,
+       610.32,
+       472.8,
+       618.48
+      ],
+      "text": "mediumgreen"
+     },
+     {
+      "bbox": [
+       486.48,
+       610.08,
+       520.32,
+       618.24
+      ],
+      "text": "dark green"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       307.44,
+       624.0,
+       371.04,
+       630.72
+      ],
+      "text": "TERMINAL LEAFLET"
+     },
+     {
+      "bbox": [
+       373.92,
+       624.0,
+       399.12,
+       630.96
+      ],
+      "text": "LENGTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       307.68,
+       636.0,
+       324.48,
+       640.8
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       367.92,
+       633.84,
+       396.24,
+       640.8
+      ],
+      "text": "74.2 mm"
+     },
+     {
+      "bbox": [
+       427.2,
+       634.08,
+       455.76,
+       640.8
+      ],
+      "text": "68.4 mm"
+     },
+     {
+      "bbox": [
+       487.44,
+       634.08,
+       515.76,
+       640.8
+      ],
+      "text": "76.9 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       307.68,
+       645.84,
+       325.44,
+       652.56
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       367.92,
+       644.16,
+       394.32,
+       650.88
+      ],
+      "text": "57-91"
+     },
+     {
+      "bbox": [
+       427.44,
+       643.92,
+       455.04,
+       650.88
+      ],
+      "text": "50 — 88"
+     },
+     {
+      "bbox": [
+       486.96,
+       642.96,
+       515.04,
+       653.28
+      ],
+      "text": "46 — 92"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       307.68,
+       654.24,
+       349.68,
+       660.96
+      ],
+      "text": "std. deviaticn"
+     },
+     {
+      "bbox": [
+       368.64,
+       654.0,
+       381.84,
+       660.72
+      ],
+      "text": "104"
+     },
+     {
+      "bbox": [
+       428.16,
+       654.24,
+       441.6,
+       660.72
+      ],
+      "text": "109"
+     },
+     {
+      "bbox": [
+       488.16,
+       654.0,
+       501.6,
+       660.72
+      ],
+      "text": "150"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       307.2,
+       667.68,
+       395.28,
+       674.4
+      ],
+      "text": "TERMINAL LEAFLET WIDTH"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       307.68,
+       679.44,
+       324.48,
+       684.24
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       367.44,
+       677.52,
+       396.0,
+       684.24
+      ],
+      "text": "43.5 mm"
+     },
+     {
+      "bbox": [
+       427.68,
+       677.52,
+       455.76,
+       684.24
+      ],
+      "text": "54.2 mm"
+     },
+     {
+      "bbox": [
+       487.2,
+       677.52,
+       515.52,
+       684.24
+      ],
+      "text": "52.9 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       307.68,
+       689.52,
+       325.44,
+       695.76
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       367.44,
+       687.6,
+       394.08,
+       694.32
+      ],
+      "text": "37-51"
+     },
+     {
+      "bbox": [
+       426.96,
+       687.6,
+       454.08,
+       694.08
+      ],
+      "text": "43-6)"
+     },
+     {
+      "bbox": [
+       486.72,
+       686.4,
+       514.8,
+       697.2
+      ],
+      "text": "45 — 67"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       307.44,
+       697.44,
+       349.44,
+       703.68
+      ],
+      "text": "sid. deviation"
+     },
+     {
+      "bbox": [
+       367.92,
+       697.2,
+       377.52,
+       703.92
+      ],
+      "text": "56"
+     },
+     {
+      "bbox": [
+       427.2,
+       697.2,
+       437.28,
+       703.68
+      ],
+      "text": "60"
+     },
+     {
+      "bbox": [
+       487.2,
+       697.2,
+       496.8,
+       703.68
+      ],
+      "text": "6.7"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       307.68,
+       710.88,
+       339.12,
+       727.2
+      ],
+      "text": "PEDICEL PRICKLES"
+     },
+     {
+      "bbox": [
+       366.96,
+       720.96,
+       378.24,
+       727.2
+      ],
+      "text": "few"
+     },
+     {
+      "bbox": [
+       427.2,
+       719.52,
+       447.84,
+       729.6
+      ],
+      "text": "absent"
+     },
+     {
+      "bbox": [
+       486.96,
+       720.72,
+       497.76,
+       727.2
+      ],
+      "text": "few"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       307.68,
+       734.4,
+       347.52,
+       741.12
+      ],
+      "text": "FRAGRANCE"
+     },
+     {
+      "bbox": [
+       367.2,
+       735.84,
+       386.88,
+       742.8
+      ],
+      "text": "strong"
+     },
+     {
+      "bbox": [
+       427.2,
+       734.88,
+       452.4,
+       741.12
+      ],
+      "text": "medium"
+     },
+     {
+      "bbox": [
+       486.96,
+       735.84,
+       506.4,
+       742.56
+      ],
+      "text": "strong"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       307.68,
+       748.08,
+       347.52,
+       755.04
+      ],
+      "text": "NUMBER OF"
+     },
+     {
+      "bbox": [
+       349.92,
+       748.32,
+       395.52,
+       765.12
+      ],
+      "text": "TRUE*PETALS 26 — 50"
+     },
+     {
+      "bbox": [
+       427.44,
+       758.16,
+       455.28,
+       764.88
+      ],
+      "text": "26 — 50"
+     },
+     {
+      "bbox": [
+       486.48,
+       757.92,
+       500.4,
+       764.88
+      ],
+      "text": ">50"
+     }
+    ]
+   ],
+   "score": 0.9997,
+   "signal": "tatr",
+   "source": "tatr",
+   "text": " ‘Cocdestin‘ * ‘Royal * ‘Anne Marie\n {Remember Me} Dane’ Treschlin’\nBLOOM COLOUR russel russel russet\nRHS midzone outs ce 338 4CB 40B\nRHS midzone inside 334 408 408\nRHS margin outside 24A 498 408\nRHS margin inside 33h 40C 4GB\nRHS 28A 40B 404\nFLOWER DIAMETER   \nmean 108 5 mm 12). 2mm 124.2 mm\nrange 99—115 100 — 137 113 — 139\nstd. deviation 3 | 94 72\nSTAMEN COLOUR yellow bronze yellow\nSTYLE COLOUR red-green yellow-green green with\n   red tip\nFLOWERING TIME mid season mid season early\nLEAF GLOSSINESS (upper side)  \n glossy glossy dul\nLEAF COLOUR medium green mediumgreen dark green\nTERMINAL LEAFLET LENGTH  \nmean 74.2 mm 68.4 mm 76.9 mm\nrange 57-91 50 — 88 46 — 92\nstd. deviaticn 104 109 150\nTERMINAL LEAFLET WIDTH   \nmean 43.5 mm 54.2 mm 52.9 mm\nrange 37-51 43-6) 45 — 67\nsid. deviation 56 60 6.7\nPEDICEL PRICKLES few absent few\nFRAGRANCE strong medium strong\nNUMBER OF TRUE*PETALS 26 — 50 26 — 50 >50",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "id": "r21",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "12",
+   "lines": [
+    {
+     "bbox": [
+      41.28,
+      794.16,
+      52.56,
+      802.8
+     ],
+     "text": "12"
+    }
+   ],
+   "bbox": [
+    41.28,
+    794.16,
+    52.56,
+    802.8
+   ],
+   "type": "page_number",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "number",
+   "score": 0.742
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

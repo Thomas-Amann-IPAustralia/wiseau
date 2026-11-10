@@ -1,0 +1,2162 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    44.4,
+    63.36,
+    319.44,
+    74.64
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      44.4,
+      63.36,
+      319.44,
+      74.64
+     ],
+     "text": "Table of Comparison of Subterranean Clover Varieties"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Subterranean Clover Varieties",
+   "text_format": "plain",
+   "type": "caption",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "figure_title",
+   "score": 0.5766
+  },
+  {
+   "bbox": [
+    43.68,
+    77.04,
+    184.08,
+    85.2
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      43.68,
+      77.04,
+      184.08,
+      85.2
+     ],
+     "text": "(* = varieties used for comparison)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(* = varieties used for comparison)",
+   "text_format": "plain",
+   "type": "caption",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "figure_title",
+   "score": 0.5766
+  },
+  {
+   "bbox": [
+    42.93,
+    95.26,
+    515.44,
+    342.75
+   ],
+   "confidence": null,
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      121.44,
+      96.48,
+      516.0,
+      107.28
+     ],
+     "text": "‘Leura’ Dalkeith’ *'Dwalganup’ *'Mt Barker’ *'Tallarook’ *’Karridale’"
+    },
+    {
+     "bbox": [
+      43.92,
+      113.52,
+      506.4,
+      121.44
+     ],
+     "text": "LEAF MARKINGS C2 Al C2 Al C2 Al C3 C1-2 Ai C3 A2-3"
+    },
+    {
+     "bbox": [
+      43.92,
+      127.68,
+      157.44,
+      136.08
+     ],
+     "text": "LEAF PUBESCENCE (upper surface)"
+    },
+    {
+     "bbox": [
+      121.44,
+      138.24,
+      492.72,
+      147.36
+     ],
+     "text": "heavy heavy heavy ‘ignt light light"
+    },
+    {
+     "bbox": [
+      43.68,
+      151.68,
+      495.84,
+      162.24
+     ],
+     "text": "SEED COLOUR black black black purple/black black black"
+    },
+    {
+     "bbox": [
+      43.68,
+      165.84,
+      492.96,
+      176.88
+     ],
+     "text": "PETIOLE PUBESCENCE light moderate moderate moderate moderate light"
+    },
+    {
+     "bbox": [
+      43.2,
+      180.48,
+      121.92,
+      187.44
+     ],
+     "text": "STIPULE PIGMENTATION"
+    },
+    {
+     "bbox": [
+      121.2,
+      190.32,
+      487.44,
+      197.76
+     ],
+     "text": "S| $1 S| §2-3 $0 $2"
+    },
+    {
+     "bbox": [
+      43.2,
+      204.0,
+      509.28,
+      213.6
+     ],
+     "text": "STEM PUBESCENCE moderate heavy moderate heavy heavy moderate"
+    },
+    {
+     "bbox": [
+      43.44,
+      218.16,
+      497.28,
+      225.36
+     ],
+     "text": "CALYX PIGMENTATION CxO Cxi Cx1 Cx4 CxO Cx0-1"
+    },
+    {
+     "bbox": [
+      43.44,
+      232.08,
+      122.4,
+      238.8
+     ],
+     "text": "DAYS TO FIRST FLOWER"
+    },
+    {
+     "bbox": [
+      121.92,
+      241.2,
+      492.0,
+      251.52
+     ],
+     "text": "147 &8 383 136 159 139"
+    },
+    {
+     "bbox": [
+      43.2,
+      255.84,
+      146.88,
+      264.0
+     ],
+     "text": "OESTROGENICITY (% dry matter}"
+    },
+    {
+     "bbox": [
+      43.2,
+      265.92,
+      489.12,
+      273.36
+     ],
+     "text": "Formononetun trace trace 14 lrace 16 0.2"
+    },
+    {
+     "bbox": [
+      43.2,
+      274.8,
+      488.88,
+      285.36
+     ],
+     "text": "Genistein 08 02 19 03 07 1.2"
+    },
+    {
+     "bbox": [
+      43.2,
+      286.08,
+      489.12,
+      293.04
+     ],
+     "text": "Biochanin & 0.3 0.2 0.4 | 13 17"
+    },
+    {
+     "bbox": [
+      43.2,
+      299.76,
+      258.72,
+      308.64
+     ],
+     "text": "SEEO HARDNESS (% remaining after 4 manths in 60°/15° cabinet)"
+    },
+    {
+     "bbox": [
+      120.72,
+      310.08,
+      488.88,
+      317.04
+     ],
+     "text": "68 590 52.9 3.0 12 8.7"
+    },
+    {
+     "bbox": [
+      43.2,
+      322.8,
+      120.0,
+      333.6
+     ],
+     "text": "SEEDWEIGHT ig/ 1000)"
+    },
+    {
+     "bbox": [
+      121.2,
+      334.08,
+      492.96,
+      342.48
+     ],
+     "text": "73g ‘2.1 10.8 B.1¢ 6.89 8 5¢"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       121.44,
+       97.2,
+       143.52,
+       103.92
+      ],
+      "header": true,
+      "text": "‘Leura’"
+     },
+     {
+      "bbox": [
+       193.68,
+       97.2,
+       227.76,
+       103.92
+      ],
+      "header": true,
+      "text": "Dalkeith’"
+     },
+     {
+      "bbox": [
+       265.2,
+       96.48,
+       309.84,
+       106.8
+      ],
+      "header": true,
+      "text": "*'Dwalganup’"
+     },
+     {
+      "bbox": [
+       336.72,
+       97.68,
+       376.32,
+       104.4
+      ],
+      "header": true,
+      "text": "*'Mt Barker’"
+     },
+     {
+      "bbox": [
+       408.48,
+       96.96,
+       445.44,
+       107.28
+      ],
+      "header": true,
+      "text": "*'Tallarook’"
+     },
+     {
+      "bbox": [
+       480.0,
+       97.92,
+       516.0,
+       104.88
+      ],
+      "header": true,
+      "text": "*’Karridale’"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       43.92,
+       113.52,
+       97.44,
+       120.48
+      ],
+      "text": "LEAF MARKINGS"
+     },
+     {
+      "bbox": [
+       121.44,
+       113.76,
+       139.92,
+       120.48
+      ],
+      "text": "C2 Al"
+     },
+     {
+      "bbox": [
+       193.44,
+       114.0,
+       211.44,
+       120.48
+      ],
+      "text": "C2 Al"
+     },
+     {
+      "bbox": [
+       264.96,
+       114.24,
+       283.2,
+       120.72
+      ],
+      "text": "C2 Al"
+     },
+     {
+      "bbox": [
+       336.24,
+       114.48,
+       344.64,
+       120.96
+      ],
+      "text": "C3"
+     },
+     {
+      "bbox": [
+       408.24,
+       114.72,
+       433.68,
+       121.44
+      ],
+      "text": "C1-2 Ai"
+     },
+     {
+      "bbox": [
+       480.0,
+       114.72,
+       506.4,
+       121.44
+      ],
+      "text": "C3 A2-3"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       43.92,
+       127.68,
+       106.08,
+       134.64
+      ],
+      "text": "LEAF PUBESCENCE"
+     },
+     {
+      "bbox": [
+       109.44,
+       127.92,
+       157.44,
+       146.16
+      ],
+      "text": "(upper surface) heavy"
+     },
+     {
+      "bbox": [
+       193.44,
+       138.48,
+       210.96,
+       146.4
+      ],
+      "text": "heavy"
+     },
+     {
+      "bbox": [
+       264.72,
+       138.72,
+       282.72,
+       146.16
+      ],
+      "text": "heavy"
+     },
+     {
+      "bbox": [
+       336.72,
+       138.96,
+       349.92,
+       146.88
+      ],
+      "text": "‘ignt"
+     },
+     {
+      "bbox": [
+       408.24,
+       139.2,
+       421.44,
+       147.12
+      ],
+      "text": "light"
+     },
+     {
+      "bbox": [
+       480.0,
+       139.44,
+       492.72,
+       147.36
+      ],
+      "text": "light"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       43.68,
+       151.92,
+       91.44,
+       159.12
+      ],
+      "text": "SEED COLOUR"
+     },
+     {
+      "bbox": [
+       121.2,
+       152.64,
+       137.52,
+       159.12
+      ],
+      "text": "black"
+     },
+     {
+      "bbox": [
+       193.2,
+       152.88,
+       209.04,
+       159.36
+      ],
+      "text": "black"
+     },
+     {
+      "bbox": [
+       264.96,
+       152.88,
+       281.04,
+       159.6
+      ],
+      "text": "black"
+     },
+     {
+      "bbox": [
+       336.24,
+       151.68,
+       377.76,
+       162.24
+      ],
+      "text": "purple/black"
+     },
+     {
+      "bbox": [
+       408.24,
+       153.36,
+       424.32,
+       159.84
+      ],
+      "text": "black"
+     },
+     {
+      "bbox": [
+       479.76,
+       153.6,
+       495.84,
+       160.08
+      ],
+      "text": "black"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       43.68,
+       166.32,
+       117.12,
+       173.52
+      ],
+      "text": "PETIOLE PUBESCENCE"
+     },
+     {
+      "bbox": [
+       121.2,
+       166.8,
+       135.12,
+       174.96
+      ],
+      "text": "light"
+     },
+     {
+      "bbox": [
+       193.2,
+       165.84,
+       222.72,
+       176.4
+      ],
+      "text": "moderate"
+     },
+     {
+      "bbox": [
+       264.72,
+       166.08,
+       294.24,
+       176.64
+      ],
+      "text": "moderate"
+     },
+     {
+      "bbox": [
+       336.48,
+       166.08,
+       366.0,
+       176.64
+      ],
+      "text": "moderate"
+     },
+     {
+      "bbox": [
+       408.0,
+       166.32,
+       437.76,
+       176.88
+      ],
+      "text": "moderate"
+     },
+     {
+      "bbox": [
+       479.76,
+       167.52,
+       492.96,
+       175.68
+      ],
+      "text": "light"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       43.2,
+       180.48,
+       121.92,
+       187.44
+      ],
+      "text": "STIPULE PIGMENTATION"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       121.2,
+       190.32,
+       128.16,
+       197.28
+      ],
+      "text": "S|"
+     },
+     {
+      "bbox": [
+       193.2,
+       191.04,
+       199.92,
+       197.52
+      ],
+      "text": "$1"
+     },
+     {
+      "bbox": [
+       264.96,
+       191.04,
+       271.44,
+       197.52
+      ],
+      "text": "S|"
+     },
+     {
+      "bbox": [
+       336.24,
+       190.8,
+       351.36,
+       197.52
+      ],
+      "text": "§2-3"
+     },
+     {
+      "bbox": [
+       408.0,
+       191.04,
+       416.16,
+       197.52
+      ],
+      "text": "$0"
+     },
+     {
+      "bbox": [
+       479.52,
+       191.04,
+       487.44,
+       197.76
+      ],
+      "text": "$2"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       43.2,
+       204.24,
+       108.96,
+       210.96
+      ],
+      "text": "STEM PUBESCENCE"
+     },
+     {
+      "bbox": [
+       120.96,
+       204.72,
+       150.72,
+       211.2
+      ],
+      "text": "moderate"
+     },
+     {
+      "bbox": [
+       193.2,
+       204.72,
+       210.48,
+       212.4
+      ],
+      "text": "heavy"
+     },
+     {
+      "bbox": [
+       264.48,
+       204.0,
+       294.0,
+       213.6
+      ],
+      "text": "moderate"
+     },
+     {
+      "bbox": [
+       336.24,
+       204.72,
+       353.76,
+       212.88
+      ],
+      "text": "heavy"
+     },
+     {
+      "bbox": [
+       408.0,
+       205.2,
+       425.76,
+       212.64
+      ],
+      "text": "heavy"
+     },
+     {
+      "bbox": [
+       479.76,
+       205.2,
+       509.28,
+       211.68
+      ],
+      "text": "moderate"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       43.44,
+       218.16,
+       116.64,
+       225.12
+      ],
+      "text": "CALYX PIGMENTATION"
+     },
+     {
+      "bbox": [
+       121.2,
+       218.4,
+       132.96,
+       225.12
+      ],
+      "text": "CxO"
+     },
+     {
+      "bbox": [
+       192.72,
+       218.4,
+       203.52,
+       224.88
+      ],
+      "text": "Cxi"
+     },
+     {
+      "bbox": [
+       264.48,
+       218.64,
+       274.8,
+       225.12
+      ],
+      "text": "Cx1"
+     },
+     {
+      "bbox": [
+       336.0,
+       218.4,
+       348.0,
+       225.12
+      ],
+      "text": "Cx4"
+     },
+     {
+      "bbox": [
+       407.76,
+       218.64,
+       419.76,
+       225.36
+      ],
+      "text": "CxO"
+     },
+     {
+      "bbox": [
+       479.28,
+       218.64,
+       497.28,
+       225.36
+      ],
+      "text": "Cx0-1"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       43.44,
+       232.08,
+       122.4,
+       238.8
+      ],
+      "text": "DAYS TO FIRST FLOWER"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       121.92,
+       242.16,
+       133.44,
+       248.4
+      ],
+      "text": "147"
+     },
+     {
+      "bbox": [
+       192.96,
+       242.16,
+       201.12,
+       248.88
+      ],
+      "text": "&8"
+     },
+     {
+      "bbox": [
+       263.28,
+       241.2,
+       272.4,
+       251.52
+      ],
+      "text": "383"
+     },
+     {
+      "bbox": [
+       336.96,
+       242.16,
+       348.72,
+       249.12
+      ],
+      "text": "136"
+     },
+     {
+      "bbox": [
+       408.72,
+       242.4,
+       420.24,
+       248.88
+      ],
+      "text": "159"
+     },
+     {
+      "bbox": [
+       480.72,
+       242.64,
+       492.0,
+       249.12
+      ],
+      "text": "139"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       43.2,
+       255.84,
+       146.88,
+       264.0
+      ],
+      "text": "OESTROGENICITY (% dry matter}"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       43.2,
+       265.92,
+       87.6,
+       272.64
+      ],
+      "text": "Formononetun"
+     },
+     {
+      "bbox": [
+       120.96,
+       267.6,
+       136.32,
+       272.88
+      ],
+      "text": "trace"
+     },
+     {
+      "bbox": [
+       192.72,
+       267.36,
+       207.84,
+       272.88
+      ],
+      "text": "trace"
+     },
+     {
+      "bbox": [
+       265.44,
+       266.4,
+       273.84,
+       272.4
+      ],
+      "text": "14"
+     },
+     {
+      "bbox": [
+       336.0,
+       267.6,
+       351.36,
+       273.36
+      ],
+      "text": "lrace"
+     },
+     {
+      "bbox": [
+       408.72,
+       266.4,
+       417.6,
+       273.12
+      ],
+      "text": "16"
+     },
+     {
+      "bbox": [
+       479.28,
+       266.4,
+       489.12,
+       273.12
+      ],
+      "text": "0.2"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       43.2,
+       274.8,
+       72.24,
+       285.36
+      ],
+      "text": "Genistein"
+     },
+     {
+      "bbox": [
+       120.96,
+       275.76,
+       130.8,
+       282.72
+      ],
+      "text": "08"
+     },
+     {
+      "bbox": [
+       192.96,
+       276.0,
+       202.56,
+       282.48
+      ],
+      "text": "02"
+     },
+     {
+      "bbox": [
+       265.2,
+       276.24,
+       274.32,
+       282.96
+      ],
+      "text": "19"
+     },
+     {
+      "bbox": [
+       335.76,
+       276.24,
+       345.6,
+       282.96
+      ],
+      "text": "03"
+     },
+     {
+      "bbox": [
+       407.52,
+       276.24,
+       417.6,
+       282.96
+      ],
+      "text": "07"
+     },
+     {
+      "bbox": [
+       480.48,
+       276.48,
+       488.88,
+       282.96
+      ],
+      "text": "1.2"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       43.2,
+       286.08,
+       81.6,
+       292.8
+      ],
+      "text": "Biochanin &"
+     },
+     {
+      "bbox": [
+       120.96,
+       286.08,
+       130.56,
+       292.8
+      ],
+      "text": "0.3"
+     },
+     {
+      "bbox": [
+       192.72,
+       286.08,
+       202.56,
+       292.56
+      ],
+      "text": "0.2"
+     },
+     {
+      "bbox": [
+       264.24,
+       286.32,
+       273.84,
+       292.8
+      ],
+      "text": "0.4"
+     },
+     {
+      "bbox": [
+       336.96,
+       286.56,
+       344.4,
+       292.56
+      ],
+      "text": "|"
+     },
+     {
+      "bbox": [
+       408.72,
+       286.32,
+       417.36,
+       292.8
+      ],
+      "text": "13"
+     },
+     {
+      "bbox": [
+       480.48,
+       286.56,
+       489.12,
+       293.04
+      ],
+      "text": "17"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       43.2,
+       299.76,
+       258.72,
+       308.64
+      ],
+      "text": "SEEO HARDNESS (% remaining after 4 manths in 60°/15° cabinet)"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       120.72,
+       310.08,
+       130.56,
+       317.04
+      ],
+      "text": "68"
+     },
+     {
+      "bbox": [
+       192.72,
+       310.08,
+       207.36,
+       317.04
+      ],
+      "text": "590"
+     },
+     {
+      "bbox": [
+       264.72,
+       310.32,
+       278.64,
+       317.04
+      ],
+      "text": "52.9"
+     },
+     {
+      "bbox": [
+       336.0,
+       310.32,
+       345.84,
+       316.8
+      ],
+      "text": "3.0"
+     },
+     {
+      "bbox": [
+       408.72,
+       310.32,
+       417.12,
+       317.04
+      ],
+      "text": "12"
+     },
+     {
+      "bbox": [
+       479.28,
+       310.32,
+       488.88,
+       317.04
+      ],
+      "text": "8.7"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       43.2,
+       322.8,
+       120.0,
+       333.6
+      ],
+      "text": "SEEDWEIGHT ig/ 1000)"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       121.2,
+       334.08,
+       134.88,
+       342.24
+      ],
+      "text": "73g"
+     },
+     {
+      "bbox": [
+       193.44,
+       334.08,
+       211.44,
+       342.48
+      ],
+      "text": "‘2.1"
+     },
+     {
+      "bbox": [
+       265.2,
+       334.08,
+       282.72,
+       342.48
+      ],
+      "text": "10.8"
+     },
+     {
+      "bbox": [
+       335.76,
+       334.08,
+       349.68,
+       342.24
+      ],
+      "text": "B.1¢"
+     },
+     {
+      "bbox": [
+       407.76,
+       334.32,
+       421.68,
+       342.48
+      ],
+      "text": "6.89"
+     },
+     {
+      "bbox": [
+       479.04,
+       334.08,
+       492.96,
+       342.24
+      ],
+      "text": "8 5¢"
+     }
+    ]
+   ],
+   "score": 0.9999,
+   "signal": "tatr",
+   "source": "tatr",
+   "text": " ‘Leura’ Dalkeith’ *'Dwalganup’ *'Mt Barker’ *'Tallarook’ *’Karridale’\nLEAF MARKINGS C2 Al C2 Al C2 Al C3 C1-2 Ai C3 A2-3\nLEAF PUBESCENCE (upper surface) heavy heavy heavy ‘ignt light light\nSEED COLOUR black black black purple/black black black\nPETIOLE PUBESCENCE light moderate moderate moderate moderate light\nSTIPULE PIGMENTATION      \n S| $1 S| §2-3 $0 $2\nSTEM PUBESCENCE moderate heavy moderate heavy heavy moderate\nCALYX PIGMENTATION CxO Cxi Cx1 Cx4 CxO Cx0-1\nDAYS TO FIRST FLOWER      \n 147 &8 383 136 159 139\nOESTROGENICITY (% dry matter}      \nFormononetun trace trace 14 lrace 16 0.2\nGenistein 08 02 19 03 07 1.2\nBiochanin & 0.3 0.2 0.4 | 13 17\nSEEO HARDNESS (% remaining after 4 manths in 60°/15° cabinet)      \n 68 590 52.9 3.0 12 8.7\nSEEDWEIGHT ig/ 1000)      \n 73g ‘2.1 10.8 B.1¢ 6.89 8 5¢",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    42.48,
+    367.44,
+    274.32,
+    435.36
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      43.2,
+      367.44,
+      83.76,
+      375.6
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      42.96,
+      377.04,
+      248.4,
+      385.44
+     ],
+     "text": "‘Leura’ is a medium late maturing dark-seeded sub"
+    },
+    {
+     "bbox": [
+      42.48,
+      386.88,
+      260.4,
+      393.84
+     ],
+     "text": "terraneum clover. It is distinct from known varieties in"
+    },
+    {
+     "bbox": [
+      42.96,
+      396.96,
+      261.36,
+      405.12
+     ],
+     "text": "having the following combination of characters: A leaf"
+    },
+    {
+     "bbox": [
+      42.72,
+      406.56,
+      271.92,
+      416.16
+     ],
+     "text": "mark of C,A, {Collins et a/, 1984), green calyx, trace level"
+    },
+    {
+     "bbox": [
+      42.72,
+      416.64,
+      274.32,
+      424.8
+     ],
+     "text": "of formononetin, late mid-season maturity and resistance"
+    },
+    {
+     "bbox": [
+      42.48,
+      426.72,
+      157.44,
+      435.36
+     ],
+     "text": "to Phytophthora clandestina."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\n‘Leura’ is a medium late maturing dark-seeded sub\nterraneum clover. It is distinct from known varieties in\nhaving the following combination of characters: A leaf\nmark of C,A, {Collins et a/, 1984), green calyx, trace level\nof formononetin, late mid-season maturity and resistance\nto Phytophthora clandestina.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9378
+  },
+  {
+   "bbox": [
+    42.0,
+    451.44,
+    279.6,
+    469.92
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      42.0,
+      451.44,
+      167.28,
+      459.6
+     ],
+     "text": "Varieties used for comparison"
+    },
+    {
+     "bbox": [
+      42.72,
+      461.28,
+      279.6,
+      469.92
+     ],
+     "text": "‘Mt Barker’, ‘Tallarook’, ‘Karridale’, ‘Dalkeith’, ‘Dwalganup’."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comparison\n‘Mt Barker’, ‘Tallarook’, ‘Karridale’, ‘Dalkeith’, ‘Dwalganup’.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.7565
+  },
+  {
+   "bbox": [
+    41.76,
+    485.04,
+    272.4,
+    542.4
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      42.24,
+      485.04,
+      160.8,
+      493.44
+     ],
+     "text": "Comparative Growing Trials"
+    },
+    {
+     "bbox": [
+      41.76,
+      494.88,
+      270.96,
+      503.28
+     ],
+     "text": "All characteristics described below are from comparative"
+    },
+    {
+     "bbox": [
+      42.0,
+      504.72,
+      257.28,
+      513.12
+     ],
+     "text": "growing trials conducted at the University of Western"
+    },
+    {
+     "bbox": [
+      41.76,
+      514.32,
+      272.4,
+      522.0
+     ],
+     "text": "Australia Field Station, Shenton Park, WA between 1982"
+    },
+    {
+     "bbox": [
+      42.0,
+      524.4,
+      270.0,
+      532.8
+     ],
+     "text": "and 1989. Plants were sown in rows spaced 2m apart at"
+    },
+    {
+     "bbox": [
+      42.72,
+      534.24,
+      74.16,
+      542.4
+     ],
+     "text": "1.5g/m."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials\nAll characteristics described below are from comparative\ngrowing trials conducted at the University of Western\nAustralia Field Station, Shenton Park, WA between 1982\nand 1989. Plants were sown in rows spaced 2m apart at\n1.5g/m.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9272
+  },
+  {
+   "bbox": [
+    42.0,
+    558.0,
+    276.72,
+    605.28
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      42.24,
+      558.0,
+      67.2,
+      566.4
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      42.24,
+      568.08,
+      259.92,
+      576.48
+     ],
+     "text": "‘Leura’ was selected for herbage and seed production,"
+    },
+    {
+     "bbox": [
+      42.24,
+      578.16,
+      244.32,
+      586.08
+     ],
+     "text": "persistence and disease resistance after extensive"
+    },
+    {
+     "bbox": [
+      42.0,
+      588.24,
+      276.72,
+      596.4
+     ],
+     "text": "evaluation of many late season breeding lines collected by"
+    },
+    {
+     "bbox": [
+      42.24,
+      597.84,
+      265.92,
+      605.28
+     ],
+     "text": "Dr W J Collins, Dr J S Gladstone and Mr P G H Nichols."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\n‘Leura’ was selected for herbage and seed production,\npersistence and disease resistance after extensive\nevaluation of many late season breeding lines collected by\nDr W J Collins, Dr J S Gladstone and Mr P G H Nichols.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9243
+  },
+  {
+   "bbox": [
+    41.52,
+    621.6,
+    277.44,
+    708.72
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      42.24,
+      621.6,
+      198.96,
+      630.0
+     ],
+     "text": "Morphology — see comparison tables."
+    },
+    {
+     "bbox": [
+      41.76,
+      631.44,
+      275.76,
+      639.84
+     ],
+     "text": "Australian subterranean clover varieties are distinguished"
+    },
+    {
+     "bbox": [
+      41.76,
+      641.28,
+      258.96,
+      649.68
+     ],
+     "text": "from one another by a combination of relatively stable"
+    },
+    {
+     "bbox": [
+      41.52,
+      650.88,
+      270.72,
+      659.28
+     ],
+     "text": "characteristics (Collins ef a/, 1984). The main descriptors"
+    },
+    {
+     "bbox": [
+      41.76,
+      660.96,
+      234.24,
+      669.12
+     ],
+     "text": "are flower and stipule colour, leaf markings and"
+    },
+    {
+     "bbox": [
+      42.0,
+      670.8,
+      254.4,
+      678.72
+     ],
+     "text": "pubescence on leaflets and stems. These characters,"
+    },
+    {
+     "bbox": [
+      42.0,
+      680.64,
+      271.2,
+      689.04
+     ],
+     "text": "however, are not entirely uniform throughout any variety"
+    },
+    {
+     "bbox": [
+      42.0,
+      690.48,
+      277.44,
+      698.64
+     ],
+     "text": "and may also vary in response to environment (particularly"
+    },
+    {
+     "bbox": [
+      41.76,
+      700.56,
+      171.36,
+      708.72
+     ],
+     "text": "pigmentation with temperature)."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology — see comparison tables.\nAustralian subterranean clover varieties are distinguished\nfrom one another by a combination of relatively stable\ncharacteristics (Collins ef a/, 1984). The main descriptors\nare flower and stipule colour, leaf markings and\npubescence on leaflets and stems. These characters,\nhowever, are not entirely uniform throughout any variety\nand may also vary in response to environment (particularly\npigmentation with temperature).",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9361
+  },
+  {
+   "bbox": [
+    41.76,
+    724.08,
+    273.6,
+    772.56
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      42.0,
+      724.08,
+      239.04,
+      732.48
+     ],
+     "text": "‘Leura’ leaflets are very broadly ovate with heavy"
+    },
+    {
+     "bbox": [
+      42.0,
+      734.16,
+      273.6,
+      742.56
+     ],
+     "text": "pubescence, emarginate tips, dark green with central and"
+    },
+    {
+     "bbox": [
+      42.0,
+      744.24,
+      271.92,
+      753.6
+     ],
+     "text": "marginal markings C,A, (Collins et a/, 1984). Stems have"
+    },
+    {
+     "bbox": [
+      42.24,
+      754.08,
+      271.92,
+      762.24
+     ],
+     "text": "moderate pubescence. Stipules have red veins. The calyx"
+    },
+    {
+     "bbox": [
+      41.76,
+      763.68,
+      261.36,
+      772.56
+     ],
+     "text": "shows no pigmentation in the tube or teeth. Seeds are"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "‘Leura’ leaflets are very broadly ovate with heavy\npubescence, emarginate tips, dark green with central and\nmarginal markings C,A, (Collins et a/, 1984). Stems have\nmoderate pubescence. Stipules have red veins. The calyx\nshows no pigmentation in the tube or teeth. Seeds are",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9395
+  },
+  {
+   "bbox": [
+    308.88,
+    366.96,
+    475.44,
+    375.36
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      308.88,
+      366.96,
+      475.44,
+      375.36
+     ],
+     "text": "black and smooth, and weigh 7.3g/1000."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "black and smooth, and weigh 7.3g/1000.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.6825
+  },
+  {
+   "bbox": [
+    308.64,
+    390.48,
+    539.04,
+    429.12
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      308.88,
+      390.48,
+      539.04,
+      398.88
+     ],
+     "text": "In addition to morphological characteristics, the applicant"
+    },
+    {
+     "bbox": [
+      309.12,
+      400.32,
+      518.16,
+      408.72
+     ],
+     "text": "has submitted, as a distinguishing characteristic, an"
+    },
+    {
+     "bbox": [
+      308.64,
+      410.4,
+      515.04,
+      418.8
+     ],
+     "text": "analysis of the isoflavone contents according to the"
+    },
+    {
+     "bbox": [
+      308.88,
+      420.48,
+      438.96,
+      429.12
+     ],
+     "text": "technique of Francis et a/, 1965."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "In addition to morphological characteristics, the applicant\nhas submitted, as a distinguishing characteristic, an\nanalysis of the isoflavone contents according to the\ntechnique of Francis et a/, 1965.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9325
+  },
+  {
+   "bbox": [
+    308.64,
+    444.96,
+    533.28,
+    482.64
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      308.64,
+      444.96,
+      353.28,
+      453.36
+     ],
+     "text": "Agronomy"
+    },
+    {
+     "bbox": [
+      308.88,
+      454.8,
+      523.68,
+      462.72
+     ],
+     "text": "‘Leura’ is a pasture species suitable for areas with an"
+    },
+    {
+     "bbox": [
+      308.88,
+      464.4,
+      533.28,
+      473.28
+     ],
+     "text": "average annual rainfall greater than 600mm and all but"
+    },
+    {
+     "bbox": [
+      308.64,
+      474.72,
+      391.92,
+      482.64
+     ],
+     "text": "very heavy clay soils."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Agronomy\n‘Leura’ is a pasture species suitable for areas with an\naverage annual rainfall greater than 600mm and all but\nvery heavy clay soils.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9011
+  },
+  {
+   "bbox": [
+    308.4,
+    498.24,
+    538.56,
+    555.84
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      308.88,
+      498.24,
+      355.92,
+      505.2
+     ],
+     "text": "References"
+    },
+    {
+     "bbox": [
+      308.88,
+      507.36,
+      505.92,
+      515.76
+     ],
+     "text": "Collins WJ, Francis CM and Quinlivan BJ (1984)."
+    },
+    {
+     "bbox": [
+      308.88,
+      517.68,
+      538.56,
+      526.32
+     ],
+     "text": "‘Registered cultivars of subterranean clover - their origin,"
+    },
+    {
+     "bbox": [
+      309.12,
+      527.52,
+      523.44,
+      535.68
+     ],
+     "text": "identification and potential use in Western Australia’."
+    },
+    {
+     "bbox": [
+      308.88,
+      537.36,
+      521.52,
+      545.28
+     ],
+     "text": "Bulletin No 4083. Western Australian Department of"
+    },
+    {
+     "bbox": [
+      308.4,
+      547.2,
+      380.64,
+      555.84
+     ],
+     "text": "Agriculture, 28pp."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "References\nCollins WJ, Francis CM and Quinlivan BJ (1984).\n‘Registered cultivars of subterranean clover - their origin,\nidentification and potential use in Western Australia’.\nBulletin No 4083. Western Australian Department of\nAgriculture, 28pp.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9191
+  },
+  {
+   "bbox": [
+    307.92,
+    571.2,
+    541.44,
+    609.6
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      308.88,
+      571.2,
+      541.44,
+      579.84
+     ],
+     "text": "Francis CM and Millington AJ (1965). Varietal variation in"
+    },
+    {
+     "bbox": [
+      308.64,
+      581.28,
+      505.68,
+      588.24
+     ],
+     "text": "the isoflavone content of subterranean clover: its"
+    },
+    {
+     "bbox": [
+      308.88,
+      590.88,
+      519.36,
+      600.0
+     ],
+     "text": "estimation by microtechnique. Australian Journal of"
+    },
+    {
+     "bbox": [
+      307.92,
+      600.96,
+      449.04,
+      609.6
+     ],
+     "text": "Agricultural Research 16:557-564."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Francis CM and Millington AJ (1965). Varietal variation in\nthe isoflavone content of subterranean clover: its\nestimation by microtechnique. Australian Journal of\nAgricultural Research 16:557-564.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9277
+  },
+  {
+   "bbox": [
+    308.64,
+    646.32,
+    436.32,
+    672.0
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      309.36,
+      646.32,
+      383.76,
+      656.64
+     ],
+     "text": "GALTONIA"
+    },
+    {
+     "bbox": [
+      308.64,
+      660.0,
+      436.32,
+      672.0
+     ],
+     "text": "(Galtonia candicans)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "GALTONIA\n(Galtonia candicans)",
+   "text_format": "plain",
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.5239
+  },
+  {
+   "bbox": [
+    308.16,
+    691.2,
+    534.24,
+    771.12
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      308.16,
+      691.2,
+      323.52,
+      705.84
+     ],
+     "text": "L]"
+    },
+    {
+     "bbox": [
+      308.64,
+      713.28,
+      494.64,
+      721.92
+     ],
+     "text": "Variety: ‘Moonbeam’ Application No. 91/017"
+    },
+    {
+     "bbox": [
+      308.64,
+      723.36,
+      461.28,
+      732.0
+     ],
+     "text": "Application received: 7 February 1991"
+    },
+    {
+     "bbox": [
+      308.88,
+      733.44,
+      534.24,
+      742.08
+     ],
+     "text": "Applicant: Nora and Diane Stidolph of Masterton, New"
+    },
+    {
+     "bbox": [
+      308.88,
+      743.76,
+      342.0,
+      750.48
+     ],
+     "text": "Zealand."
+    },
+    {
+     "bbox": [
+      308.4,
+      753.12,
+      508.56,
+      761.76
+     ],
+     "text": "Australian Agent: Phytotech Australia Pty Ltd of"
+    },
+    {
+     "bbox": [
+      308.64,
+      763.44,
+      413.76,
+      771.12
+     ],
+     "text": "Adelaide, South Australia."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "L]\nVariety: ‘Moonbeam’ Application No. 91/017\nApplication received: 7 February 1991\nApplicant: Nora and Diane Stidolph of Masterton, New\nZealand.\nAustralian Agent: Phytotech Australia Pty Ltd of\nAdelaide, South Australia.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.7378
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

@@ -1,11 +1,15 @@
-"""Download the Table Transformer models into the image at build time (ADR-046).
+"""Download the pinned models into the image at build time (ADR-046/047, ADR-048).
 
-Reads the pinned model ids and revisions from `parsers/tables.py` (parsed, not
-imported, so the Docker layer needs no other code) and fetches only the two
-files `from_pretrained` reads. The image then runs with `HF_HUB_OFFLINE=1`: no
-conversion depends on Hugging Face being reachable.
+Reads each module's pinned model ids and revisions (`*_MODEL = ("id",
+"revision")` constants), parsed rather than imported so the Docker layer needs
+no other code, and fetches only the files `from_pretrained` reads. The image
+then runs with `HF_HUB_OFFLINE=1`: no conversion depends on Hugging Face
+being reachable.
 
-  python fetch_table_models.py parsers/tables.py
+  python fetch_table_models.py pinned_tables.py:2 pinned_layout.py:1
+
+Each argument is a module path and how many pinned models it must hold, so
+that a renamed constant fails the build instead of shipping without its model.
 """
 from __future__ import annotations
 
@@ -13,8 +17,11 @@ import ast
 import sys
 
 from huggingface_hub import hf_hub_download
+from huggingface_hub.errors import EntryNotFoundError
 
 FILES = ("config.json", "model.safetensors")
+# Read by `AutoImageProcessor` (the layout model); Table Transformer has none.
+OPTIONAL = ("preprocessor_config.json",)
 
 
 def pinned(path: str) -> list[tuple[str, str]]:
@@ -30,12 +37,19 @@ def pinned(path: str) -> list[tuple[str, str]]:
 
 
 def main() -> None:
-    models = pinned(sys.argv[1])
-    if len(models) != 2:
-        raise SystemExit(f"expected two pinned models in {sys.argv[1]}, found {models}")
-    for name, revision in models:
-        for filename in FILES:
-            print(hf_hub_download(name, filename, revision=revision))
+    for arg in sys.argv[1:]:
+        path, _, count = arg.partition(":")
+        models = pinned(path)
+        if count and len(models) != int(count):
+            raise SystemExit(f"expected {count} pinned models in {path}, found {models}")
+        for name, revision in models:
+            for filename in FILES:
+                print(hf_hub_download(name, filename, revision=revision))
+            for filename in OPTIONAL:
+                try:
+                    print(hf_hub_download(name, filename, revision=revision))
+                except EntryNotFoundError:
+                    pass
 
 
 if __name__ == "__main__":

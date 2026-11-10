@@ -1,0 +1,1549 @@
+{
+ "elements": [
+  {
+   "id": "r1",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Appendix 2",
+   "lines": [
+    {
+     "bbox": [
+      77.76,
+      67.92,
+      129.84,
+      77.04
+     ],
+     "text": "Appendix 2"
+    }
+   ],
+   "bbox": [
+    77.76,
+    67.92,
+    129.84,
+    77.04
+   ],
+   "type": "page_header",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "header",
+   "score": 0.7726
+  },
+  {
+   "id": "r2",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "SECTIONS 16 AND 17 OF THE PVR ACT",
+   "lines": [
+    {
+     "bbox": [
+      63.84,
+      106.32,
+      246.0,
+      114.72
+     ],
+     "text": "SECTIONS 16 AND 17 OF THE PVR ACT"
+    }
+   ],
+   "bbox": [
+    63.84,
+    106.32,
+    246.0,
+    114.72
+   ],
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.8576
+  },
+  {
+   "id": "r3",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Form of application",
+   "lines": [
+    {
+     "bbox": [
+      64.08,
+      130.56,
+      145.2,
+      139.44
+     ],
+     "text": "Form of application"
+    }
+   ],
+   "bbox": [
+    64.08,
+    130.56,
+    145.2,
+    139.44
+   ],
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.8039
+  },
+  {
+   "id": "r4",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "16. An application for plant variety rights in\nrespect of a plant variety shall be in writing in a\nform approved by the Secretary, shall be lodged\nwith the Secretary in the prescribed manner and\nshall contain —",
+   "lines": [
+    {
+     "bbox": [
+      64.56,
+      143.28,
+      245.76,
+      152.16
+     ],
+     "text": "16. An application for plant variety rights in"
+    },
+    {
+     "bbox": [
+      64.32,
+      153.36,
+      258.72,
+      162.24
+     ],
+     "text": "respect of a plant variety shall be in writing in a"
+    },
+    {
+     "bbox": [
+      63.6,
+      163.44,
+      264.0,
+      172.32
+     ],
+     "text": "form approved by the Secretary, shall be lodged"
+    },
+    {
+     "bbox": [
+      63.6,
+      173.28,
+      264.0,
+      181.92
+     ],
+     "text": "with the Secretary in the prescribed manner and"
+    },
+    {
+     "bbox": [
+      64.08,
+      183.6,
+      128.4,
+      190.8
+     ],
+     "text": "shall contain —"
+    }
+   ],
+   "bbox": [
+    63.6,
+    143.28,
+    264.0,
+    190.8
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9283
+  },
+  {
+   "id": "r5",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(a) the name of the person making the\napplication;",
+   "lines": [
+    {
+     "bbox": [
+      73.2,
+      196.32,
+      234.0,
+      204.96
+     ],
+     "text": "(a) the name of the person making the"
+    },
+    {
+     "bbox": [
+      90.0,
+      206.4,
+      138.72,
+      214.8
+     ],
+     "text": "application;"
+    }
+   ],
+   "bbox": [
+    73.2,
+    196.32,
+    234.0,
+    214.8
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.8828
+  },
+  {
+   "id": "r6",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(b}) where the applicant is the breeder of the\nvariety, a statement that the applicant is the\nbreeder of the variety;",
+   "lines": [
+    {
+     "bbox": [
+      73.2,
+      218.64,
+      256.32,
+      227.52
+     ],
+     "text": "(b}) where the applicant is the breeder of the"
+    },
+    {
+     "bbox": [
+      89.76,
+      228.72,
+      270.48,
+      237.36
+     ],
+     "text": "variety, a statement that the applicant is the"
+    },
+    {
+     "bbox": [
+      90.24,
+      238.56,
+      181.44,
+      246.96
+     ],
+     "text": "breeder of the variety;"
+    }
+   ],
+   "bbox": [
+    73.2,
+    218.64,
+    270.48,
+    246.96
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9198
+  },
+  {
+   "id": "r7",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(c) where the applicant is not the breeder of the\nvariety, the name and address of the breeder\nfrom whom the applicant derived the right to\nmake an application and particulars of all\nrelevant assignments and transmissions of\nthe right to make the relevant applications;",
+   "lines": [
+    {
+     "bbox": [
+      73.2,
+      251.04,
+      272.4,
+      259.92
+     ],
+     "text": "(c) where the applicant is not the breeder of the"
+    },
+    {
+     "bbox": [
+      89.52,
+      261.12,
+      275.76,
+      270.0
+     ],
+     "text": "variety, the name and address of the breeder"
+    },
+    {
+     "bbox": [
+      89.52,
+      271.2,
+      276.0,
+      279.84
+     ],
+     "text": "from whom the applicant derived the right to"
+    },
+    {
+     "bbox": [
+      90.0,
+      281.04,
+      259.92,
+      289.92
+     ],
+     "text": "make an application and particulars of all"
+    },
+    {
+     "bbox": [
+      90.24,
+      291.12,
+      269.04,
+      300.24
+     ],
+     "text": "relevant assignments and transmissions of"
+    },
+    {
+     "bbox": [
+      89.52,
+      301.44,
+      267.36,
+      310.32
+     ],
+     "text": "the right to make the relevant applications;"
+    }
+   ],
+   "bbox": [
+    73.2,
+    251.04,
+    276.0,
+    310.32
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9432
+  },
+  {
+   "id": "r8",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(e) particulars of the characteristics that\ndistinguish the variety from other varieties;",
+   "lines": [
+    {
+     "bbox": [
+      72.96,
+      346.8,
+      240.24,
+      355.44
+     ],
+     "text": "(e) particulars of the characteristics that"
+    },
+    {
+     "bbox": [
+      89.52,
+      356.64,
+      269.28,
+      365.28
+     ],
+     "text": "distinguish the variety from other varieties;"
+    }
+   ],
+   "bbox": [
+    72.96,
+    346.8,
+    269.28,
+    365.28
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.8861
+  },
+  {
+   "id": "r9",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(d) adescription, or a description and\nphotograph, of a plant of the variety\nsufficient to identify plants of that variety;",
+   "lines": [
+    {
+     "bbox": [
+      72.96,
+      314.16,
+      229.92,
+      323.04
+     ],
+     "text": "(d) adescription, or a description and"
+    },
+    {
+     "bbox": [
+      90.0,
+      324.24,
+      238.8,
+      332.88
+     ],
+     "text": "photograph, of a plant of the variety"
+    },
+    {
+     "bbox": [
+      89.76,
+      333.84,
+      262.32,
+      342.48
+     ],
+     "text": "sufficient to identify plants of that variety;"
+    }
+   ],
+   "bbox": [
+    72.96,
+    314.16,
+    262.32,
+    342.48
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9106
+  },
+  {
+   "id": "r10",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(f) particulars of the manner in which the variety\nwas originated;",
+   "lines": [
+    {
+     "bbox": [
+      72.96,
+      369.36,
+      277.44,
+      378.0
+     ],
+     "text": "(f) particulars of the manner in which the variety"
+    },
+    {
+     "bbox": [
+      89.28,
+      379.44,
+      153.84,
+      388.08
+     ],
+     "text": "was originated;"
+    }
+   ],
+   "bbox": [
+    72.96,
+    369.36,
+    277.44,
+    388.08
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.8867
+  },
+  {
+   "id": "r11",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(g) the name of the variety;",
+   "lines": [
+    {
+     "bbox": [
+      72.96,
+      391.92,
+      187.2,
+      400.8
+     ],
+     "text": "(g) the name of the variety;"
+    }
+   ],
+   "bbox": [
+    72.96,
+    391.92,
+    187.2,
+    400.8
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.8156
+  },
+  {
+   "id": "r12",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(h) particulars of any application for, or approval\nof a grant of, rights of any kind in respect of\nthe variety in any other country;",
+   "lines": [
+    {
+     "bbox": [
+      72.96,
+      404.88,
+      276.0,
+      413.76
+     ],
+     "text": "(h) particulars of any application for, or approval"
+    },
+    {
+     "bbox": [
+      89.52,
+      414.96,
+      269.28,
+      423.84
+     ],
+     "text": "of a grant of, rights of any kind in respect of"
+    },
+    {
+     "bbox": [
+      89.28,
+      425.28,
+      221.76,
+      433.68
+     ],
+     "text": "the variety in any other country;"
+    }
+   ],
+   "bbox": [
+    72.96,
+    404.88,
+    276.0,
+    433.68
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9184
+  },
+  {
+   "id": "r13",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(j)} particulars of any tests carried out to\nestablish that the variety is homogeneous\nand stable (including particulars of any cycle\nof reproduction or multiplication for the\npurposes of paragraph 3(2)(b));",
+   "lines": [
+    {
+     "bbox": [
+      72.72,
+      438.0,
+      240.48,
+      446.88
+     ],
+     "text": "(j)} particulars of any tests carried out to"
+    },
+    {
+     "bbox": [
+      89.52,
+      448.32,
+      263.28,
+      456.96
+     ],
+     "text": "establish that the variety is homogeneous"
+    },
+    {
+     "bbox": [
+      89.28,
+      457.92,
+      274.08,
+      467.04
+     ],
+     "text": "and stable (including particulars of any cycle"
+    },
+    {
+     "bbox": [
+      89.28,
+      468.24,
+      254.4,
+      476.64
+     ],
+     "text": "of reproduction or multiplication for the"
+    },
+    {
+     "bbox": [
+      89.52,
+      477.84,
+      219.12,
+      486.72
+     ],
+     "text": "purposes of paragraph 3(2)(b));"
+    }
+   ],
+   "bbox": [
+    72.72,
+    438.0,
+    274.08,
+    486.72
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9292
+  },
+  {
+   "id": "r14",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(k) in the case of a plant variety originated\noutside Australia, particulars of any test\ngrowing of that variety carried out for the\npurpose of determining whether the variety\nwill, if grown in Australia, have a particular\ncharacteristic;",
+   "lines": [
+    {
+     "bbox": [
+      72.72,
+      490.56,
+      248.88,
+      499.44
+     ],
+     "text": "(k) in the case of a plant variety originated"
+    },
+    {
+     "bbox": [
+      89.28,
+      500.64,
+      254.4,
+      509.04
+     ],
+     "text": "outside Australia, particulars of any test"
+    },
+    {
+     "bbox": [
+      89.28,
+      510.48,
+      260.16,
+      519.12
+     ],
+     "text": "growing of that variety carried out for the"
+    },
+    {
+     "bbox": [
+      89.52,
+      520.32,
+      270.72,
+      528.96
+     ],
+     "text": "purpose of determining whether the variety"
+    },
+    {
+     "bbox": [
+      88.8,
+      530.16,
+      266.64,
+      538.8
+     ],
+     "text": "will, if grown in Australia, have a particular"
+    },
+    {
+     "bbox": [
+      89.04,
+      540.24,
+      147.36,
+      548.16
+     ],
+     "text": "characteristic;"
+    }
+   ],
+   "bbox": [
+    72.72,
+    490.56,
+    270.72,
+    548.16
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9338
+  },
+  {
+   "id": "r15",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(m) an address in Australia for the service of\ndocuments on the applicant for the purposes\nof this Act; and",
+   "lines": [
+    {
+     "bbox": [
+      72.48,
+      552.96,
+      255.36,
+      561.12
+     ],
+     "text": "(m) an address in Australia for the service of"
+    },
+    {
+     "bbox": [
+      89.04,
+      563.28,
+      275.28,
+      571.92
+     ],
+     "text": "documents on the applicant for the purposes"
+    },
+    {
+     "bbox": [
+      89.04,
+      573.36,
+      151.2,
+      581.28
+     ],
+     "text": "of this Act; and"
+    }
+   ],
+   "bbox": [
+    72.48,
+    552.96,
+    275.28,
+    581.28
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9135
+  },
+  {
+   "id": "r16",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(n) such other particulars (if any) as are\nprescribed.",
+   "lines": [
+    {
+     "bbox": [
+      72.24,
+      583.44,
+      236.4,
+      594.96
+     ],
+     "text": "(n) such other particulars (if any) as are"
+    },
+    {
+     "bbox": [
+      89.28,
+      596.16,
+      135.12,
+      604.56
+     ],
+     "text": "prescribed."
+    }
+   ],
+   "bbox": [
+    72.24,
+    583.44,
+    236.4,
+    604.56
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.8589
+  },
+  {
+   "id": "r17",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Names of new plant varieties",
+   "lines": [
+    {
+     "bbox": [
+      63.12,
+      615.84,
+      185.28,
+      624.72
+     ],
+     "text": "Names of new plant varieties"
+    }
+   ],
+   "bbox": [
+    63.12,
+    615.84,
+    185.28,
+    624.72
+   ],
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.8262
+  },
+  {
+   "id": "r18",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "17.(1) The name of a new plant variety shall\nconsist of a word or words (which may be an\ninvented word or words) with or without the\naddition of —",
+   "lines": [
+    {
+     "bbox": [
+      63.36,
+      628.56,
+      245.28,
+      637.2
+     ],
+     "text": "17.(1) The name of a new plant variety shall"
+    },
+    {
+     "bbox": [
+      62.88,
+      638.4,
+      247.92,
+      647.04
+     ],
+     "text": "consist of a word or words (which may be an"
+    },
+    {
+     "bbox": [
+      63.12,
+      648.0,
+      246.24,
+      655.92
+     ],
+     "text": "invented word or words) with or without the"
+    },
+    {
+     "bbox": [
+      62.64,
+      658.08,
+      119.04,
+      665.04
+     ],
+     "text": "addition of —"
+    }
+   ],
+   "bbox": [
+    62.64,
+    628.56,
+    247.92,
+    665.04
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9168
+  },
+  {
+   "id": "r19",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(a) a letter or letters not constituting a word;",
+   "lines": [
+    {
+     "bbox": [
+      72.0,
+      670.56,
+      257.28,
+      679.68
+     ],
+     "text": "(a) a letter or letters not constituting a word;"
+    }
+   ],
+   "bbox": [
+    72.0,
+    670.56,
+    257.28,
+    679.68
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.8167
+  },
+  {
+   "id": "r20",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(b) a figure or figures; or",
+   "lines": [
+    {
+     "bbox": [
+      71.76,
+      683.52,
+      175.92,
+      692.4
+     ],
+     "text": "(b) a figure or figures; or"
+    }
+   ],
+   "bbox": [
+    71.76,
+    683.52,
+    175.92,
+    692.4
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.7807
+  },
+  {
+   "id": "r21",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "({c) both a letter or letters not constituting a word\nand a figure or figures.",
+   "lines": [
+    {
+     "bbox": [
+      71.76,
+      695.04,
+      275.52,
+      706.56
+     ],
+     "text": "({c) both a letter or letters not constituting a word"
+    },
+    {
+     "bbox": [
+      88.56,
+      705.6,
+      181.92,
+      716.64
+     ],
+     "text": "and a figure or figures."
+    }
+   ],
+   "bbox": [
+    71.76,
+    695.04,
+    275.52,
+    716.64
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.8687
+  },
+  {
+   "id": "r22",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "2. Anew plant variety shall not have —",
+   "lines": [
+    {
+     "bbox": [
+      62.4,
+      726.72,
+      226.8,
+      735.36
+     ],
+     "text": "2. Anew plant variety shall not have —"
+    }
+   ],
+   "bbox": [
+    62.4,
+    726.72,
+    226.8,
+    735.36
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.5931
+  },
+  {
+   "id": "r23",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(a) aname the use of which would be likely to\ndeceive or cause confusion, including a\nname that is the same as, or is likely to be\nmistaken for, the name of another plant\nvariety;",
+   "lines": [
+    {
+     "bbox": [
+      71.52,
+      739.44,
+      263.28,
+      748.56
+     ],
+     "text": "(a) aname the use of which would be likely to"
+    },
+    {
+     "bbox": [
+      88.32,
+      749.76,
+      251.52,
+      758.64
+     ],
+     "text": "deceive or cause confusion, including a"
+    },
+    {
+     "bbox": [
+      88.56,
+      759.6,
+      259.68,
+      768.0
+     ],
+     "text": "name that is the same as, or is likely to be"
+    },
+    {
+     "bbox": [
+      88.32,
+      769.2,
+      252.24,
+      777.84
+     ],
+     "text": "mistaken for, the name of another plant"
+    },
+    {
+     "bbox": [
+      87.84,
+      779.04,
+      119.04,
+      787.44
+     ],
+     "text": "variety;"
+    }
+   ],
+   "bbox": [
+    71.52,
+    739.44,
+    263.28,
+    787.44
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9264
+  },
+  {
+   "id": "r24",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(b) aname the use of which would be contrary to\nlaw;",
+   "lines": [
+    {
+     "bbox": [
+      311.52,
+      106.32,
+      516.72,
+      114.48
+     ],
+     "text": "(b) aname the use of which would be contrary to"
+    },
+    {
+     "bbox": [
+      328.56,
+      116.64,
+      345.36,
+      124.32
+     ],
+     "text": "law;"
+    }
+   ],
+   "bbox": [
+    311.52,
+    106.32,
+    516.72,
+    124.32
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.8852
+  },
+  {
+   "id": "r25",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(c) aname that comprises or contains\nscandalous or offensive matter; or",
+   "lines": [
+    {
+     "bbox": [
+      311.52,
+      129.36,
+      471.12,
+      138.24
+     ],
+     "text": "(c) aname that comprises or contains"
+    },
+    {
+     "bbox": [
+      328.32,
+      139.68,
+      471.84,
+      147.36
+     ],
+     "text": "scandalous or offensive matter; or"
+    }
+   ],
+   "bbox": [
+    311.52,
+    129.36,
+    471.84,
+    147.36
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.8907
+  },
+  {
+   "id": "r26",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(d) aname, or name of a kind, that is, at the time\nwhen tne application is made, prohibited by\nthe regulations.",
+   "lines": [
+    {
+     "bbox": [
+      311.76,
+      151.68,
+      513.36,
+      162.48
+     ],
+     "text": "(d) aname, or name of a kind, that is, at the time"
+    },
+    {
+     "bbox": [
+      328.08,
+      162.48,
+      510.96,
+      171.12
+     ],
+     "text": "when tne application is made, prohibited by"
+    },
+    {
+     "bbox": [
+      328.08,
+      172.8,
+      393.12,
+      181.44
+     ],
+     "text": "the regulations."
+    }
+   ],
+   "bbox": [
+    311.76,
+    151.68,
+    513.36,
+    181.44
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.899
+  },
+  {
+   "id": "r27",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(3) The name of a new plant variety in respect of\nwhich an application is made shall comply with any\nrecommendations of the International Code of\nNomenclature for Cultivated Plants, as in force\nwhen the application is made, formulated and\nadopted by the International Commission for\nNomenclature of Cultivated Plants of the\nInternational Union of Biological Sciences that are\naccepted by Australia.",
+   "lines": [
+    {
+     "bbox": [
+      302.88,
+      192.48,
+      504.72,
+      201.12
+     ],
+     "text": "(3) The name of a new plant variety in respect of"
+    },
+    {
+     "bbox": [
+      302.4,
+      202.56,
+      516.48,
+      211.2
+     ],
+     "text": "which an application is made shall comply with any"
+    },
+    {
+     "bbox": [
+      303.12,
+      212.16,
+      495.36,
+      219.6
+     ],
+     "text": "recommendations of the International Code of"
+    },
+    {
+     "bbox": [
+      303.12,
+      222.0,
+      496.32,
+      230.16
+     ],
+     "text": "Nomenclature for Cultivated Plants, as in force"
+    },
+    {
+     "bbox": [
+      302.4,
+      232.08,
+      493.44,
+      240.72
+     ],
+     "text": "when the application is made, formulated and"
+    },
+    {
+     "bbox": [
+      302.64,
+      241.68,
+      489.84,
+      250.56
+     ],
+     "text": "adopted by the International Commission for"
+    },
+    {
+     "bbox": [
+      303.12,
+      251.76,
+      471.12,
+      258.96
+     ],
+     "text": "Nomenclature of Cultivated Plants of the"
+    },
+    {
+     "bbox": [
+      303.12,
+      261.6,
+      510.96,
+      270.48
+     ],
+     "text": "International Union of Biological Sciences that are"
+    },
+    {
+     "bbox": [
+      302.64,
+      271.92,
+      394.32,
+      280.32
+     ],
+     "text": "accepted by Australia."
+    }
+   ],
+   "bbox": [
+    302.4,
+    192.48,
+    516.48,
+    280.32
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9458
+  },
+  {
+   "id": "r28",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(4) The name of a new plant variety in respect of\nwhich an application is made shall not consist of, or\ninclude —",
+   "lines": [
+    {
+     "bbox": [
+      302.88,
+      292.32,
+      504.72,
+      300.96
+     ],
+     "text": "(4) The name of a new plant variety in respect of"
+    },
+    {
+     "bbox": [
+      302.4,
+      302.4,
+      516.96,
+      311.04
+     ],
+     "text": "which an application is made shall not consist of, or"
+    },
+    {
+     "bbox": [
+      302.88,
+      312.48,
+      344.64,
+      319.44
+     ],
+     "text": "include —"
+    }
+   ],
+   "bbox": [
+    302.4,
+    292.32,
+    516.96,
+    319.44
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9175
+  },
+  {
+   "id": "r29",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(a) the name of a natural person living at the\ntime of the application, other than a person\nwho has given written consent to the name\nof the plant variety;",
+   "lines": [
+    {
+     "bbox": [
+      312.0,
+      324.24,
+      498.24,
+      335.04
+     ],
+     "text": "(a) the name of a natural person living at the"
+    },
+    {
+     "bbox": [
+      328.32,
+      335.04,
+      507.12,
+      343.68
+     ],
+     "text": "time of the application, other than a person"
+    },
+    {
+     "bbox": [
+      328.32,
+      345.12,
+      507.6,
+      353.52
+     ],
+     "text": "who has given written consent to the name"
+    },
+    {
+     "bbox": [
+      328.56,
+      354.72,
+      408.72,
+      363.36
+     ],
+     "text": "of the plant variety;"
+    }
+   ],
+   "bbox": [
+    312.0,
+    324.24,
+    507.6,
+    363.36
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9218
+  },
+  {
+   "id": "r30",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(b} the name of a natural person who died within\nthe period of 10 years immediately preceding\nthe application, other than a person who has\ngiven, or whose legal personal\nrepresentative has given, written consent to\nthe name of the plant variety; or",
+   "lines": [
+    {
+     "bbox": [
+      312.0,
+      367.44,
+      516.24,
+      376.32
+     ],
+     "text": "(b} the name of a natural person who died within"
+    },
+    {
+     "bbox": [
+      328.32,
+      377.52,
+      516.72,
+      386.4
+     ],
+     "text": "the period of 10 years immediately preceding"
+    },
+    {
+     "bbox": [
+      328.32,
+      387.6,
+      513.6,
+      396.0
+     ],
+     "text": "the application, other than a person who has"
+    },
+    {
+     "bbox": [
+      328.56,
+      397.44,
+      455.28,
+      406.32
+     ],
+     "text": "given, or whose legal personal"
+    },
+    {
+     "bbox": [
+      329.04,
+      407.52,
+      510.96,
+      416.16
+     ],
+     "text": "representative has given, written consent to"
+    },
+    {
+     "bbox": [
+      328.32,
+      417.36,
+      461.76,
+      426.0
+     ],
+     "text": "the name of the plant variety; or"
+    }
+   ],
+   "bbox": [
+    312.0,
+    367.44,
+    516.72,
+    426.0
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9391
+  },
+  {
+   "id": "r31",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "(c}) the name of a corporation, organisation or\ninstitution, other than a corporation,\norganisation or institution that has given its\nwritten consent to the name of the plant\nvariety.",
+   "lines": [
+    {
+     "bbox": [
+      312.0,
+      430.32,
+      504.0,
+      439.44
+     ],
+     "text": "(c}) the name of a corporation, organisation or"
+    },
+    {
+     "bbox": [
+      328.8,
+      440.64,
+      479.04,
+      449.28
+     ],
+     "text": "institution, other than a corporation,"
+    },
+    {
+     "bbox": [
+      328.56,
+      450.72,
+      509.52,
+      459.36
+     ],
+     "text": "organisation or institution that has given its"
+    },
+    {
+     "bbox": [
+      328.08,
+      460.56,
+      494.16,
+      469.2
+     ],
+     "text": "written consent to the name of the plant"
+    },
+    {
+     "bbox": [
+      328.32,
+      470.64,
+      358.8,
+      479.04
+     ],
+     "text": "variety."
+    }
+   ],
+   "bbox": [
+    312.0,
+    430.32,
+    509.52,
+    479.04
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9273
+  },
+  {
+   "id": "r32",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "17",
+   "lines": [
+    {
+     "bbox": [
+      508.56,
+      804.96,
+      516.24,
+      810.72
+     ],
+     "text": "17"
+    }
+   ],
+   "bbox": [
+    508.56,
+    804.96,
+    516.24,
+    810.72
+   ],
+   "type": "page_number",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "number",
+   "score": 0.6861
+  },
+  {
+   "bbox": [
+    0.0,
+    828.48,
+    593.76,
+    841.92
+   ],
+   "id": "e31",
+   "lines": [
+    {
+     "bbox": [
+      0.0,
+      828.48,
+      593.76,
+      841.92
+     ],
+     "text": "EEE oO eae"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "EEE oO eae",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    594.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

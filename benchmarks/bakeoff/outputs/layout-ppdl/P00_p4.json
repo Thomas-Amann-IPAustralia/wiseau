@@ -1,0 +1,522 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    10.8,
+    348.96,
+    32.16,
+    356.16
+   ],
+   "confidence": null,
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      15.6,
+      348.96,
+      32.16,
+      351.84
+     ],
+     "text": "o e\u00a2"
+    },
+    {
+     "bbox": [
+      10.8,
+      353.28,
+      13.44,
+      356.16
+     ],
+     "text": "e"
+    }
+   ],
+   "page": 1,
+   "score": 0.6377,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "o e\u00a2\ne",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    211.68,
+    217.68,
+    464.64,
+    225.36
+   ],
+   "confidence": null,
+   "id": "e2",
+   "level": 1,
+   "lines": [
+    {
+     "bbox": [
+      211.68,
+      217.68,
+      464.64,
+      225.36
+     ],
+     "text": "WEAR RESISTANT CROSSLINKED POLYMERS"
+    }
+   ],
+   "page": 1,
+   "score": 0.5204,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "WEAR RESISTANT CROSSLINKED POLYMERS",
+   "text_format": "plain",
+   "type": "title"
+  },
+  {
+   "bbox": [
+    113.04,
+    275.52,
+    345.6,
+    289.44
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      113.04,
+      275.52,
+      345.6,
+      289.44
+     ],
+     "text": "Technical Field Of The Invention"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Technical Field Of The Invention",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    59.76,
+    493.68,
+    71.76,
+    500.64
+   ],
+   "confidence": null,
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      59.76,
+      493.68,
+      71.76,
+      500.64
+     ],
+     "text": "15"
+    }
+   ],
+   "page": 1,
+   "score": 0.743,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "15",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    58.08,
+    583.44,
+    70.56,
+    590.64
+   ],
+   "confidence": null,
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      58.08,
+      583.44,
+      70.56,
+      590.64
+     ],
+     "text": "20"
+    }
+   ],
+   "page": 1,
+   "score": 0.6863,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "20",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    61.2,
+    386.16,
+    72.96,
+    393.36
+   ],
+   "confidence": null,
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      61.2,
+      386.16,
+      72.96,
+      393.36
+     ],
+     "text": "10"
+    }
+   ],
+   "page": 1,
+   "score": 0.7391,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "10",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    57.12,
+    673.44,
+    69.36,
+    680.4
+   ],
+   "confidence": null,
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      57.12,
+      673.44,
+      69.36,
+      680.4
+     ],
+     "text": "25"
+    }
+   ],
+   "page": 1,
+   "score": 0.6392,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "25",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    111.6,
+    298.32,
+    542.64,
+    415.68
+   ],
+   "confidence": null,
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      149.04,
+      298.32,
+      483.6,
+      310.08
+     ],
+     "text": "The present invention relates to polymers. It"
+    },
+    {
+     "bbox": [
+      112.56,
+      315.12,
+      512.64,
+      327.36
+     ],
+     "text": "discloses a method for enhancing the wear-resistance of"
+    },
+    {
+     "bbox": [
+      112.32,
+      333.36,
+      542.64,
+      347.52
+     ],
+     "text": "polymers, especially polymers that are to be irradiated, by"
+    },
+    {
+     "bbox": [
+      112.32,
+      350.88,
+      542.64,
+      364.56
+     ],
+     "text": "crosslinking the polymers. The crosslinked polymers may be"
+    },
+    {
+     "bbox": [
+      112.08,
+      369.12,
+      519.36,
+      382.08
+     ],
+     "text": "annealed to stabilize their size shrinkage. The polymers"
+    },
+    {
+     "bbox": [
+      111.6,
+      386.16,
+      542.16,
+      399.6
+     ],
+     "text": "disclosed herein are particularly useful for making in vivo"
+    },
+    {
+     "bbox": [
+      112.56,
+      400.08,
+      174.24,
+      415.68
+     ],
+     "text": "implants."
+    }
+   ],
+   "page": 1,
+   "score": 0.9204,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "The present invention relates to polymers. It\ndiscloses a method for enhancing the wear-resistance of\npolymers, especially polymers that are to be irradiated, by\ncrosslinking the polymers. The crosslinked polymers may be\nannealed to stabilize their size shrinkage. The polymers\ndisclosed herein are particularly useful for making in vivo\nimplants.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    111.6,
+    440.64,
+    307.92,
+    453.6
+   ],
+   "confidence": null,
+   "id": "e9",
+   "level": 2,
+   "lines": [
+    {
+     "bbox": [
+      111.6,
+      440.64,
+      307.92,
+      453.6
+     ],
+     "text": "Background Of The Invention"
+    }
+   ],
+   "page": 1,
+   "score": 0.6531,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Background Of The Invention",
+   "text_format": "plain",
+   "type": "heading"
+  },
+  {
+   "bbox": [
+    107.52,
+    458.88,
+    544.32,
+    738.24
+   ],
+   "confidence": null,
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      146.64,
+      458.88,
+      526.56,
+      470.64
+     ],
+     "text": "Ultrahigh molecular weight polyethylene (hereinafter"
+    },
+    {
+     "bbox": [
+      111.12,
+      476.4,
+      510.96,
+      488.64
+     ],
+     "text": "referred to as \"UHMW polyethylene\") is commonly used to"
+    },
+    {
+     "bbox": [
+      110.4,
+      494.16,
+      525.84,
+      506.64
+     ],
+     "text": "make prosthetic joints such as artificial hip joints. In"
+    },
+    {
+     "bbox": [
+      110.64,
+      512.64,
+      503.28,
+      524.4
+     ],
+     "text": "recent years, it has become increasingly apparent that"
+    },
+    {
+     "bbox": [
+      110.16,
+      529.2,
+      517.92,
+      543.12
+     ],
+     "text": "tissue necrosis and interface osteolysis, in response to"
+    },
+    {
+     "bbox": [
+      109.44,
+      548.4,
+      533.28,
+      560.4
+     ],
+     "text": "UHMW polyethylene wear debris, are primary contributors to"
+    },
+    {
+     "bbox": [
+      109.68,
+      565.92,
+      533.28,
+      578.88
+     ],
+     "text": "the long-term loosening failure of prosthetic joints. For"
+    },
+    {
+     "bbox": [
+      109.68,
+      584.4,
+      510.48,
+      596.88
+     ],
+     "text": "example, the process of wear of acetabular cups of UHMW"
+    },
+    {
+     "bbox": [
+      109.2,
+      601.92,
+      501.84,
+      614.88
+     ],
+     "text": "polyethylene in artificial hip joints introduces many ."
+    },
+    {
+     "bbox": [
+      108.72,
+      619.2,
+      515.04,
+      632.88
+     ],
+     "text": "microscopic wear particles into the surrounding tissues."
+    },
+    {
+     "bbox": [
+      108.72,
+      637.68,
+      487.68,
+      649.68
+     ],
+     "text": "The reaction of the body to these particles includes"
+    },
+    {
+     "bbox": [
+      109.44,
+      654.96,
+      539.76,
+      669.12
+     ],
+     "text": "inflammation and deterioration of the tissues, particularly"
+    },
+    {
+     "bbox": [
+      108.72,
+      673.92,
+      529.92,
+      686.64
+     ],
+     "text": "the bone to which the prosthesis is anchored. Eventually,"
+    },
+    {
+     "bbox": [
+      108.24,
+      687.36,
+      537.6,
+      702.96
+     ],
+     "text": "the prosthesis becomes painfully loose and must be revised."
+    },
+    {
+     "bbox": [
+      108.48,
+      708.72,
+      487.44,
+      722.16
+     ],
+     "text": "It is generally accepted by orthopaedic surgeons and"
+    },
+    {
+     "bbox": [
+      107.52,
+      725.04,
+      544.32,
+      738.24
+     ],
+     "text": "biomaterials scientists that the reaction of tissue to wear:"
+    }
+   ],
+   "page": 1,
+   "score": 0.9347,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Ultrahigh molecular weight polyethylene (hereinafter\nreferred to as \"UHMW polyethylene\") is commonly used to\nmake prosthetic joints such as artificial hip joints. In\nrecent years, it has become increasingly apparent that\ntissue necrosis and interface osteolysis, in response to\nUHMW polyethylene wear debris, are primary contributors to\nthe long-term loosening failure of prosthetic joints. For\nexample, the process of wear of acetabular cups of UHMW\npolyethylene in artificial hip joints introduces many .\nmicroscopic wear particles into the surrounding tissues.\nThe reaction of the body to these particles includes\ninflammation and deterioration of the tissues, particularly\nthe bone to which the prosthesis is anchored. Eventually,\nthe prosthesis becomes painfully loose and must be revised.\nIt is generally accepted by orthopaedic surgeons and\nbiomaterials scientists that the reaction of tissue to wear:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    287.52,
+    791.28,
+    299.76,
+    798.72
+   ],
+   "confidence": null,
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      287.52,
+      791.28,
+      299.76,
+      798.72
+     ],
+     "text": "la"
+    }
+   ],
+   "page": 1,
+   "score": 0.7137,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "la",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    599.04,
+    867.84
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

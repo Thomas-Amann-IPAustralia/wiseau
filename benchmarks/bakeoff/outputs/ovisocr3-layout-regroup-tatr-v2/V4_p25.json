@@ -1,0 +1,2656 @@
+{
+ "elements": [
+  {
+   "id": "r1",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Saint Pierre’ Application No. 91/030\nApplication received: 10 April 1991",
+   "lines": [
+    {
+     "bbox": [
+      53.04,
+      60.96,
+      205.92,
+      69.6
+     ],
+     "text": "‘Saint Pierre’ Application No. 91/030"
+    },
+    {
+     "bbox": [
+      52.32,
+      70.8,
+      193.44,
+      79.92
+     ],
+     "text": "Application received: 10 April 1991"
+    }
+   ],
+   "bbox": [
+    52.32,
+    60.96,
+    205.92,
+    79.92
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r2",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "CALLERY PEAR\n(Pyrus calleryana)",
+   "lines": [
+    {
+     "bbox": [
+      53.04,
+      105.12,
+      160.32,
+      115.44
+     ],
+     "text": "CALLERY PEAR"
+    },
+    {
+     "bbox": [
+      52.56,
+      119.04,
+      163.44,
+      131.28
+     ],
+     "text": "(Pyrus calleryana)"
+    }
+   ],
+   "bbox": [
+    52.56,
+    105.12,
+    163.44,
+    131.28
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r3",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: Luminis Pty Ltd of University of Adelaide South\nAustralia\n‘Claremont’ Application No. 91/031\nApplication received: 12 April 1991",
+   "lines": [
+    {
+     "bbox": [
+      53.04,
+      146.16,
+      289.2,
+      155.04
+     ],
+     "text": "Applicant: Luminis Pty Ltd of University of Adelaide South"
+    },
+    {
+     "bbox": [
+      52.8,
+      156.48,
+      89.04,
+      163.2
+     ],
+     "text": "Australia"
+    },
+    {
+     "bbox": [
+      53.52,
+      166.08,
+      199.92,
+      174.72
+     ],
+     "text": "‘Claremont’ Application No. 91/031"
+    },
+    {
+     "bbox": [
+      52.8,
+      176.16,
+      194.16,
+      184.8
+     ],
+     "text": "Application received: 12 April 1991"
+    }
+   ],
+   "bbox": [
+    52.8,
+    146.16,
+    289.2,
+    184.8
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r4",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "DISC MEDIC\n(Medicago tornata var spinulosa)",
+   "lines": [
+    {
+     "bbox": [
+      53.76,
+      210.48,
+      141.6,
+      220.8
+     ],
+     "text": "DISC MEDIC"
+    },
+    {
+     "bbox": [
+      52.56,
+      224.4,
+      257.76,
+      237.12
+     ],
+     "text": "(Medicago tornata var spinulosa)"
+    }
+   ],
+   "bbox": [
+    52.56,
+    210.48,
+    257.76,
+    237.12
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r5",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: Minister of Agriculture for the state of South\nAustralia of Adelaide South Australia\n‘Rivoli’ Application No. 91/046\nApplication received: 19 April 1991",
+   "lines": [
+    {
+     "bbox": [
+      52.32,
+      253.68,
+      284.64,
+      261.84
+     ],
+     "text": "Applicant: Minister of Agriculture for the state of South"
+    },
+    {
+     "bbox": [
+      52.56,
+      263.28,
+      203.52,
+      270.24
+     ],
+     "text": "Australia of Adelaide South Australia"
+    },
+    {
+     "bbox": [
+      53.04,
+      273.12,
+      180.48,
+      281.28
+     ],
+     "text": "‘Rivoli’ Application No. 91/046"
+    },
+    {
+     "bbox": [
+      52.32,
+      282.72,
+      193.68,
+      291.12
+     ],
+     "text": "Application received: 19 April 1991"
+    }
+   ],
+   "bbox": [
+    52.32,
+    253.68,
+    284.64,
+    291.12
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r6",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "ROSE\n(Rosa hybrida)",
+   "lines": [
+    {
+     "bbox": [
+      54.0,
+      316.32,
+      93.12,
+      326.88
+     ],
+     "text": "ROSE"
+    },
+    {
+     "bbox": [
+      52.8,
+      330.24,
+      141.6,
+      342.72
+     ],
+     "text": "(Rosa hybrida)"
+    }
+   ],
+   "bbox": [
+    52.8,
+    316.32,
+    141.6,
+    342.72
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r7",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: SNC Meilland et Cie of Antibes France\nAustralian Agent: K Syrus of Ross Roses of Willunga\nSouth Australia\n‘Meineble’ Commercial synonym: ‘Red Meidilande’\nApplication No. 91/049\nApplication received: 24 April 1991",
+   "lines": [
+    {
+     "bbox": [
+      52.08,
+      359.28,
+      255.36,
+      367.68
+     ],
+     "text": "Applicant: SNC Meilland et Cie of Antibes France"
+    },
+    {
+     "bbox": [
+      52.08,
+      369.12,
+      270.24,
+      378.0
+     ],
+     "text": "Australian Agent: K Syrus of Ross Roses of Willunga"
+    },
+    {
+     "bbox": [
+      52.32,
+      378.96,
+      114.96,
+      385.92
+     ],
+     "text": "South Australia"
+    },
+    {
+     "bbox": [
+      52.56,
+      388.8,
+      258.72,
+      397.2
+     ],
+     "text": "‘Meineble’ Commercial synonym: ‘Red Meidilande’"
+    },
+    {
+     "bbox": [
+      51.84,
+      398.88,
+      147.6,
+      407.04
+     ],
+     "text": "Application No. 91/049"
+    },
+    {
+     "bbox": [
+      51.6,
+      408.72,
+      192.72,
+      417.12
+     ],
+     "text": "Application received: 24 April 1991"
+    }
+   ],
+   "bbox": [
+    51.6,
+    359.28,
+    270.24,
+    417.12
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r8",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "EUCALYPTUS\n(Eucalyptus erythronema)",
+   "lines": [
+    {
+     "bbox": [
+      53.04,
+      441.84,
+      147.12,
+      452.4
+     ],
+     "text": "EUCALYPTUS"
+    },
+    {
+     "bbox": [
+      51.6,
+      455.76,
+      212.16,
+      468.48
+     ],
+     "text": "(Eucalyptus erythronema)"
+    }
+   ],
+   "bbox": [
+    51.6,
+    441.84,
+    212.16,
+    468.48
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r9",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: Luminis Pty Ltd University of Adelaide South\nAustralia\n‘Urrbrae Gem’ Application No. 91/050\nApplication received: 26 April 1991",
+   "lines": [
+    {
+     "bbox": [
+      51.6,
+      486.0,
+      277.68,
+      494.64
+     ],
+     "text": "Applicant: Luminis Pty Ltd University of Adelaide South"
+    },
+    {
+     "bbox": [
+      51.6,
+      496.32,
+      87.84,
+      502.8
+     ],
+     "text": "Australia"
+    },
+    {
+     "bbox": [
+      52.08,
+      506.16,
+      210.72,
+      514.56
+     ],
+     "text": "‘Urrbrae Gem’ Application No. 91/050"
+    },
+    {
+     "bbox": [
+      51.6,
+      516.0,
+      192.72,
+      524.4
+     ],
+     "text": "Application received: 26 April 1991"
+    }
+   ],
+   "bbox": [
+    51.6,
+    486.0,
+    277.68,
+    524.4
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r10",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "PROVISIONAL PROTECTION",
+   "lines": [
+    {
+     "bbox": [
+      318.72,
+      60.96,
+      445.44,
+      68.16
+     ],
+     "text": "PROVISIONAL PROTECTION"
+    }
+   ],
+   "bbox": [
+    318.72,
+    60.96,
+    445.44,
+    68.16
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r11",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "The following varieties have provisional protection under\n$22 of the Plant Variety Rights Act 1987 since the last\nissue of the Journal:",
+   "lines": [
+    {
+     "bbox": [
+      318.72,
+      88.56,
+      547.44,
+      97.2
+     ],
+     "text": "The following varieties have provisional protection under"
+    },
+    {
+     "bbox": [
+      319.2,
+      98.4,
+      539.28,
+      107.04
+     ],
+     "text": "$22 of the Plant Variety Rights Act 1987 since the last"
+    },
+    {
+     "bbox": [
+      319.44,
+      108.48,
+      400.8,
+      115.44
+     ],
+     "text": "issue of the Journal:"
+    }
+   ],
+   "bbox": [
+    318.72,
+    88.56,
+    547.44,
+    115.44
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    317.76,
+    132.0,
+    557.52,
+    509.28
+   ],
+   "confidence": null,
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      319.2,
+      132.0,
+      357.84,
+      140.4
+     ],
+     "text": "‘Empress’"
+    },
+    {
+     "bbox": [
+      319.44,
+      141.6,
+      380.16,
+      148.56
+     ],
+     "text": "‘Southern Star’"
+    },
+    {
+     "bbox": [
+      319.44,
+      151.44,
+      373.44,
+      159.84
+     ],
+     "text": "‘Natsuyutaka’"
+    },
+    {
+     "bbox": [
+      319.44,
+      161.52,
+      345.6,
+      169.92
+     ],
+     "text": "‘Oxley’"
+    },
+    {
+     "bbox": [
+      319.44,
+      171.6,
+      379.44,
+      180.24
+     ],
+     "text": "‘Waite Orange’"
+    },
+    {
+     "bbox": [
+      319.2,
+      181.92,
+      356.88,
+      188.64
+     ],
+     "text": "‘Ausbord’"
+    },
+    {
+     "bbox": [
+      327.84,
+      192.0,
+      398.64,
+      200.4
+     ],
+     "text": "(‘Gertrude Jekyll’)"
+    },
+    {
+     "bbox": [
+      319.44,
+      202.08,
+      361.68,
+      209.04
+     ],
+     "text": "‘Auswhite’"
+    },
+    {
+     "bbox": [
+      327.6,
+      211.92,
+      360.0,
+      219.84
+     ],
+     "text": "(‘Swan’)"
+    },
+    {
+     "bbox": [
+      319.44,
+      221.76,
+      396.0,
+      228.96
+     ],
+     "text": "‘Sunkissed Waters’"
+    },
+    {
+     "bbox": [
+      319.2,
+      232.08,
+      382.32,
+      240.24
+     ],
+     "text": "‘Paper Cascade’"
+    },
+    {
+     "bbox": [
+      319.2,
+      241.92,
+      356.4,
+      248.4
+     ],
+     "text": "‘Pandora’"
+    },
+    {
+     "bbox": [
+      319.2,
+      251.52,
+      385.2,
+      258.72
+     ],
+     "text": "‘Snow Diamond’"
+    },
+    {
+     "bbox": [
+      319.2,
+      261.6,
+      358.56,
+      269.76
+     ],
+     "text": "‘Embassy’"
+    },
+    {
+     "bbox": [
+      319.2,
+      271.44,
+      348.0,
+      278.16
+     ],
+     "text": "‘Emille’"
+    },
+    {
+     "bbox": [
+      318.96,
+      281.52,
+      356.4,
+      288.0
+     ],
+     "text": "‘Beltaard’"
+    },
+    {
+     "bbox": [
+      318.96,
+      291.12,
+      370.56,
+      298.08
+     ],
+     "text": "‘Saint Pierre’"
+    },
+    {
+     "bbox": [
+      319.2,
+      301.2,
+      365.04,
+      307.92
+     ],
+     "text": "‘Claremont’"
+    },
+    {
+     "bbox": [
+      318.96,
+      310.8,
+      398.88,
+      319.44
+     ],
+     "text": "‘Summer fragrance’"
+    },
+    {
+     "bbox": [
+      327.36,
+      320.88,
+      389.76,
+      329.52
+     ],
+     "text": "(‘Tanfudermos’)"
+    },
+    {
+     "bbox": [
+      318.96,
+      330.96,
+      369.84,
+      338.16
+     ],
+     "text": "‘Quaker star’"
+    },
+    {
+     "bbox": [
+      327.12,
+      341.04,
+      381.84,
+      349.68
+     ],
+     "text": "(‘Dicperhaps’)"
+    },
+    {
+     "bbox": [
+      318.72,
+      351.12,
+      396.48,
+      359.76
+     ],
+     "text": "‘Golden Friendship’"
+    },
+    {
+     "bbox": [
+      327.12,
+      361.2,
+      377.04,
+      369.6
+     ],
+     "text": "(‘Hartellody’)"
+    },
+    {
+     "bbox": [
+      318.72,
+      371.28,
+      377.04,
+      378.0
+     ],
+     "text": "‘Pearl Buttons’"
+    },
+    {
+     "bbox": [
+      318.48,
+      381.12,
+      353.04,
+      387.84
+     ],
+     "text": "‘Pristine’"
+    },
+    {
+     "bbox": [
+      318.72,
+      390.96,
+      369.12,
+      399.12
+     ],
+     "text": "‘Triumphant’"
+    },
+    {
+     "bbox": [
+      318.24,
+      400.8,
+      357.84,
+      407.52
+     ],
+     "text": "‘Wilwash’"
+    },
+    {
+     "bbox": [
+      318.48,
+      410.64,
+      344.16,
+      417.36
+     ],
+     "text": "‘Rivoli’"
+    },
+    {
+     "bbox": [
+      318.48,
+      420.0,
+      362.4,
+      428.4
+     ],
+     "text": "‘Only Love’"
+    },
+    {
+     "bbox": [
+      326.64,
+      430.08,
+      366.72,
+      438.48
+     ],
+     "text": "(Interonly)"
+    },
+    {
+     "bbox": [
+      318.48,
+      439.92,
+      348.96,
+      446.64
+     ],
+     "text": "‘Cecilia’"
+    },
+    {
+     "bbox": [
+      318.24,
+      449.76,
+      380.16,
+      456.72
+     ],
+     "text": "‘Red Meidiland’"
+    },
+    {
+     "bbox": [
+      326.64,
+      459.84,
+      368.64,
+      468.24
+     ],
+     "text": "(Meineble)"
+    },
+    {
+     "bbox": [
+      318.24,
+      469.68,
+      374.88,
+      476.88
+     ],
+     "text": "‘Urrbrae Gem’"
+    },
+    {
+     "bbox": [
+      318.0,
+      479.76,
+      383.28,
+      488.16
+     ],
+     "text": "‘Coco’ (Korferse)"
+    },
+    {
+     "bbox": [
+      318.0,
+      490.08,
+      391.44,
+      498.48
+     ],
+     "text": "‘Cubana’ (Korsorb)"
+    },
+    {
+     "bbox": [
+      317.76,
+      499.92,
+      353.28,
+      506.88
+     ],
+     "text": "‘Lawson’"
+    },
+    {
+     "bbox": [
+      461.28,
+      132.24,
+      522.24,
+      140.64
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      461.52,
+      142.32,
+      522.24,
+      150.48
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      461.28,
+      152.16,
+      522.24,
+      160.32
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      461.28,
+      162.24,
+      522.24,
+      170.4
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      461.52,
+      172.32,
+      522.24,
+      180.48
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      461.28,
+      182.4,
+      522.24,
+      190.56
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      461.28,
+      202.56,
+      522.0,
+      210.72
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      461.04,
+      222.72,
+      522.24,
+      230.64
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      461.28,
+      232.56,
+      522.0,
+      240.48
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      461.28,
+      242.4,
+      522.0,
+      250.56
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      461.04,
+      252.48,
+      522.0,
+      260.4
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      461.04,
+      262.32,
+      522.0,
+      270.24
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      461.04,
+      272.16,
+      522.0,
+      280.32
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      461.04,
+      282.0,
+      521.76,
+      290.16
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      461.04,
+      291.84,
+      522.0,
+      300.0
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      460.8,
+      301.68,
+      521.76,
+      309.84
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      458.4,
+      311.76,
+      519.36,
+      319.92
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      460.8,
+      331.92,
+      521.76,
+      340.08
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      460.8,
+      352.08,
+      521.52,
+      360.24
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      460.56,
+      372.0,
+      521.52,
+      380.16
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      460.56,
+      381.84,
+      521.28,
+      390.0
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      460.56,
+      391.68,
+      521.28,
+      399.84
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      460.32,
+      401.52,
+      521.28,
+      409.68
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      460.32,
+      411.36,
+      521.28,
+      419.52
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      460.32,
+      421.2,
+      521.28,
+      429.36
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      460.32,
+      440.88,
+      521.04,
+      449.04
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      460.32,
+      450.72,
+      521.04,
+      458.88
+     ],
+     "text": "Application No."
+    },
+    {
+     "bbox": [
+      460.08,
+      470.64,
+      519.12,
+      479.04
+     ],
+     "text": "Application No"
+    },
+    {
+     "bbox": [
+      460.08,
+      480.96,
+      518.88,
+      489.12
+     ],
+     "text": "Application No"
+    },
+    {
+     "bbox": [
+      460.08,
+      491.04,
+      518.88,
+      499.2
+     ],
+     "text": "Application No"
+    },
+    {
+     "bbox": [
+      459.84,
+      501.12,
+      518.64,
+      509.28
+     ],
+     "text": "Application No"
+    },
+    {
+     "bbox": [
+      525.84,
+      132.24,
+      557.04,
+      139.2
+     ],
+     "text": "90/083"
+    },
+    {
+     "bbox": [
+      525.84,
+      142.08,
+      557.04,
+      149.04
+     ],
+     "text": "90/095"
+    },
+    {
+     "bbox": [
+      525.84,
+      151.92,
+      557.28,
+      159.12
+     ],
+     "text": "91/018"
+    },
+    {
+     "bbox": [
+      525.84,
+      162.0,
+      557.28,
+      168.96
+     ],
+     "text": "91/019"
+    },
+    {
+     "bbox": [
+      525.84,
+      172.08,
+      557.52,
+      179.28
+     ],
+     "text": "91/020"
+    },
+    {
+     "bbox": [
+      525.6,
+      182.16,
+      555.84,
+      189.12
+     ],
+     "text": "91/021"
+    },
+    {
+     "bbox": [
+      525.84,
+      202.32,
+      557.04,
+      209.28
+     ],
+     "text": "91/022"
+    },
+    {
+     "bbox": [
+      525.84,
+      222.48,
+      557.04,
+      229.68
+     ],
+     "text": "91/023"
+    },
+    {
+     "bbox": [
+      525.6,
+      232.56,
+      557.04,
+      239.28
+     ],
+     "text": "91/024"
+    },
+    {
+     "bbox": [
+      525.6,
+      242.16,
+      556.8,
+      249.36
+     ],
+     "text": "91/025"
+    },
+    {
+     "bbox": [
+      525.84,
+      252.24,
+      557.04,
+      259.2
+     ],
+     "text": "91/026"
+    },
+    {
+     "bbox": [
+      525.6,
+      262.08,
+      556.8,
+      269.04
+     ],
+     "text": "91/027"
+    },
+    {
+     "bbox": [
+      525.6,
+      272.16,
+      556.8,
+      279.36
+     ],
+     "text": "91/028"
+    },
+    {
+     "bbox": [
+      525.36,
+      282.0,
+      556.8,
+      288.96
+     ],
+     "text": "91/029"
+    },
+    {
+     "bbox": [
+      525.6,
+      291.84,
+      557.04,
+      299.04
+     ],
+     "text": "91/030"
+    },
+    {
+     "bbox": [
+      525.6,
+      301.68,
+      555.36,
+      308.88
+     ],
+     "text": "91/031"
+    },
+    {
+     "bbox": [
+      522.96,
+      311.76,
+      554.16,
+      318.72
+     ],
+     "text": "91/038"
+    },
+    {
+     "bbox": [
+      525.36,
+      331.92,
+      556.56,
+      338.88
+     ],
+     "text": "91/039"
+    },
+    {
+     "bbox": [
+      525.12,
+      352.08,
+      556.8,
+      359.28
+     ],
+     "text": "91/040"
+    },
+    {
+     "bbox": [
+      525.12,
+      372.0,
+      554.88,
+      378.96
+     ],
+     "text": "91/041"
+    },
+    {
+     "bbox": [
+      524.88,
+      382.08,
+      556.08,
+      388.8
+     ],
+     "text": "91/042"
+    },
+    {
+     "bbox": [
+      524.88,
+      391.92,
+      556.32,
+      399.12
+     ],
+     "text": "91/043"
+    },
+    {
+     "bbox": [
+      524.64,
+      401.76,
+      556.32,
+      408.72
+     ],
+     "text": "91/044"
+    },
+    {
+     "bbox": [
+      524.88,
+      411.6,
+      556.32,
+      418.32
+     ],
+     "text": "91/046"
+    },
+    {
+     "bbox": [
+      524.88,
+      421.2,
+      556.08,
+      428.16
+     ],
+     "text": "91/047"
+    },
+    {
+     "bbox": [
+      524.88,
+      441.12,
+      556.08,
+      447.84
+     ],
+     "text": "91/048"
+    },
+    {
+     "bbox": [
+      524.64,
+      450.96,
+      556.08,
+      457.68
+     ],
+     "text": "91/049"
+    },
+    {
+     "bbox": [
+      519.84,
+      470.88,
+      556.32,
+      477.6
+     ],
+     "text": ". 91/050"
+    },
+    {
+     "bbox": [
+      519.84,
+      480.96,
+      554.16,
+      487.92
+     ],
+     "text": ". 91/051"
+    },
+    {
+     "bbox": [
+      519.84,
+      491.04,
+      555.84,
+      498.0
+     ],
+     "text": ". 91/052"
+    },
+    {
+     "bbox": [
+      519.84,
+      501.12,
+      555.6,
+      508.08
+     ],
+     "text": ". 91/053"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       319.2,
+       132.0,
+       357.84,
+       140.4
+      ],
+      "text": "‘Empress’"
+     },
+     {
+      "bbox": [
+       461.28,
+       132.24,
+       522.24,
+       140.64
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       525.84,
+       132.24,
+       557.04,
+       139.2
+      ],
+      "text": "90/083"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       319.44,
+       141.6,
+       380.16,
+       148.56
+      ],
+      "text": "‘Southern Star’"
+     },
+     {
+      "bbox": [
+       461.52,
+       142.32,
+       522.24,
+       150.48
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       525.84,
+       142.08,
+       557.04,
+       149.04
+      ],
+      "text": "90/095"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       319.44,
+       151.44,
+       373.44,
+       159.84
+      ],
+      "text": "‘Natsuyutaka’"
+     },
+     {
+      "bbox": [
+       461.28,
+       152.16,
+       522.24,
+       160.32
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       525.84,
+       151.92,
+       557.28,
+       159.12
+      ],
+      "text": "91/018"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       319.44,
+       161.52,
+       345.6,
+       169.92
+      ],
+      "text": "‘Oxley’"
+     },
+     {
+      "bbox": [
+       461.28,
+       162.24,
+       522.24,
+       170.4
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       525.84,
+       162.0,
+       557.28,
+       168.96
+      ],
+      "text": "91/019"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       319.44,
+       171.6,
+       379.44,
+       180.24
+      ],
+      "text": "‘Waite Orange’"
+     },
+     {
+      "bbox": [
+       461.52,
+       172.32,
+       522.24,
+       180.48
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       525.84,
+       172.08,
+       557.52,
+       179.28
+      ],
+      "text": "91/020"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       319.2,
+       181.92,
+       356.88,
+       188.64
+      ],
+      "text": "‘Ausbord’"
+     },
+     {
+      "bbox": [
+       461.28,
+       182.4,
+       522.24,
+       190.56
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       525.6,
+       182.16,
+       555.84,
+       189.12
+      ],
+      "text": "91/021"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       327.84,
+       192.0,
+       398.64,
+       200.4
+      ],
+      "text": "(‘Gertrude Jekyll’)"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       319.44,
+       202.08,
+       361.68,
+       209.04
+      ],
+      "text": "‘Auswhite’"
+     },
+     {
+      "bbox": [
+       461.28,
+       202.56,
+       522.0,
+       210.72
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       525.84,
+       202.32,
+       557.04,
+       209.28
+      ],
+      "text": "91/022"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       327.6,
+       211.92,
+       360.0,
+       219.84
+      ],
+      "text": "(‘Swan’)"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       319.44,
+       221.76,
+       396.0,
+       228.96
+      ],
+      "text": "‘Sunkissed Waters’"
+     },
+     {
+      "bbox": [
+       461.04,
+       222.72,
+       522.24,
+       230.64
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       525.84,
+       222.48,
+       557.04,
+       229.68
+      ],
+      "text": "91/023"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       319.2,
+       232.08,
+       382.32,
+       240.24
+      ],
+      "text": "‘Paper Cascade’"
+     },
+     {
+      "bbox": [
+       461.28,
+       232.56,
+       522.0,
+       240.48
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       525.6,
+       232.56,
+       557.04,
+       239.28
+      ],
+      "text": "91/024"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       319.2,
+       241.92,
+       356.4,
+       248.4
+      ],
+      "text": "‘Pandora’"
+     },
+     {
+      "bbox": [
+       461.28,
+       242.4,
+       522.0,
+       250.56
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       525.6,
+       242.16,
+       556.8,
+       249.36
+      ],
+      "text": "91/025"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       319.2,
+       251.52,
+       385.2,
+       258.72
+      ],
+      "text": "‘Snow Diamond’"
+     },
+     {
+      "bbox": [
+       461.04,
+       252.48,
+       522.0,
+       260.4
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       525.84,
+       252.24,
+       557.04,
+       259.2
+      ],
+      "text": "91/026"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       319.2,
+       261.6,
+       358.56,
+       269.76
+      ],
+      "text": "‘Embassy’"
+     },
+     {
+      "bbox": [
+       461.04,
+       262.32,
+       522.0,
+       270.24
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       525.6,
+       262.08,
+       556.8,
+       269.04
+      ],
+      "text": "91/027"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       319.2,
+       271.44,
+       348.0,
+       278.16
+      ],
+      "text": "‘Emille’"
+     },
+     {
+      "bbox": [
+       461.04,
+       272.16,
+       522.0,
+       280.32
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       525.6,
+       272.16,
+       556.8,
+       279.36
+      ],
+      "text": "91/028"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       318.96,
+       281.52,
+       356.4,
+       288.0
+      ],
+      "text": "‘Beltaard’"
+     },
+     {
+      "bbox": [
+       461.04,
+       282.0,
+       521.76,
+       290.16
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       525.36,
+       282.0,
+       556.8,
+       288.96
+      ],
+      "text": "91/029"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       318.96,
+       291.12,
+       370.56,
+       298.08
+      ],
+      "text": "‘Saint Pierre’"
+     },
+     {
+      "bbox": [
+       461.04,
+       291.84,
+       522.0,
+       300.0
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       525.6,
+       291.84,
+       557.04,
+       299.04
+      ],
+      "text": "91/030"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       319.2,
+       301.2,
+       365.04,
+       307.92
+      ],
+      "text": "‘Claremont’"
+     },
+     {
+      "bbox": [
+       460.8,
+       301.68,
+       521.76,
+       309.84
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       525.6,
+       301.68,
+       555.36,
+       308.88
+      ],
+      "text": "91/031"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       318.96,
+       310.8,
+       398.88,
+       319.44
+      ],
+      "text": "‘Summer fragrance’"
+     },
+     {
+      "bbox": [
+       458.4,
+       311.76,
+       519.36,
+       319.92
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       522.96,
+       311.76,
+       554.16,
+       318.72
+      ],
+      "text": "91/038"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       327.36,
+       320.88,
+       389.76,
+       329.52
+      ],
+      "text": "(‘Tanfudermos’)"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       318.96,
+       330.96,
+       369.84,
+       338.16
+      ],
+      "text": "‘Quaker star’"
+     },
+     {
+      "bbox": [
+       460.8,
+       331.92,
+       521.76,
+       340.08
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       525.36,
+       331.92,
+       556.56,
+       338.88
+      ],
+      "text": "91/039"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       327.12,
+       341.04,
+       381.84,
+       349.68
+      ],
+      "text": "(‘Dicperhaps’)"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       318.72,
+       351.12,
+       396.48,
+       359.76
+      ],
+      "text": "‘Golden Friendship’"
+     },
+     {
+      "bbox": [
+       460.8,
+       352.08,
+       521.52,
+       360.24
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       525.12,
+       352.08,
+       556.8,
+       359.28
+      ],
+      "text": "91/040"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       327.12,
+       361.2,
+       377.04,
+       369.6
+      ],
+      "text": "(‘Hartellody’)"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       318.72,
+       371.28,
+       377.04,
+       378.0
+      ],
+      "text": "‘Pearl Buttons’"
+     },
+     {
+      "bbox": [
+       460.56,
+       372.0,
+       521.52,
+       380.16
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       525.12,
+       372.0,
+       554.88,
+       378.96
+      ],
+      "text": "91/041"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       318.48,
+       381.12,
+       353.04,
+       387.84
+      ],
+      "text": "‘Pristine’"
+     },
+     {
+      "bbox": [
+       460.56,
+       381.84,
+       521.28,
+       390.0
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       524.88,
+       382.08,
+       556.08,
+       388.8
+      ],
+      "text": "91/042"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       318.72,
+       390.96,
+       369.12,
+       399.12
+      ],
+      "text": "‘Triumphant’"
+     },
+     {
+      "bbox": [
+       460.56,
+       391.68,
+       521.28,
+       399.84
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       524.88,
+       391.92,
+       556.32,
+       399.12
+      ],
+      "text": "91/043"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       318.24,
+       400.8,
+       357.84,
+       407.52
+      ],
+      "text": "‘Wilwash’"
+     },
+     {
+      "bbox": [
+       460.32,
+       401.52,
+       521.28,
+       409.68
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       524.64,
+       401.76,
+       556.32,
+       408.72
+      ],
+      "text": "91/044"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       318.48,
+       410.64,
+       344.16,
+       417.36
+      ],
+      "text": "‘Rivoli’"
+     },
+     {
+      "bbox": [
+       460.32,
+       411.36,
+       521.28,
+       419.52
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       524.88,
+       411.6,
+       556.32,
+       418.32
+      ],
+      "text": "91/046"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       318.48,
+       420.0,
+       362.4,
+       428.4
+      ],
+      "text": "‘Only Love’"
+     },
+     {
+      "bbox": [
+       460.32,
+       421.2,
+       521.28,
+       429.36
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       524.88,
+       421.2,
+       556.08,
+       428.16
+      ],
+      "text": "91/047"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       326.64,
+       430.08,
+       366.72,
+       438.48
+      ],
+      "text": "(Interonly)"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       318.48,
+       439.92,
+       348.96,
+       446.64
+      ],
+      "text": "‘Cecilia’"
+     },
+     {
+      "bbox": [
+       460.32,
+       440.88,
+       521.04,
+       449.04
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       524.88,
+       441.12,
+       556.08,
+       447.84
+      ],
+      "text": "91/048"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       318.24,
+       449.76,
+       380.16,
+       456.72
+      ],
+      "text": "‘Red Meidiland’"
+     },
+     {
+      "bbox": [
+       460.32,
+       450.72,
+       521.04,
+       458.88
+      ],
+      "text": "Application No."
+     },
+     {
+      "bbox": [
+       524.64,
+       450.96,
+       556.08,
+       457.68
+      ],
+      "text": "91/049"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       326.64,
+       459.84,
+       368.64,
+       468.24
+      ],
+      "text": "(Meineble)"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       318.24,
+       469.68,
+       374.88,
+       476.88
+      ],
+      "text": "‘Urrbrae Gem’"
+     },
+     {
+      "bbox": [
+       460.08,
+       470.64,
+       519.12,
+       479.04
+      ],
+      "text": "Application No"
+     },
+     {
+      "bbox": [
+       519.84,
+       470.88,
+       556.32,
+       477.6
+      ],
+      "text": ". 91/050"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       318.0,
+       479.76,
+       383.28,
+       488.16
+      ],
+      "text": "‘Coco’ (Korferse)"
+     },
+     {
+      "bbox": [
+       460.08,
+       480.96,
+       518.88,
+       489.12
+      ],
+      "text": "Application No"
+     },
+     {
+      "bbox": [
+       519.84,
+       480.96,
+       554.16,
+       487.92
+      ],
+      "text": ". 91/051"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       318.0,
+       490.08,
+       391.44,
+       498.48
+      ],
+      "text": "‘Cubana’ (Korsorb)"
+     },
+     {
+      "bbox": [
+       460.08,
+       491.04,
+       518.88,
+       499.2
+      ],
+      "text": "Application No"
+     },
+     {
+      "bbox": [
+       519.84,
+       491.04,
+       555.84,
+       498.0
+      ],
+      "text": ". 91/052"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       317.76,
+       499.92,
+       353.28,
+       506.88
+      ],
+      "text": "‘Lawson’"
+     },
+     {
+      "bbox": [
+       459.84,
+       501.12,
+       518.64,
+       509.28
+      ],
+      "text": "Application No"
+     },
+     {
+      "bbox": [
+       519.84,
+       501.12,
+       555.6,
+       508.08
+      ],
+      "text": ". 91/053"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "‘Empress’ Application No. 90/083\n‘Southern Star’ Application No. 90/095\n‘Natsuyutaka’ Application No. 91/018\n‘Oxley’ Application No. 91/019\n‘Waite Orange’ Application No. 91/020\n‘Ausbord’ Application No. 91/021\n(‘Gertrude Jekyll’)\n‘Auswhite’ Application No. 91/022\n(‘Swan’)\n‘Sunkissed Waters’ Application No. 91/023\n‘Paper Cascade’ Application No. 91/024\n‘Pandora’ Application No. 91/025\n‘Snow Diamond’ Application No. 91/026\n‘Embassy’ Application No. 91/027\n‘Emille’ Application No. 91/028\n‘Beltaard’ Application No. 91/029\n‘Saint Pierre’ Application No. 91/030\n‘Claremont’ Application No. 91/031\n‘Summer fragrance’ Application No. 91/038\n(‘Tanfudermos’)\n‘Quaker star’ Application No. 91/039\n(‘Dicperhaps’)\n‘Golden Friendship’ Application No. 91/040\n(‘Hartellody’)\n‘Pearl Buttons’ Application No. 91/041\n‘Pristine’ Application No. 91/042\n‘Triumphant’ Application No. 91/043\n‘Wilwash’ Application No. 91/044\n‘Rivoli’ Application No. 91/046\n‘Only Love’ Application No. 91/047\n(Interonly)\n‘Cecilia’ Application No. 91/048\n‘Red Meidiland’ Application No. 91/049\n(Meineble)\n‘Urrbrae Gem’ Application No . 91/050\n‘Coco’ (Korferse) Application No . 91/051\n‘Cubana’ (Korsorb) Application No . 91/052\n‘Lawson’ Application No . 91/053",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "id": "r13",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "ROSE\n(Rosa hybrida)",
+   "lines": [
+    {
+     "bbox": [
+      52.32,
+      549.12,
+      91.68,
+      559.92
+     ],
+     "text": "ROSE"
+    },
+    {
+     "bbox": [
+      51.36,
+      563.28,
+      139.92,
+      575.76
+     ],
+     "text": "(Rosa hybrida)"
+    }
+   ],
+   "bbox": [
+    51.36,
+    549.12,
+    139.92,
+    575.76
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r14",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: W Kordes Sohne, Rosenschulen GmbH of\nGermany\nAustralian Agent: Roy H Rumsey Pty Ltd of Dural New\nSouth Wales\n‘Korsorb’ Commercial synonym: ‘Cubana’ Application No.\n91/052\nApplication received: 3 May 1991",
+   "lines": [
+    {
+     "bbox": [
+      50.64,
+      592.8,
+      269.76,
+      600.72
+     ],
+     "text": "Applicant: W Kordes Sohne, Rosenschulen GmbH of"
+    },
+    {
+     "bbox": [
+      51.12,
+      602.4,
+      88.08,
+      610.56
+     ],
+     "text": "Germany"
+    },
+    {
+     "bbox": [
+      50.64,
+      612.48,
+      276.24,
+      621.12
+     ],
+     "text": "Australian Agent: Roy H Rumsey Pty Ltd of Dural New"
+    },
+    {
+     "bbox": [
+      50.88,
+      622.32,
+      102.48,
+      629.52
+     ],
+     "text": "South Wales"
+    },
+    {
+     "bbox": [
+      51.12,
+      632.4,
+      283.68,
+      641.04
+     ],
+     "text": "‘Korsorb’ Commercial synonym: ‘Cubana’ Application No."
+    },
+    {
+     "bbox": [
+      51.12,
+      642.48,
+      82.32,
+      649.44
+     ],
+     "text": "91/052"
+    },
+    {
+     "bbox": [
+      50.4,
+      652.56,
+      184.08,
+      660.72
+     ],
+     "text": "Application received: 3 May 1991"
+    }
+   ],
+   "bbox": [
+    50.4,
+    592.8,
+    283.68,
+    660.72
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r15",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "WHEAT\n(Triticum aestivum)",
+   "lines": [
+    {
+     "bbox": [
+      50.4,
+      685.44,
+      102.0,
+      695.76
+     ],
+     "text": "WHEAT"
+    },
+    {
+     "bbox": [
+      50.16,
+      699.12,
+      170.4,
+      711.36
+     ],
+     "text": "(Triticum aestivum)"
+    }
+   ],
+   "bbox": [
+    50.16,
+    685.44,
+    170.4,
+    711.36
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r16",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: CSIRO Division of Plant Industry of Canberra,\nAustralian Capital Territory\n\"Lawson’ Application No. 91/053\nApplication received: 3 May 1991",
+   "lines": [
+    {
+     "bbox": [
+      49.92,
+      728.16,
+      284.88,
+      736.8
+     ],
+     "text": "Applicant: CSIRO Division of Plant Industry of Canberra,"
+    },
+    {
+     "bbox": [
+      49.92,
+      738.24,
+      158.88,
+      746.4
+     ],
+     "text": "Australian Capital Territory"
+    },
+    {
+     "bbox": [
+      50.4,
+      748.08,
+      186.48,
+      756.48
+     ],
+     "text": "\"Lawson’ Application No. 91/053"
+    },
+    {
+     "bbox": [
+      49.68,
+      758.16,
+      183.36,
+      766.56
+     ],
+     "text": "Application received: 3 May 1991"
+    }
+   ],
+   "bbox": [
+    49.68,
+    728.16,
+    284.88,
+    766.56
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r17",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "23",
+   "lines": [
+    {
+     "bbox": [
+      541.68,
+      793.2,
+      553.92,
+      802.08
+     ],
+     "text": "23"
+    }
+   ],
+   "bbox": [
+    541.68,
+    793.2,
+    553.92,
+    802.08
+   ],
+   "type": "page_number",
+   "signal": "layout:ovisocr3-layout",
+   "confidence": null,
+   "layout_category": "number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

@@ -454,7 +454,12 @@ def _md_type(kind: str) -> str:
     return kind if kind in MARKDOWN_TYPES else "paragraph"
 
 
-def score_document(gold: list[Block], out: list[Block]) -> dict:
+def matched_blocks(gold: list[Block], out: list[Block]) -> list[tuple[int, int]]:
+    """The (gold, output) block pairs `score_document` counts as matched."""
+    return _match(gold, out)[4]
+
+
+def _match(gold: list[Block], out: list[Block]):
     g_tok, g_of = [], []
     for n, b in enumerate(gold):
         for t, _ in b.tokens:
@@ -483,6 +488,11 @@ def score_document(gold: list[Block], out: list[Block]) -> dict:
             best_g[o] = g
     matched = [(g, o) for g, o in best_o.items()
                if best_g.get(o) == g and share[(g, o)] >= 0.5 * g_len[g] and share[(g, o)] >= 0.5 * o_len[o]]
+    return pairs, share, g_len, o_len, matched
+
+
+def score_document(gold: list[Block], out: list[Block]) -> dict:
+    pairs, share, g_len, o_len, matched = _match(gold, out)
     n_gold = sum(1 for n in g_len if n)
     n_out = sum(1 for n in o_len if n)
     p = len(matched) / n_out if n_out else 0.0

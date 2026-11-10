@@ -125,6 +125,34 @@ _lock = threading.Lock()
 _models: dict = {}
 
 
+def _transformers_major() -> int:
+    try:
+        from importlib.metadata import version
+
+        return int(version("transformers").split(".")[0])
+    except Exception:  # not installed: the pass is disabled anyway
+        return 0
+
+
+_TRANSFORMERS_MAJOR = _transformers_major()
+
+
+def _config_5x(name: str, revision: str):
+    """The checkpoint's config as transformers 5.x will accept it (ADR-048).
+
+    5.x validates config fields strictly, and the structure model's config has
+    `"dilation": null`, which 4.x read as false (no dilated backbone). The one
+    change is that null becomes false: the same model either way, checked by
+    byte-identical tables on set S.
+    """
+    from transformers import TableTransformerConfig
+
+    config_dict, _ = TableTransformerConfig.get_config_dict(name, revision=revision)
+    if config_dict.get("dilation") is None:
+        config_dict["dilation"] = False
+    return TableTransformerConfig.from_dict(config_dict)
+
+
 def _load():
     """Both models, loaded once per process (a few seconds; about 600 MB)."""
     with _lock:
@@ -137,11 +165,18 @@ def _load():
             # The checkpoints carry three unused batch-norm counters; transformers
             # warns about them at length on every load. They are expected.
             hf_logging.set_verbosity_error()
+            hf_logging.disable_progress_bar()
             torch.set_num_threads(THREADS)
             loaded = {}
+            # No ImageNet backbone download: the checkpoints hold the full weights.
+            # transformers 4.x takes this as a keyword; 5.x moved it into the
+            # checkpoint's backbone config (already false there) and rejects the
+            # keyword (ADR-048).
             for key, (name, revision) in (("detect", DETECT_MODEL), ("structure", STRUCTURE_MODEL)):
+                kwargs = {"use_pretrained_backbone": False} if _TRANSFORMERS_MAJOR < 5 else \
+                    {"config": _config_5x(name, revision)}
                 loaded[key] = TableTransformerForObjectDetection.from_pretrained(
-                    name, revision=revision, use_pretrained_backbone=False).eval()
+                    name, revision=revision, **kwargs).eval()
             loaded["mean"] = torch.tensor([0.485, 0.456, 0.406]).view(3, 1, 1)
             loaded["std"] = torch.tensor([0.229, 0.224, 0.225]).view(3, 1, 1)
             _models.update(loaded)

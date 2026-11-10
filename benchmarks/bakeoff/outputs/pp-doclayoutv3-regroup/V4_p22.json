@@ -1,0 +1,1377 @@
+{
+ "elements": [
+  {
+   "id": "r1",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "characters: narrow, nearly straight thorns that detach\neasily; medium-sized, midgreen leathery foliage; single to\nsemi-double flowers; bi-coloured petals in the apricot\nblend colour range.",
+   "lines": [
+    {
+     "bbox": [
+      41.04,
+      58.08,
+      256.8,
+      67.68
+     ],
+     "text": "characters: narrow, nearly straight thorns that detach"
+    },
+    {
+     "bbox": [
+      40.8,
+      68.4,
+      272.16,
+      78.48
+     ],
+     "text": "easily; medium-sized, midgreen leathery foliage; single to"
+    },
+    {
+     "bbox": [
+      40.8,
+      78.48,
+      255.12,
+      88.08
+     ],
+     "text": "semi-double flowers; bi-coloured petals in the apricot"
+    },
+    {
+     "bbox": [
+      40.8,
+      88.32,
+      117.6,
+      97.44
+     ],
+     "text": "blend colour range."
+    }
+   ],
+   "bbox": [
+    40.8,
+    58.08,
+    272.16,
+    97.44
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9254
+  },
+  {
+   "id": "r2",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Varieties Used for Comparison",
+   "lines": [
+    {
+     "bbox": [
+      40.56,
+      112.8,
+      168.72,
+      121.44
+     ],
+     "text": "Varieties Used for Comparison"
+    }
+   ],
+   "bbox": [
+    40.56,
+    112.8,
+    168.72,
+    121.44
+   ],
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.8167
+  },
+  {
+   "id": "r3",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "All characteristics described below are from comparative\ngrowing trials conducted at Box Hil! North in Victoria. All\nplants used were grown on their own roots, initially in\ncontainers in a pine bark/scoria mix for 12 months\noutdoors, and later transferred into the ground 50 cm\napart in October 1990. Measurements are from 20 plants\nselected at random and were taken in the first week of\nApril, 1991.",
+   "lines": [
+    {
+     "bbox": [
+      39.36,
+      176.16,
+      268.56,
+      185.76
+     ],
+     "text": "All characteristics described below are from comparative"
+    },
+    {
+     "bbox": [
+      39.84,
+      186.48,
+      267.12,
+      194.88
+     ],
+     "text": "growing trials conducted at Box Hil! North in Victoria. All"
+    },
+    {
+     "bbox": [
+      39.6,
+      196.56,
+      257.76,
+      205.92
+     ],
+     "text": "plants used were grown on their own roots, initially in"
+    },
+    {
+     "bbox": [
+      39.6,
+      207.12,
+      245.52,
+      215.52
+     ],
+     "text": "containers in a pine bark/scoria mix for 12 months"
+    },
+    {
+     "bbox": [
+      39.6,
+      217.2,
+      254.64,
+      226.56
+     ],
+     "text": "outdoors, and later transferred into the ground 50 cm"
+    },
+    {
+     "bbox": [
+      39.6,
+      227.52,
+      271.68,
+      236.4
+     ],
+     "text": "apart in October 1990. Measurements are from 20 plants"
+    },
+    {
+     "bbox": [
+      39.36,
+      237.36,
+      259.44,
+      245.04
+     ],
+     "text": "selected at random and were taken in the first week of"
+    },
+    {
+     "bbox": [
+      39.12,
+      247.2,
+      86.16,
+      255.36
+     ],
+     "text": "April, 1991."
+    }
+   ],
+   "bbox": [
+    39.12,
+    176.16,
+    271.68,
+    255.36
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9455
+  },
+  {
+   "id": "r4",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Cream Puff’ being the closest variety known in Australia\nin flower colour and growth habit, and ‘Summer Breeze’ a\nstandard pink variety.",
+   "lines": [
+    {
+     "bbox": [
+      40.56,
+      122.16,
+      269.28,
+      131.52
+     ],
+     "text": "‘Cream Puff’ being the closest variety known in Australia"
+    },
+    {
+     "bbox": [
+      40.56,
+      132.24,
+      274.08,
+      141.36
+     ],
+     "text": "in flower colour and growth habit, and ‘Summer Breeze’ a"
+    },
+    {
+     "bbox": [
+      40.32,
+      142.32,
+      125.76,
+      150.72
+     ],
+     "text": "standard pink variety."
+    }
+   ],
+   "bbox": [
+    40.32,
+    122.16,
+    274.08,
+    150.72
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.899
+  },
+  {
+   "id": "r5",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Comparative Growing Trials",
+   "lines": [
+    {
+     "bbox": [
+      40.08,
+      166.08,
+      158.16,
+      174.96
+     ],
+     "text": "Comparative Growing Trials"
+    }
+   ],
+   "bbox": [
+    40.08,
+    166.08,
+    158.16,
+    174.96
+   ],
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.8266
+  },
+  {
+   "id": "r6",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Table of Comparison of Rose Varieties\n(* = varieties used for comparison)",
+   "lines": [
+    {
+     "bbox": [
+      38.88,
+      297.12,
+      235.2,
+      308.4
+     ],
+     "text": "Table of Comparison of Rose Varieties"
+    },
+    {
+     "bbox": [
+      38.64,
+      311.28,
+      178.8,
+      319.44
+     ],
+     "text": "(* = varieties used for comparison)"
+    }
+   ],
+   "bbox": [
+    38.64,
+    297.12,
+    235.2,
+    319.44
+   ],
+   "type": "caption",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "figure_title",
+   "score": 0.6035
+  },
+  {
+   "id": "r7",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Cecilia’ *‘Cream Puff’ = * ‘Summer\nBreeze’\nFLOWER DIAMETER\nmean 73.) mm 65.9 mm 73.0 mm\nrange 66 —77 57 —75 64 — 80\nstd. deviation 268 5.24 3.76\nFLOWER COLOUR GROUP\napricot blenc pink blend medium pink\nPETAL COLOUR CHARTING\nmidzone\noutside RHS 11A 3D 55C\nmidzone\nnside RHS 30D 18C 358\nmargn\noutside RHS 15D iD 35C\nmargin\ninside RHS 31B 37B 55B\nPETAL 8ASAL SPOT COLOUR\noutside RHS 124 8C 8D\ninside RHS 12A 4c 30\nPETAL NUMBERS 6 — 12 26 — 50 13 —25\nTERMINAL LEAFLET LENGTH\nmean 45.9 mm 41.5 mm 284mm\nrange 38 — 52 36 — 52 23 — 32\nstd. deviation 3.85 3.64 24)\nTERMINAL LEAFLET WIDTH\nmean 23.7 mm 23.6 ™m 22.3 mm\nrange 20 — 30 20 — 27 19 — 26\nstd deviation 252 2 08 195\nTHORN PROFILE\nabove flat convex convex\nbelow concave deep concave deep concave\nTHORN LENGTK\nmean 7.90 m-~ 6.00 mm 4.50 mm\nrange &-—9 4—7 3-6\nstd. deviation 0.94 0.70 0.67\nPEDICEL-THORN/PRICKLES\nfew few ‘ew",
+   "lines": [
+    {
+     "bbox": [
+      98.64,
+      340.08,
+      251.52,
+      350.4
+     ],
+     "text": "‘Cecilia’ *‘Cream Puff’ = * ‘Summer"
+    },
+    {
+     "bbox": [
+      217.68,
+      351.6,
+      240.48,
+      358.32
+     ],
+     "text": "Breeze’"
+    },
+    {
+     "bbox": [
+      38.88,
+      368.4,
+      102.72,
+      375.12
+     ],
+     "text": "FLOWER DIAMETER"
+    },
+    {
+     "bbox": [
+      38.64,
+      378.48,
+      246.48,
+      385.2
+     ],
+     "text": "mean 73.) mm 65.9 mm 73.0 mm"
+    },
+    {
+     "bbox": [
+      38.64,
+      387.12,
+      246.0,
+      397.2
+     ],
+     "text": "range 66 —77 57 —75 64 — 80"
+    },
+    {
+     "bbox": [
+      38.4,
+      398.4,
+      232.08,
+      405.12
+     ],
+     "text": "std. deviation 268 5.24 3.76"
+    },
+    {
+     "bbox": [
+      38.64,
+      411.84,
+      122.64,
+      419.04
+     ],
+     "text": "FLOWER COLOUR GROUP"
+    },
+    {
+     "bbox": [
+      98.16,
+      422.16,
+      258.48,
+      430.08
+     ],
+     "text": "apricot blenc pink blend medium pink"
+    },
+    {
+     "bbox": [
+      38.4,
+      435.6,
+      125.04,
+      442.56
+     ],
+     "text": "PETAL COLOUR CHARTING"
+    },
+    {
+     "bbox": [
+      38.64,
+      445.92,
+      64.56,
+      452.4
+     ],
+     "text": "midzone"
+    },
+    {
+     "bbox": [
+      38.16,
+      454.56,
+      230.16,
+      464.64
+     ],
+     "text": "outside RHS 11A 3D 55C"
+    },
+    {
+     "bbox": [
+      38.64,
+      465.6,
+      64.56,
+      472.08
+     ],
+     "text": "midzone"
+    },
+    {
+     "bbox": [
+      38.4,
+      475.44,
+      230.16,
+      482.4
+     ],
+     "text": "nside RHS 30D 18C 358"
+    },
+    {
+     "bbox": [
+      38.4,
+      487.68,
+      59.76,
+      494.16
+     ],
+     "text": "margn"
+    },
+    {
+     "bbox": [
+      38.16,
+      495.6,
+      230.4,
+      502.56
+     ],
+     "text": "outside RHS 15D iD 35C"
+    },
+    {
+     "bbox": [
+      38.4,
+      507.6,
+      59.76,
+      513.84
+     ],
+     "text": "margin"
+    },
+    {
+     "bbox": [
+      38.16,
+      515.76,
+      230.16,
+      522.48
+     ],
+     "text": "inside RHS 31B 37B 55B"
+    },
+    {
+     "bbox": [
+      38.64,
+      535.44,
+      132.0,
+      542.4
+     ],
+     "text": "PETAL 8ASAL SPOT COLOUR"
+    },
+    {
+     "bbox": [
+      38.16,
+      544.32,
+      226.32,
+      554.4
+     ],
+     "text": "outside RHS 124 8C 8D"
+    },
+    {
+     "bbox": [
+      38.4,
+      555.36,
+      226.32,
+      561.84
+     ],
+     "text": "inside RHS 12A 4c 30"
+    },
+    {
+     "bbox": [
+      38.4,
+      568.8,
+      245.28,
+      576.0
+     ],
+     "text": "PETAL NUMBERS 6 — 12 26 — 50 13 —25"
+    },
+    {
+     "bbox": [
+      37.68,
+      582.72,
+      129.36,
+      589.44
+     ],
+     "text": "TERMINAL LEAFLET LENGTH"
+    },
+    {
+     "bbox": [
+      38.4,
+      592.32,
+      246.0,
+      599.28
+     ],
+     "text": "mean 45.9 mm 41.5 mm 284mm"
+    },
+    {
+     "bbox": [
+      38.16,
+      602.16,
+      245.28,
+      610.56
+     ],
+     "text": "range 38 — 52 36 — 52 23 — 32"
+    },
+    {
+     "bbox": [
+      38.16,
+      611.76,
+      230.64,
+      618.72
+     ],
+     "text": "std. deviation 3.85 3.64 24)"
+    },
+    {
+     "bbox": [
+      37.92,
+      625.92,
+      125.76,
+      632.64
+     ],
+     "text": "TERMINAL LEAFLET WIDTH"
+    },
+    {
+     "bbox": [
+      38.4,
+      636.0,
+      246.24,
+      642.72
+     ],
+     "text": "mean 23.7 mm 23.6 ™m 22.3 mm"
+    },
+    {
+     "bbox": [
+      38.4,
+      644.64,
+      245.52,
+      654.72
+     ],
+     "text": "range 20 — 30 20 — 27 19 — 26"
+    },
+    {
+     "bbox": [
+      38.16,
+      655.68,
+      231.84,
+      662.64
+     ],
+     "text": "std deviation 252 2 08 195"
+    },
+    {
+     "bbox": [
+      38.64,
+      669.6,
+      90.0,
+      676.32
+     ],
+     "text": "THORN PROFILE"
+    },
+    {
+     "bbox": [
+      38.16,
+      679.68,
+      239.28,
+      686.4
+     ],
+     "text": "above flat convex convex"
+    },
+    {
+     "bbox": [
+      38.16,
+      689.52,
+      261.12,
+      697.44
+     ],
+     "text": "below concave deep concave deep concave"
+    },
+    {
+     "bbox": [
+      38.16,
+      702.96,
+      89.04,
+      709.68
+     ],
+     "text": "THORN LENGTK"
+    },
+    {
+     "bbox": [
+      38.4,
+      712.8,
+      245.76,
+      719.76
+     ],
+     "text": "mean 7.90 m-~ 6.00 mm 4.50 mm"
+    },
+    {
+     "bbox": [
+      38.4,
+      722.88,
+      236.16,
+      731.04
+     ],
+     "text": "range &-—9 4—7 3-6"
+    },
+    {
+     "bbox": [
+      38.16,
+      732.48,
+      231.6,
+      739.2
+     ],
+     "text": "std. deviation 0.94 0.70 0.67"
+    },
+    {
+     "bbox": [
+      38.4,
+      746.16,
+      128.64,
+      752.88
+     ],
+     "text": "PEDICEL-THORN/PRICKLES"
+    },
+    {
+     "bbox": [
+      97.92,
+      756.0,
+      228.0,
+      762.96
+     ],
+     "text": "few few ‘ew"
+    }
+   ],
+   "bbox": [
+    37.68,
+    340.08,
+    261.12,
+    762.96
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "table",
+   "score": 0.967
+  },
+  {
+   "id": "r8",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "The breeder is F Hannemann of Box Hill North, Victoria.\nThis variety arose from a controlled pollination in 1986 of\nthe miniature rose ‘Oz Gold’ by the shrub rose ‘Eyepaint’.",
+   "lines": [
+    {
+     "bbox": [
+      306.48,
+      70.56,
+      530.16,
+      79.68
+     ],
+     "text": "The breeder is F Hannemann of Box Hill North, Victoria."
+    },
+    {
+     "bbox": [
+      306.48,
+      80.88,
+      537.6,
+      90.0
+     ],
+     "text": "This variety arose from a controlled pollination in 1986 of"
+    },
+    {
+     "bbox": [
+      306.48,
+      90.96,
+      536.64,
+      100.56
+     ],
+     "text": "the miniature rose ‘Oz Gold’ by the shrub rose ‘Eyepaint’."
+    }
+   ],
+   "bbox": [
+    306.48,
+    70.56,
+    537.6,
+    100.56
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9067
+  },
+  {
+   "id": "r9",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Origin",
+   "lines": [
+    {
+     "bbox": [
+      307.2,
+      60.72,
+      331.92,
+      69.12
+     ],
+     "text": "Origin"
+    }
+   ],
+   "bbox": [
+    307.2,
+    60.72,
+    331.92,
+    69.12
+   ],
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.7704
+  },
+  {
+   "id": "r10",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Morphology — see comparison tables.",
+   "lines": [
+    {
+     "bbox": [
+      306.72,
+      114.48,
+      463.2,
+      123.36
+     ],
+     "text": "Morphology — see comparison tables."
+    }
+   ],
+   "bbox": [
+    306.72,
+    114.48,
+    463.2,
+    123.36
+   ],
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.8077
+  },
+  {
+   "id": "r11",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Cecilia’ is a low bi-coloured cluster-flowered rose with\nflowers larger than those of ‘Cream Puff’ and similar in\nsize to Summer Breeze’. The undulating thick petals give\nthe flower a cupped appearance similar to ‘Summer\nBreeze’ but unlike the flat shape of ‘Cream Puff’. The\nappearance of the flower can be compared with the larger\nshrub roses ‘Fruhlingsmorgen’ and ‘Sparrieshoop’. The\nfoltage is matt and of a lighter green than that of the\ncomparative varieties. The stipules of ‘Cecilia’ are\nsignificantly shorter than those of the comparative\nvarieties.",
+   "lines": [
+    {
+     "bbox": [
+      306.24,
+      124.56,
+      527.52,
+      132.48
+     ],
+     "text": "‘Cecilia’ is a low bi-coloured cluster-flowered rose with"
+    },
+    {
+     "bbox": [
+      306.0,
+      134.16,
+      527.76,
+      142.8
+     ],
+     "text": "flowers larger than those of ‘Cream Puff’ and similar in"
+    },
+    {
+     "bbox": [
+      306.0,
+      143.76,
+      536.88,
+      153.36
+     ],
+     "text": "size to Summer Breeze’. The undulating thick petals give"
+    },
+    {
+     "bbox": [
+      306.0,
+      153.84,
+      515.28,
+      162.72
+     ],
+     "text": "the flower a cupped appearance similar to ‘Summer"
+    },
+    {
+     "bbox": [
+      306.24,
+      163.92,
+      518.64,
+      172.56
+     ],
+     "text": "Breeze’ but unlike the flat shape of ‘Cream Puff’. The"
+    },
+    {
+     "bbox": [
+      305.76,
+      174.0,
+      540.0,
+      183.36
+     ],
+     "text": "appearance of the flower can be compared with the larger"
+    },
+    {
+     "bbox": [
+      305.76,
+      184.08,
+      527.76,
+      193.2
+     ],
+     "text": "shrub roses ‘Fruhlingsmorgen’ and ‘Sparrieshoop’. The"
+    },
+    {
+     "bbox": [
+      305.52,
+      193.92,
+      516.48,
+      203.28
+     ],
+     "text": "foltage is matt and of a lighter green than that of the"
+    },
+    {
+     "bbox": [
+      305.28,
+      204.72,
+      505.2,
+      213.36
+     ],
+     "text": "comparative varieties. The stipules of ‘Cecilia’ are"
+    },
+    {
+     "bbox": [
+      305.76,
+      214.32,
+      508.32,
+      223.44
+     ],
+     "text": "significantly shorter than those of the comparative"
+    },
+    {
+     "bbox": [
+      305.28,
+      224.88,
+      340.8,
+      231.36
+     ],
+     "text": "varieties."
+    }
+   ],
+   "bbox": [
+    305.28,
+    124.56,
+    540.0,
+    231.36
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9437
+  },
+  {
+   "id": "r12",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "ROSE",
+   "lines": [
+    {
+     "bbox": [
+      306.96,
+      255.12,
+      345.84,
+      265.44
+     ],
+     "text": "ROSE"
+    }
+   ],
+   "bbox": [
+    306.96,
+    255.12,
+    345.84,
+    265.44
+   ],
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.5759
+  },
+  {
+   "bbox": [
+    305.52,
+    269.04,
+    394.32,
+    281.52
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      305.52,
+      269.04,
+      394.32,
+      281.52
+     ],
+     "text": "(Rosa hybrida)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(Rosa hybrida)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    305.28,
+    300.48,
+    320.4,
+    314.64
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      305.28,
+      300.48,
+      320.4,
+      314.64
+     ],
+     "text": "L_]"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "L_]",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "id": "r13",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Variety: ‘Korferse’(commercial synonym ‘Coco’)\nApplication No. 91/051\nApplication received: 3 May 1991\nApplicant: W. Kordes Sohne, Rosenschulen GmbH, of\nGermany.\nAustralian Agent: Roy H. Rumsey Pty Ltd of Dural, New\nSouth Wales.",
+   "lines": [
+    {
+     "bbox": [
+      305.04,
+      322.32,
+      497.76,
+      330.96
+     ],
+     "text": "Variety: ‘Korferse’(commercial synonym ‘Coco’)"
+    },
+    {
+     "bbox": [
+      305.04,
+      332.16,
+      399.12,
+      340.56
+     ],
+     "text": "Application No. 91/051"
+    },
+    {
+     "bbox": [
+      305.28,
+      342.24,
+      438.48,
+      350.88
+     ],
+     "text": "Application received: 3 May 1991"
+    },
+    {
+     "bbox": [
+      305.28,
+      352.32,
+      529.68,
+      360.72
+     ],
+     "text": "Applicant: W. Kordes Sohne, Rosenschulen GmbH, of"
+    },
+    {
+     "bbox": [
+      305.76,
+      362.4,
+      344.16,
+      370.56
+     ],
+     "text": "Germany."
+    },
+    {
+     "bbox": [
+      305.04,
+      372.48,
+      535.68,
+      381.12
+     ],
+     "text": "Australian Agent: Roy H. Rumsey Pty Ltd of Dural, New"
+    },
+    {
+     "bbox": [
+      305.28,
+      382.56,
+      358.8,
+      389.52
+     ],
+     "text": "South Wales."
+    }
+   ],
+   "bbox": [
+    305.04,
+    322.32,
+    535.68,
+    389.52
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.911
+  },
+  {
+   "id": "r15",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Flowers of ‘Kardinal’, ‘Coco’ {(Korferse) and ‘Toscana’\n(Photograph supplied by applicant)",
+   "lines": [
+    {
+     "bbox": [
+      305.52,
+      564.96,
+      517.2,
+      572.88
+     ],
+     "text": "Flowers of ‘Kardinal’, ‘Coco’ {(Korferse) and ‘Toscana’"
+    },
+    {
+     "bbox": [
+      304.8,
+      574.8,
+      443.04,
+      583.2
+     ],
+     "text": "(Photograph supplied by applicant)"
+    }
+   ],
+   "bbox": [
+    304.8,
+    564.96,
+    517.2,
+    583.2
+   ],
+   "type": "footnote",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "vision_footnote",
+   "score": 0.741
+  },
+  {
+   "id": "r16",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Diagnosis",
+   "lines": [
+    {
+     "bbox": [
+      305.04,
+      603.6,
+      345.84,
+      612.0
+     ],
+     "text": "Diagnosis"
+    }
+   ],
+   "bbox": [
+    305.04,
+    603.6,
+    345.84,
+    612.0
+   ],
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.7341
+  },
+  {
+   "id": "r17",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Caco’ (Korferse) is a medium red glasshouse rose. It is\ndistinct from other known varieties in having the following\ncombination of characters: whole bloom closest to RHS\n44B; petal basal spot present only on the inside.",
+   "lines": [
+    {
+     "bbox": [
+      305.04,
+      613.44,
+      525.36,
+      621.84
+     ],
+     "text": "‘Caco’ (Korferse) is a medium red glasshouse rose. It is"
+    },
+    {
+     "bbox": [
+      304.32,
+      623.28,
+      540.0,
+      631.92
+     ],
+     "text": "distinct from other known varieties in having the following"
+    },
+    {
+     "bbox": [
+      304.32,
+      633.36,
+      527.04,
+      640.56
+     ],
+     "text": "combination of characters: whole bloom closest to RHS"
+    },
+    {
+     "bbox": [
+      304.56,
+      643.44,
+      497.52,
+      651.84
+     ],
+     "text": "44B; petal basal spot present only on the inside."
+    }
+   ],
+   "bbox": [
+    304.32,
+    613.44,
+    540.0,
+    651.84
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9073
+  },
+  {
+   "id": "r18",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Varieties used for comparison",
+   "lines": [
+    {
+     "bbox": [
+      305.04,
+      667.44,
+      429.6,
+      675.6
+     ],
+     "text": "Varieties used for comparison"
+    }
+   ],
+   "bbox": [
+    305.04,
+    667.44,
+    429.6,
+    675.6
+   ],
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.7706
+  },
+  {
+   "id": "r19",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Toscana’ (registered name ‘Korkunde’) and ‘Kardinal’\nwhich is a common standard variety in Australia.",
+   "lines": [
+    {
+     "bbox": [
+      305.04,
+      677.28,
+      519.84,
+      685.68
+     ],
+     "text": "‘Toscana’ (registered name ‘Korkunde’) and ‘Kardinal’"
+    },
+    {
+     "bbox": [
+      304.56,
+      687.12,
+      501.6,
+      695.28
+     ],
+     "text": "which is a common standard variety in Australia."
+    }
+   ],
+   "bbox": [
+    304.56,
+    677.28,
+    519.84,
+    695.28
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.8654
+  },
+  {
+   "id": "r20",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Comparative growing trials",
+   "lines": [
+    {
+     "bbox": [
+      304.8,
+      710.88,
+      419.28,
+      719.04
+     ],
+     "text": "Comparative growing trials"
+    }
+   ],
+   "bbox": [
+    304.8,
+    710.88,
+    419.28,
+    719.04
+   ],
+   "type": "heading",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2,
+   "score": 0.8043
+  },
+  {
+   "id": "r21",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "All characteristics and comparisons below are from\ncomparative growing trials conducted at Dural near\nSydney, in N.S.W., in April, 1991. The plants were grown\nin the open spaced 0.5m between plants. All trial plants\nwere on rootstock indexed virus free. Measured",
+   "lines": [
+    {
+     "bbox": [
+      304.56,
+      720.24,
+      511.44,
+      728.4
+     ],
+     "text": "All characteristics and comparisons below are from"
+    },
+    {
+     "bbox": [
+      304.8,
+      730.08,
+      511.92,
+      738.48
+     ],
+     "text": "comparative growing trials conducted at Dural near"
+    },
+    {
+     "bbox": [
+      305.04,
+      739.92,
+      535.44,
+      748.32
+     ],
+     "text": "Sydney, in N.S.W., in April, 1991. The plants were grown"
+    },
+    {
+     "bbox": [
+      305.28,
+      749.76,
+      529.92,
+      758.16
+     ],
+     "text": "in the open spaced 0.5m between plants. All trial plants"
+    },
+    {
+     "bbox": [
+      304.56,
+      759.6,
+      496.56,
+      767.04
+     ],
+     "text": "were on rootstock indexed virus free. Measured"
+    }
+   ],
+   "bbox": [
+    304.56,
+    720.24,
+    535.44,
+    767.04
+   ],
+   "type": "text",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "text",
+   "score": 0.9283
+  },
+  {
+   "id": "r22",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "20",
+   "lines": [
+    {
+     "bbox": [
+      38.16,
+      792.48,
+      50.4,
+      801.6
+     ],
+     "text": "20"
+    }
+   ],
+   "bbox": [
+    38.16,
+    792.48,
+    50.4,
+    801.6
+   ],
+   "type": "page_number",
+   "signal": "layout:pp-doclayoutv3",
+   "confidence": null,
+   "layout_category": "number",
+   "score": 0.7401
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}
