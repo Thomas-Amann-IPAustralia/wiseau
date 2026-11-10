@@ -5,6 +5,8 @@ against the repo as it stands after ADR-047. **No code changed and nothing ran.*
 The proposal's own rule holds throughout: a model may *label* structure, but it
 never rewrites, corrects or fills in the transcription.
 
+> **Outcome (2026-11-10):** the CPU leg ran ([`benchmarks/2026-11-10-layout-regions.md`](benchmarks/2026-11-10-layout-regions.md)). OvisOCR3's regions nearly match PP-DocLayoutV3's at ~180× the cost, so OvisOCR3 and TeleOCR are dropped. The detector's regions, regrouped over the default IR, are the candidate that goes forward.
+
 ## Verdict
 
 **Accept the spike, with three changes. Defer integration. Reject two parts.**
