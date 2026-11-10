@@ -1,5 +1,7 @@
 # Kaggle GPU leg of the layout-region spike (roadmap 14 item 3.7b)
 
+**Step-by-step setup (accounts, token, two ways to run it):** [`docs/kaggle-gpu-guide.md`](../../../docs/kaggle-gpu-guide.md).
+
 The CPU leg ran in the repo (`docs/benchmarks/2026-11-10-layout-regions.md`).
 This leg answers what a CPU can't: whether OvisOCR3 loads and runs on a free
 Kaggle **T4** (compute capability 7.5, no native BF16), in which precision, at
