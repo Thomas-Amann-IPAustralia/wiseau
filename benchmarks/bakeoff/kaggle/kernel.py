@@ -62,11 +62,19 @@ def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     # push.sh uploads one tar holding the repo layout the scripts expect
     # (wiseau/benchmarks/bakeoff/... and wiseau/pdf-test/...).
+    # Kaggle unpacks an uploaded tar into the dataset, so the tree usually
+    # arrives already extracted (…/wiseau/benchmarks/bakeoff/layout_models.py);
+    # accept either form. The tree is copied because /kaggle/input is read-only.
     tars = sorted(Path("/kaggle/input").rglob("spike.tar")) if not (DATA / "spike.tar").exists() else [DATA / "spike.tar"]
-    if not tars:
-        log("setup", error="spike.tar not found under /kaggle/input")
+    trees = sorted(p.parents[2] for p in Path("/kaggle/input").rglob("wiseau/benchmarks/bakeoff/layout_models.py"))
+    if tars:
+        shutil.unpack_archive(str(tars[0]), str(WORK), "tar")
+    elif trees:
+        shutil.copytree(trees[0], WORK / "wiseau", dirs_exist_ok=True)
+        log("setup", source=str(trees[0]))
+    else:
+        log("setup", error="neither spike.tar nor an extracted wiseau/ tree found under /kaggle/input")
         return
-    shutil.unpack_archive(str(tars[0]), str(WORK), "tar")
     os.chdir(BENCH)
 
     sh("env:nvidia-smi", "nvidia-smi")
