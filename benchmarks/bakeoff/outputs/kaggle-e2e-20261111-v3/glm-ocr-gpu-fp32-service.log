@@ -1,0 +1,9 @@
+Starting Pipeline...
+Loading weights:   0%|          | 0/858 [00:00<?, ?it/s]Loading weights:  36%|███▌      | 307/858 [00:00<00:00, 3067.74it/s]Loading weights:  72%|███████▏  | 614/858 [00:00<00:00, 2893.67it/s]Loading weights: 100%|██████████| 858/858 [00:00<00:00, 2884.89it/s]
+Pipeline started!
+GLM-OCR initialized in self-hosted mode
+2026-11-11 19:37:51,864 INFO waitress Serving on http://0.0.0.0:7860
+2026-11-11 19:38:29,028 INFO glm_ocr_service converted page.pdf: 1 page(s), 4251 chars in 32823 ms
+2026-11-11 19:38:45,719 INFO glm_ocr_service converted page.pdf: 1 page(s), 2474 chars in 16679 ms
+2026-11-11 19:39:24,687 INFO glm_ocr_service converted page.pdf: 1 page(s), 3719 chars in 38955 ms
+2026-11-11 19:40:01,808 INFO glm_ocr_service converted page.pdf: 1 page(s), 3553 chars in 37097 ms

@@ -1,0 +1,153 @@
+Starting production server 🚀
+
+Server started at http://127.0.0.1:5001
+Documentation at http://127.0.0.1:5001/docs
+Scalar docs at http://127.0.0.1:5001/scalar
+
+Logs:
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /kaggle/working/docling-venv/lib/python3.13/site-packages/docling_serve/__ma │
+│ in__.py:373 in run                                                           │
+│                                                                              │
+│   370 │   uvicorn_settings.ssl_keyfile = ssl_keyfile                         │
+│   371 │   uvicorn_settings.ssl_keyfile_password = ssl_keyfile_password       │
+│   372 │                                                                      │
+│ ❱ 373 │   _run(                                                              │
+│   374 │   │   command="run",                                                 │
+│   375 │   │   artifacts_path=artifacts_path,                                 │
+│   376 │   │   enable_ui=enable_ui,                                           │
+│                                                                              │
+│ /kaggle/working/docling-venv/lib/python3.13/site-packages/docling_serve/__ma │
+│ in__.py:154 in _run                                                          │
+│                                                                              │
+│   151 │                                                                      │
+│   152 │   # Launch the server                                                │
+│   153 │   # Disable uvicorn's default logging config so our custom logging   │
+│       is used                                                                │
+│ ❱ 154 │   uvicorn.run(                                                       │
+│   155 │   │   app="docling_serve.app:create_app",                            │
+│   156 │   │   factory=True,                                                  │
+│   157 │   │   host=uvicorn_settings.host,                                    │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/uvicorn/main.py:609 in run           │
+│                                                                              │
+│   606 │   │   │   logger.warning("You must pass the application as an import │
+│       string to enable 'reload' or 'workers'.")                              │
+│   607 │   │   │   sys.exit(STARTUP_FAILURE)                                  │
+│   608 │   else:                                                              │
+│ ❱ 609 │   │   config.load_app()                                              │
+│   610 │                                                                      │
+│   611 │   server = Server(config=config)                                     │
+│   612                                                                        │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/uvicorn/config.py:427 in load_app    │
+│                                                                              │
+│   424 │   def load_app(self) -> Any:                                         │
+│   425 │   │   """Import the app and return it. Exits on failure."""          │
+│   426 │   │   try:                                                           │
+│ ❱ 427 │   │   │   return import_from_string(self.app)                        │
+│   428 │   │   except ImportFromStringError as exc:                           │
+│   429 │   │   │   logger.error("Error loading ASGI app. %s" % exc)           │
+│   430 │   │   │   sys.exit(STARTUP_FAILURE)                                  │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/uvicorn/importer.py:19 in            │
+│ import_from_string                                                           │
+│                                                                              │
+│   16 │   │   raise                                                           │
+│      ImportFromStringError(message.format(import_str=import_str))            │
+│   17 │                                                                       │
+│   18 │   try:                                                                │
+│ ❱ 19 │   │   module = importlib.import_module(module_str)                    │
+│   20 │   except ModuleNotFoundError as exc:                                  │
+│   21 │   │   if exc.name != module_str:                                      │
+│   22 │   │   │   raise exc from None                                         │
+│                                                                              │
+│ /usr/lib/python3.13/importlib/__init__.py:88 in import_module                │
+│                                                                              │
+│    85 │   │   │   if character != '.':                                       │
+│    86 │   │   │   │   break                                                  │
+│    87 │   │   │   level += 1                                                 │
+│ ❱  88 │   return _bootstrap._gcd_import(name[level:], package, level)        │
+│    89                                                                        │
+│    90                                                                        │
+│    91 _RELOADING = {}                                                        │
+│ in _gcd_import:1404                                                          │
+│ in _find_and_load:1369                                                       │
+│ in _find_and_load_unlocked:1340                                              │
+│ in _load_unlocked:935                                                        │
+│ in exec_module:1027                                                          │
+│ in _call_with_frames_removed:488                                             │
+│                                                                              │
+│ /kaggle/working/docling-venv/lib/python3.13/site-packages/docling_serve/app. │
+│ py:117 in <module>                                                           │
+│                                                                              │
+│    114 │   get_metrics_endpoint_content,                                     │
+│    115 │   setup_otel_instrumentation,                                       │
+│    116 )                                                                     │
+│ ❱  117 from docling_serve.policy import (                                    │
+│    118 │   build_service_policy,                                             │
+│    119 │   normalize_convert_options,                                        │
+│    120 │   normalize_request,                                                │
+│                                                                              │
+│ /kaggle/working/docling-venv/lib/python3.13/site-packages/docling_serve/poli │
+│ cy.py:49 in <module>                                                         │
+│                                                                              │
+│    46                                                                        │
+│    47 # Derived from the endpoint source unions so it can never drift past   │
+│       what the                                                               │
+│    48 # request models actually accept; allowed_source_types only ever       │
+│       narrows this.                                                          │
+│ ❱  49 ALL_SOURCE_TYPES = _source_kinds(SourceRequestItem) | _source_kinds(   │
+│    50 │   BatchSourceRequestItem                                             │
+│    51 )                                                                      │
+│    52 _ConvertRequestT = TypeVar(                                            │
+│                                                                              │
+│ /kaggle/working/docling-venv/lib/python3.13/site-packages/docling_serve/poli │
+│ cy.py:44 in _source_kinds                                                    │
+│                                                                              │
+│    41 def _source_kinds(annotated: Any) -> frozenset[str]:                   │
+│    42 │   """Discriminator ``kind`` literals of an ``Annotated[Union[...],   │
+│       ...]`` alias."""                                                       │
+│    43 │   union = typing.get_args(annotated)[0]  # strip Annotated -> Union  │
+│ ❱  44 │   return frozenset(m.model_fields["kind"].default for m in           │
+│       typing.get_args(union))                                                │
+│    45                                                                        │
+│    46                                                                        │
+│    47 # Derived from the endpoint source unions so it can never drift past   │
+│       what the                                                               │
+│                                                                              │
+│ /kaggle/working/docling-venv/lib/python3.13/site-packages/docling_serve/poli │
+│ cy.py:44 in <genexpr>                                                        │
+│                                                                              │
+│    41 def _source_kinds(annotated: Any) -> frozenset[str]:                   │
+│    42 │   """Discriminator ``kind`` literals of an ``Annotated[Union[...],   │
+│       ...]`` alias."""                                                       │
+│    43 │   union = typing.get_args(annotated)[0]  # strip Annotated -> Union  │
+│ ❱  44 │   return frozenset(m.model_fields["kind"].default for m in           │
+│       typing.get_args(union))                                                │
+│    45                                                                        │
+│    46                                                                        │
+│    47 # Derived from the endpoint source unions so it can never drift past   │
+│       what the                                                               │
+│                                                                              │
+│ /usr/lib/python3.13/typing.py:2284 in __getattr__                            │
+│                                                                              │
+│   2281 │   def __getattr__(self, attr):                                      │
+│   2282 │   │   if attr in {'__name__', '__qualname__'}:                      │
+│   2283 │   │   │   return 'Annotated'                                        │
+│ ❱ 2284 │   │   return super().__getattr__(attr)                              │
+│   2285 │                                                                     │
+│   2286 │   def __mro_entries__(self, bases):                                 │
+│   2287 │   │   return (self.__origin__,)                                     │
+│                                                                              │
+│ /usr/lib/python3.13/typing.py:1383 in __getattr__                            │
+│                                                                              │
+│   1380 │   │   # We are careful for copy and pickle.                         │
+│   1381 │   │   # Also for simplicity we don't relay any dunder names         │
+│   1382 │   │   if '__origin__' in self.__dict__ and not _is_dunder(attr):    │
+│ ❱ 1383 │   │   │   return getattr(self.__origin__, attr)                     │
+│   1384 │   │   raise AttributeError(attr)                                    │
+│   1385 │                                                                     │
+│   1386 │   def __setattr__(self, attr, val):                                 │
+╰──────────────────────────────────────────────────────────────────────────────╯
+AttributeError: 'types.UnionType' object has no attribute 'model_fields'

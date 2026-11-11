@@ -55,7 +55,7 @@ for _ in $(seq 1 60); do
 done
 
 mkdir -p "$STAGE/kernel"
-cp "$HERE/e2e_kernel.py" "$STAGE/kernel/e2e_kernel.py"
+sed "s/^LEGS = \"\"/LEGS = \"${LEGS:-}\"/" "$HERE/e2e_kernel.py" > "$STAGE/kernel/e2e_kernel.py"
 cat > "$STAGE/kernel/kernel-metadata.json" <<EOF
 {"id": "$KERNEL", "title": "wiseau-gpu-e2e-run", "code_file": "e2e_kernel.py",
  "language": "python", "kernel_type": "script", "is_private": true,

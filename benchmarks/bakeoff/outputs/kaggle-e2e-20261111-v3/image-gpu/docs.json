@@ -1,0 +1,38 @@
+{
+  "device": "cuda",
+  "docs": {
+    "Volume 4 Number 1.pdf": {
+      "chars": 126216,
+      "engine": "ocr",
+      "error": null,
+      "fell_back": false,
+      "gpu_peak_mb": 1112.4,
+      "pages": 36,
+      "s_per_page": 10.91,
+      "seconds": 392.79
+    },
+    "Volume 5 Number 1.pdf": {
+      "chars": 99278,
+      "engine": "ocr",
+      "error": null,
+      "fell_back": false,
+      "gpu_peak_mb": 1112.4,
+      "pages": 31,
+      "s_per_page": 10.2,
+      "seconds": 316.23
+    }
+  },
+  "engine": "pymupdf",
+  "leg": "image-gpu",
+  "pages": {
+    "n": 42,
+    "ok": 42,
+    "seconds_total": 391.1
+  },
+  "warmup": {
+    "engine": "ocr",
+    "fell_back": false,
+    "page": "V2_p6",
+    "seconds": 25.46
+  }
+}

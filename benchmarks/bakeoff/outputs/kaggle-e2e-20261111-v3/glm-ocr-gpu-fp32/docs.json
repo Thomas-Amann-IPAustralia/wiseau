@@ -1,0 +1,17 @@
+{
+  "device": "cpu",
+  "docs": {},
+  "engine": "glm-ocr",
+  "leg": "glm-ocr-gpu-fp32",
+  "pages": {
+    "n": 3,
+    "ok": 3,
+    "seconds_total": 92.8
+  },
+  "warmup": {
+    "engine": "glm-ocr",
+    "fell_back": false,
+    "page": "V2_p6",
+    "seconds": 32.86
+  }
+}

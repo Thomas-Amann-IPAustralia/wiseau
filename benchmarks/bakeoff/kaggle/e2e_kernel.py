@@ -39,8 +39,15 @@ LOG = OUT / "kernel-log.jsonl"
 
 BACKEND_PINS = ["transformers==5.22.1", "timm==1.0.31", "opencv-python-headless==5.0.0.93", "accelerate==1.15.0"]
 GLM_PINS = ["glmocr[selfhosted,server]==0.1.5", "pypdfium2==5.14.0", "flask==3.1.3", "waitress==3.0.2"]
-DOCLING_SERVE = "docling-serve[easyocr]==1.27.0"   # the tag the docling Space pins (docling/Dockerfile); EasyOCR as there
-VLLM = "vllm==0.22.1"
+# docling-serve: run v3 found 1.27.0 (the Space's tag) broken against today's unpinned
+# docling-jobkit, so the latest release, in an isolated virtualenv. CPU and GPU legs
+# use the same build, so the comparison is unaffected; the version is logged.
+DOCLING_SERVE = "docling-serve[easyocr]==1.38.2"
+# vLLM: 0.22.1 bundles a transformers that does not know GLM-OCR (run v3).
+VLLM = "vllm==0.33.0"
+# Leg groups to run (image, docling, glm, vllm); empty runs all. push_e2e.sh writes
+# this into the kernel it pushes, so a stale dataset cannot change the selection.
+LEGS = ""
 # Whole documents: two image-only journals (36 and 30 pages) for the image path; one for the slow engines.
 DOCS_IMAGE = "pdf-test/Volume 4 Number 1.pdf,pdf-test/Volume 5 Number 1.pdf"
 DOCS_SLOW = "pdf-test/Volume 4 Number 1.pdf"
@@ -151,6 +158,8 @@ def make_venv(step: str, path: Path, system_site: bool) -> int:
 
 def wanted(group: str) -> bool:
     """Leg groups to run: all, or those listed in the dataset's LEGS file (push_e2e.sh LEGS=...)."""
+    if LEGS.strip():
+        return group in LEGS.replace(",", " ").split()
     chosen = REPO / "LEGS"
     return not chosen.exists() or group in chosen.read_text().replace(",", " ").split()
 
@@ -158,7 +167,8 @@ def wanted(group: str) -> bool:
 def docling_setup() -> Path | None:
     """docling-serve in its own virtualenv (its pins never touch the backend's)."""
     venv = WORK / "docling-venv"
-    if make_venv("docling:venv", venv, system_site=True) != 0 or \
+    # Isolated: with Kaggle's site-packages visible, docling-serve picked up foreign pins (run v3).
+    if make_venv("docling:venv", venv, system_site=False) != 0 or \
             sh("docling:install", [str(venv / "bin" / "python"), "-m", "pip", "install", "-q", DOCLING_SERVE],
                timeout=3600) != 0:
         return None
@@ -268,21 +278,28 @@ def glm_legs() -> None:
             if make_venv("vllm:venv", vvenv, system_site=False) == 0 and \
                     sh("vllm:install", [str(vvenv / "bin" / "python"), "-m", "pip", "install", "-q", VLLM],
                        timeout=3600) == 0:
-                model = start("glm-ocr-vllm:model", [str(vvenv / "bin" / "vllm"), "serve", "zai-org/GLM-OCR",
-                                                     "--served-model-name", "glm-ocr", "--dtype", "half",
-                                                     "--port", "8080", "--host", "127.0.0.1",
-                                                     "--gpu-memory-utilization", "0.6", "--max-model-len", "16384"],
-                              {}, OUT / "glm-ocr-vllm-model.log")
-                service = None
-                if wait_health("glm-ocr-vllm:model-health", "http://127.0.0.1:8080/health", model):
-                    env = {"PORT": "7860", "GLM_OCR_PORT": "8080", "GLM_OCR_MAX_PAGES": "500",
-                           "GLM_OCR_MAX_FILE_MB": "100", "GLM_OCR_LAYOUT_DEVICE": "cuda"}
-                    service = start("glm-ocr-vllm:service", [sys.executable, str(glm / "service.py")], env,
-                                    OUT / "glm-ocr-vllm-service.log")
-                    if wait_health("glm-ocr-vllm:service-health", "http://127.0.0.1:7860/health", service):
-                        leg("glm-ocr-vllm", client_env, "--engine", "glm-ocr", "--docs", DOCS_SLOW, timeout=4 * 3600)
-                stop(service)
-                stop(model)
+                # CUDA graphs first (how vLLM is meant to run); eager mode if that will not start on CC 7.5.
+                for tag, extra_args in (("", []), ("-eager", ["--enforce-eager"])):
+                    model = start(f"glm-ocr-vllm{tag}:model", [str(vvenv / "bin" / "vllm"), "serve", "zai-org/GLM-OCR",
+                                                               "--served-model-name", "glm-ocr", "--dtype", "half",
+                                                               "--port", "8080", "--host", "127.0.0.1",
+                                                               "--gpu-memory-utilization", "0.6",
+                                                               "--max-model-len", "16384", *extra_args],
+                                  {}, OUT / f"glm-ocr-vllm{tag}-model.log")
+                    service, ran = None, False
+                    if wait_health(f"glm-ocr-vllm{tag}:model-health", "http://127.0.0.1:8080/health", model):
+                        env = {"PORT": "7860", "GLM_OCR_PORT": "8080", "GLM_OCR_MAX_PAGES": "500",
+                               "GLM_OCR_MAX_FILE_MB": "100", "GLM_OCR_LAYOUT_DEVICE": "cuda"}
+                        service = start(f"glm-ocr-vllm{tag}:service", [sys.executable, str(glm / "service.py")], env,
+                                        OUT / f"glm-ocr-vllm{tag}-service.log")
+                        if wait_health(f"glm-ocr-vllm{tag}:service-health", "http://127.0.0.1:7860/health", service):
+                            leg(f"glm-ocr-vllm{tag}", client_env, "--engine", "glm-ocr", "--docs", DOCS_SLOW,
+                                timeout=4 * 3600)
+                            ran = True
+                    stop(service)
+                    stop(model)
+                    if ran:
+                        break
 
 
 

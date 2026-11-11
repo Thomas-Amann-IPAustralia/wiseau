@@ -1,0 +1,86 @@
+Error in sitecustomize; set PYTHONVERBOSE for traceback:
+ModuleNotFoundError: No module named 'wrapt'
+WARNING 11-11 20:05:52 [config.py:70] Support for Transformers v4 is deprecated. The Transformers v4 codepath will become unmaintained in vLLM v0.22.0 and will be removed in vLLM v0.24.0. Please upgrade to Transformers v5: pip install --upgrade transformers
+(APIServer pid=10591) INFO 11-11 20:05:54 [utils.py:344] 
+(APIServer pid=10591) INFO 11-11 20:05:54 [utils.py:344]        █     █     █▄   ▄█
+(APIServer pid=10591) INFO 11-11 20:05:54 [utils.py:344]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.22.1
+(APIServer pid=10591) INFO 11-11 20:05:54 [utils.py:344]   █▄█▀ █     █     █     █  model   zai-org/GLM-OCR
+(APIServer pid=10591) INFO 11-11 20:05:54 [utils.py:344]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=10591) INFO 11-11 20:05:54 [utils.py:344] 
+(APIServer pid=10591) INFO 11-11 20:05:54 [utils.py:278] non-default args: {'model_tag': 'zai-org/GLM-OCR', 'host': '127.0.0.1', 'port': 8080, 'model': 'zai-org/GLM-OCR', 'dtype': 'half', 'max_model_len': 16384, 'served_model_name': ['glm-ocr'], 'gpu_memory_utilization': 0.6}
+(APIServer pid=10591) Traceback (most recent call last):
+(APIServer pid=10591)   File "/kaggle/working/vllm-venv/bin/vllm", line 6, in <module>
+(APIServer pid=10591)     sys.exit(main())
+(APIServer pid=10591)              ~~~~^^
+(APIServer pid=10591)   File "/kaggle/working/vllm-venv/lib/python3.13/site-packages/vllm/entrypoints/cli/main.py", line 92, in main
+(APIServer pid=10591)     args.dispatch_function(args)
+(APIServer pid=10591)     ~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+(APIServer pid=10591)   File "/kaggle/working/vllm-venv/lib/python3.13/site-packages/vllm/entrypoints/cli/serve.py", line 148, in cmd
+(APIServer pid=10591)     uvloop.run(run_server(args))
+(APIServer pid=10591)     ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+(APIServer pid=10591)   File "/kaggle/working/vllm-venv/lib/python3.13/site-packages/uvloop/__init__.py", line 96, in run
+(APIServer pid=10591)     return __asyncio.run(
+(APIServer pid=10591)            ~~~~~~~~~~~~~^
+(APIServer pid=10591)         wrapper(),
+(APIServer pid=10591)         ^^^^^^^^^^
+(APIServer pid=10591)     ...<2 lines>...
+(APIServer pid=10591)         **run_kwargs
+(APIServer pid=10591)         ^^^^^^^^^^^^
+(APIServer pid=10591)     )
+(APIServer pid=10591)     ^
+(APIServer pid=10591)   File "/usr/lib/python3.13/asyncio/runners.py", line 196, in run
+(APIServer pid=10591)     return runner.run(main)
+(APIServer pid=10591)            ~~~~~~~~~~^^^^^^
+(APIServer pid=10591)   File "/usr/lib/python3.13/asyncio/runners.py", line 119, in run
+(APIServer pid=10591)     return self._loop.run_until_complete(task)
+(APIServer pid=10591)            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+(APIServer pid=10591)   File "uvloop/loop.pyx", line 1515, in uvloop.loop.Loop.run_until_complete
+(APIServer pid=10591)   File "/kaggle/working/vllm-venv/lib/python3.13/site-packages/uvloop/__init__.py", line 48, in wrapper
+(APIServer pid=10591)     return await main
+(APIServer pid=10591)            ^^^^^^^^^^
+(APIServer pid=10591)   File "/kaggle/working/vllm-venv/lib/python3.13/site-packages/vllm/entrypoints/openai/api_server.py", line 678, in run_server
+(APIServer pid=10591)     await run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+(APIServer pid=10591)   File "/kaggle/working/vllm-venv/lib/python3.13/site-packages/vllm/entrypoints/openai/api_server.py", line 692, in run_server_worker
+(APIServer pid=10591)     async with build_async_engine_client(
+(APIServer pid=10591)                ~~~~~~~~~~~~~~~~~~~~~~~~~^
+(APIServer pid=10591)         args,
+(APIServer pid=10591)         ^^^^^
+(APIServer pid=10591)         client_config=client_config,
+(APIServer pid=10591)         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=10591)     ) as engine_client:
+(APIServer pid=10591)     ^
+(APIServer pid=10591)   File "/usr/lib/python3.13/contextlib.py", line 214, in __aenter__
+(APIServer pid=10591)     return await anext(self.gen)
+(APIServer pid=10591)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=10591)   File "/kaggle/working/vllm-venv/lib/python3.13/site-packages/vllm/entrypoints/openai/api_server.py", line 100, in build_async_engine_client
+(APIServer pid=10591)     async with build_async_engine_client_from_engine_args(
+(APIServer pid=10591)                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+(APIServer pid=10591)         engine_args,
+(APIServer pid=10591)         ^^^^^^^^^^^^
+(APIServer pid=10591)         usage_context=usage_context,
+(APIServer pid=10591)         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=10591)         client_config=client_config,
+(APIServer pid=10591)         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=10591)     ) as engine:
+(APIServer pid=10591)     ^
+(APIServer pid=10591)   File "/usr/lib/python3.13/contextlib.py", line 214, in __aenter__
+(APIServer pid=10591)     return await anext(self.gen)
+(APIServer pid=10591)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=10591)   File "/kaggle/working/vllm-venv/lib/python3.13/site-packages/vllm/entrypoints/openai/api_server.py", line 124, in build_async_engine_client_from_engine_args
+(APIServer pid=10591)     vllm_config = engine_args.create_engine_config(usage_context=usage_context)
+(APIServer pid=10591)   File "/kaggle/working/vllm-venv/lib/python3.13/site-packages/vllm/engine/arg_utils.py", line 1730, in create_engine_config
+(APIServer pid=10591)     model_config = self.create_model_config()
+(APIServer pid=10591)   File "/kaggle/working/vllm-venv/lib/python3.13/site-packages/vllm/engine/arg_utils.py", line 1560, in create_model_config
+(APIServer pid=10591)     return ModelConfig(
+(APIServer pid=10591)         model=self.model,
+(APIServer pid=10591)     ...<59 lines>...
+(APIServer pid=10591)         renderer_num_workers=self.renderer_num_workers,
+(APIServer pid=10591)     )
+(APIServer pid=10591)   File "/kaggle/working/vllm-venv/lib/python3.13/site-packages/pydantic/_internal/_dataclasses.py", line 121, in __init__
+(APIServer pid=10591)     s.__pydantic_validator__.validate_python(ArgsKwargs(args, kwargs), self_instance=s)
+(APIServer pid=10591)     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=10591) pydantic_core._pydantic_core.ValidationError: 1 validation error for ModelConfig
+(APIServer pid=10591)   Value error, The checkpoint you are trying to load has model type `glm_ocr` but Transformers does not recognize this architecture. This could be because of an issue with the checkpoint, or because your version of Transformers is out of date.
+(APIServer pid=10591) 
+(APIServer pid=10591) You can update Transformers with the command `pip install --upgrade transformers`. If this does not work, and the checkpoint is very new, then there may not be a release version that supports this model yet. In this case, you can get the most up-to-date code by installing Transformers from source with the command `pip install git+https://github.com/huggingface/transformers.git` [type=value_error, input_value=ArgsKwargs((), {'model': ...nderer_num_workers': 1}), input_type=ArgsKwargs]
+(APIServer pid=10591)     For further information visit https://errors.pydantic.dev/2.14/v/value_error

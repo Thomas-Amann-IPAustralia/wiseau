@@ -1,0 +1,265 @@
+Loading weights:   0%|          | 0/510 [00:00<?, ?it/s]Loading weights:  11%|█         | 54/510 [00:00<00:00, 520.12it/s]Loading weights:  21%|██        | 107/510 [00:00<00:01, 329.80it/s]Loading weights:  28%|██▊       | 144/510 [00:00<00:01, 341.62it/s]Loading weights:  36%|███▋      | 186/510 [00:00<00:00, 366.71it/s]Loading weights:  50%|█████     | 255/510 [00:00<00:00, 463.80it/s]Loading weights:  64%|██████▍   | 328/510 [00:00<00:00, 544.74it/s]Loading weights:  78%|███████▊  | 397/510 [00:00<00:00, 582.33it/s]Loading weights:  91%|█████████ | 465/510 [00:00<00:00, 599.94it/s]Loading weights: 100%|██████████| 510/510 [00:00<00:00, 511.37it/s]
+ * Serving Flask app 'model_server'
+ * Debug mode: off
+2026-11-11 19:37:41,458 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+2026-11-11 19:37:41,458 INFO [33mPress CTRL+C to quit[0m
+2026-11-11 19:37:42,625 INFO 127.0.0.1 - - [11/Nov/2026 19:37:42] "GET /health HTTP/1.1" 200 -
+2026-11-11 19:37:51,852 WARNING generated 10 tokens in 0.7s (finish_reason=length)
+2026-11-11 19:37:51,852 INFO 127.0.0.1 - - [11/Nov/2026 19:37:51] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:37:58,312 INFO generated 6 tokens in 0.6s (finish_reason=stop)
+2026-11-11 19:37:58,314 INFO 127.0.0.1 - - [11/Nov/2026 19:37:58] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:37:58,792 INFO generated 14 tokens in 0.5s (finish_reason=stop)
+2026-11-11 19:37:58,794 INFO 127.0.0.1 - - [11/Nov/2026 19:37:58] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:37:59,855 INFO generated 42 tokens in 1.1s (finish_reason=stop)
+2026-11-11 19:37:59,856 INFO 127.0.0.1 - - [11/Nov/2026 19:37:59] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:00,634 INFO generated 32 tokens in 0.8s (finish_reason=stop)
+2026-11-11 19:38:00,634 INFO 127.0.0.1 - - [11/Nov/2026 19:38:00] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:01,353 INFO generated 29 tokens in 0.7s (finish_reason=stop)
+2026-11-11 19:38:01,354 INFO 127.0.0.1 - - [11/Nov/2026 19:38:01] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:01,512 INFO generated 5 tokens in 0.2s (finish_reason=stop)
+2026-11-11 19:38:01,513 INFO 127.0.0.1 - - [11/Nov/2026 19:38:01] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:01,848 INFO generated 13 tokens in 0.3s (finish_reason=stop)
+2026-11-11 19:38:01,849 INFO 127.0.0.1 - - [11/Nov/2026 19:38:01] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:02,648 INFO generated 33 tokens in 0.8s (finish_reason=stop)
+2026-11-11 19:38:02,648 INFO 127.0.0.1 - - [11/Nov/2026 19:38:02] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:03,401 INFO generated 29 tokens in 0.8s (finish_reason=stop)
+2026-11-11 19:38:03,402 INFO 127.0.0.1 - - [11/Nov/2026 19:38:03] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:03,747 INFO generated 13 tokens in 0.3s (finish_reason=stop)
+2026-11-11 19:38:03,748 INFO 127.0.0.1 - - [11/Nov/2026 19:38:03] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:03,904 INFO generated 5 tokens in 0.2s (finish_reason=stop)
+2026-11-11 19:38:03,905 INFO 127.0.0.1 - - [11/Nov/2026 19:38:03] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:04,154 INFO generated 9 tokens in 0.3s (finish_reason=stop)
+2026-11-11 19:38:04,155 INFO 127.0.0.1 - - [11/Nov/2026 19:38:04] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:04,866 INFO generated 27 tokens in 0.7s (finish_reason=stop)
+2026-11-11 19:38:04,867 INFO 127.0.0.1 - - [11/Nov/2026 19:38:04] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:05,067 INFO generated 7 tokens in 0.2s (finish_reason=stop)
+2026-11-11 19:38:05,068 INFO 127.0.0.1 - - [11/Nov/2026 19:38:05] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:05,474 INFO generated 15 tokens in 0.4s (finish_reason=stop)
+2026-11-11 19:38:05,475 INFO 127.0.0.1 - - [11/Nov/2026 19:38:05] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:06,374 INFO generated 35 tokens in 0.9s (finish_reason=stop)
+2026-11-11 19:38:06,376 INFO 127.0.0.1 - - [11/Nov/2026 19:38:06] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:06,612 INFO generated 8 tokens in 0.2s (finish_reason=stop)
+2026-11-11 19:38:06,613 INFO 127.0.0.1 - - [11/Nov/2026 19:38:06] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:07,710 INFO generated 42 tokens in 1.1s (finish_reason=stop)
+2026-11-11 19:38:07,712 INFO 127.0.0.1 - - [11/Nov/2026 19:38:07] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:08,224 INFO generated 20 tokens in 0.5s (finish_reason=stop)
+2026-11-11 19:38:08,225 INFO 127.0.0.1 - - [11/Nov/2026 19:38:08] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:08,316 INFO generated 2 tokens in 0.1s (finish_reason=stop)
+2026-11-11 19:38:08,316 INFO 127.0.0.1 - - [11/Nov/2026 19:38:08] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:09,531 INFO generated 45 tokens in 1.2s (finish_reason=stop)
+2026-11-11 19:38:09,533 INFO 127.0.0.1 - - [11/Nov/2026 19:38:09] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:10,090 INFO generated 21 tokens in 0.6s (finish_reason=stop)
+2026-11-11 19:38:10,091 INFO 127.0.0.1 - - [11/Nov/2026 19:38:10] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:10,233 INFO generated 4 tokens in 0.1s (finish_reason=stop)
+2026-11-11 19:38:10,234 INFO 127.0.0.1 - - [11/Nov/2026 19:38:10] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:10,760 INFO generated 18 tokens in 0.5s (finish_reason=stop)
+2026-11-11 19:38:10,761 INFO 127.0.0.1 - - [11/Nov/2026 19:38:10] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:12,947 INFO generated 89 tokens in 2.2s (finish_reason=stop)
+2026-11-11 19:38:12,948 INFO 127.0.0.1 - - [11/Nov/2026 19:38:12] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:13,212 INFO generated 9 tokens in 0.3s (finish_reason=stop)
+2026-11-11 19:38:13,213 INFO 127.0.0.1 - - [11/Nov/2026 19:38:13] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:14,641 INFO generated 56 tokens in 1.4s (finish_reason=stop)
+2026-11-11 19:38:14,642 INFO 127.0.0.1 - - [11/Nov/2026 19:38:14] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:15,102 INFO generated 19 tokens in 0.5s (finish_reason=stop)
+2026-11-11 19:38:15,104 INFO 127.0.0.1 - - [11/Nov/2026 19:38:15] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:15,239 INFO generated 4 tokens in 0.1s (finish_reason=stop)
+2026-11-11 19:38:15,240 INFO 127.0.0.1 - - [11/Nov/2026 19:38:15] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:15,758 INFO generated 18 tokens in 0.5s (finish_reason=stop)
+2026-11-11 19:38:15,759 INFO 127.0.0.1 - - [11/Nov/2026 19:38:15] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:17,313 INFO generated 60 tokens in 1.6s (finish_reason=stop)
+2026-11-11 19:38:17,315 INFO 127.0.0.1 - - [11/Nov/2026 19:38:17] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:19,171 INFO generated 73 tokens in 1.9s (finish_reason=stop)
+2026-11-11 19:38:19,172 INFO 127.0.0.1 - - [11/Nov/2026 19:38:19] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:19,683 INFO generated 20 tokens in 0.5s (finish_reason=stop)
+2026-11-11 19:38:19,684 INFO 127.0.0.1 - - [11/Nov/2026 19:38:19] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:19,821 INFO generated 4 tokens in 0.1s (finish_reason=stop)
+2026-11-11 19:38:19,823 INFO 127.0.0.1 - - [11/Nov/2026 19:38:19] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:20,406 INFO generated 18 tokens in 0.6s (finish_reason=stop)
+2026-11-11 19:38:20,408 INFO 127.0.0.1 - - [11/Nov/2026 19:38:20] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:22,469 INFO generated 82 tokens in 2.1s (finish_reason=stop)
+2026-11-11 19:38:22,471 INFO 127.0.0.1 - - [11/Nov/2026 19:38:22] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:22,699 INFO generated 8 tokens in 0.2s (finish_reason=stop)
+2026-11-11 19:38:22,701 INFO 127.0.0.1 - - [11/Nov/2026 19:38:22] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:24,270 INFO generated 62 tokens in 1.6s (finish_reason=stop)
+2026-11-11 19:38:24,271 INFO 127.0.0.1 - - [11/Nov/2026 19:38:24] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:24,792 INFO generated 20 tokens in 0.5s (finish_reason=stop)
+2026-11-11 19:38:24,793 INFO 127.0.0.1 - - [11/Nov/2026 19:38:24] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:24,932 INFO generated 4 tokens in 0.1s (finish_reason=stop)
+2026-11-11 19:38:24,934 INFO 127.0.0.1 - - [11/Nov/2026 19:38:24] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:25,454 INFO generated 18 tokens in 0.5s (finish_reason=stop)
+2026-11-11 19:38:25,455 INFO 127.0.0.1 - - [11/Nov/2026 19:38:25] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:28,004 INFO generated 100 tokens in 2.6s (finish_reason=stop)
+2026-11-11 19:38:28,006 INFO 127.0.0.1 - - [11/Nov/2026 19:38:28] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:28,264 INFO generated 9 tokens in 0.3s (finish_reason=stop)
+2026-11-11 19:38:28,266 INFO 127.0.0.1 - - [11/Nov/2026 19:38:28] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:29,015 INFO generated 29 tokens in 0.8s (finish_reason=stop)
+2026-11-11 19:38:29,016 INFO 127.0.0.1 - - [11/Nov/2026 19:38:29] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:29,682 INFO generated 11 tokens in 0.3s (finish_reason=stop)
+2026-11-11 19:38:29,683 INFO 127.0.0.1 - - [11/Nov/2026 19:38:29] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:31,926 INFO generated 91 tokens in 2.2s (finish_reason=stop)
+2026-11-11 19:38:31,927 INFO 127.0.0.1 - - [11/Nov/2026 19:38:31] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:34,141 INFO generated 88 tokens in 2.2s (finish_reason=stop)
+2026-11-11 19:38:34,142 INFO 127.0.0.1 - - [11/Nov/2026 19:38:34] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:34,632 INFO generated 20 tokens in 0.5s (finish_reason=stop)
+2026-11-11 19:38:34,633 INFO 127.0.0.1 - - [11/Nov/2026 19:38:34] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:34,774 INFO generated 4 tokens in 0.1s (finish_reason=stop)
+2026-11-11 19:38:34,775 INFO 127.0.0.1 - - [11/Nov/2026 19:38:34] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:35,271 INFO generated 18 tokens in 0.5s (finish_reason=stop)
+2026-11-11 19:38:35,272 INFO 127.0.0.1 - - [11/Nov/2026 19:38:35] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:35,550 INFO generated 10 tokens in 0.3s (finish_reason=stop)
+2026-11-11 19:38:35,552 INFO 127.0.0.1 - - [11/Nov/2026 19:38:35] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:38,499 INFO generated 121 tokens in 2.9s (finish_reason=stop)
+2026-11-11 19:38:38,501 INFO 127.0.0.1 - - [11/Nov/2026 19:38:38] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:38,745 INFO generated 9 tokens in 0.2s (finish_reason=stop)
+2026-11-11 19:38:38,747 INFO 127.0.0.1 - - [11/Nov/2026 19:38:38] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:40,638 INFO generated 79 tokens in 1.9s (finish_reason=stop)
+2026-11-11 19:38:40,639 INFO 127.0.0.1 - - [11/Nov/2026 19:38:40] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:41,113 INFO generated 19 tokens in 0.5s (finish_reason=stop)
+2026-11-11 19:38:41,114 INFO 127.0.0.1 - - [11/Nov/2026 19:38:41] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:41,243 INFO generated 4 tokens in 0.1s (finish_reason=stop)
+2026-11-11 19:38:41,244 INFO 127.0.0.1 - - [11/Nov/2026 19:38:41] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:41,747 INFO generated 18 tokens in 0.5s (finish_reason=stop)
+2026-11-11 19:38:41,748 INFO 127.0.0.1 - - [11/Nov/2026 19:38:41] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:44,120 INFO generated 93 tokens in 2.4s (finish_reason=stop)
+2026-11-11 19:38:44,121 INFO 127.0.0.1 - - [11/Nov/2026 19:38:44] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:44,344 INFO generated 8 tokens in 0.2s (finish_reason=stop)
+2026-11-11 19:38:44,345 INFO 127.0.0.1 - - [11/Nov/2026 19:38:44] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:45,436 INFO generated 42 tokens in 1.1s (finish_reason=stop)
+2026-11-11 19:38:45,437 INFO 127.0.0.1 - - [11/Nov/2026 19:38:45] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:45,707 INFO generated 10 tokens in 0.3s (finish_reason=stop)
+2026-11-11 19:38:45,707 INFO 127.0.0.1 - - [11/Nov/2026 19:38:45] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:46,585 INFO generated 13 tokens in 0.4s (finish_reason=stop)
+2026-11-11 19:38:46,586 INFO 127.0.0.1 - - [11/Nov/2026 19:38:46] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:47,171 INFO generated 22 tokens in 0.6s (finish_reason=stop)
+2026-11-11 19:38:47,173 INFO 127.0.0.1 - - [11/Nov/2026 19:38:47] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:47,585 INFO generated 16 tokens in 0.4s (finish_reason=stop)
+2026-11-11 19:38:47,587 INFO 127.0.0.1 - - [11/Nov/2026 19:38:47] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:48,540 INFO generated 41 tokens in 1.0s (finish_reason=stop)
+2026-11-11 19:38:48,541 INFO 127.0.0.1 - - [11/Nov/2026 19:38:48] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:49,743 INFO generated 52 tokens in 1.2s (finish_reason=stop)
+2026-11-11 19:38:49,744 INFO 127.0.0.1 - - [11/Nov/2026 19:38:49] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:50,064 INFO generated 13 tokens in 0.3s (finish_reason=stop)
+2026-11-11 19:38:50,066 INFO 127.0.0.1 - - [11/Nov/2026 19:38:50] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:50,970 INFO generated 39 tokens in 0.9s (finish_reason=stop)
+2026-11-11 19:38:50,972 INFO 127.0.0.1 - - [11/Nov/2026 19:38:50] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:52,031 INFO generated 42 tokens in 1.1s (finish_reason=stop)
+2026-11-11 19:38:52,032 INFO 127.0.0.1 - - [11/Nov/2026 19:38:52] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:53,322 INFO generated 57 tokens in 1.3s (finish_reason=stop)
+2026-11-11 19:38:53,323 INFO 127.0.0.1 - - [11/Nov/2026 19:38:53] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:54,339 INFO generated 44 tokens in 1.0s (finish_reason=stop)
+2026-11-11 19:38:54,340 INFO 127.0.0.1 - - [11/Nov/2026 19:38:54] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:54,890 INFO generated 23 tokens in 0.6s (finish_reason=stop)
+2026-11-11 19:38:54,892 INFO 127.0.0.1 - - [11/Nov/2026 19:38:54] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:55,587 INFO generated 29 tokens in 0.7s (finish_reason=stop)
+2026-11-11 19:38:55,588 INFO 127.0.0.1 - - [11/Nov/2026 19:38:55] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:56,630 INFO generated 45 tokens in 1.0s (finish_reason=stop)
+2026-11-11 19:38:56,631 INFO 127.0.0.1 - - [11/Nov/2026 19:38:56] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:57,986 INFO generated 58 tokens in 1.4s (finish_reason=stop)
+2026-11-11 19:38:57,988 INFO 127.0.0.1 - - [11/Nov/2026 19:38:57] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:58,956 INFO generated 42 tokens in 1.0s (finish_reason=stop)
+2026-11-11 19:38:58,956 INFO 127.0.0.1 - - [11/Nov/2026 19:38:58] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:38:59,993 INFO generated 45 tokens in 1.0s (finish_reason=stop)
+2026-11-11 19:38:59,994 INFO 127.0.0.1 - - [11/Nov/2026 19:38:59] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:01,084 INFO generated 41 tokens in 1.1s (finish_reason=stop)
+2026-11-11 19:39:01,084 INFO 127.0.0.1 - - [11/Nov/2026 19:39:01] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:02,144 INFO generated 46 tokens in 1.1s (finish_reason=stop)
+2026-11-11 19:39:02,145 INFO 127.0.0.1 - - [11/Nov/2026 19:39:02] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:03,142 INFO generated 43 tokens in 1.0s (finish_reason=stop)
+2026-11-11 19:39:03,143 INFO 127.0.0.1 - - [11/Nov/2026 19:39:03] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:04,262 INFO generated 42 tokens in 1.1s (finish_reason=stop)
+2026-11-11 19:39:04,263 INFO 127.0.0.1 - - [11/Nov/2026 19:39:04] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:05,300 INFO generated 45 tokens in 1.0s (finish_reason=stop)
+2026-11-11 19:39:05,301 INFO 127.0.0.1 - - [11/Nov/2026 19:39:05] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:05,890 INFO generated 24 tokens in 0.6s (finish_reason=stop)
+2026-11-11 19:39:05,892 INFO 127.0.0.1 - - [11/Nov/2026 19:39:05] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:06,449 INFO generated 23 tokens in 0.6s (finish_reason=stop)
+2026-11-11 19:39:06,451 INFO 127.0.0.1 - - [11/Nov/2026 19:39:06] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:07,452 INFO generated 42 tokens in 1.0s (finish_reason=stop)
+2026-11-11 19:39:07,453 INFO 127.0.0.1 - - [11/Nov/2026 19:39:07] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:08,702 INFO generated 51 tokens in 1.2s (finish_reason=stop)
+2026-11-11 19:39:08,704 INFO 127.0.0.1 - - [11/Nov/2026 19:39:08] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:09,756 INFO generated 45 tokens in 1.1s (finish_reason=stop)
+2026-11-11 19:39:09,757 INFO 127.0.0.1 - - [11/Nov/2026 19:39:09] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:10,744 INFO generated 42 tokens in 1.0s (finish_reason=stop)
+2026-11-11 19:39:10,746 INFO 127.0.0.1 - - [11/Nov/2026 19:39:10] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:11,920 INFO generated 51 tokens in 1.2s (finish_reason=stop)
+2026-11-11 19:39:11,920 INFO 127.0.0.1 - - [11/Nov/2026 19:39:11] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:12,880 INFO generated 42 tokens in 1.0s (finish_reason=stop)
+2026-11-11 19:39:12,881 INFO 127.0.0.1 - - [11/Nov/2026 19:39:12] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:13,890 INFO generated 43 tokens in 1.0s (finish_reason=stop)
+2026-11-11 19:39:13,891 INFO 127.0.0.1 - - [11/Nov/2026 19:39:13] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:14,272 INFO generated 15 tokens in 0.4s (finish_reason=stop)
+2026-11-11 19:39:14,273 INFO 127.0.0.1 - - [11/Nov/2026 19:39:14] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:14,846 INFO generated 24 tokens in 0.6s (finish_reason=stop)
+2026-11-11 19:39:14,847 INFO 127.0.0.1 - - [11/Nov/2026 19:39:14] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:15,001 INFO generated 5 tokens in 0.2s (finish_reason=stop)
+2026-11-11 19:39:15,003 INFO 127.0.0.1 - - [11/Nov/2026 19:39:15] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:16,124 INFO generated 48 tokens in 1.1s (finish_reason=stop)
+2026-11-11 19:39:16,126 INFO 127.0.0.1 - - [11/Nov/2026 19:39:16] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:16,424 INFO generated 11 tokens in 0.3s (finish_reason=stop)
+2026-11-11 19:39:16,425 INFO 127.0.0.1 - - [11/Nov/2026 19:39:16] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:17,409 INFO generated 40 tokens in 1.0s (finish_reason=stop)
+2026-11-11 19:39:17,410 INFO 127.0.0.1 - - [11/Nov/2026 19:39:17] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:18,618 INFO generated 52 tokens in 1.2s (finish_reason=stop)
+2026-11-11 19:39:18,620 INFO 127.0.0.1 - - [11/Nov/2026 19:39:18] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:19,693 INFO generated 43 tokens in 1.1s (finish_reason=stop)
+2026-11-11 19:39:19,694 INFO 127.0.0.1 - - [11/Nov/2026 19:39:19] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:20,481 INFO generated 34 tokens in 0.8s (finish_reason=stop)
+2026-11-11 19:39:20,483 INFO 127.0.0.1 - - [11/Nov/2026 19:39:20] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:21,076 INFO generated 25 tokens in 0.6s (finish_reason=stop)
+2026-11-11 19:39:21,077 INFO 127.0.0.1 - - [11/Nov/2026 19:39:21] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:21,214 INFO generated 4 tokens in 0.1s (finish_reason=stop)
+2026-11-11 19:39:21,215 INFO 127.0.0.1 - - [11/Nov/2026 19:39:21] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:21,819 INFO generated 23 tokens in 0.6s (finish_reason=stop)
+2026-11-11 19:39:21,820 INFO 127.0.0.1 - - [11/Nov/2026 19:39:21] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:22,653 INFO generated 33 tokens in 0.8s (finish_reason=stop)
+2026-11-11 19:39:22,655 INFO 127.0.0.1 - - [11/Nov/2026 19:39:22] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:23,673 INFO generated 41 tokens in 1.0s (finish_reason=stop)
+2026-11-11 19:39:23,674 INFO 127.0.0.1 - - [11/Nov/2026 19:39:23] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:23,838 INFO generated 5 tokens in 0.2s (finish_reason=stop)
+2026-11-11 19:39:23,839 INFO 127.0.0.1 - - [11/Nov/2026 19:39:23] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:24,675 INFO generated 35 tokens in 0.8s (finish_reason=stop)
+2026-11-11 19:39:24,675 INFO 127.0.0.1 - - [11/Nov/2026 19:39:24] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:36,436 INFO generated 472 tokens in 11.3s (finish_reason=stop)
+2026-11-11 19:39:36,437 INFO 127.0.0.1 - - [11/Nov/2026 19:39:36] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:46,976 INFO generated 441 tokens in 10.5s (finish_reason=stop)
+2026-11-11 19:39:46,978 INFO 127.0.0.1 - - [11/Nov/2026 19:39:46] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:47,327 INFO generated 14 tokens in 0.4s (finish_reason=stop)
+2026-11-11 19:39:47,329 INFO 127.0.0.1 - - [11/Nov/2026 19:39:47] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:47,558 INFO generated 8 tokens in 0.2s (finish_reason=stop)
+2026-11-11 19:39:47,560 INFO 127.0.0.1 - - [11/Nov/2026 19:39:47] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:48,113 INFO generated 23 tokens in 0.6s (finish_reason=stop)
+2026-11-11 19:39:48,114 INFO 127.0.0.1 - - [11/Nov/2026 19:39:48] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:48,532 INFO generated 17 tokens in 0.4s (finish_reason=stop)
+2026-11-11 19:39:48,533 INFO 127.0.0.1 - - [11/Nov/2026 19:39:48] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:48,984 INFO generated 18 tokens in 0.5s (finish_reason=stop)
+2026-11-11 19:39:48,985 INFO 127.0.0.1 - - [11/Nov/2026 19:39:48] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:49,683 INFO generated 28 tokens in 0.7s (finish_reason=stop)
+2026-11-11 19:39:49,684 INFO 127.0.0.1 - - [11/Nov/2026 19:39:49] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:50,952 INFO generated 50 tokens in 1.3s (finish_reason=stop)
+2026-11-11 19:39:50,954 INFO 127.0.0.1 - - [11/Nov/2026 19:39:50] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:51,115 INFO generated 5 tokens in 0.2s (finish_reason=stop)
+2026-11-11 19:39:51,116 INFO 127.0.0.1 - - [11/Nov/2026 19:39:51] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:51,312 INFO generated 7 tokens in 0.2s (finish_reason=stop)
+2026-11-11 19:39:51,313 INFO 127.0.0.1 - - [11/Nov/2026 19:39:51] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:51,425 INFO generated 3 tokens in 0.1s (finish_reason=stop)
+2026-11-11 19:39:51,426 INFO 127.0.0.1 - - [11/Nov/2026 19:39:51] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:51,891 INFO generated 19 tokens in 0.5s (finish_reason=stop)
+2026-11-11 19:39:51,892 INFO 127.0.0.1 - - [11/Nov/2026 19:39:51] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:52,184 INFO generated 11 tokens in 0.3s (finish_reason=stop)
+2026-11-11 19:39:52,185 INFO 127.0.0.1 - - [11/Nov/2026 19:39:52] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:52,537 INFO generated 14 tokens in 0.4s (finish_reason=stop)
+2026-11-11 19:39:52,539 INFO 127.0.0.1 - - [11/Nov/2026 19:39:52] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:53,128 INFO generated 22 tokens in 0.6s (finish_reason=stop)
+2026-11-11 19:39:53,129 INFO 127.0.0.1 - - [11/Nov/2026 19:39:53] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:53,335 INFO generated 7 tokens in 0.2s (finish_reason=stop)
+2026-11-11 19:39:53,336 INFO 127.0.0.1 - - [11/Nov/2026 19:39:53] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:55,224 INFO generated 78 tokens in 1.9s (finish_reason=stop)
+2026-11-11 19:39:55,225 INFO 127.0.0.1 - - [11/Nov/2026 19:39:55] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:56,812 INFO generated 66 tokens in 1.6s (finish_reason=stop)
+2026-11-11 19:39:56,814 INFO 127.0.0.1 - - [11/Nov/2026 19:39:56] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:39:56,909 INFO generated 2 tokens in 0.1s (finish_reason=stop)
+2026-11-11 19:39:56,911 INFO 127.0.0.1 - - [11/Nov/2026 19:39:56] "POST /v1/chat/completions HTTP/1.1" 200 -
+2026-11-11 19:40:01,796 INFO generated 202 tokens in 4.9s (finish_reason=stop)
+2026-11-11 19:40:01,796 INFO 127.0.0.1 - - [11/Nov/2026 19:40:01] "POST /v1/chat/completions HTTP/1.1" 200 -
