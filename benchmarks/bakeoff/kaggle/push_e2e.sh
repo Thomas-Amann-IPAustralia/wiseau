@@ -2,6 +2,7 @@
 # Launch the end-to-end GPU benchmark (e2e_kernel.py) on a Kaggle T4.
 #
 #   KAGGLE_USERNAME=<user> benchmarks/bakeoff/kaggle/push_e2e.sh          # upload data, push and run the kernel
+#   KAGGLE_USERNAME=<user> benchmarks/bakeoff/kaggle/push_e2e.sh kernel   # re-push the kernel only (data unchanged)
 #   KAGGLE_USERNAME=<user> benchmarks/bakeoff/kaggle/push_e2e.sh fetch    # after it finishes: download outputs
 #
 # Uploads the backend, glm-ocr/, the harness (regions.py + kaggle/) and the test
@@ -26,6 +27,7 @@ if [[ "${1:-}" == "fetch" ]]; then
   exit 0
 fi
 
+if [[ "${1:-}" != "kernel" ]]; then
 T="$STAGE/tree/wiseau"
 mkdir -p "$STAGE/data" "$STAGE/kernel" "$T/benchmarks/bakeoff/kaggle" "$T/pdf-test" "$T/backend" "$T/glm-ocr"
 tar -C "$ROOT/backend" --exclude .venv --exclude __pycache__ --exclude tests -cf - . | tar -C "$T/backend" -xf -
@@ -43,7 +45,14 @@ if kaggle datasets status "$DATASET" >/dev/null 2>&1; then
 else
   kaggle datasets create -p "$STAGE/data"   # private by default
 fi
+fi
+# A kernel pushed while its dataset is still processing starts without it.
+for _ in $(seq 1 60); do
+  kaggle datasets status "$DATASET" 2>/dev/null | grep -qi ready && break
+  sleep 10
+done
 
+mkdir -p "$STAGE/kernel"
 cp "$HERE/e2e_kernel.py" "$STAGE/kernel/e2e_kernel.py"
 cat > "$STAGE/kernel/kernel-metadata.json" <<EOF
 {"id": "$KERNEL", "title": "wiseau-gpu-e2e-run", "code_file": "e2e_kernel.py",
