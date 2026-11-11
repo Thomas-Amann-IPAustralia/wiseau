@@ -46,6 +46,9 @@ MAX_PAGES = int(os.environ.get("GLM_OCR_MAX_PAGES", "20"))
 MAX_BYTES = int(float(os.environ.get("GLM_OCR_MAX_FILE_MB", "25")) * 1024 * 1024)
 LAYOUT_MODEL = os.environ.get("GLM_OCR_LAYOUT_MODEL", "PaddlePaddle/PP-DocLayoutV3_safetensors")
 PDF_DPI = int(os.environ.get("GLM_OCR_PDF_DPI", "200"))
+# Where the SDK runs its PP-DocLayoutV3 stage: cpu (the Space), or a CUDA device
+# for the GPU benchmark (benchmarks/bakeoff/kaggle/e2e_kernel.py).
+LAYOUT_DEVICE = os.environ.get("GLM_OCR_LAYOUT_DEVICE", "cpu").strip() or "cpu"
 # Seconds the SDK waits on a single region. A dense table region can run to
 # thousands of tokens, which on CPU is many minutes.
 REGION_TIMEOUT = int(os.environ.get("GLM_OCR_REGION_TIMEOUT", "1800"))
@@ -65,7 +68,7 @@ parser = GlmOcr(
     mode="selfhosted",
     ocr_api_host="127.0.0.1",
     ocr_api_port=MODEL_PORT,
-    layout_device="cpu",
+    layout_device=LAYOUT_DEVICE,
     _dotted={
         "pipeline.layout.model_dir": LAYOUT_MODEL,
         "pipeline.page_loader.pdf_dpi": PDF_DPI,
