@@ -140,10 +140,25 @@ def setup() -> bool:
     return True
 
 
+def make_venv(step: str, path: Path, system_site: bool) -> int:
+    """A virtualenv with pip in it. Kaggle's Python has no working `ensurepip`, so
+    the stdlib `venv` fails there (run v2); `virtualenv` brings its own pip."""
+    if sh(f"{step}:virtualenv", [sys.executable, "-m", "pip", "install", "-q", "virtualenv"]) != 0:
+        return 1
+    return sh(step, [sys.executable, "-m", "virtualenv", "-q", *(["--system-site-packages"] if system_site else []),
+                     str(path)])
+
+
+def wanted(group: str) -> bool:
+    """Leg groups to run: all, or those listed in the dataset's LEGS file (push_e2e.sh LEGS=...)."""
+    chosen = REPO / "LEGS"
+    return not chosen.exists() or group in chosen.read_text().replace(",", " ").split()
+
+
 def docling_setup() -> Path | None:
     """docling-serve in its own virtualenv (its pins never touch the backend's)."""
     venv = WORK / "docling-venv"
-    if sh("docling:venv", [sys.executable, "-m", "venv", "--system-site-packages", str(venv)]) != 0 or \
+    if make_venv("docling:venv", venv, system_site=True) != 0 or \
             sh("docling:install", [str(venv / "bin" / "python"), "-m", "pip", "install", "-q", DOCLING_SERVE],
                timeout=3600) != 0:
         return None
@@ -189,6 +204,29 @@ def main() -> None:
        "'^(torch|torchvision|transformers|timm|pymupdf|pymupdf4llm|opencv-python-headless) '")
 
     # 1. The image's path, in process.
+    if wanted("image"):
+        image_legs()
+
+    docling = docling_setup() if wanted("docling") else None
+    if docling:
+        docling_leg(docling, "docling-gpu", {"DOCLING_DEVICE": "cuda"})
+
+    if wanted("glm") or wanted("vllm"):
+        glm_legs()
+
+    # 4. docling on CPU last: the longest leg, and the one the time budget may cut.
+    if docling:
+        docling_leg(docling, "docling-cpu", {**CPU_ONLY, "DOCLING_DEVICE": "cpu"})
+
+    sampler.terminate()
+    # Kaggle keeps all of /kaggle/working as the kernel's output: leave only the results.
+    for scratch in ("docling-venv", "vllm-venv", "wiseau"):
+        shutil.rmtree(WORK / scratch, ignore_errors=True)
+    shutil.make_archive(str(WORK / "outputs"), "zip", OUT)
+    log("done")
+
+
+def image_legs() -> None:
     leg("image-cpu1", {**IMAGE_ENV, **CPU_ONLY, "WISEAU_TABLE_THREADS": "1", "WISEAU_LAYOUT_THREADS": "1"},
         "--docs", DOCS_IMAGE)
     leg("image-cpu4", {**IMAGE_ENV, **CPU_ONLY, "WISEAU_TABLE_THREADS": "4", "WISEAU_LAYOUT_THREADS": "4"},
@@ -198,10 +236,8 @@ def main() -> None:
     leg("image-gpu-repeat", {**IMAGE_ENV, "WISEAU_TABLE_THREADS": "1", "WISEAU_LAYOUT_THREADS": "1"},
         "--device", "cuda")
 
-    docling = docling_setup()
-    if docling:
-        docling_leg(docling, "docling-gpu", {"DOCLING_DEVICE": "cuda"})
 
+def glm_legs() -> None:
     # 3. GLM-OCR: the service and its transformers model server, over HTTP.
     glm = REPO / "glm-ocr"
     client_env = {"WISEAU_GLM_OCR_BASE": "http://127.0.0.1:7860", "WISEAU_GLM_OCR_TIMEOUT": "7200", **CPU_ONLY}
@@ -213,7 +249,7 @@ def main() -> None:
                                       "GLM_OCR_LAYOUT_DEVICE": "cuda"}, ["--pages", GLM_SAMPLE]),
                 ("glm-ocr-cpu", {**CPU_ONLY, "GLM_OCR_DEVICE": "cpu", "GLM_OCR_DTYPE": "float32",
                                  "GLM_OCR_THREADS": "4"}, ["--pages", GLM_SAMPLE]))
-        for name, device_env, extra in runs:
+        for name, device_env, extra in (runs if wanted("glm") else ()):
             env = {"GLM_OCR_PORT": "8080", "PORT": "7860", "GLM_OCR_MAX_PAGES": "500", "GLM_OCR_MAX_FILE_MB": "100",
                    **device_env}
             model = start(f"{name}:model", [sys.executable, str(glm / "model_server.py")], env, OUT / f"{name}-model.log")
@@ -227,9 +263,9 @@ def main() -> None:
             stop(model)
 
         # 3b. Optional: vLLM serving the model in place of model_server.py (own virtualenv).
-        if os.environ.get("RUN_VLLM") == "1" or (REPO / "RUN_VLLM").exists():
+        if wanted("vllm") and (os.environ.get("RUN_VLLM") == "1" or (REPO / "RUN_VLLM").exists()):
             vvenv = WORK / "vllm-venv"
-            if sh("vllm:venv", [sys.executable, "-m", "venv", str(vvenv)]) == 0 and \
+            if make_venv("vllm:venv", vvenv, system_site=False) == 0 and \
                     sh("vllm:install", [str(vvenv / "bin" / "python"), "-m", "pip", "install", "-q", VLLM],
                        timeout=3600) == 0:
                 model = start("glm-ocr-vllm:model", [str(vvenv / "bin" / "vllm"), "serve", "zai-org/GLM-OCR",
@@ -248,13 +284,6 @@ def main() -> None:
                 stop(service)
                 stop(model)
 
-    # 4. docling on CPU last: the longest leg, and the one the time budget may cut.
-    if docling:
-        docling_leg(docling, "docling-cpu", {**CPU_ONLY, "DOCLING_DEVICE": "cpu"})
-
-    sampler.terminate()
-    shutil.make_archive(str(WORK / "outputs"), "zip", OUT)
-    log("done")
 
 
 if __name__ == "__main__":

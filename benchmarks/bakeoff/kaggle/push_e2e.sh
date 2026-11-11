@@ -36,6 +36,8 @@ cp "$ROOT/benchmarks/bakeoff/regions.py" "$T/benchmarks/bakeoff/"
 cp "$HERE/e2e.py" "$HERE/gpu_device.py" "$T/benchmarks/bakeoff/kaggle/"
 cp -r "$ROOT/pdf-test/." "$T/pdf-test/"
 if [[ "${RUN_VLLM:-1}" == "1" ]]; then touch "$T/RUN_VLLM"; fi   # e2e_kernel.py checks for it
+# LEGS="docling vllm" runs only those leg groups (image, docling, glm, vllm); unset runs all.
+if [[ -n "${LEGS:-}" ]]; then echo "$LEGS" > "$T/LEGS"; fi
 tar -C "$STAGE/tree" -cf "$STAGE/data/e2e.tar" wiseau
 cat > "$STAGE/data/dataset-metadata.json" <<EOF
 {"title": "wiseau-gpu-e2e", "id": "$DATASET", "licenses": [{"name": "other"}]}
