@@ -1,0 +1,338 @@
+{
+  "V16_p11": {
+    "engine": "pymupdf",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 360.1,
+    "ok": true,
+    "seconds": 0.39
+  },
+  "V16_p25": {
+    "engine": "pymupdf",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 360.1,
+    "ok": true,
+    "seconds": 0.19
+  },
+  "V16_p34": {
+    "engine": "pymupdf",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 360.1,
+    "ok": true,
+    "seconds": 0.32
+  },
+  "V16_p90": {
+    "engine": "pymupdf",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 360.1,
+    "ok": true,
+    "seconds": 0.25
+  },
+  "V2_p11": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 10.16
+  },
+  "V2_p12": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 11.23
+  },
+  "V2_p14": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 9.02
+  },
+  "V2_p17": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 10.72
+  },
+  "V2_p2": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 6.17
+  },
+  "V2_p20": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 10.0
+  },
+  "V2_p21": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 7.91
+  },
+  "V2_p23": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 9.92
+  },
+  "V2_p4": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 13.01
+  },
+  "V2_p6": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 11.83
+  },
+  "V2_p8": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 7.59
+  },
+  "V2_p9": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 8.83
+  },
+  "V4_p10": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 11.01
+  },
+  "V4_p11": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 11.28
+  },
+  "V4_p14": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 11.79
+  },
+  "V4_p17": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 11.07
+  },
+  "V4_p19": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 11.42
+  },
+  "V4_p22": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 10.72
+  },
+  "V4_p23": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 10.19
+  },
+  "V4_p25": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 8.79
+  },
+  "V4_p26": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 7.78
+  },
+  "V4_p27": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 11.8
+  },
+  "V4_p3": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 6.99
+  },
+  "V4_p32": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 5.12
+  },
+  "V4_p7": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 12.75
+  },
+  "V4_p8": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 12.76
+  },
+  "V5N1_p11": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 12.26
+  },
+  "V5N1_p18": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 9.68
+  },
+  "V5N1_p19": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 10.81
+  },
+  "V5N1_p20": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 8.7
+  },
+  "V5N1_p24": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 11.75
+  },
+  "V5N1_p9": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 13.96
+  },
+  "V5N3_p12": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 11.99
+  },
+  "V5N3_p17": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 12.82
+  },
+  "V5N3_p19": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 8.65
+  },
+  "V5N3_p23": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 11.56
+  },
+  "V5N3_p24": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 9.65
+  },
+  "V5N3_p4": {
+    "engine": "ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": 1112.4,
+    "ok": true,
+    "seconds": 10.91
+  }
+}

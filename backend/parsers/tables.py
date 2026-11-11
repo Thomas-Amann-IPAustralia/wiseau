@@ -47,6 +47,7 @@ from typing import NamedTuple, Optional, Sequence
 import pymupdf
 
 from . import document as ir
+from . import model_lock
 from .reading_order import Line
 from .tesseract_layout import Word
 
@@ -157,31 +158,32 @@ def _load():
     """Both models, loaded once per process (a few seconds; about 600 MB)."""
     with _lock:
         if not _models:
-            import torch
-            from transformers import TableTransformerForObjectDetection
-            from transformers.utils import logging as hf_logging
+            with model_lock.LOAD_LOCK:   # never two model loads at once (ADR-056)
+                import torch
+                from transformers import TableTransformerForObjectDetection
+                from transformers.utils import logging as hf_logging
 
-            started = time.perf_counter()
-            # The checkpoints carry three unused batch-norm counters; transformers
-            # warns about them at length on every load. They are expected.
-            hf_logging.set_verbosity_error()
-            hf_logging.disable_progress_bar()
-            torch.set_num_threads(THREADS)
-            loaded = {}
-            # No ImageNet backbone download: the checkpoints hold the full weights.
-            # transformers 4.x takes this as a keyword; 5.x moved it into the
-            # checkpoint's backbone config (already false there) and rejects the
-            # keyword (ADR-048).
-            for key, (name, revision) in (("detect", DETECT_MODEL), ("structure", STRUCTURE_MODEL)):
-                kwargs = {"use_pretrained_backbone": False} if _TRANSFORMERS_MAJOR < 5 else \
-                    {"config": _config_5x(name, revision)}
-                loaded[key] = TableTransformerForObjectDetection.from_pretrained(
-                    name, revision=revision, **kwargs).eval()
-            loaded["mean"] = torch.tensor([0.485, 0.456, 0.406]).view(3, 1, 1)
-            loaded["std"] = torch.tensor([0.229, 0.224, 0.225]).view(3, 1, 1)
-            _models.update(loaded)
-            logger.info("Table Transformer loaded", extra={"wiseau": {
-                "threads": THREADS, "seconds": round(time.perf_counter() - started, 1)}})
+                started = time.perf_counter()
+                # The checkpoints carry three unused batch-norm counters; transformers
+                # warns about them at length on every load. They are expected.
+                hf_logging.set_verbosity_error()
+                hf_logging.disable_progress_bar()
+                torch.set_num_threads(THREADS)
+                loaded = {}
+                # No ImageNet backbone download: the checkpoints hold the full weights.
+                # transformers 4.x takes this as a keyword; 5.x moved it into the
+                # checkpoint's backbone config (already false there) and rejects the
+                # keyword (ADR-048).
+                for key, (name, revision) in (("detect", DETECT_MODEL), ("structure", STRUCTURE_MODEL)):
+                    kwargs = {"use_pretrained_backbone": False} if _TRANSFORMERS_MAJOR < 5 else \
+                        {"config": _config_5x(name, revision)}
+                    loaded[key] = TableTransformerForObjectDetection.from_pretrained(
+                        name, revision=revision, **kwargs).eval()
+                loaded["mean"] = torch.tensor([0.485, 0.456, 0.406]).view(3, 1, 1)
+                loaded["std"] = torch.tensor([0.229, 0.224, 0.225]).view(3, 1, 1)
+                _models.update(loaded)
+                logger.info("Table Transformer loaded", extra={"wiseau": {
+                    "threads": THREADS, "seconds": round(time.perf_counter() - started, 1)}})
         return _models
 
 
@@ -464,7 +466,18 @@ def detect(page: pymupdf.Page) -> list[Detection]:
 
     The expensive half of the pass (model inference); `regions_from` does the rest.
     """
-    img = _render(page)
+    return detect_image(_render(page))
+
+
+def render(page: pymupdf.Page):
+    """The page image `detect_image` reads. Split from it so the OCR engine can
+    render on its own thread (MuPDF is not thread-safe) and run the models beside
+    OCR (ADR-056)."""
+    return _render(page)
+
+
+def detect_image(img) -> list[Detection]:
+    """`detect` on an already rendered page image (no MuPDF call)."""
     scale = 72.0 / RENDER_DPI
     out: list[Detection] = []
     for label, score, box_px in _predict("detect", img, DETECT_SIZE, DETECT_THRESHOLD):
@@ -516,9 +529,11 @@ def regions_from(detections: Sequence[Detection], words: Sequence[Word], present
     return regions
 
 
-def read_tables(page: pymupdf.Page, words: Sequence[Word], present: Sequence[Line]) -> list[Region]:
-    """Every table the detector finds on ``page``, read into cells and checked."""
-    return regions_from(detect(page), words, present)
+def read_tables(page: pymupdf.Page, words: Sequence[Word], present: Sequence[Line],
+                detections: Optional[Sequence[Detection]] = None) -> list[Region]:
+    """Every table the detector finds on ``page``, read into cells and checked.
+    ``detections``, when given, are the detector's already (ADR-056)."""
+    return regions_from(detect(page) if detections is None else detections, words, present)
 
 
 # --- the IR pass ------------------------------------------------------------------

@@ -21,6 +21,74 @@ one `Superseded`.
 
 ---
 
+## ADR-056 — No GPU for now; overlap a scanned page's CPU stages instead
+**Date:** 2026-11-11 · **Status:** Accepted (the user asked whether a GPU is worth it, end to end, then for the CPU-side work)
+**Context:**
+- The user wanted to know whether running part of the pipeline on a GPU, as an
+  opt-in, would pay off. Earlier GPU figures were per model (PP-DocLayoutV3
+  0.14 s a page on a T4). This measured whole conversions through the backend,
+  CPU then GPU on one Kaggle T4, on the 42 reference pages of sets A–D and two
+  whole journals (`docs/benchmarks/2026-11-11-gpu-e2e.md`; harness
+  `benchmarks/bakeoff/kaggle/`).
+- Results:
+  - **Default path:** 15.1 → 10.4 s a scanned page (CPU 1 thread → GPU), nothing
+    on born-digital pages. 3 of 42 pages come out differently on the GPU: same
+    words, a heading or paragraph moved by the layout boxes' last bits.
+  - **docling:** 41.9 → 6.5 s a scanned page, accuracy unchanged (wer 0.27),
+    against the default path's 0.06.
+  - **GLM-OCR:** 200 → 31 s (transformers), 12.4 s with vLLM; wer 0.085.
+- On these documents a GPU makes the ML engines fast but not more faithful. The
+  default path's remaining cost is mostly Tesseract, which has no GPU path. A
+  scanned page takes 12.1 s on 4 CPUs: guard OCR 4.5, layout 2.9, psm 3 2.8,
+  tables 1.8. These four stages ran one after another, though three need only
+  the page image.
+**Decision:**
+- **No GPU work, opt-in or otherwise, until an engine is shown to be more
+  faithful than the default path** on documents that matter. Complex
+  born-digital layouts are the open case; this sample had four born-digital
+  pages. The Kaggle harness stays as the way to measure one.
+- **Overlap the stages** (`parsers/ocr.py`, `_Steps`):
+  - psm 3's Tesseract run and both model passes' inference go to worker threads,
+    while MuPDF's OCR reads the guard on the calling thread.
+  - Every page image is still rendered on the calling thread (MuPDF is not
+    thread-safe).
+  - Results are combined in the same order.
+  - `layout`, `tables` and `tesseract_layout` split rendering from inference;
+    `read_layout` / `read_tables` / `read_page_layout` take precomputed results.
+- **`WISEAU_OCR_OVERLAP`:** `auto` (default) overlaps when at least 2 CPUs are
+  available, counting a cgroup v2 quota; `1` / `0` force it.
+- **Model loads never overlap** (`parsers/model_lock.py`):
+  - The first run on 2 CPUs loaded the table and layout models at the same
+    moment. transformers 5.x's meta-device initialisation left the layout model
+    with `meta` tensors, so every later page silently lost its layout pass.
+  - Both loaders now hold one lock, and the engine loads the enabled models on
+    the calling thread before any inference starts beside OCR.
+  - The same window exists without overlap when concurrent scanned conversions
+    cold-start together. Not reproduced on `main`; closed either way.
+**Consequences:**
+- Same machine (4 vCPU), sets A–D:
+  - 11.7 → **8.3 s** a scanned page on 4 CPUs; Vol 4 No 1 (36 pages) 430 → 308 s;
+  - 12.0 → 8.8 s on 2 CPUs;
+  - on 1 CPU overlap would cost 11.6 → 12.3 s, hence `auto`;
+  - four conversions at once on 4 CPUs: unchanged (58 s for 8 pages), the cores
+    were already busy.
+- **Byte-identical to `main`:**
+  - 42/42 pages and the whole 36-page document, overlap on and off;
+  - on 1 and 2 CPUs;
+  - eight pages converted four at a time from a cold start.
+- 614 tests (5 new).
+- At most two model inferences per conversion now run together (one before),
+  so peak memory under concurrent load can rise somewhat; not measured.
+- `auto` reads `/sys/fs/cgroup/cpu.max`. Whether Cloud Run exposes it there is
+  unverified: on a 1-vCPU host set `WISEAU_OCR_OVERLAP=0` explicitly
+  (`docs/hosting.md`).
+- Not done: raising `WISEAU_TABLE_THREADS` from 1 to 4. Byte-identical on 44/44
+  files in both Kaggle runs (12.6 vs 15.1 s a page), but earlier harness runs saw
+  one page round differently at 4 threads. With overlap the passes are off the
+  critical path anyway, and threads compete with overlap for cores.
+
+---
+
 ## ADR-055 — Structure passes on in the image; reader mode per request; the bundle in the UI
 **Date:** 2026-11-11 · **Status:** Accepted (the user, on the recommendation after ADR-049..054)
 **Context:** ADR-049..054 shipped the structure passes off everywhere and left

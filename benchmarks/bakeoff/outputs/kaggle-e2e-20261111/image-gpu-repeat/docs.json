@@ -1,0 +1,17 @@
+{
+  "device": "cuda",
+  "docs": {},
+  "engine": "pymupdf",
+  "leg": "image-gpu-repeat",
+  "pages": {
+    "n": 42,
+    "ok": 42,
+    "seconds_total": 393.8
+  },
+  "warmup": {
+    "engine": "ocr",
+    "fell_back": false,
+    "page": "V2_p6",
+    "seconds": 20.81
+  }
+}

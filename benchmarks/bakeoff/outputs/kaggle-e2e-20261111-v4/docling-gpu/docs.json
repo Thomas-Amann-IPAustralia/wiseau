@@ -1,0 +1,28 @@
+{
+  "device": "cpu",
+  "docs": {
+    "Volume 4 Number 1.pdf": {
+      "chars": 211934,
+      "engine": "docling",
+      "error": null,
+      "fell_back": false,
+      "gpu_peak_mb": null,
+      "pages": 36,
+      "s_per_page": 6.06,
+      "seconds": 218.14
+    }
+  },
+  "engine": "docling",
+  "leg": "docling-gpu",
+  "pages": {
+    "n": 42,
+    "ok": 42,
+    "seconds_total": 268.4
+  },
+  "warmup": {
+    "engine": "docling",
+    "fell_back": false,
+    "page": "V2_p6",
+    "seconds": 12.04
+  }
+}

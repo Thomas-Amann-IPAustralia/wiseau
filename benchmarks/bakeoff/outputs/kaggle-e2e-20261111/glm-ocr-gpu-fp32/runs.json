@@ -1,0 +1,26 @@
+{
+  "V2_p9": {
+    "engine": "glm-ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 17.04
+  },
+  "V4_p27": {
+    "engine": "glm-ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 39.32
+  },
+  "V5N1_p18": {
+    "engine": "glm-ocr",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 37.64
+  }
+}

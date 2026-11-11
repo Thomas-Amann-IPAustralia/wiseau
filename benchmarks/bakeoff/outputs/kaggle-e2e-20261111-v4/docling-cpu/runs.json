@@ -1,0 +1,338 @@
+{
+  "V16_p11": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 74.04
+  },
+  "V16_p25": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 14.02
+  },
+  "V16_p34": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 4.01
+  },
+  "V16_p90": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 16.01
+  },
+  "V2_p11": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 32.01
+  },
+  "V2_p12": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 24.01
+  },
+  "V2_p14": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 56.02
+  },
+  "V2_p17": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 56.02
+  },
+  "V2_p2": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 32.01
+  },
+  "V2_p20": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 42.01
+  },
+  "V2_p21": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 34.01
+  },
+  "V2_p23": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 32.01
+  },
+  "V2_p4": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 42.01
+  },
+  "V2_p6": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 38.01
+  },
+  "V2_p8": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 28.02
+  },
+  "V2_p9": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 32.01
+  },
+  "V4_p10": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 48.02
+  },
+  "V4_p11": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 38.02
+  },
+  "V4_p14": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 98.04
+  },
+  "V4_p17": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 34.01
+  },
+  "V4_p19": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 48.01
+  },
+  "V4_p22": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 46.02
+  },
+  "V4_p23": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 44.02
+  },
+  "V4_p25": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 36.01
+  },
+  "V4_p26": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 24.01
+  },
+  "V4_p27": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 36.01
+  },
+  "V4_p3": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 18.02
+  },
+  "V4_p32": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 24.01
+  },
+  "V4_p7": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 42.02
+  },
+  "V4_p8": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 44.02
+  },
+  "V5N1_p11": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 58.03
+  },
+  "V5N1_p18": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 40.01
+  },
+  "V5N1_p19": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 54.02
+  },
+  "V5N1_p20": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 52.02
+  },
+  "V5N1_p24": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 58.02
+  },
+  "V5N1_p9": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 52.03
+  },
+  "V5N3_p12": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 44.02
+  },
+  "V5N3_p17": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 44.01
+  },
+  "V5N3_p19": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 40.02
+  },
+  "V5N3_p23": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 44.01
+  },
+  "V5N3_p24": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 38.02
+  },
+  "V5N3_p4": {
+    "engine": "docling",
+    "error": null,
+    "fell_back": false,
+    "gpu_peak_mb": null,
+    "ok": true,
+    "seconds": 38.01
+  }
+}

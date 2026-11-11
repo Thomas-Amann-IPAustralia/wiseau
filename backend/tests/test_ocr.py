@@ -229,3 +229,56 @@ def test_scanned_pages_convert_concurrently():
         outs = list(pool.map(pdf_to_markdown, data))
     for i, out in enumerate(outs):
         assert "Concurrent" in out, out
+
+
+def test_overlap_setting(monkeypatch):
+    """WISEAU_OCR_OVERLAP: forced on/off, or `auto` (the default) on 2+ CPUs (ADR-056)."""
+    from parsers import ocr
+
+    monkeypatch.setattr(ocr, "available_cpus", lambda: 1)
+    monkeypatch.delenv("WISEAU_OCR_OVERLAP", raising=False)
+    assert ocr._overlap_setting() is False
+    monkeypatch.setenv("WISEAU_OCR_OVERLAP", "1")
+    assert ocr._overlap_setting() is True
+    monkeypatch.setattr(ocr, "available_cpus", lambda: 4)
+    monkeypatch.setenv("WISEAU_OCR_OVERLAP", "auto")
+    assert ocr._overlap_setting() is True
+    monkeypatch.setenv("WISEAU_OCR_OVERLAP", "0")
+    assert ocr._overlap_setting() is False
+
+
+def test_available_cpus_reads_a_container_quota(monkeypatch, tmp_path):
+    """A cgroup v2 quota (Cloud Run's 1 vCPU) caps the CPUs the affinity mask shows."""
+    import builtins
+
+    from parsers import ocr
+
+    quota = tmp_path / "cpu.max"
+    real_open = builtins.open
+    monkeypatch.setattr(ocr.os, "sched_getaffinity", lambda pid: {0, 1, 2, 3}, raising=False)
+    monkeypatch.setattr(builtins, "open",
+                        lambda path, *a, **k: real_open(quota if path == "/sys/fs/cgroup/cpu.max" else path, *a, **k))
+    quota.write_text("100000 100000\n")
+    assert ocr.available_cpus() == 1
+    quota.write_text("200000 100000\n")
+    assert ocr.available_cpus() == 2
+    quota.write_text("max 100000\n")
+    assert ocr.available_cpus() == 4
+    quota.write_text("50000 100000\n")      # half a CPU still counts as one
+    assert ocr.available_cpus() == 1
+
+
+def test_overlap_and_sequential_steps_agree():
+    """The two ways of running a page's steps return the same results and raise the same errors."""
+    from parsers import ocr
+
+    for overlap in (False, True):
+        with ocr._Steps(overlap) as steps:
+            ok = steps.start(lambda: 2, lambda x: x * 21)
+            bad_prepare = steps.start(lambda: 1 / 0, lambda x: x)
+            bad_run = steps.start(lambda: 1, lambda x: [][x])
+            assert ok.result() == 42
+            with pytest.raises(ZeroDivisionError):
+                bad_prepare.result()
+            with pytest.raises(IndexError):
+                bad_run.result()

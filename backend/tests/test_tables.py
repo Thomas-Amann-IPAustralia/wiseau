@@ -170,6 +170,8 @@ def test_a_failing_table_pass_degrades_to_the_default(monkeypatch):
     layout_blocks = tesseract_layout.Layout(
         [tesseract_layout._block(_layout(words)[0].lines)], words)
     monkeypatch.setattr(tables, "enabled", lambda: True)
+    # No real model: the engine's up-front load (ADR-056) and the detection both fail.
+    monkeypatch.setattr(tables, "_load", lambda: (_ for _ in ()).throw(OSError("offline")))
     monkeypatch.setattr(tables, "read_tables", lambda *a, **k: (_ for _ in ()).throw(OSError("offline")))
     monkeypatch.setattr(tesseract_layout, "read_page_layout", lambda *a, **k: layout_blocks)
     monkeypatch.setattr(ocr.TesseractEngine, "_geometric_elements", staticmethod(lambda page, **kw: []))

@@ -1,0 +1,38 @@
+{
+  "device": "cpu",
+  "docs": {
+    "Volume 4 Number 1.pdf": {
+      "chars": 126216,
+      "engine": "ocr",
+      "error": null,
+      "fell_back": false,
+      "gpu_peak_mb": null,
+      "pages": 36,
+      "s_per_page": 12.85,
+      "seconds": 462.45
+    },
+    "Volume 5 Number 1.pdf": {
+      "chars": 99278,
+      "engine": "ocr",
+      "error": null,
+      "fell_back": false,
+      "gpu_peak_mb": null,
+      "pages": 31,
+      "s_per_page": 12.28,
+      "seconds": 380.68
+    }
+  },
+  "engine": "pymupdf",
+  "leg": "image-cpu4",
+  "pages": {
+    "n": 42,
+    "ok": 42,
+    "seconds_total": 471.7
+  },
+  "warmup": {
+    "engine": "ocr",
+    "fell_back": false,
+    "page": "V2_p6",
+    "seconds": 23.36
+  }
+}

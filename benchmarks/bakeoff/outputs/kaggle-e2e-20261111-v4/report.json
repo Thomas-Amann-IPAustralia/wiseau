@@ -1,0 +1,107 @@
+{
+  "docling-cpu": {
+    "digital": [
+      27.020000000000003,
+      15.015,
+      74.04
+    ],
+    "docs": {
+      "Volume 4 Number 1.pdf": {
+        "chars": 211825,
+        "engine": "docling",
+        "error": null,
+        "fell_back": false,
+        "gpu_peak_mb": null,
+        "pages": 36,
+        "s_per_page": 49.01,
+        "seconds": 1764.52
+      }
+    },
+    "errors": {},
+    "ok": 42,
+    "pages": 42,
+    "quality": {
+      "bow_r": 0.8806772171022997,
+      "cer": 0.2247031263955105,
+      "n": 42,
+      "num_r": 0.7896621894612545,
+      "wer": 0.2728355405882351
+    },
+    "scans": [
+      41.85815789473684,
+      41.015,
+      98.04
+    ],
+    "warmup": 44.05
+  },
+  "docling-gpu": {
+    "digital": [
+      5.515,
+      3.0149999999999997,
+      14.02
+    ],
+    "docs": {
+      "Volume 4 Number 1.pdf": {
+        "chars": 211934,
+        "engine": "docling",
+        "error": null,
+        "fell_back": false,
+        "gpu_peak_mb": null,
+        "pages": 36,
+        "s_per_page": 6.06,
+        "seconds": 218.14
+      }
+    },
+    "errors": {},
+    "ok": 42,
+    "pages": 42,
+    "quality": {
+      "bow_r": 0.8778958440068808,
+      "cer": 0.22620531695241,
+      "n": 42,
+      "num_r": 0.7851167961436174,
+      "wer": 0.2748957853443276
+    },
+    "scans": [
+      6.483684210526316,
+      6.01,
+      12.01
+    ],
+    "warmup": 12.04
+  },
+  "glm-ocr-vllm": {
+    "digital": [
+      0.315,
+      0.31,
+      0.44
+    ],
+    "docs": {
+      "Volume 4 Number 1.pdf": {
+        "chars": 140057,
+        "engine": "glm-ocr",
+        "error": null,
+        "fell_back": false,
+        "gpu_peak_mb": null,
+        "pages": 36,
+        "s_per_page": 14.06,
+        "seconds": 506.3
+      }
+    },
+    "errors": {},
+    "ok": 42,
+    "pages": 42,
+    "quality": {
+      "bow_r": 0.9414520700591757,
+      "cer": 0.048370006475263905,
+      "n": 42,
+      "num_r": 0.9094677238503626,
+      "wer": 0.08469596199724637
+    },
+    "scans": [
+      12.411052631578947,
+      9.145,
+      35.83
+    ],
+    "warmup": 15.51
+  }
+}

@@ -20,7 +20,12 @@ one text prompt; greedy decoding). It is deliberately small:
   run-to-run variation from this engine, but there is no reason to add it).
 
 Run: ``python model_server.py`` (env: ``GLM_OCR_MODEL``, ``GLM_OCR_PORT``,
-``GLM_OCR_THREADS``, ``GLM_OCR_DTYPE``).
+``GLM_OCR_THREADS``, ``GLM_OCR_DTYPE``, ``GLM_OCR_DEVICE``).
+
+``GLM_OCR_DEVICE`` (default ``cpu``) can name a CUDA device, and
+``GLM_OCR_DTYPE=float16`` is accepted for GPUs without native bfloat16 (a T4).
+Both exist for the GPU benchmark (``benchmarks/bakeoff/kaggle/e2e_kernel.py``);
+the Space stays on CPU.
 """
 
 from __future__ import annotations
@@ -45,13 +50,15 @@ PORT = int(os.environ.get("GLM_OCR_PORT", "8080"))
 THREADS = int(os.environ.get("GLM_OCR_THREADS", str(os.cpu_count() or 2)))
 # bfloat16 halves memory and is usually faster on CPUs with AVX512-BF16/AMX;
 # float32 is the safe default everywhere else.
-DTYPE = {"bfloat16": torch.bfloat16, "float32": torch.float32}[os.environ.get("GLM_OCR_DTYPE", "float32")]
+DTYPE = {"bfloat16": torch.bfloat16, "float16": torch.float16,
+         "float32": torch.float32}[os.environ.get("GLM_OCR_DTYPE", "float32")]
+DEVICE = os.environ.get("GLM_OCR_DEVICE", "cpu").strip() or "cpu"
 MAX_NEW_TOKENS_CAP = int(os.environ.get("GLM_OCR_MAX_NEW_TOKENS", "4096"))
 
 torch.set_num_threads(THREADS)
 
 processor = AutoProcessor.from_pretrained(MODEL_ID)
-model = GlmOcrForConditionalGeneration.from_pretrained(MODEL_ID, dtype=DTYPE)
+model = GlmOcrForConditionalGeneration.from_pretrained(MODEL_ID, dtype=DTYPE).to(DEVICE)
 model.eval()
 _lock = threading.Lock()
 
@@ -102,6 +109,7 @@ def chat_completions():
             messages, tokenize=True, add_generation_prompt=True, return_dict=True, return_tensors="pt"
         )
         inputs.pop("token_type_ids", None)
+        inputs = inputs.to(DEVICE)
         with torch.inference_mode():
             output = model.generate(
                 **inputs, max_new_tokens=max_new, do_sample=False, repetition_penalty=repetition_penalty
