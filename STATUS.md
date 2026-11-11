@@ -5,7 +5,7 @@
 > session. Keep it honest — "scaffolded but untested" is more useful than a
 > green checkmark that lies.
 
-**Last updated:** 2026-11-11 (ninth session: roadmap Tier 3 structure recovery, ADR-049..055, `POST /convert/bundle`, per-request reader mode, API 0.16.0; eighth session: Kaggle T4 run of OvisOCR3, experiment closed; seventh session: 3.7b layout-region spike, CPU leg, held-out set T, then ADR-048 shipping the layout detector in the image; sixth session: planning only, OvisOCR3/TeleOCR assessment; fifth session: ADR-047, table pass on in the Docker image; MuPDF OCR concurrency fix)
+**Last updated:** 2026-11-11 (tenth session: GPU worth it? end-to-end Kaggle T4 runs, verdict no; ADR-056 overlaps a scanned page's CPU stages, 11.7 → 8.3 s; ninth session: roadmap Tier 3 structure recovery, ADR-049..055, `POST /convert/bundle`, per-request reader mode, API 0.16.0; eighth session: Kaggle T4 run of OvisOCR3, experiment closed; seventh session: 3.7b layout-region spike, CPU leg, held-out set T, then ADR-048 shipping the layout detector in the image; sixth session: planning only, OvisOCR3/TeleOCR assessment; fifth session: ADR-047, table pass on in the Docker image; MuPDF OCR concurrency fix)
 
 **Live check (2026-11-11, after PR #35 merged):**
 - Cloud Run redeployed from `main` about 8½ minutes after the merge; `/ping` reports **0.16.0**. GitHub Pages updated within a minute (Reader mode and Save with figures present).
@@ -16,6 +16,34 @@
 - **A real scan, V4N1 p7, through tables + layout + structure:** heading levels came back as `#` Applications, `##` a) Descriptions Finalised, `###` Diagnosis, ...; the table came back as a pipe table. It took 54 s the first time (model load) and **22 s warm**, against ADR-048's 13 s on 4 vCPU, so the service likely has fewer CPUs.
 
 **Deployment fact (2026-11-11, corrects older notes below that say nothing is deployed):** The backend is live on **Google Cloud Run**: `https://wiseau-backend-959916124433.europe-west1.run.app`. `/ping` answered `ok`, version 0.14.0, `available_engines` `["docling","pymupdf"]`. The web UI is live on GitHub Pages: `https://thomas-amann-ipaustralia.github.io/wiseau/`, with `config.js` pointing at that Cloud Run URL. Both follow `main`. Check `/ping`'s `version` after a merge to see whether a redeploy has landed. Memory and environment settings of the Cloud Run service are not visible from a session.
+
+**Build note (2026-11-11, ADR-056, no API change):** The user asked whether running part of the processing on a GPU, opt-in, is worth it, measured end to end. It isn't, on these documents. [`docs/benchmarks/2026-11-11-gpu-e2e.md`](docs/benchmarks/2026-11-11-gpu-e2e.md).
+
+Kaggle T4, CPU then GPU on one machine, the backend's real conversion on sets A–D (42 pages) and whole journals:
+- **Default path:** 15.1 → 10.4 s a scanned page. On the GPU 3 of 42 pages move a heading or paragraph.
+- **docling:** 41.9 → 6.5 s a scanned page, wer 0.27 either way.
+- **GLM-OCR:** 12.4 s with vLLM, wer 0.085.
+- **Default path accuracy for comparison:** wer 0.063. No page fell back. v3 replicated v2 within 2%.
+
+Then the user asked for the CPU-side work. **A scanned page's stages now overlap** (`parsers/ocr.py`, `WISEAU_OCR_OVERLAP`, default `auto` = 2+ CPUs):
+- psm 3 and both models' inference run beside MuPDF's OCR;
+- 11.7 → 8.3 s a scanned page on 4 CPUs, 12.0 → 8.8 on 2, Vol 4 No 1 430 → 308 s.
+
+Verified:
+- **Byte-identical to `main` (`21ba98d`):**
+  - 42/42 pages and the 36-page document;
+  - 1 and 2 CPUs, overlap on and off;
+  - 8 pages converted 4 at a time from a cold start.
+- 614 tests pass, 8 skipped.
+
+Found and fixed: concurrent model loads (transformers 5.x meta init) left the layout model broken for the process; loads now share `parsers/model_lock.py`, and the engine loads models before any inference.
+
+Not verified:
+- whether `auto` sees Cloud Run's CPU quota (the hosting guide says to set `0` on 1 vCPU);
+- memory under concurrent load;
+- the Docker image (no daemon here).
+
+Harness changes: `glm-ocr/` gained opt-in `GLM_OCR_DEVICE`, `GLM_OCR_LAYOUT_DEVICE` and float16 (defaults unchanged).
 
 **Build note (2026-11-11, ADR-055, API 0.16.0):** The user accepted the recommendation after Tier 3:
 - **The image now sets `WISEAU_STRUCTURE=all`**, the lean build included. Faithful mode is still the default.

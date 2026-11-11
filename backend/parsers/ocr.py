@@ -75,9 +75,39 @@ _MUPDF_OCR_LOCK = threading.Lock()
 # and the models' inference move to worker threads. Each computes exactly what it
 # computed before, and the results are combined in the same order, so the
 # Markdown is unchanged: only the wall-clock time is. With one CPU there is
-# nothing to overlap, so `WISEAU_OCR_OVERLAP=0` runs the stages in sequence, in
-# the old order.
-OVERLAP = os.environ.get("WISEAU_OCR_OVERLAP", "1").strip().lower() not in {"0", "false", "no", "off"}
+# nothing to overlap: `WISEAU_OCR_OVERLAP=0` runs the stages in sequence, in
+# the old order. The default, `auto`, overlaps only with 2+ CPUs available.
+# Measured (sets A-D, 2026-11-11): 11.7 -> 8.3 s a scanned page on 4 CPUs, 12.0 ->
+# 8.8 on 2, but 11.6 -> 12.3 on 1, where overlapping only adds overhead.
+
+
+def available_cpus() -> int:
+    """CPUs this process can use: its affinity, capped by a cgroup v2 CPU quota (a
+    container limit such as Cloud Run's, which `os.cpu_count()` does not see)."""
+    try:
+        cpus = len(os.sched_getaffinity(0))
+    except (AttributeError, OSError):
+        cpus = os.cpu_count() or 1
+    try:
+        with open("/sys/fs/cgroup/cpu.max") as handle:
+            quota, period = handle.read().split()[:2]
+        if quota != "max":
+            cpus = min(cpus, max(1, int(int(quota) / int(period))))
+    except (OSError, ValueError):
+        pass
+    return max(1, cpus)
+
+
+def _overlap_setting() -> bool:
+    value = os.environ.get("WISEAU_OCR_OVERLAP", "auto").strip().lower()
+    if value in {"0", "false", "no", "off"}:
+        return False
+    if value in {"1", "true", "yes", "on"}:
+        return True
+    return available_cpus() >= 2
+
+
+OVERLAP = _overlap_setting()
 
 
 def _load_models() -> None:

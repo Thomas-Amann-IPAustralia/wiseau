@@ -668,6 +668,16 @@ No paid API is used for this work unless the user says otherwise.
   image (`WISEAU_STRUCTURE=all`), `reader` per request (API 0.16.0), the bundle
   in the UI. Open: contents-page nesting, footnotes on scans (both need a gold
   set with such documents first), merging continued tables.
+- [x] **GPU, end to end (2026-11-11), ADR-056.** Kaggle T4, CPU vs GPU on one
+  machine, whole conversions (`benchmarks/bakeoff/kaggle/e2e*.py`): default path
+  15.1 → 10.4 s a scanned page (3/42 pages differ on GPU), docling 41.9 → 6.5 s
+  (wer 0.27 either way), GLM-OCR 12.4 s with vLLM (wer 0.085), default path wer
+  0.063. **No GPU work until an engine is more faithful than the default path.**
+  Instead the CPU stages of a scanned page now overlap (`WISEAU_OCR_OVERLAP`,
+  `auto`): 11.7 → 8.3 s on 4 CPUs, byte-identical. Write-up:
+  `docs/benchmarks/2026-11-11-gpu-e2e.md`. Open: a gold set of complex
+  born-digital documents, to see whether docling (or another engine) beats the
+  default path where a GPU would then matter; raising `WISEAU_TABLE_THREADS`.
 
 Started 2026-11-08. Tiered plan, gates and rationale in
 [`roadmap-ocr-and-structure.md`](roadmap-ocr-and-structure.md), drawn from the two
