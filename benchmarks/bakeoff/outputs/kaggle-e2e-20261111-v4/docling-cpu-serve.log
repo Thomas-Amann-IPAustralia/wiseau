@@ -1,0 +1,780 @@
+Starting production server 🚀
+
+Server started at http://127.0.0.1:5001
+Documentation at http://127.0.0.1:5001/docs
+Scalar docs at http://127.0.0.1:5001/scalar
+
+Logs:
+[92mINFO[0m:	21:20:17 - docling.models.factories.base_factory - Loading plugin 'docling_defaults'
+[92mINFO[0m:	21:20:17 - docling.models.factories - Registered ocr engines: ['auto', 'easyocr', 'kserve_v2_ocr', 'nemotron-ocr', 'ocrmac', 'rapidocr', 'tesserocr', 'tesseract']
+[92mINFO[0m:	21:20:17 - docling_jobkit.connectors.connector_factory - Loading connector plugin 'docling_jobkit_defaults'
+[92mINFO[0m:	21:20:18 - docling_jobkit.connectors.plugins.defaults - Connector 'GoogleCloudStorageSourceProcessor' skipped — optional dependency not installed (No module named 'kaggle_gcp'). Install the matching extra to enable it.
+[92mINFO[0m:	21:20:18 - docling_jobkit.connectors.plugins.defaults - Connector 'SharePointSourceProcessor' skipped — optional dependency not installed (No module named 'office365'). Install the matching extra to enable it.
+[92mINFO[0m:	21:20:18 - docling_jobkit.connectors.plugins.defaults - Connector 'BoxSourceProcessor' skipped — optional dependency not installed (No module named 'box_sdk_gen'). Install the matching extra to enable it.
+[92mINFO[0m:	21:20:18 - docling_jobkit.connectors.connector_factory - Loading connector plugin 'docling_jobkit_defaults'
+[92mINFO[0m:	21:20:18 - docling_jobkit.connectors.plugins.defaults - Connector 'GoogleCloudStorageTargetProcessor' skipped — optional dependency not installed (No module named 'kaggle_gcp'). Install the matching extra to enable it.
+[92mINFO[0m:	21:20:18 - docling_jobkit.connectors.plugins.defaults - Connector 'OpenSearchTargetProcessor' skipped — optional dependency not installed (No module named 'opensearchpy'). Install the matching extra to enable it.
+[92mINFO[0m:	21:20:18 - docling_jobkit.connectors.plugins.defaults - Connector 'AstraDBTargetProcessor' skipped — optional dependency not installed (No module named 'astrapy'). Install the matching extra to enable it.
+[92mINFO[0m:	21:20:18 - docling_jobkit.connectors.plugins.defaults - Connector 'SharePointTargetProcessor' skipped — optional dependency not installed (No module named 'office365'). Install the matching extra to enable it.
+[92mINFO[0m:	21:20:18 - docling_jobkit.connectors.plugins.defaults - Connector 'KafkaTargetProcessor' skipped — optional dependency not installed (No module named 'confluent_kafka'). Install the matching extra to enable it.
+[92mINFO[0m:	21:20:18 - docling_jobkit.connectors.plugins.defaults - Connector 'BoxTargetProcessor' skipped — optional dependency not installed (No module named 'box_sdk_gen'). Install the matching extra to enable it.
+[92mINFO[0m:	21:20:18 - docling_serve.otel_instrumentation - Setting up OpenTelemetry metrics
+[92mINFO[0m:	21:20:18 - docling_serve.otel_instrumentation - Enabling Prometheus metrics export
+[92mINFO[0m:	21:20:18 - docling_serve.otel_instrumentation - Instrumenting FastAPI with OpenTelemetry (excluded_urls=/livez$,/health$,/readyz$,/metrics$,/ready$,/healthz$)
+[92mINFO[0m:	21:20:18 - uvicorn.error - Started server process [1660]
+[92mINFO[0m:	21:20:18 - uvicorn.error - Waiting for application startup.
+[92mINFO[0m:	21:20:18 - docling.models.factories.base_factory - Loading plugin 'docling_defaults'
+[92mINFO[0m:	21:20:22 - docling.models.factories - Registered table structure engines: ['docling_tableformer', 'docling_tableformer_v2', 'granite_vision_table']
+[92mINFO[0m:	21:20:22 - docling.models.factories.base_factory - Loading plugin 'docling_defaults'
+[92mINFO[0m:	21:20:22 - docling.models.factories - Registered layout engines: ['layout_object_detection', 'docling_layout_default', 'docling_experimental_table_crops_layout']
+[92mINFO[0m:	21:20:22 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:20:22 - docling.document_converter - Initializing pipeline for StandardPdfPipeline with options hash edc3e047c1527b06530afebd677760be
+[92mINFO[0m:	21:20:22 - docling.models.factories.base_factory - Loading plugin 'docling_defaults'
+[92mINFO[0m:	21:20:22 - docling.models.factories - Registered picture descriptions: ['picture_description_vlm_engine', 'vlm', 'api']
+[92mINFO[0m:	21:20:22 - docling.models.stages.ocr.auto_ocr_model - Nemotron cannot be used because it is not installed.
+[92mINFO[0m:	21:20:22 - docling.models.stages.ocr.auto_ocr_model - rapidocr cannot be used because onnxruntime is not installed.
+[92mINFO[0m:	21:20:22 - docling.utils.accelerator_utils - Accelerator device: 'cpu'
+[92mINFO[0m:	21:20:25 - docling.models.stages.ocr.auto_ocr_model - Auto OCR model selected easyocr.
+[92mINFO[0m:	21:20:25 - docling.models.inference_engines.object_detection.transformers_engine - Initializing Transformers object-detection engine
+[92mINFO[0m:	21:20:25 - docling.models.inference_engines.common.hf_vision_base - Downloading object-detection model from HuggingFace: docling-project/docling-layout-heron@main
+[92mINFO[0m:	21:20:25 - docling.models.utils.hf_model_download - Fetching model docling-project/docling-layout-heron (revision: main)...
+[92mINFO[0m:	21:20:25 - httpx - HTTP Request: GET https://huggingface.co/api/models/docling-project/docling-layout-heron/revision/main "HTTP/1.1 200 OK"
+[92mINFO[0m:	21:20:25 - docling.models.utils.hf_model_download - Model docling-project/docling-layout-heron already cached at /root/.cache/huggingface/hub/models--docling-project--docling-layout-heron/snapshots/8f39ad3c0b4c58e9c2d2c84a38465abf757272d8
+[92mINFO[0m:	21:20:25 - docling.utils.accelerator_utils - Accelerator device: 'cpu'
+Loading weights:   0%|          | 0/770 [00:00<?, ?it/s]Loading weights:  41%|████▏     | 318/770 [00:00<00:00, 3164.24it/s]Loading weights:  82%|████████▏ | 635/770 [00:00<00:00, 3007.44it/s]Loading weights: 100%|██████████| 770/770 [00:00<00:00, 3037.21it/s]
+[92mINFO[0m:	21:20:26 - docling.models.inference_engines.object_detection.transformers_engine - Transformers engine ready (device=cpu, dtype=torch.float32)
+[92mINFO[0m:	21:20:26 - docling.models.utils.hf_model_download - Fetching model docling-project/docling-models (revision: v2.3.0)...
+[92mINFO[0m:	21:20:26 - httpx - HTTP Request: GET https://huggingface.co/api/models/docling-project/docling-models/revision/v2.3.0 "HTTP/1.1 200 OK"
+[92mINFO[0m:	21:20:26 - docling.models.utils.hf_model_download - Model docling-project/docling-models already cached at /root/.cache/huggingface/hub/models--docling-project--docling-models/snapshots/fc0f2d45e2218ea24bce5045f58a389aed16dc23
+[92mINFO[0m:	21:20:26 - docling.utils.accelerator_utils - Accelerator device: 'cpu'
+[92mINFO[0m:	21:20:26 - uvicorn.error - Application startup complete.
+[92mINFO[0m:	21:20:26 - uvicorn.error - Uvicorn running on http://127.0.0.1:5001 (Press CTRL+C to quit)
+[92mINFO[0m:	21:20:28 - docling_serve.app - Health check requested
+[92mINFO[0m:	21:20:28 - uvicorn.access - 127.0.0.1:38528 - "GET /health HTTP/1.1" 200
+[92mINFO[0m:	21:20:30 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:20:30 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:20:30 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:20:30 - docling_serve.app - File 0: name=page.pdf, size=49448 bytes, md5=70ea07a25cca, content_type=application/octet-stream
+[92mINFO[0m:	21:20:30 - docling_serve.app - [TENANT_ID] File task 7622407e-1c14-42ab-96e2-09553eeeea08 created with tenant_id='default'
+[92mINFO[0m:	21:20:30 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 7622407e-1c14-42ab-96e2-09553eeeea08
+[92mINFO[0m:	21:20:30 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:20:30 - docling.document_converter - Initializing pipeline for StandardPdfPipeline with options hash 3c32f089090023ab93c0d80cd6dbc043
+[92mINFO[0m:	21:20:30 - docling.models.stages.ocr.auto_ocr_model - Nemotron cannot be used because it is not installed.
+[92mINFO[0m:	21:20:30 - docling.models.stages.ocr.auto_ocr_model - rapidocr cannot be used because onnxruntime is not installed.
+[92mINFO[0m:	21:20:30 - docling.utils.accelerator_utils - Accelerator device: 'cpu'
+[92mINFO[0m:	21:20:33 - docling.models.stages.ocr.auto_ocr_model - Auto OCR model selected easyocr.
+[92mINFO[0m:	21:20:33 - docling.models.inference_engines.object_detection.transformers_engine - Initializing Transformers object-detection engine
+[92mINFO[0m:	21:20:33 - docling.models.inference_engines.common.hf_vision_base - Downloading object-detection model from HuggingFace: docling-project/docling-layout-heron@main
+[92mINFO[0m:	21:20:33 - docling.models.utils.hf_model_download - Fetching model docling-project/docling-layout-heron (revision: main)...
+[92mINFO[0m:	21:20:33 - httpx - HTTP Request: GET https://huggingface.co/api/models/docling-project/docling-layout-heron/revision/main "HTTP/1.1 200 OK"
+[92mINFO[0m:	21:20:33 - docling.models.utils.hf_model_download - Model docling-project/docling-layout-heron already cached at /root/.cache/huggingface/hub/models--docling-project--docling-layout-heron/snapshots/8f39ad3c0b4c58e9c2d2c84a38465abf757272d8
+[92mINFO[0m:	21:20:33 - docling.utils.accelerator_utils - Accelerator device: 'cpu'
+Loading weights:   0%|          | 0/770 [00:00<?, ?it/s]Loading weights:  41%|████      | 315/770 [00:00<00:00, 3143.54it/s]Loading weights:  82%|████████▏ | 630/770 [00:00<00:00, 3069.28it/s]Loading weights: 100%|██████████| 770/770 [00:00<00:00, 3095.05it/s]
+[92mINFO[0m:	21:20:33 - docling.models.inference_engines.object_detection.transformers_engine - Transformers engine ready (device=cpu, dtype=torch.float32)
+[92mINFO[0m:	21:20:33 - docling.models.utils.hf_model_download - Fetching model docling-project/docling-models (revision: v2.3.0)...
+[92mINFO[0m:	21:20:34 - httpx - HTTP Request: GET https://huggingface.co/api/models/docling-project/docling-models/revision/v2.3.0 "HTTP/1.1 200 OK"
+[92mINFO[0m:	21:20:34 - docling.models.utils.hf_model_download - Model docling-project/docling-models already cached at /root/.cache/huggingface/hub/models--docling-project--docling-models/snapshots/fc0f2d45e2218ea24bce5045f58a389aed16dc23
+[92mINFO[0m:	21:20:34 - docling.utils.accelerator_utils - Accelerator device: 'cpu'
+[92mINFO[0m:	21:20:34 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:20:34 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:20:34 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:21:13 - docling.document_converter - Finished converting document page.pdf in 39.20 sec.
+[92mINFO[0m:	21:21:13 - docling_jobkit.convert.results - Processed 1 docs in 39.22 seconds.
+[92mINFO[0m:	21:21:13 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 7622407e-1c14-42ab-96e2-09553eeeea08 in 39.22 seconds
+[92mINFO[0m:	21:21:14 - uvicorn.access - 127.0.0.1:38538 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:21:14 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:21:14 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:21:14 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:21:14 - docling_serve.app - File 0: name=page.pdf, size=61548 bytes, md5=f118c9101f51, content_type=application/octet-stream
+[92mINFO[0m:	21:21:14 - docling_serve.app - [TENANT_ID] File task e973dd7d-3d7b-40f0-89ff-262a210044c9 created with tenant_id='default'
+[92mINFO[0m:	21:21:14 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task e973dd7d-3d7b-40f0-89ff-262a210044c9
+[92mINFO[0m:	21:21:14 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:21:14 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:21:14 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:21:14 - docling.pipeline.base_pipeline - Processing document page.pdf
+[93mWARNING[0m:	21:22:28 - docling.models.stages.table_structure.table_structure_model - Discarding the 69x4 structure predicted for table 4 on page 1 because the predicted structure hit the 1024-step decode limit; its text is kept as a single cell.
+[92mINFO[0m:	21:22:28 - docling.document_converter - Finished converting document page.pdf in 73.88 sec.
+[92mINFO[0m:	21:22:28 - docling_jobkit.convert.results - Processed 1 docs in 73.91 seconds.
+[92mINFO[0m:	21:22:28 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job e973dd7d-3d7b-40f0-89ff-262a210044c9 in 73.91 seconds
+[92mINFO[0m:	21:22:28 - uvicorn.access - 127.0.0.1:39112 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:22:28 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:22:28 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:22:28 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:22:28 - docling_serve.app - File 0: name=page.pdf, size=77810 bytes, md5=4ff709f45d76, content_type=application/octet-stream
+[92mINFO[0m:	21:22:28 - docling_serve.app - [TENANT_ID] File task 03aba515-50df-4179-bfb0-f688410a871c created with tenant_id='default'
+[92mINFO[0m:	21:22:28 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 03aba515-50df-4179-bfb0-f688410a871c
+[92mINFO[0m:	21:22:28 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:22:28 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:22:28 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:22:28 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:22:41 - docling.document_converter - Finished converting document page.pdf in 13.18 sec.
+[92mINFO[0m:	21:22:41 - docling_jobkit.convert.results - Processed 1 docs in 13.19 seconds.
+[92mINFO[0m:	21:22:41 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 03aba515-50df-4179-bfb0-f688410a871c in 13.19 seconds
+[92mINFO[0m:	21:22:42 - uvicorn.access - 127.0.0.1:37506 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:22:42 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:22:42 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:22:42 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:22:42 - docling_serve.app - File 0: name=page.pdf, size=64692 bytes, md5=650281eec7c5, content_type=application/octet-stream
+[92mINFO[0m:	21:22:42 - docling_serve.app - [TENANT_ID] File task ab75b689-980a-4dbe-899a-9e73e74f94aa created with tenant_id='default'
+[92mINFO[0m:	21:22:42 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task ab75b689-980a-4dbe-899a-9e73e74f94aa
+[92mINFO[0m:	21:22:42 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:22:42 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:22:42 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:22:42 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:22:46 - docling.document_converter - Finished converting document page.pdf in 3.59 sec.
+[92mINFO[0m:	21:22:46 - docling_jobkit.convert.results - Processed 1 docs in 3.60 seconds.
+[92mINFO[0m:	21:22:46 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job ab75b689-980a-4dbe-899a-9e73e74f94aa in 3.60 seconds
+[92mINFO[0m:	21:22:46 - uvicorn.access - 127.0.0.1:56800 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:22:46 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:22:46 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:22:46 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:22:46 - docling_serve.app - File 0: name=page.pdf, size=30635 bytes, md5=79efa432f795, content_type=application/octet-stream
+[92mINFO[0m:	21:22:46 - docling_serve.app - [TENANT_ID] File task ccc05d38-f9a1-4c11-a50b-f1cdf4f11dca created with tenant_id='default'
+[92mINFO[0m:	21:22:46 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task ccc05d38-f9a1-4c11-a50b-f1cdf4f11dca
+[92mINFO[0m:	21:22:46 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:22:46 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:22:46 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:22:46 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:23:02 - docling.document_converter - Finished converting document page.pdf in 15.59 sec.
+[92mINFO[0m:	21:23:02 - docling_jobkit.convert.results - Processed 1 docs in 15.60 seconds.
+[92mINFO[0m:	21:23:02 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job ccc05d38-f9a1-4c11-a50b-f1cdf4f11dca in 15.60 seconds
+[92mINFO[0m:	21:23:02 - uvicorn.access - 127.0.0.1:56806 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:23:02 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:23:02 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:23:02 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:23:02 - docling_serve.app - File 0: name=page.pdf, size=49448 bytes, md5=70ea07a25cca, content_type=application/octet-stream
+[92mINFO[0m:	21:23:02 - docling_serve.app - [TENANT_ID] File task e04cd3e7-a2ff-4da0-9137-8bdbbb48b15a created with tenant_id='default'
+[92mINFO[0m:	21:23:02 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task e04cd3e7-a2ff-4da0-9137-8bdbbb48b15a
+[92mINFO[0m:	21:23:02 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:23:02 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:23:02 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:23:02 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:23:40 - docling.document_converter - Finished converting document page.pdf in 37.64 sec.
+[92mINFO[0m:	21:23:40 - docling_jobkit.convert.results - Processed 1 docs in 37.65 seconds.
+[92mINFO[0m:	21:23:40 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job e04cd3e7-a2ff-4da0-9137-8bdbbb48b15a in 37.65 seconds
+[92mINFO[0m:	21:23:40 - uvicorn.access - 127.0.0.1:37172 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:23:40 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:23:40 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:23:40 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:23:40 - docling_serve.app - File 0: name=page.pdf, size=12247 bytes, md5=f73094d55382, content_type=application/octet-stream
+[92mINFO[0m:	21:23:40 - docling_serve.app - [TENANT_ID] File task 1eb01155-a239-4600-80fa-0cb4f9c06357 created with tenant_id='default'
+[92mINFO[0m:	21:23:40 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 1eb01155-a239-4600-80fa-0cb4f9c06357
+[92mINFO[0m:	21:23:40 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:23:40 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:23:40 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:23:40 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:24:36 - docling.document_converter - Finished converting document page.pdf in 55.50 sec.
+[92mINFO[0m:	21:24:36 - docling_jobkit.convert.results - Processed 1 docs in 55.51 seconds.
+[92mINFO[0m:	21:24:36 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 1eb01155-a239-4600-80fa-0cb4f9c06357 in 55.51 seconds
+[92mINFO[0m:	21:24:36 - uvicorn.access - 127.0.0.1:33632 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:24:36 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:24:36 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:24:36 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:24:36 - docling_serve.app - File 0: name=page.pdf, size=13796 bytes, md5=a9b0dfb5393e, content_type=application/octet-stream
+[92mINFO[0m:	21:24:36 - docling_serve.app - [TENANT_ID] File task f3f3b1e0-5caa-47d1-ad47-fe99442dd284 created with tenant_id='default'
+[92mINFO[0m:	21:24:36 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task f3f3b1e0-5caa-47d1-ad47-fe99442dd284
+[92mINFO[0m:	21:24:36 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:24:36 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:24:36 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:24:36 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:25:17 - docling.document_converter - Finished converting document page.pdf in 41.22 sec.
+[92mINFO[0m:	21:25:17 - docling_jobkit.convert.results - Processed 1 docs in 41.23 seconds.
+[92mINFO[0m:	21:25:17 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job f3f3b1e0-5caa-47d1-ad47-fe99442dd284 in 41.23 seconds
+[92mINFO[0m:	21:25:18 - uvicorn.access - 127.0.0.1:34620 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:25:18 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:25:18 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:25:18 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:25:18 - docling_serve.app - File 0: name=page.pdf, size=234769 bytes, md5=aacf77350b33, content_type=application/octet-stream
+[92mINFO[0m:	21:25:18 - docling_serve.app - [TENANT_ID] File task 5302b3c4-bcf8-41a0-a6cb-c1ccde0d7e66 created with tenant_id='default'
+[92mINFO[0m:	21:25:18 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 5302b3c4-bcf8-41a0-a6cb-c1ccde0d7e66
+[92mINFO[0m:	21:25:18 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:25:18 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:25:18 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:25:18 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:25:59 - docling.document_converter - Finished converting document page.pdf in 41.23 sec.
+[92mINFO[0m:	21:25:59 - docling_jobkit.convert.results - Processed 1 docs in 41.24 seconds.
+[92mINFO[0m:	21:25:59 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 5302b3c4-bcf8-41a0-a6cb-c1ccde0d7e66 in 41.24 seconds
+[92mINFO[0m:	21:26:00 - uvicorn.access - 127.0.0.1:52026 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:26:00 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:26:00 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:26:00 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:26:00 - docling_serve.app - File 0: name=page.pdf, size=260513 bytes, md5=11ee23f8d4c1, content_type=application/octet-stream
+[92mINFO[0m:	21:26:00 - docling_serve.app - [TENANT_ID] File task c5c97fe7-c8a1-42b9-a96e-7936a60a6b02 created with tenant_id='default'
+[92mINFO[0m:	21:26:00 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task c5c97fe7-c8a1-42b9-a96e-7936a60a6b02
+[92mINFO[0m:	21:26:00 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:26:00 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:26:00 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:26:00 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:26:14 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='7622407e-1c14-42ab-96e2-09553eeeea08'
+[92mINFO[0m:	21:26:14 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='7622407e-1c14-42ab-96e2-09553eeeea08'
+[92mINFO[0m:	21:26:36 - docling.document_converter - Finished converting document page.pdf in 36.17 sec.
+[92mINFO[0m:	21:26:36 - docling_jobkit.convert.results - Processed 1 docs in 36.17 seconds.
+[92mINFO[0m:	21:26:36 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job c5c97fe7-c8a1-42b9-a96e-7936a60a6b02 in 36.17 seconds
+[92mINFO[0m:	21:26:38 - uvicorn.access - 127.0.0.1:49156 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:26:38 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:26:38 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:26:38 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:26:38 - docling_serve.app - File 0: name=page.pdf, size=9031 bytes, md5=2f3f64c1bf69, content_type=application/octet-stream
+[92mINFO[0m:	21:26:38 - docling_serve.app - [TENANT_ID] File task 5b6612d1-90a3-4d37-94ce-10167269a714 created with tenant_id='default'
+[92mINFO[0m:	21:26:38 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 5b6612d1-90a3-4d37-94ce-10167269a714
+[92mINFO[0m:	21:26:38 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:26:38 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:26:38 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:26:38 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:27:01 - docling.document_converter - Finished converting document page.pdf in 22.45 sec.
+[92mINFO[0m:	21:27:01 - docling_jobkit.convert.results - Processed 1 docs in 22.46 seconds.
+[92mINFO[0m:	21:27:01 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 5b6612d1-90a3-4d37-94ce-10167269a714 in 22.46 seconds
+[92mINFO[0m:	21:27:02 - uvicorn.access - 127.0.0.1:44610 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:27:02 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:27:02 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:27:02 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:27:02 - docling_serve.app - File 0: name=page.pdf, size=7927 bytes, md5=e6b267589cfa, content_type=application/octet-stream
+[92mINFO[0m:	21:27:02 - docling_serve.app - [TENANT_ID] File task dcbf3e26-3478-4def-a0da-7e417f6c36ca created with tenant_id='default'
+[92mINFO[0m:	21:27:02 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task dcbf3e26-3478-4def-a0da-7e417f6c36ca
+[92mINFO[0m:	21:27:02 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:27:02 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:27:02 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:27:02 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:27:28 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='e973dd7d-3d7b-40f0-89ff-262a210044c9'
+[92mINFO[0m:	21:27:28 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='e973dd7d-3d7b-40f0-89ff-262a210044c9'
+[92mINFO[0m:	21:27:34 - docling.document_converter - Finished converting document page.pdf in 31.42 sec.
+[92mINFO[0m:	21:27:34 - docling_jobkit.convert.results - Processed 1 docs in 31.43 seconds.
+[92mINFO[0m:	21:27:34 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job dcbf3e26-3478-4def-a0da-7e417f6c36ca in 31.43 seconds
+[92mINFO[0m:	21:27:34 - uvicorn.access - 127.0.0.1:36512 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:27:34 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:27:34 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:27:34 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:27:34 - docling_serve.app - File 0: name=page.pdf, size=304797 bytes, md5=2217eccd7a0a, content_type=application/octet-stream
+[92mINFO[0m:	21:27:34 - docling_serve.app - [TENANT_ID] File task 52d63d01-0c59-4585-9222-2cfb48de62d2 created with tenant_id='default'
+[92mINFO[0m:	21:27:34 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 52d63d01-0c59-4585-9222-2cfb48de62d2
+[92mINFO[0m:	21:27:34 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:27:34 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:27:34 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:27:34 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:27:42 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='03aba515-50df-4179-bfb0-f688410a871c'
+[92mINFO[0m:	21:27:42 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='03aba515-50df-4179-bfb0-f688410a871c'
+[92mINFO[0m:	21:27:46 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='ab75b689-980a-4dbe-899a-9e73e74f94aa'
+[92mINFO[0m:	21:27:46 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='ab75b689-980a-4dbe-899a-9e73e74f94aa'
+[92mINFO[0m:	21:28:02 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='ccc05d38-f9a1-4c11-a50b-f1cdf4f11dca'
+[92mINFO[0m:	21:28:02 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='ccc05d38-f9a1-4c11-a50b-f1cdf4f11dca'
+[92mINFO[0m:	21:28:05 - docling.document_converter - Finished converting document page.pdf in 30.82 sec.
+[92mINFO[0m:	21:28:05 - docling_jobkit.convert.results - Processed 1 docs in 30.82 seconds.
+[92mINFO[0m:	21:28:05 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 52d63d01-0c59-4585-9222-2cfb48de62d2 in 30.82 seconds
+[92mINFO[0m:	21:28:06 - uvicorn.access - 127.0.0.1:49442 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:28:06 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:28:06 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:28:06 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:28:06 - docling_serve.app - File 0: name=page.pdf, size=288979 bytes, md5=056f802e9a90, content_type=application/octet-stream
+[92mINFO[0m:	21:28:06 - docling_serve.app - [TENANT_ID] File task 2557d363-e6d3-4089-9ae0-780be11eb746 created with tenant_id='default'
+[92mINFO[0m:	21:28:06 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 2557d363-e6d3-4089-9ae0-780be11eb746
+[92mINFO[0m:	21:28:06 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:28:06 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:28:06 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:28:06 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:28:37 - docling.document_converter - Finished converting document page.pdf in 31.05 sec.
+[92mINFO[0m:	21:28:37 - docling_jobkit.convert.results - Processed 1 docs in 31.06 seconds.
+[92mINFO[0m:	21:28:37 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 2557d363-e6d3-4089-9ae0-780be11eb746 in 31.06 seconds
+[92mINFO[0m:	21:28:38 - uvicorn.access - 127.0.0.1:56510 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:28:38 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:28:38 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:28:38 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:28:38 - docling_serve.app - File 0: name=page.pdf, size=22630 bytes, md5=fff7f72a6823, content_type=application/octet-stream
+[92mINFO[0m:	21:28:38 - docling_serve.app - [TENANT_ID] File task 28c2b0df-191b-463b-9c70-4f6c6cb37546 created with tenant_id='default'
+[92mINFO[0m:	21:28:38 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 28c2b0df-191b-463b-9c70-4f6c6cb37546
+[92mINFO[0m:	21:28:38 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:28:38 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:28:38 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:28:38 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:28:40 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='e04cd3e7-a2ff-4da0-9137-8bdbbb48b15a'
+[92mINFO[0m:	21:28:40 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='e04cd3e7-a2ff-4da0-9137-8bdbbb48b15a'
+[92mINFO[0m:	21:29:33 - docling.document_converter - Finished converting document page.pdf in 55.05 sec.
+[92mINFO[0m:	21:29:33 - docling_jobkit.convert.results - Processed 1 docs in 55.06 seconds.
+[92mINFO[0m:	21:29:33 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 28c2b0df-191b-463b-9c70-4f6c6cb37546 in 55.06 seconds
+[92mINFO[0m:	21:29:34 - uvicorn.access - 127.0.0.1:39840 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:29:34 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:29:34 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:29:34 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:29:34 - docling_serve.app - File 0: name=page.pdf, size=10936 bytes, md5=3e167ac1ad30, content_type=application/octet-stream
+[92mINFO[0m:	21:29:34 - docling_serve.app - [TENANT_ID] File task 196828f2-9f3c-4e11-9701-0cef041883e2 created with tenant_id='default'
+[92mINFO[0m:	21:29:34 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 196828f2-9f3c-4e11-9701-0cef041883e2
+[92mINFO[0m:	21:29:34 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:29:34 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:29:34 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:29:34 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:29:36 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='1eb01155-a239-4600-80fa-0cb4f9c06357'
+[92mINFO[0m:	21:29:36 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='1eb01155-a239-4600-80fa-0cb4f9c06357'
+[92mINFO[0m:	21:30:05 - docling.document_converter - Finished converting document page.pdf in 31.00 sec.
+[92mINFO[0m:	21:30:05 - docling_jobkit.convert.results - Processed 1 docs in 31.00 seconds.
+[92mINFO[0m:	21:30:05 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 196828f2-9f3c-4e11-9701-0cef041883e2 in 31.00 seconds
+[92mINFO[0m:	21:30:06 - uvicorn.access - 127.0.0.1:43028 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:30:06 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:30:06 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:30:06 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:30:06 - docling_serve.app - File 0: name=page.pdf, size=189834 bytes, md5=dbe7772e1030, content_type=application/octet-stream
+[92mINFO[0m:	21:30:06 - docling_serve.app - [TENANT_ID] File task 427b5887-ddc1-486c-a64c-d7980bf10ea1 created with tenant_id='default'
+[92mINFO[0m:	21:30:06 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 427b5887-ddc1-486c-a64c-d7980bf10ea1
+[92mINFO[0m:	21:30:06 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:30:06 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:30:06 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:30:06 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:30:18 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='f3f3b1e0-5caa-47d1-ad47-fe99442dd284'
+[92mINFO[0m:	21:30:18 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='f3f3b1e0-5caa-47d1-ad47-fe99442dd284'
+[92mINFO[0m:	21:30:50 - docling.document_converter - Finished converting document page.pdf in 43.39 sec.
+[92mINFO[0m:	21:30:50 - docling_jobkit.convert.results - Processed 1 docs in 43.39 seconds.
+[92mINFO[0m:	21:30:50 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 427b5887-ddc1-486c-a64c-d7980bf10ea1 in 43.39 seconds
+[92mINFO[0m:	21:30:50 - uvicorn.access - 127.0.0.1:44080 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:30:50 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:30:50 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:30:50 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:30:50 - docling_serve.app - File 0: name=page.pdf, size=132529 bytes, md5=51e12e8d53a7, content_type=application/octet-stream
+[92mINFO[0m:	21:30:50 - docling_serve.app - [TENANT_ID] File task 556c5583-24be-435a-a818-1bb5e8524465 created with tenant_id='default'
+[92mINFO[0m:	21:30:50 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 556c5583-24be-435a-a818-1bb5e8524465
+[92mINFO[0m:	21:30:50 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:30:50 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:30:50 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:30:50 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:31:00 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='5302b3c4-bcf8-41a0-a6cb-c1ccde0d7e66'
+[92mINFO[0m:	21:31:00 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='5302b3c4-bcf8-41a0-a6cb-c1ccde0d7e66'
+[92mINFO[0m:	21:31:36 - docling.document_converter - Finished converting document page.pdf in 45.65 sec.
+[92mINFO[0m:	21:31:36 - docling_jobkit.convert.results - Processed 1 docs in 45.66 seconds.
+[92mINFO[0m:	21:31:36 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 556c5583-24be-435a-a818-1bb5e8524465 in 45.66 seconds
+[92mINFO[0m:	21:31:36 - uvicorn.access - 127.0.0.1:55794 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:31:36 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:31:36 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:31:36 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:31:36 - docling_serve.app - File 0: name=page.pdf, size=11968 bytes, md5=5858e8441bf0, content_type=application/octet-stream
+[92mINFO[0m:	21:31:36 - docling_serve.app - [TENANT_ID] File task d2d29383-7ba7-496a-bb07-9d2994039ec5 created with tenant_id='default'
+[92mINFO[0m:	21:31:36 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task d2d29383-7ba7-496a-bb07-9d2994039ec5
+[92mINFO[0m:	21:31:36 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:31:36 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:31:36 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:31:36 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:31:38 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='c5c97fe7-c8a1-42b9-a96e-7936a60a6b02'
+[92mINFO[0m:	21:31:38 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='c5c97fe7-c8a1-42b9-a96e-7936a60a6b02'
+[92mINFO[0m:	21:32:02 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='5b6612d1-90a3-4d37-94ce-10167269a714'
+[92mINFO[0m:	21:32:02 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='5b6612d1-90a3-4d37-94ce-10167269a714'
+[92mINFO[0m:	21:32:12 - docling.document_converter - Finished converting document page.pdf in 35.96 sec.
+[92mINFO[0m:	21:32:12 - docling_jobkit.convert.results - Processed 1 docs in 35.97 seconds.
+[92mINFO[0m:	21:32:12 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job d2d29383-7ba7-496a-bb07-9d2994039ec5 in 35.97 seconds
+[92mINFO[0m:	21:32:12 - uvicorn.access - 127.0.0.1:53430 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:32:12 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:32:12 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:32:12 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:32:12 - docling_serve.app - File 0: name=page.pdf, size=14131 bytes, md5=d69130e0a8b7, content_type=application/octet-stream
+[92mINFO[0m:	21:32:12 - docling_serve.app - [TENANT_ID] File task b82ac90e-a48c-434c-a0a8-14e9e830be07 created with tenant_id='default'
+[92mINFO[0m:	21:32:12 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task b82ac90e-a48c-434c-a0a8-14e9e830be07
+[92mINFO[0m:	21:32:12 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:32:12 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:32:12 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:32:12 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:32:34 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='dcbf3e26-3478-4def-a0da-7e417f6c36ca'
+[92mINFO[0m:	21:32:34 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='dcbf3e26-3478-4def-a0da-7e417f6c36ca'
+[92mINFO[0m:	21:32:47 - docling.document_converter - Finished converting document page.pdf in 34.43 sec.
+[92mINFO[0m:	21:32:47 - docling_jobkit.convert.results - Processed 1 docs in 34.44 seconds.
+[92mINFO[0m:	21:32:47 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job b82ac90e-a48c-434c-a0a8-14e9e830be07 in 34.44 seconds
+[92mINFO[0m:	21:32:48 - uvicorn.access - 127.0.0.1:54516 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:32:48 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:32:48 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:32:48 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:32:48 - docling_serve.app - File 0: name=page.pdf, size=8007 bytes, md5=2107a0ea0b4b, content_type=application/octet-stream
+[92mINFO[0m:	21:32:48 - docling_serve.app - [TENANT_ID] File task f9b456aa-3654-48cb-b4f1-43e3840b088b created with tenant_id='default'
+[92mINFO[0m:	21:32:48 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task f9b456aa-3654-48cb-b4f1-43e3840b088b
+[92mINFO[0m:	21:32:48 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:32:48 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:32:48 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:32:48 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:33:06 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='52d63d01-0c59-4585-9222-2cfb48de62d2'
+[92mINFO[0m:	21:33:06 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='52d63d01-0c59-4585-9222-2cfb48de62d2'
+[92mINFO[0m:	21:33:11 - docling.document_converter - Finished converting document page.pdf in 22.16 sec.
+[92mINFO[0m:	21:33:11 - docling_jobkit.convert.results - Processed 1 docs in 22.17 seconds.
+[92mINFO[0m:	21:33:11 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job f9b456aa-3654-48cb-b4f1-43e3840b088b in 22.17 seconds
+[92mINFO[0m:	21:33:12 - uvicorn.access - 127.0.0.1:56556 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:33:12 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:33:12 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:33:12 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:33:12 - docling_serve.app - File 0: name=page.pdf, size=15764 bytes, md5=9f7a33b5d8c6, content_type=application/octet-stream
+[92mINFO[0m:	21:33:12 - docling_serve.app - [TENANT_ID] File task 28391275-c121-4657-a520-f1c560702e3f created with tenant_id='default'
+[92mINFO[0m:	21:33:12 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 28391275-c121-4657-a520-f1c560702e3f
+[92mINFO[0m:	21:33:12 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:33:12 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:33:12 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:33:12 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:33:38 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='2557d363-e6d3-4089-9ae0-780be11eb746'
+[92mINFO[0m:	21:33:38 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='2557d363-e6d3-4089-9ae0-780be11eb746'
+[92mINFO[0m:	21:33:53 - docling.document_converter - Finished converting document page.pdf in 40.71 sec.
+[92mINFO[0m:	21:33:53 - docling_jobkit.convert.results - Processed 1 docs in 40.72 seconds.
+[92mINFO[0m:	21:33:53 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 28391275-c121-4657-a520-f1c560702e3f in 40.72 seconds
+[92mINFO[0m:	21:33:54 - uvicorn.access - 127.0.0.1:34494 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:33:54 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:33:54 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:33:54 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:33:54 - docling_serve.app - File 0: name=page.pdf, size=420716 bytes, md5=add062cc94fd, content_type=application/octet-stream
+[92mINFO[0m:	21:33:54 - docling_serve.app - [TENANT_ID] File task e2b29db9-b2a7-479b-aeb1-61910e38ed37 created with tenant_id='default'
+[92mINFO[0m:	21:33:54 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task e2b29db9-b2a7-479b-aeb1-61910e38ed37
+[92mINFO[0m:	21:33:54 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:33:54 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:33:54 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:33:54 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:34:22 - docling.document_converter - Finished converting document page.pdf in 27.09 sec.
+[92mINFO[0m:	21:34:22 - docling_jobkit.convert.results - Processed 1 docs in 27.10 seconds.
+[92mINFO[0m:	21:34:22 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job e2b29db9-b2a7-479b-aeb1-61910e38ed37 in 27.10 seconds
+[92mINFO[0m:	21:34:22 - uvicorn.access - 127.0.0.1:56450 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:34:22 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:34:22 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:34:22 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:34:22 - docling_serve.app - File 0: name=page.pdf, size=272370 bytes, md5=de64edba6b19, content_type=application/octet-stream
+[92mINFO[0m:	21:34:22 - docling_serve.app - [TENANT_ID] File task 690ef798-1388-4fac-bdb0-dfcfbc5bac79 created with tenant_id='default'
+[92mINFO[0m:	21:34:22 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 690ef798-1388-4fac-bdb0-dfcfbc5bac79
+[92mINFO[0m:	21:34:22 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:34:22 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:34:22 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:34:22 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:34:34 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='28c2b0df-191b-463b-9c70-4f6c6cb37546'
+[92mINFO[0m:	21:34:34 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='28c2b0df-191b-463b-9c70-4f6c6cb37546'
+[92mINFO[0m:	21:34:46 - docling.document_converter - Finished converting document page.pdf in 23.95 sec.
+[92mINFO[0m:	21:34:46 - docling_jobkit.convert.results - Processed 1 docs in 23.96 seconds.
+[92mINFO[0m:	21:34:46 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 690ef798-1388-4fac-bdb0-dfcfbc5bac79 in 23.96 seconds
+[92mINFO[0m:	21:34:46 - uvicorn.access - 127.0.0.1:47818 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:34:46 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:34:46 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:34:46 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:34:46 - docling_serve.app - File 0: name=page.pdf, size=11131 bytes, md5=05d145d6fac7, content_type=application/octet-stream
+[92mINFO[0m:	21:34:46 - docling_serve.app - [TENANT_ID] File task c3d7eb6a-d757-4871-8d21-43c45fcdf149 created with tenant_id='default'
+[92mINFO[0m:	21:34:46 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task c3d7eb6a-d757-4871-8d21-43c45fcdf149
+[92mINFO[0m:	21:34:46 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:34:46 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:34:46 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:34:46 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:35:06 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='196828f2-9f3c-4e11-9701-0cef041883e2'
+[92mINFO[0m:	21:35:06 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='196828f2-9f3c-4e11-9701-0cef041883e2'
+[92mINFO[0m:	21:35:20 - docling.document_converter - Finished converting document page.pdf in 33.16 sec.
+[92mINFO[0m:	21:35:20 - docling_jobkit.convert.results - Processed 1 docs in 33.17 seconds.
+[92mINFO[0m:	21:35:20 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job c3d7eb6a-d757-4871-8d21-43c45fcdf149 in 33.17 seconds
+[92mINFO[0m:	21:35:20 - uvicorn.access - 127.0.0.1:44856 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:35:20 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:35:20 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:35:20 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:35:20 - docling_serve.app - File 0: name=page.pdf, size=129350 bytes, md5=6d8997484e9f, content_type=application/octet-stream
+[92mINFO[0m:	21:35:20 - docling_serve.app - [TENANT_ID] File task 890921ad-2342-407e-9768-38d4bde839cb created with tenant_id='default'
+[92mINFO[0m:	21:35:20 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 890921ad-2342-407e-9768-38d4bde839cb
+[92mINFO[0m:	21:35:20 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:35:20 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:35:20 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:35:20 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:35:38 - docling.document_converter - Finished converting document page.pdf in 17.29 sec.
+[92mINFO[0m:	21:35:38 - docling_jobkit.convert.results - Processed 1 docs in 17.30 seconds.
+[92mINFO[0m:	21:35:38 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 890921ad-2342-407e-9768-38d4bde839cb in 17.30 seconds
+[92mINFO[0m:	21:35:38 - uvicorn.access - 127.0.0.1:59560 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:35:38 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:35:38 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:35:38 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:35:38 - docling_serve.app - File 0: name=page.pdf, size=133250 bytes, md5=5283402f03ad, content_type=application/octet-stream
+[92mINFO[0m:	21:35:38 - docling_serve.app - [TENANT_ID] File task 7dbd458b-d050-494e-b6a5-ebad54a2493b created with tenant_id='default'
+[92mINFO[0m:	21:35:38 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 7dbd458b-d050-494e-b6a5-ebad54a2493b
+[92mINFO[0m:	21:35:38 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:35:38 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:35:38 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:35:38 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:35:50 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='427b5887-ddc1-486c-a64c-d7980bf10ea1'
+[92mINFO[0m:	21:35:50 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='427b5887-ddc1-486c-a64c-d7980bf10ea1'
+[92mINFO[0m:	21:36:26 - docling.document_converter - Finished converting document page.pdf in 47.85 sec.
+[92mINFO[0m:	21:36:26 - docling_jobkit.convert.results - Processed 1 docs in 47.85 seconds.
+[92mINFO[0m:	21:36:26 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 7dbd458b-d050-494e-b6a5-ebad54a2493b in 47.85 seconds
+[92mINFO[0m:	21:36:26 - uvicorn.access - 127.0.0.1:48520 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:36:26 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:36:26 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:36:26 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:36:26 - docling_serve.app - File 0: name=page.pdf, size=253740 bytes, md5=8595fb2cd611, content_type=application/octet-stream
+[92mINFO[0m:	21:36:26 - docling_serve.app - [TENANT_ID] File task 3e0962e9-7351-4984-896f-c2a3df716aba created with tenant_id='default'
+[92mINFO[0m:	21:36:26 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 3e0962e9-7351-4984-896f-c2a3df716aba
+[92mINFO[0m:	21:36:26 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:36:27 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:36:27 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:36:27 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:36:36 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='556c5583-24be-435a-a818-1bb5e8524465'
+[92mINFO[0m:	21:36:36 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='556c5583-24be-435a-a818-1bb5e8524465'
+[92mINFO[0m:	21:37:12 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='d2d29383-7ba7-496a-bb07-9d2994039ec5'
+[92mINFO[0m:	21:37:12 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='d2d29383-7ba7-496a-bb07-9d2994039ec5'
+[92mINFO[0m:	21:37:48 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='b82ac90e-a48c-434c-a0a8-14e9e830be07'
+[92mINFO[0m:	21:37:48 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='b82ac90e-a48c-434c-a0a8-14e9e830be07'
+[92mINFO[0m:	21:38:03 - docling.document_converter - Finished converting document page.pdf in 96.66 sec.
+[92mINFO[0m:	21:38:03 - docling_jobkit.convert.results - Processed 1 docs in 96.67 seconds.
+[92mINFO[0m:	21:38:03 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 3e0962e9-7351-4984-896f-c2a3df716aba in 96.67 seconds
+[92mINFO[0m:	21:38:05 - uvicorn.access - 127.0.0.1:37080 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:38:05 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:38:05 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:38:05 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:38:05 - docling_serve.app - File 0: name=page.pdf, size=152110 bytes, md5=ba4a6a01cabc, content_type=application/octet-stream
+[92mINFO[0m:	21:38:05 - docling_serve.app - [TENANT_ID] File task 61d97ba2-7e7c-45bd-b27e-16e4c498fe65 created with tenant_id='default'
+[92mINFO[0m:	21:38:05 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 61d97ba2-7e7c-45bd-b27e-16e4c498fe65
+[92mINFO[0m:	21:38:05 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:38:05 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:38:05 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:38:05 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:38:12 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='f9b456aa-3654-48cb-b4f1-43e3840b088b'
+[92mINFO[0m:	21:38:12 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='f9b456aa-3654-48cb-b4f1-43e3840b088b'
+[92mINFO[0m:	21:38:38 - docling.document_converter - Finished converting document page.pdf in 33.22 sec.
+[92mINFO[0m:	21:38:38 - docling_jobkit.convert.results - Processed 1 docs in 33.23 seconds.
+[92mINFO[0m:	21:38:38 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 61d97ba2-7e7c-45bd-b27e-16e4c498fe65 in 33.23 seconds
+[92mINFO[0m:	21:38:39 - uvicorn.access - 127.0.0.1:45050 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:38:39 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:38:39 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:38:39 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:38:39 - docling_serve.app - File 0: name=page.pdf, size=133442 bytes, md5=df2302c7a043, content_type=application/octet-stream
+[92mINFO[0m:	21:38:39 - docling_serve.app - [TENANT_ID] File task 830bf174-fe3c-4966-a75a-6d7fa69ff35d created with tenant_id='default'
+[92mINFO[0m:	21:38:39 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 830bf174-fe3c-4966-a75a-6d7fa69ff35d
+[92mINFO[0m:	21:38:39 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:38:39 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:38:39 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:38:39 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:38:54 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='28391275-c121-4657-a520-f1c560702e3f'
+[92mINFO[0m:	21:38:54 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='28391275-c121-4657-a520-f1c560702e3f'
+[92mINFO[0m:	21:39:22 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='e2b29db9-b2a7-479b-aeb1-61910e38ed37'
+[92mINFO[0m:	21:39:22 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='e2b29db9-b2a7-479b-aeb1-61910e38ed37'
+[92mINFO[0m:	21:39:26 - docling.document_converter - Finished converting document page.pdf in 47.90 sec.
+[92mINFO[0m:	21:39:26 - docling_jobkit.convert.results - Processed 1 docs in 47.91 seconds.
+[92mINFO[0m:	21:39:26 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 830bf174-fe3c-4966-a75a-6d7fa69ff35d in 47.91 seconds
+[92mINFO[0m:	21:39:27 - uvicorn.access - 127.0.0.1:34874 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:39:27 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:39:27 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:39:27 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:39:27 - docling_serve.app - File 0: name=page.pdf, size=13326 bytes, md5=e1c60683ed01, content_type=application/octet-stream
+[92mINFO[0m:	21:39:27 - docling_serve.app - [TENANT_ID] File task 72a6f2c3-065a-4029-ac18-5f1d61079144 created with tenant_id='default'
+[92mINFO[0m:	21:39:27 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 72a6f2c3-065a-4029-ac18-5f1d61079144
+[92mINFO[0m:	21:39:27 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:39:27 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:39:27 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:39:27 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:39:46 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='690ef798-1388-4fac-bdb0-dfcfbc5bac79'
+[92mINFO[0m:	21:39:46 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='690ef798-1388-4fac-bdb0-dfcfbc5bac79'
+[92mINFO[0m:	21:40:10 - docling.document_converter - Finished converting document page.pdf in 43.26 sec.
+[92mINFO[0m:	21:40:10 - docling_jobkit.convert.results - Processed 1 docs in 43.27 seconds.
+[92mINFO[0m:	21:40:10 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 72a6f2c3-065a-4029-ac18-5f1d61079144 in 43.27 seconds
+[92mINFO[0m:	21:40:11 - uvicorn.access - 127.0.0.1:40230 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:40:11 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:40:11 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:40:11 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:40:11 - docling_serve.app - File 0: name=page.pdf, size=19791 bytes, md5=0283d0267aed, content_type=application/octet-stream
+[92mINFO[0m:	21:40:11 - docling_serve.app - [TENANT_ID] File task e9f90820-033a-4882-b7de-143179a218fa created with tenant_id='default'
+[92mINFO[0m:	21:40:11 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task e9f90820-033a-4882-b7de-143179a218fa
+[92mINFO[0m:	21:40:11 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:40:11 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:40:11 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:40:11 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:40:20 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='c3d7eb6a-d757-4871-8d21-43c45fcdf149'
+[92mINFO[0m:	21:40:20 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='c3d7eb6a-d757-4871-8d21-43c45fcdf149'
+[92mINFO[0m:	21:40:38 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='890921ad-2342-407e-9768-38d4bde839cb'
+[92mINFO[0m:	21:40:38 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='890921ad-2342-407e-9768-38d4bde839cb'
+[92mINFO[0m:	21:41:01 - docling.document_converter - Finished converting document page.pdf in 50.36 sec.
+[92mINFO[0m:	21:41:01 - docling_jobkit.convert.results - Processed 1 docs in 50.37 seconds.
+[92mINFO[0m:	21:41:01 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job e9f90820-033a-4882-b7de-143179a218fa in 50.37 seconds
+[92mINFO[0m:	21:41:03 - uvicorn.access - 127.0.0.1:57880 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:41:03 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:41:03 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:41:03 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:41:03 - docling_serve.app - File 0: name=page.pdf, size=38921 bytes, md5=f4f495c09a3b, content_type=application/octet-stream
+[92mINFO[0m:	21:41:03 - docling_serve.app - [TENANT_ID] File task 15ac193c-9013-4075-8111-20e9eb20ac8d created with tenant_id='default'
+[92mINFO[0m:	21:41:03 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 15ac193c-9013-4075-8111-20e9eb20ac8d
+[92mINFO[0m:	21:41:03 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:41:03 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:41:03 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:41:03 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:41:26 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='7dbd458b-d050-494e-b6a5-ebad54a2493b'
+[92mINFO[0m:	21:41:26 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='7dbd458b-d050-494e-b6a5-ebad54a2493b'
+[92mINFO[0m:	21:42:00 - docling.document_converter - Finished converting document page.pdf in 56.96 sec.
+[92mINFO[0m:	21:42:00 - docling_jobkit.convert.results - Processed 1 docs in 56.97 seconds.
+[92mINFO[0m:	21:42:00 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 15ac193c-9013-4075-8111-20e9eb20ac8d in 56.97 seconds
+[92mINFO[0m:	21:42:01 - uvicorn.access - 127.0.0.1:33440 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:42:01 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:42:01 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:42:01 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:42:01 - docling_serve.app - File 0: name=page.pdf, size=41734 bytes, md5=41bed5d15118, content_type=application/octet-stream
+[92mINFO[0m:	21:42:01 - docling_serve.app - [TENANT_ID] File task 199555b2-7881-46b6-bcae-0c3c97f8e417 created with tenant_id='default'
+[92mINFO[0m:	21:42:01 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 199555b2-7881-46b6-bcae-0c3c97f8e417
+[92mINFO[0m:	21:42:01 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:42:01 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:42:01 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:42:01 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:42:39 - docling.document_converter - Finished converting document page.pdf in 38.52 sec.
+[92mINFO[0m:	21:42:39 - docling_jobkit.convert.results - Processed 1 docs in 38.53 seconds.
+[92mINFO[0m:	21:42:39 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 199555b2-7881-46b6-bcae-0c3c97f8e417 in 38.53 seconds
+[92mINFO[0m:	21:42:41 - uvicorn.access - 127.0.0.1:52586 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:42:41 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:42:41 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:42:41 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:42:41 - docling_serve.app - File 0: name=page.pdf, size=22808 bytes, md5=0462def9403c, content_type=application/octet-stream
+[92mINFO[0m:	21:42:41 - docling_serve.app - [TENANT_ID] File task 6923119b-169d-4179-96bc-199c898d2d8e created with tenant_id='default'
+[92mINFO[0m:	21:42:41 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 6923119b-169d-4179-96bc-199c898d2d8e
+[92mINFO[0m:	21:42:41 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:42:41 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:42:41 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:42:41 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:43:05 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='3e0962e9-7351-4984-896f-c2a3df716aba'
+[92mINFO[0m:	21:43:05 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='3e0962e9-7351-4984-896f-c2a3df716aba'
+[92mINFO[0m:	21:43:33 - docling.document_converter - Finished converting document page.pdf in 52.54 sec.
+[92mINFO[0m:	21:43:33 - docling_jobkit.convert.results - Processed 1 docs in 52.55 seconds.
+[92mINFO[0m:	21:43:33 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 6923119b-169d-4179-96bc-199c898d2d8e in 52.55 seconds
+[92mINFO[0m:	21:43:35 - uvicorn.access - 127.0.0.1:59246 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:43:35 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:43:35 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:43:35 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:43:35 - docling_serve.app - File 0: name=page.pdf, size=18022 bytes, md5=01c7da1234ef, content_type=application/octet-stream
+[92mINFO[0m:	21:43:35 - docling_serve.app - [TENANT_ID] File task 307311d9-7b00-404e-8298-47a7c11aee17 created with tenant_id='default'
+[92mINFO[0m:	21:43:35 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 307311d9-7b00-404e-8298-47a7c11aee17
+[92mINFO[0m:	21:43:35 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:43:35 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:43:35 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:43:35 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:43:39 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='61d97ba2-7e7c-45bd-b27e-16e4c498fe65'
+[92mINFO[0m:	21:43:39 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='61d97ba2-7e7c-45bd-b27e-16e4c498fe65'
+[92mINFO[0m:	21:44:26 - docling.document_converter - Finished converting document page.pdf in 51.57 sec.
+[92mINFO[0m:	21:44:26 - docling_jobkit.convert.results - Processed 1 docs in 51.58 seconds.
+[92mINFO[0m:	21:44:26 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 307311d9-7b00-404e-8298-47a7c11aee17 in 51.58 seconds
+[92mINFO[0m:	21:44:27 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='830bf174-fe3c-4966-a75a-6d7fa69ff35d'
+[92mINFO[0m:	21:44:27 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='830bf174-fe3c-4966-a75a-6d7fa69ff35d'
+[92mINFO[0m:	21:44:27 - uvicorn.access - 127.0.0.1:49224 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:44:27 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:44:27 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:44:27 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:44:27 - docling_serve.app - File 0: name=page.pdf, size=18394 bytes, md5=850c3a6f8f99, content_type=application/octet-stream
+[92mINFO[0m:	21:44:27 - docling_serve.app - [TENANT_ID] File task 2e710fa7-694f-4a59-a9f1-2d18f7fdfa21 created with tenant_id='default'
+[92mINFO[0m:	21:44:27 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 2e710fa7-694f-4a59-a9f1-2d18f7fdfa21
+[92mINFO[0m:	21:44:27 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:44:27 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:44:27 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:44:27 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:45:11 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='72a6f2c3-065a-4029-ac18-5f1d61079144'
+[92mINFO[0m:	21:45:11 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='72a6f2c3-065a-4029-ac18-5f1d61079144'
+[92mINFO[0m:	21:45:24 - docling.document_converter - Finished converting document page.pdf in 57.52 sec.
+[92mINFO[0m:	21:45:24 - docling_jobkit.convert.results - Processed 1 docs in 57.54 seconds.
+[92mINFO[0m:	21:45:24 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 2e710fa7-694f-4a59-a9f1-2d18f7fdfa21 in 57.54 seconds
+[92mINFO[0m:	21:45:25 - uvicorn.access - 127.0.0.1:48802 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:45:25 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:45:25 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:45:25 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:45:25 - docling_serve.app - File 0: name=page.pdf, size=38667 bytes, md5=7b9a179a0a3b, content_type=application/octet-stream
+[92mINFO[0m:	21:45:25 - docling_serve.app - [TENANT_ID] File task a969b578-b3b9-4158-bb96-220f175c18b8 created with tenant_id='default'
+[92mINFO[0m:	21:45:25 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task a969b578-b3b9-4158-bb96-220f175c18b8
+[92mINFO[0m:	21:45:25 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:45:25 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:45:25 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:45:25 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:46:02 - docling.document_converter - Finished converting document page.pdf in 37.53 sec.
+[92mINFO[0m:	21:46:02 - docling_jobkit.convert.results - Processed 1 docs in 37.54 seconds.
+[92mINFO[0m:	21:46:02 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job a969b578-b3b9-4158-bb96-220f175c18b8 in 37.54 seconds
+[92mINFO[0m:	21:46:03 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='e9f90820-033a-4882-b7de-143179a218fa'
+[92mINFO[0m:	21:46:03 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='e9f90820-033a-4882-b7de-143179a218fa'
+[92mINFO[0m:	21:46:03 - uvicorn.access - 127.0.0.1:42972 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:46:03 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:46:03 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:46:03 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:46:03 - docling_serve.app - File 0: name=page.pdf, size=21462 bytes, md5=ce8f748cf46a, content_type=application/octet-stream
+[92mINFO[0m:	21:46:03 - docling_serve.app - [TENANT_ID] File task badcc879-afcd-4b0b-a037-fa6b9115afd7 created with tenant_id='default'
+[92mINFO[0m:	21:46:03 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task badcc879-afcd-4b0b-a037-fa6b9115afd7
+[92mINFO[0m:	21:46:03 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:46:03 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:46:03 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:46:03 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:46:46 - docling.document_converter - Finished converting document page.pdf in 43.19 sec.
+[92mINFO[0m:	21:46:46 - docling_jobkit.convert.results - Processed 1 docs in 43.20 seconds.
+[92mINFO[0m:	21:46:46 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job badcc879-afcd-4b0b-a037-fa6b9115afd7 in 43.20 seconds
+[92mINFO[0m:	21:46:47 - uvicorn.access - 127.0.0.1:51980 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:46:47 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:46:47 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:46:47 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:46:47 - docling_serve.app - File 0: name=page.pdf, size=26638 bytes, md5=94818466be10, content_type=application/octet-stream
+[92mINFO[0m:	21:46:47 - docling_serve.app - [TENANT_ID] File task 313bd3ef-c41b-4343-a5c4-8069e2cf8944 created with tenant_id='default'
+[92mINFO[0m:	21:46:47 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 313bd3ef-c41b-4343-a5c4-8069e2cf8944
+[92mINFO[0m:	21:46:47 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:46:47 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:46:47 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:46:47 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:47:01 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='15ac193c-9013-4075-8111-20e9eb20ac8d'
+[92mINFO[0m:	21:47:01 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='15ac193c-9013-4075-8111-20e9eb20ac8d'
+[92mINFO[0m:	21:47:31 - docling.document_converter - Finished converting document page.pdf in 43.97 sec.
+[92mINFO[0m:	21:47:31 - docling_jobkit.convert.results - Processed 1 docs in 43.98 seconds.
+[92mINFO[0m:	21:47:31 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 313bd3ef-c41b-4343-a5c4-8069e2cf8944 in 43.98 seconds
+[92mINFO[0m:	21:47:31 - uvicorn.access - 127.0.0.1:57212 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:47:31 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:47:31 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:47:31 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:47:31 - docling_serve.app - File 0: name=page.pdf, size=14256 bytes, md5=d187c92aa25d, content_type=application/octet-stream
+[92mINFO[0m:	21:47:31 - docling_serve.app - [TENANT_ID] File task a19aeb04-abd7-4707-acb6-457d7c8634b7 created with tenant_id='default'
+[92mINFO[0m:	21:47:31 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task a19aeb04-abd7-4707-acb6-457d7c8634b7
+[92mINFO[0m:	21:47:31 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:47:31 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:47:31 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:47:31 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:47:41 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='199555b2-7881-46b6-bcae-0c3c97f8e417'
+[92mINFO[0m:	21:47:41 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='199555b2-7881-46b6-bcae-0c3c97f8e417'
+[92mINFO[0m:	21:48:10 - docling.document_converter - Finished converting document page.pdf in 38.85 sec.
+[92mINFO[0m:	21:48:10 - docling_jobkit.convert.results - Processed 1 docs in 38.86 seconds.
+[92mINFO[0m:	21:48:10 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job a19aeb04-abd7-4707-acb6-457d7c8634b7 in 38.86 seconds
+[92mINFO[0m:	21:48:11 - uvicorn.access - 127.0.0.1:58058 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:48:11 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:48:11 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:48:11 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:48:11 - docling_serve.app - File 0: name=page.pdf, size=15935 bytes, md5=6876dfe92bdd, content_type=application/octet-stream
+[92mINFO[0m:	21:48:11 - docling_serve.app - [TENANT_ID] File task ec74223f-4ab4-440c-862e-c6d5e7801496 created with tenant_id='default'
+[92mINFO[0m:	21:48:11 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task ec74223f-4ab4-440c-862e-c6d5e7801496
+[92mINFO[0m:	21:48:11 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:48:11 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:48:11 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:48:11 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:48:35 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='6923119b-169d-4179-96bc-199c898d2d8e'
+[92mINFO[0m:	21:48:35 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='6923119b-169d-4179-96bc-199c898d2d8e'
+[92mINFO[0m:	21:48:53 - docling.document_converter - Finished converting document page.pdf in 42.26 sec.
+[92mINFO[0m:	21:48:53 - docling_jobkit.convert.results - Processed 1 docs in 42.27 seconds.
+[92mINFO[0m:	21:48:53 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job ec74223f-4ab4-440c-862e-c6d5e7801496 in 42.27 seconds
+[92mINFO[0m:	21:48:55 - uvicorn.access - 127.0.0.1:44780 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:48:55 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:48:55 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:48:55 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:48:55 - docling_serve.app - File 0: name=page.pdf, size=19290 bytes, md5=c494e0b3773c, content_type=application/octet-stream
+[92mINFO[0m:	21:48:55 - docling_serve.app - [TENANT_ID] File task 480fc241-c0d2-4011-a0e0-b78b663bde32 created with tenant_id='default'
+[92mINFO[0m:	21:48:55 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task 480fc241-c0d2-4011-a0e0-b78b663bde32
+[92mINFO[0m:	21:48:55 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:48:55 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:48:55 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:48:55 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:49:27 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='307311d9-7b00-404e-8298-47a7c11aee17'
+[92mINFO[0m:	21:49:27 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='307311d9-7b00-404e-8298-47a7c11aee17'
+[92mINFO[0m:	21:49:31 - docling.document_converter - Finished converting document page.pdf in 36.70 sec.
+[92mINFO[0m:	21:49:32 - docling_jobkit.convert.results - Processed 1 docs in 36.72 seconds.
+[92mINFO[0m:	21:49:32 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job 480fc241-c0d2-4011-a0e0-b78b663bde32 in 36.72 seconds
+[92mINFO[0m:	21:49:33 - uvicorn.access - 127.0.0.1:59782 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	21:49:33 - docling_serve.app - [TENANT_ID] Extracted tenant_id from header: 'default' (header_value: 'None')
+[92mINFO[0m:	21:49:33 - docling_serve.app - [TENANT_ID] process_file endpoint received tenant_id='default'
+[92mINFO[0m:	21:49:33 - docling_serve.app - [TENANT_ID] _enqueue_file called with tenant_id='default', processing 1 files
+[92mINFO[0m:	21:49:33 - docling_serve.app - File 0: name=page.pdf, size=5074489 bytes, md5=969fa900c158, content_type=application/octet-stream
+[92mINFO[0m:	21:49:33 - docling_serve.app - [TENANT_ID] File task e3b73f2b-9e08-48f4-a0ad-3d62309adc55 created with tenant_id='default'
+[92mINFO[0m:	21:49:33 - docling_jobkit.orchestrators.local.worker - Worker 0 processing task e3b73f2b-9e08-48f4-a0ad-3d62309adc55
+[92mINFO[0m:	21:49:33 - docling_jobkit.convert.manager - artifacts_path is unset. The system will download the model weights at runtime.
+[92mINFO[0m:	21:49:33 - docling.datamodel.document - detected formats: [<InputFormat.PDF: 'pdf'>]
+[92mINFO[0m:	21:49:33 - docling.document_converter - Going to convert document batch...
+[92mINFO[0m:	21:49:33 - docling.pipeline.base_pipeline - Processing document page.pdf
+[92mINFO[0m:	21:50:25 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='2e710fa7-694f-4a59-a9f1-2d18f7fdfa21'
+[92mINFO[0m:	21:50:25 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='2e710fa7-694f-4a59-a9f1-2d18f7fdfa21'
+[92mINFO[0m:	21:51:03 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='a969b578-b3b9-4158-bb96-220f175c18b8'
+[92mINFO[0m:	21:51:03 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='a969b578-b3b9-4158-bb96-220f175c18b8'
+[92mINFO[0m:	21:51:47 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='badcc879-afcd-4b0b-a037-fa6b9115afd7'
+[92mINFO[0m:	21:51:47 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='badcc879-afcd-4b0b-a037-fa6b9115afd7'
+[92mINFO[0m:	21:52:31 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='313bd3ef-c41b-4343-a5c4-8069e2cf8944'
+[92mINFO[0m:	21:52:31 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='313bd3ef-c41b-4343-a5c4-8069e2cf8944'
+[92mINFO[0m:	21:53:11 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='a19aeb04-abd7-4707-acb6-457d7c8634b7'
+[92mINFO[0m:	21:53:11 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='a19aeb04-abd7-4707-acb6-457d7c8634b7'
+[92mINFO[0m:	21:53:55 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='ec74223f-4ab4-440c-862e-c6d5e7801496'
+[92mINFO[0m:	21:53:55 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='ec74223f-4ab4-440c-862e-c6d5e7801496'
+[92mINFO[0m:	21:54:33 - docling_jobkit.orchestrators.local.orchestrator - Deleting result of task task_id='480fc241-c0d2-4011-a0e0-b78b663bde32'
+[92mINFO[0m:	21:54:33 - docling_jobkit.orchestrators.base_orchestrator - Deleting task_id='480fc241-c0d2-4011-a0e0-b78b663bde32'
+[93mWARNING[0m:	22:14:58 - docling.models.stages.table_structure.table_structure_model - Discarding the 69x4 structure predicted for table 2 on page 31 because the predicted structure hit the 1024-step decode limit; its text is kept as a single cell.
+[93mWARNING[0m:	22:18:03 - docling.models.stages.table_structure.table_structure_model - Discarding the 44x4 structure predicted for table 0 on page 33 because the predicted structure hit the 1024-step decode limit; its text is kept as a single cell.
+[92mINFO[0m:	22:18:55 - docling.document_converter - Finished converting document page.pdf in 1762.26 sec.
+[92mINFO[0m:	22:18:55 - docling_jobkit.convert.results - Processed 1 docs in 1762.58 seconds.
+[92mINFO[0m:	22:18:55 - docling_jobkit.orchestrators.local.worker - Worker 0 completed job e3b73f2b-9e08-48f4-a0ad-3d62309adc55 in 1762.58 seconds
+[92mINFO[0m:	22:18:57 - uvicorn.access - 127.0.0.1:39044 - "POST /v1/convert/file HTTP/1.1" 200
+[92mINFO[0m:	22:18:58 - uvicorn.error - Shutting down
+[92mINFO[0m:	22:18:58 - uvicorn.error - Waiting for application shutdown.
+[92mINFO[0m:	22:18:58 - docling_serve.app - Queue processor cancelled.
+[92mINFO[0m:	22:18:58 - uvicorn.error - Application shutdown complete.
+[92mINFO[0m:	22:18:58 - uvicorn.error - Finished server process [1660]
