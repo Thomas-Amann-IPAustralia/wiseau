@@ -135,9 +135,9 @@ panels, all right on inspection. No relation is drawn on T.
 With `WISEAU_STRUCTURE` unset, the default path's Markdown must be unchanged.
 The serializer now skips empty elements instead of joining them, which
 `clean_markdown` made invisible before. The layout pass now types picture
-regions as figures, keeping their text. The gate (`whole_docs.py`, all 15 test
-PDFs, old checkout vs new) and an image-path check (V4N1 and WO with tables and
-layout on) are recorded in STATUS.md with their result.
+regions as figures, keeping their text. **Gate passed:**
+- `whole_docs.py` on all 15 test PDFs, whole: `main` (62a6eeb) vs this branch, all byte-identical.
+- The image's path (tables + layout on) for V4N1 (36 scanned pages) and the WO publication: byte-identical.
 
 ## Not done
 

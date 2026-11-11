@@ -37,7 +37,11 @@ Honest limits:
 - The outline signal never fires on this corpus: its bookmarks are navigation labels.
 - Not built: contents-page nesting, footnotes on scans, merged Markdown tables, the bundle in the UI or MCP.
 
-Tests: 606 passed, 8 skipped (25 new). Byte gate: see below.
+Tests: 606 passed, 8 skipped (25 new).
+
+**Byte gate passed (passes off).**
+- Default path: all 15 test PDFs, whole, `main` (62a6eeb) vs this branch, byte-identical (`whole_docs.py`).
+- Image path (tables + layout on): V4N1 (36 scanned pages) and the WO publication, byte-identical.
 
 **Build note (2026-11-11, Kaggle T4 leg, no production change):** The user provided Kaggle credentials (proxy-injected) and asked for the GPU test. It ran on a free T4 (`thomasamann/wiseau-layout-spike-run` v3, private). [`docs/benchmarks/2026-11-11-ovisocr3-kaggle-t4.md`](docs/benchmarks/2026-11-11-ovisocr3-kaggle-t4.md). OvisOCR3 at fp16 is correct: valid JSON on 26/26 pages, every region matches the CPU fp32 reference (IoU ≥ 0.9, same category), and the set S regroup scores are identical to the CPU row. But it takes mean 50.3 s and median 52.8 s a page (3.6 GB VRAM), against the guide's <10 s bar. bf16 OOMs, and fp32 is no faster. PP-DocLayoutV3 takes 0.14 s a page on the same GPU. **Per the guide's Part 5, OvisOCR3 gets no opt-in and the experiment is closed.** The fused linear-attention kernels and vLLM were not tried. Fix: `kernel.py` now accepts the tree Kaggle extracts from the uploaded tar (the first two pushes stopped at setup). Raw outputs are in `benchmarks/bakeoff/outputs/kaggle-20261111/`.
 
