@@ -139,13 +139,19 @@ regions as figures, keeping their text. **Gate passed:**
 - `whole_docs.py` on all 15 test PDFs, whole: `main` (62a6eeb) vs this branch, all byte-identical.
 - The image's path (tables + layout on) for V4N1 (36 scanned pages) and the WO publication: byte-identical.
 
+## Since (ADR-055)
+
+- The image turns the passes on.
+- `reader` is a per-request field.
+- The UI offers the bundle.
+
 ## Not done
 
 - Contents-page nesting for 3.1.
 - Footnotes on scans.
 - Merging continued tables into one Markdown table.
 - A figure's identity in scoring.
-- The bundle in the frontend and on the MCP surface.
-- Whether to turn passes on in the Docker image. That is the user's call, as
-  for ADR-047/048. No pass needs a model or a dependency. All six take about
-  60 ms on V16N3 (108 pages) and on V20N4 (371 pages).
+- The bundle on the MCP surface (by design, ADR-055).
+
+Cost: all six passes take about 60 ms on V16N3 (108 pages) and on V20N4 (371
+pages), with no model or dependency.

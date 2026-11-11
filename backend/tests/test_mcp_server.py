@@ -549,3 +549,25 @@ def test_the_batch_keyword_tool_is_advertised_to_clients():
     # An agent must be steered off a loop of single calls, which is the whole
     # reason this tool exists (ADR-033).
     assert "convert_batch" in (tool.description or "")
+
+
+def test_reader_is_sent_only_when_chosen(monkeypatch, tmp_path):
+    # ADR-055: no `reader` field means "the deployment's default", so the tool
+    # must not send one unless the agent chose.
+    pdf = tmp_path / "doc.pdf"
+    pdf.write_bytes(b"%PDF-1.4 fake bytes")
+    seen: list = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        seen.append(request.content)
+        if request.url.path == "/convert/batch":
+            return httpx.Response(200, json={"count": 1, "succeeded": 1, "failed": 0, "results": []})
+        return httpx.Response(200, json={"source": "doc.pdf", "markdown": "x\n", "length": 2})
+
+    _mock_client(monkeypatch, handler)
+    asyncio.run(mcp_server.convert_file(str(pdf)))
+    asyncio.run(mcp_server.convert_file(str(pdf), reader=True))
+    asyncio.run(mcp_server.convert_batch([str(pdf)], reader=False))
+    assert b'name="reader"' not in seen[0]
+    assert b'name="reader"\r\n\r\ntrue' in seen[1]
+    assert b'name="reader"\r\n\r\nfalse' in seen[2]

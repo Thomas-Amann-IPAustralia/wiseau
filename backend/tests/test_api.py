@@ -1189,3 +1189,47 @@ def test_bundle_endpoint_refuses_what_convert_file_refuses(client):
     r = client.post("/convert/bundle", data={"engine": "nope"},
                     files={"file": ("x.pdf", b"%PDF", "application/pdf")})
     assert r.status_code == 400
+
+
+# --- reader mode per request (ADR-055) ---------------------------------------------
+
+
+def _journal_pdf() -> bytes:
+    doc = pymupdf.open()
+    for n in range(1, 5):
+        page = doc.new_page(width=595, height=842)
+        page.insert_text((400, 50), "PLANT JOURNAL VOL 16 NO 3", fontsize=8)
+        page.insert_text((72, 300), f"Body text of page {n}.", fontsize=11)
+        page.insert_text((560, 820), str(80 + n), fontsize=8)
+    return doc.tobytes()
+
+
+def test_reader_mode_is_chosen_per_request(client, monkeypatch):
+    monkeypatch.delenv("WISEAU_STRUCTURE", raising=False)
+    monkeypatch.delenv("WISEAU_FURNITURE", raising=False)
+    data = _journal_pdf()
+
+    def convert(**form):
+        r = client.post("/convert/file", data=form, files={"file": ("j.pdf", data, "application/pdf")})
+        assert r.status_code == 200, r.text
+        return r.json()["markdown"]
+
+    faithful, reader = convert(), convert(reader="true")
+    assert faithful.count("PLANT JOURNAL") == 4 and "81" in faithful
+    assert "PLANT JOURNAL" not in reader and "\n81\n" not in f"\n{reader}\n"
+    assert all(f"Body text of page {n}." in reader for n in range(1, 5))
+    # A deployment that defaults to reader mode can still be asked for every word.
+    monkeypatch.setenv("WISEAU_FURNITURE", "drop")
+    assert convert() == reader and convert(reader="false") == faithful
+
+
+def test_reader_mode_on_batch_and_bundle(client):
+    import io
+    import zipfile
+
+    data = _journal_pdf()
+    r = client.post("/convert/batch", data={"reader": "true"},
+                    files=[("files", ("a.pdf", data, "application/pdf"))])
+    assert "PLANT JOURNAL" not in r.json()["results"][0]["markdown"]
+    r = client.post("/convert/bundle", data={"reader": "true"}, files={"file": ("a.pdf", data, "application/pdf")})
+    assert "PLANT JOURNAL" not in zipfile.ZipFile(io.BytesIO(r.content)).read("document.md").decode()

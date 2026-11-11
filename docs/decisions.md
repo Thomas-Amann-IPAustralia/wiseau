@@ -21,6 +21,38 @@ one `Superseded`.
 
 ---
 
+## ADR-055 — Structure passes on in the image; reader mode per request; the bundle in the UI
+**Date:** 2026-11-11 · **Status:** Accepted (the user, on the recommendation after ADR-049..054)
+**Context:** ADR-049..054 shipped the structure passes off everywhere and left
+three questions open: turn them on in the image, make reader mode a deployment
+setting or a request option, and whether the bundle reaches the UI and MCP.
+**Decision:**
+- **The image sets `WISEAU_STRUCTURE=all`**, in the lean build too: no model,
+  no dependency, ~60 ms a document. Faithful stays the default: every word is
+  kept. Off in code, as the model passes are.
+- **`reader` is an optional request field** on `/convert/file`,
+  `/convert/batch` and `/convert/bundle` (API 0.16.0, additive), and on the MCP
+  `convert_file` / `convert_batch` tools. `true` leaves furniture out and writes
+  a repeated table header once, `false` keeps every word. Omitted, the
+  deployment's `WISEAU_FURNITURE` decides. Whether to keep page numbers depends
+  on the reader (an agent summarising vs an archive), not on the deployment.
+  Reader mode runs the furniture and tables passes it needs whatever
+  `WISEAU_STRUCTURE` says. The field is passed to the converter only when sent,
+  so a request without it calls exactly what it called before.
+- **The UI** gets a *Reader mode* checkbox (sent on every upload) and *Save
+  with figures (.zip)* after a single PDF, which converts the file again through
+  `/convert/bundle`. The bundle stays off the MCP surface: a tool returns text,
+  and the Markdown already carries the document.
+**Consequences:** A deployment of the image now writes heading levels on scans
+(not all `##`), joins paragraphs broken by a column, and writes `[^n]`
+footnotes on text-layer pages; set `WISEAU_STRUCTURE` empty for the old
+Markdown. The URL path takes no `reader` (a page served as HTML has no page
+furniture; a URL that serves a PDF is converted faithfully). Verified: 609
+tests; a CI step in the image checks the passes and the bundle; the UI was
+driven in headless Chromium against a live backend (9 checks: faithful keeps 4
+running heads, reader drops them, the bundle downloads as `journal.zip` with
+`document.md`, `document.json`, `assets/figure-001.png`).
+
 ## ADR-054 — Continued tables are linked, not merged; reader mode writes a repeated header once
 **Date:** 2026-11-11 · **Status:** Accepted (opt-in: `WISEAU_STRUCTURE` includes `tables`)
 **Context:** Roadmap 3.6. PBR comparison tables are printed as side-by-side

@@ -5,7 +5,21 @@
 > session. Keep it honest — "scaffolded but untested" is more useful than a
 > green checkmark that lies.
 
-**Last updated:** 2026-11-11 (ninth session: roadmap Tier 3 structure recovery, ADR-049..054, `POST /convert/bundle`, API 0.15.0; eighth session: Kaggle T4 run of OvisOCR3, experiment closed; seventh session: 3.7b layout-region spike, CPU leg, held-out set T, then ADR-048 shipping the layout detector in the image; sixth session: planning only, OvisOCR3/TeleOCR assessment; fifth session: ADR-047, table pass on in the Docker image; MuPDF OCR concurrency fix)
+**Last updated:** 2026-11-11 (ninth session: roadmap Tier 3 structure recovery, ADR-049..055, `POST /convert/bundle`, per-request reader mode, API 0.16.0; eighth session: Kaggle T4 run of OvisOCR3, experiment closed; seventh session: 3.7b layout-region spike, CPU leg, held-out set T, then ADR-048 shipping the layout detector in the image; sixth session: planning only, OvisOCR3/TeleOCR assessment; fifth session: ADR-047, table pass on in the Docker image; MuPDF OCR concurrency fix)
+**Build note (2026-11-11, ADR-055, API 0.16.0):** The user accepted the recommendation after Tier 3:
+- **The image now sets `WISEAU_STRUCTURE=all`**, the lean build included. Faithful mode is still the default.
+- **`reader` is an optional request field** on `/convert/file`, `/convert/batch` and `/convert/bundle`, and on the MCP `convert_file` / `convert_batch` tools. It is passed to the converter only when sent.
+- **The UI** has a *Reader mode* checkbox and *Save with figures (.zip)* after a single PDF.
+
+Verified:
+- 609 tests pass, 8 skipped.
+- A new CI step checks the image's passes and bundle in-container. Its script was run locally; no Docker daemon here, so the image itself was not built.
+- 9 UI checks pass, driving the real page in headless Chromium against a live backend.
+
+Open:
+- The URL path takes no `reader`.
+- The bundle is not on MCP, by design.
+
 **Build note (2026-11-11, Tier 3, ADR-049..054, API 0.15.0):** The user asked for the Tier 3 work. No paid APIs. Write-up: [`docs/benchmarks/2026-11-11-structure-recovery.md`](docs/benchmarks/2026-11-11-structure-recovery.md); behaviour in tech-spec §20.
 
 What was built:
@@ -857,13 +871,12 @@ URLs, which used to convert to an empty PDF-viewer shell (ADR-017).*
 
 ## Suggested next actions (see `docs/roadmap.md` for the full backlog)
 
-**0. Tier 3 follow-ups (2026-11-11).** (a) Decide whether the image turns the
-structure passes on (`WISEAU_STRUCTURE=all`; no model or dependency, ~60 ms per
-document) and whether reader mode should be a per-request option rather than a
-deployment setting. (b) Offer `POST /convert/bundle` in the frontend. (c)
-Contents-page nesting for heading levels, footnotes on scans, and a gold set
-with nested reports and repeated-header tables (set S's README lists these as
-gaps).
+**0. Tier 3 follow-ups (2026-11-11).** The image now ships the passes on, reader
+mode is per request, and the UI offers the bundle (ADR-055).
+- **Next: deploy (A below).** The structure work is invisible until it runs somewhere.
+- **For more structure work, a gold set first:** a deeply nested report, a table
+  that repeats its header across pages, and scanned footnotes. These need PDFs
+  from the user. Then contents-page nesting and footnotes on scans.
 
 **Phase 6 has no code left in it, the cross-cutting backlog's code items are done,
 Phase 7 (the usability pass — ADR-024/025/026), Phase 8 (fast by default —

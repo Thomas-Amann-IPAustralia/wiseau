@@ -198,6 +198,33 @@ jobs:
           print("in-container layout pass OK")
           PY
 
+      - name: Structure passes and the bundle inside the container (ADR-049..055)
+        run: |
+          # The image turns the structure passes on (WISEAU_STRUCTURE=all). A
+          # four-page PDF with a running head must keep it by default (faithful)
+          # and drop it in reader mode; the bundle must carry its figure as a file.
+          docker exec md-engine sh -c 'test "$WISEAU_STRUCTURE" = all'
+          docker exec -i md-engine python - <<'PY'
+          import io, zipfile
+          import pymupdf
+          from parsers.file_parser import file_to_bundle, file_to_markdown
+
+          doc = pymupdf.open()
+          for n in range(1, 5):
+              page = doc.new_page(width=595, height=842)
+              page.insert_text((400, 50), "PLANT JOURNAL VOL 16 NO 3", fontsize=8)
+              page.insert_text((72, 120), f"Body text of page {n}.", fontsize=11)
+              page.insert_text((560, 820), str(80 + n), fontsize=8)
+          pix = pymupdf.Pixmap(pymupdf.csRGB, pymupdf.IRect(0, 0, 40, 40), False)
+          doc[0].insert_image(pymupdf.Rect(72, 200, 272, 400), pixmap=pix)
+          data = doc.tobytes()
+          assert file_to_markdown(data, "j.pdf").count("PLANT JOURNAL") == 4, "faithful mode lost words"
+          assert "PLANT JOURNAL" not in file_to_markdown(data, "j.pdf", reader=True), "reader mode kept the head"
+          z = zipfile.ZipFile(io.BytesIO(file_to_bundle(data, "j.pdf")[0]))
+          assert "assets/figure-001.png" in z.namelist(), z.namelist()
+          print("in-container structure passes and bundle OK")
+          PY
+
       - name: Render a real external URL end-to-end
         run: |
           body=$(curl -sf --max-time 90 -X POST http://localhost:7860/convert/url \

@@ -664,9 +664,10 @@ No paid API is used for this work unless the user says otherwise.
   `POST /convert/bundle` (API 0.15.0: Markdown + IR + figure images). Held out on
   set T: heading level accuracy 0.530 → 0.850, caption links 0 → 7/13, words
   unchanged; cross-page items audited on six whole documents. Write-up:
-  `docs/benchmarks/2026-11-11-structure-recovery.md`. Open: turning passes on in
-  the image (the user's call), contents-page nesting, footnotes on scans, the
-  bundle in the UI/MCP, merging continued tables.
+  `docs/benchmarks/2026-11-11-structure-recovery.md`. **ADR-055:** on in the
+  image (`WISEAU_STRUCTURE=all`), `reader` per request (API 0.16.0), the bundle
+  in the UI. Open: contents-page nesting, footnotes on scans (both need a gold
+  set with such documents first), merging continued tables.
 
 Started 2026-11-08. Tiered plan, gates and rationale in
 [`roadmap-ocr-and-structure.md`](roadmap-ocr-and-structure.md), drawn from the two

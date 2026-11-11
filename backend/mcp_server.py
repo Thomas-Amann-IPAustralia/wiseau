@@ -124,8 +124,16 @@ async def convert_url(url: str, engine: str = "auto", split_chapters: bool = Fal
     return _unwrap(response)
 
 
+def _with_reader(data: dict, reader: bool | None) -> dict:
+    """Form data with `reader` added only when the caller chose (ADR-055)."""
+    if reader is not None:
+        data = {**data, "reader": "true" if reader else "false"}
+    return data
+
+
 @mcp.tool()
-async def convert_file(path: str, engine: str = "auto", split_chapters: bool = False) -> dict[str, Any]:
+async def convert_file(path: str, engine: str = "auto", split_chapters: bool = False,
+                       reader: bool | None = None) -> dict[str, Any]:
     """Convert a local PDF or DOCX file to clean, deterministic Markdown.
 
     Reads the file at ``path`` from the machine running this MCP server and
@@ -141,6 +149,11 @@ async def convert_file(path: str, engine: str = "auto", split_chapters: bool = F
             when the user asks for a long document to be broken up — each chapter
             comes back with its own ``markdown`` and a numbered ``filename``, so
             saving one file per chapter is a loop over ``chapters``.
+        reader: ``True`` for reader mode: running headers, footers and page
+            numbers left out, a continued table's repeated header written once.
+            Use it when the text is for reading or summarising rather than for
+            an exact record. ``False`` keeps every word as printed; ``None``
+            (the default) uses the deployment's setting.
 
     Returns:
         ``{"source": <filename>, "markdown": <content>, "length": <char count>}``,
@@ -156,13 +169,14 @@ async def convert_file(path: str, engine: str = "auto", split_chapters: bool = F
         response = await client.post(
             "/convert/file",
             files=files,
-            data={"engine": engine, "split_chapters": "true" if split_chapters else "false"},
+            data=_with_reader({"engine": engine, "split_chapters": "true" if split_chapters else "false"},
+                              reader),
         )
     return _unwrap(response)
 
 
 @mcp.tool()
-async def convert_batch(paths: list[str], engine: str = "auto") -> dict[str, Any]:
+async def convert_batch(paths: list[str], engine: str = "auto", reader: bool | None = None) -> dict[str, Any]:
     """Convert several local PDF or DOCX files to Markdown in one request.
 
     Use this instead of calling ``convert_file`` in a loop when the user asks for
@@ -184,6 +198,7 @@ async def convert_batch(paths: list[str], engine: str = "auto") -> dict[str, Any
             minutes *per document* on free CPU, so a batch of any size is a long
             wait; ``auto`` (the fast parser on a standard deployment) is usually
             the right choice for bulk work.
+        reader: Reader mode for every document, as in ``convert_file``.
 
     Returns:
         ``{"count": n, "succeeded": n, "failed": n, "results": [...]}`` where each
@@ -209,7 +224,7 @@ async def convert_batch(paths: list[str], engine: str = "auto") -> dict[str, Any
         payload.append(("files", (path.name, data, content_type)))
 
     async with _client() as client:
-        response = await client.post("/convert/batch", files=payload, data={"engine": engine})
+        response = await client.post("/convert/batch", files=payload, data=_with_reader({"engine": engine}, reader))
     return _unwrap(response)
 
 

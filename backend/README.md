@@ -193,6 +193,13 @@ scanned page on one thread and about 0.8 GB of memory under load. Set
 `WISEAU_LAYOUT` to empty to switch it off. Locally, after the install above:
 `export WISEAU_LAYOUT=ppdl`.
 
+**Structure recovery** (ADR-049..055) is a set of passes over the converted
+document: heading levels, page furniture, paragraph continuation, caption
+links, footnotes and continued tables. It needs no model or package, so the
+image turns it on (`WISEAU_STRUCTURE=all`) in the lean build too. Faithful by
+default; a request's `reader=true` leaves page furniture out. Set
+`WISEAU_STRUCTURE` to empty for the Markdown exactly as before.
+
 ## Run locally
 
 Chromium and chromedriver must be on `PATH` (or set `CHROME_BIN` /

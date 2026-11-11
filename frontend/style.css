@@ -233,6 +233,7 @@ input[type="url"]:focus { outline: none; border-color: var(--accent); }
 .check__hint code { font-size: 0.72rem; }
 /* A choice the current selection rules out (ADR-031), greyed but still legible
    so the reason stays readable rather than the control just going dead. */
+.check + .check { margin-top: 8px; }
 .check--blocked { opacity: 0.6; cursor: not-allowed; }
 .check--blocked input { cursor: not-allowed; }
 .check__blocked { font-size: 0.74rem; line-height: 1.5; color: var(--accent); }

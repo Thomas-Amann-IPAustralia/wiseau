@@ -18,6 +18,7 @@ import os
 import time
 import uuid
 from contextlib import asynccontextmanager
+from functools import partial
 from typing import AsyncIterator
 
 from fastapi import FastAPI, File, Form, HTTPException, Request, Response, UploadFile
@@ -179,7 +180,7 @@ app = FastAPI(
         "Deterministic conversion of web URLs, PDFs, and DOCX documents into "
         "clean, structured Markdown. Designed for both human UIs and LLM/MCP agents."
     ),
-    version="0.15.0",
+    version="0.16.0",
     lifespan=_lifespan,
 )
 
@@ -316,6 +317,19 @@ _ENGINE_DESCRIPTION = (
     "defaulted to. On /convert/url the choice applies only when the URL serves a "
     "PDF; HTML pages are always extracted by Trafilatura."
 )
+
+
+_READER_DESCRIPTION = (
+    "Reader mode (ADR-055): leave out the running headers, footers and page "
+    "numbers the structure passes detect, and write a continued table's repeated "
+    "header row once. Off (faithful: every word as printed) unless the deployment "
+    "sets WISEAU_FURNITURE=drop; send true or false to choose per request."
+)
+
+def _with_reader(convert, reader: bool | None):
+    """`convert` with the request's reader choice bound, or as it is when the
+    request made none (the deployment's default then applies)."""
+    return convert if reader is None else partial(convert, reader=reader)
 
 
 _SPLIT_DESCRIPTION = (
@@ -856,6 +870,7 @@ async def convert_file(
     file: UploadFile = File(...),
     engine: str | None = Form(default=None, description=_ENGINE_DESCRIPTION),
     split_chapters: bool = Form(default=False, description=_SPLIT_DESCRIPTION),
+    reader: bool | None = Form(default=None, description=_READER_DESCRIPTION),
 ) -> MarkdownResponse:
     """Parse an uploaded PDF or DOCX into Markdown."""
     resolved_engine = _resolve_engine_or_400(engine)
@@ -866,7 +881,7 @@ async def convert_file(
     async with _job_slot():
         try:
             markdown = await asyncio.to_thread(
-                file_to_markdown, data, file.filename or "", resolved_engine
+                _with_reader(file_to_markdown, reader), data, file.filename or "", resolved_engine
             )
         except ValueError as exc:
             metrics.record_conversion("file", "error")
@@ -900,6 +915,7 @@ async def convert_bundle(
     request: Request,
     file: UploadFile = File(...),
     engine: str | None = Form(default=None, description=_ENGINE_DESCRIPTION),
+    reader: bool | None = Form(default=None, description=_READER_DESCRIPTION),
 ) -> Response:
     """Convert a document and return it as a ZIP bundle (ADR-052).
 
@@ -919,7 +935,7 @@ async def convert_bundle(
     async with _job_slot():
         try:
             payload, summary = await asyncio.to_thread(
-                file_to_bundle, data, file.filename or "", resolved_engine
+                _with_reader(file_to_bundle, reader), data, file.filename or "", resolved_engine
             )
         except ValueError as exc:
             metrics.record_conversion("file", "error")
@@ -950,6 +966,7 @@ async def convert_batch(
     files: list[UploadFile] = File(..., description=_BATCH_FILES_DESCRIPTION),
     engine: str | None = Form(default=None, description=_ENGINE_DESCRIPTION),
     split_chapters: bool = Form(default=False, description=_BATCH_SPLIT_DESCRIPTION),
+    reader: bool | None = Form(default=None, description=_READER_DESCRIPTION),
 ) -> BatchResponse:
     """Convert a set of uploaded documents, one Markdown file per document.
 
@@ -1010,7 +1027,8 @@ async def convert_batch(
 
         async with _job_slot():
             try:
-                markdown = await asyncio.to_thread(file_to_markdown, data, source, resolved_engine)
+                markdown = await asyncio.to_thread(_with_reader(file_to_markdown, reader), data, source,
+                                                   resolved_engine)
             except ValueError as exc:
                 # Unsupported extension — the 415 of a single-file request.
                 results.append(_batch_failure(source, str(exc)))

@@ -121,8 +121,13 @@ interactive docs are at `/docs`.
 - **Purpose:** parse an uploaded PDF, DOCX, or image into Markdown. Scanned /
   handwritten PDFs and image uploads are OCR'd automatically (see §10).
 - **Rate limit:** `20/minute` per IP.
-- **Request:** `multipart/form-data` with a `file` field and optional `engine`
-  and `split_chapters` fields (see the box below and §15).
+- **Request:** `multipart/form-data` with a `file` field and optional `engine`,
+  `split_chapters` (see the box below and §15) and `reader` fields. `reader`
+  (ADR-055, API 0.16.0): `true` for reader mode (detected page furniture left
+  out, a continued table's repeated header row written once), `false` for every
+  word as printed; omitted, the deployment's `WISEAU_FURNITURE` decides
+  (faithful unless `drop`). Reader mode runs the `furniture` and `tables` passes
+  even when `WISEAU_STRUCTURE` does not name them.
 - **Constraints:** extension must be `.pdf`, `.docx`, or an image type
   (`.png`, `.jpg`, `.jpeg`, `.tif`, `.tiff`, `.bmp`, `.webp`, `.gif`); body must
   be non-empty and ≤ `MAX_UPLOAD_BYTES` (default 25 MB). The limit is enforced
@@ -137,8 +142,8 @@ interactive docs are at `/docs`.
   carries what a Markdown string cannot: the document IR and the images of its
   figures (ADR-052; roadmap 3.4). Added in API 0.15.0.
 - **Rate limit:** `20/minute` per IP; one job slot, as `/convert/file`.
-- **Request:** `multipart/form-data` with a `file` field and optional `engine`.
-  No `split_chapters`.
+- **Request:** `multipart/form-data` with a `file` field and optional `engine`
+  and `reader` (as `/convert/file`). No `split_chapters`.
 - **Constraints:** as `/convert/file`.
 - **200 response:** `application/zip`, `Content-Disposition: attachment;
   filename="<slug>.zip"`, headers `X-Wiseau-Figures` and
@@ -166,8 +171,8 @@ interactive docs are at `/docs`.
 - **Rate limit:** `5/minute` per IP — tighter than the single-document routes,
   because one request buys up to `MAX_BATCH_FILES` conversions.
 - **Request:** `multipart/form-data` with the `files` part **repeated once per
-  document**, plus an optional `engine`. `split_chapters` is accepted only as
-  `false`.
+  document**, plus optional `engine` and `reader` (applied to every document,
+  as `/convert/file`). `split_chapters` is accepted only as `false`.
 - **Constraints:** at most `MAX_BATCH_FILES` documents (default 20); each
   document ≤ `MAX_UPLOAD_BYTES`; the batch as a whole ≤ `MAX_BATCH_BYTES`
   (default 50 MB). Documents are read and converted one at a time, so peak
@@ -459,8 +464,8 @@ All backend configuration is via environment variables (12-factor).
 | `WISEAU_TABLE_THREADS` | `1` | CPU threads for that pass's inference. Fixed per deployment so the arithmetic, and so the output, is the same on every run. |
 | `WISEAU_LAYOUT` | unset in code; **`ppdl` in the Docker image** (ADR-048) | `ppdl` turns on the PP-DocLayoutV3 layout pass on OCR'd pages: headings, block boundaries, captions and page furniture from regions, every word unchanged. Needs `requirements-tables.txt` (PyTorch, transformers 5.x, OpenCV); without it, or if the model fails to load, the pass is skipped, never an error. Empty switches it off. |
 | `WISEAU_LAYOUT_THREADS` | `WISEAU_TABLE_THREADS`, else `1` | CPU threads for the layout pass. torch's thread count is process-wide, so keep it equal to `WISEAU_TABLE_THREADS`. Fixed per deployment so the output is the same on every run. |
-| `WISEAU_STRUCTURE` | unset (code and image) | Structure-recovery passes over the IR (§20, roadmap Tier 3): a comma list of `headings`, `furniture`, `continuation`, `captions`, `footnotes`, `tables`, or `all`. Pure IR passes: no model, no extra dependency, deterministic. Unset, the output is unchanged. |
-| `WISEAU_FURNITURE` | `keep` | `drop` is **reader mode**: page furniture the `furniture` pass detected is left out of the Markdown, and a continued table's repeated header row is written once. `keep` writes every word as read (faithful). |
+| `WISEAU_STRUCTURE` | unset in code; **`all` in the Docker image** (ADR-055) | Structure-recovery passes over the IR (§20, roadmap Tier 3): a comma list of `headings`, `furniture`, `continuation`, `captions`, `footnotes`, `tables`, or `all`. Pure IR passes: no model, no extra dependency, deterministic. Unset, the output is unchanged. |
+| `WISEAU_FURNITURE` | `keep` | The deployment's default for a request that sends no `reader` field. `drop` is **reader mode**: page furniture the `furniture` pass detected is left out of the Markdown, and a continued table's repeated header row is written once. `keep` writes every word as read (faithful). |
 | `WISEAU_PDF_ENGINE` | `pymupdf` | **Default** document engine: `pymupdf` (the fast, deterministic local parser — ADR-027), `docling` (via docling-serve, for fidelity), or `glm-ocr` (via the GLM-OCR service, for scans — ADR-034). A request's `engine` field overrides it per conversion (ADR-025). |
 | `WISEAU_DOCLING_BASE` | — | *(Phase 6)* Base URL of the internal docling-serve service (HF Space #2). Unset ⇒ docling is skipped even when it is selected. |
 | `WISEAU_DOCLING_TOKEN` | — | *(Phase 6)* Sent as `Authorization: Bearer` — the *platform gateway* credential (an HF token when Space #2 is private). |
@@ -505,6 +510,8 @@ Frontend configuration is the single `window.MARKDOWN_API_BASE` in
 ## 6. Versioning & change control
 
 API **0.15.0** (2026-11-11): `POST /convert/bundle` added (ADR-052). Additive.
+API **0.16.0** (2026-11-11): optional `reader` field on `/convert/file`,
+`/convert/batch` and `/convert/bundle` (ADR-055). Additive.
 
 
 - The API `version` lives in `main.py` (`FastAPI(version=...)`) and is echoed by
@@ -868,6 +875,15 @@ straight from GitHub Pages. No framework, no build step, no third-party script
 falls back automatically. `GET /ping` advertises both the accepted names and the
 deployment's `default_engine`, so the list and the *Auto* label are read off the
 backend rather than assumed.
+
+**Reader mode and the bundle (ADR-055).** A *Reader mode* checkbox under *Long
+documents* sends `reader=true|false` with every upload, single or batch, so the
+box means what it shows whatever the deployment's default. After a single PDF
+converts, *Save with figures (.zip)* appears beside *Download*: it sends the same
+file, engine and reader choice to `POST /convert/bundle` (a second conversion,
+with the progress bar) and saves the ZIP as `<name>.zip`. It is hidden after a
+batch, a URL or a failure. The page never unpacks the ZIP: the Markdown on show
+is `/convert/file`'s.
 
 **Progress is an approximation, and says so.** The API has no progress channel —
 a conversion is one blocking call — so the bar is estimated client-side from the
