@@ -634,7 +634,8 @@ def file_to_bundle(data: bytes, filename: str, engine: str | None = None) -> tup
     is written as `![caption](assets/figure-NNN.png)` where it stands. Figures
     come from the layout pass on scans and from the PDF's placed images on
     text-layer pages. The ZIP is deterministic: fixed entry order and timestamps.
-    Returns the ZIP bytes and a summary (`figures`, `pages`, `elements`).
+    A table whose structure was not rebuilt also gets an image (`assets/table-NNN.png`).
+    Returns the ZIP bytes and a summary (`figures`, `table_images`, `pages`, `elements`).
     """
     import json
     import zipfile
@@ -659,4 +660,6 @@ def file_to_bundle(data: bytes, filename: str, engine: str | None = None) -> tup
             info = zipfile.ZipInfo(name, date_time=(1980, 1, 1, 0, 0, 0))
             info.compress_type = zipfile.ZIP_DEFLATED
             zf.writestr(info, payload)
-    return buf.getvalue(), {"figures": len(assets), "pages": len(doc.pages), "elements": len(doc.elements)}
+    return buf.getvalue(), {"figures": sum(p.startswith("assets/figure-") for p in assets),
+                            "table_images": sum(p.startswith("assets/table-") for p in assets),
+                            "pages": len(doc.pages), "elements": len(doc.elements)}

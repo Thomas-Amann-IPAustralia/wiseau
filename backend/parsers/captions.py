@@ -108,5 +108,6 @@ def apply(doc: ir.Document) -> None:
                 continue
             el = doc.elements[i]
             if el.type != ir.CAPTION:
-                doc.elements[i] = replace(el, type=ir.CAPTION, role_signal="caption-pattern")
+                doc.elements[i] = replace(el, type=ir.CAPTION, role_signal="caption-pattern",
+                                          level=None, level_signal=None)
             doc.relations.append(ir.Relation("caption_of", el.id, doc.elements[j].id, SIGNAL))

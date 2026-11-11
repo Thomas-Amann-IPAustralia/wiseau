@@ -30,6 +30,7 @@ blank lines.
 from __future__ import annotations
 
 import re
+from dataclasses import replace
 from itertools import groupby
 
 from . import document as ir
@@ -75,6 +76,23 @@ def _heading_text(el: ir.Element) -> str:
     return " ".join(part.strip() for part in text.split("\n") if part.strip())
 
 
+_NOTE_NUMBER = re.compile(r"^(\s*)(\d{1,2})[.)]?[ \t]+")
+_SUP = re.compile(r"<sup>\s*(\d{1,2}(?:\s*,\s*\d{1,2})*)\s*</sup>")
+
+
+def _note_number(el: ir.Element):
+    m = _NOTE_NUMBER.match(el.text)
+    return int(m.group(2)) if m else None
+
+
+def _with_footnote_markers(text: str, numbers: set) -> str:
+    """`<sup>2,4</sup>` as `[^2][^4]` when every number is a linked note (3.5)."""
+    def sub(m):
+        nums = [int(n) for n in re.split(r"\s*,\s*", m.group(1))]
+        return "".join(f"[^{n}]" for n in nums) if all(n in numbers for n in nums) else m.group(0)
+    return _SUP.sub(sub, text)
+
+
 def render_element(el: ir.Element, *, assets: bool = False, alt: str = "") -> str:
     """One element as Markdown.
 
@@ -86,10 +104,17 @@ def render_element(el: ir.Element, *, assets: bool = False, alt: str = "") -> st
         return "#" * (el.level or 2) + " " + _heading_text(el)
     if el.signal in HEADING_SIGNALS and el.type in (ir.HEADING, ir.TITLE):
         return "#" * (el.level or 2) + " " + " ".join(el.text.split("\n"))
+    if el.type == ir.TABLE and el.asset and assets:
+        # A table whose structure was not rebuilt, with its image under it (3.6).
+        body = render_element(replace(el, asset=None))
+        return (body + "\n\n" if body else "") + f"![Table image]({el.asset})"
     if el.type == ir.TABLE and el.rows:
         if el.signal in CELL_SIGNALS or (STITCHED_AS_TABLES and el.signal == STITCH_SIGNAL):
             return table_markdown(el.rows)
         return ir.rows_text(el.rows)
+    if el.type == ir.FOOTNOTE and el.role_signal == FOOTNOTE_SIGNAL:
+        # A note the footnote pass split out: its printed number becomes the label.
+        return _NOTE_NUMBER.sub(lambda m: f"{m.group(1)}[^{m.group(2)}]: ", el.text, count=1)
     if el.type == ir.FIGURE and el.asset and assets:
         alt = " ".join(alt.split()).replace("[", "(").replace("]", ")")
         return f"![{alt}]({el.asset})"
@@ -146,16 +171,26 @@ def _html_table(rows) -> str:
 # written as one paragraph (roadmap 3.3). A break at a page change is recorded
 # but not joined: the page boundary stays in the Markdown.
 JOIN_SIGNALS = {"continuation-column"}
+# The footnote pass's signal (roadmap 3.5): its notes and their markers are
+# written in Markdown's footnote syntax.
+FOOTNOTE_SIGNAL = "footnote-marker"
 
 
-def render_units(elements, relations=(), *, reader: bool = False, assets: bool = False) -> list[tuple[str, list]]:
+def _row_words(row) -> tuple:
+    return tuple(" ".join(re.findall(r"[^\W_]+", c.text.lower())) for c in row)
+
+
+def render_units(elements, relations=(), *, reader: bool = False, assets: bool = False,
+                 tables: dict | None = None) -> list[tuple[str, list]]:
     """One page's elements as Markdown blocks: (text, elements it came from).
 
     Each element is one block, except that an element a `continues_from`
     relation under `JOIN_SIGNALS` joins to an earlier one on the same page is
     written straight after it, in the same paragraph (its text unchanged, joined
     by a line break). Empty blocks are left out. In reader mode page furniture is
-    left out too.
+    left out too, and so is a continued table's repeated header row (`tables`:
+    the document's tables by id, since a continuation's head may be on an
+    earlier page).
     """
     elements = list(elements)
     joins: dict[str, str] = {}   # earlier id -> later id
@@ -169,24 +204,46 @@ def render_units(elements, relations=(), *, reader: bool = False, assets: bool =
         for rel in relations:
             if rel.type == "caption_of" and rel.source in by_id and rel.target not in alts:
                 alts[rel.target] = _heading_text(by_id[rel.source])
+    # Reader mode: a continued table's repeated header row is written once (3.6).
+    repeated: set[str] = set()
+    if reader:
+        all_tables = {el.id: el for el in elements if el.type == ir.TABLE and el.rows}
+        for rel in relations:
+            if rel.type == "continues_table" and rel.source in all_tables:
+                target = all_tables.get(rel.target) or (tables or {}).get(rel.target)
+                src = all_tables[rel.source]
+                if target is not None and target.rows and len(src.rows) > 1 and \
+                        _row_words(src.rows[0]) == _row_words(target.rows[0]) and any(_row_words(src.rows[0])):
+                    repeated.add(rel.source)
+    cites: dict[str, set] = {}
+    for rel in relations:
+        if rel.type == "footnote_for" and rel.signal == FOOTNOTE_SIGNAL and rel.source in by_id:
+            n = _note_number(by_id[rel.source])
+            if n is not None:
+                cites.setdefault(rel.target, set()).add(n)
     joined = {later for earlier, later in joins.items() if earlier in by_id and later in by_id}
     units = []
     for el in elements:
         if el.id in joined or (reader and el.type in FURNITURE):
             continue
-        chain, text = [el], render_element(el, assets=assets, alt=alts.get(el.id, ""))
+        shown = replace(el, rows=el.rows[1:]) if el.id in repeated else el
+        chain, text = [el], render_element(shown, assets=assets, alt=alts.get(el.id, ""))
         while chain[-1].id in joins and joins[chain[-1].id] in by_id:
             nxt = by_id[joins[chain[-1].id]]
             chain.append(nxt)
             text = text.rstrip("\n") + "\n" + render_element(nxt, assets=assets).lstrip("\n")
+        if el.id in cites:
+            text = _with_footnote_markers(text, cites[el.id])
         if text:
             units.append((text, chain))
     return units
 
 
-def render_elements(elements, relations=(), *, reader: bool = False, assets: bool = False) -> str:
+def render_elements(elements, relations=(), *, reader: bool = False, assets: bool = False,
+                    tables: dict | None = None) -> str:
     """Elements of one page, joined by blank lines and stripped (no page grouping)."""
-    return "\n\n".join(t for t, _ in render_units(elements, relations, reader=reader, assets=assets)).strip()
+    units = render_units(elements, relations, reader=reader, assets=assets, tables=tables)
+    return "\n\n".join(t for t, _ in units).strip()
 
 
 def to_markdown(doc: ir.Document, *, reader: bool = False, assets: bool = False) -> str:
@@ -195,9 +252,10 @@ def to_markdown(doc: ir.Document, *, reader: bool = False, assets: bool = False)
     `reader`: leave page furniture out (roadmap 3.2; default: keep it, as read).
     `assets`: link figures that have an exported image (the bundle, roadmap 3.4).
     """
+    tables = {el.id: el for el in doc.elements if el.type == ir.TABLE and el.rows} if reader else None
     parts = []
     for _, group in groupby(doc.elements, key=lambda el: el.page):
-        text = render_elements(group, doc.relations, reader=reader, assets=assets)
+        text = render_elements(group, doc.relations, reader=reader, assets=assets, tables=tables)
         if text:
             parts.append(text)
     return "\n\n".join(parts)

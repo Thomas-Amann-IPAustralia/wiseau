@@ -1161,3 +1161,31 @@ def test_keyword_batch_is_documented_in_the_openapi_schema(client):
     assert {"documents", "methods", "top_k", "prepend_table"} <= set(request)
     item = schema["components"]["schemas"]["KeywordBatchItem"]["properties"]
     assert {"status", "filename", "error", "keywords"} <= set(item)
+
+
+# --- POST /convert/bundle (ADR-052) ----------------------------------------------
+
+
+def test_bundle_endpoint_returns_a_zip(client):
+    import io
+    import zipfile
+
+    doc = pymupdf.open()
+    doc.new_page().insert_text((72, 72), "Bundle me.")
+    r = client.post("/convert/bundle", files={"file": ("My Report.pdf", doc.tobytes(), "application/pdf")})
+    assert r.status_code == 200
+    assert r.headers["content-type"] == "application/zip"
+    assert r.headers["content-disposition"] == 'attachment; filename="my-report.zip"'
+    assert r.headers["x-wiseau-figures"] == "0"
+    z = zipfile.ZipFile(io.BytesIO(r.content))
+    assert z.namelist() == ["document.md", "document.json"]
+    assert z.read("document.md").decode().strip() == "Bundle me."
+
+
+def test_bundle_endpoint_refuses_what_convert_file_refuses(client):
+    assert client.post("/convert/bundle", files={"file": ("x.pdf", b"", "application/pdf")}).status_code == 400
+    r = client.post("/convert/bundle", files={"file": ("x.txt", b"hello", "text/plain")})
+    assert r.status_code == 415
+    r = client.post("/convert/bundle", data={"engine": "nope"},
+                    files={"file": ("x.pdf", b"%PDF", "application/pdf")})
+    assert r.status_code == 400

@@ -907,7 +907,8 @@ async def convert_bundle(
     figure with an exported image is linked where it stands
     (`![caption](assets/figure-001.png)`); `document.json` is the document IR
     (ADR-043) with every element's page, box, type and the structure relations;
-    `assets/` holds the figures as PNGs. Images travel as files beside the
+    `assets/` holds the figures as PNGs, and an image of each table whose
+    cells could not be rebuilt (`assets/table-NNN.png`, linked under its text). Images travel as files beside the
     Markdown, never inside it (ADR-024). Same limits and job slot as
     `/convert/file`; no chapter splitting.
     """
@@ -932,6 +933,7 @@ async def convert_bundle(
     return Response(content=payload, media_type="application/zip", headers={
         "Content-Disposition": f'attachment; filename="{stem}.zip"',
         "X-Wiseau-Figures": str(summary["figures"]),
+        "X-Wiseau-Table-Images": str(summary["table_images"]),
     })
 
 

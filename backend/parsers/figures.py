@@ -17,6 +17,12 @@ Where figures come from:
   `MIN_SIDE` points on a side (rules, bullets, logos' slivers) and any covering
   most of the page (a scan's page image under an OCR layer) are not figures.
 
+**Tables that could not be rebuilt** (roadmap 3.6): a table whose rows are not
+real cells (ADR-038's stitched rows, or a table read as plain text) also gets
+an image, `assets/table-001.png`, linked under its text, so a reader can check
+the layout the text lost. Tables the Table Transformer read into cells
+(`serializer.CELL_SIGNALS`) need none.
+
 Crops are rendered, not extracted, so every asset is a PNG of what the page
 shows there, at a fixed resolution, the same bytes every run. Text is never
 edited and no element moves: text-layer figures are additions.
@@ -85,17 +91,27 @@ def _renumber(doc: ir.Document) -> None:
                      for r in doc.relations]
 
 
+def _needs_image(el: ir.Element) -> bool:
+    from .serializer import CELL_SIGNALS
+    if el.type == ir.FIGURE:
+        return True
+    return el.type == ir.TABLE and el.signal not in CELL_SIGNALS
+
+
 def export(doc: ir.Document, pdf: pymupdf.Document) -> dict[str, bytes]:
-    """Render each figure with a box on a PDF page; set its `asset`; return path -> PNG."""
+    """Render each figure (and each table without real cells) with a box on a PDF
+    page; set its `asset`; return path -> PNG."""
     assets: dict[str, bytes] = {}
+    counts = {ir.FIGURE: 0, ir.TABLE: 0}
     for i, el in enumerate(doc.elements):
-        if el.type != ir.FIGURE or el.bbox is None or el.page is None or not 1 <= el.page <= pdf.page_count:
+        if not _needs_image(el) or el.bbox is None or el.page is None or not 1 <= el.page <= pdf.page_count:
             continue
         page = pdf[el.page - 1]
         clip = pymupdf.Rect(el.bbox.x0, el.bbox.y0, el.bbox.x1, el.bbox.y1) & page.rect
         if clip.is_empty or clip.width < 2 or clip.height < 2:
             continue
-        path = f"assets/figure-{len(assets) + 1:03d}.png"
+        counts[el.type] += 1
+        path = f"assets/{el.type}-{counts[el.type]:03d}.png"
         assets[path] = page.get_pixmap(dpi=DPI, clip=clip, alpha=False).tobytes("png")
         doc.elements[i] = replace(el, asset=path)
     return assets

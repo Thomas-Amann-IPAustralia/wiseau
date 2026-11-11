@@ -20,7 +20,8 @@ Furniture lives in the page's margins: an element entirely within the top
 * **A running head on its own**, on a text-layer page only (a single page, or
   one the repetition test cannot see): one short line in the top band that
   carries a number (an issue, a page, a document number) and no sentence:
-  header. On a scan the layout model already has a `header` category, and a
+  header. Not a section title: text that starts with a division word
+  (`APPENDIX 6`, `PART 2`) or is entirely bold is left alone. On a scan the layout model already has a `header` category, and a
   line at the top of a column there is as often the start of an entry
   ("Variety: 'Victoria' Application No. 88/025") as a running head.
 
@@ -80,6 +81,13 @@ def _one_line(el: ir.Element, text: str) -> bool:
     return (len(el.lines) <= 1 if el.lines else "\n" not in text) and len(text) <= MAX_HEAD_CHARS
 
 
+def _section_title(el: ir.Element, text: str) -> bool:
+    from .headings import _DIVISION
+    raw = el.text.strip()
+    bold = re.fullmatch(r"(?:\*\*[^*]+\*\*\s*)+", raw) is not None
+    return bool(_DIVISION.match(text)) or bold
+
+
 def apply(doc: ir.Document) -> None:
     groups = recover.page_groups(doc)
     candidates: list[tuple[int, str, str]] = []  # (index, band, plain text)
@@ -109,7 +117,8 @@ def apply(doc: ir.Document) -> None:
             kind, signal = ir.PAGE_NUMBER, "furniture-number"
         elif n_pages >= 2 and len(pages_by_key[(band, _key(text))]) >= need:
             kind, signal = (ir.PAGE_HEADER if band == "top" else ir.PAGE_FOOTER), "furniture-repeat"
-        elif band == "top" and el.text_format == ir.MARKDOWN and _one_line(el, text) and _DIGITS.search(text) and not _SENTENCE.search(text):
+        elif band == "top" and el.text_format == ir.MARKDOWN and _one_line(el, text) \
+                and not _section_title(el, text) and _DIGITS.search(text) and not _SENTENCE.search(text):
             kind, signal = ir.PAGE_HEADER, "furniture-head"
         else:
             continue
