@@ -1,0 +1,582 @@
+{
+ "elements": [
+  {
+   "id": "r1",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "CONTENTS",
+   "lines": [
+    {
+     "bbox": [
+      86.16,
+      56.16,
+      183.6,
+      70.08
+     ],
+     "text": "CONTENTS"
+    }
+   ],
+   "bbox": [
+    86.16,
+    56.16,
+    183.6,
+    70.08
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r2",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "PAGE\nREGISTRAR’S REMARKS 1\nPART 1— ITEMS OF GENERAL INTEREST 2\nIMPLEMENTATION OF PVR — PROGRESS 2\nAMENDMENTS TO THE SCHEDULE 2\nPROPAGATION 2\nPERFORMANCE EVALUATION — Sale prior to application 2\nPVR TESTING — Register of Names 2\nUPOV 2\na) Membership 2\nb) Revision of the Convention 2\nPARTICIPATION BY INDUSTRY ORGANISATIONS 3\nPART 2 — MATTERS FOR PUBLIC NOTICE 4\nPVR GRANTED 4\nAPPLICATIONS ACCEPTED 4\na) descriptions finalised 4\nb) descriptions to be finalised 14\nPROVISIONAL PROTECTION 14\nVARIATIONS TO APPLICATIONS 15\nCORRIGENDA 15\nAPPENDIX 1 — PROPOSED SCHEDULE FOR INCLUDING GENERA/SPECIES\nIN THE PLANT VARIETY RIGHTS REGULATIONS 16\nAPPENDIX 2 — SECTIONS 16 and 17 OF THE PVR ACT 17\nAPPENDIX 3 — SECTION 26 OF THE PVR ACT 18\nAPPENDIX 4 — FEES 19\nAPPENDIX 5 — PLANT VARIETY RIGHTS ADVISORY COMMITTEE (PVRAC) 19",
+   "lines": [
+    {
+     "bbox": [
+      507.6,
+      98.4,
+      539.04,
+      107.52
+     ],
+     "text": "PAGE"
+    },
+    {
+     "bbox": [
+      85.92,
+      111.84,
+      537.12,
+      121.2
+     ],
+     "text": "REGISTRAR’S REMARKS 1"
+    },
+    {
+     "bbox": [
+      86.4,
+      125.76,
+      538.08,
+      135.12
+     ],
+     "text": "PART 1— ITEMS OF GENERAL INTEREST 2"
+    },
+    {
+     "bbox": [
+      86.16,
+      151.68,
+      538.08,
+      161.28
+     ],
+     "text": "IMPLEMENTATION OF PVR — PROGRESS 2"
+    },
+    {
+     "bbox": [
+      85.44,
+      165.84,
+      538.08,
+      175.44
+     ],
+     "text": "AMENDMENTS TO THE SCHEDULE 2"
+    },
+    {
+     "bbox": [
+      86.16,
+      179.04,
+      538.08,
+      192.96
+     ],
+     "text": "PROPAGATION 2"
+    },
+    {
+     "bbox": [
+      86.16,
+      193.92,
+      538.08,
+      205.68
+     ],
+     "text": "PERFORMANCE EVALUATION — Sale prior to application 2"
+    },
+    {
+     "bbox": [
+      86.16,
+      207.84,
+      538.08,
+      219.36
+     ],
+     "text": "PVR TESTING — Register of Names 2"
+    },
+    {
+     "bbox": [
+      86.16,
+      221.76,
+      538.08,
+      231.12
+     ],
+     "text": "UPOV 2"
+    },
+    {
+     "bbox": [
+      97.68,
+      235.44,
+      537.84,
+      247.2
+     ],
+     "text": "a) Membership 2"
+    },
+    {
+     "bbox": [
+      97.92,
+      248.16,
+      537.84,
+      262.08
+     ],
+     "text": "b) Revision of the Convention 2"
+    },
+    {
+     "bbox": [
+      85.68,
+      263.04,
+      538.32,
+      272.64
+     ],
+     "text": "PARTICIPATION BY INDUSTRY ORGANISATIONS 3"
+    },
+    {
+     "bbox": [
+      85.68,
+      288.96,
+      538.32,
+      298.56
+     ],
+     "text": "PART 2 — MATTERS FOR PUBLIC NOTICE 4"
+    },
+    {
+     "bbox": [
+      85.68,
+      303.12,
+      538.08,
+      312.48
+     ],
+     "text": "PVR GRANTED 4"
+    },
+    {
+     "bbox": [
+      84.96,
+      317.28,
+      538.08,
+      326.64
+     ],
+     "text": "APPLICATIONS ACCEPTED 4"
+    },
+    {
+     "bbox": [
+      85.44,
+      331.44,
+      538.08,
+      343.2
+     ],
+     "text": "a) descriptions finalised 4"
+    },
+    {
+     "bbox": [
+      85.44,
+      344.64,
+      538.08,
+      358.08
+     ],
+     "text": "b) descriptions to be finalised 14"
+    },
+    {
+     "bbox": [
+      85.44,
+      359.04,
+      538.08,
+      368.88
+     ],
+     "text": "PROVISIONAL PROTECTION 14"
+    },
+    {
+     "bbox": [
+      85.2,
+      372.96,
+      538.08,
+      382.56
+     ],
+     "text": "VARIATIONS TO APPLICATIONS 15"
+    },
+    {
+     "bbox": [
+      85.44,
+      386.64,
+      538.08,
+      396.24
+     ],
+     "text": "CORRIGENDA 15"
+    },
+    {
+     "bbox": [
+      84.72,
+      424.08,
+      505.2,
+      433.68
+     ],
+     "text": "APPENDIX 1 — PROPOSED SCHEDULE FOR INCLUDING GENERA/SPECIES"
+    },
+    {
+     "bbox": [
+      174.24,
+      437.04,
+      537.6,
+      450.96
+     ],
+     "text": "IN THE PLANT VARIETY RIGHTS REGULATIONS 16"
+    },
+    {
+     "bbox": [
+      84.72,
+      452.4,
+      537.6,
+      462.0
+     ],
+     "text": "APPENDIX 2 — SECTIONS 16 and 17 OF THE PVR ACT 17"
+    },
+    {
+     "bbox": [
+      84.48,
+      466.32,
+      537.84,
+      475.92
+     ],
+     "text": "APPENDIX 3 — SECTION 26 OF THE PVR ACT 18"
+    },
+    {
+     "bbox": [
+      84.48,
+      480.24,
+      537.36,
+      489.84
+     ],
+     "text": "APPENDIX 4 — FEES 19"
+    },
+    {
+     "bbox": [
+      84.48,
+      493.92,
+      537.36,
+      504.48
+     ],
+     "text": "APPENDIX 5 — PLANT VARIETY RIGHTS ADVISORY COMMITTEE (PVRAC) 19"
+    }
+   ],
+   "bbox": [
+    84.48,
+    98.4,
+    539.04,
+    504.48
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "content"
+  },
+  {
+   "id": "r3",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Subscription —",
+   "lines": [
+    {
+     "bbox": [
+      86.64,
+      556.56,
+      150.0,
+      564.96
+     ],
+     "text": "Subscription —"
+    }
+   ],
+   "bbox": [
+    86.64,
+    556.56,
+    150.0,
+    564.96
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r4",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Available from the Australian\nGovernment Publishing Service,\nGPO Box 84, Canberra, ACT, 2601.",
+   "lines": [
+    {
+     "bbox": [
+      86.4,
+      576.0,
+      206.88,
+      583.44
+     ],
+     "text": "Available from the Australian"
+    },
+    {
+     "bbox": [
+      86.88,
+      586.08,
+      219.6,
+      594.96
+     ],
+     "text": "Government Publishing Service,"
+    },
+    {
+     "bbox": [
+      86.88,
+      596.16,
+      225.84,
+      604.32
+     ],
+     "text": "GPO Box 84, Canberra, ACT, 2601."
+    }
+   ],
+   "bbox": [
+    86.4,
+    576.0,
+    225.84,
+    604.32
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r5",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "ISSN 1030-9748",
+   "lines": [
+    {
+     "bbox": [
+      86.88,
+      616.32,
+      153.36,
+      623.52
+     ],
+     "text": "ISSN 1030-9748"
+    }
+   ],
+   "bbox": [
+    86.88,
+    616.32,
+    153.36,
+    623.52
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r6",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "This work is copyright. Apart from\nany use as permitted under the\nCopyright Act 1968, no part may\nbe reproduced by any process\nwithout written permission from\nthe Director Publishing and\nMarketing AGPS. Inquiries should\nbe directed to the Manager, AGPS\nPress, Australian Government\nPublishing Service, G.P.O. Box 84,\nCanberra, A.C.T. 2601.",
+   "lines": [
+    {
+     "bbox": [
+      85.92,
+      642.24,
+      226.08,
+      651.12
+     ],
+     "text": "This work is copyright. Apart from"
+    },
+    {
+     "bbox": [
+      86.4,
+      652.32,
+      213.84,
+      660.72
+     ],
+     "text": "any use as permitted under the"
+    },
+    {
+     "bbox": [
+      86.64,
+      660.96,
+      218.4,
+      672.24
+     ],
+     "text": "Copyright Act 1968, no part may"
+    },
+    {
+     "bbox": [
+      86.4,
+      672.0,
+      210.48,
+      680.64
+     ],
+     "text": "be reproduced by any process"
+    },
+    {
+     "bbox": [
+      85.92,
+      681.84,
+      219.6,
+      690.48
+     ],
+     "text": "without written permission from"
+    },
+    {
+     "bbox": [
+      85.92,
+      691.68,
+      198.72,
+      700.32
+     ],
+     "text": "the Director Publishing and"
+    },
+    {
+     "bbox": [
+      86.16,
+      701.52,
+      225.36,
+      710.4
+     ],
+     "text": "Marketing AGPS. Inquiries should"
+    },
+    {
+     "bbox": [
+      86.16,
+      711.6,
+      225.6,
+      720.48
+     ],
+     "text": "be directed to the Manager, AGPS"
+    },
+    {
+     "bbox": [
+      86.16,
+      721.92,
+      210.48,
+      730.08
+     ],
+     "text": "Press, Australian Government"
+    },
+    {
+     "bbox": [
+      86.16,
+      732.0,
+      225.84,
+      740.88
+     ],
+     "text": "Publishing Service, G.P.O. Box 84,"
+    },
+    {
+     "bbox": [
+      85.92,
+      742.08,
+      177.6,
+      750.24
+     ],
+     "text": "Canberra, A.C.T. 2601."
+    }
+   ],
+   "bbox": [
+    85.92,
+    642.24,
+    226.08,
+    750.24
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r7",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Typeset and Printed in Australia by CPP\nCommunications Ltd., Fyshwick, A.C.T.",
+   "lines": [
+    {
+     "bbox": [
+      84.72,
+      768.48,
+      228.96,
+      776.64
+     ],
+     "text": "Typeset and Printed in Australia by CPP"
+    },
+    {
+     "bbox": [
+      84.72,
+      777.6,
+      227.28,
+      785.28
+     ],
+     "text": "Communications Ltd., Fyshwick, A.C.T."
+    }
+   ],
+   "bbox": [
+    84.72,
+    768.48,
+    228.96,
+    785.28
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    0.0,
+    828.0,
+    210.0,
+    841.92
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      0.0,
+      828.0,
+      210.0,
+      841.92
+     ],
+     "text": "ee"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ee",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

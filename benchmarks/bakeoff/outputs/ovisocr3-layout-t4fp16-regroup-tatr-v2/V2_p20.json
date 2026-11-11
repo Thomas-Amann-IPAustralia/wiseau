@@ -1,0 +1,1724 @@
+{
+ "elements": [
+  {
+   "id": "r1",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "OBJECTIONS",
+   "lines": [
+    {
+     "bbox": [
+      75.36,
+      56.64,
+      132.0,
+      64.08
+     ],
+     "text": "OBJECTIONS"
+    }
+   ],
+   "bbox": [
+    75.36,
+    56.64,
+    132.0,
+    64.08
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r2",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Formal objections (S20 of the PVR Act) against any\nof the above applications can be lodged by a\nperson who:",
+   "lines": [
+    {
+     "bbox": [
+      75.6,
+      66.72,
+      286.32,
+      76.08
+     ],
+     "text": "Formal objections (S20 of the PVR Act) against any"
+    },
+    {
+     "bbox": [
+      75.36,
+      76.32,
+      259.68,
+      85.92
+     ],
+     "text": "of the above applications can be lodged by a"
+    },
+    {
+     "bbox": [
+      75.6,
+      86.64,
+      127.2,
+      94.8
+     ],
+     "text": "person who:"
+    }
+   ],
+   "bbox": [
+    75.36,
+    66.72,
+    286.32,
+    94.8
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r3",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "a) considers their commercial interests would\nbe affected by a grant of PVR to the\napplicant; AND",
+   "lines": [
+    {
+     "bbox": [
+      93.12,
+      106.08,
+      285.84,
+      114.0
+     ],
+     "text": "a) considers their commercial interests would"
+    },
+    {
+     "bbox": [
+      106.08,
+      116.4,
+      251.28,
+      125.28
+     ],
+     "text": "be affected by a grant of PVR to the"
+    },
+    {
+     "bbox": [
+      105.84,
+      126.48,
+      169.68,
+      134.88
+     ],
+     "text": "applicant; AND"
+    }
+   ],
+   "bbox": [
+    93.12,
+    106.08,
+    285.84,
+    134.88
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r4",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "b) considers that the provisions of S26\n(Appendix 3 of this Journal) cannot be met.",
+   "lines": [
+    {
+     "bbox": [
+      93.84,
+      147.36,
+      255.84,
+      156.72
+     ],
+     "text": "b) considers that the provisions of S26"
+    },
+    {
+     "bbox": [
+      107.52,
+      157.68,
+      286.56,
+      166.8
+     ],
+     "text": "(Appendix 3 of this Journal) cannot be met."
+    }
+   ],
+   "bbox": [
+    93.84,
+    147.36,
+    286.56,
+    166.8
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r5",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "A fee is payable at the time of lodging a formal\nobjection and the hourly rate will then be charged if\nthe examination of the objection by the PVR Office\ntakes more than 2 hours.",
+   "lines": [
+    {
+     "bbox": [
+      74.4,
+      176.88,
+      268.08,
+      187.92
+     ],
+     "text": "A fee is payable at the time of lodging a formal"
+    },
+    {
+     "bbox": [
+      75.6,
+      187.68,
+      289.68,
+      196.8
+     ],
+     "text": "objection and the hourly rate will then be charged if"
+    },
+    {
+     "bbox": [
+      75.12,
+      197.76,
+      284.4,
+      206.64
+     ],
+     "text": "the examination of the objection by the PVR Office"
+    },
+    {
+     "bbox": [
+      75.12,
+      207.6,
+      177.6,
+      215.04
+     ],
+     "text": "takes more than 2 hours."
+    }
+   ],
+   "bbox": [
+    74.4,
+    176.88,
+    289.68,
+    215.04
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r6",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Comment: Any person not falling into the above\ncategory may make comment on the eligibility of\nany of the above applications for PVR. There is no\ncharge for this.",
+   "lines": [
+    {
+     "bbox": [
+      75.36,
+      227.28,
+      276.96,
+      236.16
+     ],
+     "text": "Comment: Any person not falling into the above"
+    },
+    {
+     "bbox": [
+      75.36,
+      237.36,
+      279.12,
+      246.24
+     ],
+     "text": "category may make comment on the eligibility of"
+    },
+    {
+     "bbox": [
+      75.36,
+      246.96,
+      281.28,
+      255.84
+     ],
+     "text": "any of the above applications for PVR. There is no"
+    },
+    {
+     "bbox": [
+      75.36,
+      256.8,
+      137.04,
+      265.44
+     ],
+     "text": "charge for this."
+    }
+   ],
+   "bbox": [
+    75.36,
+    227.28,
+    281.28,
+    265.44
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r7",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "A person submitting a formal objection or a\ncomment must provide supporting evidence to\nsubstantiate the claim. A copy of the submission\nwill also be sent to the applicant and the latter will\nbe asked to show why the objection should not be\nupheld.",
+   "lines": [
+    {
+     "bbox": [
+      74.88,
+      276.96,
+      255.84,
+      285.84
+     ],
+     "text": "A person submitting a formal objection or a"
+    },
+    {
+     "bbox": [
+      75.12,
+      287.04,
+      270.96,
+      295.92
+     ],
+     "text": "comment must provide supporting evidence to"
+    },
+    {
+     "bbox": [
+      75.12,
+      296.88,
+      276.24,
+      306.0
+     ],
+     "text": "substantiate the claim. A copy of the submission"
+    },
+    {
+     "bbox": [
+      74.88,
+      306.96,
+      281.52,
+      315.84
+     ],
+     "text": "will also be sent to the applicant and the latter will"
+    },
+    {
+     "bbox": [
+      75.36,
+      317.04,
+      282.48,
+      325.92
+     ],
+     "text": "be asked to show why the objection should not be"
+    },
+    {
+     "bbox": [
+      75.36,
+      327.12,
+      105.84,
+      335.52
+     ],
+     "text": "upheld."
+    }
+   ],
+   "bbox": [
+    74.88,
+    276.96,
+    282.48,
+    335.52
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r8",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "All formal objections and comments relating to the\nabove applications must be lodged with the\nRegistrar by close of business on 31 September\n1989.",
+   "lines": [
+    {
+     "bbox": [
+      74.88,
+      346.8,
+      286.32,
+      355.92
+     ],
+     "text": "All formal objections and comments relating to the"
+    },
+    {
+     "bbox": [
+      74.88,
+      356.88,
+      256.56,
+      365.52
+     ],
+     "text": "above applications must be lodged with the"
+    },
+    {
+     "bbox": [
+      75.36,
+      366.48,
+      273.12,
+      375.6
+     ],
+     "text": "Registrar by close of business on 31 September"
+    },
+    {
+     "bbox": [
+      75.36,
+      376.56,
+      96.48,
+      383.28
+     ],
+     "text": "1989."
+    }
+   ],
+   "bbox": [
+    74.88,
+    346.8,
+    286.32,
+    383.28
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r9",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "b) Descriptions to be Finalised",
+   "lines": [
+    {
+     "bbox": [
+      74.88,
+      396.0,
+      201.12,
+      404.88
+     ],
+     "text": "b) Descriptions to be Finalised"
+    }
+   ],
+   "bbox": [
+    74.88,
+    396.0,
+    201.12,
+    404.88
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r10",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Descriptions for the Journal are being finalised for\nthe following applications. The six month period\nfor comment or formal objection will not begin\nuntil the full descriptions are finalised and\npublished in the Journal.",
+   "lines": [
+    {
+     "bbox": [
+      75.12,
+      416.16,
+      283.68,
+      425.04
+     ],
+     "text": "Descriptions for the Journal are being finalised for"
+    },
+    {
+     "bbox": [
+      74.4,
+      426.0,
+      275.76,
+      435.12
+     ],
+     "text": "the following applications. The six month period"
+    },
+    {
+     "bbox": [
+      74.4,
+      436.08,
+      268.8,
+      444.96
+     ],
+     "text": "for comment or formal objection will not begin"
+    },
+    {
+     "bbox": [
+      75.12,
+      446.4,
+      248.64,
+      455.28
+     ],
+     "text": "until the full descriptions are finalised and"
+    },
+    {
+     "bbox": [
+      74.88,
+      456.24,
+      177.84,
+      464.88
+     ],
+     "text": "published in the Journal."
+    }
+   ],
+   "bbox": [
+    74.4,
+    416.16,
+    283.68,
+    464.88
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r11",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Citrus\n(Citrus)",
+   "lines": [
+    {
+     "bbox": [
+      74.4,
+      508.32,
+      113.52,
+      519.36
+     ],
+     "text": "Citrus"
+    },
+    {
+     "bbox": [
+      75.12,
+      523.92,
+      121.68,
+      536.4
+     ],
+     "text": "(Citrus)"
+    }
+   ],
+   "bbox": [
+    74.4,
+    508.32,
+    121.68,
+    536.4
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r12",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: W M & D Barnfield of Ellerslie, NSW.\n‘Barnfield Late Navel’ Application No. :89/001",
+   "lines": [
+    {
+     "bbox": [
+      74.16,
+      548.4,
+      270.96,
+      557.04
+     ],
+     "text": "Applicant: W M & D Barnfield of Ellerslie, NSW."
+    },
+    {
+     "bbox": [
+      74.4,
+      558.24,
+      263.52,
+      567.12
+     ],
+     "text": "‘Barnfield Late Navel’ Application No. :89/001"
+    }
+   ],
+   "bbox": [
+    74.16,
+    548.4,
+    270.96,
+    567.12
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r13",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: Yandilla Park Limited of Renmark, SA.\n‘Toomey Summer Navel’ Application No. :89/002",
+   "lines": [
+    {
+     "bbox": [
+      74.4,
+      578.16,
+      278.4,
+      587.04
+     ],
+     "text": "Applicant: Yandilla Park Limited of Renmark, SA."
+    },
+    {
+     "bbox": [
+      74.4,
+      588.24,
+      279.36,
+      597.12
+     ],
+     "text": "‘Toomey Summer Navel’ Application No. :89/002"
+    }
+   ],
+   "bbox": [
+    74.4,
+    578.16,
+    279.36,
+    597.12
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r14",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: Yandilla Park Limited of Renmark, SA.\n‘Edwards Summer Navel’ Application No. :89/003",
+   "lines": [
+    {
+     "bbox": [
+      74.64,
+      609.36,
+      278.64,
+      618.24
+     ],
+     "text": "Applicant: Yandilla Park Limited of Renmark, SA."
+    },
+    {
+     "bbox": [
+      74.88,
+      619.44,
+      282.24,
+      628.08
+     ],
+     "text": "‘Edwards Summer Navel’ Application No. :89/003"
+    }
+   ],
+   "bbox": [
+    74.64,
+    609.36,
+    282.24,
+    628.08
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r15",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: John R Pollock of Strathmerton, Vic.\n‘Autumn Gold Late Navel’ Application No. :89/004",
+   "lines": [
+    {
+     "bbox": [
+      74.16,
+      637.92,
+      270.72,
+      646.32
+     ],
+     "text": "Applicant: John R Pollock of Strathmerton, Vic."
+    },
+    {
+     "bbox": [
+      74.4,
+      647.52,
+      283.2,
+      656.16
+     ],
+     "text": "‘Autumn Gold Late Navel’ Application No. :89/004"
+    }
+   ],
+   "bbox": [
+    74.16,
+    637.92,
+    283.2,
+    656.16
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r16",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: PW McLaren Management of Red Cliffs,\nVic.\n‘Rohde Summer Navel’ Application No. :89/005",
+   "lines": [
+    {
+     "bbox": [
+      74.16,
+      667.2,
+      285.84,
+      675.84
+     ],
+     "text": "Applicant: PW McLaren Management of Red Cliffs,"
+    },
+    {
+     "bbox": [
+      74.16,
+      677.28,
+      88.8,
+      684.24
+     ],
+     "text": "Vic."
+    },
+    {
+     "bbox": [
+      74.4,
+      687.12,
+      271.92,
+      695.76
+     ],
+     "text": "‘Rohde Summer Navel’ Application No. :89/005"
+    }
+   ],
+   "bbox": [
+    74.16,
+    667.2,
+    285.84,
+    695.76
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r17",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: CN & J Powell of Curlwaa, NSW.\n‘Powell Late Navel’ Application No. :89/006",
+   "lines": [
+    {
+     "bbox": [
+      74.16,
+      706.8,
+      255.12,
+      715.68
+     ],
+     "text": "Applicant: CN & J Powell of Curlwaa, NSW."
+    },
+    {
+     "bbox": [
+      74.4,
+      716.88,
+      255.12,
+      725.76
+     ],
+     "text": "‘Powell Late Navel’ Application No. :89/006"
+    }
+   ],
+   "bbox": [
+    74.16,
+    706.8,
+    255.12,
+    725.76
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r18",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: Dudley Marrows of Mildura, Vic.\n‘Summer Gold Late Navel’ Application No. :89/007",
+   "lines": [
+    {
+     "bbox": [
+      74.16,
+      736.8,
+      254.64,
+      745.68
+     ],
+     "text": "Applicant: Dudley Marrows of Mildura, Vic."
+    },
+    {
+     "bbox": [
+      74.4,
+      746.88,
+      285.12,
+      755.52
+     ],
+     "text": "‘Summer Gold Late Navel’ Application No. :89/007"
+    }
+   ],
+   "bbox": [
+    74.16,
+    736.8,
+    285.12,
+    755.52
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r19",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: G Chislett, of Piangil, Vic.\n‘Chislett Summer Navel’ Application No. :89/008",
+   "lines": [
+    {
+     "bbox": [
+      73.92,
+      766.8,
+      224.4,
+      775.68
+     ],
+     "text": "Applicant: G Chislett, of Piangil, Vic."
+    },
+    {
+     "bbox": [
+      74.16,
+      776.64,
+      277.2,
+      785.28
+     ],
+     "text": "‘Chislett Summer Navel’ Application No. :89/008"
+    }
+   ],
+   "bbox": [
+    73.92,
+    766.8,
+    277.2,
+    785.28
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r20",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Rose\n(Rosa)",
+   "lines": [
+    {
+     "bbox": [
+      316.08,
+      56.88,
+      347.52,
+      67.68
+     ],
+     "text": "Rose"
+    },
+    {
+     "bbox": [
+      316.32,
+      72.24,
+      356.64,
+      84.72
+     ],
+     "text": "(Rosa)"
+    }
+   ],
+   "bbox": [
+    316.08,
+    56.88,
+    356.64,
+    84.72
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r21",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: SNC Meilland & Cie of Antibes, France.\n‘Meizaipur’ (Synonym ‘Aurelia’) Application No.\n:89/009\nAgent in Australia: TVR Propagators Pty Ltd",
+   "lines": [
+    {
+     "bbox": [
+      315.36,
+      96.96,
+      522.48,
+      105.36
+     ],
+     "text": "Applicant: SNC Meilland & Cie of Antibes, France."
+    },
+    {
+     "bbox": [
+      315.6,
+      106.8,
+      515.76,
+      115.68
+     ],
+     "text": "‘Meizaipur’ (Synonym ‘Aurelia’) Application No."
+    },
+    {
+     "bbox": [
+      316.32,
+      116.88,
+      346.08,
+      123.6
+     ],
+     "text": ":89/009"
+    },
+    {
+     "bbox": [
+      315.36,
+      127.2,
+      497.04,
+      136.32
+     ],
+     "text": "Agent in Australia: TVR Propagators Pty Ltd"
+    }
+   ],
+   "bbox": [
+    315.36,
+    96.96,
+    522.48,
+    136.32
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r22",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: Universal Plants S AR L of Le-Cannet-\ndes-Maures France.\n‘Keijourna’ (Synonym ‘Mischka’) Application No.\n789/010\nAgent in Australia: TVR Propagators Pty Ltd",
+   "lines": [
+    {
+     "bbox": [
+      315.12,
+      146.88,
+      518.88,
+      155.52
+     ],
+     "text": "Applicant: Universal Plants S AR L of Le-Cannet-"
+    },
+    {
+     "bbox": [
+      315.36,
+      157.2,
+      396.96,
+      164.4
+     ],
+     "text": "des-Maures France."
+    },
+    {
+     "bbox": [
+      315.36,
+      167.04,
+      518.88,
+      175.92
+     ],
+     "text": "‘Keijourna’ (Synonym ‘Mischka’) Application No."
+    },
+    {
+     "bbox": [
+      316.08,
+      177.36,
+      345.84,
+      184.08
+     ],
+     "text": "789/010"
+    },
+    {
+     "bbox": [
+      314.88,
+      187.44,
+      496.56,
+      196.32
+     ],
+     "text": "Agent in Australia: TVR Propagators Pty Ltd"
+    }
+   ],
+   "bbox": [
+    314.88,
+    146.88,
+    518.88,
+    196.32
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r23",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Apple\nMalus",
+   "lines": [
+    {
+     "bbox": [
+      315.12,
+      209.28,
+      353.52,
+      222.48
+     ],
+     "text": "Apple"
+    },
+    {
+     "bbox": [
+      315.36,
+      225.12,
+      354.96,
+      235.68
+     ],
+     "text": "Malus"
+    }
+   ],
+   "bbox": [
+    315.12,
+    209.28,
+    354.96,
+    235.68
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r24",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: Instituut voor de Veredeling van\nTuinbouwgewassen of the Netherlands.\n‘Red Elstar’ Application No. :89/011",
+   "lines": [
+    {
+     "bbox": [
+      315.6,
+      249.36,
+      496.8,
+      258.0
+     ],
+     "text": "Applicant: Instituut voor de Veredeling van"
+    },
+    {
+     "bbox": [
+      315.36,
+      258.96,
+      482.64,
+      268.08
+     ],
+     "text": "Tuinbouwgewassen of the Netherlands."
+    },
+    {
+     "bbox": [
+      315.36,
+      269.28,
+      462.24,
+      277.92
+     ],
+     "text": "‘Red Elstar’ Application No. :89/011"
+    }
+   ],
+   "bbox": [
+    315.36,
+    249.36,
+    496.8,
+    277.92
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r25",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Agapanthus\nAgapanthus",
+   "lines": [
+    {
+     "bbox": [
+      314.88,
+      291.36,
+      395.28,
+      305.04
+     ],
+     "text": "Agapanthus"
+    },
+    {
+     "bbox": [
+      314.16,
+      307.68,
+      394.32,
+      320.88
+     ],
+     "text": "Agapanthus"
+    }
+   ],
+   "bbox": [
+    314.16,
+    291.36,
+    395.28,
+    320.88
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r26",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: Steven Wilken of Sylven, Victoria.\n‘Snow Storm’ Application No. :89/012",
+   "lines": [
+    {
+     "bbox": [
+      315.6,
+      332.64,
+      502.08,
+      341.28
+     ],
+     "text": "Applicant: Steven Wilken of Sylven, Victoria."
+    },
+    {
+     "bbox": [
+      315.6,
+      342.24,
+      474.24,
+      351.36
+     ],
+     "text": "‘Snow Storm’ Application No. :89/012"
+    }
+   ],
+   "bbox": [
+    315.6,
+    332.64,
+    502.08,
+    351.36
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r27",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Soybean\n(Glycine Max)",
+   "lines": [
+    {
+     "bbox": [
+      314.88,
+      364.32,
+      371.76,
+      377.52
+     ],
+     "text": "Soybean"
+    },
+    {
+     "bbox": [
+      315.6,
+      379.68,
+      404.4,
+      392.88
+     ],
+     "text": "(Glycine Max)"
+    }
+   ],
+   "bbox": [
+    314.88,
+    364.32,
+    404.4,
+    392.88
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r28",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: Department of Primary Industries, of\nBrisbane, Old.\n‘Manark’ Application No. :88/037",
+   "lines": [
+    {
+     "bbox": [
+      314.4,
+      403.92,
+      514.08,
+      413.28
+     ],
+     "text": "Applicant: Department of Primary Industries, of"
+    },
+    {
+     "bbox": [
+      314.88,
+      414.48,
+      372.72,
+      422.64
+     ],
+     "text": "Brisbane, Old."
+    },
+    {
+     "bbox": [
+      314.4,
+      424.32,
+      451.44,
+      433.44
+     ],
+     "text": "‘Manark’ Application No. :88/037"
+    }
+   ],
+   "bbox": [
+    314.4,
+    403.92,
+    514.08,
+    433.44
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r29",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "PROVISIONAL PROTECTION",
+   "lines": [
+    {
+     "bbox": [
+      314.88,
+      446.16,
+      474.24,
+      456.0
+     ],
+     "text": "PROVISIONAL PROTECTION"
+    }
+   ],
+   "bbox": [
+    314.88,
+    446.16,
+    474.24,
+    456.0
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r30",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Provisional protection granted",
+   "lines": [
+    {
+     "bbox": [
+      314.64,
+      469.68,
+      442.8,
+      478.56
+     ],
+     "text": "Provisional protection granted"
+    }
+   ],
+   "bbox": [
+    314.64,
+    469.68,
+    442.8,
+    478.56
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r31",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "The following varieties have provisional protection\nunder S22 of the Plant Variety Rights Act 1987 since\nthe last issue of the Journal:",
+   "lines": [
+    {
+     "bbox": [
+      314.4,
+      489.6,
+      526.08,
+      498.24
+     ],
+     "text": "The following varieties have provisional protection"
+    },
+    {
+     "bbox": [
+      314.88,
+      499.44,
+      528.96,
+      507.84
+     ],
+     "text": "under S22 of the Plant Variety Rights Act 1987 since"
+    },
+    {
+     "bbox": [
+      314.4,
+      509.28,
+      431.28,
+      516.24
+     ],
+     "text": "the last issue of the Journal:"
+    }
+   ],
+   "bbox": [
+    314.4,
+    489.6,
+    528.96,
+    516.24
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r32",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Barnfield Late Navel’ Application No. :89/001",
+   "lines": [
+    {
+     "bbox": [
+      314.16,
+      528.72,
+      528.0,
+      537.6
+     ],
+     "text": "‘Barnfield Late Navel’ Application No. :89/001"
+    }
+   ],
+   "bbox": [
+    314.16,
+    528.72,
+    528.0,
+    537.6
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r33",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Toomey Summer Navel’ Application\nNo. :89/002",
+   "lines": [
+    {
+     "bbox": [
+      314.4,
+      548.64,
+      528.72,
+      557.52
+     ],
+     "text": "‘Toomey Summer Navel’ Application"
+    },
+    {
+     "bbox": [
+      481.92,
+      558.48,
+      528.72,
+      565.44
+     ],
+     "text": "No. :89/002"
+    }
+   ],
+   "bbox": [
+    314.4,
+    548.64,
+    528.72,
+    565.44
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r34",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Edwards Summer Navel’ Application\nNo. :89/003",
+   "lines": [
+    {
+     "bbox": [
+      314.16,
+      578.64,
+      528.48,
+      587.52
+     ],
+     "text": "‘Edwards Summer Navel’ Application"
+    },
+    {
+     "bbox": [
+      481.68,
+      588.72,
+      528.72,
+      595.68
+     ],
+     "text": "No. :89/003"
+    }
+   ],
+   "bbox": [
+    314.16,
+    578.64,
+    528.72,
+    595.68
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r35",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Autumn Gold Late Navel’ Application\nNo. :89/004",
+   "lines": [
+    {
+     "bbox": [
+      314.4,
+      608.4,
+      528.72,
+      617.04
+     ],
+     "text": "‘Autumn Gold Late Navel’ Application"
+    },
+    {
+     "bbox": [
+      481.92,
+      618.24,
+      528.96,
+      625.2
+     ],
+     "text": "No. :89/004"
+    }
+   ],
+   "bbox": [
+    314.4,
+    608.4,
+    528.96,
+    625.2
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r36",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Rohde Summer Navel’ Application No. :89/005",
+   "lines": [
+    {
+     "bbox": [
+      314.16,
+      637.92,
+      528.96,
+      646.56
+     ],
+     "text": "‘Rohde Summer Navel’ Application No. :89/005"
+    }
+   ],
+   "bbox": [
+    314.16,
+    637.92,
+    528.96,
+    646.56
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r37",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Powell Late Navel’ Application No. :89/006",
+   "lines": [
+    {
+     "bbox": [
+      314.16,
+      657.36,
+      528.72,
+      666.0
+     ],
+     "text": "‘Powell Late Navel’ Application No. :89/006"
+    }
+   ],
+   "bbox": [
+    314.16,
+    657.36,
+    528.72,
+    666.0
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r38",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Summer Gold Late Navel’ Application\nNo. :89/007",
+   "lines": [
+    {
+     "bbox": [
+      314.16,
+      677.04,
+      528.48,
+      685.92
+     ],
+     "text": "‘Summer Gold Late Navel’ Application"
+    },
+    {
+     "bbox": [
+      481.68,
+      687.12,
+      528.48,
+      694.08
+     ],
+     "text": "No. :89/007"
+    }
+   ],
+   "bbox": [
+    314.16,
+    677.04,
+    528.48,
+    694.08
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r39",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Chislett Summer Navel’ Application\nNo. :89/008",
+   "lines": [
+    {
+     "bbox": [
+      314.16,
+      706.8,
+      528.48,
+      715.44
+     ],
+     "text": "‘Chislett Summer Navel’ Application"
+    },
+    {
+     "bbox": [
+      481.68,
+      716.88,
+      528.72,
+      723.84
+     ],
+     "text": "No. :89/008"
+    }
+   ],
+   "bbox": [
+    314.16,
+    706.8,
+    528.72,
+    723.84
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r40",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Meizaipur'’ (syn. ‘Aurelia’) Application\nNo. :89/009",
+   "lines": [
+    {
+     "bbox": [
+      317.04,
+      736.32,
+      528.72,
+      745.44
+     ],
+     "text": "Meizaipur'’ (syn. ‘Aurelia’) Application"
+    },
+    {
+     "bbox": [
+      481.92,
+      746.88,
+      528.96,
+      753.6
+     ],
+     "text": "No. :89/009"
+    }
+   ],
+   "bbox": [
+    317.04,
+    736.32,
+    528.96,
+    753.6
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r41",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Keijourna’ (syn. ‘Mischka’) Application\nNo. :89/010",
+   "lines": [
+    {
+     "bbox": [
+      314.16,
+      766.56,
+      528.72,
+      775.44
+     ],
+     "text": "‘Keijourna’ (syn. ‘Mischka’) Application"
+    },
+    {
+     "bbox": [
+      481.68,
+      776.64,
+      528.72,
+      783.36
+     ],
+     "text": "No. :89/010"
+    }
+   ],
+   "bbox": [
+    314.16,
+    766.56,
+    528.72,
+    783.36
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r42",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "14",
+   "lines": [
+    {
+     "bbox": [
+      74.4,
+      802.08,
+      82.32,
+      807.84
+     ],
+     "text": "14"
+    }
+   ],
+   "bbox": [
+    74.4,
+    802.08,
+    82.32,
+    807.84
+   ],
+   "type": "page_number",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    594.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

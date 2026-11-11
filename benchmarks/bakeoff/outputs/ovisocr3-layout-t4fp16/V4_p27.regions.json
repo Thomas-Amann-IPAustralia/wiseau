@@ -1,0 +1,453 @@
+{
+ "model": "ATH-MaaS/OvisOCR3",
+ "revision": "17f255e2c8ae6d18d5d5edb0a474bd4ed39aef90",
+ "prompt": "document_layout",
+ "prompt_sha256": "89bcc73c7340ff9fd83673c1aee2354c2cc735c6eded0ce2aa4501f28b914361",
+ "max_new_tokens": 4096,
+ "do_sample": false,
+ "min_pixels": 200704,
+ "max_pixels": 8294400,
+ "route": "transformers",
+ "load_seconds": 3.14,
+ "device": "cuda",
+ "dtype": "fp16",
+ "threads": null,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.16",
+  "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "gpu": "Tesla T4",
+ "raw": "[\n    {\n        \"bbox\": [\n            72,\n            69,\n            270,\n            93\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            73,\n            125,\n            562,\n            146\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            72,\n            164,\n            858,\n            190\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            73,\n            188,\n            641,\n            201\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            73,\n            199,\n            828,\n            224\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            73,\n            223,\n            596,\n            237\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            235,\n            871,\n            260\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            73,\n            259,\n            715,\n            272\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            270,\n            800,\n            284\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            283,\n            756,\n            306\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            305,\n            771,\n            319\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            317,\n            790,\n            331\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            329,\n            784,\n            343\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            341,\n            723,\n            354\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            353,\n            878,\n            377\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            376,\n            839,\n            390\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            389,\n            703,\n            402\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            401,\n            880,\n            425\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            424,\n            743,\n            438\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            437,\n            782,\n            460\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            459,\n            606,\n            473\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            471,\n            881,\n            495\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            494,\n            709,\n            508\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            506,\n            761,\n            520\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            518,\n            774,\n            532\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            530,\n            623,\n            543\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            541,\n            623,\n            555\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            554,\n            814,\n            568\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            567,\n            375,\n            580\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            578,\n            354,\n            591\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            590,\n            175,\n            603\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            602,\n            839,\n            626\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            626,\n            372,\n            639\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            637,\n            668,\n            651\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            649,\n            864,\n            663\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            661,\n            865,\n            674\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            672,\n            529,\n            685\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            684,\n            474,\n            697\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            74,\n            696,\n            796,\n            710\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            73,\n            724,\n            146,\n            737\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            73,\n            736,\n            679,\n            750\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            73,\n            748,\n            710,\n            762\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            73,\n            776,\n            241,\n            789\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            73,\n            787,\n            753,\n            802\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            898,\n            939,\n            926,\n            953\n        ],\n        \"category\": \"number\"\n    }\n]",
+ "finish_reason": "stop",
+ "input_tokens": 3978,
+ "new_tokens": 2212,
+ "image_grid_thw": [
+  [
+   1,
+   146,
+   104
+  ]
+ ],
+ "generate_seconds": 102.38,
+ "regions": [
+  {
+   "bbox": [
+    72.0,
+    69.0,
+    270.0,
+    93.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    73.0,
+    125.0,
+    562.0,
+    146.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    72.0,
+    164.0,
+    858.0,
+    190.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    73.0,
+    188.0,
+    641.0,
+    201.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    73.0,
+    199.0,
+    828.0,
+    224.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    73.0,
+    223.0,
+    596.0,
+    237.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    235.0,
+    871.0,
+    260.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    73.0,
+    259.0,
+    715.0,
+    272.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    270.0,
+    800.0,
+    284.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    283.0,
+    756.0,
+    306.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    305.0,
+    771.0,
+    319.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    317.0,
+    790.0,
+    331.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    329.0,
+    784.0,
+    343.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    341.0,
+    723.0,
+    354.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    353.0,
+    878.0,
+    377.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    376.0,
+    839.0,
+    390.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    389.0,
+    703.0,
+    402.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    401.0,
+    880.0,
+    425.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    424.0,
+    743.0,
+    438.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    437.0,
+    782.0,
+    460.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    459.0,
+    606.0,
+    473.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    471.0,
+    881.0,
+    495.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    494.0,
+    709.0,
+    508.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    506.0,
+    761.0,
+    520.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    518.0,
+    774.0,
+    532.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    530.0,
+    623.0,
+    543.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    541.0,
+    623.0,
+    555.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    554.0,
+    814.0,
+    568.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    567.0,
+    375.0,
+    580.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    578.0,
+    354.0,
+    591.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    590.0,
+    175.0,
+    603.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    602.0,
+    839.0,
+    626.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    626.0,
+    372.0,
+    639.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    637.0,
+    668.0,
+    651.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    649.0,
+    864.0,
+    663.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    661.0,
+    865.0,
+    674.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    672.0,
+    529.0,
+    685.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    684.0,
+    474.0,
+    697.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    74.0,
+    696.0,
+    796.0,
+    710.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    73.0,
+    724.0,
+    146.0,
+    737.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    73.0,
+    736.0,
+    679.0,
+    750.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    73.0,
+    748.0,
+    710.0,
+    762.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    73.0,
+    776.0,
+    241.0,
+    789.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    73.0,
+    787.0,
+    753.0,
+    802.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    898.0,
+    939.0,
+    926.0,
+    953.0
+   ],
+   "category": "number"
+  }
+ ],
+ "seconds": 102.55,
+ "peak_rss_mb": 3983.7,
+ "peak_vram_mb": 3156.6,
+ "image_px": [
+  1653,
+  2339
+ ],
+ "page": "V4_p27"
+}

@@ -1,0 +1,75 @@
+{
+ "model": "ATH-MaaS/OvisOCR3",
+ "revision": "17f255e2c8ae6d18d5d5edb0a474bd4ed39aef90",
+ "prompt": "document_layout",
+ "prompt_sha256": "89bcc73c7340ff9fd83673c1aee2354c2cc735c6eded0ce2aa4501f28b914361",
+ "max_new_tokens": 4096,
+ "do_sample": false,
+ "min_pixels": 200704,
+ "max_pixels": 8294400,
+ "route": "transformers",
+ "load_seconds": 3.01,
+ "device": "cuda",
+ "dtype": "fp16",
+ "threads": null,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.16",
+  "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "gpu": "Tesla T4",
+ "raw": "[\n    {\n        \"bbox\": [\n            129,\n            63,\n            612,\n            84\n        ],\n        \"category\": \"figure_title\"\n    },\n    {\n        \"bbox\": [\n            122,\n            81,\n            884,\n            932\n        ],\n        \"category\": \"table\"\n    },\n    {\n        \"bbox\": [\n            128,\n            951,\n            148,\n            962\n        ],\n        \"category\": \"number\"\n    }\n]",
+ "finish_reason": "stop",
+ "input_tokens": 3978,
+ "new_tokens": 152,
+ "image_grid_thw": [
+  [
+   1,
+   146,
+   104
+  ]
+ ],
+ "generate_seconds": 9.19,
+ "regions": [
+  {
+   "bbox": [
+    129.0,
+    63.0,
+    612.0,
+    84.0
+   ],
+   "category": "figure_title"
+  },
+  {
+   "bbox": [
+    122.0,
+    81.0,
+    884.0,
+    932.0
+   ],
+   "category": "table"
+  },
+  {
+   "bbox": [
+    128.0,
+    951.0,
+    148.0,
+    962.0
+   ],
+   "category": "number"
+  }
+ ],
+ "seconds": 9.38,
+ "peak_rss_mb": 3984.2,
+ "peak_vram_mb": 3157.0,
+ "image_px": [
+  1653,
+  2339
+ ],
+ "page": "V2_p14"
+}

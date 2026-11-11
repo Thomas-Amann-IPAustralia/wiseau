@@ -1,0 +1,1172 @@
+{
+ "elements": [
+  {
+   "id": "r1",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Red Elstar’ Application No. :89/011",
+   "lines": [
+    {
+     "bbox": [
+      66.96,
+      60.96,
+      280.32,
+      69.6
+     ],
+     "text": "‘Red Elstar’ Application No. :89/011"
+    }
+   ],
+   "bbox": [
+    66.96,
+    60.96,
+    280.32,
+    69.6
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r2",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Snow Storm’ Application No. :89/012",
+   "lines": [
+    {
+     "bbox": [
+      66.96,
+      80.88,
+      280.8,
+      89.52
+     ],
+     "text": "‘Snow Storm’ Application No. :89/012"
+    }
+   ],
+   "bbox": [
+    66.96,
+    80.88,
+    280.8,
+    89.52
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r3",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Manark’ Application No. :88/037",
+   "lines": [
+    {
+     "bbox": [
+      67.2,
+      100.08,
+      281.04,
+      110.64
+     ],
+     "text": "‘Manark’ Application No. :88/037"
+    }
+   ],
+   "bbox": [
+    67.2,
+    100.08,
+    281.04,
+    110.64
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r4",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Provisional protection withdrawn",
+   "lines": [
+    {
+     "bbox": [
+      68.4,
+      120.72,
+      256.8,
+      132.24
+     ],
+     "text": "Provisional protection withdrawn"
+    }
+   ],
+   "bbox": [
+    68.4,
+    120.72,
+    256.8,
+    132.24
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r5",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Provisional protection has been withdrawn under\n$22(b) of the Plant Variety Rights Act 1987 for the\nfollowing variety(ies) which have been sold other\nthan for the purposes of S22(b) after the application\nfor PVR was accepted:",
+   "lines": [
+    {
+     "bbox": [
+      68.16,
+      144.0,
+      274.08,
+      152.88
+     ],
+     "text": "Provisional protection has been withdrawn under"
+    },
+    {
+     "bbox": [
+      67.92,
+      153.84,
+      272.4,
+      162.96
+     ],
+     "text": "$22(b) of the Plant Variety Rights Act 1987 for the"
+    },
+    {
+     "bbox": [
+      67.68,
+      164.16,
+      272.88,
+      173.28
+     ],
+     "text": "following variety(ies) which have been sold other"
+    },
+    {
+     "bbox": [
+      67.68,
+      173.04,
+      281.76,
+      184.08
+     ],
+     "text": "than for the purposes of S22(b) after the application"
+    },
+    {
+     "bbox": [
+      67.68,
+      184.32,
+      160.08,
+      192.96
+     ],
+     "text": "for PVR was accepted:"
+    }
+   ],
+   "bbox": [
+    67.68,
+    144.0,
+    281.76,
+    192.96
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r6",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Progrow’ (Application No 88/010), Lo/ium\nmultiflorum",
+   "lines": [
+    {
+     "bbox": [
+      67.92,
+      203.76,
+      242.88,
+      212.88
+     ],
+     "text": "‘Progrow’ (Application No 88/010), Lo/ium"
+    },
+    {
+     "bbox": [
+      67.92,
+      213.84,
+      117.36,
+      221.04
+     ],
+     "text": "multiflorum"
+    }
+   ],
+   "bbox": [
+    67.92,
+    203.76,
+    242.88,
+    221.04
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r7",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: Valley Seeds Pty Ltd, Alexandra,\nVictoria. With effect from 28 February 1989 until the\nexamination of the application is completed and\nPVR is granted or rejected.",
+   "lines": [
+    {
+     "bbox": [
+      67.68,
+      223.68,
+      247.68,
+      232.32
+     ],
+     "text": "Applicant: Valley Seeds Pty Ltd, Alexandra,"
+    },
+    {
+     "bbox": [
+      67.92,
+      233.28,
+      281.52,
+      241.68
+     ],
+     "text": "Victoria. With effect from 28 February 1989 until the"
+    },
+    {
+     "bbox": [
+      67.92,
+      243.12,
+      267.84,
+      251.76
+     ],
+     "text": "examination of the application is completed and"
+    },
+    {
+     "bbox": [
+      68.16,
+      253.2,
+      177.36,
+      262.08
+     ],
+     "text": "PVR is granted or rejected."
+    }
+   ],
+   "bbox": [
+    67.68,
+    223.68,
+    281.52,
+    262.08
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r8",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "VARIATIONS TO APPLICATIONS",
+   "lines": [
+    {
+     "bbox": [
+      67.68,
+      274.56,
+      250.08,
+      284.4
+     ],
+     "text": "VARIATIONS TO APPLICATIONS"
+    }
+   ],
+   "bbox": [
+    67.68,
+    274.56,
+    250.08,
+    284.4
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r9",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "The following submissions have been made for\nvariations to applications under subsection 19(1) Of\nthe Plant Variety Rights Act 1987:",
+   "lines": [
+    {
+     "bbox": [
+      67.68,
+      297.84,
+      265.44,
+      306.96
+     ],
+     "text": "The following submissions have been made for"
+    },
+    {
+     "bbox": [
+      67.44,
+      307.68,
+      280.32,
+      316.8
+     ],
+     "text": "variations to applications under subsection 19(1) Of"
+    },
+    {
+     "bbox": [
+      67.44,
+      318.0,
+      205.44,
+      326.88
+     ],
+     "text": "the Plant Variety Rights Act 1987:"
+    }
+   ],
+   "bbox": [
+    67.44,
+    297.84,
+    280.32,
+    326.88
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r10",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Variety: ‘Chifley’ (Lactuca sativa)",
+   "lines": [
+    {
+     "bbox": [
+      67.44,
+      337.92,
+      203.76,
+      346.8
+     ],
+     "text": "Variety: ‘Chifley’ (Lactuca sativa)"
+    }
+   ],
+   "bbox": [
+    67.44,
+    337.92,
+    203.76,
+    346.8
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r11",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Application No.: 88/007",
+   "lines": [
+    {
+     "bbox": [
+      67.44,
+      357.6,
+      165.36,
+      366.48
+     ],
+     "text": "Application No.: 88/007"
+    }
+   ],
+   "bbox": [
+    67.44,
+    357.6,
+    165.36,
+    366.48
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r12",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: Arthur Yates & Co. Pty Ltd",
+   "lines": [
+    {
+     "bbox": [
+      67.92,
+      377.28,
+      221.28,
+      386.16
+     ],
+     "text": "Applicant: Arthur Yates & Co. Pty Ltd"
+    }
+   ],
+   "bbox": [
+    67.92,
+    377.28,
+    221.28,
+    386.16
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r13",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Variation: Change name to ‘Bulls Eye’",
+   "lines": [
+    {
+     "bbox": [
+      67.92,
+      397.2,
+      225.12,
+      405.84
+     ],
+     "text": "Variation: Change name to ‘Bulls Eye’"
+    }
+   ],
+   "bbox": [
+    67.92,
+    397.2,
+    225.12,
+    405.84
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r14",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Variety: ‘Rubin’ (Dianthus caryophyllus)",
+   "lines": [
+    {
+     "bbox": [
+      67.2,
+      416.4,
+      234.0,
+      425.28
+     ],
+     "text": "Variety: ‘Rubin’ (Dianthus caryophyllus)"
+    }
+   ],
+   "bbox": [
+    67.2,
+    416.4,
+    234.0,
+    425.28
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r15",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Application No. :88/022",
+   "lines": [
+    {
+     "bbox": [
+      67.44,
+      437.04,
+      165.36,
+      445.68
+     ],
+     "text": "Application No. :88/022"
+    }
+   ],
+   "bbox": [
+    67.44,
+    437.04,
+    165.36,
+    445.68
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r16",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: Bioprogress SP ‘Selca’ of Bulgaria",
+   "lines": [
+    {
+     "bbox": [
+      67.2,
+      457.44,
+      254.64,
+      466.08
+     ],
+     "text": "Applicant: Bioprogress SP ‘Selca’ of Bulgaria"
+    }
+   ],
+   "bbox": [
+    67.2,
+    457.44,
+    254.64,
+    466.08
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r17",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Variation: Change name to ‘Rubinen’",
+   "lines": [
+    {
+     "bbox": [
+      67.2,
+      476.64,
+      221.52,
+      485.28
+     ],
+     "text": "Variation: Change name to ‘Rubinen’"
+    }
+   ],
+   "bbox": [
+    67.2,
+    476.64,
+    221.52,
+    485.28
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r18",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "CORRIGENDA",
+   "lines": [
+    {
+     "bbox": [
+      67.2,
+      498.0,
+      146.16,
+      507.6
+     ],
+     "text": "CORRIGENDA"
+    }
+   ],
+   "bbox": [
+    67.2,
+    498.0,
+    146.16,
+    507.6
+   ],
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "id": "r19",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "1. Inthe fourth issue (December 1988), the\ncaptions relating to the photograph of the pea\nvarieties on p21 should have read ‘Above. Pea\nvarieties ‘Maitland’ (right), ‘Dinkum’ (centre)\nand ‘Buckley’ (left).’",
+   "lines": [
+    {
+     "bbox": [
+      67.92,
+      520.56,
+      250.8,
+      528.96
+     ],
+     "text": "1. Inthe fourth issue (December 1988), the"
+    },
+    {
+     "bbox": [
+      85.2,
+      530.64,
+      275.28,
+      539.52
+     ],
+     "text": "captions relating to the photograph of the pea"
+    },
+    {
+     "bbox": [
+      84.96,
+      540.48,
+      276.24,
+      549.12
+     ],
+     "text": "varieties on p21 should have read ‘Above. Pea"
+    },
+    {
+     "bbox": [
+      84.96,
+      550.32,
+      268.8,
+      559.44
+     ],
+     "text": "varieties ‘Maitland’ (right), ‘Dinkum’ (centre)"
+    },
+    {
+     "bbox": [
+      84.96,
+      560.16,
+      166.32,
+      569.04
+     ],
+     "text": "and ‘Buckley’ (left).’"
+    }
+   ],
+   "bbox": [
+    67.92,
+    520.56,
+    276.24,
+    569.04
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r20",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "2. For the following applications the Australian\nagents’s name was given in the public notice of\nacceptance, rather than the applicant. The\ncorrect information is given below.",
+   "lines": [
+    {
+     "bbox": [
+      67.44,
+      581.04,
+      269.28,
+      590.16
+     ],
+     "text": "2. For the following applications the Australian"
+    },
+    {
+     "bbox": [
+      85.44,
+      591.36,
+      282.0,
+      600.24
+     ],
+     "text": "agents’s name was given in the public notice of"
+    },
+    {
+     "bbox": [
+      85.44,
+      601.2,
+      259.2,
+      610.08
+     ],
+     "text": "acceptance, rather than the applicant. The"
+    },
+    {
+     "bbox": [
+      85.2,
+      610.8,
+      229.92,
+      619.68
+     ],
+     "text": "correct information is given below."
+    }
+   ],
+   "bbox": [
+    67.44,
+    581.04,
+    282.0,
+    619.68
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r21",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "a) Variety: ‘A5939’ (G/ycine max)\nApplication No: 88/011\nApplicant: Asgrow Seed Company of\nMichigan, USA\nAgent in Australia: Annand Robinson Pty Ltd",
+   "lines": [
+    {
+     "bbox": [
+      67.2,
+      630.24,
+      212.4,
+      639.6
+     ],
+     "text": "a) Variety: ‘A5939’ (G/ycine max)"
+    },
+    {
+     "bbox": [
+      84.48,
+      640.32,
+      179.52,
+      648.96
+     ],
+     "text": "Application No: 88/011"
+    },
+    {
+     "bbox": [
+      84.72,
+      659.52,
+      239.76,
+      669.36
+     ],
+     "text": "Applicant: Asgrow Seed Company of"
+    },
+    {
+     "bbox": [
+      85.44,
+      669.36,
+      147.6,
+      678.24
+     ],
+     "text": "Michigan, USA"
+    },
+    {
+     "bbox": [
+      84.48,
+      679.68,
+      270.72,
+      688.8
+     ],
+     "text": "Agent in Australia: Annand Robinson Pty Ltd"
+    }
+   ],
+   "bbox": [
+    67.2,
+    630.24,
+    270.72,
+    688.8
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r22",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "b) Variety: ‘A5494’\nApplication No.:88/012\nApplicant: Asgrow Seed Company of\nMichigan, USA\nAgent in Australia: Annand Robinson Pty Ltd",
+   "lines": [
+    {
+     "bbox": [
+      66.96,
+      699.12,
+      151.68,
+      708.0
+     ],
+     "text": "b) Variety: ‘A5494’"
+    },
+    {
+     "bbox": [
+      84.24,
+      709.44,
+      180.24,
+      718.08
+     ],
+     "text": "Application No.:88/012"
+    },
+    {
+     "bbox": [
+      84.72,
+      719.52,
+      239.76,
+      728.64
+     ],
+     "text": "Applicant: Asgrow Seed Company of"
+    },
+    {
+     "bbox": [
+      84.96,
+      729.6,
+      147.36,
+      738.24
+     ],
+     "text": "Michigan, USA"
+    },
+    {
+     "bbox": [
+      84.0,
+      739.44,
+      270.48,
+      748.56
+     ],
+     "text": "Agent in Australia: Annand Robinson Pty Ltd"
+    }
+   ],
+   "bbox": [
+    66.96,
+    699.12,
+    270.48,
+    748.56
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r23",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "c) Varieties: (Dianthus caryophyllus)\n‘Dana’ APPLICATION NO. 88/014\n‘Odile’ APPLICATION NO. 88/015",
+   "lines": [
+    {
+     "bbox": [
+      66.0,
+      759.12,
+      226.8,
+      768.48
+     ],
+     "text": "c) Varieties: (Dianthus caryophyllus)"
+    },
+    {
+     "bbox": [
+      84.0,
+      769.44,
+      280.8,
+      776.88
+     ],
+     "text": "‘Dana’ APPLICATION NO. 88/014"
+    },
+    {
+     "bbox": [
+      84.0,
+      778.08,
+      280.56,
+      788.88
+     ],
+     "text": "‘Odile’ APPLICATION NO. 88/015"
+    }
+   ],
+   "bbox": [
+    66.0,
+    759.12,
+    280.8,
+    788.88
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r24",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "‘Fantastic’ APPLICATION NO. 88/016\n‘Valya’ APPLICATION NO. 88/017\n‘Charodeyka’ APPLICATION NO. 88/018\n‘Neshka’ APPLICATION NO. 88/019\n‘Mechta’ APPLICATION NO. 88/020\n‘Zlatka’ APPLICATION NO. 88/021\n‘Rubinen’ APPLICATION NO. 88/022\n‘Pirin’ APPLICATION NO. 88/023\n‘Zora’ APPLICATION NO. 88/024\n‘Victoria’ APPLICATION NO. 88/025",
+   "lines": [
+    {
+     "bbox": [
+      327.12,
+      59.28,
+      524.16,
+      70.56
+     ],
+     "text": "‘Fantastic’ APPLICATION NO. 88/016"
+    },
+    {
+     "bbox": [
+      327.12,
+      69.36,
+      523.92,
+      80.64
+     ],
+     "text": "‘Valya’ APPLICATION NO. 88/017"
+    },
+    {
+     "bbox": [
+      326.88,
+      79.2,
+      523.44,
+      90.48
+     ],
+     "text": "‘Charodeyka’ APPLICATION NO. 88/018"
+    },
+    {
+     "bbox": [
+      326.88,
+      89.04,
+      523.44,
+      100.32
+     ],
+     "text": "‘Neshka’ APPLICATION NO. 88/019"
+    },
+    {
+     "bbox": [
+      327.12,
+      99.12,
+      523.68,
+      110.4
+     ],
+     "text": "‘Mechta’ APPLICATION NO. 88/020"
+    },
+    {
+     "bbox": [
+      327.12,
+      109.92,
+      522.48,
+      117.12
+     ],
+     "text": "‘Zlatka’ APPLICATION NO. 88/021"
+    },
+    {
+     "bbox": [
+      326.88,
+      118.8,
+      523.2,
+      130.08
+     ],
+     "text": "‘Rubinen’ APPLICATION NO. 88/022"
+    },
+    {
+     "bbox": [
+      326.88,
+      129.6,
+      523.44,
+      137.04
+     ],
+     "text": "‘Pirin’ APPLICATION NO. 88/023"
+    },
+    {
+     "bbox": [
+      327.12,
+      139.68,
+      523.68,
+      147.12
+     ],
+     "text": "‘Zora’ APPLICATION NO. 88/024"
+    },
+    {
+     "bbox": [
+      326.88,
+      148.8,
+      523.44,
+      160.32
+     ],
+     "text": "‘Victoria’ APPLICATION NO. 88/025"
+    }
+   ],
+   "bbox": [
+    326.88,
+    59.28,
+    524.16,
+    160.32
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r25",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "Applicant: Bioprogress SP of Plovdiv, Bulgaria\nAgent in Australia: Royena Nurseries Aust Pty\nLtd,Dingley Vic",
+   "lines": [
+    {
+     "bbox": [
+      326.64,
+      169.92,
+      520.08,
+      179.04
+     ],
+     "text": "Applicant: Bioprogress SP of Plovdiv, Bulgaria"
+    },
+    {
+     "bbox": [
+      326.64,
+      180.24,
+      518.16,
+      189.12
+     ],
+     "text": "Agent in Australia: Royena Nurseries Aust Pty"
+    },
+    {
+     "bbox": [
+      327.12,
+      190.08,
+      389.28,
+      198.72
+     ],
+     "text": "Ltd,Dingley Vic"
+    }
+   ],
+   "bbox": [
+    326.64,
+    169.92,
+    520.08,
+    198.72
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r26",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "c)\nVariety: ‘Bronco’ (Phaseolus vulgaris)\nApplication No.:88/030\nApplicant: Asgrow Seed Company of\nMichigan, USA\nAgent in Australia: New World Seeds Pty Ltd of\nGalston, NSW",
+   "lines": [
+    {
+     "bbox": [
+      308.88,
+      209.28,
+      315.36,
+      217.44
+     ],
+     "text": "c)"
+    },
+    {
+     "bbox": [
+      326.64,
+      209.76,
+      484.8,
+      218.88
+     ],
+     "text": "Variety: ‘Bronco’ (Phaseolus vulgaris)"
+    },
+    {
+     "bbox": [
+      326.4,
+      219.6,
+      422.64,
+      228.0
+     ],
+     "text": "Application No.:88/030"
+    },
+    {
+     "bbox": [
+      326.64,
+      229.2,
+      481.92,
+      239.04
+     ],
+     "text": "Applicant: Asgrow Seed Company of"
+    },
+    {
+     "bbox": [
+      326.88,
+      239.04,
+      389.04,
+      248.16
+     ],
+     "text": "Michigan, USA"
+    },
+    {
+     "bbox": [
+      326.16,
+      249.12,
+      522.96,
+      258.0
+     ],
+     "text": "Agent in Australia: New World Seeds Pty Ltd of"
+    },
+    {
+     "bbox": [
+      326.64,
+      258.96,
+      385.2,
+      266.88
+     ],
+     "text": "Galston, NSW"
+    }
+   ],
+   "bbox": [
+    308.88,
+    209.28,
+    522.96,
+    266.88
+   ],
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "id": "r27",
+   "page": 1,
+   "source": "layout-regroup",
+   "text_format": "plain",
+   "text": "15",
+   "lines": [
+    {
+     "bbox": [
+      511.68,
+      806.16,
+      519.36,
+      812.16
+     ],
+     "text": "15"
+    }
+   ],
+   "bbox": [
+    511.68,
+    806.16,
+    519.36,
+    812.16
+   ],
+   "type": "page_number",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    594.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}
