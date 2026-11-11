@@ -1,0 +1,244 @@
+{
+  "glm-ocr-cpu": {
+    "digital": [
+      null,
+      null,
+      null
+    ],
+    "docs": {},
+    "errors": {},
+    "ok": 3,
+    "pages": 3,
+    "quality": {
+      "bow_r": 0.9470691217474831,
+      "cer": 0.030022311100458356,
+      "n": 3,
+      "num_r": 0.9030939496859909,
+      "wer": 0.05952066408447735
+    },
+    "scans": [
+      199.83333333333334,
+      244.46,
+      244.65
+    ],
+    "warmup": 210.21
+  },
+  "glm-ocr-gpu-fp16": {
+    "digital": [
+      0.29500000000000004,
+      0.29500000000000004,
+      0.39
+    ],
+    "docs": {
+      "Volume 4 Number 1.pdf": {
+        "chars": 139821,
+        "engine": "glm-ocr",
+        "error": null,
+        "fell_back": false,
+        "gpu_peak_mb": null,
+        "pages": 36,
+        "s_per_page": 47.1,
+        "seconds": 1695.57
+      }
+    },
+    "errors": {},
+    "ok": 42,
+    "pages": 42,
+    "quality": {
+      "bow_r": 0.941408622023027,
+      "cer": 0.04837707581131186,
+      "n": 42,
+      "num_r": 0.9094677238503626,
+      "wer": 0.08473941003339514
+    },
+    "scans": [
+      41.921052631578945,
+      39.1,
+      85.07
+    ],
+    "warmup": 34.7
+  },
+  "glm-ocr-gpu-fp32": {
+    "digital": [
+      null,
+      null,
+      null
+    ],
+    "docs": {},
+    "errors": {},
+    "ok": 3,
+    "pages": 3,
+    "quality": {
+      "bow_r": 0.9470691217474831,
+      "cer": 0.03167885444667591,
+      "n": 3,
+      "num_r": 0.9030939496859909,
+      "wer": 0.06061896172313743
+    },
+    "scans": [
+      31.333333333333332,
+      37.64,
+      39.32
+    ],
+    "warmup": 32.95
+  },
+  "image-cpu1": {
+    "digital": [
+      0.2925,
+      0.29500000000000004,
+      0.39
+    ],
+    "docs": {
+      "Volume 4 Number 1.pdf": {
+        "chars": 126216,
+        "engine": "ocr",
+        "error": null,
+        "fell_back": false,
+        "gpu_peak_mb": null,
+        "pages": 36,
+        "s_per_page": 15.31,
+        "seconds": 551.33
+      },
+      "Volume 5 Number 1.pdf": {
+        "chars": 99278,
+        "engine": "ocr",
+        "error": null,
+        "fell_back": false,
+        "gpu_peak_mb": null,
+        "pages": 31,
+        "s_per_page": 14.61,
+        "seconds": 452.93
+      }
+    },
+    "errors": {},
+    "ok": 42,
+    "pages": 42,
+    "quality": {
+      "bow_r": 0.9694877046464521,
+      "cer": 0.03469567864231151,
+      "n": 42,
+      "num_r": 0.9215221171037604,
+      "wer": 0.0629454269774313
+    },
+    "scans": [
+      15.087368421052632,
+      15.495000000000001,
+      18.93
+    ],
+    "warmup": 45.84
+  },
+  "image-cpu4": {
+    "digital": [
+      0.2925,
+      0.29500000000000004,
+      0.39
+    ],
+    "docs": {
+      "Volume 4 Number 1.pdf": {
+        "chars": 126216,
+        "engine": "ocr",
+        "error": null,
+        "fell_back": false,
+        "gpu_peak_mb": null,
+        "pages": 36,
+        "s_per_page": 13.18,
+        "seconds": 474.53
+      },
+      "Volume 5 Number 1.pdf": {
+        "chars": 99278,
+        "engine": "ocr",
+        "error": null,
+        "fell_back": false,
+        "gpu_peak_mb": null,
+        "pages": 31,
+        "s_per_page": 12.55,
+        "seconds": 389.15
+      }
+    },
+    "errors": {},
+    "ok": 42,
+    "pages": 42,
+    "quality": {
+      "bow_r": 0.9694877046464521,
+      "cer": 0.03469567864231151,
+      "n": 42,
+      "num_r": 0.9215221171037604,
+      "wer": 0.0629454269774313
+    },
+    "scans": [
+      12.605526315789474,
+      13.004999999999999,
+      16.1
+    ],
+    "warmup": 23.72
+  },
+  "image-gpu": {
+    "digital": [
+      0.29000000000000004,
+      0.28500000000000003,
+      0.39
+    ],
+    "docs": {
+      "Volume 4 Number 1.pdf": {
+        "chars": 126216,
+        "engine": "ocr",
+        "error": null,
+        "fell_back": false,
+        "gpu_peak_mb": 1112.4,
+        "pages": 36,
+        "s_per_page": 10.92,
+        "seconds": 392.98
+      },
+      "Volume 5 Number 1.pdf": {
+        "chars": 99278,
+        "engine": "ocr",
+        "error": null,
+        "fell_back": false,
+        "gpu_peak_mb": 1112.4,
+        "pages": 31,
+        "s_per_page": 10.21,
+        "seconds": 316.36
+      }
+    },
+    "errors": {},
+    "ok": 42,
+    "pages": 42,
+    "quality": {
+      "bow_r": 0.9694877046464521,
+      "cer": 0.033504005750194674,
+      "n": 42,
+      "num_r": 0.9215221171037604,
+      "wer": 0.06166172914355021
+    },
+    "scans": [
+      10.368157894736843,
+      10.895,
+      13.88
+    ],
+    "warmup": 25.0
+  },
+  "image-gpu-repeat": {
+    "digital": [
+      0.2875,
+      0.28500000000000003,
+      0.39
+    ],
+    "docs": {},
+    "errors": {},
+    "ok": 42,
+    "pages": 42,
+    "quality": {
+      "bow_r": 0.9694877046464521,
+      "cer": 0.033504005750194674,
+      "n": 42,
+      "num_r": 0.9215221171037604,
+      "wer": 0.06166172914355021
+    },
+    "scans": [
+      10.33157894736842,
+      10.765,
+      13.96
+    ],
+    "warmup": 20.81
+  }
+}

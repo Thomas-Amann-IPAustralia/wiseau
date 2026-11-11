@@ -1,0 +1,45 @@
+Starting Pipeline...
+Loading weights:   0%|          | 0/858 [00:00<?, ?it/s]Loading weights:  37%|███▋      | 314/858 [00:00<00:00, 3139.34it/s]Loading weights:  73%|███████▎  | 628/858 [00:00<00:00, 2834.05it/s]Loading weights: 100%|██████████| 858/858 [00:00<00:00, 2877.72it/s]
+Pipeline started!
+GLM-OCR initialized in self-hosted mode
+2026-11-11 15:50:24,827 INFO waitress Serving on http://0.0.0.0:7860
+2026-11-11 15:51:03,623 INFO glm_ocr_service converted page.pdf: 1 page(s), 4251 chars in 34658 ms
+2026-11-11 15:51:38,595 INFO glm_ocr_service converted page.pdf: 1 page(s), 4251 chars in 33780 ms
+2026-11-11 15:53:02,235 INFO glm_ocr_service converted page.pdf: 1 page(s), 4501 chars in 83629 ms
+2026-11-11 15:53:37,121 INFO glm_ocr_service converted page.pdf: 1 page(s), 3808 chars in 34877 ms
+2026-11-11 15:54:26,581 INFO glm_ocr_service converted page.pdf: 1 page(s), 5355 chars in 49445 ms
+2026-11-11 15:54:59,489 INFO glm_ocr_service converted page.pdf: 1 page(s), 4049 chars in 32893 ms
+2026-11-11 15:55:18,148 INFO glm_ocr_service converted page.pdf: 1 page(s), 1772 chars in 18649 ms
+2026-11-11 15:55:33,227 INFO glm_ocr_service converted page.pdf: 1 page(s), 1398 chars in 15072 ms
+2026-11-11 15:55:51,072 INFO glm_ocr_service converted page.pdf: 1 page(s), 2474 chars in 17835 ms
+2026-11-11 15:56:09,697 INFO glm_ocr_service converted page.pdf: 1 page(s), 2626 chars in 18616 ms
+2026-11-11 15:57:31,762 INFO glm_ocr_service converted page.pdf: 1 page(s), 4276 chars in 82058 ms
+2026-11-11 15:57:54,674 INFO glm_ocr_service converted page.pdf: 1 page(s), 3686 chars in 22902 ms
+2026-11-11 15:58:53,029 INFO glm_ocr_service converted page.pdf: 1 page(s), 6007 chars in 58343 ms
+2026-11-11 15:59:42,240 INFO glm_ocr_service converted page.pdf: 1 page(s), 5126 chars in 49196 ms
+2026-11-11 16:00:20,848 INFO glm_ocr_service converted page.pdf: 1 page(s), 3485 chars in 38595 ms
+2026-11-11 16:01:04,909 INFO glm_ocr_service converted page.pdf: 1 page(s), 3719 chars in 44047 ms
+2026-11-11 16:01:34,921 INFO glm_ocr_service converted page.pdf: 1 page(s), 2233 chars in 29982 ms
+2026-11-11 16:02:06,567 INFO glm_ocr_service converted page.pdf: 1 page(s), 5041 chars in 31638 ms
+2026-11-11 16:02:18,581 INFO glm_ocr_service converted page.pdf: 1 page(s), 1601 chars in 12001 ms
+2026-11-11 16:03:43,645 INFO glm_ocr_service converted page.pdf: 1 page(s), 4513 chars in 85044 ms
+2026-11-11 16:04:11,226 INFO glm_ocr_service converted page.pdf: 1 page(s), 2723 chars in 27571 ms
+2026-11-11 16:04:21,878 INFO glm_ocr_service converted page.pdf: 1 page(s), 1735 chars in 10640 ms
+2026-11-11 16:05:09,406 INFO glm_ocr_service converted page.pdf: 1 page(s), 4761 chars in 47514 ms
+2026-11-11 16:05:57,740 INFO glm_ocr_service converted page.pdf: 1 page(s), 4919 chars in 48321 ms
+2026-11-11 16:06:30,047 INFO glm_ocr_service converted page.pdf: 1 page(s), 4058 chars in 32295 ms
+2026-11-11 16:07:43,227 INFO glm_ocr_service converted page.pdf: 1 page(s), 5480 chars in 73165 ms
+2026-11-11 16:08:35,422 INFO glm_ocr_service converted page.pdf: 1 page(s), 4880 chars in 52165 ms
+2026-11-11 16:09:32,258 INFO glm_ocr_service converted page.pdf: 1 page(s), 5569 chars in 56819 ms
+2026-11-11 16:10:32,443 INFO glm_ocr_service converted page.pdf: 1 page(s), 4950 chars in 60161 ms
+2026-11-11 16:11:12,034 INFO glm_ocr_service converted page.pdf: 1 page(s), 3553 chars in 39562 ms
+2026-11-11 16:12:00,746 INFO glm_ocr_service converted page.pdf: 1 page(s), 4840 chars in 48696 ms
+2026-11-11 16:13:11,825 INFO glm_ocr_service converted page.pdf: 1 page(s), 4488 chars in 71062 ms
+2026-11-11 16:14:09,753 INFO glm_ocr_service converted page.pdf: 1 page(s), 5184 chars in 57912 ms
+2026-11-11 16:14:29,183 INFO glm_ocr_service converted page.pdf: 1 page(s), 3338 chars in 19405 ms
+2026-11-11 16:15:06,279 INFO glm_ocr_service converted page.pdf: 1 page(s), 4072 chars in 37079 ms
+2026-11-11 16:15:47,684 INFO glm_ocr_service converted page.pdf: 1 page(s), 4864 chars in 41385 ms
+2026-11-11 16:16:29,271 INFO glm_ocr_service converted page.pdf: 1 page(s), 3444 chars in 41572 ms
+2026-11-11 16:17:04,286 INFO glm_ocr_service converted page.pdf: 1 page(s), 4497 chars in 35000 ms
+2026-11-11 16:17:37,795 INFO glm_ocr_service converted page.pdf: 1 page(s), 3186 chars in 33488 ms
+2026-11-11 16:45:53,321 INFO glm_ocr_service converted page.pdf: 36 page(s), 139871 chars in 1695338 ms
