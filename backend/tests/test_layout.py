@@ -151,7 +151,7 @@ def test_pass_failure_keeps_the_page(monkeypatch):
     """A failing detector degrades to the page without the pass, never an error."""
     monkeypatch.setattr(layout, "enabled", lambda: True)
 
-    def boom(page, elements):
+    def boom(page, elements, regions=None):
         raise RuntimeError("no model")
 
     monkeypatch.setattr(layout, "read_layout", boom)
@@ -166,8 +166,9 @@ def test_pass_runs_on_the_ocr_path_when_enabled(monkeypatch):
     monkeypatch.setattr(layout, "enabled", lambda: True)
     monkeypatch.setattr(ocr.TesseractEngine, "_read_elements",
                         lambda self, page, **kw: [_el([HEADING, BODY_1, BODY_2])])
-    monkeypatch.setattr(layout, "detect", lambda page: [_region((45, 98, 160, 111), "paragraph_title"),
-                                                        _region((45, 111, 305, 136), "text")])
+    # The engine renders the page itself and runs detection beside OCR (ADR-056).
+    monkeypatch.setattr(layout, "detect_rendered", lambda rendered: [_region((45, 98, 160, 111), "paragraph_title"),
+                                                                     _region((45, 111, 305, 136), "text")])
     doc = pymupdf.open()
     out = ocr.TesseractEngine().read_elements(doc.new_page(), dpi=300, language="eng")
     assert [el.type for el in out] == [ir.HEADING, ir.TEXT]

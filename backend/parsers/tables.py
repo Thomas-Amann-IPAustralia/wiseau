@@ -464,7 +464,18 @@ def detect(page: pymupdf.Page) -> list[Detection]:
 
     The expensive half of the pass (model inference); `regions_from` does the rest.
     """
-    img = _render(page)
+    return detect_image(_render(page))
+
+
+def render(page: pymupdf.Page):
+    """The page image `detect_image` reads. Split from it so the OCR engine can
+    render on its own thread (MuPDF is not thread-safe) and run the models beside
+    OCR (ADR-056)."""
+    return _render(page)
+
+
+def detect_image(img) -> list[Detection]:
+    """`detect` on an already rendered page image (no MuPDF call)."""
     scale = 72.0 / RENDER_DPI
     out: list[Detection] = []
     for label, score, box_px in _predict("detect", img, DETECT_SIZE, DETECT_THRESHOLD):
@@ -516,9 +527,11 @@ def regions_from(detections: Sequence[Detection], words: Sequence[Word], present
     return regions
 
 
-def read_tables(page: pymupdf.Page, words: Sequence[Word], present: Sequence[Line]) -> list[Region]:
-    """Every table the detector finds on ``page``, read into cells and checked."""
-    return regions_from(detect(page), words, present)
+def read_tables(page: pymupdf.Page, words: Sequence[Word], present: Sequence[Line],
+                detections: Optional[Sequence[Detection]] = None) -> list[Region]:
+    """Every table the detector finds on ``page``, read into cells and checked.
+    ``detections``, when given, are the detector's already (ADR-056)."""
+    return regions_from(detect(page) if detections is None else detections, words, present)
 
 
 # --- the IR pass ------------------------------------------------------------------

@@ -139,26 +139,41 @@ def _load() -> dict:
         return _model
 
 
-def detect(page: pymupdf.Page) -> list[Region]:
-    """The page's layout regions, in the detector's reading order."""
-    import torch
+def render(page: pymupdf.Page):
+    """The page image the detector reads, and its pixel-to-point scale.
+
+    Split from `detect_rendered` so the OCR engine can render on its own thread
+    (MuPDF is not thread-safe) and run the model beside OCR (ADR-056).
+    """
     from PIL import Image
 
-    m = _load()
     pix = page.get_pixmap(dpi=RENDER_DPI, alpha=False)
     image = Image.frombytes("RGB", (pix.width, pix.height), pix.samples)
+    return image, page.rect.width / pix.width, page.rect.height / pix.height
+
+
+def detect_rendered(rendered) -> list[Region]:
+    """The regions in a `render` result, in the detector's reading order (no MuPDF call)."""
+    import torch
+
+    image, sx, sy = rendered
+    m = _load()
     with torch.inference_mode():
         inputs = m["processor"](images=image, return_tensors="pt")
         outputs = m["model"](**inputs)
         result = m["processor"].post_process_object_detection(
-            outputs, threshold=THRESHOLD, target_sizes=[(pix.height, pix.width)])[0]
-    sx, sy = page.rect.width / pix.width, page.rect.height / pix.height
+            outputs, threshold=THRESHOLD, target_sizes=[(image.height, image.width)])[0]
     regions = []
     for score, label, box in zip(result["scores"], result["labels"], result["boxes"]):
         x0, y0, x1, y1 = (float(v) for v in box.tolist())
         regions.append(Region((x0 * sx, y0 * sy, x1 * sx, y1 * sy),
                               m["model"].config.id2label[int(label)], float(score)))
     return regions
+
+
+def detect(page: pymupdf.Page) -> list[Region]:
+    """The page's layout regions, in the detector's reading order."""
+    return detect_rendered(render(page))
 
 
 # --- geometry -------------------------------------------------------------------
@@ -264,6 +279,8 @@ def apply(elements: Sequence[ir.Element], regions: Sequence[Region]) -> list[ir.
     return out
 
 
-def read_layout(page: pymupdf.Page, elements: Sequence[ir.Element]) -> list[ir.Element]:
-    """Detect ``page``'s regions and regroup ``elements`` into them."""
-    return apply(elements, detect(page))
+def read_layout(page: pymupdf.Page, elements: Sequence[ir.Element],
+                regions: Optional[Sequence[Region]] = None) -> list[ir.Element]:
+    """Regroup ``elements`` into ``page``'s regions: ``regions`` when already
+    detected (ADR-056), else detected here."""
+    return apply(elements, detect(page) if regions is None else regions)

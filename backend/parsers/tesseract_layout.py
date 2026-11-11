@@ -287,9 +287,20 @@ def parse_words(tsv: str, scale: float = 1.0) -> list[Word]:
     return out
 
 
+def page_png(page: pymupdf.Page, *, dpi: int) -> bytes:
+    """The page image psm 3 reads. Split from `tsv_from_png` so the OCR engine
+    renders it on its own thread (MuPDF is not thread-safe) and runs Tesseract
+    beside MuPDF's OCR (ADR-056)."""
+    return page.get_pixmap(dpi=dpi).tobytes("png")
+
+
 def read_page_tsv(page: pymupdf.Page, *, dpi: int, language: str) -> Optional[str]:
     """Tesseract's psm 3 TSV for ``page``; ``None`` if Tesseract fails."""
-    png = page.get_pixmap(dpi=dpi).tobytes("png")
+    return tsv_from_png(page_png(page, dpi=dpi), language=language)
+
+
+def tsv_from_png(png: bytes, *, language: str) -> Optional[str]:
+    """Tesseract's psm 3 TSV for a page image; ``None`` if Tesseract fails (no MuPDF call)."""
     try:
         done = subprocess.run([TESSERACT_CMD, "stdin", "stdout", "--psm", "3", "-l", language, "tsv"],
                               input=png, capture_output=True, timeout=TIMEOUT_S, check=True,
@@ -315,10 +326,18 @@ class Layout(NamedTuple):
     words: list[Word]
 
 
+# `read_page_layout`'s "no TSV given: run Tesseract here" (None means it failed).
+_READ = object()
+
+
 def read_page_layout(page: pymupdf.Page, *, dpi: int, language: str,
-                     mask: Optional[photo_regions.PhotoMask] = None) -> Optional[Layout]:
-    """Tesseract's psm 3 blocks and words for ``page``; ``None`` if Tesseract fails."""
-    tsv = read_page_tsv(page, dpi=dpi, language=language)
+                     mask: Optional[photo_regions.PhotoMask] = None, tsv=_READ) -> Optional[Layout]:
+    """Tesseract's psm 3 blocks and words for ``page``; ``None`` if Tesseract fails.
+
+    ``tsv`` is psm 3's output when it was already run (ADR-056), ``None`` if that run failed.
+    """
+    if tsv is _READ:
+        tsv = read_page_tsv(page, dpi=dpi, language=language)
     if tsv is None:
         return None
     return Layout(blocks_from_tsv(tsv, dpi=dpi, mask=mask), parse_words(tsv, scale=72.0 / dpi))

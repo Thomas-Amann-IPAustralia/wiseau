@@ -29,8 +29,10 @@ singletons, so a heavy neural model loads at most once per worker.
 
 from __future__ import annotations
 
+import os
 import threading
 from abc import ABC, abstractmethod
+from concurrent.futures import ThreadPoolExecutor
 from functools import lru_cache
 
 import pymupdf
@@ -64,6 +66,74 @@ BORDER_CLEANUP = True
 # threads, so concurrent scanned uploads failed (found 2026-11-09). That one call
 # is serialised; psm 3 runs Tesseract as a separate process and stays parallel.
 _MUPDF_OCR_LOCK = threading.Lock()
+
+# Overlap a scanned page's independent stages (ADR-056). MuPDF's OCR (the guard),
+# Tesseract psm 3 (its own process) and the two model passes' inference each need
+# only the page image, and ran one after another: 12.1 s a page, of which the
+# guard is 4.5, psm 3 2.8, layout 2.9 and tables 1.8. Every page image is still
+# rendered on the calling thread (MuPDF is not thread-safe); only Tesseract's run
+# and the models' inference move to worker threads. Each computes exactly what it
+# computed before, and the results are combined in the same order, so the
+# Markdown is unchanged: only the wall-clock time is. With one CPU there is
+# nothing to overlap, so `WISEAU_OCR_OVERLAP=0` runs the stages in sequence, in
+# the old order.
+OVERLAP = os.environ.get("WISEAU_OCR_OVERLAP", "1").strip().lower() not in {"0", "false", "no", "off"}
+
+
+class _Done:
+    """A step already run (or failed) on the calling thread."""
+
+    def __init__(self, value=None, error: BaseException | None = None):
+        self._value, self._error = value, error
+
+    def result(self):
+        if self._error is not None:
+            raise self._error
+        return self._value
+
+
+class _Later:
+    """A step run when its result is first asked for: the sequential order."""
+
+    def __init__(self, prepare, run):
+        self._prepare, self._run, self._done = prepare, run, None
+
+    def result(self):
+        if self._done is None:
+            try:
+                self._done = _Done(self._run(self._prepare()))
+            except Exception as exc:  # re-raised to the caller, as a direct call would
+                self._done = _Done(error=exc)
+        return self._done.result()
+
+
+class _Steps:
+    """Where a page's independent steps run (ADR-056).
+
+    ``start(prepare, run)``: ``prepare`` touches MuPDF and runs on the calling
+    thread now; ``run`` (Tesseract's process, model inference) goes to a worker.
+    Sequentially, both wait until the result is asked for, as before ADR-056.
+    """
+
+    def __init__(self, overlap: bool):
+        self._pool = ThreadPoolExecutor(max_workers=3, thread_name_prefix="ocr-step") if overlap else None
+
+    def start(self, prepare, run):
+        if self._pool is None:
+            return _Later(prepare, run)
+        try:
+            prepared = prepare()
+        except Exception as exc:  # raised when the result is asked for, as sequentially
+            return _Done(error=exc)
+        return self._pool.submit(run, prepared)
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        if self._pool is not None:
+            self._pool.shutdown(wait=True)   # a step never outlives its page
+        return False
 
 # EasyOCR uses ISO 639-1 short codes ("en"); the rest of the pipeline speaks
 # Tesseract's 639-2/T codes ("eng"). Translate the common cases so one env var
@@ -118,19 +188,27 @@ class TesseractEngine(OcrEngine):
         return render_elements(self.read_elements(page, dpi=dpi, language=language))
 
     def read_elements(self, page: pymupdf.Page, *, dpi: int, language: str) -> list[ir.Element]:
-        elements = self._read_elements(page, dpi=dpi, language=language)
-        # Opt-in (ADR-048): block boundaries and types from a layout detector,
-        # regrouping the lines already read; no word changes. It sees the page as
-        # printed (before border cleanup), as it was validated.
-        if layout_pass.enabled() and elements:
-            try:
-                elements = layout_pass.read_layout(page, elements)
-            except Exception as exc:  # the pass is optional: degrade, never fail (ADR-048)
-                layout_pass.logger.warning("layout pass failed; page kept without it",
-                                           extra={"wiseau": {"error": f"{type(exc).__name__}: {exc}"}})
-        return elements
+        with _Steps(OVERLAP) as steps:
+            # Opt-in (ADR-048): block boundaries and types from a layout detector,
+            # regrouping the lines already read; no word changes. It sees the page as
+            # printed (before border cleanup), as it was validated. Its detection
+            # needs only the image, so it runs beside OCR (ADR-056).
+            detection = steps.start(lambda: layout_pass.render(page), layout_pass.detect_rendered) \
+                if layout_pass.enabled() else None
+            elements = self._read_elements(page, dpi=dpi, language=language, steps=steps)
+            if detection is not None and elements:
+                try:
+                    elements = layout_pass.read_layout(page, elements, regions=detection.result())
+                except Exception as exc:  # the pass is optional: degrade, never fail (ADR-048)
+                    layout_pass.logger.warning("layout pass failed; page kept without it",
+                                               extra={"wiseau": {"error": f"{type(exc).__name__}: {exc}"}})
+            return elements
 
-    def _read_elements(self, page: pymupdf.Page, *, dpi: int, language: str) -> list[ir.Element]:
+    def _read_elements(self, page: pymupdf.Page, *, dpi: int, language: str,
+                       steps: _Steps | None = None) -> list[ir.Element]:
+        if steps is None:
+            with _Steps(False) as sequential:
+                return self._read_elements(page, dpi=dpi, language=language, steps=sequential)
         # Every pass below reads the same cleaned pixels: a guard that still saw the
         # junk could otherwise out-count, and override, the cleaned text.
         cleaned = borders.cleaned_page(page) if BORDER_CLEANUP else None
@@ -139,13 +217,22 @@ class TesseractEngine(OcrEngine):
         # full=True rasterizes and OCRs the whole page (the right choice for an
         # image-only page), so it also works when forcing OCR over a text layer.
         mask = photo_regions.photo_mask(page) if SKIP_PHOTO_REGIONS else None
+        # psm 3 and table detection need only the page image: started now, they run
+        # while MuPDF's OCR reads the guard (ADR-056).
+        psm3 = detections = None
+        if TESSERACT_LAYOUT:
+            psm3 = steps.start(lambda: tesseract_layout.page_png(page, dpi=dpi),
+                               lambda png: tesseract_layout.tsv_from_png(png, language=language))
+            if tables.enabled():
+                detections = steps.start(lambda: tables.render(page), tables.detect_image)
         guard = self._geometric_elements(page, dpi=dpi, language=language, mask=mask)
         if not TESSERACT_LAYOUT:
             return guard
         # Tesseract's own layout reads mixed table-and-prose pages that ADR-035's
         # geometry cannot (ADR-038). Its layout analysis occasionally discards a
         # whole column of text, so the geometric text stays as the guard.
-        read = tesseract_layout.read_page_layout(page, dpi=dpi, language=language, mask=mask)
+        read = tesseract_layout.read_page_layout(page, dpi=dpi, language=language, mask=mask,
+                                                 tsv=psm3.result())
         if read is None:
             return guard
         layout = layout_elements(tesseract_layout.groups(read.blocks))
@@ -154,10 +241,10 @@ class TesseractEngine(OcrEngine):
             return guard
         # Opt-in (ADR-046): tables found by Table Transformer, read cell by cell
         # from psm 3's own words. Only on psm 3's reading, whose words it reuses.
-        if tables.enabled():
+        if detections is not None:
             present = [ln for el in layout for ln in el.lines]
             try:
-                regions = tables.read_tables(page, read.words, present)
+                regions = tables.read_tables(page, read.words, present, detections=detections.result())
             except Exception as exc:  # the pass is optional: degrade, never fail (ADR-046)
                 tables.logger.warning("table pass failed; page kept without it",
                                       extra={"wiseau": {"error": f"{type(exc).__name__}: {exc}"}})
