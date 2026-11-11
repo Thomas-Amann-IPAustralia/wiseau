@@ -56,6 +56,8 @@ const el = {
   splitChapters: document.getElementById("split-chapters"),
   splitChaptersLabel: document.getElementById("split-chapters-label"),
   splitChaptersBlocked: document.getElementById("split-chapters-blocked"),
+  readerMode: document.getElementById("reader-mode"),
+  bundleBtn: document.getElementById("bundle-btn"),
   results: document.getElementById("results"),
   resultsTitle: document.getElementById("results-title"),
   resultsList: document.getElementById("results-list"),
@@ -93,6 +95,10 @@ let selectedFiles = [];
 // deployment that never answers /ping still converts normally.
 let serverDefaultEngine = "pymupdf";
 let lastMarkdown = "";
+// The last single upload that converted, and how: what "Save with figures"
+// sends again to /convert/bundle (ADR-052). Null after a batch, a URL or a
+// failure, which hides the button.
+let lastUpload = null;
 let lastSource = "";
 let currentView = "preview";
 // The saveable files behind the results panel: a document's chapters, or a
@@ -198,6 +204,18 @@ function setBadge(state, text) {
 function selectedEngine() {
   const chosen = Array.from(el.engineInputs).find((input) => input.checked);
   return chosen ? chosen.value : "auto";
+}
+
+/** Reader mode (ADR-055): leave page furniture out. Sent on every upload, so the
+ * box means what it shows whatever the deployment's default is. */
+function wantsReader() {
+  return Boolean(el.readerMode && el.readerMode.checked);
+}
+
+/** Show "Save with figures" only after a single PDF converted. */
+function setLastUpload(upload) {
+  lastUpload = upload;
+  if (el.bundleBtn) el.bundleBtn.hidden = !upload;
 }
 
 /** Whether to ask the backend for the document split into chapters (ADR-030). */
@@ -339,6 +357,7 @@ function showFailure(message) {
 
 function showError(message) {
   clearResults();
+  setLastUpload(null);
   showFailure(message);
 }
 
@@ -597,6 +616,7 @@ el.convertUrlBtn.addEventListener("click", async () => {
     });
     const data = await parseResponse(res);
     showConverted(data, url);
+    setLastUpload(null);
   } catch (err) {
     showError(err.message);
   } finally {
@@ -669,6 +689,7 @@ el.convertFileBtn.addEventListener("click", async () => {
   try {
     const form = new FormData();
     form.append("engine", engine);
+    form.append("reader", String(wantsReader()));
     if (batch) {
       selectedFiles.forEach((file) => form.append("files", file));
     } else {
@@ -682,6 +703,8 @@ el.convertFileBtn.addEventListener("click", async () => {
     const data = await parseResponse(res);
     if (batch) showBatch(data);
     else showConverted(data, selectedFiles[0].name);
+    const single = !batch && /\.pdf$/i.test(selectedFiles[0].name);
+    setLastUpload(single ? { file: selectedFiles[0], engine, reader: wantsReader() } : null);
   } catch (err) {
     showError(err.message);
   } finally {
@@ -689,6 +712,37 @@ el.convertFileBtn.addEventListener("click", async () => {
     setBusy(el.convertFileBtn, false, idleLabel);
   }
 });
+
+// --- Bundle: the Markdown with its figures (ADR-052) ---------------------------
+// The bundle is a ZIP the page does not display, so the Markdown shown stays the
+// one /convert/file returned; this converts the same file again, the same way,
+// and saves what /convert/bundle sends back.
+if (el.bundleBtn) {
+  el.bundleBtn.addEventListener("click", async () => {
+    if (!lastUpload) return;
+    const { file, engine, reader } = lastUpload;
+    const idle = el.bundleBtn.textContent;
+    el.bundleBtn.disabled = true;
+    el.bundleBtn.textContent = "Preparing…";
+    startProgress(estimateSeconds("file", file, engine), engine);
+    try {
+      const form = new FormData();
+      form.append("engine", engine);
+      form.append("reader", String(reader));
+      form.append("file", file);
+      const res = await fetch(`${API_BASE}/convert/bundle`, { method: "POST", body: form });
+      if (!res.ok) await parseResponse(res); // throws with the API's message
+      const name = filenameFor(file.name.replace(/\.pdf$/i, "")).replace(/\.md$/i, "") + ".zip";
+      saveBlob(await res.blob(), name);
+    } catch (err) {
+      el.outputMeta.textContent = `⚠ ${err.message}`;
+    } finally {
+      stopProgress();
+      el.bundleBtn.disabled = false;
+      el.bundleBtn.textContent = idle;
+    }
+  });
+}
 
 // --- Keywords (ADR-032) ------------------------------------------------------
 // Extraction is a *second* call, made after the Markdown exists, on whatever the

@@ -21,6 +21,162 @@ one `Superseded`.
 
 ---
 
+## ADR-055 — Structure passes on in the image; reader mode per request; the bundle in the UI
+**Date:** 2026-11-11 · **Status:** Accepted (the user, on the recommendation after ADR-049..054)
+**Context:** ADR-049..054 shipped the structure passes off everywhere and left
+three questions open: turn them on in the image, make reader mode a deployment
+setting or a request option, and whether the bundle reaches the UI and MCP.
+**Decision:**
+- **The image sets `WISEAU_STRUCTURE=all`**, in the lean build too: no model,
+  no dependency, ~60 ms a document. Faithful stays the default: every word is
+  kept. Off in code, as the model passes are.
+- **`reader` is an optional request field** on `/convert/file`,
+  `/convert/batch` and `/convert/bundle` (API 0.16.0, additive), and on the MCP
+  `convert_file` / `convert_batch` tools. `true` leaves furniture out and writes
+  a repeated table header once, `false` keeps every word. Omitted, the
+  deployment's `WISEAU_FURNITURE` decides. Whether to keep page numbers depends
+  on the reader (an agent summarising vs an archive), not on the deployment.
+  Reader mode runs the furniture and tables passes it needs whatever
+  `WISEAU_STRUCTURE` says. The field is passed to the converter only when sent,
+  so a request without it calls exactly what it called before.
+- **The UI** gets a *Reader mode* checkbox (sent on every upload) and *Save
+  with figures (.zip)* after a single PDF, which converts the file again through
+  `/convert/bundle`. The bundle stays off the MCP surface: a tool returns text,
+  and the Markdown already carries the document.
+**Consequences:** A deployment of the image now writes heading levels on scans
+(not all `##`), joins paragraphs broken by a column, and writes `[^n]`
+footnotes on text-layer pages; set `WISEAU_STRUCTURE` empty for the old
+Markdown. The URL path takes no `reader` (a page served as HTML has no page
+furniture; a URL that serves a PDF is converted faithfully). Verified: 609
+tests; a CI step in the image checks the passes and the bundle; the UI was
+driven in headless Chromium against a live backend (9 checks: faithful keeps 4
+running heads, reader drops them, the bundle downloads as `journal.zip` with
+`document.md`, `document.json`, `assets/figure-001.png`).
+
+## ADR-054 — Continued tables are linked, not merged; reader mode writes a repeated header once
+**Date:** 2026-11-11 · **Status:** Accepted (opt-in: `WISEAU_STRUCTURE` includes `tables`)
+**Context:** Roadmap 3.6. PBR comparison tables are printed as side-by-side
+panels or run onto the next page with their header reprinted; the engines see
+separate tables. Set S has three such continuations, but only S01's panel reaches
+the IR as two tables (S08's and S12's are not read as tables at all), and set T
+has none, so the evidence is mostly the whole-document audit.
+**Decision:** `parsers/cross_tables.py` draws `continues_table` (later → earlier)
+between a table and a panel to its right on the same page (≥ half vertical
+overlap) or the next page's first block, when the two **match**: the later
+piece's header row names the same columns as the earlier piece's first or second
+row (≥ 2 non-empty cells, words ≥ 0.8 alike), or the widths are equal and the
+later piece starts with data, or a "continued" caption sits above it. Nothing is
+merged in the IR or in faithful Markdown; reader mode (`WISEAU_FURNITURE=drop`)
+writes a repeated header row once. In the bundle, a table without real cells
+also gets an image (`assets/table-NNN.png`), the roadmap's "image fallback".
+**Consequences:** S01's panel is found (1/3 on set S; the other two are not
+tables in the IR). Whole documents: the first rule (equal width alone) linked
+two pairs of *different* varieties' tables side by side in V5N3 (p9, p11); with
+the header rule V5N3 gives 5 page continuations and 1 panel, all correct on
+inspection, and V4N1 two index panels. No set T relation drawn. Merging pieces
+into one Markdown table, and tables that continue with a *different* column
+split, are left for a later step.
+
+## ADR-053 — Footnotes from explicit superscript markers only
+**Date:** 2026-11-11 · **Status:** Accepted (opt-in: `footnotes`)
+**Context:** Roadmap 3.5. PyMuPDF4LLM writes a superscript as `<sup>n</sup>`; OCR
+reads a marker as a digit glued to its word (`Argentina2`), indistinguishable
+from a number in the text.
+**Decision:** `parsers/footnotes.py`, text-layer pages only: a block of ≥ 2
+numbered notes whose numbers, in increasing order, are all cited by the page's
+`<sup>` markers is split at the lines that start a note into FOOTNOTE elements
+(the parts concatenate back to the block), each `footnote_for` every block
+citing it. The serializer writes `[^n]` for those markers and `[^n]: …` for the
+notes. Scans: the pass refuses.
+**Consequences:** S11 (the footnote-heavy page): 5/5 notes linked, block F1
+0.40 → 0.84; the whole of V16N3 has that one notes block, found. Footnotes on
+scans need a marker signal (a superscript box from the OCR, or the layout
+model's `footnote` regions joined to markers), not done.
+
+## ADR-052 — Captions link by geometry; figures travel as files in a ZIP bundle (`POST /convert/bundle`, API 0.15.0)
+**Date:** 2026-11-11 · **Status:** Accepted (captions opt-in: `captions`; the endpoint is always on)
+**Context:** Roadmap 3.4 asked for figures exported as assets with their
+captions, and named the open contract question: ADR-024 bans *inline* images, so
+how do they travel? Captions were typed by the layout pass (recall 0.28 on set
+S) and linked to nothing.
+**Decision:**
+- `parsers/captions.py`: `caption_of` from each caption to the nearest table or
+  figure directly above or below it (≥ 30% horizontal overlap, ≤ 8% of the page
+  height, nothing but captions between); a block starting `Table`, `Fig.`,
+  `Figure`, `Plate`, `Photo`, `(* =` that the rule attaches becomes a caption.
+- `layout.py` (amends ADR-048): `image`/`chart` regions become FIGURE elements;
+  one with OCR lines keeps its text (the Markdown is unchanged), one without is
+  an empty element where the detector reads it.
+- **Contract: a new endpoint, `POST /convert/bundle`**, returning a ZIP of
+  `document.md` (the `/convert/file` Markdown with `![caption](assets/…)` links
+  where figures stand), `document.json` (the IR, now public in this form) and
+  `assets/*.png` (crops rendered at 150 dpi; text-layer pages contribute their
+  placed images). Deterministic bytes. Existing responses are unchanged, so no
+  client has to handle binary content it did not ask for. Not on the MCP
+  surface: a ZIP is not something a tool call returns well; agents keep the
+  Markdown contract.
+**Consequences:** Set S `caption_of` 0 → 12/32 (13 drawn; 10 misses are S10's
+staff photos, which had no figures in the per-page IR); held-out set T 0 → 7/13
+(9 drawn), caption typing R/P 0.38/0.83 → 0.62/0.89; V4N1 audit 12/12 sampled
+links correct. Crops checked by eye (V2 p11's photos, V16 p3's portraits).
+Figure identity is not scored (figures have no words). The frontend does not
+offer the bundle yet.
+
+## ADR-051 — Paragraph continuation: relations always, a joined paragraph only across columns
+**Date:** 2026-11-11 · **Status:** Accepted (opt-in: `continuation`)
+**Context:** Roadmap 3.3. The gold sets write a paragraph broken by a column as
+one block and one broken by a page as two blocks with `continues_from`.
+**Decision:** `parsers/continuation.py`: `continues_from` (later → earlier) when
+a prose block (≥ 3 words) ends without `. ! ? :` or a closing bracket (or ends
+in a hyphen), the next prose block starts lower-case, and only figures,
+captions, furniture or edge noise (outer 6%) lie between, at a column change
+(right and higher) or the next page. Column breaks are written as one Markdown
+paragraph (line break between, both texts unchanged); page breaks are recorded
+only. Hyphens stay in the text; joining across one is the recorded operation.
+**Consequences:** Set S: cross-page 3/3, nothing wrong drawn. Held-out set T
+(no cross-page gold): block F1 0.830 → 0.833, one right join (T06) and one wrong
+(T14 joined a margin line number "30"); the ≥ 3-words rule was added after that
+(T is not held out for it); now 0.831. Whole documents: V16N3 12/12 sampled
+column joins right, 11/12 page joins right and one plausible; V4N1 all 9 right.
+
+## ADR-050 — Page furniture is typed in the margins; faithful by default, reader mode drops it
+**Date:** 2026-11-11 · **Status:** Accepted (opt-in: `furniture`; `WISEAU_FURNITURE=drop` for reader mode)
+**Context:** Roadmap 3.2: suppress running heads and page numbers in reader
+mode, keep them as page-level annotations in faithful mode.
+**Decision:** `parsers/furniture.py`, in the top/bottom 10% band: page numbers
+by pattern; text repeated (digits masked) on ≥ 3 pages and ≥ ¼ of them; on
+text-layer pages only, a lone one-line top head with a number that is not a
+section title. Layout-typed furniture outside the outer 12% is returned to text.
+Faithful mode (the default) writes every word; the type is the annotation.
+**Consequences:** Set S furniture R/P 0.52/1.00 → 0.68/0.89 (the rest of the
+gold page numbers were never read by the OCR). Set T 0.38/0.75 → 0.38/0.86, but
+T's furniture was looked at before the margin rule, so it is not held out here.
+Whole documents: V16N3 101 heads + 93 numbers, V20N4 322 + 370, WO 18 heads,
+samples correct; three V20N4 section titles taken for heads were fixed by the
+section-title rule. A lone head on scans is left to the layout model (rule
+tried, two false heads on set S).
+
+## ADR-049 — Heading levels from the outline, numbering and printed size
+**Date:** 2026-11-11 · **Status:** Accepted (opt-in: `WISEAU_STRUCTURE` includes `headings`)
+**Context:** ADR-048 writes every scanned heading as `##`; set S level accuracy
+0.344, set T 0.530. Roadmap 3.1's signal order: bookmarks, contents nesting,
+numbering, typography.
+**Decision:** `parsers/headings.py`: outline titles matched on their page set
+levels first; other headings are ranked by style (division word, decimal depth,
+size tier, capitals, lettering). Size is the OCR line height, scaled by 1/0.78
+for a line with no descender; tiers hold headings within 0.25 of the body size
+of the tier's largest. Refuses with < 2 headings or a single style; text-layer
+headings are levelled only by the outline. The serializer writes `#` from
+`level` when `level_signal` is set.
+**Consequences:** Step 0.25 chosen on set S from a plateau (0.2–0.3), then
+frozen. Set S level accuracy 0.344 → 0.667, heading tree 0.496 → 0.624. **Held
+out on set T: 0.530 → 0.783, tree 0.592 → 0.640** (with the caption pass as
+well, 0.850 / 0.653); worse on T01 and T09. The outline step never fires on
+the corpus: the test PDFs' bookmarks are navigation labels ("Claims", "Database
+Search Details"), not printed headings (unit-tested only). Contents-page nesting
+(`chapters.py`) is not done: no gold document has a nested contents page that
+the IR's headings could be checked against.
+
 ## ADR-048 — Layout regions on scans (PP-DocLayoutV3), on in the image; transformers 5.x for both model passes
 **Date:** 2026-11-10 · **Status:** Accepted (the user: "deploy the CPU detector only for now")
 **Context:**

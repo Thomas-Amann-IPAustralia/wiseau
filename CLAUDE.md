@@ -96,6 +96,9 @@ wiseau/
 │   │   ├── text_layer.py   # boxes for text-layer blocks by word alignment (ADR-044)
 │   │   ├── tables.py       # opt-in: Table Transformer tables on scans (ADR-046)
 │   │   ├── layout.py       # opt-in: PP-DocLayoutV3 regions -> headings/blocks on scans (ADR-048)
+│   │   ├── recover.py      # opt-in structure passes over the IR (WISEAU_STRUCTURE; ADR-049..054):
+│   │   │                   #   headings, furniture, continuation, captions, footnotes, cross_tables
+│   │   ├── figures.py      # figure/table images for POST /convert/bundle (ADR-052)
 │   │   ├── cleaner.py      # regex/Unicode normalization (always runs)
 │   │   ├── chapters.py     # split converted Markdown into chapters (ADR-030)
 │   │   ├── keywords.py     # rank a document's keywords across methods (ADR-032/033)

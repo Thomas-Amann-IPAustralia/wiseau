@@ -166,24 +166,28 @@ can ship) are noted inline.
 In this order, each reporting its signal and confidence, and refusing when
 unsure (ADR-030):
 
-- [ ] **3.1 Heading hierarchy.** Signals in order: PDF bookmarks (`get_toc`),
+*Built 2026-11-11 as opt-in IR passes (`WISEAU_STRUCTURE`, `parsers/recover.py`),
+ADR-049..054, evidence in `docs/benchmarks/2026-11-11-structure-recovery.md`
+(set S development, set T held out, six whole documents audited).*
+
+- [x] **3.1 Heading hierarchy.** *Done 2026-11-11 (ADR-049): outline → numbering → printed size; set T level accuracy 0.530 → 0.783 (0.850 with captions), tree 0.592 → 0.640. The outline step never fires on this corpus (its bookmarks are navigation labels); contents-page nesting not built (no gold to check it against).* Signals in order: PDF bookmarks (`get_toc`),
   then `chapters.py` contents matching extended to *nested* entries, then
   numbering patterns (PART / 1. / 1.1 / (a) / (i)), then typography.
-- [ ] **3.2 Page furniture.** Detect running headers, footers and page numbers
+- [x] **3.2 Page furniture.** *Done 2026-11-11 (ADR-050): margin bands, page-number pattern, repetition; reader mode `WISEAU_FURNITURE=drop`. Set S R/P 0.52/1.00 → 0.68/0.89; whole documents correct on samples.* Detect running headers, footers and page numbers
   that repeat across pages. Suppress them in reader mode; keep them as
   page-level annotations in faithful mode.
-- [ ] **3.3 Paragraph continuation.** Join paragraphs across pages and columns
+- [x] **3.3 Paragraph continuation.** *Done 2026-11-11 (ADR-051): `continues_from` at column and page breaks; column breaks written as one paragraph. Set S 3/3; whole-document samples 32/33 right, 1 plausible.* Join paragraphs across pages and columns
   using end punctuation, indentation, style, position and section. A line-end
   hyphen is kept in the text, and joining across it is a recorded operation,
   never a silent rewrite.
-- [ ] **3.4 Figures as assets.** Export images as separate files with captions,
+- [x] **3.4 Figures as assets.** *Done 2026-11-11 (ADR-052): `caption_of` by geometry (set T 0 → 7/13, 9 drawn); `POST /convert/bundle` (API 0.15.0) = `document.md` + `document.json` + `assets/`. Not yet in the frontend or MCP.* Export images as separate files with captions,
   sources and figure numbers attached, instead of `image_export_mode=placeholder`.
   This needs a contract decision on how assets travel (ADR-024 bans only *inline*
   base64). It is the first step towards a ZIP of `document.md` +
   `document.json` + `assets/`.
-- [ ] **3.5 Footnotes and cross-references.** Link each marker to its note, and
+- [x] **3.5 Footnotes and cross-references.** *Done 2026-11-11 for text-layer pages (ADR-053): `<sup>` markers, notes split and linked, `[^n]`; S11 5/5. Scans refused (no marker signal). Cross-references ("see Table 2") not done.* Link each marker to its note, and
   render with `[^n]`.
-- [ ] **3.6 Cross-page tables.** Merge table fragments and drop repeated header
+- [x] **3.6 Cross-page tables.** *Done 2026-11-11 as links (ADR-054): `continues_table` for panels and next-page pieces by matching headers; reader mode drops the repeated header; bundle image for tables without cells. Not merged into one Markdown table.* Merge table fragments and drop repeated header
   rows, with an image fallback when the structure can't be rebuilt.
 - [~] **3.7 Region-level routing.** *Tables done 2026-11-09 as an opt-in pass (ADR-046, `WISEAU_TABLES=tatr`, `docs/benchmarks/2026-11-09-tables.md`): TATR regions read into cells from psm 3's words; a region averaging > 2.5 words a cell is refused as prose (held out: all 7 damaging regions refused, no accepted one damaging). Set S TEDS 0.258 → 0.558; no word changes; +26% time per scanned page on one thread, +0.9 GB peak memory. On in the Docker image since ADR-047 (user accepted). Open: re-OCR of suspicious regions; born-digital tables.* Once a layout detector feeds IR regions,
   send prose to Tesseract and tables to the table pipeline, and re-OCR only

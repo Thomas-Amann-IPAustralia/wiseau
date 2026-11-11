@@ -64,7 +64,9 @@ ELEMENT_TYPES = frozenset({
     FOOTNOTE, EQUATION, RULE, PAGE_HEADER, PAGE_FOOTER, PAGE_NUMBER,
 })
 
-# Relation types between elements (roadmap 2.1). None is produced yet.
+# Relation types between elements (roadmap 2.1). Structure recovery
+# (`recover.py`, roadmap Tier 3) produces caption_of, footnote_for,
+# continues_from and continues_table; the rest are vocabulary.
 RELATION_TYPES = frozenset({
     "parent_of", "caption_of", "footnote_for", "continues_from", "continues_table",
     "references", "source_for",
@@ -150,6 +152,14 @@ class Element:
     # words that method located. None when the box came from the engine itself.
     bbox_signal: Optional[str] = None
     bbox_coverage: Optional[float] = None
+    # What set `level` when a structure pass re-levelled a heading (roadmap 3.1),
+    # kept apart from `signal`, which says what made the element a heading.
+    level_signal: Optional[str] = None
+    # What re-typed the element when a structure pass did (e.g. page furniture,
+    # roadmap 3.2). `signal` still names what first typed it.
+    role_signal: Optional[str] = None
+    # A figure's exported image, as a path relative to the document (3.4).
+    asset: Optional[str] = None
 
     def __post_init__(self) -> None:
         if self.type not in ELEMENT_TYPES:
@@ -176,6 +186,12 @@ class Element:
         if self.bbox_signal is not None:
             out["bbox_signal"] = self.bbox_signal
             out["bbox_coverage"] = None if self.bbox_coverage is None else round(self.bbox_coverage, 3)
+        if self.level_signal is not None:
+            out["level_signal"] = self.level_signal
+        if self.role_signal is not None:
+            out["role_signal"] = self.role_signal
+        if self.asset is not None:
+            out["asset"] = self.asset
         return out
 
 
@@ -195,10 +211,18 @@ class Relation:
     type: str
     source: str
     target: str
+    # What inferred the relation (None for one an engine stated).
+    signal: Optional[str] = None
 
     def __post_init__(self) -> None:
         if self.type not in RELATION_TYPES:
             raise ValueError(f"unknown relation type {self.type!r}")
+
+    def to_dict(self) -> dict:
+        out = {"type": self.type, "source": self.source, "target": self.target}
+        if self.signal is not None:
+            out["signal"] = self.signal
+        return out
 
 
 @dataclass(frozen=True)
@@ -239,8 +263,37 @@ class Document:
         return {"schema": SCHEMA_VERSION,
                 "pages": [p.to_dict() for p in self.pages],
                 "elements": [e.to_dict() for e in self.elements],
-                "relations": [{"type": r.type, "source": r.source, "target": r.target}
-                              for r in self.relations]}
+                "relations": [r.to_dict() for r in self.relations]}
+
+    def page_elements(self, page: int) -> list[Element]:
+        return [el for el in self.elements if el.page == page]
+
+
+def _bbox(v) -> Optional[BBox]:
+    return BBox(*v) if v else None
+
+
+def element_from_dict(d: dict) -> Element:
+    """An element from its `to_dict()` form (coordinates as rounded there)."""
+    rows = tuple(tuple(Cell(text=c["text"], bbox=_bbox(c.get("bbox")), row_span=c.get("row_span", 1),
+                            col_span=c.get("col_span", 1), header=c.get("header", False)) for c in row)
+                 for row in d.get("rows", ()))
+    lines = tuple(Line(*ln["bbox"], ln["text"]) for ln in d.get("lines", ()))
+    return Element(type=d["type"], text=d["text"], source=d["source"], text_format=d["text_format"],
+                   bbox=_bbox(d.get("bbox")), page=d.get("page"), id=d.get("id", ""), lines=lines,
+                   rows=rows, level=d.get("level"), signal=d.get("signal"), confidence=d.get("confidence"),
+                   score=d.get("score"), bbox_signal=d.get("bbox_signal"), bbox_coverage=d.get("bbox_coverage"),
+                   level_signal=d.get("level_signal"), role_signal=d.get("role_signal"), asset=d.get("asset"))
+
+
+def from_dict(d: dict) -> Document:
+    """A document from its `to_dict()` form (the benchmark harness reads saved IR)."""
+    return Document(
+        pages=[PageInfo(number=p["number"], method=p["method"], source=p["source"],
+                        width=p["size"][0] if p.get("size") else None,
+                        height=p["size"][1] if p.get("size") else None) for p in d["pages"]],
+        elements=[element_from_dict(e) for e in d["elements"]],
+        relations=[Relation(r["type"], r["source"], r["target"], r.get("signal")) for r in d.get("relations", ())])
 
 
 def rows_text(rows: Sequence[Sequence[Cell]]) -> str:

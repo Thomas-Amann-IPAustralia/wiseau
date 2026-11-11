@@ -57,6 +57,11 @@ RUN if [ "$TABLES" = "1" ]; then \
     fi \
     && rm pinned_tables.py pinned_layout.py
 ENV HF_HUB_OFFLINE=1
+# Structure recovery over the IR (ADR-049..055): heading levels, page furniture,
+# paragraph continuation, caption links, footnotes, continued tables. No model
+# and no dependency, so it is on in the lean image too; ~60 ms a document.
+# Faithful by default (every word kept); reader mode is per request (`reader`).
+ENV WISEAU_STRUCTURE=all
 
 COPY . .
 

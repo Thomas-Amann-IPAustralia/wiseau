@@ -46,8 +46,16 @@ in reading order, each with its page, box when known, and source engine) and
 byte-for-byte what these paths returned before the IR existed. `file_to_document`
 returns the IR itself; `file_to_markdown` is that, serialized and normalized.
 
+**Structure recovery (roadmap Tier 3, ADR-049..054).** When `WISEAU_STRUCTURE`
+names passes (`recover.py`), `file_to_document` runs them over the IR (a PDF's
+outline feeds the heading pass), and `WISEAU_FURNITURE=drop` leaves detected page
+furniture out of the Markdown. Unset, the output is what it was.
+`file_to_bundle` is the ZIP behind `POST /convert/bundle`: the Markdown with
+figure links, the IR as JSON, and each figure's image (`figures.py`).
+
 Behaviour is controlled by env vars: `WISEAU_OCR_MODE` (`auto`/`force`/`off`),
-`WISEAU_OCR_DPI`, `WISEAU_OCR_LANG`, `WISEAU_OCR_ENGINE`.
+`WISEAU_OCR_DPI`, `WISEAU_OCR_LANG`, `WISEAU_OCR_ENGINE`, `WISEAU_STRUCTURE`,
+`WISEAU_FURNITURE`.
 """
 
 from __future__ import annotations
@@ -63,7 +71,7 @@ import pymupdf4llm
 from markdownify import markdownify as html_to_md
 from observability import metrics
 
-from . import docling_client, glm_ocr_client, serializer, text_layer
+from . import docling_client, figures, glm_ocr_client, recover, serializer, text_layer
 from . import document as ir
 from .cleaner import clean_markdown
 from .ocr import get_engine, text_elements
@@ -567,20 +575,59 @@ def _glm_ocr_pdf(data: bytes, filename: str, client, error_type) -> ir.Document:
             doc.close()
 
 
-def file_to_document(data: bytes, filename: str, engine: str | None = None) -> ir.Document:
+def _outline(data: bytes) -> list:
+    """A PDF's bookmarks (`[level, title, page]`), or [] when it has none or is unreadable."""
+    try:
+        with pymupdf.open(stream=data, filetype="pdf") as doc:
+            return doc.get_toc()
+    except Exception:  # noqa: BLE001 - the outline is a hint, never a reason to fail
+        return []
+
+
+def _passes(reader: bool | None) -> tuple[str, ...]:
+    """The passes to run: the deployment's, plus the two reader mode depends on
+    (furniture to find what to leave out, tables to find repeated headers)."""
+    chosen = set(recover.configured())
+    if reader:
+        chosen |= {"furniture", "tables"}
+    return tuple(p for p in recover.PASSES if p in chosen)
+
+
+def _reader(reader: bool | None) -> bool:
+    """A request's `reader` choice, else the deployment's (`WISEAU_FURNITURE`)."""
+    return recover.reader_mode() if reader is None else reader
+
+
+def _recover(doc: ir.Document, data: bytes, ext: str, passes: tuple[str, ...]) -> ir.Document:
+    if not passes:
+        return doc
+    outline = _outline(data) if ext == ".pdf" and "headings" in passes else []
+    try:
+        return recover.recover(doc, passes, outline=outline)
+    except Exception:  # noqa: BLE001 - structure is an extra; the words must still arrive
+        logger.exception("Structure recovery failed; returning the document without it")
+        return doc
+
+
+def file_to_document(data: bytes, filename: str, engine: str | None = None, *,
+                     reader: bool | None = None) -> ir.Document:
     """Convert an uploaded document to the document IR (ADR-043), by extension.
 
     Same arguments and errors as `file_to_markdown`. The elements' text is what
-    each engine produced, before the shared normalizer runs.
+    each engine produced, before the shared normalizer runs. The structure passes
+    `WISEAU_STRUCTURE` names have run over it, and, when reader mode is asked for,
+    the furniture and tables passes it needs.
     """
     ext = os.path.splitext(filename)[1].lower()
     if ext not in SUPPORTED_EXTENSIONS:
         supported = ", ".join(sorted(SUPPORTED_EXTENSIONS))
         raise ValueError(f"Unsupported file type '{ext or 'unknown'}'. Supported: {supported}.")
-    return _extract_document(data, filename, ext, engine)
+    passes = _passes(_reader(reader))
+    return _recover(_extract_document(data, filename, ext, engine), data, ext, passes)
 
 
-def file_to_markdown(data: bytes, filename: str, engine: str | None = None) -> str:
+def file_to_markdown(data: bytes, filename: str, engine: str | None = None, *,
+                     reader: bool | None = None) -> str:
     """Dispatch an uploaded document to the right parser by extension.
 
     The document is converted to the IR (`file_to_document`), serialized
@@ -592,5 +639,48 @@ def file_to_markdown(data: bytes, filename: str, engine: str | None = None) -> s
         engine: Optional per-request engine override (`"docling"`/`"glm-ocr"`/`"pymupdf"`);
             `None` uses this deployment's default. Validate caller input with
             `resolve_engine` first.
+        reader: Reader mode (ADR-055): leave page furniture out and write a
+            continued table's repeated header once. `None` uses the deployment's
+            default (`WISEAU_FURNITURE`); the default default is faithful (False).
     """
-    return clean_markdown(serializer.to_markdown(file_to_document(data, filename, engine)))
+    doc = file_to_document(data, filename, engine, reader=reader)
+    return clean_markdown(serializer.to_markdown(doc, reader=_reader(reader)))
+
+
+def file_to_bundle(data: bytes, filename: str, engine: str | None = None, *,
+                   reader: bool | None = None) -> tuple[bytes, dict]:
+    """The document as a ZIP: `document.md`, `document.json` and `assets/` (ADR-052).
+
+    The Markdown is `file_to_markdown`'s, except that each figure with an image
+    is written as `![caption](assets/figure-NNN.png)` where it stands. Figures
+    come from the layout pass on scans and from the PDF's placed images on
+    text-layer pages. The ZIP is deterministic: fixed entry order and timestamps.
+    A table whose structure was not rebuilt also gets an image (`assets/table-NNN.png`).
+    Returns the ZIP bytes and a summary (`figures`, `table_images`, `pages`, `elements`).
+    """
+    import json
+    import zipfile
+
+    doc = file_to_document(data, filename, engine, reader=reader)
+    assets: dict[str, bytes] = {}
+    if os.path.splitext(filename)[1].lower() == ".pdf":
+        with pymupdf.open(stream=data, filetype="pdf") as pdf:
+            figures.add_text_layer_figures(doc, pdf)
+            if "captions" in _passes(_reader(reader)):
+                # Text-layer figures are new: give them their captions too.
+                doc.relations = [r for r in doc.relations if r.type != "caption_of"]
+                recover.recover(doc, ["captions"])
+            assets = figures.export(doc, pdf)
+    markdown = clean_markdown(serializer.to_markdown(doc, reader=_reader(reader), assets=True))
+    buf = io.BytesIO()
+    entries = [("document.md", markdown.encode("utf-8")),
+               ("document.json", (json.dumps(doc.to_dict(), indent=1, sort_keys=True) + "\n").encode("utf-8"))]
+    entries += sorted(assets.items())
+    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as zf:
+        for name, payload in entries:
+            info = zipfile.ZipInfo(name, date_time=(1980, 1, 1, 0, 0, 0))
+            info.compress_type = zipfile.ZIP_DEFLATED
+            zf.writestr(info, payload)
+    return buf.getvalue(), {"figures": sum(p.startswith("assets/figure-") for p in assets),
+                            "table_images": sum(p.startswith("assets/table-") for p in assets),
+                            "pages": len(doc.pages), "elements": len(doc.elements)}

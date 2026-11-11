@@ -42,8 +42,8 @@ the guards still apply — see §1.1.
 | Tool | Arguments | Wraps | Returns |
 | ---- | --------- | ----- | ------- |
 | `convert_url` | `url: str` (absolute http/https), `engine: str = "auto"`, `split_chapters: bool = False` | `POST /convert/url` | `{source, markdown, length}` (+ `chapters`, `chapter_detection`) |
-| `convert_file` | `path: str` (local `.pdf`/`.docx`), `engine: str = "auto"`, `split_chapters: bool = False` | `POST /convert/file` | `{source, markdown, length}` (+ `chapters`, `chapter_detection`) |
-| `convert_batch` | `paths: list[str]` (local `.pdf`/`.docx`), `engine: str = "auto"` | `POST /convert/batch` | `{count, succeeded, failed, results[]}` |
+| `convert_file` | `path: str` (local `.pdf`/`.docx`), `engine: str = "auto"`, `split_chapters: bool = False`, `reader: bool \| None = None` | `POST /convert/file` | `{source, markdown, length}` (+ `chapters`, `chapter_detection`) |
+| `convert_batch` | `paths: list[str]` (local `.pdf`/`.docx`), `engine: str = "auto"`, `reader: bool \| None = None` | `POST /convert/batch` | `{count, succeeded, failed, results[]}` |
 | `extract_keywords` | `markdown: str`, `methods: list[str] \| None = None`, `top_k: int = 20`, `language: str \| None = None`, `prepend_table: bool = False`, `source: str \| None = None` | `POST /keywords` | `{source, keyword_count, keywords[], methods_used, methods_skipped, language, note, markdown}` |
 | `extract_keywords_batch` | `documents: list[{markdown, source}]`, `methods`, `top_k: int = 20`, `language`, `prepend_table: bool = False` | `POST /keywords/batch` | `{count, succeeded, failed, results[]}` |
 | `ping` | — | `GET /ping` | `{status, service, version, engines, default_engine, mcp_endpoint, keyword_methods, default_keyword_methods}` |
@@ -68,6 +68,14 @@ behaviours are worth knowing before writing the save loop:
 * **An unreadable path is refused up front**, before any conversion runs, so a
   typo in one path is reported rather than silently dropped from a batch that
   otherwise looks like a complete success.
+
+`reader` (ADR-055) asks for reader mode: running headers, footers and page
+numbers left out, a continued table's repeated header row written once. `True`
+suits text an agent will read or summarise; `False` keeps every word as printed;
+`None` (the default, and nothing sent) uses the deployment's setting, which is
+faithful unless it sets `WISEAU_FURNITURE=drop`. The ZIP bundle
+(`POST /convert/bundle`, figures as image files) is deliberately not a tool: a
+tool call returns text, and the Markdown already carries the document.
 
 The batch has no `split_chapters` — bulk conversion and chapter splitting are
 mutually exclusive for now (ADR-031). To split a long document into per-chapter

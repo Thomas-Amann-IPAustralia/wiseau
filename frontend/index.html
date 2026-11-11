@@ -93,6 +93,17 @@
             </span>
           </span>
         </label>
+        <label class="check" id="reader-mode-label" for="reader-mode">
+          <input type="checkbox" id="reader-mode" />
+          <span class="check__body">
+            <span class="check__name">Reader mode</span>
+            <span class="check__hint">
+              Leaves out running headers, footers and page numbers, and writes a table that
+              continues across pages with its header once. Off keeps every word as printed.
+              Uploaded files only.
+            </span>
+          </span>
+        </label>
       </fieldset>
 
       <div id="progress" class="progress" hidden aria-live="polite">
@@ -115,6 +126,8 @@
           <button id="keywords-btn" class="btn btn--ghost" disabled>Keywords</button>
           <button id="copy-btn" class="btn btn--ghost" disabled>Copy</button>
           <button id="download-btn" class="btn btn--ghost" disabled>Download</button>
+          <button id="bundle-btn" class="btn btn--ghost" hidden
+                  title="Converts the file again and saves a .zip: the Markdown with its figures linked, the figures as images, and the document's structure as JSON.">Save with figures (.zip)</button>
         </div>
       </div>
       <!--

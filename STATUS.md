@@ -5,7 +5,60 @@
 > session. Keep it honest — "scaffolded but untested" is more useful than a
 > green checkmark that lies.
 
-**Last updated:** 2026-11-11 (eighth session: Kaggle T4 run of OvisOCR3, experiment closed; seventh session: 3.7b layout-region spike, CPU leg, held-out set T, then ADR-048 shipping the layout detector in the image; sixth session: planning only, OvisOCR3/TeleOCR assessment; fifth session: ADR-047, table pass on in the Docker image; MuPDF OCR concurrency fix)
+**Last updated:** 2026-11-11 (ninth session: roadmap Tier 3 structure recovery, ADR-049..055, `POST /convert/bundle`, per-request reader mode, API 0.16.0; eighth session: Kaggle T4 run of OvisOCR3, experiment closed; seventh session: 3.7b layout-region spike, CPU leg, held-out set T, then ADR-048 shipping the layout detector in the image; sixth session: planning only, OvisOCR3/TeleOCR assessment; fifth session: ADR-047, table pass on in the Docker image; MuPDF OCR concurrency fix)
+**Deployment fact (2026-11-11, corrects older notes below that say nothing is deployed):** The backend is live on **Google Cloud Run**: `https://wiseau-backend-959916124433.europe-west1.run.app`. `/ping` answered `ok`, version 0.14.0, `available_engines` `["docling","pymupdf"]`. The web UI is live on GitHub Pages: `https://thomas-amann-ipaustralia.github.io/wiseau/`, with `config.js` pointing at that Cloud Run URL. Both follow `main`. Check `/ping`'s `version` after a merge to see whether a redeploy has landed. Memory and environment settings of the Cloud Run service are not visible from a session.
+
+**Build note (2026-11-11, ADR-055, API 0.16.0):** The user accepted the recommendation after Tier 3:
+- **The image now sets `WISEAU_STRUCTURE=all`**, the lean build included. Faithful mode is still the default.
+- **`reader` is an optional request field** on `/convert/file`, `/convert/batch` and `/convert/bundle`, and on the MCP `convert_file` / `convert_batch` tools. It is passed to the converter only when sent.
+- **The UI** has a *Reader mode* checkbox and *Save with figures (.zip)* after a single PDF.
+
+Verified:
+- 609 tests pass, 8 skipped.
+- A new CI step checks the image's passes and bundle in-container. Its script was run locally; no Docker daemon here, so the image itself was not built.
+- 9 UI checks pass, driving the real page in headless Chromium against a live backend.
+
+Open:
+- The URL path takes no `reader`.
+- The bundle is not on MCP, by design.
+
+**Build note (2026-11-11, Tier 3, ADR-049..054, API 0.15.0):** The user asked for the Tier 3 work. No paid APIs. Write-up: [`docs/benchmarks/2026-11-11-structure-recovery.md`](docs/benchmarks/2026-11-11-structure-recovery.md); behaviour in tech-spec §20.
+
+What was built:
+- **Six deterministic passes over the IR, opt-in through `WISEAU_STRUCTURE`** (`parsers/recover.py`; off in code *and in the image*, and turning them on is the user's call):
+  - `headings`: levels from the outline, then numbering, then printed size;
+  - `furniture`: running heads and page numbers. Reader mode `WISEAU_FURNITURE=drop` leaves them out; by default every word is kept;
+  - `continuation`: `continues_from`; a paragraph broken by a column is written as one paragraph;
+  - `captions`: `caption_of` by geometry;
+  - `footnotes`: text-layer `<sup>` markers, notes split out, `[^n]`;
+  - `tables`: `continues_table` for side-by-side panels and next-page pieces.
+- **`POST /convert/bundle`** returns a ZIP: `document.md` with figure links, `document.json` (the IR), and `assets/*.png` (figures, plus an image of each table without cells).
+- `layout.py` now types picture regions as figures (their text is kept).
+- Harness: `benchmarks/bakeoff/recover_eval.py` (passes over saved IR, relation scoring) and `whole_ir.py`.
+
+Evidence (set S development, set T held out):
+- Heading level accuracy: T 0.530 → 0.783 alone, 0.850 with the caption pass; S 0.344 → 0.667.
+- Caption links: T 0 → 7/13 (9 drawn); S 12/32 (13 drawn).
+- Furniture R/P: S 0.52/1.00 → 0.68/0.89.
+- Cross-page continuations: S 3/3. Footnotes: S11 5/5 (block F1 0.40 → 0.84). Table panel: S01 found.
+- S block F1 0.761 → 0.799. Words unchanged on every page.
+
+Set T has no cross-page gold, so continuations, footnotes and tables were also audited on six whole documents converted with the image's path:
+- 32 of 33 sampled continuations right, one plausible;
+- running heads and page numbers right on samples;
+- 6 table continuations right, after a header-matching rule replaced width-only matching (which had linked different varieties' tables).
+
+Honest limits:
+- T is not held out for two fixes: the furniture margin rule (T's furniture was seen first) and continuation's ≥ 3-word rule (made after T14 failed).
+- The outline signal never fires on this corpus: its bookmarks are navigation labels.
+- Not built: contents-page nesting, footnotes on scans, merged Markdown tables, the bundle in the UI or MCP.
+
+Tests: 606 passed, 8 skipped (25 new).
+
+**Byte gate passed (passes off).**
+- Default path: all 15 test PDFs, whole, `main` (62a6eeb) vs this branch, byte-identical (`whole_docs.py`).
+- Image path (tables + layout on): V4N1 (36 scanned pages) and the WO publication, byte-identical.
+
 **Build note (2026-11-11, Kaggle T4 leg, no production change):** The user provided Kaggle credentials (proxy-injected) and asked for the GPU test. It ran on a free T4 (`thomasamann/wiseau-layout-spike-run` v3, private). [`docs/benchmarks/2026-11-11-ovisocr3-kaggle-t4.md`](docs/benchmarks/2026-11-11-ovisocr3-kaggle-t4.md). OvisOCR3 at fp16 is correct: valid JSON on 26/26 pages, every region matches the CPU fp32 reference (IoU ≥ 0.9, same category), and the set S regroup scores are identical to the CPU row. But it takes mean 50.3 s and median 52.8 s a page (3.6 GB VRAM), against the guide's <10 s bar. bf16 OOMs, and fp32 is no faster. PP-DocLayoutV3 takes 0.14 s a page on the same GPU. **Per the guide's Part 5, OvisOCR3 gets no opt-in and the experiment is closed.** The fused linear-attention kernels and vLLM were not tried. Fix: `kernel.py` now accepts the tree Kaggle extracts from the uploaded tar (the first two pushes stopped at setup). Raw outputs are in `benchmarks/bakeoff/outputs/kaggle-20261111/`.
 
 **Build note (2026-11-10, ADR-048):** The user asked to deploy the CPU detector only (OvisOCR3 waits for a GPU test) and for a Kaggle setup guide. **The Docker image now ships a layout pass** (`parsers/layout.py`, `WISEAU_LAYOUT=ppdl`, off in code). On OCR'd pages, PP-DocLayoutV3 regions regroup the lines already read: headings become `##`/`#`, merged blocks are split, captions and page furniture are typed in the IR. Tables move whole, and no word changes. **Both model passes now run on transformers 5.22.1.** Two fixes in `tables._load` (no `use_pretrained_backbone` keyword; `dilation: null` → false) make TATR byte-identical to 4.57.6 on all 96 scored pages. The production pass reproduces the validated set S/T scores exactly. Built and run offline as UID 1000: image 4.44 GB; the pass costs ~3.6 s per scanned page on one thread (V4N1 p7 13.1 s warm vs 10.1 s off); four concurrent scans OK, peak 2.24 vs 1.46 GiB. CI checks headings in the image and their absence in the lean one. 581 tests pass. The hosting guide is updated (Cloud Run 4 GiB, or both passes off at 2 GiB; Render off). Kaggle guide: [`docs/kaggle-gpu-guide.md`](docs/kaggle-gpu-guide.md). Nothing is deployed to a live Space yet.
@@ -819,6 +872,13 @@ URLs, which used to convert to an empty PDF-viewer shell (ADR-017).*
 ---
 
 ## Suggested next actions (see `docs/roadmap.md` for the full backlog)
+
+**0. Tier 3 follow-ups (2026-11-11).** The image now ships the passes on, reader
+mode is per request, and the UI offers the bundle (ADR-055).
+- **Next: deploy (A below).** The structure work is invisible until it runs somewhere.
+- **For more structure work, a gold set first:** a deeply nested report, a table
+  that repeats its header across pages, and scanned footnotes. These need PDFs
+  from the user. Then contents-page nesting and footnotes on scans.
 
 **Phase 6 has no code left in it, the cross-cutting backlog's code items are done,
 Phase 7 (the usability pass — ADR-024/025/026), Phase 8 (fast by default —

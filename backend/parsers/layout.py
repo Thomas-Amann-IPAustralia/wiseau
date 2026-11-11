@@ -79,7 +79,15 @@ CATEGORY_TYPES = {
     # A photo credit under a figure ("(Photo supplied by applicant)").
     "vision_footnote": (ir.CAPTION, None),
     "display_formula": (ir.EQUATION, None), "formula": (ir.EQUATION, None),
+    # A picture. Lines read out of it keep their text (no word is dropped), so
+    # the Markdown is unchanged; the type lets a caption attach to it (3.4).
+    "image": (ir.FIGURE, None), "chart": (ir.FIGURE, None),
 }
+# Regions that are pictures. One that holds no OCR line (ADR-037 drops the
+# noise read out of photographs) becomes an empty FIGURE element where the
+# detector reads it, so captions and exported images have something to attach
+# to (roadmap 3.4). It writes no Markdown of its own.
+FIGURE_CATEGORIES = {"image", "chart"}
 # Elements the pass moves whole: tables with rows (ADR-046's and ADR-038's).
 KEPT_SIGNALS = {"tatr", "tesseract-row-stitch"}
 
@@ -226,10 +234,17 @@ def apply(elements: Sequence[ir.Element], regions: Sequence[Region]) -> list[ir.
                 region_source.setdefault(i, el.source)
                 keys.setdefault(("region", i), float(i))
                 last_region = float(i)
+    for i, r in enumerate(regions):
+        if r.category in FIGURE_CATEGORIES and i not in region_lines:
+            keys[("figure", i)] = float(i)
     out: list[ir.Element] = []
     for kind, n in sorted(keys, key=keys.get):
         if kind == "kept":
             out.append(elements[n])
+        elif kind == "figure":
+            x0, y0, x1, y1 = regions[n].box
+            out.append(ir.Element(type=ir.FIGURE, text="", source=SIGNAL, bbox=ir.BBox(x0, y0, x1, y1),
+                                  signal=SIGNAL, score=round(regions[n].score, 4)))
         elif kind == "rest":
             el, lines = elements[n], rests[n]
             if len(lines) == len(el.lines):  # no region took any of it: unchanged
