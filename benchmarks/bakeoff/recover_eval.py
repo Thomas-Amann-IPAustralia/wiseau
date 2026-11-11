@@ -12,8 +12,10 @@ run over it, and the result is written to Markdown the way production writes it
 * **relations**, which Markdown cannot state: a gold relation (`caption_of`,
   `continues_from`, `continues_table`, `footnote_for`) is found when the IR
   draws the same relation between the output blocks matched to its two ends.
-  Gold figures have no words, so they are matched to output figures in order on
-  each page. `rel_r` is over gold relations, `rel_p` over the IR's relations
+  Gold figures have no words, so a `caption_of` whose gold target is a figure
+  is found when the matched caption block is linked to *a* figure: which
+  figure is not checked (nothing but position could tell them apart, and the
+  layout model sometimes misses a photo, which would shift an order match). `rel_r` is over gold relations, `rel_p` over the IR's relations
   between two different blocks (one joined into a single paragraph is scored as
   that paragraph's block, by the block metrics);
 * **words**: every scored page's words must be the same multiset before and
@@ -110,11 +112,6 @@ def output_blocks(doc: ir.Document, *, reader: bool = False) -> tuple[list, dict
 
 def relation_scores(gold: list, out: list, doc: ir.Document, where: dict) -> dict:
     matched = dict(structure.matched_blocks(gold, out))
-    # Figures have no words: match them in order on each page.
-    for page in {b.page for b in gold}:
-        gf = [i for i, b in enumerate(gold) if b.type == "figure" and b.page == page]
-        of = [i for i, b in enumerate(out) if b.type == "figure" and b.page == page]
-        matched.update(zip(gf, of))
     by_id = {b.id: i for i, b in enumerate(gold) if b.id}
     drawn = {(r.type, where.get(r.source), where.get(r.target)) for r in doc.relations}
     drawn = {d for d in drawn if d[1] is not None and d[2] is not None and d[1] != d[2]}
@@ -124,8 +121,14 @@ def relation_scores(gold: list, out: list, doc: ir.Document, where: dict) -> dic
     for g, b in enumerate(gold):
         for rel, target in b.relations.items():
             total += 1
-            key = (rel, matched.get(g), matched.get(by_id[target]))
-            ok = key in drawn
+            t = by_id[target]
+            if gold[t].type == "figure":
+                found = [d for d in drawn if d[0] == rel and d[1] == matched.get(g) and out[d[2]].type == "figure"]
+                key = found[0] if found else None
+            else:
+                key = (rel, matched.get(g), matched.get(t))
+                key = key if key in drawn else None
+            ok = key is not None
             hits += ok
             if ok:
                 hit_set.add(key)
