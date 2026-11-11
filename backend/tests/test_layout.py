@@ -170,6 +170,8 @@ def test_pass_runs_on_the_ocr_path_when_enabled(monkeypatch):
     monkeypatch.setattr(ocr.TesseractEngine, "_read_elements",
                         lambda self, page, **kw: [_el([HEADING, BODY_1, BODY_2])])
     # The engine renders the page itself and runs detection beside OCR (ADR-056).
+    # Rendering needs Pillow, which the lean CI environment does not install.
+    monkeypatch.setattr(layout, "render", lambda page: None)
     monkeypatch.setattr(layout, "detect_rendered", lambda rendered: [_region((45, 98, 160, 111), "paragraph_title"),
                                                                      _region((45, 111, 305, 136), "text")])
     doc = pymupdf.open()
@@ -186,6 +188,7 @@ def test_models_load_on_the_calling_thread_before_detection(monkeypatch):
     events = []
     monkeypatch.setattr(layout, "enabled", lambda: True)
     monkeypatch.setattr(layout, "_load", lambda: events.append(("load", threading.current_thread().name)))
+    monkeypatch.setattr(layout, "render", lambda page: None)   # Pillow-free, as in lean CI
     monkeypatch.setattr(layout, "detect_rendered", lambda rendered: events.append(("detect", None)) or [])
     monkeypatch.setattr(ocr.TesseractEngine, "_read_elements", lambda self, page, **kw: [_el([HEADING])])
     doc = pymupdf.open()
