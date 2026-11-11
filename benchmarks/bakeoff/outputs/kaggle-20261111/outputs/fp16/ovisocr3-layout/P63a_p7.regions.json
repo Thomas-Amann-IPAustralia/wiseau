@@ -1,0 +1,102 @@
+{
+ "model": "ATH-MaaS/OvisOCR3",
+ "revision": "17f255e2c8ae6d18d5d5edb0a474bd4ed39aef90",
+ "prompt": "document_layout",
+ "prompt_sha256": "89bcc73c7340ff9fd83673c1aee2354c2cc735c6eded0ce2aa4501f28b914361",
+ "max_new_tokens": 4096,
+ "do_sample": false,
+ "min_pixels": 200704,
+ "max_pixels": 8294400,
+ "route": "transformers",
+ "load_seconds": 3.14,
+ "device": "cuda",
+ "dtype": "fp16",
+ "threads": null,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.16",
+  "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "gpu": "Tesla T4",
+ "raw": "[\n    {\n        \"bbox\": [\n            450,\n            59,\n            573,\n            79\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            341,\n            82,\n            669,\n            95\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            151,\n            113,\n            804,\n            319\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            148,\n            330,\n            816,\n            512\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            144,\n            523,\n            807,\n            750\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            142,\n            763,\n            809,\n            922\n        ],\n        \"category\": \"text\"\n    }\n]",
+ "finish_reason": "stop",
+ "input_tokens": 2805,
+ "new_tokens": 300,
+ "image_grid_thw": [
+  [
+   1,
+   122,
+   86
+  ]
+ ],
+ "generate_seconds": 15.03,
+ "regions": [
+  {
+   "bbox": [
+    450.0,
+    59.0,
+    573.0,
+    79.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    341.0,
+    82.0,
+    669.0,
+    95.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    151.0,
+    113.0,
+    804.0,
+    319.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    148.0,
+    330.0,
+    816.0,
+    512.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    144.0,
+    523.0,
+    807.0,
+    750.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    142.0,
+    763.0,
+    809.0,
+    922.0
+   ],
+   "category": "text"
+  }
+ ],
+ "seconds": 15.14,
+ "peak_rss_mb": 3983.7,
+ "peak_vram_mb": 2483.6,
+ "image_px": [
+  1380,
+  1948
+ ],
+ "page": "P63a_p7"
+}

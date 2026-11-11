@@ -1,0 +1,278 @@
+{
+ "model": "ATH-MaaS/OvisOCR3",
+ "revision": "17f255e2c8ae6d18d5d5edb0a474bd4ed39aef90",
+ "prompt": "document_structured",
+ "prompt_sha256": "1b6139ec72888e087c8af75f2e2dfb78b425e15ae1c1529940b96137613d1db1",
+ "max_new_tokens": 16384,
+ "do_sample": false,
+ "min_pixels": 200704,
+ "max_pixels": 8294400,
+ "route": "transformers",
+ "load_seconds": 2.91,
+ "device": "cuda",
+ "dtype": "fp16",
+ "threads": null,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.16",
+  "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "gpu": "Tesla T4",
+ "raw": "[\n    {\n        \"bbox\": [\n            108,\n            67,\n            474,\n            396\n        ],\n        \"category\": \"image\",\n        \"content\": \"<img src=\\\"images/bbox_108_67_474_396.jpg\\\" />\"\n    },\n    {\n        \"bbox\": [\n            108,\n            400,\n            405,\n            414\n        ],\n        \"category\": \"vision_footnote\",\n        \"content\": \"Charodeyka (Photo supplied by applicant)\"\n    },\n    {\n        \"bbox\": [\n            108,\n            425,\n            468,\n            510\n        ],\n        \"category\": \"text\",\n        \"content\": \"pale pink border (4 mm wide) corresponding to RHS 50D at the margins; the pale border narrower (3 mm) in the central cluster of petals; petal margins with uneven serrations; an epicalyx with 3 pairs of opposite lobes; a long thick stem; large foliage and calyx with a thick wax coating; and a calyx resistant to splitting.\"\n    },\n    {\n        \"bbox\": [\n            105,\n            519,\n            382,\n            533\n        ],\n        \"category\": \"paragraph_title\",\n        \"content\": \"## Morphology — See comparison tables.\"\n    },\n    {\n        \"bbox\": [\n            105,\n            532,\n            461,\n            592\n        ],\n        \"category\": \"text\",\n        \"content\": \"'Charodeyka' most closely resembles 'Corrida' in petal colouration but differs in having a larger flower, a longer and thicker stem, more serrated petals, a stronger perfume and a paler petal colour (RHS 50A, 50D) than 'Corrida' (RHS 46D).\"\n    },\n    {\n        \"bbox\": [\n            105,\n            602,\n            392,\n            616\n        ],\n        \"category\": \"text\",\n        \"content\": \"Variety: 'Neshka' Application No. 88/019\"\n    },\n    {\n        \"bbox\": [\n            105,\n            625,\n            178,\n            639\n        ],\n        \"category\": \"paragraph_title\",\n        \"content\": \"## Diagnosis\"\n    },\n    {\n        \"bbox\": [\n            105,\n            638,\n            432,\n            673\n        ],\n        \"category\": \"text\",\n        \"content\": \"This variety is distinct from any other known variety in having the following combination of characteristics:\"\n    },\n    {\n        \"bbox\": [\n            108,\n            689,\n            373,\n            703\n        ],\n        \"category\": \"figure_title\",\n        \"content\": \"Neshka (Photo supplied by applicant)\"\n    },\n    {\n        \"bbox\": [\n            107,\n            705,\n            472,\n            933\n        ],\n        \"category\": \"image\",\n        \"content\": \"<img src=\\\"images/bbox_107_705_472_933.jpg\\\" />\"\n    },\n    {\n        \"bbox\": [\n            512,\n            66,\n            870,\n            174\n        ],\n        \"category\": \"text\",\n        \"content\": \"a medium large diameter double flower with many petals; a pale lilac background petal colour corresponding to RHS 62D with violet-reddish (corresponding to RHS 60A) stripes in pairs or groups on the distal half of the petals, and red edges to petals; petal margins with large even serrations; an epicalyx with 3 pairs of opposite lobes; a long thick stem; foliage and calyx with a thick wax coating; and a calyx resistant to splitting.\"\n    },\n    {\n        \"bbox\": [\n            512,\n            184,\n            787,\n            198\n        ],\n        \"category\": \"paragraph_title\",\n        \"content\": \"## Morphology — See comparison tables.\"\n    },\n    {\n        \"bbox\": [\n            512,\n            207,\n            874,\n            268\n        ],\n        \"category\": \"text\",\n        \"content\": \"'Neshka' most closely resembles 'Canova' in flower colouration but differs having a slightly larger flower diameter, more serrated petals and petal colours (RHS 62D, 60A) different to the pale yellow (RHS 10C) with purple (64C) stripes of 'Canova'.\"\n    },\n    {\n        \"bbox\": [\n            512,\n            278,\n            797,\n            292\n        ],\n        \"category\": \"text\",\n        \"content\": \"Variety: 'Mechta' Application No. 88/020\"\n    },\n    {\n        \"bbox\": [\n            512,\n            302,\n            584,\n            315\n        ],\n        \"category\": \"paragraph_title\",\n        \"content\": \"## Diagnosis\"\n    },\n    {\n        \"bbox\": [\n            512,\n            314,\n            837,\n            350\n        ],\n        \"category\": \"text\",\n        \"content\": \"This variety is distinct from any other known variety in having the following combination of characteristics:\"\n    },\n    {\n        \"bbox\": [\n            512,\n            362,\n            874,\n            446\n        ],\n        \"category\": \"text\",\n        \"content\": \"a large diameter double flower with many petals, some arranged in a thick central cluster; a dark violet petal colour corresponding to RHS 74A; petal margins with large even cserrations; an epicalyx with 3 pairs of opposite lobes; a long thick stem; large foliage (very wide leaves) and calyx with a thick wax coating; and a calyx resistant to splitting.\"\n    },\n    {\n        \"bbox\": [\n            512,\n            456,\n            727,\n            469\n        ],\n        \"category\": \"paragraph_title\",\n        \"content\": \"## Varieties used for Comparison\"\n    },\n    {\n        \"bbox\": [\n            512,\n            468,\n            786,\n            481\n        ],\n        \"category\": \"text\",\n        \"content\": \"Morphology — See comparison tables.\"\n    },\n    {\n        \"bbox\": [\n            512,\n            480,\n            857,\n            527\n        ],\n        \"category\": \"text\",\n        \"content\": \"'Mechta' most closely resembles 'Vanessa' in flower colouration but differs in having a larger flower diameter, a larger stem and much broader leaves.\"\n    },\n    {\n        \"bbox\": [\n            512,\n            547,\n            776,\n            561\n        ],\n        \"category\": \"figure_title\",\n        \"content\": \"Mechta (Photo supplied by applicant)\"\n    },\n    {\n        \"bbox\": [\n            510,\n            564,\n            874,\n            933\n        ],\n        \"category\": \"image\",\n        \"content\": \"<img src=\\\"images/bbox_510_564_874_933.jpg\\\" />\"\n    },\n    {\n        \"bbox\": [\n            863,\n            953,\n            872,\n            963\n        ],\n        \"category\": \"number\",\n        \"content\": \"7\"\n    }\n]",
+ "finish_reason": "stop",
+ "input_tokens": 4108,
+ "new_tokens": 1961,
+ "image_grid_thw": [
+  [
+   1,
+   146,
+   104
+  ]
+ ],
+ "generate_seconds": 86.81,
+ "regions": [
+  {
+   "bbox": [
+    108.0,
+    67.0,
+    474.0,
+    396.0
+   ],
+   "category": "image",
+   "content": "<img src=\"images/bbox_108_67_474_396.jpg\" />"
+  },
+  {
+   "bbox": [
+    108.0,
+    400.0,
+    405.0,
+    414.0
+   ],
+   "category": "vision_footnote",
+   "content": "Charodeyka (Photo supplied by applicant)"
+  },
+  {
+   "bbox": [
+    108.0,
+    425.0,
+    468.0,
+    510.0
+   ],
+   "category": "text",
+   "content": "pale pink border (4 mm wide) corresponding to RHS 50D at the margins; the pale border narrower (3 mm) in the central cluster of petals; petal margins with uneven serrations; an epicalyx with 3 pairs of opposite lobes; a long thick stem; large foliage and calyx with a thick wax coating; and a calyx resistant to splitting."
+  },
+  {
+   "bbox": [
+    105.0,
+    519.0,
+    382.0,
+    533.0
+   ],
+   "category": "paragraph_title",
+   "content": "## Morphology — See comparison tables."
+  },
+  {
+   "bbox": [
+    105.0,
+    532.0,
+    461.0,
+    592.0
+   ],
+   "category": "text",
+   "content": "'Charodeyka' most closely resembles 'Corrida' in petal colouration but differs in having a larger flower, a longer and thicker stem, more serrated petals, a stronger perfume and a paler petal colour (RHS 50A, 50D) than 'Corrida' (RHS 46D)."
+  },
+  {
+   "bbox": [
+    105.0,
+    602.0,
+    392.0,
+    616.0
+   ],
+   "category": "text",
+   "content": "Variety: 'Neshka' Application No. 88/019"
+  },
+  {
+   "bbox": [
+    105.0,
+    625.0,
+    178.0,
+    639.0
+   ],
+   "category": "paragraph_title",
+   "content": "## Diagnosis"
+  },
+  {
+   "bbox": [
+    105.0,
+    638.0,
+    432.0,
+    673.0
+   ],
+   "category": "text",
+   "content": "This variety is distinct from any other known variety in having the following combination of characteristics:"
+  },
+  {
+   "bbox": [
+    108.0,
+    689.0,
+    373.0,
+    703.0
+   ],
+   "category": "figure_title",
+   "content": "Neshka (Photo supplied by applicant)"
+  },
+  {
+   "bbox": [
+    107.0,
+    705.0,
+    472.0,
+    933.0
+   ],
+   "category": "image",
+   "content": "<img src=\"images/bbox_107_705_472_933.jpg\" />"
+  },
+  {
+   "bbox": [
+    512.0,
+    66.0,
+    870.0,
+    174.0
+   ],
+   "category": "text",
+   "content": "a medium large diameter double flower with many petals; a pale lilac background petal colour corresponding to RHS 62D with violet-reddish (corresponding to RHS 60A) stripes in pairs or groups on the distal half of the petals, and red edges to petals; petal margins with large even serrations; an epicalyx with 3 pairs of opposite lobes; a long thick stem; foliage and calyx with a thick wax coating; and a calyx resistant to splitting."
+  },
+  {
+   "bbox": [
+    512.0,
+    184.0,
+    787.0,
+    198.0
+   ],
+   "category": "paragraph_title",
+   "content": "## Morphology — See comparison tables."
+  },
+  {
+   "bbox": [
+    512.0,
+    207.0,
+    874.0,
+    268.0
+   ],
+   "category": "text",
+   "content": "'Neshka' most closely resembles 'Canova' in flower colouration but differs having a slightly larger flower diameter, more serrated petals and petal colours (RHS 62D, 60A) different to the pale yellow (RHS 10C) with purple (64C) stripes of 'Canova'."
+  },
+  {
+   "bbox": [
+    512.0,
+    278.0,
+    797.0,
+    292.0
+   ],
+   "category": "text",
+   "content": "Variety: 'Mechta' Application No. 88/020"
+  },
+  {
+   "bbox": [
+    512.0,
+    302.0,
+    584.0,
+    315.0
+   ],
+   "category": "paragraph_title",
+   "content": "## Diagnosis"
+  },
+  {
+   "bbox": [
+    512.0,
+    314.0,
+    837.0,
+    350.0
+   ],
+   "category": "text",
+   "content": "This variety is distinct from any other known variety in having the following combination of characteristics:"
+  },
+  {
+   "bbox": [
+    512.0,
+    362.0,
+    874.0,
+    446.0
+   ],
+   "category": "text",
+   "content": "a large diameter double flower with many petals, some arranged in a thick central cluster; a dark violet petal colour corresponding to RHS 74A; petal margins with large even cserrations; an epicalyx with 3 pairs of opposite lobes; a long thick stem; large foliage (very wide leaves) and calyx with a thick wax coating; and a calyx resistant to splitting."
+  },
+  {
+   "bbox": [
+    512.0,
+    456.0,
+    727.0,
+    469.0
+   ],
+   "category": "paragraph_title",
+   "content": "## Varieties used for Comparison"
+  },
+  {
+   "bbox": [
+    512.0,
+    468.0,
+    786.0,
+    481.0
+   ],
+   "category": "text",
+   "content": "Morphology — See comparison tables."
+  },
+  {
+   "bbox": [
+    512.0,
+    480.0,
+    857.0,
+    527.0
+   ],
+   "category": "text",
+   "content": "'Mechta' most closely resembles 'Vanessa' in flower colouration but differs in having a larger flower diameter, a larger stem and much broader leaves."
+  },
+  {
+   "bbox": [
+    512.0,
+    547.0,
+    776.0,
+    561.0
+   ],
+   "category": "figure_title",
+   "content": "Mechta (Photo supplied by applicant)"
+  },
+  {
+   "bbox": [
+    510.0,
+    564.0,
+    874.0,
+    933.0
+   ],
+   "category": "image",
+   "content": "<img src=\"images/bbox_510_564_874_933.jpg\" />"
+  },
+  {
+   "bbox": [
+    863.0,
+    953.0,
+    872.0,
+    963.0
+   ],
+   "category": "number",
+   "content": "7"
+  }
+ ],
+ "seconds": 87.0,
+ "peak_rss_mb": 3984.4,
+ "peak_vram_mb": 3242.9,
+ "image_px": [
+  1653,
+  2339
+ ],
+ "page": "V2_p9"
+}

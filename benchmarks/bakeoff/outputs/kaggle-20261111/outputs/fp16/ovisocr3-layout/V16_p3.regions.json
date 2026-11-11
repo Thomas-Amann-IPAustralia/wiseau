@@ -1,0 +1,489 @@
+{
+ "model": "ATH-MaaS/OvisOCR3",
+ "revision": "17f255e2c8ae6d18d5d5edb0a474bd4ed39aef90",
+ "prompt": "document_layout",
+ "prompt_sha256": "89bcc73c7340ff9fd83673c1aee2354c2cc735c6eded0ce2aa4501f28b914361",
+ "max_new_tokens": 4096,
+ "do_sample": false,
+ "min_pixels": 200704,
+ "max_pixels": 8294400,
+ "route": "transformers",
+ "load_seconds": 3.14,
+ "device": "cuda",
+ "dtype": "fp16",
+ "threads": null,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.16",
+  "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "gpu": "Tesla T4",
+ "raw": "[\n    {\n        \"bbox\": [\n            649,\n            60,\n            884,\n            71\n        ],\n        \"category\": \"header\"\n    },\n    {\n        \"bbox\": [\n            152,\n            113,\n            845,\n            159\n        ],\n        \"category\": \"doc_title\"\n    },\n    {\n        \"bbox\": [\n            276,\n            172,\n            722,\n            191\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            114,\n            214,\n            289,\n            227\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            123,\n            242,\n            395,\n            257\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            114,\n            262,\n            585,\n            475\n        ],\n        \"category\": \"table\"\n    },\n    {\n        \"bbox\": [\n            123,\n            479,\n            360,\n            495\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            114,\n            504,\n            585,\n            739\n        ],\n        \"category\": \"table\"\n    },\n    {\n        \"bbox\": [\n            114,\n            739,\n            351,\n            750\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            114,\n            749,\n            284,\n            759\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            114,\n            758,\n            511,\n            768\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            114,\n            767,\n            305,\n            777\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            114,\n            776,\n            392,\n            786\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            114,\n            785,\n            308,\n            795\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            114,\n            794,\n            243,\n            804\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            123,\n            809,\n            504,\n            820\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            114,\n            828,\n            587,\n            848\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            114,\n            850,\n            205,\n            898\n        ],\n        \"category\": \"image\"\n    },\n    {\n        \"bbox\": [\n            211,\n            863,\n            383,\n            876\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            211,\n            883,\n            394,\n            909\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            398,\n            847,\n            541,\n            855\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            398,\n            854,\n            648,\n            917\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            707,\n            214,\n            881,\n            227\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            668,\n            238,\n            756,\n            328\n        ],\n        \"category\": \"image\"\n    },\n    {\n        \"bbox\": [\n            667,\n            329,\n            756,\n            352\n        ],\n        \"category\": \"vision_footnote\"\n    },\n    {\n        \"bbox\": [\n            789,\n            238,\n            879,\n            328\n        ],\n        \"category\": \"image\"\n    },\n    {\n        \"bbox\": [\n            790,\n            329,\n            877,\n            352\n        ],\n        \"category\": \"vision_footnote\"\n    },\n    {\n        \"bbox\": [\n            668,\n            360,\n            756,\n            450\n        ],\n        \"category\": \"image\"\n    },\n    {\n        \"bbox\": [\n            662,\n            451,\n            763,\n            474\n        ],\n        \"category\": \"vision_footnote\"\n    },\n    {\n        \"bbox\": [\n            789,\n            360,\n            879,\n            450\n        ],\n        \"category\": \"image\"\n    },\n    {\n        \"bbox\": [\n            799,\n            451,\n            872,\n            474\n        ],\n        \"category\": \"vision_footnote\"\n    },\n    {\n        \"bbox\": [\n            668,\n            482,\n            756,\n            572\n        ],\n        \"category\": \"image\"\n    },\n    {\n        \"bbox\": [\n            673,\n            573,\n            749,\n            595\n        ],\n        \"category\": \"vision_footnote\"\n    },\n    {\n        \"bbox\": [\n            789,\n            482,\n            879,\n            572\n        ],\n        \"category\": \"image\"\n    },\n    {\n        \"bbox\": [\n            803,\n            573,\n            865,\n            595\n        ],\n        \"category\": \"vision_footnote\"\n    },\n    {\n        \"bbox\": [\n            668,\n            604,\n            756,\n            694\n        ],\n        \"category\": \"image\"\n    },\n    {\n        \"bbox\": [\n            656,\n            695,\n            767,\n            717\n        ],\n        \"category\": \"vision_footnote\"\n    },\n    {\n        \"bbox\": [\n            789,\n            604,\n            879,\n            694\n        ],\n        \"category\": \"image\"\n    },\n    {\n        \"bbox\": [\n            777,\n            695,\n            888,\n            717\n        ],\n        \"category\": \"vision_footnote\"\n    },\n    {\n        \"bbox\": [\n            668,\n            726,\n            756,\n            815\n        ],\n        \"category\": \"image\"\n    },\n    {\n        \"bbox\": [\n            678,\n            816,\n            744,\n            826\n        ],\n        \"category\": \"vision_footnote\"\n    },\n    {\n        \"bbox\": [\n            789,\n            726,\n            879,\n            815\n        ],\n        \"category\": \"image\"\n    },\n    {\n        \"bbox\": [\n            793,\n            816,\n            858,\n            826\n        ],\n        \"category\": \"vision_footnote\"\n    },\n    {\n        \"bbox\": [\n            656,\n            828,\n            884,\n            839\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            654,\n            847,\n            884,\n            896\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            654,\n            901,\n            860,\n            917\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            114,\n            922,\n            189,\n            931\n        ],\n        \"category\": \"footer\"\n    },\n    {\n        \"bbox\": [\n            315,\n            922,\n            529,\n            931\n        ],\n        \"category\": \"footer\"\n    },\n    {\n        \"bbox\": [\n            875,\n            924,\n            881,\n            935\n        ],\n        \"category\": \"number\"\n    }\n]",
+ "finish_reason": "stop",
+ "input_tokens": 4628,
+ "new_tokens": 2477,
+ "image_grid_thw": [
+  [
+   1,
+   156,
+   114
+  ]
+ ],
+ "generate_seconds": 122.6,
+ "regions": [
+  {
+   "bbox": [
+    649.0,
+    60.0,
+    884.0,
+    71.0
+   ],
+   "category": "header"
+  },
+  {
+   "bbox": [
+    152.0,
+    113.0,
+    845.0,
+    159.0
+   ],
+   "category": "doc_title"
+  },
+  {
+   "bbox": [
+    276.0,
+    172.0,
+    722.0,
+    191.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    114.0,
+    214.0,
+    289.0,
+    227.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    123.0,
+    242.0,
+    395.0,
+    257.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    114.0,
+    262.0,
+    585.0,
+    475.0
+   ],
+   "category": "table"
+  },
+  {
+   "bbox": [
+    123.0,
+    479.0,
+    360.0,
+    495.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    114.0,
+    504.0,
+    585.0,
+    739.0
+   ],
+   "category": "table"
+  },
+  {
+   "bbox": [
+    114.0,
+    739.0,
+    351.0,
+    750.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    114.0,
+    749.0,
+    284.0,
+    759.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    114.0,
+    758.0,
+    511.0,
+    768.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    114.0,
+    767.0,
+    305.0,
+    777.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    114.0,
+    776.0,
+    392.0,
+    786.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    114.0,
+    785.0,
+    308.0,
+    795.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    114.0,
+    794.0,
+    243.0,
+    804.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    123.0,
+    809.0,
+    504.0,
+    820.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    114.0,
+    828.0,
+    587.0,
+    848.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    114.0,
+    850.0,
+    205.0,
+    898.0
+   ],
+   "category": "image"
+  },
+  {
+   "bbox": [
+    211.0,
+    863.0,
+    383.0,
+    876.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    211.0,
+    883.0,
+    394.0,
+    909.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    398.0,
+    847.0,
+    541.0,
+    855.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    398.0,
+    854.0,
+    648.0,
+    917.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    707.0,
+    214.0,
+    881.0,
+    227.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    668.0,
+    238.0,
+    756.0,
+    328.0
+   ],
+   "category": "image"
+  },
+  {
+   "bbox": [
+    667.0,
+    329.0,
+    756.0,
+    352.0
+   ],
+   "category": "vision_footnote"
+  },
+  {
+   "bbox": [
+    789.0,
+    238.0,
+    879.0,
+    328.0
+   ],
+   "category": "image"
+  },
+  {
+   "bbox": [
+    790.0,
+    329.0,
+    877.0,
+    352.0
+   ],
+   "category": "vision_footnote"
+  },
+  {
+   "bbox": [
+    668.0,
+    360.0,
+    756.0,
+    450.0
+   ],
+   "category": "image"
+  },
+  {
+   "bbox": [
+    662.0,
+    451.0,
+    763.0,
+    474.0
+   ],
+   "category": "vision_footnote"
+  },
+  {
+   "bbox": [
+    789.0,
+    360.0,
+    879.0,
+    450.0
+   ],
+   "category": "image"
+  },
+  {
+   "bbox": [
+    799.0,
+    451.0,
+    872.0,
+    474.0
+   ],
+   "category": "vision_footnote"
+  },
+  {
+   "bbox": [
+    668.0,
+    482.0,
+    756.0,
+    572.0
+   ],
+   "category": "image"
+  },
+  {
+   "bbox": [
+    673.0,
+    573.0,
+    749.0,
+    595.0
+   ],
+   "category": "vision_footnote"
+  },
+  {
+   "bbox": [
+    789.0,
+    482.0,
+    879.0,
+    572.0
+   ],
+   "category": "image"
+  },
+  {
+   "bbox": [
+    803.0,
+    573.0,
+    865.0,
+    595.0
+   ],
+   "category": "vision_footnote"
+  },
+  {
+   "bbox": [
+    668.0,
+    604.0,
+    756.0,
+    694.0
+   ],
+   "category": "image"
+  },
+  {
+   "bbox": [
+    656.0,
+    695.0,
+    767.0,
+    717.0
+   ],
+   "category": "vision_footnote"
+  },
+  {
+   "bbox": [
+    789.0,
+    604.0,
+    879.0,
+    694.0
+   ],
+   "category": "image"
+  },
+  {
+   "bbox": [
+    777.0,
+    695.0,
+    888.0,
+    717.0
+   ],
+   "category": "vision_footnote"
+  },
+  {
+   "bbox": [
+    668.0,
+    726.0,
+    756.0,
+    815.0
+   ],
+   "category": "image"
+  },
+  {
+   "bbox": [
+    678.0,
+    816.0,
+    744.0,
+    826.0
+   ],
+   "category": "vision_footnote"
+  },
+  {
+   "bbox": [
+    789.0,
+    726.0,
+    879.0,
+    815.0
+   ],
+   "category": "image"
+  },
+  {
+   "bbox": [
+    793.0,
+    816.0,
+    858.0,
+    826.0
+   ],
+   "category": "vision_footnote"
+  },
+  {
+   "bbox": [
+    656.0,
+    828.0,
+    884.0,
+    839.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    654.0,
+    847.0,
+    884.0,
+    896.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    654.0,
+    901.0,
+    860.0,
+    917.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    114.0,
+    922.0,
+    189.0,
+    931.0
+   ],
+   "category": "footer"
+  },
+  {
+   "bbox": [
+    315.0,
+    922.0,
+    529.0,
+    931.0
+   ],
+   "category": "footer"
+  },
+  {
+   "bbox": [
+    875.0,
+    924.0,
+    881.0,
+    935.0
+   ],
+   "category": "number"
+  }
+ ],
+ "seconds": 122.8,
+ "peak_rss_mb": 3983.7,
+ "peak_vram_mb": 3616.7,
+ "image_px": [
+  1809,
+  2495
+ ],
+ "page": "V16_p3"
+}

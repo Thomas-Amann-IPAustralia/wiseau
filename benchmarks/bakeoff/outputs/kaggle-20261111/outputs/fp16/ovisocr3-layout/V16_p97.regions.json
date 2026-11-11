@@ -1,0 +1,93 @@
+{
+ "model": "ATH-MaaS/OvisOCR3",
+ "revision": "17f255e2c8ae6d18d5d5edb0a474bd4ed39aef90",
+ "prompt": "document_layout",
+ "prompt_sha256": "89bcc73c7340ff9fd83673c1aee2354c2cc735c6eded0ce2aa4501f28b914361",
+ "max_new_tokens": 4096,
+ "do_sample": false,
+ "min_pixels": 200704,
+ "max_pixels": 8294400,
+ "route": "transformers",
+ "load_seconds": 3.14,
+ "device": "cuda",
+ "dtype": "fp16",
+ "threads": null,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.16",
+  "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "gpu": "Tesla T4",
+ "raw": "[\n    {\n        \"bbox\": [\n            642,\n            60,\n            884,\n            71\n        ],\n        \"category\": \"header\"\n    },\n    {\n        \"bbox\": [\n            114,\n            91,\n            336,\n            137\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            114,\n            147,\n            252,\n            751\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            384,\n            91,\n            615,\n            250\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            865,\n            911,\n            884,\n            923\n        ],\n        \"category\": \"number\"\n    }\n]",
+ "finish_reason": "stop",
+ "input_tokens": 4628,
+ "new_tokens": 251,
+ "image_grid_thw": [
+  [
+   1,
+   156,
+   114
+  ]
+ ],
+ "generate_seconds": 14.62,
+ "regions": [
+  {
+   "bbox": [
+    642.0,
+    60.0,
+    884.0,
+    71.0
+   ],
+   "category": "header"
+  },
+  {
+   "bbox": [
+    114.0,
+    91.0,
+    336.0,
+    137.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    114.0,
+    147.0,
+    252.0,
+    751.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    384.0,
+    91.0,
+    615.0,
+    250.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    865.0,
+    911.0,
+    884.0,
+    923.0
+   ],
+   "category": "number"
+  }
+ ],
+ "seconds": 14.84,
+ "peak_rss_mb": 3983.7,
+ "peak_vram_mb": 3616.7,
+ "image_px": [
+  1809,
+  2495
+ ],
+ "page": "V16_p97"
+}
