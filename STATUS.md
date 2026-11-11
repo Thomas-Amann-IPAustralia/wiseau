@@ -6,6 +6,7 @@
 > green checkmark that lies.
 
 **Last updated:** 2026-11-11 (ninth session: roadmap Tier 3 structure recovery, ADR-049..055, `POST /convert/bundle`, per-request reader mode, API 0.16.0; eighth session: Kaggle T4 run of OvisOCR3, experiment closed; seventh session: 3.7b layout-region spike, CPU leg, held-out set T, then ADR-048 shipping the layout detector in the image; sixth session: planning only, OvisOCR3/TeleOCR assessment; fifth session: ADR-047, table pass on in the Docker image; MuPDF OCR concurrency fix)
+
 **Live check (2026-11-11, after PR #35 merged):**
 - Cloud Run redeployed from `main` about 8½ minutes after the merge; `/ping` reports **0.16.0**. GitHub Pages updated within a minute (Reader mode and Save with figures present).
 - Checks against the live service:
