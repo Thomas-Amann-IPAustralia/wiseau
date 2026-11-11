@@ -99,10 +99,28 @@ def test_categories_map_to_types():
     cases = {"doc_title": (ir.TITLE, 1), "paragraph_title": (ir.HEADING, 2), "figure_title": (ir.CAPTION, None),
              "vision_footnote": (ir.CAPTION, None), "header": (ir.PAGE_HEADER, None),
              "footer": (ir.PAGE_FOOTER, None), "number": (ir.PAGE_NUMBER, None),
-             "footnote": (ir.FOOTNOTE, None), "text": (ir.TEXT, None), "image": (ir.TEXT, None)}
+             "footnote": (ir.FOOTNOTE, None), "text": (ir.TEXT, None), "image": (ir.FIGURE, None),
+             "chart": (ir.FIGURE, None), "aside_text": (ir.TEXT, None)}
     for category, (kind, level) in cases.items():
         out = layout.apply([_el([HEADING])], [_region((45, 98, 160, 111), category)])
         assert (out[0].type, out[0].level) == (kind, level), category
+
+
+def test_lines_read_out_of_a_picture_keep_their_text():
+    # Typed as a figure, but the words stay and the Markdown is the text, as before.
+    out = layout.apply([_el([HEADING])], [_region((45, 98, 160, 111), "image")])
+    assert out[0].type == ir.FIGURE and out[0].text == HEADING[1]
+    assert serializer.render_element(out[0]) == HEADING[1]
+
+
+def test_a_picture_with_no_lines_is_an_empty_figure_in_reading_order():
+    out = layout.apply([_el([HEADING, BODY_1])],
+                       [_region((45, 98, 160, 111), "paragraph_title"), _region((40, 300, 300, 500), "image"),
+                        _region((45, 113, 400, 125), "text")])
+    assert [e.type for e in out] == [ir.HEADING, ir.FIGURE, ir.TEXT]
+    assert out[1].text == "" and out[1].bbox == ir.BBox(40, 300, 300, 500)
+    # It writes nothing, so the page's Markdown is unchanged.
+    assert serializer.render_elements(out) == serializer.render_elements([out[0], out[2]])
 
 
 def test_title_renders_as_level_one_on_one_line():

@@ -61,14 +61,37 @@ STITCH_SIGNAL = "tesseract-row-stitch"
 HEADING_SIGNALS = {"pp-doclayoutv3"}
 
 
-def render_element(el: ir.Element) -> str:
-    """One element as Markdown."""
+# Page furniture (roadmap 3.2): written as it was read unless the caller asks
+# for reader mode, which leaves it out (`to_markdown(reader=True)`).
+FURNITURE = {ir.PAGE_HEADER, ir.PAGE_FOOTER, ir.PAGE_NUMBER}
+_ATX = re.compile(r"^ {0,3}#{1,6}(?:[ \t]+|$)")
+
+
+def _heading_text(el: ir.Element) -> str:
+    """A heading's words on one line, without the `#` marker an engine wrote."""
+    text = el.text
+    if el.text_format == ir.MARKDOWN:
+        text = _ATX.sub("", text.lstrip("\n"), count=1)
+    return " ".join(part.strip() for part in text.split("\n") if part.strip())
+
+
+def render_element(el: ir.Element, *, assets: bool = False) -> str:
+    """One element as Markdown.
+
+    `assets`: write a figure that has an exported image (roadmap 3.4) as an image
+    link to it; otherwise a figure writes nothing, as before.
+    """
+    if el.level_signal is not None and el.type in (ir.HEADING, ir.TITLE):
+        # A level a structure pass assigned (roadmap 3.1) replaces the engine's.
+        return "#" * (el.level or 2) + " " + _heading_text(el)
     if el.signal in HEADING_SIGNALS and el.type in (ir.HEADING, ir.TITLE):
         return "#" * (el.level or 2) + " " + " ".join(el.text.split("\n"))
     if el.type == ir.TABLE and el.rows:
         if el.signal in CELL_SIGNALS or (STITCHED_AS_TABLES and el.signal == STITCH_SIGNAL):
             return table_markdown(el.rows)
         return ir.rows_text(el.rows)
+    if el.type == ir.FIGURE and el.asset and assets:
+        return f"![]({el.asset})"
     return el.text
 
 
@@ -118,16 +141,56 @@ def _html_table(rows) -> str:
     return "\n".join(out)
 
 
-def render_elements(elements) -> str:
+# The relation signal under which a paragraph broken by a column change is
+# written as one paragraph (roadmap 3.3). A break at a page change is recorded
+# but not joined: the page boundary stays in the Markdown.
+JOIN_SIGNALS = {"continuation-column"}
+
+
+def render_units(elements, relations=(), *, reader: bool = False, assets: bool = False) -> list[tuple[str, list]]:
+    """One page's elements as Markdown blocks: (text, elements it came from).
+
+    Each element is one block, except that an element a `continues_from`
+    relation under `JOIN_SIGNALS` joins to an earlier one on the same page is
+    written straight after it, in the same paragraph (its text unchanged, joined
+    by a line break). Empty blocks are left out. In reader mode page furniture is
+    left out too.
+    """
+    elements = list(elements)
+    joins: dict[str, str] = {}   # earlier id -> later id
+    for rel in relations:
+        if rel.type == "continues_from" and rel.signal in JOIN_SIGNALS:
+            joins[rel.target] = rel.source
+    by_id = {el.id: el for el in elements}
+    joined = {later for earlier, later in joins.items() if earlier in by_id and later in by_id}
+    units = []
+    for el in elements:
+        if el.id in joined or (reader and el.type in FURNITURE):
+            continue
+        chain, text = [el], render_element(el, assets=assets)
+        while chain[-1].id in joins and joins[chain[-1].id] in by_id:
+            nxt = by_id[joins[chain[-1].id]]
+            chain.append(nxt)
+            text = text.rstrip("\n") + "\n" + render_element(nxt, assets=assets).lstrip("\n")
+        if text:
+            units.append((text, chain))
+    return units
+
+
+def render_elements(elements, relations=(), *, reader: bool = False, assets: bool = False) -> str:
     """Elements of one page, joined by blank lines and stripped (no page grouping)."""
-    return "\n\n".join(render_element(el) for el in elements).strip()
+    return "\n\n".join(t for t, _ in render_units(elements, relations, reader=reader, assets=assets)).strip()
 
 
-def to_markdown(doc: ir.Document) -> str:
-    """The document as Markdown: pages in order, each page's elements in order."""
+def to_markdown(doc: ir.Document, *, reader: bool = False, assets: bool = False) -> str:
+    """The document as Markdown: pages in order, each page's elements in order.
+
+    `reader`: leave page furniture out (roadmap 3.2; default: keep it, as read).
+    `assets`: link figures that have an exported image (the bundle, roadmap 3.4).
+    """
     parts = []
     for _, group in groupby(doc.elements, key=lambda el: el.page):
-        text = render_elements(group)
+        text = render_elements(group, doc.relations, reader=reader, assets=assets)
         if text:
             parts.append(text)
     return "\n\n".join(parts)
