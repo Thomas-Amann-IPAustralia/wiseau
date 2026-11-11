@@ -1,0 +1,237 @@
+{
+ "model": "ATH-MaaS/OvisOCR3",
+ "revision": "17f255e2c8ae6d18d5d5edb0a474bd4ed39aef90",
+ "prompt": "document_layout",
+ "prompt_sha256": "89bcc73c7340ff9fd83673c1aee2354c2cc735c6eded0ce2aa4501f28b914361",
+ "max_new_tokens": 4096,
+ "do_sample": false,
+ "min_pixels": 200704,
+ "max_pixels": 8294400,
+ "route": "transformers",
+ "load_seconds": 3.14,
+ "device": "cuda",
+ "dtype": "fp16",
+ "threads": null,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.16",
+  "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "gpu": "Tesla T4",
+ "raw": "[\n    {\n        \"bbox\": [\n            64,\n            69,\n            180,\n            90\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            62,\n            104,\n            396,\n            142\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            62,\n            150,\n            362,\n            167\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            62,\n            179,\n            467,\n            231\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            62,\n            256,\n            288,\n            293\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            62,\n            302,\n            390,\n            318\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            61,\n            331,\n            458,\n            383\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            62,\n            407,\n            305,\n            445\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            61,\n            454,\n            382,\n            470\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            61,\n            482,\n            460,\n            522\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            62,\n            547,\n            250,\n            584\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            61,\n            594,\n            365,\n            610\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            61,\n            617,\n            447,\n            646\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            61,\n            652,\n            360,\n            669\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            61,\n            676,\n            460,\n            705\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            510,\n            69,\n            703,\n            94\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            510,\n            126,\n            561,\n            145\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            508,\n            164,\n            903,\n            193\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            508,\n            205,\n            857,\n            233\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            507,\n            244,\n            919,\n            466\n        ],\n        \"category\": \"table\"\n    },\n    {\n        \"bbox\": [\n            64,\n            939,\n            90,\n            954\n        ],\n        \"category\": \"number\"\n    }\n]",
+ "finish_reason": "stop",
+ "input_tokens": 3978,
+ "new_tokens": 1040,
+ "image_grid_thw": [
+  [
+   1,
+   146,
+   104
+  ]
+ ],
+ "generate_seconds": 48.01,
+ "regions": [
+  {
+   "bbox": [
+    64.0,
+    69.0,
+    180.0,
+    90.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    62.0,
+    104.0,
+    396.0,
+    142.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    62.0,
+    150.0,
+    362.0,
+    167.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    62.0,
+    179.0,
+    467.0,
+    231.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    62.0,
+    256.0,
+    288.0,
+    293.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    62.0,
+    302.0,
+    390.0,
+    318.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    61.0,
+    331.0,
+    458.0,
+    383.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    62.0,
+    407.0,
+    305.0,
+    445.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    61.0,
+    454.0,
+    382.0,
+    470.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    61.0,
+    482.0,
+    460.0,
+    522.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    62.0,
+    547.0,
+    250.0,
+    584.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    61.0,
+    594.0,
+    365.0,
+    610.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    61.0,
+    617.0,
+    447.0,
+    646.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    61.0,
+    652.0,
+    360.0,
+    669.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    61.0,
+    676.0,
+    460.0,
+    705.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    510.0,
+    69.0,
+    703.0,
+    94.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    510.0,
+    126.0,
+    561.0,
+    145.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    508.0,
+    164.0,
+    903.0,
+    193.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    508.0,
+    205.0,
+    857.0,
+    233.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    507.0,
+    244.0,
+    919.0,
+    466.0
+   ],
+   "category": "table"
+  },
+  {
+   "bbox": [
+    64.0,
+    939.0,
+    90.0,
+    954.0
+   ],
+   "category": "number"
+  }
+ ],
+ "seconds": 48.19,
+ "peak_rss_mb": 3983.7,
+ "peak_vram_mb": 3156.6,
+ "image_px": [
+  1653,
+  2339
+ ],
+ "page": "V4_p26"
+}

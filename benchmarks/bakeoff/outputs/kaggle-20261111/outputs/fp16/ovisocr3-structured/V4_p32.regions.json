@@ -1,0 +1,118 @@
+{
+ "model": "ATH-MaaS/OvisOCR3",
+ "revision": "17f255e2c8ae6d18d5d5edb0a474bd4ed39aef90",
+ "prompt": "document_structured",
+ "prompt_sha256": "1b6139ec72888e087c8af75f2e2dfb78b425e15ae1c1529940b96137613d1db1",
+ "max_new_tokens": 16384,
+ "do_sample": false,
+ "min_pixels": 200704,
+ "max_pixels": 8294400,
+ "route": "transformers",
+ "load_seconds": 2.91,
+ "device": "cuda",
+ "dtype": "fp16",
+ "threads": null,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.16",
+  "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "gpu": "Tesla T4",
+ "raw": "[\n    {\n        \"bbox\": [\n            67,\n            65,\n            264,\n            89\n        ],\n        \"category\": \"paragraph_title\",\n        \"content\": \"## APPENDIX 4\"\n    },\n    {\n        \"bbox\": [\n            67,\n            120,\n            334,\n            162\n        ],\n        \"category\": \"paragraph_title\",\n        \"content\": \"## LIST OF PVR PART 2 APPLICATION FORMS\"\n    },\n    {\n        \"bbox\": [\n            62,\n            179,\n            476,\n            747\n        ],\n        \"category\": \"table\",\n        \"content\": \"<table border=1><tr><td>TITLE</td><td>DATE</td></tr><tr><td>Agapanthus</td><td>2/89</td></tr><tr><td>Alstroemeria</td><td>10/89</td></tr><tr><td>Anthurium</td><td>4/90</td></tr><tr><td>Asparagus</td><td>2/91</td></tr><tr><td>Bean, green (Phaseolus)</td><td>4/90</td></tr><tr><td>Broadleaf Trees</td><td>4/90</td></tr><tr><td>Canola (Brassica)</td><td>4/91</td></tr><tr><td>Carnation (Dianthus)</td><td>8/89</td></tr><tr><td>Carrot (Daucus)</td><td>10/89</td></tr><tr><td>Cauliflower (Brassica)</td><td>3/91</td></tr><tr><td>Cereals</td><td>11/90</td></tr><tr><td>Chrysanthemum</td><td>4/90</td></tr><tr><td>Citrus</td><td>5/90</td></tr><tr><td>Cotton (Gossypium)</td><td>7/90</td></tr><tr><td>Cucurbits</td><td>2/90</td></tr><tr><td>Eucalyptus</td><td>6/90</td></tr><tr><td>Grain Legumes</td><td>10/89</td></tr><tr><td>Grapes (Vitis)</td><td>9/89</td></tr><tr><td>Grevillea</td><td>3/91</td></tr><tr><td>Herbage and Turf Grasses</td><td>9/89</td></tr><tr><td>Impatiens</td><td>11/90</td></tr><tr><td>Kangaroo Paw (Anigozanthos)</td><td>11/89</td></tr><tr><td>Kiwifruit (Actinidia)</td><td>4/90</td></tr><tr><td>Lechenaultia</td><td>7/91</td></tr><tr><td>Lettuce (Lactuca)</td><td>11/89</td></tr><tr><td>Lily (Lilium)</td><td>6/90</td></tr><tr><td>Lucerne (Medicago)</td><td>8/90</td></tr><tr><td>Maize (Zea mais)</td><td>10/90</td></tr><tr><td>Oat (Avena)</td><td>11/90</td></tr><tr><td>Oilseed — (Asteraceae)</td><td>10/89</td></tr><tr><td>Onion (Allium)</td><td>11/89</td></tr><tr><td>Ornamentals</td><td>9/89</td></tr><tr><td>Pasture Legumes</td><td>9/89</td></tr><tr><td>Pome fruit (Malus/Pyrus)</td><td>10/89</td></tr><tr><td>Potato (Solanum)</td><td>10/89</td></tr><tr><td>Raspberry (Rubus)</td><td>6/90</td></tr><tr><td>Roses (Rosa)</td><td>6/91</td></tr><tr><td>Schlumbergera</td><td>6/90</td></tr><tr><td>Sorghum</td><td>9/89</td></tr><tr><td>Stone Fruit (Prunus)</td><td>8/90</td></tr><tr><td>Strawberry (Fragaria)</td><td>2/90</td></tr><tr><td>Tomato (Lycopersicon)</td><td>4/90</td></tr><tr><td>Waxflower (Chamelaucium)</td><td>7/91</td></tr><tr><td>Waratah (Telopea)</td><td>4/90</td></tr><tr><td>Wheat (Triticum)</td><td>10/90</td></tr></table>\"\n    },\n    {\n        \"bbox\": [\n            663,\n            853,\n            820,\n            904\n        ],\n        \"category\": \"footer_image\",\n        \"content\": \"<img src=\\\"images/bbox_663_853_820_904.jpg\\\" />\"\n    },\n    {\n        \"bbox\": [\n            645,\n            904,\n            820,\n            921\n        ],\n        \"category\": \"vision_footnote\",\n        \"content\": \"9 780644 146753\"\n    },\n    {\n        \"bbox\": [\n            64,\n            935,\n            90,\n            950\n        ],\n        \"category\": \"number\",\n        \"content\": \"30\"\n    },\n    {\n        \"bbox\": [\n            643,\n            923,\n            831,\n            937\n        ],\n        \"category\": \"footer\",\n        \"content\": \"91/21054. Cat. No. 91 0913 4\"\n    }\n]",
+ "finish_reason": "stop",
+ "input_tokens": 4108,
+ "new_tokens": 1555,
+ "image_grid_thw": [
+  [
+   1,
+   146,
+   104
+  ]
+ ],
+ "generate_seconds": 69.06,
+ "regions": [
+  {
+   "bbox": [
+    67.0,
+    65.0,
+    264.0,
+    89.0
+   ],
+   "category": "paragraph_title",
+   "content": "## APPENDIX 4"
+  },
+  {
+   "bbox": [
+    67.0,
+    120.0,
+    334.0,
+    162.0
+   ],
+   "category": "paragraph_title",
+   "content": "## LIST OF PVR PART 2 APPLICATION FORMS"
+  },
+  {
+   "bbox": [
+    62.0,
+    179.0,
+    476.0,
+    747.0
+   ],
+   "category": "table",
+   "content": "<table border=1><tr><td>TITLE</td><td>DATE</td></tr><tr><td>Agapanthus</td><td>2/89</td></tr><tr><td>Alstroemeria</td><td>10/89</td></tr><tr><td>Anthurium</td><td>4/90</td></tr><tr><td>Asparagus</td><td>2/91</td></tr><tr><td>Bean, green (Phaseolus)</td><td>4/90</td></tr><tr><td>Broadleaf Trees</td><td>4/90</td></tr><tr><td>Canola (Brassica)</td><td>4/91</td></tr><tr><td>Carnation (Dianthus)</td><td>8/89</td></tr><tr><td>Carrot (Daucus)</td><td>10/89</td></tr><tr><td>Cauliflower (Brassica)</td><td>3/91</td></tr><tr><td>Cereals</td><td>11/90</td></tr><tr><td>Chrysanthemum</td><td>4/90</td></tr><tr><td>Citrus</td><td>5/90</td></tr><tr><td>Cotton (Gossypium)</td><td>7/90</td></tr><tr><td>Cucurbits</td><td>2/90</td></tr><tr><td>Eucalyptus</td><td>6/90</td></tr><tr><td>Grain Legumes</td><td>10/89</td></tr><tr><td>Grapes (Vitis)</td><td>9/89</td></tr><tr><td>Grevillea</td><td>3/91</td></tr><tr><td>Herbage and Turf Grasses</td><td>9/89</td></tr><tr><td>Impatiens</td><td>11/90</td></tr><tr><td>Kangaroo Paw (Anigozanthos)</td><td>11/89</td></tr><tr><td>Kiwifruit (Actinidia)</td><td>4/90</td></tr><tr><td>Lechenaultia</td><td>7/91</td></tr><tr><td>Lettuce (Lactuca)</td><td>11/89</td></tr><tr><td>Lily (Lilium)</td><td>6/90</td></tr><tr><td>Lucerne (Medicago)</td><td>8/90</td></tr><tr><td>Maize (Zea mais)</td><td>10/90</td></tr><tr><td>Oat (Avena)</td><td>11/90</td></tr><tr><td>Oilseed — (Asteraceae)</td><td>10/89</td></tr><tr><td>Onion (Allium)</td><td>11/89</td></tr><tr><td>Ornamentals</td><td>9/89</td></tr><tr><td>Pasture Legumes</td><td>9/89</td></tr><tr><td>Pome fruit (Malus/Pyrus)</td><td>10/89</td></tr><tr><td>Potato (Solanum)</td><td>10/89</td></tr><tr><td>Raspberry (Rubus)</td><td>6/90</td></tr><tr><td>Roses (Rosa)</td><td>6/91</td></tr><tr><td>Schlumbergera</td><td>6/90</td></tr><tr><td>Sorghum</td><td>9/89</td></tr><tr><td>Stone Fruit (Prunus)</td><td>8/90</td></tr><tr><td>Strawberry (Fragaria)</td><td>2/90</td></tr><tr><td>Tomato (Lycopersicon)</td><td>4/90</td></tr><tr><td>Waxflower (Chamelaucium)</td><td>7/91</td></tr><tr><td>Waratah (Telopea)</td><td>4/90</td></tr><tr><td>Wheat (Triticum)</td><td>10/90</td></tr></table>"
+  },
+  {
+   "bbox": [
+    663.0,
+    853.0,
+    820.0,
+    904.0
+   ],
+   "category": "footer_image",
+   "content": "<img src=\"images/bbox_663_853_820_904.jpg\" />"
+  },
+  {
+   "bbox": [
+    645.0,
+    904.0,
+    820.0,
+    921.0
+   ],
+   "category": "vision_footnote",
+   "content": "9 780644 146753"
+  },
+  {
+   "bbox": [
+    64.0,
+    935.0,
+    90.0,
+    950.0
+   ],
+   "category": "number",
+   "content": "30"
+  },
+  {
+   "bbox": [
+    643.0,
+    923.0,
+    831.0,
+    937.0
+   ],
+   "category": "footer",
+   "content": "91/21054. Cat. No. 91 0913 4"
+  }
+ ],
+ "seconds": 69.22,
+ "peak_rss_mb": 3984.4,
+ "peak_vram_mb": 3242.9,
+ "image_px": [
+  1653,
+  2339
+ ],
+ "page": "V4_p32"
+}

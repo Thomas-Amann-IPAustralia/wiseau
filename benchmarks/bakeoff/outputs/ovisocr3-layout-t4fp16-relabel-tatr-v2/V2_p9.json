@@ -1,0 +1,767 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    66.0,
+    339.6,
+    240.72,
+    348.24
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      66.0,
+      339.6,
+      240.72,
+      348.24
+     ],
+     "text": "Charodeyka (Photo supplied by applicant)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Charodeyka (Photo supplied by applicant)",
+   "text_format": "plain",
+   "type": "caption",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "vision_footnote"
+  },
+  {
+   "bbox": [
+    66.48,
+    360.48,
+    278.4,
+    428.64
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      66.96,
+      360.48,
+      262.32,
+      369.12
+     ],
+     "text": "pale pink border (4 mm wide) corresponding to"
+    },
+    {
+     "bbox": [
+      66.96,
+      370.32,
+      274.8,
+      378.96
+     ],
+     "text": "RHS 50D at the margins; the pale border narrower"
+    },
+    {
+     "bbox": [
+      66.96,
+      380.16,
+      246.0,
+      389.04
+     ],
+     "text": "(3 mm) in the central cluster of petals; petal"
+    },
+    {
+     "bbox": [
+      66.96,
+      390.0,
+      278.4,
+      398.64
+     ],
+     "text": "margins with uneven serrations; an epicalyx with 3"
+    },
+    {
+     "bbox": [
+      66.72,
+      400.08,
+      263.76,
+      408.72
+     ],
+     "text": "pairs of opposite lobes; a long thick stem; large"
+    },
+    {
+     "bbox": [
+      66.72,
+      409.92,
+      266.16,
+      418.8
+     ],
+     "text": "foliage and calyx with a thick wax coating; anda"
+    },
+    {
+     "bbox": [
+      66.48,
+      420.0,
+      174.72,
+      428.64
+     ],
+     "text": "calyx resistant to splitting."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "pale pink border (4 mm wide) corresponding to\nRHS 50D at the margins; the pale border narrower\n(3 mm) in the central cluster of petals; petal\nmargins with uneven serrations; an epicalyx with 3\npairs of opposite lobes; a long thick stem; large\nfoliage and calyx with a thick wax coating; anda\ncalyx resistant to splitting.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    65.04,
+    438.72,
+    274.56,
+    497.76
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      65.04,
+      438.72,
+      227.04,
+      449.76
+     ],
+     "text": "Morphology — See comparison tables."
+    },
+    {
+     "bbox": [
+      65.04,
+      449.76,
+      267.6,
+      458.4
+     ],
+     "text": "‘Charodeyka’ most closely resembles ‘Corrida‘ in"
+    },
+    {
+     "bbox": [
+      65.28,
+      459.84,
+      254.88,
+      468.96
+     ],
+     "text": "petal colouration but differs in having a larger"
+    },
+    {
+     "bbox": [
+      65.04,
+      469.92,
+      264.48,
+      478.56
+     ],
+     "text": "flower, a longer and thicker stem, more serrated"
+    },
+    {
+     "bbox": [
+      65.04,
+      479.04,
+      274.56,
+      489.6
+     ],
+     "text": "petals, a stronger perfume and a paler petal colour"
+    },
+    {
+     "bbox": [
+      65.04,
+      489.36,
+      234.0,
+      497.76
+     ],
+     "text": "{RHS 50A, 50D) than ‘Corrida’ (RHS 46D)."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology — See comparison tables.\n‘Charodeyka’ most closely resembles ‘Corrida‘ in\npetal colouration but differs in having a larger\nflower, a longer and thicker stem, more serrated\npetals, a stronger perfume and a paler petal colour\n{RHS 50A, 50D) than ‘Corrida’ (RHS 46D).",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    64.32,
+    509.52,
+    248.64,
+    547.68
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      64.56,
+      509.52,
+      232.8,
+      518.16
+     ],
+     "text": "Variety: ‘Neshka’ Application No. 88/019"
+    },
+    {
+     "bbox": [
+      64.8,
+      528.96,
+      105.84,
+      537.84
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      64.32,
+      538.8,
+      248.64,
+      547.68
+     ],
+     "text": "This variety is distinct from any other known"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: ‘Neshka’ Application No. 88/019\nDiagnosis\nThis variety is distinct from any other known",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    64.32,
+    548.64,
+    257.04,
+    566.16
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      64.32,
+      548.64,
+      257.04,
+      557.52
+     ],
+     "text": "variety in having the following combination of"
+    },
+    {
+     "bbox": [
+      64.32,
+      558.96,
+      127.44,
+      566.16
+     ],
+     "text": "characteristics:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "variety in having the following combination of\ncharacteristics:",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    66.48,
+    582.24,
+    221.76,
+    591.36
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      66.48,
+      582.24,
+      221.76,
+      591.36
+     ],
+     "text": "Neshka (Photo supplied by applicant)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Neshka (Photo supplied by applicant)",
+   "text_format": "plain",
+   "type": "caption",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "figure_title"
+  },
+  {
+   "bbox": [
+    306.96,
+    58.08,
+    517.92,
+    146.16
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      306.96,
+      58.08,
+      517.92,
+      66.48
+     ],
+     "text": "a medium large diameter double flower with many"
+    },
+    {
+     "bbox": [
+      307.2,
+      68.16,
+      484.8,
+      76.56
+     ],
+     "text": "petals; a pale lilac background petal colour"
+    },
+    {
+     "bbox": [
+      306.96,
+      78.0,
+      497.04,
+      86.4
+     ],
+     "text": "corresponding to RHS 62D with violet-reddish"
+    },
+    {
+     "bbox": [
+      307.2,
+      87.36,
+      497.04,
+      96.24
+     ],
+     "text": "(corresponding to RHS 604A} stripes in pairs or"
+    },
+    {
+     "bbox": [
+      306.96,
+      97.44,
+      496.32,
+      106.08
+     ],
+     "text": "groups on the distal half of the petals, and red"
+    },
+    {
+     "bbox": [
+      306.96,
+      107.52,
+      498.24,
+      115.92
+     ],
+     "text": "edges to petals; petal margins with large even"
+    },
+    {
+     "bbox": [
+      306.96,
+      117.12,
+      500.4,
+      126.0
+     ],
+     "text": "serrations; an epicalyx with 3 pairs of opposite"
+    },
+    {
+     "bbox": [
+      307.2,
+      127.2,
+      507.84,
+      136.08
+     ],
+     "text": "lobes; along thick stem; foliage and calyx witha"
+    },
+    {
+     "bbox": [
+      306.96,
+      137.28,
+      517.92,
+      146.16
+     ],
+     "text": "thick wax coating; and a calyx resistant to splitting."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a medium large diameter double flower with many\npetals; a pale lilac background petal colour\ncorresponding to RHS 62D with violet-reddish\n(corresponding to RHS 604A} stripes in pairs or\ngroups on the distal half of the petals, and red\nedges to petals; petal margins with large even\nserrations; an epicalyx with 3 pairs of opposite\nlobes; along thick stem; foliage and calyx witha\nthick wax coating; and a calyx resistant to splitting.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    306.24,
+    157.2,
+    468.72,
+    165.84
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      306.24,
+      157.2,
+      468.72,
+      165.84
+     ],
+     "text": "Morphology — See comparison tables."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology — See comparison tables.",
+   "text_format": "plain",
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "bbox": [
+    306.24,
+    177.36,
+    520.08,
+    225.6
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      306.24,
+      177.36,
+      520.08,
+      186.0
+     ],
+     "text": "‘Neshka’ most closely resembles ‘Canova’ in flower"
+    },
+    {
+     "bbox": [
+      306.24,
+      187.2,
+      496.32,
+      196.08
+     ],
+     "text": "colouration but differs having a slightly jarger"
+    },
+    {
+     "bbox": [
+      306.24,
+      196.8,
+      503.52,
+      205.92
+     ],
+     "text": "flower diameter, more serrated petals and petal"
+    },
+    {
+     "bbox": [
+      306.24,
+      206.88,
+      516.24,
+      215.52
+     ],
+     "text": "colours (RHS 62D, 60A) different to the pale yellow"
+    },
+    {
+     "bbox": [
+      306.24,
+      216.72,
+      503.28,
+      225.6
+     ],
+     "text": "(RHS 10C) with purple (64C) stripes of ‘Canova’."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "‘Neshka’ most closely resembles ‘Canova’ in flower\ncolouration but differs having a slightly jarger\nflower diameter, more serrated petals and petal\ncolours (RHS 62D, 60A) different to the pale yellow\n(RHS 10C) with purple (64C) stripes of ‘Canova’.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    306.0,
+    236.64,
+    474.24,
+    245.52
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      306.0,
+      236.64,
+      474.24,
+      245.52
+     ],
+     "text": "Variety: ‘Mechta’ Application No. 88/020"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: ‘Mechta’ Application No. 88/020",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    306.0,
+    256.56,
+    498.24,
+    293.76
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      306.24,
+      256.56,
+      347.52,
+      265.44
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      306.0,
+      266.64,
+      490.32,
+      275.28
+     ],
+     "text": "This variety is distinct from any other known"
+    },
+    {
+     "bbox": [
+      306.0,
+      276.48,
+      498.24,
+      285.36
+     ],
+     "text": "variety in having the following combination of"
+    },
+    {
+     "bbox": [
+      306.0,
+      286.8,
+      369.12,
+      293.76
+     ],
+     "text": "characteristics:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\nThis variety is distinct from any other known\nvariety in having the following combination of\ncharacteristics:",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    306.48,
+    306.96,
+    519.36,
+    375.12
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      306.48,
+      306.96,
+      509.52,
+      315.84
+     ],
+     "text": "a large diameter double flower with many petals,"
+    },
+    {
+     "bbox": [
+      306.48,
+      317.28,
+      499.68,
+      325.68
+     ],
+     "text": "some arranged ina thick central cluster; a dark"
+    },
+    {
+     "bbox": [
+      306.48,
+      327.12,
+      519.36,
+      336.0
+     ],
+     "text": "violet petal colour corresponding to RHS 74A; petal"
+    },
+    {
+     "bbox": [
+      306.72,
+      337.2,
+      507.84,
+      345.6
+     ],
+     "text": "margins with large even cserrations; an epicalyx"
+    },
+    {
+     "bbox": [
+      306.48,
+      347.04,
+      506.64,
+      355.68
+     ],
+     "text": "with 3 pairs of opposite lobes; along thick stem;"
+    },
+    {
+     "bbox": [
+      306.72,
+      356.88,
+      504.24,
+      365.52
+     ],
+     "text": "large foliage {very wide leaves) and calyx with a"
+    },
+    {
+     "bbox": [
+      306.48,
+      366.72,
+      517.44,
+      375.12
+     ],
+     "text": "thick wax coating; and a calyx resistant to splitting."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a large diameter double flower with many petals,\nsome arranged ina thick central cluster; a dark\nviolet petal colour corresponding to RHS 74A; petal\nmargins with large even cserrations; an epicalyx\nwith 3 pairs of opposite lobes; along thick stem;\nlarge foliage {very wide leaves) and calyx with a\nthick wax coating; and a calyx resistant to splitting.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    305.76,
+    386.16,
+    510.0,
+    443.28
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      305.76,
+      386.16,
+      432.48,
+      395.28
+     ],
+     "text": "Varieties used for Comparison"
+    },
+    {
+     "bbox": [
+      305.76,
+      396.0,
+      467.76,
+      404.88
+     ],
+     "text": "Morphology — See comparison tables."
+    },
+    {
+     "bbox": [
+      305.76,
+      406.08,
+      493.68,
+      415.44
+     ],
+     "text": "‘Mechta’ most closely resembles ‘Vanessa’ in"
+    },
+    {
+     "bbox": [
+      305.76,
+      416.16,
+      501.6,
+      425.28
+     ],
+     "text": "flower colouration but differs in having a larger"
+    },
+    {
+     "bbox": [
+      305.76,
+      426.24,
+      510.0,
+      435.12
+     ],
+     "text": "flower diameter, a larger stem and much broader"
+    },
+    {
+     "bbox": [
+      305.76,
+      436.32,
+      333.84,
+      443.28
+     ],
+     "text": "leaves."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for Comparison\nMorphology — See comparison tables.\n‘Mechta’ most closely resembles ‘Vanessa’ in\nflower colouration but differs in having a larger\nflower diameter, a larger stem and much broader\nleaves.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    306.48,
+    462.96,
+    461.76,
+    471.84
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      306.48,
+      462.96,
+      461.76,
+      471.84
+     ],
+     "text": "Mechta (Photo supplied by applicant)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Mechta (Photo supplied by applicant)",
+   "text_format": "plain",
+   "type": "caption",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "figure_title"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

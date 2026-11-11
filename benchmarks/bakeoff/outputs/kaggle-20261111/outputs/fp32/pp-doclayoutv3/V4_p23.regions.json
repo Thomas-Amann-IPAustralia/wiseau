@@ -1,0 +1,180 @@
+{
+ "model": "PaddlePaddle/PP-DocLayoutV3_safetensors",
+ "revision": "e4f489dc536556fc1be02b973ba06756e0d4a2ac",
+ "threshold": 0.5,
+ "load_seconds": 4.18,
+ "device": "cuda",
+ "dtype": "fp32",
+ "threads": null,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.16",
+  "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "gpu": "Tesla T4",
+ "regions": [
+  {
+   "bbox": [
+    85.2,
+    70.4,
+    488.6,
+    98.3
+   ],
+   "category": "text",
+   "score": 0.8753
+  },
+  {
+   "bbox": [
+    86.8,
+    112.1,
+    137.9,
+    125.3
+   ],
+   "category": "paragraph_title",
+   "score": 0.7737
+  },
+  {
+   "bbox": [
+    85.9,
+    122.6,
+    492.9,
+    186.8
+   ],
+   "category": "text",
+   "score": 0.9193
+  },
+  {
+   "bbox": [
+    87.8,
+    202.4,
+    424.6,
+    234.0
+   ],
+   "category": "figure_title",
+   "score": 0.8167
+  },
+  {
+   "bbox": [
+    87.6,
+    248.1,
+    496.6,
+    909.4
+   ],
+   "category": "table",
+   "score": 0.9713
+  },
+  {
+   "bbox": [
+    533.7,
+    69.8,
+    801.8,
+    82.4
+   ],
+   "category": "paragraph_title",
+   "score": 0.6277
+  },
+  {
+   "bbox": [
+    533.5,
+    81.0,
+    937.3,
+    168.2
+   ],
+   "category": "text",
+   "score": 0.9236
+  },
+  {
+   "bbox": [
+    533.7,
+    181.1,
+    932.6,
+    265.6
+   ],
+   "category": "text",
+   "score": 0.9369
+  },
+  {
+   "bbox": [
+    534.7,
+    281.3,
+    683.4,
+    299.9
+   ],
+   "category": "paragraph_title",
+   "score": 0.8348
+  },
+  {
+   "bbox": [
+    549.4,
+    379.1,
+    922.1,
+    393.4
+   ],
+   "category": "text",
+   "score": 0.7991
+  },
+  {
+   "bbox": [
+    535.0,
+    407.1,
+    938.9,
+    456.3
+   ],
+   "category": "text",
+   "score": 0.9186
+  },
+  {
+   "bbox": [
+    534.9,
+    471.4,
+    933.8,
+    510.2
+   ],
+   "category": "text",
+   "score": 0.9067
+  },
+  {
+   "bbox": [
+    534.8,
+    523.6,
+    942.6,
+    584.4
+   ],
+   "category": "text",
+   "score": 0.9292
+  },
+  {
+   "bbox": [
+    535.2,
+    598.6,
+    933.9,
+    636.8
+   ],
+   "category": "text",
+   "score": 0.9005
+  },
+  {
+   "bbox": [
+    914.2,
+    938.4,
+    939.3,
+    952.3
+   ],
+   "category": "number",
+   "score": 0.7118
+  }
+ ],
+ "seconds": 0.14,
+ "peak_rss_mb": 1986.5,
+ "peak_vram_mb": 892.2,
+ "image_px": [
+  1653,
+  2339
+ ],
+ "page": "V4_p23"
+}

@@ -1,0 +1,118 @@
+{
+ "model": "ATH-MaaS/OvisOCR3",
+ "revision": "17f255e2c8ae6d18d5d5edb0a474bd4ed39aef90",
+ "prompt": "document_structured",
+ "prompt_sha256": "1b6139ec72888e087c8af75f2e2dfb78b425e15ae1c1529940b96137613d1db1",
+ "max_new_tokens": 16384,
+ "do_sample": false,
+ "min_pixels": 200704,
+ "max_pixels": 8294400,
+ "route": "transformers",
+ "load_seconds": 2.91,
+ "device": "cuda",
+ "dtype": "fp16",
+ "threads": null,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.16",
+  "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "gpu": "Tesla T4",
+ "raw": "[\n    {\n        \"bbox\": [\n            140,\n            62,\n            313,\n            88\n        ],\n        \"category\": \"paragraph_title\",\n        \"content\": \"## CONTENTS\"\n    },\n    {\n        \"bbox\": [\n            137,\n            114,\n            912,\n            603\n        ],\n        \"category\": \"content\",\n        \"content\": \"REGISTRAR'S REMARKS 1  \\nPART 1 — ITEMS OF GENERAL INTEREST 2  \\nIMPLEMENTATION OF PVR — PROGRESS 2  \\nAMENDMENTS TO THE SCHEDULE 2  \\nPROPAGATION 2  \\nPERFORMANCE EVALUATION — Sale prior to application 2  \\nPVR TESTING — Register of Names 2  \\nUPOV 2  \\na) Membership 2  \\nb) Revision of the Convention 2  \\nPARTICIPATION BY INDUSTRY ORGANISATIONS 3  \\nPART 2 — MATTERS FOR PUBLIC NOTICE 4  \\nPVR GRANTED 4  \\nAPPLICATIONS ACCEPTED 4  \\na) descriptions finalised 4  \\nb) descriptions to be finalised 14  \\nPROVISIONAL PROTECTION 14  \\nVARIATIONS TO APPLICATIONS 15  \\nCORRIGENDA 15  \\nAPPENDIX 1 — PROPOSED SCHEDULE FOR INCLUDING GENERA/SPECIES IN THE PLANT VARIETY RIGHTS REGULATIONS 16  \\nAPPENDIX 2 — SECTIONS 16 and 17 OF THE PVR ACT 17  \\nAPPENDIX 3 — SECTION 26 OF THE PVR ACT 18  \\nAPPENDIX 4 — FEES 19  \\nAPPENDIX 5 — PLANT VARIETY RIGHTS ADVISORY COMMITTEE (PVRAC) 19\"\n    },\n    {\n        \"bbox\": [\n            141,\n            657,\n            256,\n            673\n        ],\n        \"category\": \"paragraph_title\",\n        \"content\": \"## Subscription —\"\n    },\n    {\n        \"bbox\": [\n            141,\n            681,\n            384,\n            721\n        ],\n        \"category\": \"text\",\n        \"content\": \"Available from the Australian Government Publishing Service, GPO Box 84, Canberra, ACT, 2601.\"\n    },\n    {\n        \"bbox\": [\n            142,\n            728,\n            263,\n            744\n        ],\n        \"category\": \"text\",\n        \"content\": \"ISSN 1030-9748\"\n    },\n    {\n        \"bbox\": [\n            140,\n            760,\n            385,\n            895\n        ],\n        \"category\": \"text\",\n        \"content\": \"This work is copyright. Apart from any use as permitted under the Copyright Act 1968, no part may be reproduced by any process without written permission from the Director Publishing and Marketing AGPS. Inquiries should be directed to the Manager, AGPS Press, Australian Government Publishing Service, G.P.O. Box 84, Canberra, A.C.T. 2601.\"\n    },\n    {\n        \"bbox\": [\n            138,\n            909,\n            389,\n            935\n        ],\n        \"category\": \"text\",\n        \"content\": \"Typeset and Printed in Australia by CPP Communications Ltd., Fyshwick, A.C.T.\"\n    }\n]",
+ "finish_reason": "stop",
+ "input_tokens": 4108,
+ "new_tokens": 873,
+ "image_grid_thw": [
+  [
+   1,
+   146,
+   104
+  ]
+ ],
+ "generate_seconds": 40.78,
+ "regions": [
+  {
+   "bbox": [
+    140.0,
+    62.0,
+    313.0,
+    88.0
+   ],
+   "category": "paragraph_title",
+   "content": "## CONTENTS"
+  },
+  {
+   "bbox": [
+    137.0,
+    114.0,
+    912.0,
+    603.0
+   ],
+   "category": "content",
+   "content": "REGISTRAR'S REMARKS 1  \nPART 1 — ITEMS OF GENERAL INTEREST 2  \nIMPLEMENTATION OF PVR — PROGRESS 2  \nAMENDMENTS TO THE SCHEDULE 2  \nPROPAGATION 2  \nPERFORMANCE EVALUATION — Sale prior to application 2  \nPVR TESTING — Register of Names 2  \nUPOV 2  \na) Membership 2  \nb) Revision of the Convention 2  \nPARTICIPATION BY INDUSTRY ORGANISATIONS 3  \nPART 2 — MATTERS FOR PUBLIC NOTICE 4  \nPVR GRANTED 4  \nAPPLICATIONS ACCEPTED 4  \na) descriptions finalised 4  \nb) descriptions to be finalised 14  \nPROVISIONAL PROTECTION 14  \nVARIATIONS TO APPLICATIONS 15  \nCORRIGENDA 15  \nAPPENDIX 1 — PROPOSED SCHEDULE FOR INCLUDING GENERA/SPECIES IN THE PLANT VARIETY RIGHTS REGULATIONS 16  \nAPPENDIX 2 — SECTIONS 16 and 17 OF THE PVR ACT 17  \nAPPENDIX 3 — SECTION 26 OF THE PVR ACT 18  \nAPPENDIX 4 — FEES 19  \nAPPENDIX 5 — PLANT VARIETY RIGHTS ADVISORY COMMITTEE (PVRAC) 19"
+  },
+  {
+   "bbox": [
+    141.0,
+    657.0,
+    256.0,
+    673.0
+   ],
+   "category": "paragraph_title",
+   "content": "## Subscription —"
+  },
+  {
+   "bbox": [
+    141.0,
+    681.0,
+    384.0,
+    721.0
+   ],
+   "category": "text",
+   "content": "Available from the Australian Government Publishing Service, GPO Box 84, Canberra, ACT, 2601."
+  },
+  {
+   "bbox": [
+    142.0,
+    728.0,
+    263.0,
+    744.0
+   ],
+   "category": "text",
+   "content": "ISSN 1030-9748"
+  },
+  {
+   "bbox": [
+    140.0,
+    760.0,
+    385.0,
+    895.0
+   ],
+   "category": "text",
+   "content": "This work is copyright. Apart from any use as permitted under the Copyright Act 1968, no part may be reproduced by any process without written permission from the Director Publishing and Marketing AGPS. Inquiries should be directed to the Manager, AGPS Press, Australian Government Publishing Service, G.P.O. Box 84, Canberra, A.C.T. 2601."
+  },
+  {
+   "bbox": [
+    138.0,
+    909.0,
+    389.0,
+    935.0
+   ],
+   "category": "text",
+   "content": "Typeset and Printed in Australia by CPP Communications Ltd., Fyshwick, A.C.T."
+  }
+ ],
+ "seconds": 40.98,
+ "peak_rss_mb": 3984.4,
+ "peak_vram_mb": 3243.0,
+ "image_px": [
+  1653,
+  2339
+ ],
+ "page": "V2_p2"
+}

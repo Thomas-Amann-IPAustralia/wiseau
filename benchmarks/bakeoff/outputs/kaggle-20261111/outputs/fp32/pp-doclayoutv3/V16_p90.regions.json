@@ -1,0 +1,70 @@
+{
+ "model": "PaddlePaddle/PP-DocLayoutV3_safetensors",
+ "revision": "e4f489dc536556fc1be02b973ba06756e0d4a2ac",
+ "threshold": 0.5,
+ "load_seconds": 4.18,
+ "device": "cuda",
+ "dtype": "fp32",
+ "threads": null,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.16",
+  "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "gpu": "Tesla T4",
+ "regions": [
+  {
+   "bbox": [
+    113.9,
+    60.2,
+    358.1,
+    71.6
+   ],
+   "category": "header",
+   "score": 0.8615
+  },
+  {
+   "bbox": [
+    251.4,
+    91.4,
+    344.7,
+    107.7
+   ],
+   "category": "figure_title",
+   "score": 0.8015
+  },
+  {
+   "bbox": [
+    111.3,
+    94.1,
+    878.0,
+    878.3
+   ],
+   "category": "table",
+   "score": 0.9746
+  },
+  {
+   "bbox": [
+    114.6,
+    913.4,
+    135.0,
+    924.9
+   ],
+   "category": "number",
+   "score": 0.7429
+  }
+ ],
+ "seconds": 0.15,
+ "peak_rss_mb": 2093.4,
+ "peak_vram_mb": 892.2,
+ "image_px": [
+  1809,
+  2495
+ ],
+ "page": "V16_p90"
+}

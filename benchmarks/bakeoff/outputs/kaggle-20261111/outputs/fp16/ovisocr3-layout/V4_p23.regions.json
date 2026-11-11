@@ -1,0 +1,210 @@
+{
+ "model": "ATH-MaaS/OvisOCR3",
+ "revision": "17f255e2c8ae6d18d5d5edb0a474bd4ed39aef90",
+ "prompt": "document_layout",
+ "prompt_sha256": "89bcc73c7340ff9fd83673c1aee2354c2cc735c6eded0ce2aa4501f28b914361",
+ "max_new_tokens": 4096,
+ "do_sample": false,
+ "min_pixels": 200704,
+ "max_pixels": 8294400,
+ "route": "transformers",
+ "load_seconds": 3.14,
+ "device": "cuda",
+ "dtype": "fp16",
+ "threads": null,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.16",
+  "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "gpu": "Tesla T4",
+ "raw": "[\n    {\n        \"bbox\": [\n            87,\n            69,\n            486,\n            96\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            87,\n            111,\n            134,\n            124\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            87,\n            122,\n            489,\n            183\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            89,\n            202,\n            422,\n            217\n        ],\n        \"category\": \"figure_title\"\n    },\n    {\n        \"bbox\": [\n            89,\n            218,\n            328,\n            231\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            89,\n            249,\n            492,\n            909\n        ],\n        \"category\": \"table\"\n    },\n    {\n        \"bbox\": [\n            535,\n            69,\n            797,\n            81\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            535,\n            80,\n            934,\n            165\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            535,\n            181,\n            929,\n            263\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            535,\n            281,\n            680,\n            298\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            535,\n            315,\n            934,\n            340\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            552,\n            339,\n            899,\n            363\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            552,\n            379,\n            918,\n            391\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            535,\n            406,\n            936,\n            454\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            535,\n            470,\n            929,\n            507\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            535,\n            523,\n            939,\n            582\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            535,\n            598,\n            929,\n            634\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            915,\n            938,\n            936,\n            951\n        ],\n        \"category\": \"number\"\n    }\n]",
+ "finish_reason": "stop",
+ "input_tokens": 3978,
+ "new_tokens": 897,
+ "image_grid_thw": [
+  [
+   1,
+   146,
+   104
+  ]
+ ],
+ "generate_seconds": 44.13,
+ "regions": [
+  {
+   "bbox": [
+    87.0,
+    69.0,
+    486.0,
+    96.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    87.0,
+    111.0,
+    134.0,
+    124.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    87.0,
+    122.0,
+    489.0,
+    183.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    89.0,
+    202.0,
+    422.0,
+    217.0
+   ],
+   "category": "figure_title"
+  },
+  {
+   "bbox": [
+    89.0,
+    218.0,
+    328.0,
+    231.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    89.0,
+    249.0,
+    492.0,
+    909.0
+   ],
+   "category": "table"
+  },
+  {
+   "bbox": [
+    535.0,
+    69.0,
+    797.0,
+    81.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    535.0,
+    80.0,
+    934.0,
+    165.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    535.0,
+    181.0,
+    929.0,
+    263.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    535.0,
+    281.0,
+    680.0,
+    298.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    535.0,
+    315.0,
+    934.0,
+    340.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    552.0,
+    339.0,
+    899.0,
+    363.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    552.0,
+    379.0,
+    918.0,
+    391.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    535.0,
+    406.0,
+    936.0,
+    454.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    535.0,
+    470.0,
+    929.0,
+    507.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    535.0,
+    523.0,
+    939.0,
+    582.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    535.0,
+    598.0,
+    929.0,
+    634.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    915.0,
+    938.0,
+    936.0,
+    951.0
+   ],
+   "category": "number"
+  }
+ ],
+ "seconds": 44.31,
+ "peak_rss_mb": 3983.7,
+ "peak_vram_mb": 3156.6,
+ "image_px": [
+  1653,
+  2339
+ ],
+ "page": "V4_p23"
+}

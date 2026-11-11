@@ -1,0 +1,111 @@
+{
+ "model": "ATH-MaaS/OvisOCR3",
+ "revision": "17f255e2c8ae6d18d5d5edb0a474bd4ed39aef90",
+ "prompt": "document_layout",
+ "prompt_sha256": "89bcc73c7340ff9fd83673c1aee2354c2cc735c6eded0ce2aa4501f28b914361",
+ "max_new_tokens": 4096,
+ "do_sample": false,
+ "min_pixels": 200704,
+ "max_pixels": 8294400,
+ "route": "transformers",
+ "load_seconds": 3.01,
+ "device": "cuda",
+ "dtype": "fp16",
+ "threads": null,
+ "dpi": 200,
+ "versions": {
+  "python": "3.13.16",
+  "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.22.1",
+  "accelerate": "1.15.0",
+  "pymupdf": "1.28.0",
+  "pillow": "13.0.0"
+ },
+ "gpu": "Tesla T4",
+ "raw": "[\n    {\n        \"bbox\": [\n            140,\n            62,\n            313,\n            88\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            137,\n            114,\n            912,\n            603\n        ],\n        \"category\": \"content\"\n    },\n    {\n        \"bbox\": [\n            141,\n            657,\n            256,\n            673\n        ],\n        \"category\": \"paragraph_title\"\n    },\n    {\n        \"bbox\": [\n            141,\n            681,\n            384,\n            721\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            142,\n            728,\n            263,\n            744\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            140,\n            760,\n            385,\n            895\n        ],\n        \"category\": \"text\"\n    },\n    {\n        \"bbox\": [\n            138,\n            909,\n            389,\n            936\n        ],\n        \"category\": \"text\"\n    }\n]",
+ "finish_reason": "stop",
+ "input_tokens": 3978,
+ "new_tokens": 354,
+ "image_grid_thw": [
+  [
+   1,
+   146,
+   104
+  ]
+ ],
+ "generate_seconds": 19.7,
+ "regions": [
+  {
+   "bbox": [
+    140.0,
+    62.0,
+    313.0,
+    88.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    137.0,
+    114.0,
+    912.0,
+    603.0
+   ],
+   "category": "content"
+  },
+  {
+   "bbox": [
+    141.0,
+    657.0,
+    256.0,
+    673.0
+   ],
+   "category": "paragraph_title"
+  },
+  {
+   "bbox": [
+    141.0,
+    681.0,
+    384.0,
+    721.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    142.0,
+    728.0,
+    263.0,
+    744.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    140.0,
+    760.0,
+    385.0,
+    895.0
+   ],
+   "category": "text"
+  },
+  {
+   "bbox": [
+    138.0,
+    909.0,
+    389.0,
+    936.0
+   ],
+   "category": "text"
+  }
+ ],
+ "seconds": 19.9,
+ "peak_rss_mb": 3984.2,
+ "peak_vram_mb": 3158.6,
+ "image_px": [
+  1653,
+  2339
+ ],
+ "page": "V2_p2"
+}

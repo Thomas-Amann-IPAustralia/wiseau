@@ -1,0 +1,2290 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    41.52,
+    58.08,
+    277.2,
+    99.84
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      41.52,
+      58.08,
+      277.2,
+      66.72
+     ],
+     "text": "derives from a single head selection from this cross at F2. Field"
+    },
+    {
+     "bbox": [
+      41.76,
+      69.12,
+      276.96,
+      78.0
+     ],
+     "text": "testing in replicated field trials commenced at the F5 genera-"
+    },
+    {
+     "bbox": [
+      41.52,
+      80.16,
+      277.2,
+      88.8
+     ],
+     "text": "tion and lines were evaluated for yield, disease resistance and"
+    },
+    {
+     "bbox": [
+      41.52,
+      91.2,
+      74.4,
+      99.84
+     ],
+     "text": "maturity."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "derives from a single head selection from this cross at F2. Field\ntesting in replicated field trials commenced at the F5 genera-\ntion and lines were evaluated for yield, disease resistance and\nmaturity.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    41.28,
+    109.68,
+    276.96,
+    163.2
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      41.28,
+      109.68,
+      175.92,
+      118.8
+     ],
+     "text": "Varieties used for comparison"
+    },
+    {
+     "bbox": [
+      42.0,
+      124.8,
+      276.96,
+      133.44
+     ],
+     "text": "‘Currency’ being the closest known variety and ‘Muir’ and"
+    },
+    {
+     "bbox": [
+      42.0,
+      135.84,
+      200.88,
+      144.48
+     ],
+     "text": "‘Tahara’ being industry standard varieties."
+    },
+    {
+     "bbox": [
+      41.28,
+      154.08,
+      166.56,
+      163.2
+     ],
+     "text": "Comparative Growing Trials"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comparison\n‘Currency’ being the closest known variety and ‘Muir’ and\n‘Tahara’ being industry standard varieties.\nComparative Growing Trials",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    41.04,
+    168.96,
+    276.72,
+    188.4
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      41.28,
+      168.96,
+      276.72,
+      177.6
+     ],
+     "text": "All characteristics described and comparisons are from com-"
+    },
+    {
+     "bbox": [
+      41.04,
+      179.76,
+      276.72,
+      188.4
+     ],
+     "text": "parative growing trials conducted at Urrbrae Agricultural High"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "All characteristics described and comparisons are from com-\nparative growing trials conducted at Urrbrae Agricultural High",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    304.8,
+    58.8,
+    541.44,
+    111.12
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      305.04,
+      58.8,
+      541.44,
+      67.44
+     ],
+     "text": "School, near Adelaide, South Australia, in 1991, on Bay of"
+    },
+    {
+     "bbox": [
+      305.04,
+      69.6,
+      540.48,
+      78.24
+     ],
+     "text": "Biscay clay soil, with 620 mm annual rainfall. Varieties were"
+    },
+    {
+     "bbox": [
+      304.8,
+      80.64,
+      540.24,
+      89.52
+     ],
+     "text": "grown in three replications at a density of 100 plants per square"
+    },
+    {
+     "bbox": [
+      304.8,
+      91.68,
+      540.0,
+      98.64
+     ],
+     "text": "metre. Measurements were taken at random from at least 25"
+    },
+    {
+     "bbox": [
+      304.8,
+      102.96,
+      328.8,
+      111.12
+     ],
+     "text": "plants."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "School, near Adelaide, South Australia, in 1991, on Bay of\nBiscay clay soil, with 620 mm annual rainfall. Varieties were\ngrown in three replications at a density of 100 plants per square\nmetre. Measurements were taken at random from at least 25\nplants.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    304.56,
+    121.2,
+    351.36,
+    130.32
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      304.56,
+      121.2,
+      351.36,
+      130.32
+     ],
+     "text": "Agronomy"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Agronomy",
+   "text_format": "plain",
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "bbox": [
+    304.56,
+    136.32,
+    540.96,
+    188.4
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      305.28,
+      136.32,
+      540.24,
+      144.96
+     ],
+     "text": "‘Abacus’ is intended for sowing in autumn and winter in the"
+    },
+    {
+     "bbox": [
+      304.8,
+      147.36,
+      540.96,
+      155.76
+     ],
+     "text": "longer season, wetter areas (600-1000 mm annual rainfall) of"
+    },
+    {
+     "bbox": [
+      304.8,
+      158.4,
+      540.0,
+      165.12
+     ],
+     "text": "the southern wheat belt. ‘Abacus’ has been observed to be tol-"
+    },
+    {
+     "bbox": [
+      304.56,
+      169.2,
+      540.24,
+      177.12
+     ],
+     "text": "erant of acid soil, and shows field resistance to stem, leaf and"
+    },
+    {
+     "bbox": [
+      304.8,
+      180.0,
+      536.64,
+      188.4
+     ],
+     "text": "stripe rusts (Puccinia graminis, P. recondita and P. striiformis)."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "‘Abacus’ is intended for sowing in autumn and winter in the\nlonger season, wetter areas (600-1000 mm annual rainfall) of\nthe southern wheat belt. ‘Abacus’ has been observed to be tol-\nerant of acid soil, and shows field resistance to stem, leaf and\nstripe rusts (Puccinia graminis, P. recondita and P. striiformis).",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    45.6,
+    203.04,
+    221.52,
+    211.92
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      45.6,
+      203.04,
+      221.52,
+      211.92
+     ],
+     "text": "Table of Comparison of Triticale Varieties"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Triticale Varieties",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "table"
+  },
+  {
+   "bbox": [
+    40.33,
+    213.6,
+    468.75,
+    546.64
+   ],
+   "confidence": null,
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      41.52,
+      217.92,
+      156.24,
+      225.6
+     ],
+     "text": "(* = variety used for comparison)"
+    },
+    {
+     "bbox": [
+      185.28,
+      233.04,
+      461.28,
+      242.88
+     ],
+     "text": "‘Abacus’ Currency’ *Tahara’ Muir’"
+    },
+    {
+     "bbox": [
+      41.04,
+      248.88,
+      455.52,
+      258.48
+     ],
+     "text": "CHAFF COLOUR brown white white white"
+    },
+    {
+     "bbox": [
+      41.28,
+      265.44,
+      243.36,
+      273.36
+     ],
+     "text": "DAYS TO 50% HEAD EMERGENCE (sown 5 June 1991)"
+    },
+    {
+     "bbox": [
+      185.52,
+      275.76,
+      449.28,
+      281.76
+     ],
+     "text": "130 116 118 113"
+    },
+    {
+     "bbox": [
+      41.28,
+      291.12,
+      147.36,
+      298.8
+     ],
+     "text": "LEAF WIDTH (first below flag)"
+    },
+    {
+     "bbox": [
+      41.28,
+      301.2,
+      467.52,
+      307.2
+     ],
+     "text": "mean 18.7 mm 21.0mm 18.5 mm 20.6 mm"
+    },
+    {
+     "bbox": [
+      41.28,
+      311.04,
+      458.64,
+      318.48
+     ],
+     "text": "range 16-22 16-25 16-22 17-25"
+    },
+    {
+     "bbox": [
+      40.8,
+      320.88,
+      452.16,
+      326.88
+     ],
+     "text": "std. deviation 1.28 1.99 1.28 1.98"
+    },
+    {
+     "bbox": [
+      41.28,
+      336.0,
+      153.6,
+      343.68
+     ],
+     "text": "LEAF LENGTH (first below flag)"
+    },
+    {
+     "bbox": [
+      41.28,
+      346.08,
+      469.44,
+      352.08
+     ],
+     "text": "mean 39.94 cm 39.32 cm 32.44 cm 33.06 cm"
+    },
+    {
+     "bbox": [
+      41.28,
+      355.92,
+      458.88,
+      363.36
+     ],
+     "text": "range 32-45 30-48 26-36 26-40"
+    },
+    {
+     "bbox": [
+      40.8,
+      365.76,
+      452.16,
+      372.0
+     ],
+     "text": "std. deviation 2.74 3.69 2.09 2.94"
+    },
+    {
+     "bbox": [
+      41.04,
+      381.6,
+      159.36,
+      389.28
+     ],
+     "text": "HEAD LENGTH (excluding awns)"
+    },
+    {
+     "bbox": [
+      41.04,
+      391.68,
+      464.88,
+      397.68
+     ],
+     "text": "mean 16.0 cm 16.7 cm 12.9cm 13.6 cm"
+    },
+    {
+     "bbox": [
+      41.04,
+      401.76,
+      454.56,
+      409.44
+     ],
+     "text": "range 13.5-19 14-19 11-14.5 9-17"
+    },
+    {
+     "bbox": [
+      40.56,
+      411.84,
+      451.92,
+      418.08
+     ],
+     "text": "std. deviation 1.32 1.12 0.93 2.05"
+    },
+    {
+     "bbox": [
+      40.56,
+      427.44,
+      162.0,
+      435.12
+     ],
+     "text": "AWN LENGTH (above tip of head)"
+    },
+    {
+     "bbox": [
+      41.04,
+      437.52,
+      460.32,
+      443.28
+     ],
+     "text": "mean 5.5 cm 6.5 cm 5.6 cm 5.2 cm"
+    },
+    {
+     "bbox": [
+      41.04,
+      447.36,
+      456.48,
+      454.8
+     ],
+     "text": "range 4-6 5-8 4.5-7.5 2.5-8"
+    },
+    {
+     "bbox": [
+      40.8,
+      457.2,
+      450.72,
+      463.44
+     ],
+     "text": "std. deviation 0.58 0.78 0.76 0.41"
+    },
+    {
+     "bbox": [
+      41.04,
+      472.56,
+      176.64,
+      479.04
+     ],
+     "text": "LENGTH OF 10 RACHIS SEGMENTS"
+    },
+    {
+     "bbox": [
+      41.04,
+      482.4,
+      460.32,
+      488.64
+     ],
+     "text": "mean 3.78 cm 5.02 cm 3.8cm 4.2cm"
+    },
+    {
+     "bbox": [
+      40.8,
+      492.48,
+      451.92,
+      498.96
+     ],
+     "text": "std. deviation 0.36 0.39 0.25 0.54"
+    },
+    {
+     "bbox": [
+      41.28,
+      508.08,
+      266.88,
+      515.76
+     ],
+     "text": "PLANT HEIGHT (excluding awns; heads pulled up to full extent)"
+    },
+    {
+     "bbox": [
+      40.8,
+      517.92,
+      468.72,
+      524.16
+     ],
+     "text": "mean 117.4cm 109.4 cm 113.9 cm 118.5 cm"
+    },
+    {
+     "bbox": [
+      40.8,
+      527.76,
+      467.76,
+      535.92
+     ],
+     "text": "range 109-129 91-116 97-126 109-136"
+    },
+    {
+     "bbox": [
+      40.56,
+      538.08,
+      452.16,
+      544.8
+     ],
+     "text": "std. deviation 6.05 7.71 6.11 8.38"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       41.52,
+       217.92,
+       156.24,
+       225.6
+      ],
+      "header": true,
+      "text": "(* = variety used for comparison)"
+     },
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       185.28,
+       233.04,
+       217.68,
+       242.88
+      ],
+      "header": true,
+      "text": "‘Abacus’"
+     },
+     {
+      "bbox": [
+       269.28,
+       234.24,
+       311.04,
+       241.68
+      ],
+      "header": true,
+      "text": "Currency’"
+     },
+     {
+      "bbox": [
+       353.52,
+       233.04,
+       385.68,
+       242.88
+      ],
+      "header": true,
+      "text": "*Tahara’"
+     },
+     {
+      "bbox": [
+       437.52,
+       234.24,
+       461.28,
+       240.24
+      ],
+      "header": true,
+      "text": "Muir’"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       41.04,
+       249.6,
+       103.2,
+       256.08
+      ],
+      "text": "CHAFF COLOUR"
+     },
+     {
+      "bbox": [
+       185.28,
+       250.08,
+       205.92,
+       255.84
+      ],
+      "text": "brown"
+     },
+     {
+      "bbox": [
+       267.84,
+       248.88,
+       287.28,
+       258.48
+      ],
+      "text": "white"
+     },
+     {
+      "bbox": [
+       352.08,
+       248.88,
+       371.52,
+       258.48
+      ],
+      "text": "white"
+     },
+     {
+      "bbox": [
+       437.04,
+       250.08,
+       455.52,
+       256.08
+      ],
+      "text": "white"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       41.28,
+       265.44,
+       243.36,
+       273.36
+      ],
+      "text": "DAYS TO 50% HEAD EMERGENCE (sown 5 June 1991)"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       185.52,
+       275.76,
+       197.76,
+       281.52
+      ],
+      "text": "130"
+     },
+     {
+      "bbox": [
+       269.52,
+       276.0,
+       281.04,
+       281.76
+      ],
+      "text": "116"
+     },
+     {
+      "bbox": [
+       353.76,
+       275.76,
+       365.28,
+       281.76
+      ],
+      "text": "118"
+     },
+     {
+      "bbox": [
+       437.76,
+       276.0,
+       449.28,
+       281.52
+      ],
+      "text": "113"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       41.28,
+       291.12,
+       147.36,
+       298.8
+      ],
+      "text": "LEAF WIDTH (first below flag)"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       41.28,
+       302.4,
+       60.0,
+       306.96
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       185.52,
+       301.44,
+       215.28,
+       306.96
+      ],
+      "text": "18.7 mm"
+     },
+     {
+      "bbox": [
+       269.04,
+       301.2,
+       299.28,
+       306.96
+      ],
+      "text": "21.0mm"
+     },
+     {
+      "bbox": [
+       353.76,
+       301.2,
+       383.52,
+       307.2
+      ],
+      "text": "18.5 mm"
+     },
+     {
+      "bbox": [
+       437.28,
+       301.2,
+       467.52,
+       306.96
+      ],
+      "text": "20.6 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       41.28,
+       312.48,
+       60.72,
+       318.48
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       185.52,
+       311.04,
+       206.64,
+       317.04
+      ],
+      "text": "16-22"
+     },
+     {
+      "bbox": [
+       269.52,
+       311.28,
+       290.64,
+       317.04
+      ],
+      "text": "16-25"
+     },
+     {
+      "bbox": [
+       353.76,
+       311.04,
+       374.64,
+       316.8
+      ],
+      "text": "16-22"
+     },
+     {
+      "bbox": [
+       437.76,
+       311.04,
+       458.64,
+       316.8
+      ],
+      "text": "17-25"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       40.8,
+       320.88,
+       87.12,
+       326.88
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       185.52,
+       321.12,
+       199.92,
+       326.64
+      ],
+      "text": "1.28"
+     },
+     {
+      "bbox": [
+       269.52,
+       321.12,
+       283.92,
+       326.88
+      ],
+      "text": "1.99"
+     },
+     {
+      "bbox": [
+       353.76,
+       320.88,
+       368.16,
+       326.88
+      ],
+      "text": "1.28"
+     },
+     {
+      "bbox": [
+       437.76,
+       321.12,
+       452.16,
+       326.64
+      ],
+      "text": "1.98"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       41.28,
+       336.0,
+       153.6,
+       343.68
+      ],
+      "text": "LEAF LENGTH (first below flag)"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       41.28,
+       347.52,
+       60.0,
+       352.08
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       185.04,
+       346.32,
+       216.96,
+       351.84
+      ],
+      "text": "39.94 cm"
+     },
+     {
+      "bbox": [
+       269.04,
+       346.32,
+       301.2,
+       352.08
+      ],
+      "text": "39.32 cm"
+     },
+     {
+      "bbox": [
+       353.28,
+       346.08,
+       385.2,
+       351.84
+      ],
+      "text": "32.44 cm"
+     },
+     {
+      "bbox": [
+       437.52,
+       346.08,
+       469.44,
+       351.84
+      ],
+      "text": "33.06 cm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       41.28,
+       357.36,
+       60.72,
+       363.36
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       185.04,
+       356.16,
+       206.64,
+       361.92
+      ],
+      "text": "32-45"
+     },
+     {
+      "bbox": [
+       269.28,
+       356.16,
+       290.64,
+       361.92
+      ],
+      "text": "30-48"
+     },
+     {
+      "bbox": [
+       353.28,
+       356.16,
+       374.88,
+       362.16
+      ],
+      "text": "26-36"
+     },
+     {
+      "bbox": [
+       437.28,
+       355.92,
+       458.88,
+       361.92
+      ],
+      "text": "26-40"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       40.8,
+       365.76,
+       87.12,
+       372.0
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       185.04,
+       366.0,
+       199.92,
+       371.76
+      ],
+      "text": "2.74"
+     },
+     {
+      "bbox": [
+       269.28,
+       366.0,
+       284.16,
+       371.76
+      ],
+      "text": "3.69"
+     },
+     {
+      "bbox": [
+       353.28,
+       365.76,
+       368.16,
+       371.76
+      ],
+      "text": "2.09"
+     },
+     {
+      "bbox": [
+       437.28,
+       366.0,
+       452.16,
+       371.76
+      ],
+      "text": "2.94"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       41.04,
+       381.6,
+       159.36,
+       389.28
+      ],
+      "text": "HEAD LENGTH (excluding awns)"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       41.04,
+       393.12,
+       59.76,
+       397.68
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       185.28,
+       391.68,
+       212.64,
+       397.68
+      ],
+      "text": "16.0 cm"
+     },
+     {
+      "bbox": [
+       269.52,
+       391.92,
+       296.64,
+       397.68
+      ],
+      "text": "16.7 cm"
+     },
+     {
+      "bbox": [
+       353.52,
+       391.68,
+       380.88,
+       397.68
+      ],
+      "text": "12.9cm"
+     },
+     {
+      "bbox": [
+       437.52,
+       391.68,
+       464.88,
+       397.44
+      ],
+      "text": "13.6 cm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       41.04,
+       403.2,
+       60.48,
+       409.44
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       185.52,
+       402.0,
+       213.36,
+       408.0
+      ],
+      "text": "13.5-19"
+     },
+     {
+      "bbox": [
+       269.52,
+       402.0,
+       290.64,
+       407.76
+      ],
+      "text": "14-19"
+     },
+     {
+      "bbox": [
+       353.52,
+       401.76,
+       380.64,
+       407.76
+      ],
+      "text": "11-14.5"
+     },
+     {
+      "bbox": [
+       437.04,
+       401.76,
+       454.56,
+       407.52
+      ],
+      "text": "9-17"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       40.56,
+       412.08,
+       87.12,
+       418.08
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       185.28,
+       412.08,
+       199.68,
+       417.84
+      ],
+      "text": "1.32"
+     },
+     {
+      "bbox": [
+       269.52,
+       412.08,
+       283.68,
+       417.84
+      ],
+      "text": "1.12"
+     },
+     {
+      "bbox": [
+       353.04,
+       411.84,
+       367.92,
+       417.84
+      ],
+      "text": "0.93"
+     },
+     {
+      "bbox": [
+       437.04,
+       411.84,
+       451.92,
+       417.6
+      ],
+      "text": "2.05"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       40.56,
+       427.44,
+       162.0,
+       435.12
+      ],
+      "text": "AWN LENGTH (above tip of head)"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       41.04,
+       438.96,
+       60.0,
+       443.28
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       184.8,
+       437.76,
+       208.08,
+       443.28
+      ],
+      "text": "5.5 cm"
+     },
+     {
+      "bbox": [
+       268.8,
+       437.76,
+       292.08,
+       443.28
+      ],
+      "text": "6.5 cm"
+     },
+     {
+      "bbox": [
+       353.04,
+       437.52,
+       376.32,
+       443.28
+      ],
+      "text": "5.6 cm"
+     },
+     {
+      "bbox": [
+       437.04,
+       437.52,
+       460.32,
+       443.04
+      ],
+      "text": "5.2 cm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       41.04,
+       448.8,
+       60.48,
+       454.8
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       184.8,
+       447.6,
+       197.52,
+       453.12
+      ],
+      "text": "4-6"
+     },
+     {
+      "bbox": [
+       268.8,
+       447.6,
+       281.52,
+       453.12
+      ],
+      "text": "5-8"
+     },
+     {
+      "bbox": [
+       352.8,
+       447.36,
+       379.2,
+       453.12
+      ],
+      "text": "4.5-7.5"
+     },
+     {
+      "bbox": [
+       437.04,
+       447.36,
+       456.48,
+       452.88
+      ],
+      "text": "2.5-8"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       40.8,
+       457.44,
+       87.12,
+       463.44
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       184.8,
+       457.44,
+       199.68,
+       463.2
+      ],
+      "text": "0.58"
+     },
+     {
+      "bbox": [
+       268.8,
+       457.44,
+       283.68,
+       463.2
+      ],
+      "text": "0.78"
+     },
+     {
+      "bbox": [
+       353.04,
+       457.2,
+       367.92,
+       463.2
+      ],
+      "text": "0.76"
+     },
+     {
+      "bbox": [
+       437.04,
+       457.2,
+       450.72,
+       462.96
+      ],
+      "text": "0.41"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       41.04,
+       472.56,
+       176.64,
+       479.04
+      ],
+      "text": "LENGTH OF 10 RACHIS SEGMENTS"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       41.04,
+       484.32,
+       60.0,
+       488.64
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       184.8,
+       482.88,
+       212.64,
+       488.64
+      ],
+      "text": "3.78 cm"
+     },
+     {
+      "bbox": [
+       269.04,
+       482.88,
+       296.64,
+       488.64
+      ],
+      "text": "5.02 cm"
+     },
+     {
+      "bbox": [
+       353.04,
+       482.4,
+       376.32,
+       488.4
+      ],
+      "text": "3.8cm"
+     },
+     {
+      "bbox": [
+       437.04,
+       482.4,
+       460.32,
+       488.16
+      ],
+      "text": "4.2cm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       40.8,
+       492.72,
+       87.12,
+       498.96
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       184.8,
+       492.72,
+       199.92,
+       498.48
+      ],
+      "text": "0.36"
+     },
+     {
+      "bbox": [
+       268.8,
+       492.72,
+       283.92,
+       498.48
+      ],
+      "text": "0.39"
+     },
+     {
+      "bbox": [
+       353.04,
+       492.48,
+       367.92,
+       498.48
+      ],
+      "text": "0.25"
+     },
+     {
+      "bbox": [
+       437.04,
+       492.48,
+       451.92,
+       498.24
+      ],
+      "text": "0.54"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       41.28,
+       508.08,
+       266.88,
+       515.76
+      ],
+      "text": "PLANT HEIGHT (excluding awns; heads pulled up to full extent)"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       40.8,
+       519.6,
+       60.0,
+       524.16
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       185.52,
+       518.16,
+       216.24,
+       524.16
+      ],
+      "text": "117.4cm"
+     },
+     {
+      "bbox": [
+       269.52,
+       518.16,
+       300.96,
+       523.92
+      ],
+      "text": "109.4 cm"
+     },
+     {
+      "bbox": [
+       353.76,
+       517.92,
+       384.48,
+       523.92
+      ],
+      "text": "113.9 cm"
+     },
+     {
+      "bbox": [
+       437.76,
+       517.92,
+       468.72,
+       523.44
+      ],
+      "text": "118.5 cm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       40.8,
+       529.92,
+       60.72,
+       535.92
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       185.28,
+       528.24,
+       215.52,
+       534.24
+      ],
+      "text": "109-129"
+     },
+     {
+      "bbox": [
+       269.04,
+       528.24,
+       294.48,
+       534.0
+      ],
+      "text": "91-116"
+     },
+     {
+      "bbox": [
+       353.28,
+       528.0,
+       379.2,
+       534.0
+      ],
+      "text": "97-126"
+     },
+     {
+      "bbox": [
+       437.76,
+       527.76,
+       467.76,
+       533.76
+      ],
+      "text": "109-136"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       40.56,
+       538.56,
+       86.88,
+       544.8
+      ],
+      "text": "std. deviation"
+     },
+     {
+      "bbox": [
+       184.8,
+       538.56,
+       199.92,
+       544.32
+      ],
+      "text": "6.05"
+     },
+     {
+      "bbox": [
+       268.8,
+       538.32,
+       282.72,
+       544.08
+      ],
+      "text": "7.71"
+     },
+     {
+      "bbox": [
+       352.8,
+       538.08,
+       366.24,
+       544.08
+      ],
+      "text": "6.11"
+     },
+     {
+      "bbox": [
+       437.04,
+       538.08,
+       452.16,
+       543.84
+      ],
+      "text": "8.38"
+     }
+    ]
+   ],
+   "score": 0.9996,
+   "signal": "tatr",
+   "source": "tatr",
+   "text": "(* = variety used for comparison)    \n ‘Abacus’ Currency’ *Tahara’ Muir’\nCHAFF COLOUR brown white white white\nDAYS TO 50% HEAD EMERGENCE (sown 5 June 1991)    \n 130 116 118 113\nLEAF WIDTH (first below flag)    \nmean 18.7 mm 21.0mm 18.5 mm 20.6 mm\nrange 16-22 16-25 16-22 17-25\nstd. deviation 1.28 1.99 1.28 1.98\nLEAF LENGTH (first below flag)    \nmean 39.94 cm 39.32 cm 32.44 cm 33.06 cm\nrange 32-45 30-48 26-36 26-40\nstd. deviation 2.74 3.69 2.09 2.94\nHEAD LENGTH (excluding awns)    \nmean 16.0 cm 16.7 cm 12.9cm 13.6 cm\nrange 13.5-19 14-19 11-14.5 9-17\nstd. deviation 1.32 1.12 0.93 2.05\nAWN LENGTH (above tip of head)    \nmean 5.5 cm 6.5 cm 5.6 cm 5.2 cm\nrange 4-6 5-8 4.5-7.5 2.5-8\nstd. deviation 0.58 0.78 0.76 0.41\nLENGTH OF 10 RACHIS SEGMENTS    \nmean 3.78 cm 5.02 cm 3.8cm 4.2cm\nstd. deviation 0.36 0.39 0.25 0.54\nPLANT HEIGHT (excluding awns; heads pulled up to full extent)    \nmean 117.4cm 109.4 cm 113.9 cm 118.5 cm\nrange 109-129 91-116 97-126 109-136\nstd. deviation 6.05 7.71 6.11 8.38",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    40.56,
+    565.92,
+    539.76,
+    575.04
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      40.56,
+      565.92,
+      539.76,
+      575.04
+     ],
+     "text": "WALLABY GRASS ‘Taranna’ is distinct from naturally occurring ecotypes in that"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "WALLABY GRASS ‘Taranna’ is distinct from naturally occurring ecotypes in that",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    41.52,
+    580.32,
+    150.72,
+    588.48
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      41.52,
+      580.32,
+      150.72,
+      588.48
+     ],
+     "text": "Danthonia richardsonii"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Danthonia richardsonii",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    40.56,
+    596.4,
+    55.44,
+    611.04
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      40.56,
+      596.4,
+      55.44,
+      611.04
+     ],
+     "text": "[_]"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "[_]",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "image"
+  },
+  {
+   "bbox": [
+    40.8,
+    616.56,
+    224.4,
+    660.0
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      41.04,
+      616.56,
+      224.4,
+      625.44
+     ],
+     "text": "Variety: “Taranna’. See fig. 6 in colour section."
+    },
+    {
+     "bbox": [
+      40.8,
+      628.32,
+      130.08,
+      636.72
+     ],
+     "text": "Application No. 91/098"
+    },
+    {
+     "bbox": [
+      40.8,
+      639.6,
+      204.24,
+      648.24
+     ],
+     "text": "Application Received: 27 September 1991"
+    },
+    {
+     "bbox": [
+      40.8,
+      651.12,
+      215.76,
+      660.0
+     ],
+     "text": "Applicant: NSW Agriculture, Orange, NSW"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: “Taranna’. See fig. 6 in colour section.\nApplication No. 91/098\nApplication Received: 27 September 1991\nApplicant: NSW Agriculture, Orange, NSW",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    41.28,
+    671.52,
+    217.2,
+    680.88
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      41.28,
+      671.52,
+      217.2,
+      680.88
+     ],
+     "text": "Description—see also comparison tables"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Description—see also comparison tables",
+   "text_format": "plain",
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "bbox": [
+    40.8,
+    686.64,
+    276.72,
+    769.68
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      41.52,
+      686.64,
+      276.48,
+      695.28
+     ],
+     "text": "“Taranna’ is a new variety of the native grass Danthonia"
+    },
+    {
+     "bbox": [
+      41.04,
+      697.68,
+      276.24,
+      706.08
+     ],
+     "text": "richardsonii. \\t is distinct from the only other known variety"
+    },
+    {
+     "bbox": [
+      41.76,
+      708.72,
+      276.72,
+      717.36
+     ],
+     "text": "‘Hume’ in having a wider inflorescence and glumes, longer"
+    },
+    {
+     "bbox": [
+      40.8,
+      719.52,
+      276.24,
+      728.16
+     ],
+     "text": "flag leaves and wider flag and tiller leaves. Although the culm"
+    },
+    {
+     "bbox": [
+      40.8,
+      730.56,
+      276.72,
+      739.44
+     ],
+     "text": "heights of the two varieties are similar, “Taranna’ has a greater"
+    },
+    {
+     "bbox": [
+      41.04,
+      741.36,
+      276.48,
+      748.32
+     ],
+     "text": "internodal distance between the first and second nodes on the"
+    },
+    {
+     "bbox": [
+      41.04,
+      751.92,
+      276.72,
+      760.56
+     ],
+     "text": "culm. At flowering the leaves of ‘Taranna’ tend to be a darker"
+    },
+    {
+     "bbox": [
+      41.04,
+      762.96,
+      150.0,
+      769.68
+     ],
+     "text": "colour than those of ‘Hume’."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "“Taranna’ is a new variety of the native grass Danthonia\nrichardsonii. \\t is distinct from the only other known variety\n‘Hume’ in having a wider inflorescence and glumes, longer\nflag leaves and wider flag and tiller leaves. Although the culm\nheights of the two varieties are similar, “Taranna’ has a greater\ninternodal distance between the first and second nodes on the\nculm. At flowering the leaves of ‘Taranna’ tend to be a darker\ncolour than those of ‘Hume’.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    304.08,
+    576.72,
+    539.76,
+    617.52
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      304.08,
+      576.72,
+      539.52,
+      585.36
+     ],
+     "text": "it has a wider and longer inflorescence, a longer interbranch"
+    },
+    {
+     "bbox": [
+      304.08,
+      587.52,
+      539.52,
+      594.48
+     ],
+     "text": "distance between the first and second branches of the inflores-"
+    },
+    {
+     "bbox": [
+      304.08,
+      598.32,
+      539.76,
+      606.72
+     ],
+     "text": "cence. ‘Taranna’ also has a longer culm and longer flag and"
+    },
+    {
+     "bbox": [
+      304.08,
+      609.12,
+      492.96,
+      617.52
+     ],
+     "text": "tiller leaves than the naturally occurring ecotypes."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "it has a wider and longer inflorescence, a longer interbranch\ndistance between the first and second branches of the inflores-\ncence. ‘Taranna’ also has a longer culm and longer flag and\ntiller leaves than the naturally occurring ecotypes.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    303.84,
+    630.96,
+    540.72,
+    711.12
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      304.32,
+      630.96,
+      331.2,
+      639.84
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      305.04,
+      647.04,
+      540.72,
+      655.92
+     ],
+     "text": "*Taranna’ was selected by Dr G.M. Lodge from an ecotype of"
+    },
+    {
+     "bbox": [
+      304.08,
+      658.08,
+      540.24,
+      667.2
+     ],
+     "text": "the native grass Danthonia richardsonii. Selection over four"
+    },
+    {
+     "bbox": [
+      304.56,
+      669.12,
+      539.76,
+      678.0
+     ],
+     "text": "successive generations was based predominantly on seed reten-"
+    },
+    {
+     "bbox": [
+      304.32,
+      680.16,
+      539.52,
+      689.04
+     ],
+     "text": "tion and production characteristics assessed on spaced plants."
+    },
+    {
+     "bbox": [
+      303.84,
+      691.2,
+      539.52,
+      700.08
+     ],
+     "text": "The original parent plant was collected in 1985 from a naturally"
+    },
+    {
+     "bbox": [
+      304.08,
+      702.0,
+      539.76,
+      711.12
+     ],
+     "text": "occurring population of plants growing on a stock route on a"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\n*Taranna’ was selected by Dr G.M. Lodge from an ecotype of\nthe native grass Danthonia richardsonii. Selection over four\nsuccessive generations was based predominantly on seed reten-\ntion and production characteristics assessed on spaced plants.\nThe original parent plant was collected in 1985 from a naturally\noccurring population of plants growing on a stock route on a",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    304.08,
+    712.8,
+    540.48,
+    731.04
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      304.08,
+      712.8,
+      540.48,
+      721.92
+     ],
+     "text": "red-brown earth soil, approximately 30 kilometres south of"
+    },
+    {
+     "bbox": [
+      304.08,
+      724.08,
+      459.12,
+      731.04
+     ],
+     "text": "Tamworth in northern New South Wales."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "red-brown earth soil, approximately 30 kilometres south of\nTamworth in northern New South Wales.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    304.32,
+    745.92,
+    439.2,
+    754.56
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      304.32,
+      745.92,
+      439.2,
+      754.56
+     ],
+     "text": "Varieties used for comparison"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comparison",
+   "text_format": "plain",
+   "type": "heading",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "paragraph_title",
+   "level": 2
+  },
+  {
+   "bbox": [
+    305.04,
+    762.0,
+    478.56,
+    770.64
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      305.04,
+      762.0,
+      478.56,
+      770.64
+     ],
+     "text": "‘Hume’ and two naturally occurring ecotypes."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "‘Hume’ and two naturally occurring ecotypes.",
+   "text_format": "plain",
+   "type": "text",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "text"
+  },
+  {
+   "bbox": [
+    42.0,
+    791.04,
+    52.56,
+    798.72
+   ],
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      42.0,
+      791.04,
+      52.56,
+      798.72
+     ],
+     "text": "18"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "18",
+   "text_format": "plain",
+   "type": "page_number",
+   "signal": "layout:ovisocr3-layout-t4fp16",
+   "confidence": null,
+   "layout_category": "number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}
