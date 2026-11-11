@@ -75,7 +75,7 @@ def _heading_text(el: ir.Element) -> str:
     return " ".join(part.strip() for part in text.split("\n") if part.strip())
 
 
-def render_element(el: ir.Element, *, assets: bool = False) -> str:
+def render_element(el: ir.Element, *, assets: bool = False, alt: str = "") -> str:
     """One element as Markdown.
 
     `assets`: write a figure that has an exported image (roadmap 3.4) as an image
@@ -91,7 +91,8 @@ def render_element(el: ir.Element, *, assets: bool = False) -> str:
             return table_markdown(el.rows)
         return ir.rows_text(el.rows)
     if el.type == ir.FIGURE and el.asset and assets:
-        return f"![]({el.asset})"
+        alt = " ".join(alt.split()).replace("[", "(").replace("]", ")")
+        return f"![{alt}]({el.asset})"
     return el.text
 
 
@@ -162,12 +163,18 @@ def render_units(elements, relations=(), *, reader: bool = False, assets: bool =
         if rel.type == "continues_from" and rel.signal in JOIN_SIGNALS:
             joins[rel.target] = rel.source
     by_id = {el.id: el for el in elements}
+    # A figure's image link takes its caption's words as alt text (3.4).
+    alts: dict[str, str] = {}
+    if assets:
+        for rel in relations:
+            if rel.type == "caption_of" and rel.source in by_id and rel.target not in alts:
+                alts[rel.target] = _heading_text(by_id[rel.source])
     joined = {later for earlier, later in joins.items() if earlier in by_id and later in by_id}
     units = []
     for el in elements:
         if el.id in joined or (reader and el.type in FURNITURE):
             continue
-        chain, text = [el], render_element(el, assets=assets)
+        chain, text = [el], render_element(el, assets=assets, alt=alts.get(el.id, ""))
         while chain[-1].id in joins and joins[chain[-1].id] in by_id:
             nxt = by_id[joins[chain[-1].id]]
             chain.append(nxt)

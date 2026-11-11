@@ -20,7 +20,7 @@ import uuid
 from contextlib import asynccontextmanager
 from typing import AsyncIterator
 
-from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, Request, Response, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field, HttpUrl
 from slowapi import Limiter, _rate_limit_exceeded_handler
@@ -37,7 +37,9 @@ from parsers import (
     default_engine,
     default_methods,
     extract_keywords,
+    file_to_bundle,
     file_to_markdown,
+    markdown_filename,
     prepend_keyword_table,
     resolve_engine,
     resolve_methods,
@@ -177,7 +179,7 @@ app = FastAPI(
         "Deterministic conversion of web URLs, PDFs, and DOCX documents into "
         "clean, structured Markdown. Designed for both human UIs and LLM/MCP agents."
     ),
-    version="0.14.0",
+    version="0.15.0",
     lifespan=_lifespan,
 )
 
@@ -882,6 +884,55 @@ async def convert_file(
         chapters=chapters,
         chapter_detection=detection,
     )
+
+
+@app.post(
+    "/convert/bundle",
+    tags=["convert"],
+    operation_id="convert_bundle",
+    summary="Convert an uploaded document to a ZIP of Markdown, its IR and its figures",
+    response_class=Response,
+    responses={200: {"content": {"application/zip": {}},
+                     "description": "document.md, document.json and assets/figure-NNN.png"}},
+)
+@limiter.limit("20/minute")
+async def convert_bundle(
+    request: Request,
+    file: UploadFile = File(...),
+    engine: str | None = Form(default=None, description=_ENGINE_DESCRIPTION),
+) -> Response:
+    """Convert a document and return it as a ZIP bundle (ADR-052).
+
+    `document.md` is the same Markdown `/convert/file` returns, except that each
+    figure with an exported image is linked where it stands
+    (`![caption](assets/figure-001.png)`); `document.json` is the document IR
+    (ADR-043) with every element's page, box, type and the structure relations;
+    `assets/` holds the figures as PNGs. Images travel as files beside the
+    Markdown, never inside it (ADR-024). Same limits and job slot as
+    `/convert/file`; no chapter splitting.
+    """
+    resolved_engine = _resolve_engine_or_400(engine)
+    data = await _read_upload(file)
+    if not data:
+        raise HTTPException(status_code=400, detail="Empty file upload.")
+    async with _job_slot():
+        try:
+            payload, summary = await asyncio.to_thread(
+                file_to_bundle, data, file.filename or "", resolved_engine
+            )
+        except ValueError as exc:
+            metrics.record_conversion("file", "error")
+            raise HTTPException(status_code=415, detail=str(exc)) from exc
+        except Exception as exc:  # noqa: BLE001
+            metrics.record_conversion("file", "error")
+            logger.exception("Bundle conversion failed for %s", file.filename)
+            raise HTTPException(status_code=502, detail=f"Failed to convert file: {exc}") from exc
+    metrics.record_conversion("file", "ok")
+    stem = os.path.splitext(markdown_filename(file.filename or "document"))[0] or "document"
+    return Response(content=payload, media_type="application/zip", headers={
+        "Content-Disposition": f'attachment; filename="{stem}.zip"',
+        "X-Wiseau-Figures": str(summary["figures"]),
+    })
 
 
 @app.post(
