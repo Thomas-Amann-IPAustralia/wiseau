@@ -6,6 +6,8 @@
 > green checkmark that lies.
 
 **Last updated:** 2026-11-11 (ninth session: roadmap Tier 3 structure recovery, ADR-049..055, `POST /convert/bundle`, per-request reader mode, API 0.16.0; eighth session: Kaggle T4 run of OvisOCR3, experiment closed; seventh session: 3.7b layout-region spike, CPU leg, held-out set T, then ADR-048 shipping the layout detector in the image; sixth session: planning only, OvisOCR3/TeleOCR assessment; fifth session: ADR-047, table pass on in the Docker image; MuPDF OCR concurrency fix)
+**Deployment fact (2026-11-11, corrects older notes below that say nothing is deployed):** The backend is live on **Google Cloud Run**: `https://wiseau-backend-959916124433.europe-west1.run.app`. `/ping` answered `ok`, version 0.14.0, `available_engines` `["docling","pymupdf"]`. The web UI is live on GitHub Pages: `https://thomas-amann-ipaustralia.github.io/wiseau/`, with `config.js` pointing at that Cloud Run URL. Both follow `main`. Check `/ping`'s `version` after a merge to see whether a redeploy has landed. Memory and environment settings of the Cloud Run service are not visible from a session.
+
 **Build note (2026-11-11, ADR-055, API 0.16.0):** The user accepted the recommendation after Tier 3:
 - **The image now sets `WISEAU_STRUCTURE=all`**, the lean build included. Faithful mode is still the default.
 - **`reader` is an optional request field** on `/convert/file`, `/convert/batch` and `/convert/bundle`, and on the MCP `convert_file` / `convert_batch` tools. It is passed to the converter only when sent.
