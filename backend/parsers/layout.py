@@ -50,6 +50,7 @@ from typing import NamedTuple, Optional, Sequence
 import pymupdf
 
 from . import document as ir
+from . import model_lock
 
 logger = logging.getLogger(__name__)
 
@@ -123,19 +124,20 @@ def _load() -> dict:
     """The detector and its processor, loaded once per process (~1 s; ~130 MB of weights)."""
     with _lock:
         if not _model:
-            import torch
-            from transformers import AutoImageProcessor, AutoModelForObjectDetection
-            from transformers.utils import logging as hf_logging
+            with model_lock.LOAD_LOCK:   # never two model loads at once (ADR-056)
+                import torch
+                from transformers import AutoImageProcessor, AutoModelForObjectDetection
+                from transformers.utils import logging as hf_logging
 
-            started = time.perf_counter()
-            hf_logging.set_verbosity_error()
-            hf_logging.disable_progress_bar()  # one log line below, not a weight-loading bar
-            torch.set_num_threads(THREADS)
-            name, revision = LAYOUT_MODEL
-            _model["model"] = AutoModelForObjectDetection.from_pretrained(name, revision=revision).eval()
-            _model["processor"] = AutoImageProcessor.from_pretrained(name, revision=revision)
-            logger.info("PP-DocLayoutV3 loaded", extra={"wiseau": {
-                "threads": THREADS, "seconds": round(time.perf_counter() - started, 1)}})
+                started = time.perf_counter()
+                hf_logging.set_verbosity_error()
+                hf_logging.disable_progress_bar()  # one log line below, not a weight-loading bar
+                torch.set_num_threads(THREADS)
+                name, revision = LAYOUT_MODEL
+                _model["model"] = AutoModelForObjectDetection.from_pretrained(name, revision=revision).eval()
+                _model["processor"] = AutoImageProcessor.from_pretrained(name, revision=revision)
+                logger.info("PP-DocLayoutV3 loaded", extra={"wiseau": {
+                    "threads": THREADS, "seconds": round(time.perf_counter() - started, 1)}})
         return _model
 
 

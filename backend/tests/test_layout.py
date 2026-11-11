@@ -11,6 +11,7 @@ from __future__ import annotations
 from collections import Counter
 
 import pymupdf
+import pytest
 
 from parsers import document as ir
 from parsers import layout, ocr, serializer
@@ -150,6 +151,7 @@ def test_disabled_without_the_variable(monkeypatch):
 def test_pass_failure_keeps_the_page(monkeypatch):
     """A failing detector degrades to the page without the pass, never an error."""
     monkeypatch.setattr(layout, "enabled", lambda: True)
+    monkeypatch.setattr(layout, "_load", lambda: {})   # no real model (the engine loads up front)
 
     def boom(page, elements, regions=None):
         raise RuntimeError("no model")
@@ -164,6 +166,7 @@ def test_pass_failure_keeps_the_page(monkeypatch):
 
 def test_pass_runs_on_the_ocr_path_when_enabled(monkeypatch):
     monkeypatch.setattr(layout, "enabled", lambda: True)
+    monkeypatch.setattr(layout, "_load", lambda: {})   # no real model (the engine loads up front)
     monkeypatch.setattr(ocr.TesseractEngine, "_read_elements",
                         lambda self, page, **kw: [_el([HEADING, BODY_1, BODY_2])])
     # The engine renders the page itself and runs detection beside OCR (ADR-056).
@@ -172,3 +175,44 @@ def test_pass_runs_on_the_ocr_path_when_enabled(monkeypatch):
     doc = pymupdf.open()
     out = ocr.TesseractEngine().read_elements(doc.new_page(), dpi=300, language="eng")
     assert [el.type for el in out] == [ir.HEADING, ir.TEXT]
+
+
+def test_models_load_on_the_calling_thread_before_detection(monkeypatch):
+    """ADR-056: the engine loads the enabled models itself, before any detection runs
+    beside OCR, so no inference overlaps a load (a concurrent load left a model with
+    `meta` tensors on 2 CPUs)."""
+    import threading
+
+    events = []
+    monkeypatch.setattr(layout, "enabled", lambda: True)
+    monkeypatch.setattr(layout, "_load", lambda: events.append(("load", threading.current_thread().name)))
+    monkeypatch.setattr(layout, "detect_rendered", lambda rendered: events.append(("detect", None)) or [])
+    monkeypatch.setattr(ocr.TesseractEngine, "_read_elements", lambda self, page, **kw: [_el([HEADING])])
+    doc = pymupdf.open()
+    ocr.TesseractEngine().read_elements(doc.new_page(), dpi=300, language="eng")
+    assert events[0] == ("load", threading.current_thread().name)
+    assert ("detect", None) in events[1:]
+
+
+def test_model_loads_hold_the_shared_lock(monkeypatch):
+    """Both passes' loaders take `model_lock.LOAD_LOCK`, so two loads never overlap (ADR-056)."""
+    pytest.importorskip("torch")
+    transformers = pytest.importorskip("transformers")
+    from parsers import model_lock, tables
+
+    held = []
+
+    def record(*args, **kwargs):
+        held.append(model_lock.LOAD_LOCK.locked())
+        raise RuntimeError("stop before any download")
+
+    monkeypatch.setattr(transformers.AutoModelForObjectDetection, "from_pretrained", record)
+    monkeypatch.setattr(transformers.TableTransformerForObjectDetection, "from_pretrained", record)
+    monkeypatch.setattr(tables, "_config_5x", lambda name, revision: None)
+    monkeypatch.setattr(layout, "_model", {})    # nothing loaded yet in this process
+    monkeypatch.setattr(tables, "_models", {})
+    for load in (layout._load, tables._load):
+        with pytest.raises(RuntimeError):
+            load()
+    assert held == [True, True]
+    assert not model_lock.LOAD_LOCK.locked()

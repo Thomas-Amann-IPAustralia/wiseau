@@ -47,6 +47,7 @@ from typing import NamedTuple, Optional, Sequence
 import pymupdf
 
 from . import document as ir
+from . import model_lock
 from .reading_order import Line
 from .tesseract_layout import Word
 
@@ -157,31 +158,32 @@ def _load():
     """Both models, loaded once per process (a few seconds; about 600 MB)."""
     with _lock:
         if not _models:
-            import torch
-            from transformers import TableTransformerForObjectDetection
-            from transformers.utils import logging as hf_logging
+            with model_lock.LOAD_LOCK:   # never two model loads at once (ADR-056)
+                import torch
+                from transformers import TableTransformerForObjectDetection
+                from transformers.utils import logging as hf_logging
 
-            started = time.perf_counter()
-            # The checkpoints carry three unused batch-norm counters; transformers
-            # warns about them at length on every load. They are expected.
-            hf_logging.set_verbosity_error()
-            hf_logging.disable_progress_bar()
-            torch.set_num_threads(THREADS)
-            loaded = {}
-            # No ImageNet backbone download: the checkpoints hold the full weights.
-            # transformers 4.x takes this as a keyword; 5.x moved it into the
-            # checkpoint's backbone config (already false there) and rejects the
-            # keyword (ADR-048).
-            for key, (name, revision) in (("detect", DETECT_MODEL), ("structure", STRUCTURE_MODEL)):
-                kwargs = {"use_pretrained_backbone": False} if _TRANSFORMERS_MAJOR < 5 else \
-                    {"config": _config_5x(name, revision)}
-                loaded[key] = TableTransformerForObjectDetection.from_pretrained(
-                    name, revision=revision, **kwargs).eval()
-            loaded["mean"] = torch.tensor([0.485, 0.456, 0.406]).view(3, 1, 1)
-            loaded["std"] = torch.tensor([0.229, 0.224, 0.225]).view(3, 1, 1)
-            _models.update(loaded)
-            logger.info("Table Transformer loaded", extra={"wiseau": {
-                "threads": THREADS, "seconds": round(time.perf_counter() - started, 1)}})
+                started = time.perf_counter()
+                # The checkpoints carry three unused batch-norm counters; transformers
+                # warns about them at length on every load. They are expected.
+                hf_logging.set_verbosity_error()
+                hf_logging.disable_progress_bar()
+                torch.set_num_threads(THREADS)
+                loaded = {}
+                # No ImageNet backbone download: the checkpoints hold the full weights.
+                # transformers 4.x takes this as a keyword; 5.x moved it into the
+                # checkpoint's backbone config (already false there) and rejects the
+                # keyword (ADR-048).
+                for key, (name, revision) in (("detect", DETECT_MODEL), ("structure", STRUCTURE_MODEL)):
+                    kwargs = {"use_pretrained_backbone": False} if _TRANSFORMERS_MAJOR < 5 else \
+                        {"config": _config_5x(name, revision)}
+                    loaded[key] = TableTransformerForObjectDetection.from_pretrained(
+                        name, revision=revision, **kwargs).eval()
+                loaded["mean"] = torch.tensor([0.485, 0.456, 0.406]).view(3, 1, 1)
+                loaded["std"] = torch.tensor([0.229, 0.224, 0.225]).view(3, 1, 1)
+                _models.update(loaded)
+                logger.info("Table Transformer loaded", extra={"wiseau": {
+                    "threads": THREADS, "seconds": round(time.perf_counter() - started, 1)}})
         return _models
 
 

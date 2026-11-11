@@ -80,6 +80,19 @@ _MUPDF_OCR_LOCK = threading.Lock()
 OVERLAP = os.environ.get("WISEAU_OCR_OVERLAP", "1").strip().lower() not in {"0", "false", "no", "off"}
 
 
+def _load_models() -> None:
+    """Load the enabled passes' models on this thread before any of their inference
+    starts (ADR-056; `model_lock`): no inference then runs while a model loads. A
+    model that fails to load is left to fail inside its pass, which logs it and
+    keeps the page, exactly as before."""
+    for enabled, load in ((tables.enabled, tables._load), (layout_pass.enabled, layout_pass._load)):
+        if enabled():
+            try:
+                load()
+            except Exception:  # noqa: BLE001 - reported by the pass itself
+                pass
+
+
 class _Done:
     """A step already run (or failed) on the calling thread."""
 
@@ -188,6 +201,7 @@ class TesseractEngine(OcrEngine):
         return render_elements(self.read_elements(page, dpi=dpi, language=language))
 
     def read_elements(self, page: pymupdf.Page, *, dpi: int, language: str) -> list[ir.Element]:
+        _load_models()
         with _Steps(OVERLAP) as steps:
             # Opt-in (ADR-048): block boundaries and types from a layout detector,
             # regrouping the lines already read; no word changes. It sees the page as
