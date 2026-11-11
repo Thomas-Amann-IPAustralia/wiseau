@@ -1,0 +1,244 @@
+{
+  "glm-ocr-cpu": {
+    "digital": [
+      null,
+      null,
+      null
+    ],
+    "docs": {},
+    "errors": {},
+    "ok": 3,
+    "pages": 3,
+    "quality": {
+      "bow_r": 0.9470691217474831,
+      "cer": 0.030022311100458356,
+      "n": 3,
+      "num_r": 0.9030939496859909,
+      "wer": 0.05952066408447735
+    },
+    "scans": [
+      198.24,
+      241.77,
+      242.2
+    ],
+    "warmup": 208.3
+  },
+  "glm-ocr-gpu-fp16": {
+    "digital": [
+      0.3025,
+      0.29500000000000004,
+      0.42
+    ],
+    "docs": {
+      "Volume 4 Number 1.pdf": {
+        "chars": 139821,
+        "engine": "glm-ocr",
+        "error": null,
+        "fell_back": false,
+        "gpu_peak_mb": null,
+        "pages": 36,
+        "s_per_page": 45.55,
+        "seconds": 1639.82
+      }
+    },
+    "errors": {},
+    "ok": 42,
+    "pages": 42,
+    "quality": {
+      "bow_r": 0.941408622023027,
+      "cer": 0.04837707581131186,
+      "n": 42,
+      "num_r": 0.9094677238503626,
+      "wer": 0.08473941003339514
+    },
+    "scans": [
+      40.45842105263158,
+      37.67,
+      83.47
+    ],
+    "warmup": 33.44
+  },
+  "glm-ocr-gpu-fp32": {
+    "digital": [
+      null,
+      null,
+      null
+    ],
+    "docs": {},
+    "errors": {},
+    "ok": 3,
+    "pages": 3,
+    "quality": {
+      "bow_r": 0.9470691217474831,
+      "cer": 0.03167885444667591,
+      "n": 3,
+      "num_r": 0.9030939496859909,
+      "wer": 0.06061896172313743
+    },
+    "scans": [
+      30.926666666666666,
+      37.12,
+      38.97
+    ],
+    "warmup": 32.86
+  },
+  "image-cpu1": {
+    "digital": [
+      0.2875,
+      0.28500000000000003,
+      0.39
+    ],
+    "docs": {
+      "Volume 4 Number 1.pdf": {
+        "chars": 126216,
+        "engine": "ocr",
+        "error": null,
+        "fell_back": false,
+        "gpu_peak_mb": null,
+        "pages": 36,
+        "s_per_page": 15.09,
+        "seconds": 543.29
+      },
+      "Volume 5 Number 1.pdf": {
+        "chars": 99278,
+        "engine": "ocr",
+        "error": null,
+        "fell_back": false,
+        "gpu_peak_mb": null,
+        "pages": 31,
+        "s_per_page": 14.7,
+        "seconds": 455.74
+      }
+    },
+    "errors": {},
+    "ok": 42,
+    "pages": 42,
+    "quality": {
+      "bow_r": 0.9694877046464521,
+      "cer": 0.03469567864231151,
+      "n": 42,
+      "num_r": 0.9215221171037604,
+      "wer": 0.0629454269774313
+    },
+    "scans": [
+      14.809736842105263,
+      15.39,
+      18.82
+    ],
+    "warmup": 47.56
+  },
+  "image-cpu4": {
+    "digital": [
+      0.315,
+      0.30000000000000004,
+      0.46
+    ],
+    "docs": {
+      "Volume 4 Number 1.pdf": {
+        "chars": 126216,
+        "engine": "ocr",
+        "error": null,
+        "fell_back": false,
+        "gpu_peak_mb": null,
+        "pages": 36,
+        "s_per_page": 12.85,
+        "seconds": 462.45
+      },
+      "Volume 5 Number 1.pdf": {
+        "chars": 99278,
+        "engine": "ocr",
+        "error": null,
+        "fell_back": false,
+        "gpu_peak_mb": null,
+        "pages": 31,
+        "s_per_page": 12.28,
+        "seconds": 380.68
+      }
+    },
+    "errors": {},
+    "ok": 42,
+    "pages": 42,
+    "quality": {
+      "bow_r": 0.9694877046464521,
+      "cer": 0.03469567864231151,
+      "n": 42,
+      "num_r": 0.9215221171037604,
+      "wer": 0.0629454269774313
+    },
+    "scans": [
+      12.381052631578948,
+      12.825,
+      15.51
+    ],
+    "warmup": 23.36
+  },
+  "image-gpu": {
+    "digital": [
+      0.2975,
+      0.29000000000000004,
+      0.41
+    ],
+    "docs": {
+      "Volume 4 Number 1.pdf": {
+        "chars": 126216,
+        "engine": "ocr",
+        "error": null,
+        "fell_back": false,
+        "gpu_peak_mb": 1112.4,
+        "pages": 36,
+        "s_per_page": 10.91,
+        "seconds": 392.79
+      },
+      "Volume 5 Number 1.pdf": {
+        "chars": 99278,
+        "engine": "ocr",
+        "error": null,
+        "fell_back": false,
+        "gpu_peak_mb": 1112.4,
+        "pages": 31,
+        "s_per_page": 10.2,
+        "seconds": 316.23
+      }
+    },
+    "errors": {},
+    "ok": 42,
+    "pages": 42,
+    "quality": {
+      "bow_r": 0.9694877046464521,
+      "cer": 0.033504005750194674,
+      "n": 42,
+      "num_r": 0.9215221171037604,
+      "wer": 0.06166172914355021
+    },
+    "scans": [
+      10.259736842105262,
+      10.79,
+      13.73
+    ],
+    "warmup": 25.46
+  },
+  "image-gpu-repeat": {
+    "digital": [
+      0.31,
+      0.31,
+      0.41
+    ],
+    "docs": {},
+    "errors": {},
+    "ok": 42,
+    "pages": 42,
+    "quality": {
+      "bow_r": 0.9694877046464521,
+      "cer": 0.033504005750194674,
+      "n": 42,
+      "num_r": 0.9215221171037604,
+      "wer": 0.06166172914355021
+    },
+    "scans": [
+      10.232631578947368,
+      10.695,
+      13.63
+    ],
+    "warmup": 20.53
+  }
+}
