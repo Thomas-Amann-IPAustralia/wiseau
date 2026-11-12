@@ -26,7 +26,7 @@ const MODEL = {
   urlPdf: { base: 14 },
   pymupdf: { base: 2, textPage: 0.25, scanPage: 16, docxPerMb: 1, unknownPerMb: 6 },
   // The fast engine (ADR-059): the same text-layer reading, Tesseract alone on scans.
-  fast: { base: 2, textPage: 0.25, scanPage: FAST_SCAN_PAGE, docxPerMb: 1, unknownPerMb: FAST_UNKNOWN_PER_MB },
+  fast: { base: 2, textPage: 0.25, scanPage: 7, docxPerMb: 1, unknownPerMb: 3 },
   // docling on a free CPU: an ML pipeline, plus a possible cold start.
   docling: { base: 25, textPage: 4, scanPage: 40, docxPerMb: 6, unknownPerMb: 25 },
   // GLM-OCR on CPU: minutes a scanned page (ADR-034); text pages skip it (ADR-036).

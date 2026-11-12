@@ -120,11 +120,11 @@
     },
     ocrFast: {
       title: "OCR",
-      sub: "Tesseract only · FAST_DPI DPI",
+      sub: "Tesseract only · 300 DPI",
       icon: "ocr",
       weight: 4,
       detail:
-        "The fast engine: each page is rendered at FAST_DPI DPI and Tesseract reads it with its own layout analysis, keeping columns in order and stitching table rows. No layout or table model runs, so headings keep no level and tables stay rows of text. A quick word count guards against a column Tesseract dropped; only a page that fails it is read a second time.",
+        "The fast engine: each page is rendered at 300 DPI and Tesseract reads it with its own layout analysis, keeping columns in order and stitching table rows. No layout or table model runs, so headings keep no level and tables stay rows of text. A quick word count guards against a column Tesseract dropped; only a page that fails it is read a second time.",
     },
     layout: {
       title: "Layout & tables",
