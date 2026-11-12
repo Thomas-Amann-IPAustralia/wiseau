@@ -1,4 +1,13 @@
 {
+  "accurate-V5N1": {
+    "chars": 99270,
+    "cpu_s": 383.3,
+    "cpus": 4,
+    "pages": 31,
+    "peak_rss_mb": 2437,
+    "s_per_page": 8.5,
+    "wall_s": 263.6
+  },
   "fast-V5N1": {
     "chars": 92118,
     "cpu_s": 163.7,
