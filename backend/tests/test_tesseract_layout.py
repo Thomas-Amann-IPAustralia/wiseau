@@ -186,17 +186,47 @@ def test_the_engine_returns_ir_elements_with_provenance(monkeypatch, page, geome
 def test_tesseract_runs_on_one_thread(monkeypatch):
     # ADR-042: an OpenMP Tesseract under load ran past TIMEOUT_S, so the output
     # depended on the machine's load. Each run is held to one thread.
+    # A run past the timeout is killed and reads as a failure (the guard is used).
     seen = {}
 
-    def fake_run(cmd, **kw):
-        seen.update(kw["env"])
-        raise subprocess.TimeoutExpired(cmd, 1)
+    class FakeProc:
+        killed = False
 
-    monkeypatch.setattr(tesseract_layout.subprocess, "run", fake_run)
+        def __init__(self, cmd, **kw):
+            seen.update(kw["env"])
+
+        def wait(self, timeout=None):
+            if not FakeProc.killed:
+                raise subprocess.TimeoutExpired("tesseract", timeout)
+            return -9
+
+        def kill(self):
+            FakeProc.killed = True
+
+    monkeypatch.setattr(tesseract_layout.subprocess, "Popen", FakeProc)
     doc = pymupdf.open()
     doc.new_page(width=100, height=100)
     assert tesseract_layout.read_page(doc[0], dpi=72, language="eng") is None
     assert seen["OMP_THREAD_LIMIT"] == "1"
+    assert FakeProc.killed
+
+
+def test_psm3_is_launched_before_its_result_is_asked_for(monkeypatch):
+    # ADR-059: MuPDF's OCR holds the GIL, so Tesseract must already be running
+    # (launched, its input written) before the guard starts, or the two serialise.
+    launched = []
+
+    class FakeProc:
+        def __init__(self, cmd, **kw):
+            launched.append(cmd)
+
+        def wait(self, timeout=None):
+            return 1
+
+    monkeypatch.setattr(tesseract_layout.subprocess, "Popen", FakeProc)
+    run = tesseract_layout.start_tsv(b"png", language="eng")
+    assert len(launched) == 1 and launched[0][-1] == "tsv"
+    assert run.result() is None      # a non-zero exit is a failure
 
 
 # --- End to end, with the real binary ---------------------------------------

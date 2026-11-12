@@ -1,0 +1,1365 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    43.68,
+    31.2,
+    197.76,
+    44.64
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      43.68,
+      31.2,
+      197.76,
+      44.64
+     ],
+     "text": "SR: tne"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "SR: tne",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    228.48,
+    37.92,
+    549.12,
+    44.16
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      228.48,
+      37.92,
+      549.12,
+      44.16
+     ],
+     "text": "a"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    44.16,
+    59.04,
+    273.12,
+    87.84
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      44.64,
+      59.04,
+      273.12,
+      69.12
+     ],
+     "text": "damage was assessed as a percentage of the area of the"
+    },
+    {
+     "bbox": [
+      44.16,
+      70.08,
+      260.16,
+      79.2
+     ],
+     "text": "young expanded leaf showing chlorosis, 21 days after"
+    },
+    {
+     "bbox": [
+      44.16,
+      79.68,
+      144.48,
+      87.84
+     ],
+     "text": "cotyledonary inoculation,"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "damage was assessed as a percentage of the area of the\nyoung expanded leaf showing chlorosis, 21 days after\ncotyledonary inoculation,",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    43.68,
+    103.2,
+    276.48,
+    181.44
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      44.64,
+      103.2,
+      258.72,
+      111.84
+     ],
+     "text": "Morphological observations and measurements were"
+    },
+    {
+     "bbox": [
+      44.16,
+      113.28,
+      273.6,
+      122.4
+     ],
+     "text": "made from a randomised complete block field trial with 5"
+    },
+    {
+     "bbox": [
+      44.16,
+      123.36,
+      256.32,
+      132.48
+     ],
+     "text": "replicates of each variety. Each replicate contained 9"
+    },
+    {
+     "bbox": [
+      43.68,
+      133.44,
+      265.44,
+      142.08
+     ],
+     "text": "plants, at spacings of 3.0 m between rows, and 1.75 m"
+    },
+    {
+     "bbox": [
+      43.68,
+      143.04,
+      245.28,
+      152.16
+     ],
+     "text": "between plants in rows. The plants were raised in"
+    },
+    {
+     "bbox": [
+      43.68,
+      153.6,
+      276.48,
+      162.24
+     ],
+     "text": "containers, transplanted in November 1990, and watered,"
+    },
+    {
+     "bbox": [
+      43.68,
+      162.72,
+      272.16,
+      172.32
+     ],
+     "text": "fertilized, and treated with fungicides and insecticides as"
+    },
+    {
+     "bbox": [
+      43.68,
+      173.28,
+      76.8,
+      181.44
+     ],
+     "text": "required."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphological observations and measurements were\nmade from a randomised complete block field trial with 5\nreplicates of each variety. Each replicate contained 9\nplants, at spacings of 3.0 m between rows, and 1.75 m\nbetween plants in rows. The plants were raised in\ncontainers, transplanted in November 1990, and watered,\nfertilized, and treated with fungicides and insecticides as\nrequired.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    43.2,
+    197.28,
+    281.28,
+    255.36
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      43.68,
+      197.28,
+      276.96,
+      206.88
+     ],
+     "text": "Measurements taken during early growth were from each"
+    },
+    {
+     "bbox": [
+      43.2,
+      207.84,
+      281.28,
+      216.96
+     ],
+     "text": "plant in each plot. When growth prevented identification of"
+    },
+    {
+     "bbox": [
+      43.68,
+      217.92,
+      268.32,
+      226.08
+     ],
+     "text": "individual plants, measurements were based on at least"
+    },
+    {
+     "bbox": [
+      43.2,
+      227.52,
+      261.6,
+      237.12
+     ],
+     "text": "five samples selected at random from within each plot."
+    },
+    {
+     "bbox": [
+      43.2,
+      237.6,
+      274.56,
+      246.24
+     ],
+     "text": "Flower colour observations were made on 2-4 specimens"
+    },
+    {
+     "bbox": [
+      43.2,
+      247.2,
+      103.68,
+      255.36
+     ],
+     "text": "of each variety."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Measurements taken during early growth were from each\nplant in each plot. When growth prevented identification of\nindividual plants, measurements were based on at least\nfive samples selected at random from within each plot.\nFlower colour observations were made on 2-4 specimens\nof each variety.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    42.24,
+    277.44,
+    260.16,
+    300.0
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      43.2,
+      277.44,
+      260.16,
+      289.44
+     ],
+     "text": "Table of Comparison of Pumpkin Varieties"
+    },
+    {
+     "bbox": [
+      42.24,
+      291.36,
+      182.88,
+      300.0
+     ],
+     "text": "(* = varieties used for comparison)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Pumpkin Varieties\n(* = varieties used for comparison)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    102.24,
+    320.16,
+    264.0,
+    333.6
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      102.24,
+      320.16,
+      264.0,
+      333.6
+     ],
+     "text": "\u2018Redlands \u201cQueensland \u2014 * \u2018Jarrahdale"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Redlands \u201cQueensland \u2014 * \u2018Jarrahdale",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    101.76,
+    329.76,
+    177.12,
+    342.72
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      101.76,
+      329.76,
+      177.12,
+      342.72
+     ],
+     "text": "Trailblazer\u2019 Blue\u2019"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Trailblazer\u2019 Blue\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    78.24,
+    348.96,
+    270.24,
+    366.72
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      78.24,
+      348.96,
+      270.24,
+      357.6
+     ],
+     "text": "EACTION (7 cf young expanded eat area vh.ch 1s chlorot c}"
+    },
+    {
+     "bbox": [
+      83.04,
+      359.52,
+      168.0,
+      366.72
+     ],
+     "text": "ow mosaic wus (K isolate}"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "EACTION (7 cf young expanded eat area vh.ch 1s chlorot c}\now mosaic wus (K isolate}",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    42.24,
+    369.12,
+    254.4,
+    764.64
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      101.76,
+      369.12,
+      235.2,
+      376.32
+     ],
+     "text": "0.6% 89% 88%"
+    },
+    {
+     "bbox": [
+      42.24,
+      379.2,
+      191.52,
+      387.36
+     ],
+     "text": "Wetermelon mosaic virus type 2 (Clare isolate)"
+    },
+    {
+     "bbox": [
+      101.76,
+      388.8,
+      235.68,
+      396.0
+     ],
+     "text": "04% 67% 75%"
+    },
+    {
+     "bbox": [
+      60.96,
+      398.88,
+      208.8,
+      406.56
+     ],
+     "text": "4 F-gsool virus Watermelon strain (DB isolate)"
+    },
+    {
+     "bbox": [
+      102.24,
+      408.96,
+      235.2,
+      415.68
+     ],
+     "text": "9.1% 60% 51%"
+    },
+    {
+     "bbox": [
+      42.72,
+      422.4,
+      191.52,
+      430.08
+     ],
+     "text": "LEAF LENGTH (10th leaf back from tig of stem)"
+    },
+    {
+     "bbox": [
+      42.72,
+      432.0,
+      248.16,
+      439.2
+     ],
+     "text": "mean 222 mm 275mm 244 mm"
+    },
+    {
+     "bbox": [
+      42.24,
+      442.08,
+      250.56,
+      450.72
+     ],
+     "text": "range 170-241 215-325 210-285"
+    },
+    {
+     "bbox": [
+      103.2,
+      452.16,
+      236.16,
+      458.88
+     ],
+     "text": "15.2 2727 192"
+    },
+    {
+     "bbox": [
+      42.24,
+      466.56,
+      147.84,
+      474.72
+     ],
+     "text": "LEAF LOBE index of mature plant"
+    },
+    {
+     "bbox": [
+      42.24,
+      476.64,
+      234.72,
+      483.36
+     ],
+     "text": "mean 0.63 0.83 0.81"
+    },
+    {
+     "bbox": [
+      42.24,
+      484.8,
+      254.4,
+      498.24
+     ],
+     "text": "rang 0.46-0.82 9.76-0 $2 0.74-3.99"
+    },
+    {
+     "bbox": [
+      42.24,
+      494.88,
+      240.48,
+      507.84
+     ],
+     "text": "st ation C092 0.041 6.042"
+    },
+    {
+     "bbox": [
+      42.72,
+      510.72,
+      171.84,
+      518.88
+     ],
+     "text": "PETIOLE THICKNESS (measured at base)"
+    },
+    {
+     "bbox": [
+      42.24,
+      519.36,
+      250.08,
+      531.36
+     ],
+     "text": "mean AM, 195mm 185mm"
+    },
+    {
+     "bbox": [
+      42.24,
+      528.48,
+      253.92,
+      541.44
+     ],
+     "text": "range 14-19 13.3-26.2 143-230"
+    },
+    {
+     "bbox": [
+      42.24,
+      540.48,
+      235.68,
+      547.2
+     ],
+     "text": "sid deviation 127 272 2.07"
+    },
+    {
+     "bbox": [
+      42.24,
+      554.4,
+      157.44,
+      561.12
+     ],
+     "text": "FEMALE FLOWER PEDICEL LENGTH"
+    },
+    {
+     "bbox": [
+      42.24,
+      562.56,
+      243.84,
+      574.56
+     ],
+     "text": "mean 41mm 95mm 54mm"
+    },
+    {
+     "bbox": [
+      42.72,
+      573.6,
+      241.92,
+      582.24
+     ],
+     "text": "range 27.68 60-142 33-79"
+    },
+    {
+     "bbox": [
+      42.24,
+      583.68,
+      236.16,
+      590.4
+     ],
+     "text": "std deviation 76 273 13.2"
+    },
+    {
+     "bbox": [
+      42.24,
+      597.6,
+      142.08,
+      604.32
+     ],
+     "text": "MALE FLOWER SEPAL LENGTH"
+    },
+    {
+     "bbox": [
+      42.24,
+      607.2,
+      243.84,
+      614.4
+     ],
+     "text": "mean 16mm 25mm 23 mm"
+    },
+    {
+     "bbox": [
+      42.24,
+      617.28,
+      241.44,
+      625.92
+     ],
+     "text": "range $-23 15-32 16-33"
+    },
+    {
+     "bbox": [
+      42.24,
+      627.36,
+      231.36,
+      634.56
+     ],
+     "text": "std deviation 27 4.0 3.9"
+    },
+    {
+     "bbox": [
+      42.24,
+      641.28,
+      158.88,
+      648.48
+     ],
+     "text": "MATURE FRUIT \u2014 LENGTH (HEIGHT)"
+    },
+    {
+     "bbox": [
+      42.24,
+      649.44,
+      248.16,
+      661.92
+     ],
+     "text": "mean 16.0 cr 145m 1?0cm"
+    },
+    {
+     "bbox": [
+      42.24,
+      659.04,
+      194.4,
+      672.0
+     ],
+     "text": "range13-i8 16.5-17.5 116-215"
+    },
+    {
+     "bbox": [
+      42.24,
+      670.56,
+      236.16,
+      677.76
+     ],
+     "text": "std deviation 124 * 63 234"
+    },
+    {
+     "bbox": [
+      42.72,
+      684.0,
+      161.28,
+      691.2
+     ],
+     "text": "ATURE FRUIT \u2014 MAXIMUM WIDTH"
+    },
+    {
+     "bbox": [
+      42.24,
+      692.16,
+      236.64,
+      705.12
+     ],
+     "text": "mean 22.5em 265em 240"
+    },
+    {
+     "bbox": [
+      42.24,
+      703.68,
+      254.4,
+      711.84
+     ],
+     "text": "range 18-25 21-34 195-285"
+    },
+    {
+     "bbox": [
+      42.72,
+      713.28,
+      236.16,
+      720.48
+     ],
+     "text": "std deviation 142 2.84 1.98"
+    },
+    {
+     "bbox": [
+      42.72,
+      727.68,
+      164.64,
+      734.4
+     ],
+     "text": "MATURE FRUIT \u2014 CROWN DIAMETER"
+    },
+    {
+     "bbox": [
+      42.24,
+      735.84,
+      243.84,
+      747.84
+     ],
+     "text": "mean 16 mm 26 mm 18mm"
+    },
+    {
+     "bbox": [
+      42.72,
+      746.88,
+      241.92,
+      755.52
+     ],
+     "text": "range 12.20 12-62 10-25"
+    },
+    {
+     "bbox": [
+      42.24,
+      757.44,
+      231.84,
+      764.64
+     ],
+     "text": "std ceviation 25 143 45"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "0.6% 89% 88%\nWetermelon mosaic virus type 2 (Clare isolate)\n04% 67% 75%\n4 F-gsool virus Watermelon strain (DB isolate)\n9.1% 60% 51%\nLEAF LENGTH (10th leaf back from tig of stem)\nmean 222 mm 275mm 244 mm\nrange 170-241 215-325 210-285\n15.2 2727 192\nLEAF LOBE index of mature plant\nmean 0.63 0.83 0.81\nrang 0.46-0.82 9.76-0 $2 0.74-3.99\nst ation C092 0.041 6.042\nPETIOLE THICKNESS (measured at base)\nmean AM, 195mm 185mm\nrange 14-19 13.3-26.2 143-230\nsid deviation 127 272 2.07\nFEMALE FLOWER PEDICEL LENGTH\nmean 41mm 95mm 54mm\nrange 27.68 60-142 33-79\nstd deviation 76 273 13.2\nMALE FLOWER SEPAL LENGTH\nmean 16mm 25mm 23 mm\nrange $-23 15-32 16-33\nstd deviation 27 4.0 3.9\nMATURE FRUIT \u2014 LENGTH (HEIGHT)\nmean 16.0 cr 145m 1?0cm\nrange13-i8 16.5-17.5 116-215\nstd deviation 124 * 63 234\nATURE FRUIT \u2014 MAXIMUM WIDTH\nmean 22.5em 265em 240\nrange 18-25 21-34 195-285\nstd deviation 142 2.84 1.98\nMATURE FRUIT \u2014 CROWN DIAMETER\nmean 16 mm 26 mm 18mm\nrange 12.20 12-62 10-25\nstd ceviation 25 143 45",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    309.6,
+    61.92,
+    548.16,
+    139.68
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      310.56,
+      61.92,
+      335.52,
+      71.04
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      310.56,
+      72.0,
+      548.16,
+      80.64
+     ],
+     "text": "\u2018Redlands Trailblazer\u2019 arose from a selection and controlled"
+    },
+    {
+     "bbox": [
+      310.08,
+      82.08,
+      533.76,
+      91.2
+     ],
+     "text": "pollination program between 1978 and 1990. Selection"
+    },
+    {
+     "bbox": [
+      309.6,
+      92.64,
+      506.88,
+      101.28
+     ],
+     "text": "was primarily for virus resistance and agronomic"
+    },
+    {
+     "bbox": [
+      310.08,
+      102.24,
+      546.72,
+      109.92
+     ],
+     "text": "characteristics. Resistance was transferred from Cucurbita"
+    },
+    {
+     "bbox": [
+      309.6,
+      111.84,
+      546.72,
+      121.44
+     ],
+     "text": "ecuadorensis. Following final selection, two generations of"
+    },
+    {
+     "bbox": [
+      309.6,
+      121.92,
+      545.28,
+      130.08
+     ],
+     "text": "open pollination have established \u2018Redlands Trailblazer\u2019 as"
+    },
+    {
+     "bbox": [
+      309.6,
+      131.52,
+      343.2,
+      139.68
+     ],
+     "text": "a variety."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\n\u2018Redlands Trailblazer\u2019 arose from a selection and controlled\npollination program between 1978 and 1990. Selection\nwas primarily for virus resistance and agronomic\ncharacteristics. Resistance was transferred from Cucurbita\necuadorensis. Following final selection, two generations of\nopen pollination have established \u2018Redlands Trailblazer\u2019 as\na variety.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    309.12,
+    154.08,
+    543.84,
+    241.92
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      310.08,
+      154.08,
+      464.64,
+      163.2
+     ],
+     "text": "Morphology \u2014 see comparison tables."
+    },
+    {
+     "bbox": [
+      309.6,
+      164.16,
+      520.32,
+      173.76
+     ],
+     "text": "\u2018Redlands Trailblazer\u2019 is an open pollinated vine type"
+    },
+    {
+     "bbox": [
+      309.6,
+      174.24,
+      530.88,
+      183.36
+     ],
+     "text": "pumpkin. It is resistant to zucchini yellow mosaic virus,"
+    },
+    {
+     "bbox": [
+      309.12,
+      184.8,
+      538.08,
+      193.92
+     ],
+     "text": "watermelon mosaic virus, and papaya ringspot virus type"
+    },
+    {
+     "bbox": [
+      309.12,
+      194.88,
+      533.28,
+      204.0
+     ],
+     "text": "W. It is moderately branched with moderate vigour, and"
+    },
+    {
+     "bbox": [
+      309.6,
+      204.96,
+      543.84,
+      214.08
+     ],
+     "text": "has medium green, reniform leaves with no marbling. The"
+    },
+    {
+     "bbox": [
+      309.6,
+      214.56,
+      522.24,
+      222.72
+     ],
+     "text": "leaves of \u2018Redlands Trailblazer\u2019 are shorter, and have"
+    },
+    {
+     "bbox": [
+      309.12,
+      224.64,
+      524.64,
+      232.8
+     ],
+     "text": "thinner petioles, than those of \u2018Queensland Blue\u2019 and"
+    },
+    {
+     "bbox": [
+      309.12,
+      234.72,
+      358.56,
+      241.92
+     ],
+     "text": "\u2018Jarrahdale\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 see comparison tables.\n\u2018Redlands Trailblazer\u2019 is an open pollinated vine type\npumpkin. It is resistant to zucchini yellow mosaic virus,\nwatermelon mosaic virus, and papaya ringspot virus type\nW. It is moderately branched with moderate vigour, and\nhas medium green, reniform leaves with no marbling. The\nleaves of \u2018Redlands Trailblazer\u2019 are shorter, and have\nthinner petioles, than those of \u2018Queensland Blue\u2019 and\n\u2018Jarrahdale\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    308.64,
+    259.68,
+    532.32,
+    296.16
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      309.12,
+      259.68,
+      528.96,
+      267.84
+     ],
+     "text": "Leaf blades become moderately incised after about the"
+    },
+    {
+     "bbox": [
+      309.12,
+      269.28,
+      532.32,
+      276.48
+     ],
+     "text": "20th node, but not earlier. \u2018Redlands Trailblazer\u2019 can be"
+    },
+    {
+     "bbox": [
+      308.64,
+      279.36,
+      528.96,
+      287.52
+     ],
+     "text": "distinguished from \u2018Queensland Blue\u2019 and \u2018Jarrahdale\u2019"
+    },
+    {
+     "bbox": [
+      308.64,
+      288.96,
+      425.76,
+      296.16
+     ],
+     "text": "which lack this characteristic."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Leaf blades become moderately incised after about the\n20th node, but not earlier. \u2018Redlands Trailblazer\u2019 can be\ndistinguished from \u2018Queensland Blue\u2019 and \u2018Jarrahdale\u2019\nwhich lack this characteristic.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    308.16,
+    312.96,
+    532.32,
+    351.84
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      308.16,
+      312.96,
+      509.28,
+      321.6
+     ],
+     "text": "The male and female flower pedicels of \u2018Redlands"
+    },
+    {
+     "bbox": [
+      308.64,
+      323.52,
+      532.32,
+      330.24
+     ],
+     "text": "Trailblazer\u2019 are shorter than those of \u2018Queensland Blue\u2019"
+    },
+    {
+     "bbox": [
+      308.64,
+      333.12,
+      516.0,
+      340.32
+     ],
+     "text": "and \u2018Jarrahdale\u2019. Both male and female flowers are"
+    },
+    {
+     "bbox": [
+      308.16,
+      343.68,
+      451.2,
+      351.84
+     ],
+     "text": "orange, corresponding to RHS 17A."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The male and female flower pedicels of \u2018Redlands\nTrailblazer\u2019 are shorter than those of \u2018Queensland Blue\u2019\nand \u2018Jarrahdale\u2019. Both male and female flowers are\norange, corresponding to RHS 17A.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    308.16,
+    367.2,
+    542.88,
+    465.12
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      308.64,
+      367.2,
+      512.64,
+      375.36
+     ],
+     "text": "Fruit maturity is mid season. The fruit of \u2018Redlands"
+    },
+    {
+     "bbox": [
+      308.16,
+      377.28,
+      502.08,
+      385.44
+     ],
+     "text": "Trailblazer\u2019 are medium sized, being longer than"
+    },
+    {
+     "bbox": [
+      308.64,
+      386.88,
+      537.6,
+      394.08
+     ],
+     "text": "\u201cQueensland Blue\u2019, and narrower than both \u2018Queensland"
+    },
+    {
+     "bbox": [
+      308.64,
+      396.48,
+      535.2,
+      403.68
+     ],
+     "text": "Blue\u2019 and \u2018Jarrahdale\u2019. The fruit of \u2018Redlands Trailblazer\u2019"
+    },
+    {
+     "bbox": [
+      308.64,
+      406.56,
+      538.56,
+      414.72
+     ],
+     "text": "are transverse elliptical with a medium thickness, orange"
+    },
+    {
+     "bbox": [
+      308.64,
+      416.16,
+      531.36,
+      424.8
+     ],
+     "text": "flesh and grey skin. The mature fruit crown diameter of"
+    },
+    {
+     "bbox": [
+      308.64,
+      426.24,
+      492.96,
+      433.44
+     ],
+     "text": "\u2018Redlands Trailblazer\u2019 is narrower than that of"
+    },
+    {
+     "bbox": [
+      308.64,
+      436.32,
+      542.88,
+      443.04
+     ],
+     "text": "\u201cQueensland Blue\u2019. The seeds of \u2018Redlands Trailblazer\u2019 are"
+    },
+    {
+     "bbox": [
+      308.16,
+      446.4,
+      518.4,
+      453.6
+     ],
+     "text": "white, in contrast to those of \u2018Queensland Blue\u2019 and"
+    },
+    {
+     "bbox": [
+      308.64,
+      456.48,
+      451.68,
+      465.12
+     ],
+     "text": "\u2018Jarrahdale\u2019, which are grey orange."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Fruit maturity is mid season. The fruit of \u2018Redlands\nTrailblazer\u2019 are medium sized, being longer than\n\u201cQueensland Blue\u2019, and narrower than both \u2018Queensland\nBlue\u2019 and \u2018Jarrahdale\u2019. The fruit of \u2018Redlands Trailblazer\u2019\nare transverse elliptical with a medium thickness, orange\nflesh and grey skin. The mature fruit crown diameter of\n\u2018Redlands Trailblazer\u2019 is narrower than that of\n\u201cQueensland Blue\u2019. The seeds of \u2018Redlands Trailblazer\u2019 are\nwhite, in contrast to those of \u2018Queensland Blue\u2019 and\n\u2018Jarrahdale\u2019, which are grey orange.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    308.16,
+    518.4,
+    396.96,
+    544.8
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      309.12,
+      518.4,
+      348.0,
+      529.44
+     ],
+     "text": "ROSE"
+    },
+    {
+     "bbox": [
+      308.16,
+      532.32,
+      396.96,
+      544.8
+     ],
+     "text": "(Rosa hybrida)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ROSE\n(Rosa hybrida)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    307.68,
+    563.52,
+    530.4,
+    642.24
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      307.68,
+      563.52,
+      323.04,
+      577.92
+     ],
+     "text": "C)"
+    },
+    {
+     "bbox": [
+      308.16,
+      585.12,
+      374.4,
+      593.28
+     ],
+     "text": "Variety: \u2018Tineke\u2019"
+    },
+    {
+     "bbox": [
+      308.16,
+      594.72,
+      403.68,
+      603.84
+     ],
+     "text": "Application No. 90/096"
+    },
+    {
+     "bbox": [
+      308.16,
+      604.8,
+      458.4,
+      613.92
+     ],
+     "text": "Application received: 2 October 1990"
+    },
+    {
+     "bbox": [
+      308.64,
+      614.88,
+      530.4,
+      623.52
+     ],
+     "text": "Applicant: Select Roses BV, of Pa De Kwakel, Holland."
+    },
+    {
+     "bbox": [
+      308.64,
+      624.48,
+      517.92,
+      633.6
+     ],
+     "text": "Australian Agent: Grandiflora Nurseries Pty Ltd, of"
+    },
+    {
+     "bbox": [
+      308.64,
+      635.04,
+      391.68,
+      642.24
+     ],
+     "text": "Cranbourne, Victoria."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "C)\nVariety: \u2018Tineke\u2019\nApplication No. 90/096\nApplication received: 2 October 1990\nApplicant: Select Roses BV, of Pa De Kwakel, Holland.\nAustralian Agent: Grandiflora Nurseries Pty Ltd, of\nCranbourne, Victoria.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    308.64,
+    659.04,
+    544.32,
+    715.68
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      309.12,
+      659.04,
+      349.92,
+      667.2
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      309.12,
+      667.68,
+      544.32,
+      676.8
+     ],
+     "text": "\u2018Tineke\u2019 is a large white glasshouse rose. It is distinct from"
+    },
+    {
+     "bbox": [
+      309.12,
+      677.76,
+      529.92,
+      686.4
+     ],
+     "text": "known varieties in having the following combination of"
+    },
+    {
+     "bbox": [
+      308.64,
+      687.36,
+      540.96,
+      696.0
+     ],
+     "text": "characters: convex in profile and strongly reflexing petals,"
+    },
+    {
+     "bbox": [
+      309.12,
+      696.96,
+      540.0,
+      706.08
+     ],
+     "text": "dark green leaves rounded at the base; no anthocyanin in"
+    },
+    {
+     "bbox": [
+      308.64,
+      707.52,
+      363.84,
+      715.68
+     ],
+     "text": "young shoots."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\n\u2018Tineke\u2019 is a large white glasshouse rose. It is distinct from\nknown varieties in having the following combination of\ncharacters: convex in profile and strongly reflexing petals,\ndark green leaves rounded at the base; no anthocyanin in\nyoung shoots.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    308.64,
+    731.52,
+    539.04,
+    768.48
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      308.64,
+      731.52,
+      408.48,
+      739.2
+     ],
+     "text": "Varieties used for comp:"
+    },
+    {
+     "bbox": [
+      309.12,
+      740.64,
+      518.4,
+      749.28
+     ],
+     "text": "\u2018Athena\u2019 and \u2018Bridal White\u2019 being the closest known"
+    },
+    {
+     "bbox": [
+      309.12,
+      750.72,
+      539.04,
+      758.88
+     ],
+     "text": "varieties in flower colour and form and commonly known"
+    },
+    {
+     "bbox": [
+      308.64,
+      761.28,
+      391.68,
+      768.48
+     ],
+     "text": "varieties in Australia"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comp:\n\u2018Athena\u2019 and \u2018Bridal White\u2019 being the closest known\nvarieties in flower colour and form and commonly known\nvarieties in Australia",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

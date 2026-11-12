@@ -1,0 +1,873 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    63.72,
+    50.76,
+    239.76,
+    70.2
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      64.44,
+      50.76,
+      239.76,
+      60.48
+     ],
+     "text": "Further growing trials will be conducted in"
+    },
+    {
+     "bbox": [
+      63.72,
+      61.2,
+      206.28,
+      70.2
+     ],
+     "text": "Australia to verify this description."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Further growing trials will be conducted in\nAustralia to verify this description.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.64,
+    95.76,
+    266.76,
+    153.36
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      62.64,
+      95.76,
+      88.2,
+      104.4
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      63.0,
+      104.76,
+      266.76,
+      114.12
+     ],
+     "text": "\u2018Natsukaze\u2019 guinea grass has Plant Variety Rights"
+    },
+    {
+     "bbox": [
+      62.64,
+      114.84,
+      255.96,
+      123.84
+     ],
+     "text": "protection in Japan since November 1986. The"
+    },
+    {
+     "bbox": [
+      62.64,
+      124.56,
+      249.48,
+      133.2
+     ],
+     "text": "breeder is Hirosayu Sato, of Kyushu National"
+    },
+    {
+     "bbox": [
+      62.64,
+      134.28,
+      256.32,
+      143.64
+     ],
+     "text": "Agricultural Experiment Station at Kumamoto,"
+    },
+    {
+     "bbox": [
+      62.64,
+      145.08,
+      90.0,
+      153.36
+     ],
+     "text": "Japan."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\n\u2018Natsukaze\u2019 guinea grass has Plant Variety Rights\nprotection in Japan since November 1986. The\nbreeder is Hirosayu Sato, of Kyushu National\nAgricultural Experiment Station at Kumamoto,\nJapan.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.64,
+    163.8,
+    272.16,
+    263.52
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      63.0,
+      163.8,
+      267.12,
+      172.44
+     ],
+     "text": "This variety arises from the controlled pollination"
+    },
+    {
+     "bbox": [
+      62.64,
+      173.52,
+      236.52,
+      182.88
+     ],
+     "text": "of a sexual plant accession by pollen from"
+    },
+    {
+     "bbox": [
+      63.0,
+      183.6,
+      272.16,
+      192.96
+     ],
+     "text": "apomictic accessions. Selection of sexual progeny"
+    },
+    {
+     "bbox": [
+      62.64,
+      193.68,
+      260.28,
+      203.04
+     ],
+     "text": "was made for three generations, on the basis of"
+    },
+    {
+     "bbox": [
+      63.0,
+      204.12,
+      272.16,
+      213.48
+     ],
+     "text": "early growth vigour and high dry matter yield. The"
+    },
+    {
+     "bbox": [
+      63.36,
+      214.56,
+      241.2,
+      222.12
+     ],
+     "text": "resultant material was then evaluated at 13"
+    },
+    {
+     "bbox": [
+      62.64,
+      223.92,
+      272.16,
+      233.28
+     ],
+     "text": "different sites in Japan from 1981 to 1984 for yield,"
+    },
+    {
+     "bbox": [
+      62.64,
+      234.36,
+      259.92,
+      243.36
+     ],
+     "text": "chemical composition, nutrient value and other"
+    },
+    {
+     "bbox": [
+      63.0,
+      244.08,
+      266.4,
+      253.44
+     ],
+     "text": "performance characteristics, resulting in the final"
+    },
+    {
+     "bbox": [
+      62.64,
+      254.52,
+      191.88,
+      263.52
+     ],
+     "text": "selection of an apomictic plant."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "This variety arises from the controlled pollination\nof a sexual plant accession by pollen from\napomictic accessions. Selection of sexual progeny\nwas made for three generations, on the basis of\nearly growth vigour and high dry matter yield. The\nresultant material was then evaluated at 13\ndifferent sites in Japan from 1981 to 1984 for yield,\nchemical composition, nutrient value and other\nperformance characteristics, resulting in the final\nselection of an apomictic plant.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    296.28,
+    48.6,
+    508.68,
+    96.48
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      296.28,
+      48.6,
+      458.28,
+      57.6
+     ],
+     "text": "Morphology \u2014 See comparison tables."
+    },
+    {
+     "bbox": [
+      296.64,
+      57.96,
+      508.68,
+      67.68
+     ],
+     "text": "*Natsukaze\u2019 is a perennial tetraploid (2n = 32} erect"
+    },
+    {
+     "bbox": [
+      296.28,
+      68.4,
+      487.08,
+      78.12
+     ],
+     "text": "growing guinea grass. Its reproduction is 85%"
+    },
+    {
+     "bbox": [
+      296.64,
+      78.48,
+      508.32,
+      88.2
+     ],
+     "text": "apomictic \u2014 that is, producing seed without sexual"
+    },
+    {
+     "bbox": [
+      297.0,
+      89.28,
+      359.64,
+      96.48
+     ],
+     "text": "recombination."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 See comparison tables.\n*Natsukaze\u2019 is a perennial tetraploid (2n = 32} erect\ngrowing guinea grass. Its reproduction is 85%\napomictic \u2014 that is, producing seed without sexual\nrecombination.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    296.64,
+    105.84,
+    510.12,
+    213.12
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      296.64,
+      105.84,
+      504.0,
+      114.48
+     ],
+     "text": "\u2018Natsukaze\u2019 is distinct from \u2018Gatton\u2019 in being more"
+    },
+    {
+     "bbox": [
+      297.0,
+      115.92,
+      493.92,
+      124.2
+     ],
+     "text": "robust and broader leafed than \u2018Gatton\u2019, having"
+    },
+    {
+     "bbox": [
+      296.64,
+      125.64,
+      495.72,
+      134.64
+     ],
+     "text": "denser and shorter leaf sheath pubescence than"
+    },
+    {
+     "bbox": [
+      296.64,
+      135.72,
+      474.84,
+      144.72
+     ],
+     "text": "\u2018Gatton\u2019 and having pubescent stem nodes"
+    },
+    {
+     "bbox": [
+      296.64,
+      145.44,
+      480.24,
+      154.8
+     ],
+     "text": "compared to the glabrous nodes of \u2018Gatton\u2019."
+    },
+    {
+     "bbox": [
+      297.0,
+      155.16,
+      494.64,
+      163.8
+     ],
+     "text": "\u2018Natsukaze\u2019 is also distinct from \u2018Petrie\u2019 in being"
+    },
+    {
+     "bbox": [
+      296.64,
+      165.24,
+      483.48,
+      173.16
+     ],
+     "text": "more robust and broader leafed than \u2018Petrie\u2019,"
+    },
+    {
+     "bbox": [
+      297.0,
+      175.32,
+      510.12,
+      184.32
+     ],
+     "text": "having a later heading date than \u2018Petrie\u2019 and having"
+    },
+    {
+     "bbox": [
+      296.64,
+      185.4,
+      493.92,
+      194.4
+     ],
+     "text": "glabrous bright green leaf blade upper surfaces"
+    },
+    {
+     "bbox": [
+      296.64,
+      195.84,
+      509.04,
+      204.84
+     ],
+     "text": "compared to the pale green finely pubescent upper"
+    },
+    {
+     "bbox": [
+      297.0,
+      205.92,
+      392.76,
+      213.12
+     ],
+     "text": "leaf surfaces of \u2018Petrie\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Natsukaze\u2019 is distinct from \u2018Gatton\u2019 in being more\nrobust and broader leafed than \u2018Gatton\u2019, having\ndenser and shorter leaf sheath pubescence than\n\u2018Gatton\u2019 and having pubescent stem nodes\ncompared to the glabrous nodes of \u2018Gatton\u2019.\n\u2018Natsukaze\u2019 is also distinct from \u2018Petrie\u2019 in being\nmore robust and broader leafed than \u2018Petrie\u2019,\nhaving a later heading date than \u2018Petrie\u2019 and having\nglabrous bright green leaf blade upper surfaces\ncompared to the pale green finely pubescent upper\nleaf surfaces of \u2018Petrie\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    297.36,
+    223.56,
+    502.56,
+    261.0
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      297.36,
+      223.56,
+      342.0,
+      232.56
+     ],
+     "text": "Agronomy"
+    },
+    {
+     "bbox": [
+      297.72,
+      233.64,
+      486.0,
+      242.64
+     ],
+     "text": "\u2018Natsukaze\u2019 is intended as a summer growing"
+    },
+    {
+     "bbox": [
+      297.72,
+      243.72,
+      502.56,
+      252.36
+     ],
+     "text": "perennial (3-4 years) pasture grass, It is known to"
+    },
+    {
+     "bbox": [
+      297.72,
+      253.44,
+      406.44,
+      261.0
+     ],
+     "text": "have a low frost tolerance."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Agronomy\n\u2018Natsukaze\u2019 is intended as a summer growing\nperennial (3-4 years) pasture grass, It is known to\nhave a low frost tolerance.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    65.52,
+    273.96,
+    391.68,
+    284.4
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      65.52,
+      273.96,
+      391.68,
+      284.4
+     ],
+     "text": "TABLES OF COMPARISON OF GUINEA GRASS VARIETIES"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "TABLES OF COMPARISON OF GUINEA GRASS VARIETIES",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    65.52,
+    297.0,
+    456.84,
+    772.92
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      227.88,
+      297.0,
+      443.88,
+      308.52
+     ],
+     "text": "\u2018Natsukaze\u2019 Gatton\u2019 \u2018Patrie\u2019"
+    },
+    {
+     "bbox": [
+      66.6,
+      315.36,
+      307.8,
+      326.16
+     ],
+     "text": "RECORDED SEXUAL REPRODUCTION \u2014 8 nuclei per embryo sac"
+    },
+    {
+     "bbox": [
+      66.96,
+      325.8,
+      431.64,
+      333.36
+     ],
+     "text": "1983 analysis 15% 6% 0%"
+    },
+    {
+     "bbox": [
+      66.6,
+      343.8,
+      433.44,
+      350.64
+     ],
+     "text": "HEADING DATE Mean 26.3 13.9 11.7"
+    },
+    {
+     "bbox": [
+      66.6,
+      351.36,
+      434.52,
+      361.8
+     ],
+     "text": "{from 1 July) Range 21-31 10-21 5-21"
+    },
+    {
+     "bbox": [
+      132.84,
+      360.72,
+      432.36,
+      371.88
+     ],
+     "text": "Standard deviation 1.44 2.11 2.11"
+    },
+    {
+     "bbox": [
+      66.6,
+      380.16,
+      450.72,
+      387.0
+     ],
+     "text": "STEM LENGTH Mean 221.8cm 175.7. cm 154.7 cm"
+    },
+    {
+     "bbox": [
+      180.0,
+      387.72,
+      448.92,
+      398.52
+     ],
+     "text": "Range 205-244 151-212 128-185"
+    },
+    {
+     "bbox": [
+      132.84,
+      398.16,
+      433.44,
+      404.64
+     ],
+     "text": "Standard deviation 2.46 2.06 3.86"
+    },
+    {
+     "bbox": [
+      66.6,
+      415.8,
+      445.68,
+      422.64
+     ],
+     "text": "STEM DIAMETER Mean 6.0mm 4.3mm 4.1mm"
+    },
+    {
+     "bbox": [
+      180.0,
+      423.36,
+      444.6,
+      434.16
+     ],
+     "text": "Range 5.1-7.2 3.4-5.5 3.2-5.0"
+    },
+    {
+     "bbox": [
+      132.48,
+      433.44,
+      433.8,
+      439.92
+     ],
+     "text": "Standard deviation 0.35 0.37 0.13"
+    },
+    {
+     "bbox": [
+      66.6,
+      451.08,
+      279.36,
+      459.0
+     ],
+     "text": "NO. TILLERS {tillers having not less than 1 node per stem)"
+    },
+    {
+     "bbox": [
+      66.6,
+      458.64,
+      433.8,
+      470.16
+     ],
+     "text": "PER PLANT Mean 29.1 49.3 62.5"
+    },
+    {
+     "bbox": [
+      180.36,
+      467.64,
+      444.6,
+      478.8
+     ],
+     "text": "Range 11-62 19-91 18-178"
+    },
+    {
+     "bbox": [
+      132.48,
+      478.08,
+      432.36,
+      484.92
+     ],
+     "text": "Standard deviation 3.50 4,29 8.21"
+    },
+    {
+     "bbox": [
+      66.6,
+      496.44,
+      446.4,
+      503.28
+     ],
+     "text": "LEAF LENGTH Mean 43.5cem 38.2cm 37.3em"
+    },
+    {
+     "bbox": [
+      66.6,
+      503.28,
+      440.28,
+      514.44
+     ],
+     "text": "(next from flag) Range 34-52 29-47 21-48"
+    },
+    {
+     "bbox": [
+      132.84,
+      514.8,
+      428.76,
+      521.28
+     ],
+     "text": "Standard deviation 1.36 1.0 5.2"
+    },
+    {
+     "bbox": [
+      66.6,
+      532.8,
+      442.08,
+      539.28
+     ],
+     "text": "LEAF WIDTH Mean 3.2cm 2.0cm 1.8cm"
+    },
+    {
+     "bbox": [
+      66.6,
+      540.0,
+      444.24,
+      550.44
+     ],
+     "text": "(same leaf} Range 2.6-3.5 1.6-2.5 1.4-2.2"
+    },
+    {
+     "bbox": [
+      132.48,
+      549.0,
+      433.8,
+      560.16
+     ],
+     "text": "Standard deviation 0.09 0.03 0.16"
+    },
+    {
+     "bbox": [
+      66.24,
+      568.08,
+      245.16,
+      576.0
+     ],
+     "text": "HAIR \u2014 Ranked 0 (= glabrous) to 9 {= abundant)"
+    },
+    {
+     "bbox": [
+      65.52,
+      577.08,
+      429.12,
+      583.56
+     ],
+     "text": "\u2014 ON STEM NODE Mean 17 0 1.9"
+    },
+    {
+     "bbox": [
+      65.52,
+      586.08,
+      428.04,
+      592.56
+     ],
+     "text": "\u2014 ON SHEATH Mean 3.1 0 41"
+    },
+    {
+     "bbox": [
+      65.88,
+      595.08,
+      429.12,
+      601.56
+     ],
+     "text": "\u2014 ONLIGULE Mean 29 17 25"
+    },
+    {
+     "bbox": [
+      66.24,
+      612.72,
+      446.4,
+      619.2
+     ],
+     "text": "PANICLE LENGTH Mean 38.5 cm 27.3c\u00a2m 29.3 cm"
+    },
+    {
+     "bbox": [
+      180.0,
+      621.72,
+      453.24,
+      629.28
+     ],
+     "text": "Range 35.2-48.5 17.2-33.0 27.4-41.0"
+    },
+    {
+     "bbox": [
+      132.48,
+      630.72,
+      433.44,
+      637.2
+     ],
+     "text": "Standard deviation 0.49 1,93 0.72"
+    },
+    {
+     "bbox": [
+      66.6,
+      647.28,
+      438.12,
+      658.8
+     ],
+     "text": "NO. PANICLES Mean 23.6 96.8 108.3"
+    },
+    {
+     "bbox": [
+      66.6,
+      656.28,
+      444.6,
+      667.8
+     ],
+     "text": "PER PLANT Range 10-50 32-136 32-230"
+    },
+    {
+     "bbox": [
+      132.48,
+      667.08,
+      438.12,
+      673.2
+     ],
+     "text": "Standard deviation 3.75 18.58 11.53"
+    },
+    {
+     "bbox": [
+      66.24,
+      683.28,
+      433.8,
+      694.8
+     ],
+     "text": "NO. RACHIS Mean 51.7 38.9 33.5"
+    },
+    {
+     "bbox": [
+      66.24,
+      692.28,
+      439.2,
+      703.08
+     ],
+     "text": "PER PANICLE Range 47-56 30-45 26-41"
+    },
+    {
+     "bbox": [
+      132.48,
+      702.36,
+      433.08,
+      709.2
+     ],
+     "text": "Standard deviation 0.35 1.59 2.12"
+    },
+    {
+     "bbox": [
+      66.24,
+      720.0,
+      443.88,
+      727.92
+     ],
+     "text": "SEED \u2014 RUGOSITY rugose rugose rugose"
+    },
+    {
+     "bbox": [
+      90.72,
+      738.0,
+      456.84,
+      745.92
+     ],
+     "text": "\u2014 GLUME HAIRINESS glabrous glabrous pubescent"
+    },
+    {
+     "bbox": [
+      90.72,
+      756.0,
+      435.6,
+      763.92
+     ],
+     "text": "\u2014 WEIGHT PER 1000 1.02g 0.89g 1.0g"
+    },
+    {
+     "bbox": [
+      91.44,
+      765.0,
+      439.92,
+      772.92
+     ],
+     "text": "{2 samples) 1.059 0.80g 0.92g"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Natsukaze\u2019 Gatton\u2019 \u2018Patrie\u2019\nRECORDED SEXUAL REPRODUCTION \u2014 8 nuclei per embryo sac\n1983 analysis 15% 6% 0%\nHEADING DATE Mean 26.3 13.9 11.7\n{from 1 July) Range 21-31 10-21 5-21\nStandard deviation 1.44 2.11 2.11\nSTEM LENGTH Mean 221.8cm 175.7. cm 154.7 cm\nRange 205-244 151-212 128-185\nStandard deviation 2.46 2.06 3.86\nSTEM DIAMETER Mean 6.0mm 4.3mm 4.1mm\nRange 5.1-7.2 3.4-5.5 3.2-5.0\nStandard deviation 0.35 0.37 0.13\nNO. TILLERS {tillers having not less than 1 node per stem)\nPER PLANT Mean 29.1 49.3 62.5\nRange 11-62 19-91 18-178\nStandard deviation 3.50 4,29 8.21\nLEAF LENGTH Mean 43.5cem 38.2cm 37.3em\n(next from flag) Range 34-52 29-47 21-48\nStandard deviation 1.36 1.0 5.2\nLEAF WIDTH Mean 3.2cm 2.0cm 1.8cm\n(same leaf} Range 2.6-3.5 1.6-2.5 1.4-2.2\nStandard deviation 0.09 0.03 0.16\nHAIR \u2014 Ranked 0 (= glabrous) to 9 {= abundant)\n\u2014 ON STEM NODE Mean 17 0 1.9\n\u2014 ON SHEATH Mean 3.1 0 41\n\u2014 ONLIGULE Mean 29 17 25\nPANICLE LENGTH Mean 38.5 cm 27.3c\u00a2m 29.3 cm\nRange 35.2-48.5 17.2-33.0 27.4-41.0\nStandard deviation 0.49 1,93 0.72\nNO. PANICLES Mean 23.6 96.8 108.3\nPER PLANT Range 10-50 32-136 32-230\nStandard deviation 3.75 18.58 11.53\nNO. RACHIS Mean 51.7 38.9 33.5\nPER PANICLE Range 47-56 30-45 26-41\nStandard deviation 0.35 1.59 2.12\nSEED \u2014 RUGOSITY rugose rugose rugose\n\u2014 GLUME HAIRINESS glabrous glabrous pubescent\n\u2014 WEIGHT PER 1000 1.02g 0.89g 1.0g\n{2 samples) 1.059 0.80g 0.92g",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    506.88,
+    795.24,
+    513.72,
+    801.0
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      506.88,
+      795.24,
+      513.72,
+      801.0
+     ],
+     "text": "21"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "21",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    596.95,
+    844.01
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

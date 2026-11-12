@@ -184,7 +184,7 @@ app = FastAPI(
         "Deterministic conversion of web URLs, PDFs, and DOCX documents into "
         "clean, structured Markdown. Designed for both human UIs and LLM/MCP agents."
     ),
-    version="0.17.0",
+    version="0.18.0",
     lifespan=_lifespan,
 )
 
@@ -320,13 +320,20 @@ async def _job_slot() -> AsyncIterator[None]:
 # --- Schemas ----------------------------------------------------------------
 # Documented once, shared by both request shapes (JSON body and multipart form).
 _ENGINE_DESCRIPTION = (
-    "Document engine to use: 'pymupdf' (fast and deterministic — what a standard "
-    "deployment defaults to), 'docling' (highest fidelity on complex or scanned "
-    "documents, but markedly slower on the free CPU tier), or 'auto' — the "
-    "default — for this deployment's own preference. docling always falls back to "
-    "the deterministic parser when it is unavailable, whether it was chosen or "
-    "defaulted to. On /convert/url the choice applies only when the URL serves a "
-    "PDF; HTML pages are always extracted by Trafilatura."
+    "Document engine to use: 'pymupdf' (the accurate local parser and what a "
+    "standard deployment defaults to: deterministic; on scanned pages it reads "
+    "layout, heading levels and tables with Tesseract plus a layout and a table "
+    "model), 'fast' (the same parser with a lighter OCR stage for scanned pages: "
+    "Tesseract alone, two to three times quicker a scanned page with the same words "
+    "on the project's benchmarks, but no heading levels or rebuilt tables on scans; "
+    "text-layer PDFs and DOCX "
+    "come out the same as 'pymupdf'), 'docling' (an ML converter run as a separate "
+    "service: experimental, much slower on CPU, and less accurate than 'pymupdf' on "
+    "the project's benchmarks), or 'auto', the default, for this deployment's own "
+    "preference. docling always falls back to the deterministic parser when it is "
+    "unavailable, whether it was chosen or defaulted to. On /convert/url the choice "
+    "applies only when the URL serves a PDF; HTML pages are always extracted by "
+    "Trafilatura."
 )
 
 

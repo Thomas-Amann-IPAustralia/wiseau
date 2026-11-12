@@ -105,8 +105,10 @@ async def convert_url(url: str, engine: str = "auto", split_chapters: bool = Fal
     Args:
         url: Absolute ``http`` or ``https`` URL of the page to convert.
         engine: Document engine, used only when the URL serves a **PDF**:
-            ``"docling"`` (highest fidelity, much slower), ``"pymupdf"`` (fast,
-            deterministic), or ``"auto"`` (the deployment's default).
+            ``"pymupdf"`` (accurate, deterministic), ``"fast"`` (quicker on
+            scanned pages, without heading levels or rebuilt tables),
+            ``"docling"`` (experimental, much slower), or ``"auto"`` (the
+            deployment's default).
         split_chapters: Also return the document split into chapters, each with a
             suggested filename — set this when the user wants one file per
             chapter. Only worth asking for on a long, chaptered document; a web
@@ -141,10 +143,15 @@ async def convert_file(path: str, engine: str = "auto", split_chapters: bool = F
 
     Args:
         path: Filesystem path to a local ``.pdf`` or ``.docx`` file.
-        engine: ``"docling"`` for the highest-fidelity conversion of complex or
-            scanned documents (much slower on free CPU), ``"pymupdf"`` for the
-            fast deterministic parser, or ``"auto"`` (the deployment's default).
-            docling always falls back to the fast parser if it is unavailable.
+        engine: ``"pymupdf"`` for the accurate deterministic parser (on scans it
+            recovers heading levels and tables), ``"fast"`` for the same parser
+            with a lighter OCR stage (two to three times quicker a scanned page,
+            the same words on the project's benchmarks, but no heading levels or
+            rebuilt tables on scans; text-layer PDFs and DOCX come out the same),
+            ``"docling"`` (experimental: an ML
+            converter, much slower on CPU and less accurate on the project's
+            benchmarks), or ``"auto"`` (the deployment's default). docling always
+            falls back to the local parser if it is unavailable.
         split_chapters: Also return the document split into chapters. Set this
             when the user asks for a long document to be broken up — each chapter
             comes back with its own ``markdown`` and a numbered ``filename``, so
@@ -193,11 +200,11 @@ async def convert_batch(paths: list[str], engine: str = "auto", reader: bool | N
             machine running this MCP server. Every path must be readable — an
             unreadable one is reported before any conversion runs, rather than
             after paying for the others.
-        engine: ``"docling"``, ``"pymupdf"``, or ``"auto"``, applied to every
-            document in the batch. Note that ``docling`` costs tens of seconds to
-            minutes *per document* on free CPU, so a batch of any size is a long
-            wait; ``auto`` (the fast parser on a standard deployment) is usually
-            the right choice for bulk work.
+        engine: ``"pymupdf"``, ``"fast"``, ``"docling"``, or ``"auto"``, applied
+            to every document in the batch. ``fast`` suits a large batch of scans
+            where speed matters more than headings and tables. ``docling`` costs
+            tens of seconds to minutes *per document* on free CPU, so a batch of
+            any size is a long wait.
         reader: Reader mode for every document, as in ``convert_file``.
 
     Returns:

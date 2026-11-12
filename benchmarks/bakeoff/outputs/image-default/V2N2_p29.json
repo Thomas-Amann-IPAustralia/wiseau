@@ -1,0 +1,2414 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    60.72,
+    51.36,
+    265.44,
+    100.32
+   ],
+   "confidence": null,
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      60.96,
+      51.36,
+      258.72,
+      61.2
+     ],
+     "text": "by Plant Variety Rights in France since 1984. It is"
+    },
+    {
+     "bbox": [
+      60.72,
+      61.2,
+      265.44,
+      71.04
+     ],
+     "text": "also protected in Belgium, Denmark, Japan, West"
+    },
+    {
+     "bbox": [
+      60.72,
+      71.04,
+      251.28,
+      80.4
+     ],
+     "text": "Germany, South Africa, Switzerland and USA."
+    },
+    {
+     "bbox": [
+      60.96,
+      80.88,
+      263.28,
+      90.24
+     ],
+     "text": "Plant Variety Rights have also been applied for in"
+    },
+    {
+     "bbox": [
+      61.2,
+      90.96,
+      202.56,
+      100.32
+     ],
+     "text": "Israel, Spain and United Kingdom."
+    }
+   ],
+   "page": 1,
+   "score": 0.9326,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "by Plant Variety Rights in France since 1984. It is\nalso protected in Belgium, Denmark, Japan, West\nGermany, South Africa, Switzerland and USA.\nPlant Variety Rights have also been applied for in\nIsrael, Spain and United Kingdom.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    60.72,
+    110.4,
+    248.88,
+    138.48
+   ],
+   "confidence": null,
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      60.96,
+      110.4,
+      247.92,
+      120.0
+     ],
+     "text": "\u2018Meipinjid\u2019 was a selected sport of the variety"
+    },
+    {
+     "bbox": [
+      61.2,
+      120.48,
+      248.88,
+      129.84
+     ],
+     "text": "\u2018Meijidiro\u2019, differing from \u2018Meijidiro\u2019 in flower"
+    },
+    {
+     "bbox": [
+      60.72,
+      131.52,
+      89.04,
+      138.48
+     ],
+     "text": "colour."
+    }
+   ],
+   "page": 1,
+   "score": 0.903,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "\u2018Meipinjid\u2019 was a selected sport of the variety\n\u2018Meijidiro\u2019, differing from \u2018Meijidiro\u2019 in flower\ncolour.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    60.96,
+    150.72,
+    258.96,
+    179.76
+   ],
+   "confidence": null,
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      61.2,
+      150.72,
+      222.72,
+      160.32
+     ],
+     "text": "Morphology \u2014 See comparison tables."
+    },
+    {
+     "bbox": [
+      61.2,
+      160.56,
+      258.96,
+      168.72
+     ],
+     "text": "Characteristics observed but not included in the"
+    },
+    {
+     "bbox": [
+      60.96,
+      171.12,
+      208.8,
+      179.76
+     ],
+     "text": "table for comparison are as follows."
+    }
+   ],
+   "page": 1,
+   "score": 0.9046,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 See comparison tables.\nCharacteristics observed but not included in the\ntable for comparison are as follows.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    60.72,
+    190.56,
+    271.92,
+    249.12
+   ],
+   "confidence": null,
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      61.2,
+      190.56,
+      269.52,
+      199.92
+     ],
+     "text": "Flowering occurs almost continuously throughout"
+    },
+    {
+     "bbox": [
+      60.72,
+      200.4,
+      245.76,
+      209.28
+     ],
+     "text": "the year; bud shape is ovate; petals are pink,"
+    },
+    {
+     "bbox": [
+      61.68,
+      210.24,
+      271.92,
+      219.6
+     ],
+     "text": "reflexing and broad ovate with a pale green-yellow"
+    },
+    {
+     "bbox": [
+      61.44,
+      220.08,
+      244.32,
+      229.44
+     ],
+     "text": "basa! spot size extending about 30% of petal"
+    },
+    {
+     "bbox": [
+      61.68,
+      230.16,
+      256.8,
+      239.28
+     ],
+     "text": "length); filaments are yellow, styles are yellow-"
+    },
+    {
+     "bbox": [
+      61.2,
+      240.0,
+      246.24,
+      249.12
+     ],
+     "text": "green; stigma are above the level of anthers;"
+    }
+   ],
+   "page": 1,
+   "score": 0.9415,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Flowering occurs almost continuously throughout\nthe year; bud shape is ovate; petals are pink,\nreflexing and broad ovate with a pale green-yellow\nbasa! spot size extending about 30% of petal\nlength); filaments are yellow, styles are yellow-\ngreen; stigma are above the level of anthers;",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    292.56,
+    50.64,
+    504.72,
+    98.64
+   ],
+   "confidence": null,
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      292.8,
+      50.64,
+      483.84,
+      59.28
+     ],
+     "text": "pedicel is smooth, without prickles; leaves are"
+    },
+    {
+     "bbox": [
+      292.56,
+      60.48,
+      504.72,
+      69.36
+     ],
+     "text": "small, medium green, not glossy; thorns are mildly"
+    },
+    {
+     "bbox": [
+      293.04,
+      70.56,
+      477.12,
+      79.2
+     ],
+     "text": "red, with profile concave above and strongly"
+    },
+    {
+     "bbox": [
+      292.56,
+      80.4,
+      484.56,
+      88.8
+     ],
+     "text": "concave below; and young shoots are without"
+    },
+    {
+     "bbox": [
+      292.56,
+      90.0,
+      346.08,
+      98.64
+     ],
+     "text": "anthocyanin."
+    }
+   ],
+   "page": 1,
+   "score": 0.9346,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "pedicel is smooth, without prickles; leaves are\nsmall, medium green, not glossy; thorns are mildly\nred, with profile concave above and strongly\nconcave below; and young shoots are without\nanthocyanin.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    292.32,
+    109.92,
+    506.16,
+    247.92
+   ],
+   "confidence": null,
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      292.8,
+      109.92,
+      499.68,
+      118.56
+     ],
+     "text": "\u2018Meipinjid\u2019 is a dwarf growing plant usually below"
+    },
+    {
+     "bbox": [
+      292.56,
+      119.76,
+      489.36,
+      128.4
+     ],
+     "text": "60 cm in height and has a more spreading habit"
+    },
+    {
+     "bbox": [
+      292.56,
+      129.84,
+      474.24,
+      137.04
+     ],
+     "text": "than \u2018Carol Jean\u2019 or \u2018Watercolour\u2019. Terminal"
+    },
+    {
+     "bbox": [
+      292.8,
+      139.92,
+      492.24,
+      148.32
+     ],
+     "text": "leaflets of \u2018Meipinjid\u2019 are rounder in outline than"
+    },
+    {
+     "bbox": [
+      292.32,
+      149.76,
+      491.52,
+      158.88
+     ],
+     "text": "those of \u2018Watercolour\u2019. The thorns of \u2018Meipinjid\u2019"
+    },
+    {
+     "bbox": [
+      292.8,
+      160.08,
+      490.56,
+      168.72
+     ],
+     "text": "are more concave above in profile than those of"
+    },
+    {
+     "bbox": [
+      292.8,
+      170.4,
+      449.52,
+      177.36
+     ],
+     "text": "\u2018Carol Jean\u2019 and more numerous than"
+    },
+    {
+     "bbox": [
+      292.8,
+      180.24,
+      506.16,
+      188.64
+     ],
+     "text": "\u2018Watercolour\u2019. The flowers of \u2018Meipinjid\u2019 are double"
+    },
+    {
+     "bbox": [
+      293.04,
+      190.08,
+      494.4,
+      198.48
+     ],
+     "text": "(more than 50 petals) while those of \u2018Carol Jean\u2019"
+    },
+    {
+     "bbox": [
+      292.56,
+      199.92,
+      491.28,
+      207.84
+     ],
+     "text": "and \u2018Watercolour\u2019 are semi-double (less than 25"
+    },
+    {
+     "bbox": [
+      292.8,
+      209.76,
+      500.4,
+      218.4
+     ],
+     "text": "petals). Flower diameter of \u2018Meipinjid\u2019 is similar to"
+    },
+    {
+     "bbox": [
+      292.8,
+      218.64,
+      465.36,
+      229.44
+     ],
+     "text": "\u2018Watercolour\u2019 but wider than \u2018Carol Jean\u2019."
+    },
+    {
+     "bbox": [
+      292.8,
+      229.68,
+      498.0,
+      238.32
+     ],
+     "text": "\u2018Meipinjid\u2019 lacks the small white pointed tip of the"
+    },
+    {
+     "bbox": [
+      293.04,
+      239.52,
+      410.16,
+      247.92
+     ],
+     "text": "petal present in \u2018Carol Jean\u2019."
+    }
+   ],
+   "page": 1,
+   "score": 0.9481,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "\u2018Meipinjid\u2019 is a dwarf growing plant usually below\n60 cm in height and has a more spreading habit\nthan \u2018Carol Jean\u2019 or \u2018Watercolour\u2019. Terminal\nleaflets of \u2018Meipinjid\u2019 are rounder in outline than\nthose of \u2018Watercolour\u2019. The thorns of \u2018Meipinjid\u2019\nare more concave above in profile than those of\n\u2018Carol Jean\u2019 and more numerous than\n\u2018Watercolour\u2019. The flowers of \u2018Meipinjid\u2019 are double\n(more than 50 petals) while those of \u2018Carol Jean\u2019\nand \u2018Watercolour\u2019 are semi-double (less than 25\npetals). Flower diameter of \u2018Meipinjid\u2019 is similar to\n\u2018Watercolour\u2019 but wider than \u2018Carol Jean\u2019.\n\u2018Meipinjid\u2019 lacks the small white pointed tip of the\npetal present in \u2018Carol Jean\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    61.68,
+    260.88,
+    334.8,
+    271.2
+   ],
+   "confidence": null,
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      61.68,
+      260.88,
+      334.8,
+      271.2
+     ],
+     "text": "TABLE OF COMPARISON WITH ROSE VARIETIES"
+    }
+   ],
+   "page": 1,
+   "score": 0.8223,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "TABLE OF COMPARISON WITH ROSE VARIETIES",
+   "text_format": "plain",
+   "type": "caption"
+  },
+  {
+   "bbox": [
+    61.74,
+    287.7,
+    463.96,
+    773.78
+   ],
+   "confidence": null,
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      62.4,
+      287.52,
+      463.2,
+      297.12
+     ],
+     "text": "Flower Characters \u2018Meipinjid\u2019 \u2018Carol Jean\u2019 \u2018Watercolour\u2019"
+    },
+    {
+     "bbox": [
+      62.4,
+      306.72,
+      447.36,
+      314.4
+     ],
+     "text": "FLOWER COLOUR GROUP Medium pink medium pink light pink"
+    },
+    {
+     "bbox": [
+      62.4,
+      324.96,
+      164.4,
+      331.44
+     ],
+     "text": "PETAL COLOUR CHARTING"
+    },
+    {
+     "bbox": [
+      62.4,
+      333.6,
+      426.72,
+      340.32
+     ],
+     "text": "MIDZONE OUTSIDE RHS 57D 62A 68C"
+    },
+    {
+     "bbox": [
+      62.4,
+      342.48,
+      427.44,
+      348.96
+     ],
+     "text": "MIDZONE INSIDE RHS 66C 64D 65A"
+    },
+    {
+     "bbox": [
+      62.16,
+      351.36,
+      427.44,
+      357.84
+     ],
+     "text": "MARGIN INSIDE RHS 66C 64D 65A"
+    },
+    {
+     "bbox": [
+      62.16,
+      369.12,
+      172.32,
+      375.84
+     ],
+     "text": "PETAL BASAL SPOT COLOUR"
+    },
+    {
+     "bbox": [
+      61.92,
+      378.0,
+      431.28,
+      384.48
+     ],
+     "text": "OUTSIDE RHS 149D 155A 155C"
+    },
+    {
+     "bbox": [
+      62.4,
+      386.88,
+      431.28,
+      393.12
+     ],
+     "text": "INSIDE RHS 149D 155A 155C"
+    },
+    {
+     "bbox": [
+      62.16,
+      403.68,
+      458.4,
+      413.04
+     ],
+     "text": "FLOWER TYPE double semi-double semi double"
+    },
+    {
+     "bbox": [
+      62.16,
+      422.88,
+      434.88,
+      429.12
+     ],
+     "text": "NUMBER OF PETALS >50 13-25 13-25"
+    },
+    {
+     "bbox": [
+      62.4,
+      440.88,
+      448.8,
+      447.36
+     ],
+     "text": "FLOWER OIAMETER mean 46.45 mm 35.85 mm 46.40 mm"
+    },
+    {
+     "bbox": [
+      177.6,
+      449.04,
+      434.64,
+      457.92
+     ],
+     "text": "range 38-50 32-38 40-52"
+    },
+    {
+     "bbox": [
+      150.48,
+      458.88,
+      428.16,
+      465.12
+     ],
+     "text": "std deviation 3.36 2.35 3.48"
+    },
+    {
+     "bbox": [
+      62.16,
+      475.68,
+      445.44,
+      485.28
+     ],
+     "text": "FLOWER SHAPE IN PROFILE convex flattened flattened"
+    },
+    {
+     "bbox": [
+      318.0,
+      487.44,
+      439.44,
+      492.0
+     ],
+     "text": "convex convex"
+    },
+    {
+     "bbox": [
+      62.16,
+      503.28,
+      434.4,
+      509.52
+     ],
+     "text": "PETAL SHAPE broad broad broad"
+    },
+    {
+     "bbox": [
+      222.72,
+      510.96,
+      443.52,
+      520.32
+     ],
+     "text": "obovate obovate elliptical"
+    },
+    {
+     "bbox": [
+      61.92,
+      529.68,
+      449.04,
+      535.92
+     ],
+     "text": "PETAL SIZE mean 24.85 mm 17.0mm 23.05 mm"
+    },
+    {
+     "bbox": [
+      177.6,
+      537.6,
+      434.88,
+      546.72
+     ],
+     "text": "range 20-27 15-18 20-25"
+    },
+    {
+     "bbox": [
+      150.72,
+      547.44,
+      428.4,
+      553.92
+     ],
+     "text": "std deviation 2.20 1.17 1.14"
+    },
+    {
+     "bbox": [
+      62.16,
+      565.68,
+      443.52,
+      573.36
+     ],
+     "text": "FLOWERING DURATION long medium medium"
+    },
+    {
+     "bbox": [
+      61.68,
+      583.68,
+      449.04,
+      590.16
+     ],
+     "text": "SEPAL LENGTH mean 26.55 mm 12.40 mm 17.10 mm"
+    },
+    {
+     "bbox": [
+      61.68,
+      591.84,
+      434.88,
+      601.44
+     ],
+     "text": "(excl.extensions}) range 25-29 12-14 16-19"
+    },
+    {
+     "bbox": [
+      150.48,
+      601.44,
+      428.16,
+      607.68
+     ],
+     "text": "std deviation 1.43 0.60 0.79"
+    },
+    {
+     "bbox": [
+      61.68,
+      618.24,
+      437.76,
+      627.84
+     ],
+     "text": "SEPAL EXTENSIONS absent weak absent"
+    },
+    {
+     "bbox": [
+      61.44,
+      637.44,
+      435.36,
+      645.12
+     ],
+     "text": "PLANT GROWTH HABIT spreading bushy bushy"
+    },
+    {
+     "bbox": [
+      60.96,
+      654.96,
+      448.56,
+      661.44
+     ],
+     "text": "TERMINAL LEAFLET Mean 34.80 mm 31.20 mm 32.40 mm"
+    },
+    {
+     "bbox": [
+      61.44,
+      662.88,
+      434.4,
+      672.0
+     ],
+     "text": "LENGTH Range 27-40 25-38 24-42"
+    },
+    {
+     "bbox": [
+      149.04,
+      672.48,
+      427.92,
+      678.96
+     ],
+     "text": "Std deviation 4.06 3.52 5.82"
+    },
+    {
+     "bbox": [
+      61.2,
+      690.72,
+      444.0,
+      696.96
+     ],
+     "text": "TERMINAL LEAFLET Mean 22.45 mm 18.60 mm 18.9mm"
+    },
+    {
+     "bbox": [
+      60.96,
+      698.64,
+      434.64,
+      707.76
+     ],
+     "text": "WIOTH Range 18-26 14-24 14-25"
+    },
+    {
+     "bbox": [
+      148.8,
+      708.48,
+      427.92,
+      714.96
+     ],
+     "text": "Std deviation 2.71 2.38 3.26"
+    },
+    {
+     "bbox": [
+      60.96,
+      726.48,
+      438.0,
+      733.2
+     ],
+     "text": "TERMINAL LEAFLET BASE rounded rounded obtuse"
+    },
+    {
+     "bbox": [
+      61.2,
+      744.48,
+      426.0,
+      752.16
+     ],
+     "text": "NO. THORNS many many few"
+    },
+    {
+     "bbox": [
+      60.72,
+      762.48,
+      443.28,
+      769.92
+     ],
+     "text": "THORN PROFILE (above) concave deep concave concave"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       62.4,
+       288.96,
+       128.88,
+       295.68
+      ],
+      "header": true,
+      "text": "Flower Characters"
+     },
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       222.96,
+       287.52,
+       261.6,
+       297.12
+      ],
+      "header": true,
+      "text": "\u2018Meipinjid\u2019"
+     },
+     {
+      "bbox": [
+       318.48,
+       288.48,
+       361.44,
+       294.96
+      ],
+      "header": true,
+      "text": "\u2018Carol Jean\u2019"
+     },
+     {
+      "bbox": [
+       413.28,
+       288.24,
+       463.2,
+       294.72
+      ],
+      "header": true,
+      "text": "\u2018Watercolour\u2019"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       62.4,
+       306.96,
+       160.08,
+       313.68
+      ],
+      "header": true,
+      "text": "FLOWER COLOUR GROUP"
+     },
+     {
+      "bbox": null,
+      "header": true,
+      "text": ""
+     },
+     {
+      "bbox": [
+       222.96,
+       306.96,
+       271.44,
+       314.16
+      ],
+      "header": true,
+      "text": "Medium pink"
+     },
+     {
+      "bbox": [
+       318.48,
+       306.72,
+       366.72,
+       314.4
+      ],
+      "header": true,
+      "text": "medium pink"
+     },
+     {
+      "bbox": [
+       413.52,
+       306.72,
+       447.36,
+       314.4
+      ],
+      "header": true,
+      "text": "light pink"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       62.4,
+       324.96,
+       164.4,
+       340.32
+      ],
+      "header": true,
+      "text": "PETAL COLOUR CHARTING MIDZONE OUTSIDE"
+     },
+     {
+      "bbox": [
+       182.88,
+       333.84,
+       198.24,
+       339.84
+      ],
+      "header": true,
+      "text": "RHS"
+     },
+     {
+      "bbox": [
+       222.96,
+       333.84,
+       236.88,
+       339.6
+      ],
+      "header": true,
+      "text": "57D"
+     },
+     {
+      "bbox": [
+       318.24,
+       333.6,
+       332.4,
+       339.84
+      ],
+      "header": true,
+      "text": "62A"
+     },
+     {
+      "bbox": [
+       413.28,
+       333.6,
+       426.72,
+       339.84
+      ],
+      "header": true,
+      "text": "68C"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       62.4,
+       342.72,
+       126.96,
+       348.96
+      ],
+      "header": true,
+      "text": "MIDZONE INSIDE"
+     },
+     {
+      "bbox": [
+       183.12,
+       342.48,
+       198.24,
+       348.72
+      ],
+      "header": true,
+      "text": "RHS"
+     },
+     {
+      "bbox": [
+       222.72,
+       342.48,
+       236.4,
+       348.72
+      ],
+      "header": true,
+      "text": "66C"
+     },
+     {
+      "bbox": [
+       318.24,
+       342.48,
+       331.92,
+       348.48
+      ],
+      "header": true,
+      "text": "64D"
+     },
+     {
+      "bbox": [
+       413.28,
+       342.48,
+       427.44,
+       348.72
+      ],
+      "header": true,
+      "text": "65A"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       62.16,
+       351.36,
+       122.64,
+       357.84
+      ],
+      "header": true,
+      "text": "MARGIN INSIDE"
+     },
+     {
+      "bbox": [
+       183.12,
+       351.36,
+       198.24,
+       357.84
+      ],
+      "header": true,
+      "text": "RHS"
+     },
+     {
+      "bbox": [
+       222.72,
+       351.36,
+       236.4,
+       357.6
+      ],
+      "header": true,
+      "text": "66C"
+     },
+     {
+      "bbox": [
+       318.0,
+       351.36,
+       331.92,
+       357.6
+      ],
+      "header": true,
+      "text": "64D"
+     },
+     {
+      "bbox": [
+       413.04,
+       351.36,
+       427.44,
+       357.84
+      ],
+      "header": true,
+      "text": "65A"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       62.16,
+       369.12,
+       137.28,
+       375.84
+      ],
+      "text": "PETAL BASAL SPOT"
+     },
+     {
+      "bbox": [
+       139.68,
+       369.12,
+       172.32,
+       375.6
+      ],
+      "text": "COLOUR"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     }
+    ],
+    [
+     {
+      "bbox": [
+       61.92,
+       378.24,
+       96.48,
+       384.48
+      ],
+      "text": "OUTSIDE"
+     },
+     {
+      "bbox": [
+       183.12,
+       378.0,
+       198.24,
+       384.24
+      ],
+      "text": "RHS"
+     },
+     {
+      "bbox": [
+       223.2,
+       378.0,
+       240.96,
+       384.0
+      ],
+      "text": "149D"
+     },
+     {
+      "bbox": [
+       318.72,
+       378.0,
+       336.72,
+       384.24
+      ],
+      "text": "155A"
+     },
+     {
+      "bbox": [
+       413.76,
+       378.24,
+       431.28,
+       384.24
+      ],
+      "text": "155C"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       62.4,
+       387.12,
+       87.36,
+       393.12
+      ],
+      "text": "INSIDE"
+     },
+     {
+      "bbox": [
+       182.88,
+       386.88,
+       198.24,
+       392.88
+      ],
+      "text": "RHS"
+     },
+     {
+      "bbox": [
+       223.2,
+       386.88,
+       241.2,
+       392.88
+      ],
+      "text": "149D"
+     },
+     {
+      "bbox": [
+       318.72,
+       387.12,
+       336.72,
+       392.88
+      ],
+      "text": "155A"
+     },
+     {
+      "bbox": [
+       413.76,
+       387.12,
+       431.28,
+       393.12
+      ],
+      "text": "155C"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       62.16,
+       404.88,
+       115.92,
+       411.12
+      ],
+      "text": "FLOWER TYPE"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       222.96,
+       403.68,
+       248.16,
+       413.04
+      ],
+      "text": "double"
+     },
+     {
+      "bbox": [
+       318.0,
+       403.68,
+       364.08,
+       413.04
+      ],
+      "text": "semi-double"
+     },
+     {
+      "bbox": [
+       413.04,
+       404.64,
+       458.4,
+       410.88
+      ],
+      "text": "semi double"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       62.16,
+       422.88,
+       140.64,
+       429.12
+      ],
+      "text": "NUMBER OF PETALS"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       223.44,
+       423.12,
+       237.6,
+       428.88
+      ],
+      "text": ">50"
+     },
+     {
+      "bbox": [
+       318.72,
+       422.88,
+       339.6,
+       428.64
+      ],
+      "text": "13-25"
+     },
+     {
+      "bbox": [
+       413.76,
+       423.12,
+       434.88,
+       429.12
+      ],
+      "text": "13-25"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       62.4,
+       441.12,
+       136.8,
+       447.36
+      ],
+      "text": "FLOWER OIAMETER"
+     },
+     {
+      "bbox": [
+       178.08,
+       442.56,
+       198.0,
+       447.12
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       222.48,
+       440.88,
+       258.48,
+       446.88
+      ],
+      "text": "46.45 mm"
+     },
+     {
+      "bbox": [
+       318.24,
+       440.88,
+       353.52,
+       446.88
+      ],
+      "text": "35.85 mm"
+     },
+     {
+      "bbox": [
+       413.04,
+       441.12,
+       448.8,
+       447.12
+      ],
+      "text": "46.40 mm"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       177.6,
+       451.44,
+       198.0,
+       457.68
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       222.72,
+       449.04,
+       244.32,
+       457.92
+      ],
+      "text": "38-50"
+     },
+     {
+      "bbox": [
+       318.24,
+       450.0,
+       339.36,
+       455.76
+      ],
+      "text": "32-38"
+     },
+     {
+      "bbox": [
+       413.04,
+       450.24,
+       434.64,
+       456.24
+      ],
+      "text": "40-52"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       150.48,
+       458.88,
+       198.0,
+       465.12
+      ],
+      "text": "std deviation"
+     },
+     {
+      "bbox": [
+       222.72,
+       458.88,
+       237.84,
+       464.88
+      ],
+      "text": "3.36"
+     },
+     {
+      "bbox": [
+       318.24,
+       459.12,
+       332.88,
+       464.88
+      ],
+      "text": "2.35"
+     },
+     {
+      "bbox": [
+       413.04,
+       459.12,
+       428.16,
+       465.12
+      ],
+      "text": "3.48"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       62.16,
+       476.64,
+       132.24,
+       483.36
+      ],
+      "text": "FLOWER SHAPE IN"
+     },
+     {
+      "bbox": [
+       135.36,
+       476.88,
+       166.56,
+       483.12
+      ],
+      "text": "PROFILE"
+     },
+     {
+      "bbox": [
+       222.48,
+       478.32,
+       248.88,
+       482.88
+      ],
+      "text": "convex"
+     },
+     {
+      "bbox": [
+       318.0,
+       475.68,
+       350.16,
+       485.28
+      ],
+      "text": "flattened"
+     },
+     {
+      "bbox": [
+       413.04,
+       476.64,
+       445.44,
+       483.12
+      ],
+      "text": "flattened"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       318.0,
+       487.44,
+       344.4,
+       491.76
+      ],
+      "text": "convex"
+     },
+     {
+      "bbox": [
+       413.28,
+       487.44,
+       439.44,
+       492.0
+      ],
+      "text": "convex"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       62.16,
+       503.52,
+       114.0,
+       509.52
+      ],
+      "text": "PETAL SHAPE"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       222.96,
+       503.28,
+       244.08,
+       509.28
+      ],
+      "text": "broad"
+     },
+     {
+      "bbox": [
+       318.48,
+       503.28,
+       339.12,
+       509.52
+      ],
+      "text": "broad"
+     },
+     {
+      "bbox": [
+       413.52,
+       503.52,
+       434.4,
+       509.52
+      ],
+      "text": "broad"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       222.72,
+       511.2,
+       252.48,
+       520.32
+      ],
+      "text": "obovate"
+     },
+     {
+      "bbox": [
+       318.24,
+       510.96,
+       347.52,
+       520.08
+      ],
+      "text": "obovate"
+     },
+     {
+      "bbox": [
+       413.04,
+       512.4,
+       443.52,
+       519.6
+      ],
+      "text": "elliptical"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       61.92,
+       529.68,
+       104.64,
+       535.92
+      ],
+      "text": "PETAL SIZE"
+     },
+     {
+      "bbox": [
+       178.08,
+       531.36,
+       198.0,
+       535.68
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       222.48,
+       529.68,
+       258.24,
+       535.68
+      ],
+      "text": "24.85 mm"
+     },
+     {
+      "bbox": [
+       318.72,
+       529.92,
+       349.2,
+       535.68
+      ],
+      "text": "17.0mm"
+     },
+     {
+      "bbox": [
+       413.28,
+       530.16,
+       449.04,
+       535.92
+      ],
+      "text": "23.05 mm"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       177.6,
+       540.0,
+       198.24,
+       546.48
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       222.48,
+       537.6,
+       243.84,
+       546.72
+      ],
+      "text": "20-27"
+     },
+     {
+      "bbox": [
+       318.72,
+       537.84,
+       339.36,
+       546.72
+      ],
+      "text": "15-18"
+     },
+     {
+      "bbox": [
+       413.28,
+       539.04,
+       434.88,
+       545.04
+      ],
+      "text": "20-25"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       150.72,
+       547.44,
+       197.76,
+       553.92
+      ],
+      "text": "std deviation"
+     },
+     {
+      "bbox": [
+       222.48,
+       547.44,
+       237.6,
+       553.68
+      ],
+      "text": "2.20"
+     },
+     {
+      "bbox": [
+       318.72,
+       547.68,
+       332.64,
+       553.68
+      ],
+      "text": "1.17"
+     },
+     {
+      "bbox": [
+       413.76,
+       547.92,
+       428.4,
+       553.92
+      ],
+      "text": "1.14"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       62.16,
+       565.68,
+       152.64,
+       571.92
+      ],
+      "text": "FLOWERING DURATION"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       222.96,
+       565.68,
+       238.56,
+       573.36
+      ],
+      "text": "long"
+     },
+     {
+      "bbox": [
+       318.48,
+       565.68,
+       348.24,
+       571.92
+      ],
+      "text": "medium"
+     },
+     {
+      "bbox": [
+       413.52,
+       565.92,
+       443.52,
+       572.16
+      ],
+      "text": "medium"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       61.68,
+       583.92,
+       119.76,
+       590.16
+      ],
+      "text": "SEPAL LENGTH"
+     },
+     {
+      "bbox": [
+       177.84,
+       585.36,
+       197.76,
+       589.92
+      ],
+      "text": "mean"
+     },
+     {
+      "bbox": [
+       222.48,
+       583.92,
+       258.24,
+       589.92
+      ],
+      "text": "26.55 mm"
+     },
+     {
+      "bbox": [
+       318.48,
+       583.68,
+       353.52,
+       589.68
+      ],
+      "text": "12.40 mm"
+     },
+     {
+      "bbox": [
+       413.76,
+       584.16,
+       449.04,
+       589.92
+      ],
+      "text": "17.10 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       61.68,
+       591.84,
+       123.84,
+       601.44
+      ],
+      "text": "(excl.extensions})"
+     },
+     {
+      "bbox": [
+       177.6,
+       594.24,
+       198.0,
+       600.24
+      ],
+      "text": "range"
+     },
+     {
+      "bbox": [
+       222.48,
+       591.84,
+       244.08,
+       601.2
+      ],
+      "text": "25-29"
+     },
+     {
+      "bbox": [
+       318.48,
+       592.8,
+       339.36,
+       598.8
+      ],
+      "text": "12-14"
+     },
+     {
+      "bbox": [
+       413.76,
+       593.04,
+       434.88,
+       598.8
+      ],
+      "text": "16-19"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       150.48,
+       601.44,
+       197.52,
+       607.68
+      ],
+      "text": "std deviation"
+     },
+     {
+      "bbox": [
+       223.2,
+       601.68,
+       237.36,
+       607.44
+      ],
+      "text": "1.43"
+     },
+     {
+      "bbox": [
+       318.0,
+       601.44,
+       332.88,
+       607.44
+      ],
+      "text": "0.60"
+     },
+     {
+      "bbox": [
+       413.04,
+       601.68,
+       428.16,
+       607.68
+      ],
+      "text": "0.79"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       61.68,
+       619.44,
+       139.68,
+       625.68
+      ],
+      "text": "SEPAL EXTENSIONS"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       222.48,
+       618.24,
+       247.44,
+       627.84
+      ],
+      "text": "absent"
+     },
+     {
+      "bbox": [
+       318.0,
+       619.44,
+       336.72,
+       625.44
+      ],
+      "text": "weak"
+     },
+     {
+      "bbox": [
+       413.28,
+       619.68,
+       437.76,
+       625.92
+      ],
+      "text": "absent"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       61.44,
+       637.44,
+       150.24,
+       643.92
+      ],
+      "text": "PLANT GROWTH HABIT"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       222.24,
+       637.68,
+       258.72,
+       645.12
+      ],
+      "text": "spreading"
+     },
+     {
+      "bbox": [
+       318.0,
+       637.68,
+       339.84,
+       644.88
+      ],
+      "text": "bushy"
+     },
+     {
+      "bbox": [
+       413.04,
+       637.92,
+       435.36,
+       645.12
+      ],
+      "text": "bushy"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       60.96,
+       655.2,
+       137.04,
+       661.44
+      ],
+      "text": "TERMINAL LEAFLET"
+     },
+     {
+      "bbox": [
+       177.6,
+       654.96,
+       197.52,
+       660.96
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       222.0,
+       655.2,
+       257.76,
+       660.96
+      ],
+      "text": "34.80 mm"
+     },
+     {
+      "bbox": [
+       317.76,
+       655.44,
+       353.04,
+       661.2
+      ],
+      "text": "31.20 mm"
+     },
+     {
+      "bbox": [
+       412.8,
+       655.44,
+       448.56,
+       661.44
+      ],
+      "text": "32.40 mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       61.44,
+       663.84,
+       92.4,
+       670.08
+      ],
+      "text": "LENGTH"
+     },
+     {
+      "bbox": [
+       174.72,
+       663.84,
+       197.52,
+       671.28
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       222.24,
+       663.84,
+       243.84,
+       669.6
+      ],
+      "text": "27-40"
+     },
+     {
+      "bbox": [
+       317.76,
+       662.88,
+       339.12,
+       672.0
+      ],
+      "text": "25-38"
+     },
+     {
+      "bbox": [
+       413.04,
+       664.32,
+       434.4,
+       670.08
+      ],
+      "text": "24-42"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       149.04,
+       672.48,
+       197.28,
+       678.96
+      ],
+      "text": "Std deviation"
+     },
+     {
+      "bbox": [
+       222.0,
+       672.72,
+       237.12,
+       678.96
+      ],
+      "text": "4.06"
+     },
+     {
+      "bbox": [
+       317.76,
+       672.72,
+       332.4,
+       678.96
+      ],
+      "text": "3.52"
+     },
+     {
+      "bbox": [
+       413.04,
+       672.96,
+       427.92,
+       678.96
+      ],
+      "text": "5.82"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       61.2,
+       690.72,
+       137.28,
+       696.96
+      ],
+      "text": "TERMINAL LEAFLET"
+     },
+     {
+      "bbox": [
+       177.6,
+       690.72,
+       197.52,
+       696.72
+      ],
+      "text": "Mean"
+     },
+     {
+      "bbox": [
+       222.24,
+       690.72,
+       257.76,
+       696.72
+      ],
+      "text": "22.45 mm"
+     },
+     {
+      "bbox": [
+       318.48,
+       690.72,
+       353.28,
+       696.72
+      ],
+      "text": "18.60 mm"
+     },
+     {
+      "bbox": [
+       413.28,
+       690.96,
+       444.0,
+       696.96
+      ],
+      "text": "18.9mm"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       60.96,
+       699.6,
+       86.64,
+       705.84
+      ],
+      "text": "WIOTH"
+     },
+     {
+      "bbox": [
+       174.96,
+       699.6,
+       197.76,
+       707.28
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       222.48,
+       698.64,
+       243.84,
+       707.76
+      ],
+      "text": "18-26"
+     },
+     {
+      "bbox": [
+       318.24,
+       698.88,
+       339.12,
+       707.76
+      ],
+      "text": "14-24"
+     },
+     {
+      "bbox": [
+       413.28,
+       700.08,
+       434.64,
+       705.84
+      ],
+      "text": "14-25"
+     }
+    ],
+    [
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       148.8,
+       708.48,
+       197.52,
+       714.72
+      ],
+      "text": "Std deviation"
+     },
+     {
+      "bbox": [
+       222.0,
+       708.72,
+       235.92,
+       714.48
+      ],
+      "text": "2.71"
+     },
+     {
+      "bbox": [
+       317.76,
+       708.72,
+       332.4,
+       714.72
+      ],
+      "text": "2.38"
+     },
+     {
+      "bbox": [
+       412.8,
+       708.96,
+       427.92,
+       714.96
+      ],
+      "text": "3.26"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       60.96,
+       726.72,
+       137.04,
+       732.96
+      ],
+      "text": "TERMINAL LEAFLET"
+     },
+     {
+      "bbox": [
+       139.68,
+       726.72,
+       159.6,
+       732.72
+      ],
+      "text": "BASE"
+     },
+     {
+      "bbox": [
+       222.48,
+       726.48,
+       253.2,
+       732.72
+      ],
+      "text": "rounded"
+     },
+     {
+      "bbox": [
+       318.0,
+       726.72,
+       348.48,
+       732.96
+      ],
+      "text": "rounded"
+     },
+     {
+      "bbox": [
+       413.04,
+       727.2,
+       438.0,
+       733.2
+      ],
+      "text": "obtuse"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       61.2,
+       744.48,
+       110.4,
+       750.96
+      ],
+      "text": "NO. THORNS"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       222.48,
+       746.4,
+       242.64,
+       751.92
+      ],
+      "text": "many"
+     },
+     {
+      "bbox": [
+       317.76,
+       746.64,
+       337.92,
+       752.16
+      ],
+      "text": "many"
+     },
+     {
+      "bbox": [
+       412.8,
+       744.96,
+       426.0,
+       751.2
+      ],
+      "text": "few"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       60.72,
+       762.48,
+       152.64,
+       769.44
+      ],
+      "text": "THORN PROFILE (above)"
+     },
+     {
+      "bbox": null,
+      "text": ""
+     },
+     {
+      "bbox": [
+       222.0,
+       764.16,
+       252.24,
+       768.72
+      ],
+      "text": "concave"
+     },
+     {
+      "bbox": [
+       317.52,
+       762.48,
+       368.16,
+       769.92
+      ],
+      "text": "deep concave"
+     },
+     {
+      "bbox": [
+       412.8,
+       764.4,
+       443.28,
+       769.2
+      ],
+      "text": "concave"
+     }
+    ]
+   ],
+   "score": 0.9998,
+   "signal": "tatr",
+   "source": "tatr",
+   "text": "Flower Characters  \u2018Meipinjid\u2019 \u2018Carol Jean\u2019 \u2018Watercolour\u2019\nFLOWER COLOUR GROUP  Medium pink medium pink light pink\nPETAL COLOUR CHARTING MIDZONE OUTSIDE RHS 57D 62A 68C\nMIDZONE INSIDE RHS 66C 64D 65A\nMARGIN INSIDE RHS 66C 64D 65A\nPETAL BASAL SPOT COLOUR   \nOUTSIDE RHS 149D 155A 155C\nINSIDE RHS 149D 155A 155C\nFLOWER TYPE  double semi-double semi double\nNUMBER OF PETALS  >50 13-25 13-25\nFLOWER OIAMETER mean 46.45 mm 35.85 mm 46.40 mm\n range 38-50 32-38 40-52\n std deviation 3.36 2.35 3.48\nFLOWER SHAPE IN PROFILE convex flattened flattened\n   convex convex\nPETAL SHAPE  broad broad broad\n  obovate obovate elliptical\nPETAL SIZE mean 24.85 mm 17.0mm 23.05 mm\n range 20-27 15-18 20-25\n std deviation 2.20 1.17 1.14\nFLOWERING DURATION  long medium medium\nSEPAL LENGTH mean 26.55 mm 12.40 mm 17.10 mm\n(excl.extensions}) range 25-29 12-14 16-19\n std deviation 1.43 0.60 0.79\nSEPAL EXTENSIONS  absent weak absent\nPLANT GROWTH HABIT  spreading bushy bushy\nTERMINAL LEAFLET Mean 34.80 mm 31.20 mm 32.40 mm\nLENGTH Range 27-40 25-38 24-42\n Std deviation 4.06 3.52 5.82\nTERMINAL LEAFLET Mean 22.45 mm 18.60 mm 18.9mm\nWIOTH Range 18-26 14-24 14-25\n Std deviation 2.71 2.38 3.26\nTERMINAL LEAFLET BASE rounded rounded obtuse\nNO. THORNS  many many few\nTHORN PROFILE (above)  concave deep concave concave",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    500.16,
+    792.48,
+    508.08,
+    798.24
+   ],
+   "confidence": null,
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      500.16,
+      792.48,
+      508.08,
+      798.24
+     ],
+     "text": "25"
+    }
+   ],
+   "page": 1,
+   "score": 0.7019,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "25",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    594.3,
+    841.6
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [
+  {
+   "signal": "continuation-column",
+   "source": "e5",
+   "target": "e4",
+   "type": "continues_from"
+  },
+  {
+   "signal": "caption-geometry",
+   "source": "e7",
+   "target": "e8",
+   "type": "caption_of"
+  }
+ ],
+ "schema": "0.1"
+}

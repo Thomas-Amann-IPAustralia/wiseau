@@ -1,0 +1,1478 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    75.36,
+    56.64,
+    286.56,
+    95.04
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      75.36,
+      56.64,
+      132.0,
+      63.84
+     ],
+     "text": "OBJECTIONS"
+    },
+    {
+     "bbox": [
+      75.36,
+      66.72,
+      286.56,
+      75.84
+     ],
+     "text": "Formal objections (S20 of the PVR Act) against any"
+    },
+    {
+     "bbox": [
+      75.36,
+      76.32,
+      259.68,
+      85.92
+     ],
+     "text": "of the above applications can be lodged by a"
+    },
+    {
+     "bbox": [
+      75.36,
+      86.88,
+      127.2,
+      95.04
+     ],
+     "text": "person who:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "OBJECTIONS\nFormal objections (S20 of the PVR Act) against any\nof the above applications can be lodged by a\nperson who:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    93.12,
+    106.08,
+    286.08,
+    134.88
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      93.12,
+      106.08,
+      286.08,
+      114.24
+     ],
+     "text": "a) considers their commercial interests would"
+    },
+    {
+     "bbox": [
+      106.08,
+      116.16,
+      251.52,
+      125.28
+     ],
+     "text": "be affected by a grant of PVR to the"
+    },
+    {
+     "bbox": [
+      105.6,
+      126.24,
+      169.44,
+      134.88
+     ],
+     "text": "applicant; AND"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a) considers their commercial interests would\nbe affected by a grant of PVR to the\napplicant; AND",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    93.6,
+    147.36,
+    286.56,
+    166.56
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      93.6,
+      147.36,
+      255.84,
+      156.48
+     ],
+     "text": "b) considers that the provisions of S26"
+    },
+    {
+     "bbox": [
+      107.52,
+      157.92,
+      286.56,
+      166.56
+     ],
+     "text": "(Appendix 3 of this Journal) cannot be met."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "b) considers that the provisions of S26\n(Appendix 3 of this Journal) cannot be met.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    73.44,
+    175.68,
+    289.92,
+    215.04
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      73.44,
+      175.68,
+      268.32,
+      189.12
+     ],
+     "text": "A fee is payable at the time of lodging a formal"
+    },
+    {
+     "bbox": [
+      75.36,
+      187.68,
+      289.92,
+      196.8
+     ],
+     "text": "objection and the hourly rate will then be charged if"
+    },
+    {
+     "bbox": [
+      75.36,
+      197.76,
+      284.64,
+      206.88
+     ],
+     "text": "the examination of the objection by the PVR Office"
+    },
+    {
+     "bbox": [
+      74.88,
+      207.84,
+      177.6,
+      215.04
+     ],
+     "text": "takes more than 2 hours."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "A fee is payable at the time of lodging a formal\nobjection and the hourly rate will then be charged if\nthe examination of the objection by the PVR Office\ntakes more than 2 hours.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    75.36,
+    227.04,
+    281.28,
+    267.84
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      75.36,
+      227.04,
+      276.96,
+      236.16
+     ],
+     "text": "Comment: Any person not falling into the above"
+    },
+    {
+     "bbox": [
+      75.36,
+      237.12,
+      278.88,
+      246.24
+     ],
+     "text": "category may make comment on the eligibility of"
+    },
+    {
+     "bbox": [
+      75.36,
+      247.2,
+      281.28,
+      255.84
+     ],
+     "text": "any of the above applications for PVR. There is no"
+    },
+    {
+     "bbox": [
+      75.36,
+      254.88,
+      136.8,
+      267.84
+     ],
+     "text": "charge for this."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comment: Any person not falling into the above\ncategory may make comment on the eligibility of\nany of the above applications for PVR. There is no\ncharge for this.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    74.88,
+    276.96,
+    282.72,
+    335.52
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      74.88,
+      276.96,
+      255.84,
+      286.08
+     ],
+     "text": "Aperson submitting a formal objection or a"
+    },
+    {
+     "bbox": [
+      75.36,
+      287.04,
+      271.2,
+      296.16
+     ],
+     "text": "comment must provide supporting evidence to"
+    },
+    {
+     "bbox": [
+      75.36,
+      297.12,
+      276.48,
+      306.24
+     ],
+     "text": "substantiate the claim. A copy of the submission"
+    },
+    {
+     "bbox": [
+      74.88,
+      307.2,
+      281.76,
+      315.84
+     ],
+     "text": "will also be sent to the applicant and the latter will"
+    },
+    {
+     "bbox": [
+      75.36,
+      317.28,
+      282.72,
+      325.92
+     ],
+     "text": "be asked to show why the objection should not be"
+    },
+    {
+     "bbox": [
+      75.36,
+      327.36,
+      106.08,
+      335.52
+     ],
+     "text": "upheld."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Aperson submitting a formal objection or a\ncomment must provide supporting evidence to\nsubstantiate the claim. A copy of the submission\nwill also be sent to the applicant and the latter will\nbe asked to show why the objection should not be\nupheld.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    74.88,
+    347.04,
+    286.56,
+    383.52
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      74.88,
+      347.04,
+      286.56,
+      356.16
+     ],
+     "text": "All formal objections and comments relating to the"
+    },
+    {
+     "bbox": [
+      74.88,
+      357.12,
+      256.8,
+      365.76
+     ],
+     "text": "above applications must be lodged with the"
+    },
+    {
+     "bbox": [
+      75.36,
+      366.72,
+      273.12,
+      375.36
+     ],
+     "text": "Registrar by close of business on 31 September"
+    },
+    {
+     "bbox": [
+      75.36,
+      376.8,
+      96.48,
+      383.52
+     ],
+     "text": "1989."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "All formal objections and comments relating to the\nabove applications must be lodged with the\nRegistrar by close of business on 31 September\n1989.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    74.88,
+    396.0,
+    201.12,
+    404.64
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      74.88,
+      396.0,
+      201.12,
+      404.64
+     ],
+     "text": "b) Descriptions to be Finalised"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "b) Descriptions to be Finalised",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    74.4,
+    416.16,
+    283.68,
+    465.12
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      74.88,
+      416.16,
+      283.68,
+      424.8
+     ],
+     "text": "Descriptions for the Journal are being finalised for"
+    },
+    {
+     "bbox": [
+      74.4,
+      426.24,
+      276.0,
+      434.88
+     ],
+     "text": "the following applications. The six month period"
+    },
+    {
+     "bbox": [
+      74.4,
+      435.84,
+      268.8,
+      444.96
+     ],
+     "text": "for comment or formal objection will not begin"
+    },
+    {
+     "bbox": [
+      74.88,
+      446.4,
+      248.64,
+      455.04
+     ],
+     "text": "until the full descriptions are finalised and"
+    },
+    {
+     "bbox": [
+      74.88,
+      456.48,
+      177.6,
+      465.12
+     ],
+     "text": "published in the Journal."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Descriptions for the Journal are being finalised for\nthe following applications. The six month period\nfor comment or formal objection will not begin\nuntil the full descriptions are finalised and\npublished in the Journal.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    74.4,
+    508.32,
+    121.92,
+    536.64
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      74.4,
+      508.32,
+      113.28,
+      519.36
+     ],
+     "text": "Citrus"
+    },
+    {
+     "bbox": [
+      75.36,
+      523.68,
+      121.92,
+      536.64
+     ],
+     "text": "(Citrus)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Citrus\n(Citrus)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    74.4,
+    548.16,
+    271.2,
+    567.36
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      74.4,
+      548.16,
+      271.2,
+      557.28
+     ],
+     "text": "Applicant: W M & D Barnfield of Ellerslie, NSW."
+    },
+    {
+     "bbox": [
+      74.4,
+      558.24,
+      263.52,
+      567.36
+     ],
+     "text": "\u2018Barnfield Late Navel\u2019 Application No. :89/001"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: W M & D Barnfield of Ellerslie, NSW.\n\u2018Barnfield Late Navel\u2019 Application No. :89/001",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    74.4,
+    578.4,
+    279.36,
+    597.12
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      74.4,
+      578.4,
+      278.4,
+      587.04
+     ],
+     "text": "Applicant: Yandilla Park Limited of Renmark, SA."
+    },
+    {
+     "bbox": [
+      74.4,
+      588.0,
+      279.36,
+      597.12
+     ],
+     "text": "\u2018Toomey Summer Navel\u2019 Application No. (002"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Yandilla Park Limited of Renmark, SA.\n\u2018Toomey Summer Navel\u2019 Application No. (002",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    74.4,
+    609.6,
+    282.24,
+    628.32
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      74.4,
+      609.6,
+      278.88,
+      618.24
+     ],
+     "text": "Applicant: Yandilla Park Limited of Renmark, SA."
+    },
+    {
+     "bbox": [
+      74.88,
+      619.2,
+      282.24,
+      628.32
+     ],
+     "text": "\u2018Edwards Summer Navel\u2019 Application No. :89/003"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Yandilla Park Limited of Renmark, SA.\n\u2018Edwards Summer Navel\u2019 Application No. :89/003",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    74.4,
+    636.0,
+    283.2,
+    656.16
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      74.4,
+      636.0,
+      270.72,
+      648.48
+     ],
+     "text": "Applicant: John R Pollock of Strathmerton, Vic."
+    },
+    {
+     "bbox": [
+      74.4,
+      647.52,
+      283.2,
+      656.16
+     ],
+     "text": "\u2018Autumn Gold Late Navel\u2019 Application No. :89/004"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: John R Pollock of Strathmerton, Vic.\n\u2018Autumn Gold Late Navel\u2019 Application No. :89/004",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    74.4,
+    667.2,
+    286.08,
+    696.0
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      74.4,
+      667.2,
+      286.08,
+      675.84
+     ],
+     "text": "Applicant: PW McLaren Management of Red Cliffs,"
+    },
+    {
+     "bbox": [
+      74.4,
+      677.28,
+      88.8,
+      684.48
+     ],
+     "text": "Vic."
+    },
+    {
+     "bbox": [
+      74.4,
+      686.88,
+      272.16,
+      696.0
+     ],
+     "text": "\u2018Rohde Summer Navel\u2019 Application No. :89/005"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: PW McLaren Management of Red Cliffs,\nVic.\n\u2018Rohde Summer Navel\u2019 Application No. :89/005",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    73.92,
+    706.56,
+    254.88,
+    728.16
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      73.92,
+      706.56,
+      254.88,
+      715.68
+     ],
+     "text": "Applicant: CN & J Powell of Curlwaa, NSW."
+    },
+    {
+     "bbox": [
+      74.4,
+      715.2,
+      254.88,
+      728.16
+     ],
+     "text": "\u2018Powell Late Navel\u2019 Application No. :89/006"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: CN & J Powell of Curlwaa, NSW.\n\u2018Powell Late Navel\u2019 Application No. :89/006",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    73.92,
+    736.8,
+    285.12,
+    755.52
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      73.92,
+      736.8,
+      254.4,
+      745.92
+     ],
+     "text": "Applicant: Dudley Marrows of Mildura, Vic."
+    },
+    {
+     "bbox": [
+      74.4,
+      746.88,
+      285.12,
+      755.52
+     ],
+     "text": "\u2018Summer Gold Late Navel\u2019 Application No. :89/007"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Dudley Marrows of Mildura, Vic.\n\u2018Summer Gold Late Navel\u2019 Application No. :89/007",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    73.92,
+    767.04,
+    277.44,
+    785.28
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      73.92,
+      767.04,
+      224.64,
+      775.68
+     ],
+     "text": "Applicant: G Chislett, of Piangil, Vic."
+    },
+    {
+     "bbox": [
+      74.4,
+      776.64,
+      277.44,
+      785.28
+     ],
+     "text": "\u2018Chislett Summer Navel\u2019 Application No. :89/008"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: G Chislett, of Piangil, Vic.\n\u2018Chislett Summer Navel\u2019 Application No. :89/008",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    74.4,
+    802.08,
+    82.08,
+    807.84
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      74.4,
+      802.08,
+      82.08,
+      807.84
+     ],
+     "text": "14"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "14",
+   "text_format": "plain",
+   "type": "page_number"
+  },
+  {
+   "bbox": [
+    316.32,
+    56.64,
+    356.64,
+    84.96
+   ],
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      316.32,
+      56.64,
+      347.52,
+      67.68
+     ],
+     "text": "Rose"
+    },
+    {
+     "bbox": [
+      316.32,
+      72.0,
+      356.64,
+      84.96
+     ],
+     "text": "(Rosa)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Rose\n(Rosa)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    315.36,
+    96.96,
+    522.72,
+    136.32
+   ],
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      315.36,
+      96.96,
+      522.72,
+      105.6
+     ],
+     "text": "Applicant: SNC Meilland & Cie of Antibes, France."
+    },
+    {
+     "bbox": [
+      315.36,
+      106.56,
+      516.0,
+      115.68
+     ],
+     "text": "\u2018Meizaipur\u2019 (Synonym \u2018Aurelia\u2019) Application No."
+    },
+    {
+     "bbox": [
+      316.32,
+      116.64,
+      346.08,
+      123.84
+     ],
+     "text": ":89/009"
+    },
+    {
+     "bbox": [
+      315.36,
+      127.2,
+      497.28,
+      136.32
+     ],
+     "text": "Agent in Australia: TVR Propagators Pty Ltd"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: SNC Meilland & Cie of Antibes, France.\n\u2018Meizaipur\u2019 (Synonym \u2018Aurelia\u2019) Application No.\n:89/009\nAgent in Australia: TVR Propagators Pty Ltd",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    314.88,
+    146.88,
+    518.88,
+    196.32
+   ],
+   "id": "e22",
+   "lines": [
+    {
+     "bbox": [
+      315.36,
+      146.88,
+      518.88,
+      155.52
+     ],
+     "text": "Applicant: Universal Plants S AR L of Le-Cannet-"
+    },
+    {
+     "bbox": [
+      315.36,
+      156.96,
+      396.96,
+      164.16
+     ],
+     "text": "des-Maures France."
+    },
+    {
+     "bbox": [
+      315.36,
+      167.04,
+      518.88,
+      176.16
+     ],
+     "text": "\u2018Keijourna\u2019 (Synonym \u2018Mischka\u2019) Application No."
+    },
+    {
+     "bbox": [
+      316.32,
+      177.12,
+      346.08,
+      184.32
+     ],
+     "text": "189/010"
+    },
+    {
+     "bbox": [
+      314.88,
+      187.2,
+      496.8,
+      196.32
+     ],
+     "text": "Agent in Australia: TVR Propagators Pty Ltd"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Universal Plants S AR L of Le-Cannet-\ndes-Maures France.\n\u2018Keijourna\u2019 (Synonym \u2018Mischka\u2019) Application No.\n189/010\nAgent in Australia: TVR Propagators Pty Ltd",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    314.88,
+    209.28,
+    496.8,
+    257.76
+   ],
+   "id": "e23",
+   "lines": [
+    {
+     "bbox": [
+      314.88,
+      209.28,
+      353.76,
+      222.72
+     ],
+     "text": "Apple"
+    },
+    {
+     "bbox": [
+      315.36,
+      225.12,
+      354.72,
+      235.68
+     ],
+     "text": "Malus"
+    },
+    {
+     "bbox": [
+      315.36,
+      249.12,
+      496.8,
+      257.76
+     ],
+     "text": "Applicant: Instituut voor de Veredeling van"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Apple\nMalus\nApplicant: Instituut voor de Veredeling van",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    315.36,
+    259.2,
+    482.4,
+    277.92
+   ],
+   "id": "e24",
+   "lines": [
+    {
+     "bbox": [
+      315.36,
+      259.2,
+      482.4,
+      267.84
+     ],
+     "text": "Tuinbouwgewassen of the Netherlands."
+    },
+    {
+     "bbox": [
+      315.36,
+      269.28,
+      462.24,
+      277.92
+     ],
+     "text": "\u2018Red Elstar\u2019 Application No. :89/011"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Tuinbouwgewassen of the Netherlands.\n\u2018Red Elstar\u2019 Application No. :89/011",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    314.4,
+    291.36,
+    395.52,
+    321.12
+   ],
+   "id": "e25",
+   "lines": [
+    {
+     "bbox": [
+      314.88,
+      291.36,
+      395.52,
+      305.28
+     ],
+     "text": "Agapanthus"
+    },
+    {
+     "bbox": [
+      314.4,
+      307.68,
+      394.56,
+      321.12
+     ],
+     "text": "Agapanthus"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Agapanthus\nAgapanthus",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    315.36,
+    332.64,
+    502.08,
+    351.36
+   ],
+   "id": "e26",
+   "lines": [
+    {
+     "bbox": [
+      315.36,
+      332.64,
+      502.08,
+      341.28
+     ],
+     "text": "Applicant: Steven Wilken of Sylven, Victoria."
+    },
+    {
+     "bbox": [
+      315.36,
+      342.24,
+      474.24,
+      351.36
+     ],
+     "text": "\u201cSnow Storm\u2019 Application No. :89/012"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Steven Wilken of Sylven, Victoria.\n\u201cSnow Storm\u2019 Application No. :89/012",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    314.88,
+    364.32,
+    404.64,
+    393.12
+   ],
+   "id": "e27",
+   "lines": [
+    {
+     "bbox": [
+      314.88,
+      364.32,
+      372.0,
+      377.76
+     ],
+     "text": "Soybean"
+    },
+    {
+     "bbox": [
+      315.36,
+      379.68,
+      404.64,
+      393.12
+     ],
+     "text": "(Glycine Max)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Soybean\n(Glycine Max)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    314.4,
+    403.68,
+    514.08,
+    433.44
+   ],
+   "id": "e28",
+   "lines": [
+    {
+     "bbox": [
+      314.4,
+      403.68,
+      514.08,
+      413.28
+     ],
+     "text": "Applicant: Department of Primary Industries, of"
+    },
+    {
+     "bbox": [
+      314.88,
+      414.24,
+      372.96,
+      422.4
+     ],
+     "text": "Brisbane, Qld."
+    },
+    {
+     "bbox": [
+      314.4,
+      424.32,
+      451.68,
+      433.44
+     ],
+     "text": "\u2018Manark\u2019 Application No. :88/037"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Department of Primary Industries, of\nBrisbane, Qld.\n\u2018Manark\u2019 Application No. :88/037",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    314.88,
+    446.4,
+    474.24,
+    456.0
+   ],
+   "id": "e29",
+   "lines": [
+    {
+     "bbox": [
+      314.88,
+      446.4,
+      474.24,
+      456.0
+     ],
+     "text": "PROVISIONAL PROTECTION"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PROVISIONAL PROTECTION",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    314.4,
+    469.44,
+    443.04,
+    478.56
+   ],
+   "id": "e30",
+   "lines": [
+    {
+     "bbox": [
+      314.4,
+      469.44,
+      443.04,
+      478.56
+     ],
+     "text": "Provisional protection granted"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Provisional protection granted",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    314.4,
+    489.6,
+    528.96,
+    516.48
+   ],
+   "id": "e31",
+   "lines": [
+    {
+     "bbox": [
+      314.4,
+      489.6,
+      526.08,
+      498.24
+     ],
+     "text": "The following varieties have provisional protection"
+    },
+    {
+     "bbox": [
+      314.88,
+      499.2,
+      528.96,
+      507.84
+     ],
+     "text": "under S22 of the Plant Variety Rights Act 1987 since"
+    },
+    {
+     "bbox": [
+      314.4,
+      509.28,
+      431.04,
+      516.48
+     ],
+     "text": "the last issue of the Journal:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The following varieties have provisional protection\nunder S22 of the Plant Variety Rights Act 1987 since\nthe last issue of the Journal:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    314.4,
+    528.96,
+    528.0,
+    537.6
+   ],
+   "id": "e32",
+   "lines": [
+    {
+     "bbox": [
+      314.4,
+      528.96,
+      528.0,
+      537.6
+     ],
+     "text": "\u2018Barnfield Late Navel\u2019 Application No. :89/001"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Barnfield Late Navel\u2019 Application No. :89/001",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    314.4,
+    548.64,
+    528.96,
+    625.44
+   ],
+   "id": "e33",
+   "lines": [
+    {
+     "bbox": [
+      314.4,
+      548.64,
+      528.96,
+      557.28
+     ],
+     "text": "\u2018Toomey Summer Navel\u2019 Application"
+    },
+    {
+     "bbox": [
+      481.92,
+      558.24,
+      528.96,
+      565.44
+     ],
+     "text": "No. :89/002"
+    },
+    {
+     "bbox": [
+      314.4,
+      578.4,
+      528.48,
+      587.52
+     ],
+     "text": "\u2018Edwards Summer Navel\u2019 Application"
+    },
+    {
+     "bbox": [
+      481.44,
+      588.48,
+      528.96,
+      595.68
+     ],
+     "text": "No. :89/003"
+    },
+    {
+     "bbox": [
+      314.4,
+      608.16,
+      528.96,
+      616.8
+     ],
+     "text": "\u2018Autumn Gold Late Navel\u2019 Application"
+    },
+    {
+     "bbox": [
+      481.92,
+      618.24,
+      528.96,
+      625.44
+     ],
+     "text": "No. :89/004"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Toomey Summer Navel\u2019 Application\nNo. :89/002\n\u2018Edwards Summer Navel\u2019 Application\nNo. :89/003\n\u2018Autumn Gold Late Navel\u2019 Application\nNo. :89/004",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    314.4,
+    637.92,
+    528.96,
+    646.56
+   ],
+   "id": "e34",
+   "lines": [
+    {
+     "bbox": [
+      314.4,
+      637.92,
+      528.96,
+      646.56
+     ],
+     "text": "\u2018Rohde Summer Navel\u2019 Application No. :89/005"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Rohde Summer Navel\u2019 Application No. :89/005",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    313.92,
+    657.6,
+    528.96,
+    783.36
+   ],
+   "id": "e35",
+   "lines": [
+    {
+     "bbox": [
+      314.4,
+      657.6,
+      528.96,
+      666.24
+     ],
+     "text": "\u2018Powell Late Navel\u2019 Application No. :89/006"
+    },
+    {
+     "bbox": [
+      313.92,
+      676.8,
+      528.48,
+      685.92
+     ],
+     "text": "\u201cSummer Gold Late Navel\u2019 Application"
+    },
+    {
+     "bbox": [
+      481.44,
+      686.88,
+      528.48,
+      694.08
+     ],
+     "text": "No. :89/007"
+    },
+    {
+     "bbox": [
+      313.92,
+      706.56,
+      528.48,
+      715.68
+     ],
+     "text": "\u2018Chislett Summer Navel\u2019 Application"
+    },
+    {
+     "bbox": [
+      481.44,
+      716.64,
+      528.96,
+      723.84
+     ],
+     "text": "No. :89/008"
+    },
+    {
+     "bbox": [
+      316.8,
+      736.32,
+      528.48,
+      745.44
+     ],
+     "text": "Meizaipur\u2019 (syn. \u2018Aurelia\u2019) Application"
+    },
+    {
+     "bbox": [
+      481.92,
+      746.88,
+      528.96,
+      753.6
+     ],
+     "text": "No. :89/009"
+    },
+    {
+     "bbox": [
+      314.4,
+      766.56,
+      528.48,
+      775.68
+     ],
+     "text": "\u2018Keijourna\u2019 (syn. \u2018Mischka\u2019) Application"
+    },
+    {
+     "bbox": [
+      481.92,
+      776.64,
+      528.96,
+      783.36
+     ],
+     "text": "No. :89/010"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Powell Late Navel\u2019 Application No. :89/006\n\u201cSummer Gold Late Navel\u2019 Application\nNo. :89/007\n\u2018Chislett Summer Navel\u2019 Application\nNo. :89/008\nMeizaipur\u2019 (syn. \u2018Aurelia\u2019) Application\nNo. :89/009\n\u2018Keijourna\u2019 (syn. \u2018Mischka\u2019) Application\nNo. :89/010",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    594.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

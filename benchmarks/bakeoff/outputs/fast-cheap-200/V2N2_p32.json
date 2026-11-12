@@ -1,0 +1,877 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    86.4,
+    50.4,
+    375.12,
+    60.12
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      86.4,
+      50.4,
+      375.12,
+      60.12
+     ],
+     "text": "TABLE OF COMPARISON WITH CLOVER VARIETIES"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "TABLE OF COMPARISON WITH CLOVER VARIETIES",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    84.96,
+    79.56,
+    522.36,
+    363.96
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      229.68,
+      79.56,
+      520.56,
+      87.48
+     ],
+     "text": "Ladino \u2018Grasslands \u2018Tamar\u2019 \u2018Grasslands \u2018Haifa\u2019 \u2018Irrigation\u2019"
+    },
+    {
+     "bbox": [
+      229.32,
+      87.12,
+      402.48,
+      97.56
+     ],
+     "text": "variety Tahora\u2019 Kopu\u2019"
+    },
+    {
+     "bbox": [
+      86.04,
+      106.2,
+      518.04,
+      112.68
+     ],
+     "text": "TERMINAL LEAFLET Mean 34.23 mm 16.28 mm 35.11 mm 30.43 mm 29.29 mm 24.08 mm"
+    },
+    {
+     "bbox": [
+      86.4,
+      114.12,
+      503.64,
+      124.56
+     ],
+     "text": "LENGTH Range 22-53 9.5-22.5 22-47 17-50.5 17-45 15-40"
+    },
+    {
+     "bbox": [
+      162.0,
+      124.2,
+      497.16,
+      130.68
+     ],
+     "text": "Std deviation 6.83 3.15 5.59 7.66 5.54 4.92"
+    },
+    {
+     "bbox": [
+      85.68,
+      141.48,
+      517.68,
+      152.28
+     ],
+     "text": "TERMINAL LEAFLET Mean 30.36mm = =15.19mm \u2014\u2014_28.42mm\u201427.65mm =. 24.75mm 21.81 mm"
+    },
+    {
+     "bbox": [
+      85.68,
+      150.48,
+      503.64,
+      161.28
+     ],
+     "text": "WIDTH Range 21-40.5 9-21 19-36 16-38 15-33 11-29"
+    },
+    {
+     "bbox": [
+      161.64,
+      160.92,
+      497.16,
+      167.4
+     ],
+     "text": "Std deviation 5.51 3.89 5.33 5.49 4.97 4.67"
+    },
+    {
+     "bbox": [
+      86.04,
+      178.2,
+      522.36,
+      184.68
+     ],
+     "text": "PETIOLE LENGTH Mean 281.91mm 161.41mm 198.42mm 255.65mm_ 185.73mm 224.40 mm"
+    },
+    {
+     "bbox": [
+      187.56,
+      186.12,
+      512.28,
+      196.92
+     ],
+     "text": "Range 141-440 69-252 120-310 101-446 115-496 114-355"
+    },
+    {
+     "bbox": [
+      161.64,
+      196.2,
+      501.12,
+      202.68
+     ],
+     "text": "Std deviation 75.34 51.61 46.73 77.20 63.51 59.47"
+    },
+    {
+     "bbox": [
+      85.68,
+      212.4,
+      513.0,
+      222.48
+     ],
+     "text": "STOLON WIDTH Mean 3.12 mm 1.73 mm 2.62 mm 2.74mm 2.71mm 2.04 mm"
+    },
+    {
+     "bbox": [
+      187.56,
+      222.84,
+      501.12,
+      230.4
+     ],
+     "text": "Range 2-4 1-2 1-4 2-4 1-4.5 15-3"
+    },
+    {
+     "bbox": [
+      161.28,
+      231.48,
+      496.8,
+      238.32
+     ],
+     "text": "Std deviation 0.51 0.33 0.64 0.55 0.71 0.35"
+    },
+    {
+     "bbox": [
+      85.68,
+      250.2,
+      496.8,
+      256.32
+     ],
+     "text": "LEAF MARK INTENSITY 2.59 2.38 3.30 2.45 4.24 2.60"
+    },
+    {
+     "bbox": [
+      85.32,
+      258.84,
+      130.68,
+      266.04
+     ],
+     "text": "(ranked 1-5)"
+    },
+    {
+     "bbox": [
+      85.32,
+      275.76,
+      517.32,
+      286.92
+     ],
+     "text": "FLOWER SIZE Mean 24.59mm 22.77mm 37.73mm = 25.33 mm 334.87 Mm 24.08 mm"
+    },
+    {
+     "bbox": [
+      187.2,
+      285.12,
+      502.92,
+      295.56
+     ],
+     "text": "Range 16-37 17-33 20-46 18-40 20-49 17-32"
+    },
+    {
+     "bbox": [
+      160.92,
+      295.56,
+      496.44,
+      301.68
+     ],
+     "text": "Std deviation 4.27 4.81 5.64 4.73 5.90 4.19"
+    },
+    {
+     "bbox": [
+      85.32,
+      313.2,
+      505.44,
+      319.68
+     ],
+     "text": "CYANOGENESIS FREQUENCY 3.6 %% 55.9 % 100 % 43.6% 89 % 72.5%"
+    },
+    {
+     "bbox": [
+      85.32,
+      320.4,
+      147.6,
+      331.92
+     ],
+     "text": "(from 1985 trials)"
+    },
+    {
+     "bbox": [
+      85.32,
+      339.84,
+      495.36,
+      346.68
+     ],
+     "text": "NO. OF STOLONS Mean 6.38 52.59 5.47 7.02 9.54 8.61"
+    },
+    {
+     "bbox": [
+      84.96,
+      347.4,
+      498.6,
+      358.2
+     ],
+     "text": "AT8 WEEKS Range 1-21 26-96 2-11 2-23 4-30 3-32"
+    },
+    {
+     "bbox": [
+      160.92,
+      357.48,
+      496.44,
+      363.96
+     ],
+     "text": "Std deviation 2.84 21.61 1.82 3.64 5.17 6.16"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Ladino \u2018Grasslands \u2018Tamar\u2019 \u2018Grasslands \u2018Haifa\u2019 \u2018Irrigation\u2019\nvariety Tahora\u2019 Kopu\u2019\nTERMINAL LEAFLET Mean 34.23 mm 16.28 mm 35.11 mm 30.43 mm 29.29 mm 24.08 mm\nLENGTH Range 22-53 9.5-22.5 22-47 17-50.5 17-45 15-40\nStd deviation 6.83 3.15 5.59 7.66 5.54 4.92\nTERMINAL LEAFLET Mean 30.36mm = =15.19mm \u2014\u2014_28.42mm\u201427.65mm =. 24.75mm 21.81 mm\nWIDTH Range 21-40.5 9-21 19-36 16-38 15-33 11-29\nStd deviation 5.51 3.89 5.33 5.49 4.97 4.67\nPETIOLE LENGTH Mean 281.91mm 161.41mm 198.42mm 255.65mm_ 185.73mm 224.40 mm\nRange 141-440 69-252 120-310 101-446 115-496 114-355\nStd deviation 75.34 51.61 46.73 77.20 63.51 59.47\nSTOLON WIDTH Mean 3.12 mm 1.73 mm 2.62 mm 2.74mm 2.71mm 2.04 mm\nRange 2-4 1-2 1-4 2-4 1-4.5 15-3\nStd deviation 0.51 0.33 0.64 0.55 0.71 0.35\nLEAF MARK INTENSITY 2.59 2.38 3.30 2.45 4.24 2.60\n(ranked 1-5)\nFLOWER SIZE Mean 24.59mm 22.77mm 37.73mm = 25.33 mm 334.87 Mm 24.08 mm\nRange 16-37 17-33 20-46 18-40 20-49 17-32\nStd deviation 4.27 4.81 5.64 4.73 5.90 4.19\nCYANOGENESIS FREQUENCY 3.6 %% 55.9 % 100 % 43.6% 89 % 72.5%\n(from 1985 trials)\nNO. OF STOLONS Mean 6.38 52.59 5.47 7.02 9.54 8.61\nAT8 WEEKS Range 1-21 26-96 2-11 2-23 4-30 3-32\nStd deviation 2.84 21.61 1.82 3.64 5.17 6.16",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    84.24,
+    422.28,
+    293.4,
+    480.6
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      84.24,
+      422.28,
+      209.88,
+      431.28
+     ],
+     "text": "5) Descriptions to be finalised"
+    },
+    {
+     "bbox": [
+      84.6,
+      432.72,
+      293.4,
+      441.36
+     ],
+     "text": "Descriptions for the Journal are being finalised for"
+    },
+    {
+     "bbox": [
+      84.24,
+      442.44,
+      285.48,
+      451.08
+     ],
+     "text": "the following applications. The six month period"
+    },
+    {
+     "bbox": [
+      84.24,
+      452.52,
+      278.28,
+      461.16
+     ],
+     "text": "for comment or formal objection will not begin"
+    },
+    {
+     "bbox": [
+      84.6,
+      462.6,
+      257.76,
+      470.88
+     ],
+     "text": "until the full descriptions are finalised and"
+    },
+    {
+     "bbox": [
+      84.6,
+      472.32,
+      187.2,
+      480.6
+     ],
+     "text": "published in the Journal."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "5) Descriptions to be finalised\nDescriptions for the Journal are being finalised for\nthe following applications. The six month period\nfor comment or formal objection will not begin\nuntil the full descriptions are finalised and\npublished in the Journal.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    83.16,
+    524.16,
+    131.76,
+    552.96
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      83.16,
+      524.16,
+      121.32,
+      537.84
+     ],
+     "text": "Apple"
+    },
+    {
+     "bbox": [
+      83.88,
+      540.0,
+      131.76,
+      552.96
+     ],
+     "text": "(Malus)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Apple\n(Malus)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    82.8,
+    565.2,
+    260.28,
+    583.92
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      82.8,
+      565.2,
+      260.28,
+      573.84
+     ],
+     "text": "Applicant: N.V.Jomobel of Halen, Belgium"
+    },
+    {
+     "bbox": [
+      83.16,
+      575.28,
+      231.48,
+      583.92
+     ],
+     "text": "\u2018Jonagored\u2019 Application No.:89/013"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: N.V.Jomobel of Halen, Belgium\n\u2018Jonagored\u2019 Application No.:89/013",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    83.16,
+    605.88,
+    297.0,
+    673.92
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      83.88,
+      605.88,
+      106.2,
+      616.32
+     ],
+     "text": "Pea"
+    },
+    {
+     "bbox": [
+      84.24,
+      621.0,
+      132.84,
+      633.96
+     ],
+     "text": "(Pisum)"
+    },
+    {
+     "bbox": [
+      83.16,
+      645.12,
+      297.0,
+      654.12
+     ],
+     "text": "Applicant: Cebeco Handelsraad of The Netherlands"
+    },
+    {
+     "bbox": [
+      83.16,
+      664.92,
+      296.28,
+      673.92
+     ],
+     "text": "Agent in Australia: Pea & Grain Exporters Australia"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Pea\n(Pisum)\nApplicant: Cebeco Handelsraad of The Netherlands\nAgent in Australia: Pea & Grain Exporters Australia",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    83.16,
+    675.0,
+    240.48,
+    694.08
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      83.16,
+      675.0,
+      240.48,
+      683.64
+     ],
+     "text": "Pty Ltd, of Two Wells, South Australia"
+    },
+    {
+     "bbox": [
+      83.16,
+      685.44,
+      213.48,
+      694.08
+     ],
+     "text": "\u2018Solara\u2019 Application No.:89/019"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Pty Ltd, of Two Wells, South Australia\n\u2018Solara\u2019 Application No.:89/019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    82.44,
+    726.12,
+    271.08,
+    743.76
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      82.44,
+      726.12,
+      271.08,
+      734.76
+     ],
+     "text": "Applicant:Rogers Brothers Seed Company of"
+    },
+    {
+     "bbox": [
+      83.16,
+      735.84,
+      129.24,
+      743.76
+     ],
+     "text": "Boise, USA"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant:Rogers Brothers Seed Company of\nBoise, USA",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    82.08,
+    756.0,
+    273.24,
+    774.36
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      82.08,
+      756.0,
+      273.24,
+      764.28
+     ],
+     "text": "Agent in Australia: Northrup King Pty Limited"
+    },
+    {
+     "bbox": [
+      82.44,
+      765.72,
+      208.8,
+      774.36
+     ],
+     "text": "\u2018Frolic\u2019 Application No.:89/026"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Agent in Australia: Northrup King Pty Limited\n\u2018Frolic\u2019 Application No.:89/026",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    83.88,
+    795.96,
+    92.16,
+    802.08
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      83.88,
+      795.96,
+      92.16,
+      802.08
+     ],
+     "text": "30"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "30",
+   "text_format": "plain",
+   "type": "page_number"
+  },
+  {
+   "bbox": [
+    317.52,
+    423.0,
+    507.24,
+    456.48
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      317.88,
+      423.0,
+      369.0,
+      436.32
+     ],
+     "text": "Choisya"
+    },
+    {
+     "bbox": [
+      317.52,
+      447.48,
+      507.24,
+      456.48
+     ],
+     "text": "Applicant: P Catt, Liss Forest Nursery Ltd, UK."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Choisya\nApplicant: P Catt, Liss Forest Nursery Ltd, UK.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    317.52,
+    467.64,
+    529.92,
+    495.72
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      317.52,
+      467.64,
+      529.92,
+      476.28
+     ],
+     "text": "Agent in Australia: Plant Growers Australia Pty Ltd"
+    },
+    {
+     "bbox": [
+      317.52,
+      477.36,
+      414.36,
+      486.0
+     ],
+     "text": "of Wonga Park, Victoria"
+    },
+    {
+     "bbox": [
+      317.52,
+      487.08,
+      462.6,
+      495.72
+     ],
+     "text": "\u2018Sundance\u2019 Application No.:89/020"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Agent in Australia: Plant Growers Australia Pty Ltd\nof Wonga Park, Victoria\n\u2018Sundance\u2019 Application No.:89/020",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    317.88,
+    520.92,
+    461.52,
+    532.08
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      317.88,
+      520.92,
+      461.52,
+      532.08
+     ],
+     "text": "Provisional Protection"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Provisional Protection",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    316.8,
+    546.12,
+    531.0,
+    582.84
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      317.52,
+      546.12,
+      445.32,
+      554.76
+     ],
+     "text": "Provisional Protection granted"
+    },
+    {
+     "bbox": [
+      317.16,
+      556.2,
+      528.48,
+      564.84
+     ],
+     "text": "The following varieties have provisional protection"
+    },
+    {
+     "bbox": [
+      317.52,
+      566.28,
+      531.0,
+      574.56
+     ],
+     "text": "under S22 of the Plant Variety Rights Act 1987 since"
+    },
+    {
+     "bbox": [
+      316.8,
+      576.0,
+      433.8,
+      582.84
+     ],
+     "text": "the last issue of the Journal:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Provisional Protection granted\nThe following varieties have provisional protection\nunder S22 of the Plant Variety Rights Act 1987 since\nthe last issue of the Journal:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    316.8,
+    595.8,
+    531.72,
+    772.92
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      317.16,
+      595.8,
+      531.36,
+      604.44
+     ],
+     "text": "\u2018Jonagored\u2019 Application No.:89/013"
+    },
+    {
+     "bbox": [
+      317.16,
+      614.16,
+      531.72,
+      625.68
+     ],
+     "text": "\u2018Kyambro\u2019 Application No.:89/014"
+    },
+    {
+     "bbox": [
+      317.16,
+      633.6,
+      531.36,
+      645.48
+     ],
+     "text": "\u2018Rosedale\u2019 Application No.:89/015"
+    },
+    {
+     "bbox": [
+      317.16,
+      654.84,
+      531.36,
+      663.12
+     ],
+     "text": "\u2018Gresham\u2019 Application No.:89/016"
+    },
+    {
+     "bbox": [
+      316.8,
+      674.64,
+      531.36,
+      682.92
+     ],
+     "text": "\u2018Natsukaze\u2019 Application No.:89/017"
+    },
+    {
+     "bbox": [
+      317.16,
+      693.72,
+      531.72,
+      705.24
+     ],
+     "text": "\u2018Franklin\u2019 Application No.:89/018"
+    },
+    {
+     "bbox": [
+      317.16,
+      713.52,
+      531.0,
+      725.04
+     ],
+     "text": "\u2018Solara\u2019 Application No.:89/019"
+    },
+    {
+     "bbox": [
+      316.8,
+      733.32,
+      531.0,
+      745.56
+     ],
+     "text": "\u2018Sundance\u2019 Application No.:89/020"
+    },
+    {
+     "bbox": [
+      316.8,
+      754.56,
+      459.0,
+      763.2
+     ],
+     "text": "\u2018Meipinjid\u2019 (syn Duke Meillandina)"
+    },
+    {
+     "bbox": [
+      435.24,
+      764.28,
+      530.28,
+      772.92
+     ],
+     "text": "Application No.:89/021"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Jonagored\u2019 Application No.:89/013\n\u2018Kyambro\u2019 Application No.:89/014\n\u2018Rosedale\u2019 Application No.:89/015\n\u2018Gresham\u2019 Application No.:89/016\n\u2018Natsukaze\u2019 Application No.:89/017\n\u2018Franklin\u2019 Application No.:89/018\n\u2018Solara\u2019 Application No.:89/019\n\u2018Sundance\u2019 Application No.:89/020\n\u2018Meipinjid\u2019 (syn Duke Meillandina)\nApplication No.:89/021",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    1.08,
+    829.44,
+    594.0,
+    842.4
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      1.08,
+      829.44,
+      594.0,
+      842.4
+     ],
+     "text": "nell"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "nell",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    594.72,
+    842.4
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

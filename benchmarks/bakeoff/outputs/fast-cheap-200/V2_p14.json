@@ -1,0 +1,2028 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    79.2,
+    55.8,
+    361.44,
+    69.48
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      79.2,
+      55.8,
+      361.44,
+      69.48
+     ],
+     "text": "Table of Comparison of Carnation Varieties"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Carnation Varieties",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    79.2,
+    73.8,
+    495.36,
+    126.72
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      173.88,
+      73.8,
+      477.0,
+      78.84
+     ],
+     "text": "\u2018Zora\u2019 *Zlatka\u2019 \u2019Dana\u2019 Pirin\u2019"
+    },
+    {
+     "bbox": [
+      79.2,
+      91.08,
+      495.36,
+      96.48
+     ],
+     "text": "MEAN DAYS TO FLOWERING 110-120 days 90-100 days 110-120 days 90-100 days"
+    },
+    {
+     "bbox": [
+      79.2,
+      115.2,
+      110.88,
+      119.16
+     ],
+     "text": "BUD SHAPE"
+    },
+    {
+     "bbox": [
+      79.92,
+      120.96,
+      488.16,
+      126.72
+     ],
+     "text": "(before colour shows) ellipsoid ellipsoic cylindrical ellipsoid"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Zora\u2019 *Zlatka\u2019 \u2019Dana\u2019 Pirin\u2019\nMEAN DAYS TO FLOWERING 110-120 days 90-100 days 110-120 days 90-100 days\nBUD SHAPE\n(before colour shows) ellipsoid ellipsoic cylindrical ellipsoid",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    79.2,
+    139.68,
+    492.48,
+    168.12
+   ],
+   "confidence": null,
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      79.2,
+      139.68,
+      118.08,
+      143.28
+     ],
+     "text": "FLOWER SIZE"
+    },
+    {
+     "bbox": [
+      79.2,
+      151.2,
+      146.88,
+      155.52
+     ],
+     "text": "Diameter Mean"
+    },
+    {
+     "bbox": [
+      133.2,
+      163.44,
+      150.48,
+      168.12
+     ],
+     "text": "Range"
+    },
+    {
+     "bbox": [
+      176.4,
+      139.68,
+      218.52,
+      144.36
+     ],
+     "text": "medium larce"
+    },
+    {
+     "bbox": [
+      176.76,
+      151.92,
+      197.28,
+      155.52
+     ],
+     "text": "7.8 om"
+    },
+    {
+     "bbox": [
+      176.76,
+      163.8,
+      211.68,
+      167.4
+     ],
+     "text": "7.4-8.2 cm"
+    },
+    {
+     "bbox": [
+      270.0,
+      139.68,
+      304.92,
+      144.72
+     ],
+     "text": "very jarge"
+    },
+    {
+     "bbox": [
+      270.0,
+      151.92,
+      290.88,
+      155.88
+     ],
+     "text": "8.6 cm"
+    },
+    {
+     "bbox": [
+      270.0,
+      163.8,
+      305.28,
+      167.76
+     ],
+     "text": "8.1-9.1 om"
+    },
+    {
+     "bbox": [
+      362.88,
+      140.04,
+      405.36,
+      144.72
+     ],
+     "text": "medium large"
+    },
+    {
+     "bbox": [
+      363.6,
+      151.92,
+      384.12,
+      155.88
+     ],
+     "text": "7.8 om"
+    },
+    {
+     "bbox": [
+      363.6,
+      164.16,
+      391.32,
+      167.76
+     ],
+     "text": "7.5-8 cm"
+    },
+    {
+     "bbox": [
+      457.2,
+      140.4,
+      491.76,
+      145.08
+     ],
+     "text": "very large"
+    },
+    {
+     "bbox": [
+      457.2,
+      151.92,
+      478.08,
+      155.88
+     ],
+     "text": "6.2 om"
+    },
+    {
+     "bbox": [
+      457.2,
+      163.8,
+      492.48,
+      167.76
+     ],
+     "text": "7.8-8.6 om"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       79.2,
+       139.68,
+       118.08,
+       143.28
+      ],
+      "text": "FLOWER SIZE"
+     },
+     {
+      "bbox": [
+       176.4,
+       139.68,
+       218.52,
+       144.36
+      ],
+      "text": "medium larce"
+     },
+     {
+      "bbox": [
+       270.0,
+       139.68,
+       304.92,
+       144.72
+      ],
+      "text": "very jarge"
+     },
+     {
+      "bbox": [
+       362.88,
+       140.04,
+       405.36,
+       144.72
+      ],
+      "text": "medium large"
+     },
+     {
+      "bbox": [
+       457.2,
+       140.4,
+       491.76,
+       145.08
+      ],
+      "text": "very large"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       79.2,
+       151.2,
+       146.88,
+       155.52
+      ],
+      "text": "Diameter Mean"
+     },
+     {
+      "bbox": [
+       176.76,
+       151.92,
+       197.28,
+       155.52
+      ],
+      "text": "7.8 om"
+     },
+     {
+      "bbox": [
+       270.0,
+       151.92,
+       290.88,
+       155.88
+      ],
+      "text": "8.6 cm"
+     },
+     {
+      "bbox": [
+       363.6,
+       151.92,
+       384.12,
+       155.88
+      ],
+      "text": "7.8 om"
+     },
+     {
+      "bbox": [
+       457.2,
+       151.92,
+       478.08,
+       155.88
+      ],
+      "text": "6.2 om"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       133.2,
+       163.44,
+       150.48,
+       168.12
+      ],
+      "text": "Range"
+     },
+     {
+      "bbox": [
+       176.76,
+       163.8,
+       211.68,
+       167.4
+      ],
+      "text": "7.4-8.2 cm"
+     },
+     {
+      "bbox": [
+       270.0,
+       163.8,
+       305.28,
+       167.76
+      ],
+      "text": "8.1-9.1 om"
+     },
+     {
+      "bbox": [
+       363.6,
+       164.16,
+       391.32,
+       167.76
+      ],
+      "text": "7.5-8 cm"
+     },
+     {
+      "bbox": [
+       457.2,
+       163.8,
+       492.48,
+       167.76
+      ],
+      "text": "7.8-8.6 om"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "FLOWER SIZE medium larce very jarge medium large very large\nDiameter Mean 7.8 om 8.6 cm 7.8 om 6.2 om\nRange 7.4-8.2 cm 8.1-9.1 om 7.5-8 cm 7.8-8.6 om",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    86.76,
+    174.96,
+    466.92,
+    179.64
+   ],
+   "confidence": null,
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      86.76,
+      174.96,
+      150.48,
+      179.28
+     ],
+     "text": "Standard deviation"
+    },
+    {
+     "bbox": [
+      176.4,
+      175.68,
+      186.48,
+      179.28
+     ],
+     "text": "0.6"
+    },
+    {
+     "bbox": [
+      270.72,
+      175.68,
+      280.08,
+      179.64
+     ],
+     "text": "1.4"
+    },
+    {
+     "bbox": [
+      362.88,
+      176.04,
+      372.96,
+      179.64
+     ],
+     "text": "0.6"
+    },
+    {
+     "bbox": [
+      457.92,
+      176.04,
+      466.92,
+      179.64
+     ],
+     "text": "1.0"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       86.76,
+       174.96,
+       150.48,
+       179.28
+      ],
+      "text": "Standard deviation"
+     },
+     {
+      "bbox": [
+       176.4,
+       175.68,
+       186.48,
+       179.28
+      ],
+      "text": "0.6"
+     },
+     {
+      "bbox": [
+       270.72,
+       175.68,
+       280.08,
+       179.64
+      ],
+      "text": "1.4"
+     },
+     {
+      "bbox": [
+       362.88,
+       176.04,
+       372.96,
+       179.64
+      ],
+      "text": "0.6"
+     },
+     {
+      "bbox": [
+       457.92,
+       176.04,
+       466.92,
+       179.64
+      ],
+      "text": "1.0"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "Standard deviation 0.6 1.4 0.6 1.0",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    79.56,
+    192.96,
+    488.52,
+    203.4
+   ],
+   "confidence": null,
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      79.56,
+      192.96,
+      161.64,
+      196.92
+     ],
+     "text": "FLOWER SHAPE IN PROFILE"
+    },
+    {
+     "bbox": [
+      90.72,
+      198.72,
+      143.64,
+      203.04
+     ],
+     "text": "\u2014 UPPER COROLLA"
+    },
+    {
+     "bbox": [
+      176.4,
+      199.08,
+      214.92,
+      203.04
+     ],
+     "text": "flat convex"
+    },
+    {
+     "bbox": [
+      266.04,
+      199.08,
+      304.92,
+      203.04
+     ],
+     "text": "flat convex"
+    },
+    {
+     "bbox": [
+      356.04,
+      199.44,
+      394.56,
+      203.4
+     ],
+     "text": "flat convex"
+    },
+    {
+     "bbox": [
+      449.64,
+      199.08,
+      488.52,
+      203.4
+     ],
+     "text": "flat convex"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       79.56,
+       192.96,
+       161.64,
+       196.92
+      ],
+      "text": "FLOWER SHAPE IN PROFILE"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       90.72,
+       198.72,
+       143.64,
+       203.04
+      ],
+      "text": "\u2014 UPPER COROLLA"
+     },
+     {
+      "bbox": [
+       176.4,
+       199.08,
+       214.92,
+       203.04
+      ],
+      "text": "flat convex"
+     },
+     {
+      "bbox": [
+       266.04,
+       199.08,
+       304.92,
+       203.04
+      ],
+      "text": "flat convex"
+     },
+     {
+      "bbox": [
+       356.04,
+       199.44,
+       394.56,
+       203.4
+      ],
+      "text": "flat convex"
+     },
+     {
+      "bbox": [
+       449.64,
+       199.08,
+       488.52,
+       203.4
+      ],
+      "text": "flat convex"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "FLOWER SHAPE IN PROFILE\n\u2014 UPPER COROLLA flat convex flat convex flat convex flat convex",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    90.36,
+    210.6,
+    474.12,
+    215.28
+   ],
+   "confidence": null,
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      90.36,
+      210.6,
+      143.64,
+      214.56
+     ],
+     "text": "\u2014 LOWER COROLLA"
+    },
+    {
+     "bbox": [
+      176.4,
+      211.68,
+      200.88,
+      214.56
+     ],
+     "text": "cencave"
+    },
+    {
+     "bbox": [
+      266.04,
+      212.04,
+      290.88,
+      214.92
+     ],
+     "text": "concave"
+    },
+    {
+     "bbox": [
+      356.04,
+      212.04,
+      380.52,
+      214.92
+     ],
+     "text": "concave"
+    },
+    {
+     "bbox": [
+      449.64,
+      212.04,
+      474.12,
+      215.28
+     ],
+     "text": "concave"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       90.36,
+       210.6,
+       143.64,
+       214.56
+      ],
+      "text": "\u2014 LOWER COROLLA"
+     },
+     {
+      "bbox": [
+       176.4,
+       211.68,
+       200.88,
+       214.56
+      ],
+      "text": "cencave"
+     },
+     {
+      "bbox": [
+       266.04,
+       212.04,
+       290.88,
+       214.92
+      ],
+      "text": "concave"
+     },
+     {
+      "bbox": [
+       356.04,
+       212.04,
+       380.52,
+       214.92
+      ],
+      "text": "concave"
+     },
+     {
+      "bbox": [
+       449.64,
+       212.04,
+       474.12,
+       215.28
+      ],
+      "text": "concave"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "\u2014 LOWER COROLLA cencave concave concave concave",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    79.56,
+    228.6,
+    484.92,
+    239.76
+   ],
+   "confidence": null,
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      79.56,
+      228.6,
+      129.24,
+      232.56
+     ],
+     "text": "FLOWER COLOURS"
+    },
+    {
+     "bbox": [
+      176.4,
+      228.6,
+      229.32,
+      233.28
+     ],
+     "text": "milky pink with"
+    },
+    {
+     "bbox": [
+      176.4,
+      234.72,
+      211.32,
+      239.4
+     ],
+     "text": "paler tips"
+    },
+    {
+     "bbox": [
+      266.4,
+      228.6,
+      304.92,
+      233.64
+     ],
+     "text": "yellow with"
+    },
+    {
+     "bbox": [
+      266.4,
+      234.72,
+      308.52,
+      239.76
+     ],
+     "text": "pink stripes"
+    },
+    {
+     "bbox": [
+      356.04,
+      228.96,
+      416.52,
+      233.64
+     ],
+     "text": "creamy white with"
+    },
+    {
+     "bbox": [
+      356.4,
+      235.08,
+      394.92,
+      239.04
+     ],
+     "text": "rose centre"
+    },
+    {
+     "bbox": [
+      450.0,
+      228.96,
+      484.92,
+      232.92
+     ],
+     "text": "snow white"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       79.56,
+       228.6,
+       129.24,
+       232.56
+      ],
+      "text": "FLOWER COLOURS"
+     },
+     {
+      "bbox": [
+       176.4,
+       228.6,
+       229.32,
+       233.28
+      ],
+      "text": "milky pink with"
+     },
+     {
+      "bbox": [
+       266.4,
+       228.6,
+       304.92,
+       233.64
+      ],
+      "text": "yellow with"
+     },
+     {
+      "bbox": [
+       356.04,
+       228.96,
+       416.52,
+       233.64
+      ],
+      "text": "creamy white with"
+     },
+     {
+      "bbox": [
+       450.0,
+       228.96,
+       484.92,
+       232.92
+      ],
+      "text": "snow white"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       176.4,
+       234.72,
+       211.32,
+       239.4
+      ],
+      "text": "paler tips"
+     },
+     {
+      "bbox": [
+       266.4,
+       234.72,
+       308.52,
+       239.76
+      ],
+      "text": "pink stripes"
+     },
+     {
+      "bbox": [
+       356.4,
+       235.08,
+       394.92,
+       239.04
+      ],
+      "text": "rose centre"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "FLOWER COLOURS milky pink with yellow with creamy white with snow white\npaler tips pink stripes rose centre",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    79.2,
+    252.72,
+    485.28,
+    269.28
+   ],
+   "confidence": null,
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      79.2,
+      252.72,
+      129.24,
+      257.04
+     ],
+     "text": "COLOUR DETAILS"
+    },
+    {
+     "bbox": [
+      90.0,
+      264.96,
+      129.24,
+      268.92
+     ],
+     "text": "OUTER PETAL,"
+    },
+    {
+     "bbox": [
+      176.4,
+      264.96,
+      200.88,
+      268.92
+     ],
+     "text": "RHS 654"
+    },
+    {
+     "bbox": [
+      270.0,
+      265.32,
+      290.88,
+      268.92
+     ],
+     "text": "RHS 28"
+    },
+    {
+     "bbox": [
+      362.88,
+      265.32,
+      409.68,
+      269.28
+     ],
+     "text": "RHS 1590-1558,"
+    },
+    {
+     "bbox": [
+      456.84,
+      265.32,
+      485.28,
+      269.28
+     ],
+     "text": "RHS 1550"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       79.2,
+       252.72,
+       129.24,
+       257.04
+      ],
+      "text": "COLOUR DETAILS"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       90.0,
+       264.96,
+       129.24,
+       268.92
+      ],
+      "text": "OUTER PETAL,"
+     },
+     {
+      "bbox": [
+       176.4,
+       264.96,
+       200.88,
+       268.92
+      ],
+      "text": "RHS 654"
+     },
+     {
+      "bbox": [
+       270.0,
+       265.32,
+       290.88,
+       268.92
+      ],
+      "text": "RHS 28"
+     },
+     {
+      "bbox": [
+       362.88,
+       265.32,
+       409.68,
+       269.28
+      ],
+      "text": "RHS 1590-1558,"
+     },
+     {
+      "bbox": [
+       456.84,
+       265.32,
+       485.28,
+       269.28
+      ],
+      "text": "RHS 1550"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "COLOUR DETAILS\nOUTER PETAL, RHS 654 RHS 28 RHS 1590-1558, RHS 1550",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    86.76,
+    277.2,
+    298.08,
+    287.28
+   ],
+   "confidence": null,
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      108.36,
+      277.2,
+      129.24,
+      281.16
+     ],
+     "text": "BORDER"
+    },
+    {
+     "bbox": [
+      86.76,
+      282.96,
+      129.24,
+      287.28
+     ],
+     "text": "BORDER WIDTH"
+    },
+    {
+     "bbox": [
+      176.4,
+      277.2,
+      200.88,
+      281.16
+     ],
+     "text": "RHS 55D"
+    },
+    {
+     "bbox": [
+      176.4,
+      283.32,
+      197.64,
+      286.92
+     ],
+     "text": "4-5 mm"
+    },
+    {
+     "bbox": [
+      269.64,
+      277.2,
+      294.12,
+      281.16
+     ],
+     "text": "RHS 554"
+    },
+    {
+     "bbox": [
+      269.64,
+      283.32,
+      298.08,
+      287.28
+     ],
+     "text": "9.5-1 mm"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       108.36,
+       277.2,
+       129.24,
+       281.16
+      ],
+      "text": "BORDER"
+     },
+     {
+      "bbox": [
+       176.4,
+       277.2,
+       200.88,
+       281.16
+      ],
+      "text": "RHS 55D"
+     },
+     {
+      "bbox": [
+       269.64,
+       277.2,
+       294.12,
+       281.16
+      ],
+      "text": "RHS 554"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       86.76,
+       282.96,
+       129.24,
+       287.28
+      ],
+      "text": "BORDER WIDTH"
+     },
+     {
+      "bbox": [
+       176.4,
+       283.32,
+       197.64,
+       286.92
+      ],
+      "text": "4-5 mm"
+     },
+     {
+      "bbox": [
+       269.64,
+       283.32,
+       298.08,
+       287.28
+      ],
+      "text": "9.5-1 mm"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "BORDER RHS 55D RHS 554\nBORDER WIDTH 4-5 mm 9.5-1 mm",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    79.2,
+    295.2,
+    484.92,
+    299.16
+   ],
+   "confidence": null,
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      79.2,
+      295.2,
+      129.24,
+      299.16
+     ],
+     "text": "CLUSTER PETALS."
+    },
+    {
+     "bbox": [
+      176.76,
+      295.2,
+      200.88,
+      298.8
+     ],
+     "text": "RHS 558"
+    },
+    {
+     "bbox": [
+      269.64,
+      295.2,
+      290.52,
+      298.8
+     ],
+     "text": "RHS 20"
+    },
+    {
+     "bbox": [
+      362.88,
+      295.2,
+      409.32,
+      299.16
+     ],
+     "text": "RHS 1590-1558"
+    },
+    {
+     "bbox": [
+      456.84,
+      295.56,
+      484.92,
+      299.16
+     ],
+     "text": "RHS 1550"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       79.2,
+       295.2,
+       129.24,
+       299.16
+      ],
+      "text": "CLUSTER PETALS."
+     },
+     {
+      "bbox": [
+       176.76,
+       295.2,
+       200.88,
+       298.8
+      ],
+      "text": "RHS 558"
+     },
+     {
+      "bbox": [
+       269.64,
+       295.2,
+       290.52,
+       298.8
+      ],
+      "text": "RHS 20"
+     },
+     {
+      "bbox": [
+       362.88,
+       295.2,
+       409.32,
+       299.16
+      ],
+      "text": "RHS 1590-1558"
+     },
+     {
+      "bbox": [
+       456.84,
+       295.56,
+       484.92,
+       299.16
+      ],
+      "text": "RHS 1550"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "CLUSTER PETALS. RHS 558 RHS 20 RHS 1590-1558 RHS 1550",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    86.4,
+    306.72,
+    298.44,
+    316.8
+   ],
+   "confidence": null,
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      108.0,
+      306.72,
+      129.24,
+      311.04
+     ],
+     "text": "BORDER"
+    },
+    {
+     "bbox": [
+      86.4,
+      312.84,
+      129.24,
+      316.8
+     ],
+     "text": "BORDER WIDTH"
+    },
+    {
+     "bbox": [
+      176.4,
+      307.08,
+      201.24,
+      310.68
+     ],
+     "text": "RHS 56D"
+    },
+    {
+     "bbox": [
+      176.4,
+      312.84,
+      197.64,
+      316.8
+     ],
+     "text": "2-3 mn"
+    },
+    {
+     "bbox": [
+      270.0,
+      307.08,
+      294.48,
+      310.68
+     ],
+     "text": "SHS 55B"
+    },
+    {
+     "bbox": [
+      270.0,
+      313.2,
+      298.44,
+      316.8
+     ],
+     "text": "0.5-* mm"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       108.0,
+       306.72,
+       129.24,
+       311.04
+      ],
+      "text": "BORDER"
+     },
+     {
+      "bbox": [
+       176.4,
+       307.08,
+       201.24,
+       310.68
+      ],
+      "text": "RHS 56D"
+     },
+     {
+      "bbox": [
+       270.0,
+       307.08,
+       294.48,
+       310.68
+      ],
+      "text": "SHS 55B"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       86.4,
+       312.84,
+       129.24,
+       316.8
+      ],
+      "text": "BORDER WIDTH"
+     },
+     {
+      "bbox": [
+       176.4,
+       312.84,
+       197.64,
+       316.8
+      ],
+      "text": "2-3 mn"
+     },
+     {
+      "bbox": [
+       270.0,
+       313.2,
+       298.44,
+       316.8
+      ],
+      "text": "0.5-* mm"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "BORDER RHS 56D SHS 55B\nBORDER WIDTH 2-3 mn 0.5-* mm",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    79.2,
+    330.48,
+    501.84,
+    335.16
+   ],
+   "confidence": null,
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      79.2,
+      330.48,
+      139.68,
+      334.44
+     ],
+     "text": "PETAL ARRANGEMENT"
+    },
+    {
+     "bbox": [
+      172.8,
+      330.48,
+      243.72,
+      335.16
+     ],
+     "text": "evenly spaced fiared"
+    },
+    {
+     "bbox": [
+      270.0,
+      330.48,
+      344.52,
+      334.8
+     ],
+     "text": "thick centra) cluster"
+    },
+    {
+     "bbox": [
+      363.6,
+      330.84,
+      438.48,
+      334.8
+     ],
+     "text": "loose central cluster"
+    },
+    {
+     "bbox": [
+      457.56,
+      330.84,
+      501.84,
+      334.8
+     ],
+     "text": "loose central"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       79.2,
+       330.48,
+       139.68,
+       334.44
+      ],
+      "text": "PETAL ARRANGEMENT"
+     },
+     {
+      "bbox": [
+       172.8,
+       330.48,
+       243.72,
+       335.16
+      ],
+      "text": "evenly spaced fiared"
+     },
+     {
+      "bbox": [
+       270.0,
+       330.48,
+       344.52,
+       334.8
+      ],
+      "text": "thick centra) cluster"
+     },
+     {
+      "bbox": [
+       363.6,
+       330.84,
+       438.48,
+       334.8
+      ],
+      "text": "loose central cluster"
+     },
+     {
+      "bbox": [
+       457.56,
+       330.84,
+       501.84,
+       334.8
+      ],
+      "text": "loose central"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "PETAL ARRANGEMENT evenly spaced fiared thick centra) cluster loose central cluster loose central",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    79.2,
+    336.6,
+    492.48,
+    442.8
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      172.8,
+      336.6,
+      481.32,
+      341.28
+     ],
+     "text": "petals few outer petals cluster"
+    },
+    {
+     "bbox": [
+      79.2,
+      354.24,
+      139.68,
+      358.2
+     ],
+     "text": "OUTER PETAL WIDTH"
+    },
+    {
+     "bbox": [
+      133.2,
+      360.36,
+      478.08,
+      364.32
+     ],
+     "text": "Mean 3.2 om 3.4 om 3.0 cm 3.0 cm"
+    },
+    {
+     "bbox": [
+      133.2,
+      372.24,
+      492.48,
+      376.92
+     ],
+     "text": "Range 2.8-3.4 cm 3.1-3.4 om 2.8-3.2 cm 2.8-3.2 cm"
+    },
+    {
+     "bbox": [
+      79.56,
+      389.88,
+      139.68,
+      394.2
+     ],
+     "text": "PETAL COUNT TOTAL"
+    },
+    {
+     "bbox": [
+      133.56,
+      396.0,
+      463.68,
+      400.32
+     ],
+     "text": "Mean 52 68 56 64"
+    },
+    {
+     "bbox": [
+      133.2,
+      407.88,
+      474.12,
+      412.92
+     ],
+     "text": "Range 43-58 60-90 51-59 52-69"
+    },
+    {
+     "bbox": [
+      79.2,
+      420.12,
+      133.2,
+      424.08
+     ],
+     "text": "CENTRAL CLUSTER"
+    },
+    {
+     "bbox": [
+      133.2,
+      426.24,
+      463.32,
+      430.56
+     ],
+     "text": "Mean ar 57 42 B4"
+    },
+    {
+     "bbox": [
+      133.56,
+      437.76,
+      473.76,
+      442.8
+     ],
+     "text": "Range 33-39 51-60 40-44 50-57"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "petals few outer petals cluster\nOUTER PETAL WIDTH\nMean 3.2 om 3.4 om 3.0 cm 3.0 cm\nRange 2.8-3.4 cm 3.1-3.4 om 2.8-3.2 cm 2.8-3.2 cm\nPETAL COUNT TOTAL\nMean 52 68 56 64\nRange 43-58 60-90 51-59 52-69\nCENTRAL CLUSTER\nMean ar 57 42 B4\nRange 33-39 51-60 40-44 50-57",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    77.4,
+    452.88,
+    507.96,
+    457.56
+   ],
+   "confidence": null,
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      77.4,
+      453.24,
+      123.84,
+      457.56
+     ],
+     "text": "PETAL MARGINS"
+    },
+    {
+     "bbox": [
+      174.6,
+      453.6,
+      245.88,
+      457.56
+     ],
+     "text": "fine even serrations"
+    },
+    {
+     "bbox": [
+      268.2,
+      453.24,
+      328.32,
+      457.56
+     ],
+     "text": "uneven serrations"
+    },
+    {
+     "bbox": [
+      361.44,
+      453.24,
+      414.72,
+      457.2
+     ],
+     "text": "even serrations"
+    },
+    {
+     "bbox": [
+      455.04,
+      452.88,
+      507.96,
+      457.56
+     ],
+     "text": "deep serrations"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       77.4,
+       453.24,
+       123.84,
+       457.56
+      ],
+      "text": "PETAL MARGINS"
+     },
+     {
+      "bbox": [
+       174.6,
+       453.6,
+       245.88,
+       457.56
+      ],
+      "text": "fine even serrations"
+     },
+     {
+      "bbox": [
+       268.2,
+       453.24,
+       328.32,
+       457.56
+      ],
+      "text": "uneven serrations"
+     },
+     {
+      "bbox": [
+       361.44,
+       453.24,
+       414.72,
+       457.2
+      ],
+      "text": "even serrations"
+     },
+     {
+      "bbox": [
+       455.04,
+       452.88,
+       507.96,
+       457.56
+      ],
+      "text": "deep serrations"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "PETAL MARGINS fine even serrations uneven serrations even serrations deep serrations",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    77.4,
+    471.6,
+    494.64,
+    779.4
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      77.76,
+      471.6,
+      475.92,
+      475.92
+     ],
+     "text": "PERFUME medium medium medium strong strong"
+    },
+    {
+     "bbox": [
+      78.12,
+      477.0,
+      457.56,
+      481.68
+     ],
+     "text": "(ranked | to 9) 3 3 6 7"
+    },
+    {
+     "bbox": [
+      77.4,
+      494.64,
+      479.88,
+      498.96
+     ],
+     "text": "CALYX SPLITTING 8-10 % 56 3% 15-20 %"
+    },
+    {
+     "bbox": [
+      78.12,
+      500.76,
+      133.92,
+      505.44
+     ],
+     "text": "(as % of sample)"
+    },
+    {
+     "bbox": [
+      77.4,
+      519.12,
+      95.04,
+      522.72
+     ],
+     "text": "CALYX"
+    },
+    {
+     "bbox": [
+      99.36,
+      524.52,
+      461.52,
+      528.84
+     ],
+     "text": "No. lobes: 5 5 5 5"
+    },
+    {
+     "bbox": [
+      91.8,
+      530.64,
+      465.48,
+      535.32
+     ],
+     "text": "Overlapping: no no yes no"
+    },
+    {
+     "bbox": [
+      81.36,
+      541.44,
+      479.88,
+      549.36
+     ],
+     "text": "- HEIGHT Mean 3.4 cm 3.5 cm 3.5 cm 3.4 cm"
+    },
+    {
+     "bbox": [
+      135.36,
+      554.04,
+      483.12,
+      559.44
+     ],
+     "text": "Range 3.2-3,5 om 3.3-3.6 om 3.3-3.7 om 3.3-3.5"
+    },
+    {
+     "bbox": [
+      81.36,
+      566.28,
+      480.24,
+      570.96
+     ],
+     "text": "~ DIAMETER Mean 1.9 om 2.1 om 1.9 cm 2.1 cm"
+    },
+    {
+     "bbox": [
+      135.36,
+      577.8,
+      494.28,
+      583.2
+     ],
+     "text": "Range 1.7-2.0 cm 1.7-2.4 cm 1,.7-2.1 om 1.9-2.3 cm"
+    },
+    {
+     "bbox": [
+      81.36,
+      586.8,
+      483.48,
+      597.96
+     ],
+     "text": "= COLOUR = Hain RHS 144A RHS 144A RHS 1476 RHS 1384"
+    },
+    {
+     "bbox": [
+      103.32,
+      601.56,
+      483.84,
+      606.96
+     ],
+     "text": "Lobe edges RHS 1446 RHS 1448 RHS 1448 RHS 138B"
+    },
+    {
+     "bbox": [
+      77.4,
+      618.84,
+      487.08,
+      624.24
+     ],
+     "text": "EPICALYX LOBES 2 pairs 3 pairs 3 pairs 2-3 pairs"
+    },
+    {
+     "bbox": [
+      77.4,
+      636.48,
+      472.68,
+      641.16
+     ],
+     "text": "STEM THICKNESS medium thick thick medium thick thick"
+    },
+    {
+     "bbox": [
+      131.4,
+      642.6,
+      469.44,
+      647.28
+     ],
+     "text": "Mean 5 mm 5 mm 4.5 mm 5 cm"
+    },
+    {
+     "bbox": [
+      131.76,
+      654.48,
+      476.64,
+      659.88
+     ],
+     "text": "Range 4-6 mm 4-8 mm 4.0-6.0 mm 4-6 cm"
+    },
+    {
+     "bbox": [
+      77.76,
+      672.48,
+      469.44,
+      677.88
+     ],
+     "text": "STEM LENGTH long jong Jong Jong"
+    },
+    {
+     "bbox": [
+      131.76,
+      678.6,
+      473.4,
+      683.28
+     ],
+     "text": "Mean 68 cm 64 cm 65 cm 83 cm"
+    },
+    {
+     "bbox": [
+      132.12,
+      690.48,
+      484.2,
+      696.24
+     ],
+     "text": "Range 60-74 om 60-70 cm 60-70 cm 60-70 cm"
+    },
+    {
+     "bbox": [
+      78.12,
+      705.96,
+      480.6,
+      716.76
+     ],
+     "text": "LEAF LENGTH = Mean 3 cm 14 om 11 em 11.5 om"
+    },
+    {
+     "bbox": [
+      131.76,
+      720.72,
+      494.64,
+      726.12
+     ],
+     "text": "Range -11 om 10-17 cm 10-13 cm 9.5-13.0 om"
+    },
+    {
+     "bbox": [
+      77.76,
+      738.72,
+      473.4,
+      743.76
+     ],
+     "text": "LEAF WIDTH Mean 8mm 3 mm 3 mm 10 mm"
+    },
+    {
+     "bbox": [
+      131.76,
+      750.6,
+      480.6,
+      756.0
+     ],
+     "text": "Range 7-9 mm 8-10 mm 2-10 mm 9-11 mm"
+    },
+    {
+     "bbox": [
+      78.12,
+      768.96,
+      487.44,
+      773.64
+     ],
+     "text": "LEAF WAXINESS waxy waxy very waxy very waxy"
+    },
+    {
+     "bbox": [
+      78.48,
+      774.36,
+      458.64,
+      779.4
+     ],
+     "text": "fon scale of 1 y 6 6 8 7"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PERFUME medium medium medium strong strong\n(ranked | to 9) 3 3 6 7\nCALYX SPLITTING 8-10 % 56 3% 15-20 %\n(as % of sample)\nCALYX\nNo. lobes: 5 5 5 5\nOverlapping: no no yes no\n- HEIGHT Mean 3.4 cm 3.5 cm 3.5 cm 3.4 cm\nRange 3.2-3,5 om 3.3-3.6 om 3.3-3.7 om 3.3-3.5\n~ DIAMETER Mean 1.9 om 2.1 om 1.9 cm 2.1 cm\nRange 1.7-2.0 cm 1.7-2.4 cm 1,.7-2.1 om 1.9-2.3 cm\n= COLOUR = Hain RHS 144A RHS 144A RHS 1476 RHS 1384\nLobe edges RHS 1446 RHS 1448 RHS 1448 RHS 138B\nEPICALYX LOBES 2 pairs 3 pairs 3 pairs 2-3 pairs\nSTEM THICKNESS medium thick thick medium thick thick\nMean 5 mm 5 mm 4.5 mm 5 cm\nRange 4-6 mm 4-8 mm 4.0-6.0 mm 4-6 cm\nSTEM LENGTH long jong Jong Jong\nMean 68 cm 64 cm 65 cm 83 cm\nRange 60-74 om 60-70 cm 60-70 cm 60-70 cm\nLEAF LENGTH = Mean 3 cm 14 om 11 em 11.5 om\nRange -11 om 10-17 cm 10-13 cm 9.5-13.0 om\nLEAF WIDTH Mean 8mm 3 mm 3 mm 10 mm\nRange 7-9 mm 8-10 mm 2-10 mm 9-11 mm\nLEAF WAXINESS waxy waxy very waxy very waxy\nfon scale of 1 y 6 6 8 7",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    77.76,
+    802.08,
+    85.68,
+    808.2
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      77.76,
+      802.08,
+      85.68,
+      808.2
+     ],
+     "text": "12"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "12",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

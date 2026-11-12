@@ -1,0 +1,562 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    60.0,
+    298.8,
+    65.76,
+    306.72
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      60.0,
+      298.8,
+      65.76,
+      306.72
+     ],
+     "text": "wy"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "wy",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    54.24,
+    379.68,
+    60.72,
+    382.8
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      54.24,
+      379.68,
+      60.72,
+      382.8
+     ],
+     "text": "=~\u201c"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "=~\u201c",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    61.68,
+    130.8,
+    66.48,
+    137.76
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      61.68,
+      130.8,
+      66.48,
+      137.76
+     ],
+     "text": "\u201c"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u201c",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    52.08,
+    385.92,
+    65.76,
+    390.0
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      52.08,
+      385.92,
+      65.76,
+      390.0
+     ],
+     "text": "oN"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "oN",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    54.24,
+    549.12,
+    62.16,
+    561.12
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      54.24,
+      549.12,
+      62.16,
+      561.12
+     ],
+     "text": "rey)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "rey)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    74.16,
+    42.72,
+    405.36,
+    396.0
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      234.48,
+      42.72,
+      284.4,
+      54.48
+     ],
+     "text": "753990"
+    },
+    {
+     "bbox": [
+      164.4,
+      43.2,
+      331.92,
+      70.32
+     ],
+     "text": "_ A bypothesis 27 3 that these"
+    },
+    {
+     "bbox": [
+      76.56,
+      74.64,
+      390.72,
+      90.0
+     ],
+     "text": "products become degraded to yield unsaturated ketenes, compounds known to"
+    },
+    {
+     "bbox": [
+      77.04,
+      97.44,
+      399.36,
+      105.84
+     ],
+     "text": "show antimicrobial activity under certain conditions. However, the incorp-"
+    },
+    {
+     "bbox": [
+      76.8,
+      114.48,
+      386.16,
+      122.16
+     ],
+     "text": "oration of our compositions in such acid systems es certain of the latex"
+    },
+    {
+     "bbox": [
+      76.08,
+      131.52,
+      398.4,
+      140.64
+     ],
+     "text": "paints, paper mill water, or even in biological laboratory tests conducted\u201d"
+    },
+    {
+     "bbox": [
+      76.32,
+      145.2,
+      394.08,
+      156.24
+     ],
+     "text": "on the acid side, which would prevent such degradation, cevertheless gives"
+    },
+    {
+     "bbox": [
+      76.08,
+      164.88,
+      389.76,
+      173.04
+     ],
+     "text": "results of excellent order of contrel of growth of microorganisms. It is"
+    },
+    {
+     "bbox": [
+      75.36,
+      175.68,
+      385.92,
+      191.04
+     ],
+     "text": "well established that these bases remin intact as salts under such acid"
+    },
+    {
+     "bbox": [
+      75.84,
+      193.92,
+      391.92,
+      210.24
+     ],
+     "text": "conditions, and teste for the presence of alpha, beta-unsaturated ketones:"
+    },
+    {
+     "bbox": [
+      74.88,
+      216.0,
+      190.56,
+      222.96
+     ],
+     "text": "have proved to be negative."
+    },
+    {
+     "bbox": [
+      89.76,
+      229.44,
+      389.52,
+      241.44
+     ],
+     "text": "\" As indicatea above, the amines employed in preparing the condensates"
+    },
+    {
+     "bbox": [
+      75.6,
+      246.96,
+      397.92,
+      261.36
+     ],
+     "text": "can be cyclic amines in which each 8 of the formlas is part of a ring. As"
+    },
+    {
+     "bbox": [
+      75.12,
+      263.76,
+      394.08,
+      274.32
+     ],
+     "text": "disclosed hereinafter, the amine groups in each molecule of a condensation"
+    },
+    {
+     "bbox": [
+      74.88,
+      281.04,
+      384.72,
+      292.08
+     ],
+     "text": "product can be of different types; thus, one group can be cyclic and the"
+    },
+    {
+     "bbox": [
+      75.12,
+      295.68,
+      398.16,
+      308.64
+     ],
+     "text": "other not, or they can be different cyclic groups es weil as different none"
+    },
+    {
+     "bbox": [
+      74.88,
+      317.04,
+      403.68,
+      326.16
+     ],
+     "text": "cyclic groups. The cyclic amines include morpholine, piperidine, piperazine,"
+    },
+    {
+     "bbox": [
+      74.4,
+      334.32,
+      405.36,
+      344.16
+     ],
+     "text": "pyrrolidine, parathiazine, meta-thiazolidine and other, preferably saturated,"
+    },
+    {
+     "bbox": [
+      74.64,
+      348.0,
+      315.36,
+      358.08
+     ],
+     "text": "cyclic emines with or without an e\u00e9diticnal hetero atom."
+    },
+    {
+     "bbox": [
+      95.76,
+      363.6,
+      388.56,
+      377.52
+     ],
+     "text": "One of the most useful applications which ve have discovered for the"
+    },
+    {
+     "bbox": [
+      74.16,
+      384.72,
+      397.2,
+      396.0
+     ],
+     "text": "compounds employed in the present invention is in the preservation and dis-"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "753990\n_ A bypothesis 27 3 that these\nproducts become degraded to yield unsaturated ketenes, compounds known to\nshow antimicrobial activity under certain conditions. However, the incorp-\noration of our compositions in such acid systems es certain of the latex\npaints, paper mill water, or even in biological laboratory tests conducted\u201d\non the acid side, which would prevent such degradation, cevertheless gives\nresults of excellent order of contrel of growth of microorganisms. It is\nwell established that these bases remin intact as salts under such acid\nconditions, and teste for the presence of alpha, beta-unsaturated ketones:\nhave proved to be negative.\n\" As indicatea above, the amines employed in preparing the condensates\ncan be cyclic amines in which each 8 of the formlas is part of a ring. As\ndisclosed hereinafter, the amine groups in each molecule of a condensation\nproduct can be of different types; thus, one group can be cyclic and the\nother not, or they can be different cyclic groups es weil as different none\ncyclic groups. The cyclic amines include morpholine, piperidine, piperazine,\npyrrolidine, parathiazine, meta-thiazolidine and other, preferably saturated,\ncyclic emines with or without an e\u00e9diticnal hetero atom.\nOne of the most useful applications which ve have discovered for the\ncompounds employed in the present invention is in the preservation and dis-",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    74.16,
+    398.16,
+    392.64,
+    408.96
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      74.16,
+      398.16,
+      392.64,
+      408.96
+     ],
+     "text": "infection of emulsions formed from \u201csoluble ofls\". \u201cSoluble oils\u201d are in-"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "infection of emulsions formed from \u201csoluble ofls\". \u201cSoluble oils\u201d are in-",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    73.68,
+    418.08,
+    405.36,
+    430.08
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      73.68,
+      418.08,
+      405.36,
+      430.08
+     ],
+     "text": "dustrial compositions used in netal-vorking as coolants, lubricants, flush- ~"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "dustrial compositions used in netal-vorking as coolants, lubricants, flush- ~",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    65.76,
+    431.76,
+    388.08,
+    447.36
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      65.76,
+      431.76,
+      388.08,
+      447.36
+     ],
+     "text": ", ing agents, and anti-corrosives, after being mixed with and emulsified in"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": ", ing agents, and anti-corrosives, after being mixed with and emulsified in",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    71.76,
+    445.44,
+    451.92,
+    633.6
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      72.0,
+      445.44,
+      400.56,
+      461.04
+     ],
+     "text": "vater. Other applications are es fluids in hydraulic systers and Inbricants"
+    },
+    {
+     "bbox": [
+      73.2,
+      468.96,
+      431.52,
+      479.28
+     ],
+     "text": "in extrusion processes. Where metals contact metals, es in the case of cute -"
+    },
+    {
+     "bbox": [
+      72.72,
+      486.0,
+      395.76,
+      494.64
+     ],
+     "text": "ting tools in lathes, grinders, end Grill presses, or even vhere non-metals"
+    },
+    {
+     "bbox": [
+      72.72,
+      497.52,
+      396.24,
+      514.08
+     ],
+     "text": "are extruded through metal dies, the use of these emJsified ofls is essen-"
+    },
+    {
+     "bbox": [
+      72.48,
+      519.6,
+      93.84,
+      525.84
+     ],
+     "text": "tial,"
+    },
+    {
+     "bbox": [
+      93.84,
+      533.04,
+      451.92,
+      546.48
+     ],
+     "text": "The ofls consist generally of chemically complex mixtures of petroleum, \u2014 a"
+    },
+    {
+     "bbox": [
+      72.24,
+      553.2,
+      400.08,
+      563.76
+     ],
+     "text": "emlsifying agent, and coupling agent. (LR. Sabina and H. Pivnick, Applied"
+    },
+    {
+     "bbox": [
+      72.24,
+      569.28,
+      400.08,
+      579.12
+     ],
+     "text": "Microbiology, Vole 4, po 173 (1956))- \u2018The petroleum fraction is composed of"
+    },
+    {
+     "bbox": [
+      71.76,
+      582.96,
+      400.32,
+      601.92
+     ],
+     "text": "aliphatic or cyclic compounds | af. - varying molecular weight and degree of come"
+    },
+    {
+     "bbox": [
+      71.76,
+      597.6,
+      400.56,
+      617.04
+     ],
+     "text": "plexity. Fats used msy be lara, sperm oil, rape seed ofl, ete. Both petro="
+    },
+    {
+     "bbox": [
+      71.76,
+      617.04,
+      378.48,
+      633.6
+     ],
+     "text": "eum and fat mey be chlorinated, sulfurized or sulfonated. Emlatfying"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "vater. Other applications are es fluids in hydraulic systers and Inbricants\nin extrusion processes. Where metals contact metals, es in the case of cute -\nting tools in lathes, grinders, end Grill presses, or even vhere non-metals\nare extruded through metal dies, the use of these emJsified ofls is essen-\ntial,\nThe ofls consist generally of chemically complex mixtures of petroleum, \u2014 a\nemlsifying agent, and coupling agent. (LR. Sabina and H. Pivnick, Applied\nMicrobiology, Vole 4, po 173 (1956))- \u2018The petroleum fraction is composed of\naliphatic or cyclic compounds | af. - varying molecular weight and degree of come\nplexity. Fats used msy be lara, sperm oil, rape seed ofl, ete. Both petro=\neum and fat mey be chlorinated, sulfurized or sulfonated. Emlatfying",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.84,
+    631.68,
+    451.68,
+    652.08
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      51.84,
+      631.68,
+      451.68,
+      652.08
+     ],
+     "text": "ay agents may be amine or sodium Soaps. ef high molecular weight, alcchols, poly :"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ay agents may be amine or sodium Soaps. ef high molecular weight, alcchols, poly :",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    496.56,
+    701.28
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

@@ -25,6 +25,9 @@ const MODEL = {
   // A PDF link: the render and the download, then a document of unknown length.
   urlPdf: { base: 14 },
   pymupdf: { base: 2, textPage: 0.25, scanPage: 16, docxPerMb: 1, unknownPerMb: 6 },
+  // The fast engine (ADR-059): the same text-layer reading, Tesseract alone on scans:
+  // 2.3x quicker a scanned page than pymupdf on 1 CPU, 2.8x on 4 (docs/benchmarks/2026-11-12-fast-engine.md).
+  fast: { base: 2, textPage: 0.25, scanPage: 7, docxPerMb: 1, unknownPerMb: 3 },
   // docling on a free CPU: an ML pipeline, plus a possible cold start.
   docling: { base: 25, textPage: 4, scanPage: 40, docxPerMb: 6, unknownPerMb: 25 },
   // GLM-OCR on CPU: minutes a scanned page (ADR-034); text pages skip it (ADR-036).
@@ -41,6 +44,13 @@ const DEFAULT_UPLOAD_BYTES_PER_S = 1.5 * 1024 * 1024;
 
 // Engines that run as a separate service and may not exist on a deployment.
 const REMOTE_ENGINES = ["docling", "glm-ocr"];
+
+// Engines a deployment offers only if /ping lists them: the remote ones, and the
+// fast engine (ADR-059), which a server older than API 0.18.0 would reject.
+const LISTED_ENGINES = [...REMOTE_ENGINES, "fast"];
+
+// What each engine is called in the picker, for the Auto option's hint.
+const ENGINE_LABELS = { fast: "fast", pymupdf: "accurate", docling: "docling", "glm-ocr": "GLM-OCR" };
 
 // Keyword extraction is not a conversion, so it gets its own two estimates
 // (ADR-032): the statistical methods scan text and answer in under a second,
@@ -202,22 +212,19 @@ async function pingBackend() {
 // it will actually do instead of guessing (ADR-027).
 function applyServerDefaultEngine(info) {
   const reported = info && typeof info.default_engine === "string" ? info.default_engine : "";
-  if (reported !== "pymupdf" && !REMOTE_ENGINES.includes(reported)) return;
+  if (!ENGINE_LABELS[reported]) return;
   serverDefaultEngine = reported;
-  if (el.engineAutoHint) {
-    el.engineAutoHint.textContent =
-      reported === "pymupdf" ? "Server's default — fastest" : `Server's default — ${reported}`;
-  }
+  if (el.engineAutoHint) el.engineAutoHint.textContent = `Server's default — ${ENGINE_LABELS[reported]}`;
 }
 
 // /ping lists the engines this deployment can actually run (ADR-034). A remote
 // engine whose service is not deployed would be accepted and then silently fall
 // back, so its option is hidden rather than offered. A server too old to send
-// the list keeps the original choices: docling shown, GLM-OCR hidden.
+// the list keeps the original choices: docling shown, GLM-OCR and Fast hidden.
 function applyAvailableEngines(info) {
   const listed = info && Array.isArray(info.available_engines) ? info.available_engines : null;
   el.engineInputs.forEach((input) => {
-    if (!REMOTE_ENGINES.includes(input.value)) return;
+    if (!LISTED_ENGINES.includes(input.value)) return;
     const available = listed ? listed.includes(input.value) : input.value === "docling";
     const option = input.closest(".engine__option");
     if (option) option.hidden = !available;
@@ -662,7 +669,7 @@ function liveLabel() {
     text += ` — page ${live.page} of ${live.pages}`;
   }
   if (live.docCount > 1) text = `Document ${live.docIndex} of ${live.docCount} · ${text}`;
-  if (live.fallback) text += ` · ${live.fallback} fell back to the fast parser`;
+  if (live.fallback) text += ` · ${live.fallback} fell back to the local parser`;
   return text;
 }
 
@@ -759,7 +766,7 @@ function timeoutWarning(estimateSeconds) {
   return (
     `Estimated ${formatSeconds(estimateSeconds)} — longer than the ${formatSeconds(SERVER_TIMEOUT_S)} ` +
     "a single request may usually run on this service, so it may be cut off before it finishes. " +
-    "Splitting the document into smaller files, or choosing the Fastest engine, avoids that."
+    "Splitting the document into smaller files, or choosing the Fast engine, avoids that."
   );
 }
 
@@ -890,7 +897,7 @@ function networkFailure(started) {
 function timeoutMessage() {
   return (
     `The server stopped this request at its time limit (about ${formatSeconds(SERVER_TIMEOUT_S)}). ` +
-    "The document takes longer than that to convert here — split it into smaller files, or use the Fastest engine."
+    "The document takes longer than that to convert here — split it into smaller files, or use the Fast engine."
   );
 }
 

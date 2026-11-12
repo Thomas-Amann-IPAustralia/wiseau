@@ -1,0 +1,1567 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    72.36,
+    56.88,
+    283.68,
+    90.36
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      72.36,
+      56.88,
+      283.68,
+      71.28
+     ],
+     "text": "PART 2\u2014 MATTERS FOR"
+    },
+    {
+     "bbox": [
+      72.36,
+      75.6,
+      205.2,
+      90.36
+     ],
+     "text": "PUBLIC NOTICE"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PART 2\u2014 MATTERS FOR\nPUBLIC NOTICE",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    71.64,
+    104.4,
+    155.52,
+    114.12
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      71.64,
+      104.4,
+      155.52,
+      114.12
+     ],
+     "text": "PVR GRANTED"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PVR GRANTED",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    70.56,
+    127.8,
+    282.96,
+    165.96
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      71.64,
+      127.8,
+      259.92,
+      136.44
+     ],
+     "text": "Plant Variety Rights have been granted under"
+    },
+    {
+     "bbox": [
+      71.28,
+      137.16,
+      282.96,
+      146.52
+     ],
+     "text": "Section 26 of the Plant Variety Rights Act 1987, and"
+    },
+    {
+     "bbox": [
+      71.28,
+      147.6,
+      264.6,
+      156.24
+     ],
+     "text": "an entry has been made in the Register, for the"
+    },
+    {
+     "bbox": [
+      70.56,
+      156.96,
+      150.84,
+      165.96
+     ],
+     "text": "following varieties:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Plant Variety Rights have been granted under\nSection 26 of the Plant Variety Rights Act 1987, and\nan entry has been made in the Register, for the\nfollowing varieties:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    72.72,
+    176.76,
+    265.32,
+    195.84
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      72.72,
+      176.76,
+      265.32,
+      185.76
+     ],
+     "text": "|. \u2018Hidden Valley A4\u2019 (Application No 88/001)"
+    },
+    {
+     "bbox": [
+      88.56,
+      186.84,
+      239.76,
+      195.84
+     ],
+     "text": "Macadamia integrifolia x tetraphylla"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "|. \u2018Hidden Valley A4\u2019 (Application No 88/001)\nMacadamia integrifolia x tetraphylla",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    88.92,
+    206.64,
+    285.48,
+    225.0
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      88.92,
+      206.64,
+      285.48,
+      216.0
+     ],
+     "text": "Grantee(s): HFD, MA & DJD Bell, Hidden Valley"
+    },
+    {
+     "bbox": [
+      89.28,
+      217.08,
+      234.72,
+      225.0
+     ],
+     "text": "Plantations, Beerwah, Queensland."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Grantee(s): HFD, MA & DJD Bell, Hidden Valley\nPlantations, Beerwah, Queensland.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    88.92,
+    237.24,
+    189.72,
+    245.88
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      88.92,
+      237.24,
+      189.72,
+      245.88
+     ],
+     "text": "Expiry Date: 5 May 2008"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Expiry Date: 5 May 2008",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    88.56,
+    257.04,
+    155.16,
+    264.24
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      88.56,
+      257.04,
+      155.16,
+      264.24
+     ],
+     "text": "Certificate No. 1"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Certificate No. 1",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    71.64,
+    279.72,
+    271.08,
+    298.44
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      71.64,
+      279.72,
+      271.08,
+      288.36
+     ],
+     "text": "2. \u2018Hidden Valley A16\u2019 (Application No 88/002}"
+    },
+    {
+     "bbox": [
+      89.28,
+      289.44,
+      240.12,
+      298.44
+     ],
+     "text": "Macadamia integrifolia x tetraphylla"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "2. \u2018Hidden Valley A16\u2019 (Application No 88/002}\nMacadamia integrifolia x tetraphylla",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    89.28,
+    309.24,
+    285.84,
+    327.24
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      89.28,
+      309.24,
+      285.84,
+      317.88
+     ],
+     "text": "Grantee(s): HFD, MA & DJD Bell, Hidden Valley"
+    },
+    {
+     "bbox": [
+      89.64,
+      318.96,
+      235.08,
+      327.24
+     ],
+     "text": "Plantations, Beerwah, Queensland."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Grantee(s): HFD, MA & DJD Bell, Hidden Valley\nPlantations, Beerwah, Queensland.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    89.64,
+    339.12,
+    190.44,
+    347.76
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      89.64,
+      339.12,
+      190.44,
+      347.76
+     ],
+     "text": "Expiry Date: 5 May 2008"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Expiry Date: 5 May 2008",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    88.92,
+    359.28,
+    156.96,
+    366.48
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      88.92,
+      359.28,
+      156.96,
+      366.48
+     ],
+     "text": "Certificate No. 2"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Certificate No. 2",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    71.28,
+    381.24,
+    222.84,
+    390.6
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      71.28,
+      381.24,
+      222.84,
+      390.6
+     ],
+     "text": "APPLICATIONS ACCEPTED"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "APPLICATIONS ACCEPTED",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    71.28,
+    397.44,
+    280.08,
+    424.44
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      71.28,
+      397.44,
+      257.04,
+      406.08
+     ],
+     "text": "The PVR applications listed below have been"
+    },
+    {
+     "bbox": [
+      71.28,
+      407.16,
+      280.08,
+      416.16
+     ],
+     "text": "accepted under S18 of the Plant Variety Rights Act"
+    },
+    {
+     "bbox": [
+      72.72,
+      417.6,
+      92.16,
+      424.44
+     ],
+     "text": "1987."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The PVR applications listed below have been\naccepted under S18 of the Plant Variety Rights Act\n1987.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    70.56,
+    451.44,
+    174.96,
+    460.08
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      70.56,
+      451.44,
+      174.96,
+      460.08
+     ],
+     "text": "a) Descriptions Finalised"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a) Descriptions Finalised",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    70.56,
+    479.52,
+    225.36,
+    509.04
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      70.56,
+      479.52,
+      134.64,
+      490.32
+     ],
+     "text": "Carnation"
+    },
+    {
+     "bbox": [
+      71.28,
+      495.0,
+      225.36,
+      509.04
+     ],
+     "text": "(Dianthus caryophyllus)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Carnation\n(Dianthus caryophyllus)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    70.2,
+    519.84,
+    268.2,
+    556.92
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      70.2,
+      519.84,
+      262.8,
+      529.2
+     ],
+     "text": "Applicant: Bioprogress -SP- \u2018Selca\u2019 of Plovdiv,"
+    },
+    {
+     "bbox": [
+      70.92,
+      530.28,
+      107.64,
+      538.92
+     ],
+     "text": "Bulgaria."
+    },
+    {
+     "bbox": [
+      70.56,
+      540.0,
+      268.2,
+      549.0
+     ],
+     "text": "Australian Agent: Royena Nurseries of Dingley,"
+    },
+    {
+     "bbox": [
+      70.56,
+      550.08,
+      102.24,
+      556.92
+     ],
+     "text": "Victoria"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Bioprogress -SP- \u2018Selca\u2019 of Plovdiv,\nBulgaria.\nAustralian Agent: Royena Nurseries of Dingley,\nVictoria",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    70.2,
+    569.52,
+    279.72,
+    627.12
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      70.56,
+      569.52,
+      189.72,
+      578.16
+     ],
+     "text": "Comparative Growing Trials"
+    },
+    {
+     "bbox": [
+      70.2,
+      579.24,
+      277.56,
+      587.52
+     ],
+     "text": "All characteristics described and comparisons are"
+    },
+    {
+     "bbox": [
+      70.2,
+      588.96,
+      263.16,
+      597.6
+     ],
+     "text": "from plants grown in glasshouse conditions in"
+    },
+    {
+     "bbox": [
+      70.56,
+      598.68,
+      279.72,
+      607.68
+     ],
+     "text": "Sofia, Bulgaria and represent measurements of 20"
+    },
+    {
+     "bbox": [
+      70.92,
+      608.4,
+      261.72,
+      617.4
+     ],
+     "text": "plants. Further comparative growing trials are"
+    },
+    {
+     "bbox": [
+      70.56,
+      618.48,
+      209.16,
+      627.12
+     ],
+     "text": "currently in progress in Australia."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials\nAll characteristics described and comparisons are\nfrom plants grown in glasshouse conditions in\nSofia, Bulgaria and represent measurements of 20\nplants. Further comparative growing trials are\ncurrently in progress in Australia.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    70.2,
+    638.28,
+    276.84,
+    667.08
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      70.2,
+      638.28,
+      96.12,
+      646.92
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      70.2,
+      648.0,
+      276.84,
+      657.36
+     ],
+     "text": "The breeder of the following varieties is A Boykov"
+    },
+    {
+     "bbox": [
+      70.2,
+      658.08,
+      144.36,
+      667.08
+     ],
+     "text": "of Sofia, Bulgaria."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\nThe breeder of the following varieties is A Boykov\nof Sofia, Bulgaria.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    69.84,
+    678.24,
+    280.44,
+    716.4
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      70.2,
+      678.24,
+      280.44,
+      686.88
+     ],
+     "text": "These varieties arise from controlled pollination of"
+    },
+    {
+     "bbox": [
+      70.2,
+      688.32,
+      266.76,
+      696.96
+     ],
+     "text": "Dianthus caryophyllus Bulgarian seedling lines"
+    },
+    {
+     "bbox": [
+      70.2,
+      698.04,
+      270.0,
+      707.04
+     ],
+     "text": "followed by selection of progeny on the basis of"
+    },
+    {
+     "bbox": [
+      69.84,
+      707.76,
+      228.96,
+      716.4
+     ],
+     "text": "flower, petal and calyx characteristics."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "These varieties arise from controlled pollination of\nDianthus caryophyllus Bulgarian seedling lines\nfollowed by selection of progeny on the basis of\nflower, petal and calyx characteristics.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    70.2,
+    727.2,
+    241.92,
+    735.84
+   ],
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      70.2,
+      727.2,
+      241.92,
+      735.84
+     ],
+     "text": "Variety: \u2018Zornitza\u2019 Application No. 88/013"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Zornitza\u2019 Application No. 88/013",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    70.2,
+    747.0,
+    269.64,
+    783.72
+   ],
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      70.56,
+      747.0,
+      111.6,
+      755.64
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      70.2,
+      756.72,
+      249.12,
+      765.36
+     ],
+     "text": "This variety is distinct from all other known"
+    },
+    {
+     "bbox": [
+      70.2,
+      766.44,
+      269.64,
+      775.44
+     ],
+     "text": "varieties in having the following combination of"
+    },
+    {
+     "bbox": [
+      70.2,
+      776.52,
+      116.28,
+      783.72
+     ],
+     "text": "characters:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\nThis variety is distinct from all other known\nvarieties in having the following combination of\ncharacters:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    311.4,
+    56.52,
+    525.6,
+    126.0
+   ],
+   "id": "e22",
+   "lines": [
+    {
+     "bbox": [
+      312.48,
+      56.52,
+      500.4,
+      65.16
+     ],
+     "text": "a medium large diameter double flower; with"
+    },
+    {
+     "bbox": [
+      312.48,
+      66.6,
+      502.56,
+      75.6
+     ],
+     "text": "many petals, some arranged in a loose central"
+    },
+    {
+     "bbox": [
+      311.76,
+      76.32,
+      478.08,
+      85.68
+     ],
+     "text": "cluster; a bright cherry pink petal colour"
+    },
+    {
+     "bbox": [
+      311.76,
+      86.76,
+      525.6,
+      96.12
+     ],
+     "text": "corresponding to RHS 52A; petal margins with fine,"
+    },
+    {
+     "bbox": [
+      311.76,
+      96.48,
+      524.88,
+      106.2
+     ],
+     "text": "even serrations; a long thick stem; large foliage; an"
+    },
+    {
+     "bbox": [
+      311.76,
+      106.56,
+      511.92,
+      116.28
+     ],
+     "text": "epicalyx with 2 opposite pairs of lobes; and very"
+    },
+    {
+     "bbox": [
+      311.4,
+      116.28,
+      509.76,
+      126.0
+     ],
+     "text": "waxy foliage and calyx with a thick wax coating."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a medium large diameter double flower; with\nmany petals, some arranged in a loose central\ncluster; a bright cherry pink petal colour\ncorresponding to RHS 52A; petal margins with fine,\neven serrations; a long thick stem; large foliage; an\nepicalyx with 2 opposite pairs of lobes; and very\nwaxy foliage and calyx with a thick wax coating.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    311.04,
+    136.44,
+    524.88,
+    184.32
+   ],
+   "id": "e23",
+   "lines": [
+    {
+     "bbox": [
+      311.4,
+      136.44,
+      473.76,
+      145.44
+     ],
+     "text": "Morphology \u2014 See comparison tables."
+    },
+    {
+     "bbox": [
+      311.76,
+      146.16,
+      524.88,
+      155.52
+     ],
+     "text": "\u2018Zornitza\u2019 most closely resembles the variety \u2018Katia\u2019"
+    },
+    {
+     "bbox": [
+      311.4,
+      155.88,
+      508.32,
+      165.24
+     ],
+     "text": "but differs in having a petal colour brighter pink"
+    },
+    {
+     "bbox": [
+      311.04,
+      165.6,
+      519.48,
+      174.96
+     ],
+     "text": "than that of \u2018Katia\u2019 (50B), more serrated petals and"
+    },
+    {
+     "bbox": [
+      311.04,
+      175.68,
+      397.44,
+      184.32
+     ],
+     "text": "a more waxy foliage."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 See comparison tables.\n\u2018Zornitza\u2019 most closely resembles the variety \u2018Katia\u2019\nbut differs in having a petal colour brighter pink\nthan that of \u2018Katia\u2019 (50B), more serrated petals and\na more waxy foliage.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    311.4,
+    190.44,
+    469.8,
+    199.08
+   ],
+   "id": "e24",
+   "lines": [
+    {
+     "bbox": [
+      311.4,
+      190.44,
+      469.8,
+      199.08
+     ],
+     "text": "Variety: \u2018Dana\u2019 Application No. 88/014"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Dana\u2019 Application No. 88/014",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    311.04,
+    210.6,
+    503.28,
+    247.68
+   ],
+   "id": "e25",
+   "lines": [
+    {
+     "bbox": [
+      311.4,
+      210.6,
+      352.44,
+      219.24
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      311.04,
+      220.68,
+      495.36,
+      229.68
+     ],
+     "text": "This variety is distinct from any other known"
+    },
+    {
+     "bbox": [
+      311.04,
+      230.4,
+      503.28,
+      239.76
+     ],
+     "text": "variety in having the following combination of"
+    },
+    {
+     "bbox": [
+      311.04,
+      240.48,
+      374.04,
+      247.68
+     ],
+     "text": "characteristics:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\nThis variety is distinct from any other known\nvariety in having the following combination of\ncharacteristics:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    311.04,
+    260.28,
+    524.88,
+    308.52
+   ],
+   "id": "e26",
+   "lines": [
+    {
+     "bbox": [
+      311.4,
+      260.28,
+      505.44,
+      269.28
+     ],
+     "text": "amedium large diameter double flower; many"
+    },
+    {
+     "bbox": [
+      311.4,
+      270.36,
+      519.84,
+      279.36
+     ],
+     "text": "petals; a creamy white petal colour corresponding"
+    },
+    {
+     "bbox": [
+      311.04,
+      280.08,
+      491.04,
+      289.08
+     ],
+     "text": "to RHS 159C; petal margins with large even"
+    },
+    {
+     "bbox": [
+      311.4,
+      290.16,
+      524.88,
+      298.8
+     ],
+     "text": "serrations; 3 opposite pairs of epicalyx lobes; and a"
+    },
+    {
+     "bbox": [
+      311.04,
+      299.88,
+      419.4,
+      308.52
+     ],
+     "text": "calyx resistant to splitting."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "amedium large diameter double flower; many\npetals; a creamy white petal colour corresponding\nto RHS 159C; petal margins with large even\nserrations; 3 opposite pairs of epicalyx lobes; and a\ncalyx resistant to splitting.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    309.96,
+    319.68,
+    521.28,
+    378.72
+   ],
+   "id": "e27",
+   "lines": [
+    {
+     "bbox": [
+      310.68,
+      319.68,
+      472.68,
+      328.68
+     ],
+     "text": "Morphology \u2014 See comparison tables."
+    },
+    {
+     "bbox": [
+      310.68,
+      329.76,
+      497.16,
+      338.04
+     ],
+     "text": "\u2018Dana\u2019 most closely resembles \u2018White Sim\u2019 in"
+    },
+    {
+     "bbox": [
+      309.96,
+      339.48,
+      521.28,
+      348.84
+     ],
+     "text": "flower colour but is distinct in being slightly larger,"
+    },
+    {
+     "bbox": [
+      310.68,
+      349.56,
+      517.68,
+      358.92
+     ],
+     "text": "its basal petal colour (RHS 159C) being darker and"
+    },
+    {
+     "bbox": [
+      310.32,
+      359.64,
+      497.88,
+      367.92
+     ],
+     "text": "creamier than \u2018White Sim\u2019 (RHS 155B) and its"
+    },
+    {
+     "bbox": [
+      310.68,
+      369.72,
+      411.48,
+      378.72
+     ],
+     "text": "perfume being stronger."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 See comparison tables.\n\u2018Dana\u2019 most closely resembles \u2018White Sim\u2019 in\nflower colour but is distinct in being slightly larger,\nits basal petal colour (RHS 159C) being darker and\ncreamier than \u2018White Sim\u2019 (RHS 155B) and its\nperfume being stronger.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    310.32,
+    385.56,
+    469.44,
+    394.2
+   ],
+   "id": "e28",
+   "lines": [
+    {
+     "bbox": [
+      310.32,
+      385.56,
+      469.44,
+      394.2
+     ],
+     "text": "Variety: \u2018Odile\u2019 Application No. 88/015"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Odile\u2019 Application No. 88/015",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    310.32,
+    405.36,
+    502.56,
+    442.08
+   ],
+   "id": "e29",
+   "lines": [
+    {
+     "bbox": [
+      310.68,
+      405.36,
+      352.08,
+      414.36
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      310.32,
+      415.44,
+      494.64,
+      424.08
+     ],
+     "text": "This variety is distinct from any other known"
+    },
+    {
+     "bbox": [
+      310.32,
+      425.16,
+      502.56,
+      433.8
+     ],
+     "text": "variety in having the following combination of"
+    },
+    {
+     "bbox": [
+      310.32,
+      434.88,
+      373.32,
+      442.08
+     ],
+     "text": "characteristics:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\nThis variety is distinct from any other known\nvariety in having the following combination of\ncharacteristics:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    309.96,
+    454.68,
+    522.0,
+    523.08
+   ],
+   "id": "e30",
+   "lines": [
+    {
+     "bbox": [
+      310.32,
+      454.68,
+      521.28,
+      463.32
+     ],
+     "text": "a large diameter double flower with many petals; a"
+    },
+    {
+     "bbox": [
+      310.32,
+      464.4,
+      511.2,
+      473.4
+     ],
+     "text": "dark red petal colour corresponding to RHS 46A;"
+    },
+    {
+     "bbox": [
+      310.32,
+      474.48,
+      493.56,
+      483.12
+     ],
+     "text": "central petals arranged in a number of toose"
+    },
+    {
+     "bbox": [
+      310.32,
+      484.2,
+      520.92,
+      493.2
+     ],
+     "text": "clusters; petal margins serrated; a long thick stem;"
+    },
+    {
+     "bbox": [
+      309.96,
+      494.28,
+      522.0,
+      503.28
+     ],
+     "text": "foliage and calyx with a thick wax coating; epicalyx"
+    },
+    {
+     "bbox": [
+      310.32,
+      504.36,
+      498.96,
+      513.0
+     ],
+     "text": "with 3 opposite lobes; and a calyx resistant to"
+    },
+    {
+     "bbox": [
+      310.32,
+      514.44,
+      345.96,
+      523.08
+     ],
+     "text": "splitting."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a large diameter double flower with many petals; a\ndark red petal colour corresponding to RHS 46A;\ncentral petals arranged in a number of toose\nclusters; petal margins serrated; a long thick stem;\nfoliage and calyx with a thick wax coating; epicalyx\nwith 3 opposite lobes; and a calyx resistant to\nsplitting.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    309.6,
+    532.8,
+    524.16,
+    590.4
+   ],
+   "id": "e31",
+   "lines": [
+    {
+     "bbox": [
+      309.96,
+      532.8,
+      471.96,
+      544.68
+     ],
+     "text": "Morphology \u2014 See comparison tables."
+    },
+    {
+     "bbox": [
+      309.96,
+      543.96,
+      524.16,
+      552.6
+     ],
+     "text": "\u2018Odile\u2019 most closely resembles \u2018Scania 3C\u2019 in flower"
+    },
+    {
+     "bbox": [
+      309.6,
+      553.68,
+      511.2,
+      562.68
+     ],
+     "text": "colour but differs in having a larger flower, more"
+    },
+    {
+     "bbox": [
+      309.96,
+      563.76,
+      501.84,
+      572.76
+     ],
+     "text": "serrated petals, a longer and thicker stem than"
+    },
+    {
+     "bbox": [
+      309.96,
+      573.48,
+      501.48,
+      581.76
+     ],
+     "text": "\u2018Scania 3C\u2019 as well as a calyx with overlapping"
+    },
+    {
+     "bbox": [
+      309.96,
+      583.56,
+      334.08,
+      590.4
+     ],
+     "text": "lobes."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 See comparison tables.\n\u2018Odile\u2019 most closely resembles \u2018Scania 3C\u2019 in flower\ncolour but differs in having a larger flower, more\nserrated petals, a longer and thicker stem than\n\u2018Scania 3C\u2019 as well as a calyx with overlapping\nlobes.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    309.24,
+    598.68,
+    484.56,
+    607.32
+   ],
+   "id": "e32",
+   "lines": [
+    {
+     "bbox": [
+      309.24,
+      598.68,
+      484.56,
+      607.32
+     ],
+     "text": "Variety: \u2018Fantastic\u2019 Application No. 88/016"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Fantastic\u2019 Application No. 88/016",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    308.88,
+    618.48,
+    501.48,
+    655.2
+   ],
+   "id": "e33",
+   "lines": [
+    {
+     "bbox": [
+      309.24,
+      618.48,
+      350.64,
+      627.12
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      309.24,
+      628.2,
+      493.56,
+      636.84
+     ],
+     "text": "This variety is distinct from any other known"
+    },
+    {
+     "bbox": [
+      308.88,
+      637.92,
+      501.48,
+      646.92
+     ],
+     "text": "variety in having the following combination of"
+    },
+    {
+     "bbox": [
+      309.24,
+      648.0,
+      371.88,
+      655.2
+     ],
+     "text": "characteristics:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\nThis variety is distinct from any other known\nvariety in having the following combination of\ncharacteristics:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    309.6,
+    667.8,
+    523.8,
+    745.2
+   ],
+   "id": "e34",
+   "lines": [
+    {
+     "bbox": [
+      309.96,
+      667.8,
+      520.92,
+      676.8
+     ],
+     "text": "a large diameter double flower with many petals; a"
+    },
+    {
+     "bbox": [
+      309.96,
+      677.88,
+      523.8,
+      686.88
+     ],
+     "text": "petal colour of background pale lilac corresponding"
+    },
+    {
+     "bbox": [
+      309.6,
+      687.96,
+      515.52,
+      696.6
+     ],
+     "text": "to RHS 65D with many uneven fine stripes of light"
+    },
+    {
+     "bbox": [
+      309.6,
+      697.68,
+      488.16,
+      706.32
+     ],
+     "text": "cyclamen corresponding to RHS 66C; petal"
+    },
+    {
+     "bbox": [
+      310.32,
+      707.4,
+      523.44,
+      716.04
+     ],
+     "text": "margins with shallow serrations; an epicalyx with 3"
+    },
+    {
+     "bbox": [
+      310.32,
+      717.48,
+      506.88,
+      726.12
+     ],
+     "text": "pairs of opposite lobes; a long thick stem; large"
+    },
+    {
+     "bbox": [
+      309.6,
+      726.84,
+      509.76,
+      735.48
+     ],
+     "text": "foliage and calyx with a thick wax coating; and a"
+    },
+    {
+     "bbox": [
+      309.6,
+      736.92,
+      418.32,
+      745.2
+     ],
+     "text": "calyx resistant to splitting."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a large diameter double flower with many petals; a\npetal colour of background pale lilac corresponding\nto RHS 65D with many uneven fine stripes of light\ncyclamen corresponding to RHS 66C; petal\nmargins with shallow serrations; an epicalyx with 3\npairs of opposite lobes; a long thick stem; large\nfoliage and calyx with a thick wax coating; and a\ncalyx resistant to splitting.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    309.24,
+    756.36,
+    518.76,
+    785.52
+   ],
+   "id": "e35",
+   "lines": [
+    {
+     "bbox": [
+      309.24,
+      756.36,
+      471.6,
+      765.36
+     ],
+     "text": "Morphology \u2014 See comparison tables."
+    },
+    {
+     "bbox": [
+      309.24,
+      766.44,
+      518.76,
+      775.08
+     ],
+     "text": "\u2018Fantastic\u2019 most closely resembles \u2018Sir Arthur Sim\u2018"
+    },
+    {
+     "bbox": [
+      309.24,
+      776.52,
+      509.04,
+      785.52
+     ],
+     "text": "in petal colouration but differs in having a larger"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 See comparison tables.\n\u2018Fantastic\u2019 most closely resembles \u2018Sir Arthur Sim\u2018\nin petal colouration but differs in having a larger",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

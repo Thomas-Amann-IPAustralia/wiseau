@@ -1,0 +1,605 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    65.28,
+    59.04,
+    346.56,
+    73.44
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      65.28,
+      59.04,
+      346.56,
+      73.44
+     ],
+     "text": "Table of Comparison of Carnation Varieties"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Carnation Varieties",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    65.28,
+    75.84,
+    485.28,
+    780.96
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      159.84,
+      75.84,
+      477.12,
+      81.6
+     ],
+     "text": "*Victoria\u2019 \"Fantastic! 'Neshka \u2018white Sim?"
+    },
+    {
+     "bbox": [
+      65.76,
+      95.04,
+      444.96,
+      100.32
+     ],
+     "text": "MEAN DAYS TO FLOWERING 110-125 days 120-125 days 90-100 days -"
+    },
+    {
+     "bbox": [
+      66.24,
+      113.76,
+      97.44,
+      117.6
+     ],
+     "text": "BUD SHAPE"
+    },
+    {
+     "bbox": [
+      66.72,
+      118.08,
+      474.24,
+      123.84
+     ],
+     "text": "(before colour shows) ovoid cylindrica) cylingricat ellipsoid"
+    },
+    {
+     "bbox": [
+      66.24,
+      136.32,
+      464.16,
+      141.6
+     ],
+     "text": "FLOWER SIZE very larse very large medium large medium"
+    },
+    {
+     "bbox": [
+      66.24,
+      144.0,
+      445.44,
+      157.44
+     ],
+     "text": "Diameter Mean 9.4 on 8.1 om 1.6 om -"
+    },
+    {
+     "bbox": [
+      120.0,
+      156.0,
+      478.56,
+      169.44
+     ],
+     "text": "Range 9-11 em 7.8-8.4 om 7.4-8.0 om 7.4-7.8 em"
+    },
+    {
+     "bbox": [
+      73.44,
+      172.32,
+      445.44,
+      177.6
+     ],
+     "text": "Standard deviation 0.9 0.4 -"
+    },
+    {
+     "bbox": [
+      66.24,
+      191.04,
+      452.16,
+      197.28
+     ],
+     "text": "FLOWER SHAPE IN PROFILE ."
+    },
+    {
+     "bbox": [
+      77.28,
+      196.32,
+      485.28,
+      201.6
+     ],
+     "text": "= UPPER COROLLA Flat convex flat convex flat convex Flat convex"
+    },
+    {
+     "bbox": [
+      78.72,
+      208.8,
+      471.36,
+      213.6
+     ],
+     "text": "~ LOWER COROLLA concave concave flat concave"
+    },
+    {
+     "bbox": [
+      66.72,
+      221.28,
+      464.16,
+      234.72
+     ],
+     "text": "FLOWER COLOURS creamy white - light pale }slac - uneven white with scarlet. white"
+    },
+    {
+     "bbox": [
+      163.68,
+      232.32,
+      413.28,
+      237.6
+     ],
+     "text": "rose cyclamen stripes fine cyclamen stripes stripes and edges"
+    },
+    {
+     "bbox": [
+      66.24,
+      251.04,
+      116.16,
+      254.88
+     ],
+     "text": "COLOUR DETAILS."
+    },
+    {
+     "bbox": [
+      76.8,
+      262.08,
+      471.36,
+      266.88
+     ],
+     "text": "OUTER PETAL RMS 1880 RHS 650 RUS 620 RHS 1558"
+    },
+    {
+     "bbox": [
+      93.12,
+      269.28,
+      445.92,
+      282.72
+     ],
+     "text": "BORDER RHS 580 RUS 608 -"
+    },
+    {
+     "bbox": [
+      73.44,
+      280.32,
+      291.84,
+      284.16
+     ],
+     "text": "BORDER WIDTH 0.5-1.2 mm nm"
+    },
+    {
+     "bbox": [
+      66.24,
+      291.36,
+      445.92,
+      296.16
+     ],
+     "text": "CLUSTER PETALS. RUS 1580 RHS 650 RWS 620 -"
+    },
+    {
+     "bbox": [
+      93.12,
+      299.04,
+      446.4,
+      312.48
+     ],
+     "text": "BORDER RHS 628 RHS 660 RHS 608 -"
+    },
+    {
+     "bbox": [
+      73.92,
+      309.6,
+      292.32,
+      314.4
+     ],
+     "text": "BORDER WIDTH 0.4-1.0 mm 0.6-1.0 mm"
+    },
+    {
+     "bbox": [
+      66.72,
+      327.84,
+      460.8,
+      332.16
+     ],
+     "text": "PETAL ARRANGEMENT thick central thick central loose loose"
+    },
+    {
+     "bbox": [
+      163.68,
+      334.08,
+      374.4,
+      338.4
+     ],
+     "text": "cluster uster cluster"
+    },
+    {
+     "bbox": [
+      66.24,
+      352.32,
+      127.2,
+      356.64
+     ],
+     "text": "OUTER PETAL WIDTH"
+    },
+    {
+     "bbox": [
+      118.56,
+      352.32,
+      446.4,
+      366.72
+     ],
+     "text": "Mean 3.8 cm 3.2 em 3.4 cm -"
+    },
+    {
+     "bbox": [
+      120.48,
+      370.08,
+      445.92,
+      374.88
+     ],
+     "text": "Range 3.4-4.3 cm 3.0-3.4 em 3.1-3.7 em -"
+    },
+    {
+     "bbox": [
+      66.72,
+      387.84,
+      127.2,
+      392.16
+     ],
+     "text": "PETAL COUNT TOTAL"
+    },
+    {
+     "bbox": [
+      118.56,
+      387.84,
+      445.92,
+      402.24
+     ],
+     "text": "Mean a3 7 rey -"
+    },
+    {
+     "bbox": [
+      120.48,
+      405.12,
+      460.8,
+      410.4
+     ],
+     "text": "Range 69-98 68-79 30-49 53-58"
+    },
+    {
+     "bbox": [
+      66.72,
+      417.12,
+      120.0,
+      421.44
+     ],
+     "text": "CENTRAL CLUSTER"
+    },
+    {
+     "bbox": [
+      118.56,
+      418.56,
+      356.64,
+      432.0
+     ],
+     "text": "Mean co 53 30"
+    },
+    {
+     "bbox": [
+      120.48,
+      435.36,
+      367.2,
+      440.16
+     ],
+     "text": "Range 61-71 51-56 28-32"
+    },
+    {
+     "bbox": [
+      65.28,
+      455.04,
+      444.96,
+      459.84
+     ],
+     "text": "PETAL MARGINS deep uneven serrations shallow serrations large even serr -"
+    },
+    {
+     "bbox": [
+      65.76,
+      473.28,
+      474.24,
+      477.6
+     ],
+     "text": "PERFUME medium strong very strong medium very weak"
+    },
+    {
+     "bbox": [
+      66.24,
+      479.04,
+      444.48,
+      483.84
+     ],
+     "text": "(ranked 1 to 9) 6 8 3 1"
+    },
+    {
+     "bbox": [
+      65.28,
+      497.28,
+      459.84,
+      501.6
+     ],
+     "text": "CALYX SPLITTING o\u00ae ona x o\u00ae 25%"
+    },
+    {
+     "bbox": [
+      66.24,
+      503.04,
+      121.92,
+      507.84
+     ],
+     "text": "(as % of sample)"
+    },
+    {
+     "bbox": [
+      65.28,
+      520.8,
+      83.04,
+      525.12
+     ],
+     "text": "CALYX"
+    },
+    {
+     "bbox": [
+      95.52,
+      526.56,
+      448.8,
+      530.88
+     ],
+     "text": "- lobe: 5 5 4"
+    },
+    {
+     "bbox": [
+      77.76,
+      528.0,
+      453.12,
+      541.44
+     ],
+     "text": "overlapping: yes no no"
+    },
+    {
+     "bbox": [
+      69.6,
+      539.04,
+      448.8,
+      552.48
+     ],
+     "text": "~ HEIGHT Moan 3.5 em -"
+    },
+    {
+     "bbox": [
+      122.88,
+      555.84,
+      448.8,
+      560.64
+     ],
+     "text": "Range 3.8 cm -"
+    },
+    {
+     "bbox": [
+      69.6,
+      567.36,
+      449.28,
+      571.68
+     ],
+     "text": "- DIAMETER Mean. 3.0 om 2.0 om 7"
+    },
+    {
+     "bbox": [
+      123.36,
+      574.56,
+      448.8,
+      588.0
+     ],
+     "text": "Range 2.8-3.5 om 1.92.2 om -"
+    },
+    {
+     "bbox": [
+      69.6,
+      591.36,
+      449.28,
+      595.68
+     ],
+     "text": "= coLoUR Main FHS 1448 RHS 1448 >"
+    },
+    {
+     "bbox": [
+      91.2,
+      603.36,
+      449.28,
+      608.64
+     ],
+     "text": "Lobe edges FHS 1448 RHS 1448 -"
+    },
+    {
+     "bbox": [
+      65.76,
+      621.6,
+      470.88,
+      626.4
+     ],
+     "text": "EPICALYX LOBES. 3 pairs 3 pairs 3 pairs 2 pairs"
+    },
+    {
+     "bbox": [
+      65.76,
+      639.84,
+      468.0,
+      644.16
+     ],
+     "text": "STEM THICKNESS. thick thick medium thick medium"
+    },
+    {
+     "bbox": [
+      121.44,
+      640.8,
+      449.28,
+      654.24
+     ],
+     "text": "Mean 6.5 mm 5.5 0m 5mm -"
+    },
+    {
+     "bbox": [
+      123.36,
+      657.12,
+      468.0,
+      662.4
+     ],
+     "text": "Range 5-7 mm 4.5-6.5 om 4-6 mm 4-8 om"
+    },
+    {
+     "bbox": [
+      65.76,
+      674.88,
+      464.64,
+      680.16
+     ],
+     "text": "STEM LENGTH Jong long tong medium"
+    },
+    {
+     "bbox": [
+      123.36,
+      680.64,
+      445.92,
+      684.96
+     ],
+     "text": "Mean 66 cm 63 cm 66 em >"
+    },
+    {
+     "bbox": [
+      123.84,
+      692.64,
+      445.92,
+      697.44
+     ],
+     "text": "Range 60-74 cm 63-75 em 60-70 om -"
+    },
+    {
+     "bbox": [
+      66.24,
+      705.6,
+      445.92,
+      719.04
+     ],
+     "text": "LEAF LENGTH = Mean 12 cm 9.5 em 12 cm -"
+    },
+    {
+     "bbox": [
+      123.36,
+      717.6,
+      445.92,
+      731.04
+     ],
+     "text": "Range 10-14 om 8-10.5 om 10-14 om -"
+    },
+    {
+     "bbox": [
+      66.24,
+      735.84,
+      445.92,
+      749.28
+     ],
+     "text": "LEAF WIDTH Mean 10 mm 9 mm 9mm -"
+    },
+    {
+     "bbox": [
+      123.84,
+      752.64,
+      464.64,
+      757.44
+     ],
+     "text": "Range 9-12 mm 8-10 mm 8-10 mm 8-9 mm"
+    },
+    {
+     "bbox": [
+      66.24,
+      770.4,
+      481.92,
+      776.16
+     ],
+     "text": "LEAF WAXINESS very waxy wary very waxy medium waxy"
+    },
+    {
+     "bbox": [
+      66.24,
+      776.64,
+      445.92,
+      780.96
+     ],
+     "text": "(on scale of 1-3) 7 \u00e9 7 4"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "*Victoria\u2019 \"Fantastic! 'Neshka \u2018white Sim?\nMEAN DAYS TO FLOWERING 110-125 days 120-125 days 90-100 days -\nBUD SHAPE\n(before colour shows) ovoid cylindrica) cylingricat ellipsoid\nFLOWER SIZE very larse very large medium large medium\nDiameter Mean 9.4 on 8.1 om 1.6 om -\nRange 9-11 em 7.8-8.4 om 7.4-8.0 om 7.4-7.8 em\nStandard deviation 0.9 0.4 -\nFLOWER SHAPE IN PROFILE .\n= UPPER COROLLA Flat convex flat convex flat convex Flat convex\n~ LOWER COROLLA concave concave flat concave\nFLOWER COLOURS creamy white - light pale }slac - uneven white with scarlet. white\nrose cyclamen stripes fine cyclamen stripes stripes and edges\nCOLOUR DETAILS.\nOUTER PETAL RMS 1880 RHS 650 RUS 620 RHS 1558\nBORDER RHS 580 RUS 608 -\nBORDER WIDTH 0.5-1.2 mm nm\nCLUSTER PETALS. RUS 1580 RHS 650 RWS 620 -\nBORDER RHS 628 RHS 660 RHS 608 -\nBORDER WIDTH 0.4-1.0 mm 0.6-1.0 mm\nPETAL ARRANGEMENT thick central thick central loose loose\ncluster uster cluster\nOUTER PETAL WIDTH\nMean 3.8 cm 3.2 em 3.4 cm -\nRange 3.4-4.3 cm 3.0-3.4 em 3.1-3.7 em -\nPETAL COUNT TOTAL\nMean a3 7 rey -\nRange 69-98 68-79 30-49 53-58\nCENTRAL CLUSTER\nMean co 53 30\nRange 61-71 51-56 28-32\nPETAL MARGINS deep uneven serrations shallow serrations large even serr -\nPERFUME medium strong very strong medium very weak\n(ranked 1 to 9) 6 8 3 1\nCALYX SPLITTING o\u00ae ona x o\u00ae 25%\n(as % of sample)\nCALYX\n- lobe: 5 5 4\noverlapping: yes no no\n~ HEIGHT Moan 3.5 em -\nRange 3.8 cm -\n- DIAMETER Mean. 3.0 om 2.0 om 7\nRange 2.8-3.5 om 1.92.2 om -\n= coLoUR Main FHS 1448 RHS 1448 >\nLobe edges FHS 1448 RHS 1448 -\nEPICALYX LOBES. 3 pairs 3 pairs 3 pairs 2 pairs\nSTEM THICKNESS. thick thick medium thick medium\nMean 6.5 mm 5.5 0m 5mm -\nRange 5-7 mm 4.5-6.5 om 4-6 mm 4-8 om\nSTEM LENGTH Jong long tong medium\nMean 66 cm 63 cm 66 em >\nRange 60-74 cm 63-75 em 60-70 om -\nLEAF LENGTH = Mean 12 cm 9.5 em 12 cm -\nRange 10-14 om 8-10.5 om 10-14 om -\nLEAF WIDTH Mean 10 mm 9 mm 9mm -\nRange 9-12 mm 8-10 mm 8-10 mm 8-9 mm\nLEAF WAXINESS very waxy wary very waxy medium waxy\n(on scale of 1-3) 7 \u00e9 7 4",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    512.16,
+    805.92,
+    518.88,
+    811.2
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      512.16,
+      805.92,
+      518.88,
+      811.2
+     ],
+     "text": "\""
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\"",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    594.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

@@ -81,15 +81,22 @@ The batch has no `split_chapters` — bulk conversion and chapter splitting are
 mutually exclusive for now (ADR-031). To split a long document into per-chapter
 files, call `convert_file` on it alone with `split_chapters=True`. Note also that
 `engine="docling"` costs tens of seconds to minutes *per document*, so a batch of
-any size wants the fast default.
+any size wants a local engine, and a large batch of scans wants `fast`.
 
-`engine` is the same lever the web UI offers (ADR-025): `pymupdf` for the fast
-deterministic parser, `docling` for the most faithful reading of a complex or
-scanned document (much slower — tens of seconds to minutes on free CPU), or
-`auto` to take the deployment's default, which is `pymupdf` unless the deployment
-says otherwise (ADR-027). An unknown name comes back as the backend's 400.
-Choosing `docling` does not disable the automatic fallback, so an agent that asks
-for fidelity still gets a result when docling is down. `ping` reports the
+`engine` is the same lever the web UI offers (ADR-025, ADR-059):
+- `pymupdf`: the accurate deterministic parser. On scans it recovers heading
+  levels and tables with a layout and a table model.
+- `fast`: the same parser with a lighter OCR stage for scanned pages. It is two to
+  three times quicker a scanned page and keeps the same words, without heading
+  levels or rebuilt tables. Text-layer PDFs and DOCX come out the same as `pymupdf`.
+- `docling`: experimental. It is much slower, and on the project's benchmarks it
+  was less accurate than `pymupdf` on text.
+- `auto`: the deployment's default, which is `pymupdf` unless the deployment says
+  otherwise (ADR-027).
+
+An unknown name comes back as the backend's 400. Choosing `docling` does not
+disable the automatic fallback, so an agent that asks for it still gets a result
+when docling is down. `ping` reports the
 accepted names in `engines` and the deployment's default in `default_engine` — an
 agent that cares about latency should read it before sending `auto`.
 

@@ -1,0 +1,617 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    126.24,
+    231.6,
+    134.16,
+    237.36
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      126.24,
+      231.6,
+      134.16,
+      237.36
+     ],
+     "text": "10"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "10",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    125.28,
+    316.08,
+    132.96,
+    322.56
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      125.28,
+      316.08,
+      132.96,
+      322.56
+     ],
+     "text": "15"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "15",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    119.76,
+    400.08,
+    138.96,
+    409.68
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      119.76,
+      400.08,
+      138.96,
+      409.68
+     ],
+     "text": "- 20 |"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "- 20 |",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    123.12,
+    486.0,
+    131.76,
+    492.48
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      123.12,
+      486.0,
+      131.76,
+      492.48
+     ],
+     "text": "25"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "25",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    121.92,
+    570.48,
+    131.04,
+    577.2
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      121.92,
+      570.48,
+      131.04,
+      577.2
+     ],
+     "text": "30"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "30",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    152.16,
+    60.0,
+    432.24,
+    240.96
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      267.6,
+      60.0,
+      332.64,
+      73.44
+     ],
+     "text": "(2662138"
+    },
+    {
+     "bbox": [
+      154.56,
+      78.72,
+      419.28,
+      87.36
+     ],
+     "text": "are connected to the transistor collector is at some negative"
+    },
+    {
+     "bbox": [
+      154.32,
+      91.68,
+      432.24,
+      105.12
+     ],
+     "text": "potential. The resistance value in the base circuit is selected"
+    },
+    {
+     "bbox": [
+      154.32,
+      109.2,
+      423.12,
+      121.68
+     ],
+     "text": "ia relation to the input signals applied thereto such that the"
+    },
+    {
+     "bbox": [
+      154.08,
+      127.2,
+      418.56,
+      141.36
+     ],
+     "text": "transistor will be switched to the _conductian state only when"
+    },
+    {
+     "bbox": [
+      153.6,
+      146.4,
+      414.24,
+      155.28
+     ],
+     "text": "at least two of the input signals applied to the three input"
+    },
+    {
+     "bbox": [
+      153.6,
+      159.12,
+      409.44,
+      173.76
+     ],
+     "text": "terminals, shown collectively as 60, are of a predetermined"
+    },
+    {
+     "bbox": [
+      152.64,
+      174.48,
+      413.76,
+      191.76
+     ],
+     "text": "negative potential. As regards typical values and orders of"
+    },
+    {
+     "bbox": [
+      152.64,
+      194.16,
+      418.32,
+      209.76
+     ],
+     "text": "magnitude, the input resistors R\u00bb Ros and Ry\u00bb are preferably"
+    },
+    {
+     "bbox": [
+      152.88,
+      212.88,
+      417.6,
+      227.28
+     ],
+     "text": "in the range of about 500 ohns , R, is preferably the range of"
+    },
+    {
+     "bbox": [
+      152.16,
+      225.6,
+      412.8,
+      240.96
+     ],
+     "text": "about 50 ohms, and the load \u2018resistor Ry is preferably in the"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(2662138\nare connected to the transistor collector is at some negative\npotential. The resistance value in the base circuit is selected\nia relation to the input signals applied thereto such that the\ntransistor will be switched to the _conductian state only when\nat least two of the input signals applied to the three input\nterminals, shown collectively as 60, are of a predetermined\nnegative potential. As regards typical values and orders of\nmagnitude, the input resistors R\u00bb Ros and Ry\u00bb are preferably\nin the range of about 500 ohns , R, is preferably the range of\nabout 50 ohms, and the load \u2018resistor Ry is preferably in the",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    152.16,
+    248.88,
+    412.8,
+    258.24
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      152.16,
+      248.88,
+      412.8,
+      258.24
+     ],
+     "text": "range cf about 400 ohms. The value of Vy is in the range of"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "range cf about 400 ohms. The value of Vy is in the range of",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    150.0,
+    264.24,
+    425.52,
+    277.44
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      150.0,
+      264.24,
+      425.52,
+      273.6
+     ],
+     "text": "\u2018about -4 volts, and the V_ is in the range cf about -2 volts to"
+    },
+    {
+     "bbox": [
+      151.92,
+      273.6,
+      311.04,
+      277.44
+     ],
+     "text": "; 2 ."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018about -4 volts, and the V_ is in the range cf about -2 volts to\n; 2 .",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    151.68,
+    282.48,
+    421.2,
+    290.4
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      151.68,
+      282.48,
+      421.2,
+      290.4
+     ],
+     "text": "Clamp the cutput signal potential at -2 volts. When the tran-"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Clamp the cutput signal potential at -2 volts. When the tran-",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    151.68,
+    296.4,
+    416.88,
+    308.88
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      151.68,
+      296.4,
+      416.88,
+      308.88
+     ],
+     "text": "sistor 56 is driven to the conducting state the output signal"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "sistor 56 is driven to the conducting state the output signal",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    149.52,
+    315.12,
+    412.08,
+    324.72
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      149.52,
+      315.12,
+      412.08,
+      324.72
+     ],
+     "text": "\u2018at the output terminal 58 is substantially at zero or ground"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018at the output terminal 58 is substantially at zero or ground",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    148.32,
+    332.4,
+    428.88,
+    578.4
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      149.52,
+      332.4,
+      192.96,
+      341.52
+     ],
+     "text": "potential."
+    },
+    {
+     "bbox": [
+      193.92,
+      347.28,
+      420.48,
+      361.68
+     ],
+     "text": "In the use of the circuit of FIG. 4 as the na jority-"
+    },
+    {
+     "bbox": [
+      150.48,
+      364.08,
+      427.68,
+      376.8
+     ],
+     "text": "decision logic circuit it can be seen that if it is arbitrarily"
+    },
+    {
+     "bbox": [
+      150.24,
+      378.48,
+      428.88,
+      393.84
+     ],
+     "text": "designated that a relatively negative signal represents a binary"
+    },
+    {
+     "bbox": [
+      150.72,
+      394.08,
+      419.52,
+      410.4
+     ],
+     "text": "\"1\" and a relatively positive signal (such aS a ground or zero"
+    },
+    {
+     "bbox": [
+      149.76,
+      414.72,
+      419.76,
+      426.96
+     ],
+     "text": "potential) represents a binary \"0\", if at least two binary \"1\""
+    },
+    {
+     "bbox": [
+      150.0,
+      428.88,
+      419.52,
+      444.48
+     ],
+     "text": "representing signals are applied to respective ones of the in-"
+    },
+    {
+     "bbox": [
+      149.28,
+      445.44,
+      425.76,
+      463.2
+     ],
+     "text": "put terminals 60, the transistor 56 will conduct and there will-"
+    },
+    {
+     "bbox": [
+      149.04,
+      469.92,
+      419.28,
+      477.84
+     ],
+     "text": "appear a zero potential signal at the output terminals 58. If"
+    },
+    {
+     "bbox": [
+      148.32,
+      483.12,
+      414.24,
+      495.12
+     ],
+     "text": "the majority of the input signals, i. e., at least two of the"
+    },
+    {
+     "bbox": [
+      149.04,
+      497.28,
+      409.92,
+      514.32
+     ],
+     "text": "three, are signal representations of binary \"0\"'s, the tran-"
+    },
+    {
+     "bbox": [
+      148.8,
+      515.28,
+      418.56,
+      529.92
+     ],
+     "text": "sistor 56 will be in the nonconducting state and will cutput a"
+    },
+    {
+     "bbox": [
+      148.56,
+      533.76,
+      417.6,
+      547.68
+     ],
+     "text": "signal of a potential level clamped at the value of \u201cVo which,"
+    },
+    {
+     "bbox": [
+      148.32,
+      552.0,
+      404.88,
+      563.76
+     ],
+     "text": "in the present example, is -2V. It should be noted at this"
+    },
+    {
+     "bbox": [
+      148.56,
+      565.68,
+      422.4,
+      578.4
+     ],
+     "text": "juncture that the circuit of FIG. 4 effects an inversion of the"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "potential.\nIn the use of the circuit of FIG. 4 as the na jority-\ndecision logic circuit it can be seen that if it is arbitrarily\ndesignated that a relatively negative signal represents a binary\n\"1\" and a relatively positive signal (such aS a ground or zero\npotential) represents a binary \"0\", if at least two binary \"1\"\nrepresenting signals are applied to respective ones of the in-\nput terminals 60, the transistor 56 will conduct and there will-\nappear a zero potential signal at the output terminals 58. If\nthe majority of the input signals, i. e., at least two of the\nthree, are signal representations of binary \"0\"'s, the tran-\nsistor 56 will be in the nonconducting state and will cutput a\nsignal of a potential level clamped at the value of \u201cVo which,\nin the present example, is -2V. It should be noted at this\njuncture that the circuit of FIG. 4 effects an inversion of the",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    152.16,
+    589.68,
+    154.8,
+    592.56
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      152.16,
+      589.68,
+      154.8,
+      592.56
+     ],
+     "text": "\u00a2"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u00a2",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    293.52,
+    698.16,
+    305.28,
+    701.04
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      293.52,
+      698.16,
+      305.28,
+      701.04
+     ],
+     "text": "shes!"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "shes!",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    488.88,
+    666.96,
+    491.28,
+    676.32
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      488.88,
+      666.96,
+      491.28,
+      676.32
+     ],
+     "text": "\u2014"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2014",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    498.96,
+    703.44
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

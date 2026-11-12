@@ -1,0 +1,613 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    46.56,
+    259.2,
+    56.64,
+    267.36
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      46.56,
+      259.2,
+      56.64,
+      267.36
+     ],
+     "text": "10"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "10",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    46.56,
+    362.4,
+    56.64,
+    370.56
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      46.56,
+      362.4,
+      56.64,
+      370.56
+     ],
+     "text": "15"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "15",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    46.08,
+    465.6,
+    57.6,
+    473.76
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      46.08,
+      465.6,
+      57.6,
+      473.76
+     ],
+     "text": "20"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "20",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    46.56,
+    568.8,
+    57.6,
+    576.96
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      46.56,
+      568.8,
+      57.6,
+      576.96
+     ],
+     "text": "25"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "25",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    47.04,
+    671.52,
+    58.56,
+    679.68
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      47.04,
+      671.52,
+      58.56,
+      679.68
+     ],
+     "text": "30"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "30",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    86.88,
+    42.72,
+    509.28,
+    49.92
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      86.88,
+      42.72,
+      509.28,
+      49.92
+     ],
+     "text": "WO 2006/070397 PCT/IN2004/000434"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "WO 2006/070397 PCT/IN2004/000434",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    73.92,
+    74.88,
+    127.68,
+    83.52
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      73.92,
+      74.88,
+      127.68,
+      83.52
+     ],
+     "text": "We Claim:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "We Claim:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    75.36,
+    95.04,
+    82.08,
+    103.2
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      75.36,
+      95.04,
+      82.08,
+      103.2
+     ],
+     "text": "1."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "1.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    75.36,
+    300.48,
+    83.52,
+    308.64
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      75.36,
+      300.48,
+      83.52,
+      308.64
+     ],
+     "text": "5."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "5.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    78.24,
+    712.8,
+    90.24,
+    721.44
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      78.24,
+      712.8,
+      90.24,
+      721.44
+     ],
+     "text": "10."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "10.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    98.88,
+    91.68,
+    528.96,
+    725.76
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      98.88,
+      91.68,
+      525.6,
+      108.0
+     ],
+     "text": "A bacterial isolate, Kurthia sp, (MTCC 5181) deposited at International Depository at"
+    },
+    {
+     "bbox": [
+      101.28,
+      114.72,
+      455.04,
+      126.24
+     ],
+     "text": "IMTECH, Sector 39A, Chandigarh, India recognized by Budapest Treaty."
+    },
+    {
+     "bbox": [
+      101.28,
+      134.88,
+      527.52,
+      146.4
+     ],
+     "text": "An isolate as claimed in claim 1 wherein the isolate is capable of growth in a medium of"
+    },
+    {
+     "bbox": [
+      101.28,
+      156.48,
+      224.64,
+      167.52
+     ],
+     "text": "pH range of 10.00 -12.00."
+    },
+    {
+     "bbox": [
+      101.28,
+      175.68,
+      526.08,
+      186.72
+     ],
+     "text": "An isolate as claimed in claim 1 wherein the bacterial isolate is capable of lowering pH"
+    },
+    {
+     "bbox": [
+      101.76,
+      196.32,
+      526.56,
+      208.32
+     ],
+     "text": "(12.0 to 11.5) of textile industrial wastewater to neutral pH (7.5 to 7.00) within a short"
+    },
+    {
+     "bbox": [
+      101.28,
+      217.44,
+      228.0,
+      229.44
+     ],
+     "text": "period of about two hours."
+    },
+    {
+     "bbox": [
+      101.76,
+      229.44,
+      526.56,
+      251.52
+     ],
+     "text": "An isolate as claimed in claim 1 wherein the bacterial isolate is capable of neutralizing"
+    },
+    {
+     "bbox": [
+      101.76,
+      257.28,
+      526.56,
+      269.76
+     ],
+     "text": "high pH (12.0 to 11.5) of textile industrial wastewater to neutral pH (7.5 to 7.0) when"
+    },
+    {
+     "bbox": [
+      101.28,
+      278.88,
+      292.32,
+      289.92
+     ],
+     "text": "used in a ratio ranging from 1:5 to 1:10."
+    },
+    {
+     "bbox": [
+      101.76,
+      298.56,
+      526.08,
+      308.64
+     ],
+     "text": "An isolate as claimed in claim 1 wherein the bacterial isolate is isolated from soil"
+    },
+    {
+     "bbox": [
+      102.24,
+      318.72,
+      527.04,
+      331.2
+     ],
+     "text": "accumulated in a pipe of an effluent treatment plant of textile industry located in"
+    },
+    {
+     "bbox": [
+      102.24,
+      339.84,
+      418.56,
+      351.84
+     ],
+     "text": "Chandigarh, India, through which alkaline wastewater has passed."
+    },
+    {
+     "bbox": [
+      101.76,
+      360.48,
+      526.56,
+      372.0
+     ],
+     "text": "An isolate as claimed in claim 1 wherein the bacterial isolate Kurthia sp is Gram -"
+    },
+    {
+     "bbox": [
+      102.24,
+      380.64,
+      527.04,
+      392.64
+     ],
+     "text": "Positive, motile, catalase positive, and capable of reducing nitrate and hydrolyzing"
+    },
+    {
+     "bbox": [
+      102.72,
+      402.72,
+      132.0,
+      411.84
+     ],
+     "text": "starch."
+    },
+    {
+     "bbox": [
+      100.32,
+      420.0,
+      527.04,
+      436.8
+     ],
+     "text": "A process of preparing a bacterial isolate of bacterium Kurthia sp, (MTCC 5181) useful"
+    },
+    {
+     "bbox": [
+      102.24,
+      442.56,
+      527.04,
+      454.56
+     ],
+     "text": "in neutralization of alkaline waste water (pH-12.00 to 11.5) of textile industry and"
+    },
+    {
+     "bbox": [
+      102.72,
+      463.2,
+      527.52,
+      476.16
+     ],
+     "text": "deposited at International Depository at IMTECH, Sector 39A, Chandigarh, India"
+    },
+    {
+     "bbox": [
+      102.72,
+      484.32,
+      371.04,
+      496.32
+     ],
+     "text": "recognized by Budapest Treaty, the process comprising:"
+    },
+    {
+     "bbox": [
+      102.72,
+      504.0,
+      527.52,
+      516.96
+     ],
+     "text": "(a) enriching soil contaminated with bacteria by adding a soil extract in basal carbonate"
+    },
+    {
+     "bbox": [
+      121.44,
+      526.56,
+      162.72,
+      537.12
+     ],
+     "text": "medium;"
+    },
+    {
+     "bbox": [
+      103.2,
+      546.24,
+      392.16,
+      558.24
+     ],
+     "text": "(b) culturing the bacteria using the basal carbonate medium;"
+    },
+    {
+     "bbox": [
+      103.2,
+      564.0,
+      528.96,
+      581.28
+     ],
+     "text": "(c) isolating the bacteria from the culture obtained from step (b) to obtain a pellet of"
+    },
+    {
+     "bbox": [
+      121.44,
+      588.0,
+      190.08,
+      598.56
+     ],
+     "text": "bacterial cells;"
+    },
+    {
+     "bbox": [
+      103.2,
+      607.68,
+      426.72,
+      620.64
+     ],
+     "text": "(d) dissolving the pellet obtained from step (c) in phosphate buffer."
+    },
+    {
+     "bbox": [
+      101.28,
+      625.92,
+      527.52,
+      642.72
+     ],
+     "text": "A process as claimed in claim 7 wherein step (a) is carried out for a period of 72-96"
+    },
+    {
+     "bbox": [
+      103.2,
+      646.56,
+      425.76,
+      660.96
+     ],
+     "text": "hours at 100-120 rpm and at a temperature in the range of 35-37\u00b0C,"
+    },
+    {
+     "bbox": [
+      103.2,
+      662.88,
+      528.0,
+      682.08
+     ],
+     "text": "A process as claimed in claim 7 wherein the ratio of soil extract to basal carbonate"
+    },
+    {
+     "bbox": [
+      103.2,
+      691.2,
+      266.4,
+      702.24
+     ],
+     "text": "medium is in the range of 1:1-1:2."
+    },
+    {
+     "bbox": [
+      101.76,
+      708.48,
+      528.0,
+      725.76
+     ],
+     "text": "A process as claimed in claim 7 wherein the bacteria is cultured in step (b) at a pH in"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "A bacterial isolate, Kurthia sp, (MTCC 5181) deposited at International Depository at\nIMTECH, Sector 39A, Chandigarh, India recognized by Budapest Treaty.\nAn isolate as claimed in claim 1 wherein the isolate is capable of growth in a medium of\npH range of 10.00 -12.00.\nAn isolate as claimed in claim 1 wherein the bacterial isolate is capable of lowering pH\n(12.0 to 11.5) of textile industrial wastewater to neutral pH (7.5 to 7.00) within a short\nperiod of about two hours.\nAn isolate as claimed in claim 1 wherein the bacterial isolate is capable of neutralizing\nhigh pH (12.0 to 11.5) of textile industrial wastewater to neutral pH (7.5 to 7.0) when\nused in a ratio ranging from 1:5 to 1:10.\nAn isolate as claimed in claim 1 wherein the bacterial isolate is isolated from soil\naccumulated in a pipe of an effluent treatment plant of textile industry located in\nChandigarh, India, through which alkaline wastewater has passed.\nAn isolate as claimed in claim 1 wherein the bacterial isolate Kurthia sp is Gram -\nPositive, motile, catalase positive, and capable of reducing nitrate and hydrolyzing\nstarch.\nA process of preparing a bacterial isolate of bacterium Kurthia sp, (MTCC 5181) useful\nin neutralization of alkaline waste water (pH-12.00 to 11.5) of textile industry and\ndeposited at International Depository at IMTECH, Sector 39A, Chandigarh, India\nrecognized by Budapest Treaty, the process comprising:\n(a) enriching soil contaminated with bacteria by adding a soil extract in basal carbonate\nmedium;\n(b) culturing the bacteria using the basal carbonate medium;\n(c) isolating the bacteria from the culture obtained from step (b) to obtain a pellet of\nbacterial cells;\n(d) dissolving the pellet obtained from step (c) in phosphate buffer.\nA process as claimed in claim 7 wherein step (a) is carried out for a period of 72-96\nhours at 100-120 rpm and at a temperature in the range of 35-37\u00b0C,\nA process as claimed in claim 7 wherein the ratio of soil extract to basal carbonate\nmedium is in the range of 1:1-1:2.\nA process as claimed in claim 7 wherein the bacteria is cultured in step (b) at a pH in",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    103.2,
+    729.12,
+    500.16,
+    744.0
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      103.2,
+      729.12,
+      500.16,
+      744.0
+     ],
+     "text": "the range of 1.5-12.00 and at a temperature in the range of 35-37\u00b0C for 8-10 hours."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "the range of 1.5-12.00 and at a temperature in the range of 35-37\u00b0C for 8-10 hours.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    297.6,
+    775.68,
+    307.2,
+    783.36
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      297.6,
+      775.68,
+      307.2,
+      783.36
+     ],
+     "text": "1S"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "1S",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    842.0
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

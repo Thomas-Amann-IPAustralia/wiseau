@@ -150,6 +150,16 @@ class _Later:
         return self._done.result()
 
 
+def _start_psm3(page: pymupdf.Page, *, dpi: int, language: str) -> "tesseract_layout.TesseractRun":
+    """Render the page and launch Tesseract psm 3 on it, on the calling thread: the
+    process then runs beside MuPDF's OCR, which holds the GIL (ADR-059)."""
+    return tesseract_layout.start_tsv(tesseract_layout.page_png(page, dpi=dpi), language=language)
+
+
+def _psm3_result(run: "tesseract_layout.TesseractRun"):
+    return run.result()
+
+
 class _Steps:
     """Where a page's independent steps run (ADR-056).
 
@@ -265,8 +275,7 @@ class TesseractEngine(OcrEngine):
         # while MuPDF's OCR reads the guard (ADR-056).
         psm3 = detections = None
         if TESSERACT_LAYOUT:
-            psm3 = steps.start(lambda: tesseract_layout.page_png(page, dpi=dpi),
-                               lambda png: tesseract_layout.tsv_from_png(png, language=language))
+            psm3 = steps.start(lambda: _start_psm3(page, dpi=dpi, language=language), _psm3_result)
             if tables.enabled():
                 detections = steps.start(lambda: tables.render(page), tables.detect_image)
         guard = self._geometric_elements(page, dpi=dpi, language=language, mask=mask)
@@ -327,6 +336,62 @@ class TesseractEngine(OcrEngine):
         else:
             text = page.get_text("text", textpage=textpage)
         return [_lines_element(text, lines, MUPDF_OCR)] if text.strip() else []
+
+
+FAST_GUARD_CHEAP, FAST_GUARD_NONE, FAST_GUARD_FULL = "cheap", "none", "full"
+
+# The fast engine's guard (ADR-059). "cheap" checks psm 3 against MuPDF's OCR at
+# FAST_GUARD_DPI and runs the full-resolution guard only for a page that fails
+# that check; "none" trusts psm 3; "full" is the default path's guard. The harness
+# switches it to measure the three. 100 dpi, with the default path's own 85% rule
+# (ADR-042): on 334 scanned pages it sent every page where psm 3 lost 37+ words to
+# the full guard, and never sent one needlessly; 150 dpi caught 4 more small
+# losses for ~45% more time (benchmarks/bakeoff/fast_guard.py).
+FAST_GUARD = FAST_GUARD_CHEAP
+FAST_GUARD_DPI = 100
+
+
+class FastTesseractEngine(TesseractEngine):
+    """The fast engine (ADR-059): Tesseract psm 3 alone, no models, a cheap guard.
+
+    The same reading as the default path's psm 3 stage (border cleanup, the photo
+    mask, ADR-038's row stitching), without the layout and table models. The guard
+    against psm 3 dropping a column is first a MuPDF OCR read at ``FAST_GUARD_DPI``
+    (about a quarter of the pixels); only a page that fails that count runs the
+    full-resolution guard and the default path's rule. A page that passes gives
+    psm 3's reading, as the default path would whenever its own guard agrees.
+    Deterministic, like every local path.
+    """
+
+    name = "tesseract-fast"
+
+    def read_elements(self, page: pymupdf.Page, *, dpi: int, language: str) -> list[ir.Element]:
+        with _Steps(OVERLAP) as steps:
+            return self._read_fast(page, dpi=dpi, language=language, steps=steps)
+
+    def _read_fast(self, page: pymupdf.Page, *, dpi: int, language: str, steps: _Steps) -> list[ir.Element]:
+        cleaned = borders.cleaned_page(page) if BORDER_CLEANUP else None
+        if cleaned is not None:
+            _doc, page = cleaned  # _doc keeps the cleaned page alive
+        mask = photo_regions.photo_mask(page) if SKIP_PHOTO_REGIONS else None
+        psm3 = steps.start(lambda: _start_psm3(page, dpi=dpi, language=language), _psm3_result)
+        cheap = None
+        if FAST_GUARD == FAST_GUARD_CHEAP:
+            cheap = self._geometric_elements(page, dpi=min(dpi, FAST_GUARD_DPI), language=language, mask=mask)
+        read = tesseract_layout.read_page_layout(page, dpi=dpi, language=language, mask=mask,
+                                                 tsv=psm3.result())
+        if read is None:  # Tesseract failed: the default path's answer
+            return self._geometric_elements(page, dpi=dpi, language=language, mask=mask)
+        layout = layout_elements(tesseract_layout.groups(read.blocks))
+        if FAST_GUARD == FAST_GUARD_NONE:
+            return layout
+        text = render_elements(layout)
+        if cheap is not None and tesseract_layout.keeps_words(text, render_elements(cheap),
+                                                              plausible=PLAUSIBLE_GUARD):
+            return layout
+        guard = self._geometric_elements(page, dpi=dpi, language=language, mask=mask)
+        return layout if tesseract_layout.keeps_words(text, render_elements(guard),
+                                                      plausible=PLAUSIBLE_GUARD) else guard
 
 
 # Element sources on the Tesseract path (ADR-043).
@@ -425,6 +490,12 @@ def _build_engine(name: str) -> OcrEngine:
     raise ValueError(
         f"Unknown OCR engine '{name}'. Supported: 'tesseract' (default), 'easyocr'."
     )
+
+
+@lru_cache(maxsize=None)
+def get_fast_engine() -> OcrEngine:
+    """The fast engine (ADR-059), a process-wide singleton like `get_engine`'s."""
+    return FastTesseractEngine()
 
 
 @lru_cache(maxsize=None)

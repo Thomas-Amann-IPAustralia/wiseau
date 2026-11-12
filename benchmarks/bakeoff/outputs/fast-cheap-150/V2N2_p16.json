@@ -1,0 +1,418 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    89.28,
+    51.84,
+    348.48,
+    61.92
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      89.28,
+      51.84,
+      348.48,
+      61.92
+     ],
+     "text": "TABLE OF COMPARISON OF BEAN VARIETIES"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "TABLE OF COMPARISON OF BEAN VARIETIES",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    84.48,
+    79.68,
+    523.68,
+    804.48
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      238.56,
+      79.68,
+      523.68,
+      92.16
+     ],
+     "text": "\u2018Bronco\u2019 \u2018Labrador\u2019 \u2018Strike\u2019 \u2018GV50' \u2018Slenderette\u2019"
+    },
+    {
+     "bbox": [
+      88.8,
+      96.0,
+      509.28,
+      110.88
+     ],
+     "text": "MAIN BRANCH HEIGHT Mean 50.96 cm $1.36 cm 47.84cm 54.88.cm 41.44m"
+    },
+    {
+     "bbox": [
+      196.8,
+      105.12,
+      498.24,
+      120.0
+     ],
+     "text": "Range 42-57 46-59 34-54 46-60 35-48"
+    },
+    {
+     "bbox": [
+      170.88,
+      114.24,
+      491.04,
+      128.64
+     ],
+     "text": "Stddeviation 3.71 3.36 4.57 4.58 2.81"
+    },
+    {
+     "bbox": [
+      88.8,
+      133.44,
+      492.0,
+      145.92
+     ],
+     "text": "NO. BASAL BRANCHES Mean 3.64 44 3.68 37 4.83"
+    },
+    {
+     "bbox": [
+      88.8,
+      140.64,
+      489.12,
+      155.04
+     ],
+     "text": "{in first 10 cm) Range 3-6 3-6 35 35 37"
+    },
+    {
+     "bbox": [
+      170.4,
+      152.64,
+      487.2,
+      159.36
+     ],
+     "text": "Stddeviation 0.86 0.82 0.69 0.55 1.2"
+    },
+    {
+     "bbox": [
+      88.8,
+      167.52,
+      519.36,
+      181.92
+     ],
+     "text": "MAIN STALK stout/wiry stouvwiry stout/brittle \u2014 stouv/brittle \u2014_stouv/brittle"
+    },
+    {
+     "bbox": [
+      88.8,
+      186.24,
+      510.24,
+      199.68
+     ],
+     "text": "POD POSITION scattered scattered high scattered scattered"
+    },
+    {
+     "bbox": [
+      88.8,
+      206.4,
+      494.4,
+      214.56
+     ],
+     "text": "BUSH FORM high high stem stem stem"
+    },
+    {
+     "bbox": [
+      88.32,
+      217.92,
+      495.84,
+      235.2
+     ],
+     "text": "NO. PODS PER PLANT Mean 23.68 19.28 24.4 21.36 22.72"
+    },
+    {
+     "bbox": [
+      196.32,
+      230.4,
+      497.76,
+      244.8
+     ],
+     "text": "Range 16-39 11-27 13-32 10-35 13-37"
+    },
+    {
+     "bbox": [
+      170.4,
+      242.88,
+      491.52,
+      249.6
+     ],
+     "text": "Stddeviation 5.29 5.05 487 6.08 5.33"
+    },
+    {
+     "bbox": [
+      88.32,
+      257.28,
+      516.48,
+      271.68
+     ],
+     "text": "POD LENGTH Mean 149.08mm = \u2014141.08mm_ \u2014146.24mm_~\u2014140.6 mm 134.44 mm"
+    },
+    {
+     "bbox": [
+      195.84,
+      265.92,
+      506.88,
+      280.32
+     ],
+     "text": "Range 131-166 110-168 134-167 100-170 120-160"
+    },
+    {
+     "bbox": [
+      169.92,
+      275.04,
+      491.04,
+      289.44
+     ],
+     "text": "Stddeviation 9.42 16.12 8.64 16.4 18"
+    },
+    {
+     "bbox": [
+      88.32,
+      294.24,
+      491.04,
+      306.72
+     ],
+     "text": "NO. OVULES PER POD Mean 6.88 6.0 5.84 5.44 6.44"
+    },
+    {
+     "bbox": [
+      195.84,
+      305.28,
+      488.64,
+      312.96
+     ],
+     "text": "Range 6-8 57 47 47 6-7"
+    },
+    {
+     "bbox": [
+      169.92,
+      313.92,
+      491.04,
+      320.64
+     ],
+     "text": "Stddeviation 0.52 1.12 0.8 0.87 0.77"
+    },
+    {
+     "bbox": [
+      88.32,
+      331.68,
+      488.64,
+      338.4
+     ],
+     "text": "SIEVE SIZE 2 5.76mm 0% 4% 16% 0% 0%"
+    },
+    {
+     "bbox": [
+      87.84,
+      337.44,
+      493.44,
+      351.84
+     ],
+     "text": "DISTRIBUTION 3 7.34mm 68% 20% 44% 4% 56%"
+    },
+    {
+     "bbox": [
+      87.84,
+      346.56,
+      493.44,
+      360.96
+     ],
+     "text": "(mature pods) 4 834mm \u2014- 24% 64% 40% 16% 44%"
+    },
+    {
+     "bbox": [
+      157.92,
+      355.68,
+      488.64,
+      370.56
+     ],
+     "text": "5 10.72mm = 8% 12% 0% 52% 0%"
+    },
+    {
+     "bbox": [
+      157.44,
+      368.64,
+      488.64,
+      374.88
+     ],
+     "text": "Gover 10.72mm 0% 0% 0% 28% 0%"
+    },
+    {
+     "bbox": [
+      87.84,
+      385.92,
+      511.68,
+      392.64
+     ],
+     "text": "SPUR LENGTH Mean 10.28 mm 11.24mm. 12.72mm 18.44 mm 13.72 mm"
+    },
+    {
+     "bbox": [
+      195.36,
+      391.68,
+      493.44,
+      406.08
+     ],
+     "text": "Range 5-15 7-16 9-16 13-23 8-19"
+    },
+    {
+     "bbox": [
+      169.44,
+      404.16,
+      491.04,
+      410.4
+     ],
+     "text": "Stddeviation 2.45 2.66 179 2.66 4.65"
+    },
+    {
+     "bbox": [
+      87.84,
+      421.92,
+      495.84,
+      430.08
+     ],
+     "text": "POD CURVATURE slight slight slight strong slight"
+    },
+    {
+     "bbox": [
+      87.84,
+      431.04,
+      480.0,
+      438.24
+     ],
+     "text": "ranked (1-9) 3 2 2 7 3"
+    },
+    {
+     "bbox": [
+      87.36,
+      448.8,
+      495.84,
+      456.48
+     ],
+     "text": "SPUR CURVATURE slight slight slight strong slight"
+    },
+    {
+     "bbox": [
+      87.84,
+      457.92,
+      479.52,
+      464.64
+     ],
+     "text": "ranked (1-9) 3 2 2 7 4"
+    },
+    {
+     "bbox": [
+      85.44,
+      473.76,
+      496.32,
+      486.24
+     ],
+     "text": "POD COLOUR 144A 146B 144D 1448 145A"
+    },
+    {
+     "bbox": [
+      87.36,
+      492.0,
+      497.76,
+      504.48
+     ],
+     "text": "POD CROSS SECTION oval round round heart-shape \u2014 round"
+    },
+    {
+     "bbox": [
+      87.36,
+      512.16,
+      513.6,
+      520.32
+     ],
+     "text": "POD CONSTRICTIONS very slight slight slight slight very slight"
+    },
+    {
+     "bbox": [
+      87.36,
+      521.28,
+      479.52,
+      528.0
+     ],
+     "text": "ranked (1-9) 2 3 3 4 2"
+    },
+    {
+     "bbox": [
+      86.88,
+      537.12,
+      500.16,
+      549.6
+     ],
+     "text": "SUTURE STRING absent absent absent absent absent"
+    },
+    {
+     "bbox": [
+      86.88,
+      554.88,
+      495.84,
+      567.36
+     ],
+     "text": "SEED COAT COLOUR white white white cream white"
+    },
+    {
+     "bbox": [
+      87.36,
+      571.2,
+      483.84,
+      585.6
+     ],
+     "text": "DAYS TO 50% FLOWERING 36 34 37 36 35"
+    },
+    {
+     "bbox": [
+      86.88,
+      590.4,
+      495.84,
+      602.88
+     ],
+     "text": "FLOWER COLOUR(S) white white white white white"
+    },
+    {
+     "bbox": [
+      84.48,
+      798.72,
+      91.68,
+      804.48
+     ],
+     "text": "14"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Bronco\u2019 \u2018Labrador\u2019 \u2018Strike\u2019 \u2018GV50' \u2018Slenderette\u2019\nMAIN BRANCH HEIGHT Mean 50.96 cm $1.36 cm 47.84cm 54.88.cm 41.44m\nRange 42-57 46-59 34-54 46-60 35-48\nStddeviation 3.71 3.36 4.57 4.58 2.81\nNO. BASAL BRANCHES Mean 3.64 44 3.68 37 4.83\n{in first 10 cm) Range 3-6 3-6 35 35 37\nStddeviation 0.86 0.82 0.69 0.55 1.2\nMAIN STALK stout/wiry stouvwiry stout/brittle \u2014 stouv/brittle \u2014_stouv/brittle\nPOD POSITION scattered scattered high scattered scattered\nBUSH FORM high high stem stem stem\nNO. PODS PER PLANT Mean 23.68 19.28 24.4 21.36 22.72\nRange 16-39 11-27 13-32 10-35 13-37\nStddeviation 5.29 5.05 487 6.08 5.33\nPOD LENGTH Mean 149.08mm = \u2014141.08mm_ \u2014146.24mm_~\u2014140.6 mm 134.44 mm\nRange 131-166 110-168 134-167 100-170 120-160\nStddeviation 9.42 16.12 8.64 16.4 18\nNO. OVULES PER POD Mean 6.88 6.0 5.84 5.44 6.44\nRange 6-8 57 47 47 6-7\nStddeviation 0.52 1.12 0.8 0.87 0.77\nSIEVE SIZE 2 5.76mm 0% 4% 16% 0% 0%\nDISTRIBUTION 3 7.34mm 68% 20% 44% 4% 56%\n(mature pods) 4 834mm \u2014- 24% 64% 40% 16% 44%\n5 10.72mm = 8% 12% 0% 52% 0%\nGover 10.72mm 0% 0% 0% 28% 0%\nSPUR LENGTH Mean 10.28 mm 11.24mm. 12.72mm 18.44 mm 13.72 mm\nRange 5-15 7-16 9-16 13-23 8-19\nStddeviation 2.45 2.66 179 2.66 4.65\nPOD CURVATURE slight slight slight strong slight\nranked (1-9) 3 2 2 7 3\nSPUR CURVATURE slight slight slight strong slight\nranked (1-9) 3 2 2 7 4\nPOD COLOUR 144A 146B 144D 1448 145A\nPOD CROSS SECTION oval round round heart-shape \u2014 round\nPOD CONSTRICTIONS very slight slight slight slight very slight\nranked (1-9) 2 3 3 4 2\nSUTURE STRING absent absent absent absent absent\nSEED COAT COLOUR white white white cream white\nDAYS TO 50% FLOWERING 36 34 37 36 35\nFLOWER COLOUR(S) white white white white white\n14",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    596.95,
+    844.01
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

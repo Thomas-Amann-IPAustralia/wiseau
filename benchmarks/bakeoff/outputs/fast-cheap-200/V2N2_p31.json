@@ -1,0 +1,1125 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    63.0,
+    51.48,
+    271.8,
+    61.2
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      63.0,
+      51.48,
+      271.8,
+      61.2
+     ],
+     "text": "Variety: \u2018Grasslands Kopu\u2019 Application No. 89/024"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Grasslands Kopu\u2019 Application No. 89/024",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.64,
+    71.28,
+    266.4,
+    100.8
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      62.64,
+      71.28,
+      228.24,
+      81.0
+     ],
+     "text": "Applicant: Grasslands Division, DSIR of"
+    },
+    {
+     "bbox": [
+      63.36,
+      81.0,
+      266.4,
+      90.0
+     ],
+     "text": "Palmerston North, New Zealand on behalf of Her"
+    },
+    {
+     "bbox": [
+      63.72,
+      91.08,
+      248.4,
+      100.8
+     ],
+     "text": "Majesty The Queen in Right of New Zealand."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Grasslands Division, DSIR of\nPalmerston North, New Zealand on behalf of Her\nMajesty The Queen in Right of New Zealand.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.64,
+    114.12,
+    267.48,
+    173.16
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      63.0,
+      114.12,
+      104.4,
+      122.76
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      62.64,
+      122.76,
+      242.28,
+      132.48
+     ],
+     "text": "This variety is distinct from all other known"
+    },
+    {
+     "bbox": [
+      63.0,
+      132.48,
+      263.16,
+      142.2
+     ],
+     "text": "varieties in having the following combination of"
+    },
+    {
+     "bbox": [
+      63.0,
+      142.92,
+      263.52,
+      152.64
+     ],
+     "text": "characters: large leaves with long petioles; long"
+    },
+    {
+     "bbox": [
+      63.72,
+      152.64,
+      267.48,
+      163.08
+     ],
+     "text": "peduncles; large flowers; thick stolons; and faint"
+    },
+    {
+     "bbox": [
+      63.72,
+      164.52,
+      121.68,
+      173.16
+     ],
+     "text": "leaf markings."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\nThis variety is distinct from all other known\nvarieties in having the following combination of\ncharacters: large leaves with long petioles; long\npeduncles; large flowers; thick stolons; and faint\nleaf markings.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    63.72,
+    184.68,
+    268.92,
+    212.4
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      63.72,
+      184.68,
+      190.08,
+      193.32
+     ],
+     "text": "Varieties used for comparison"
+    },
+    {
+     "bbox": [
+      64.44,
+      193.68,
+      268.92,
+      203.4
+     ],
+     "text": "\u2018Ladino\u2019, \u2018Tamar\u2019, \u2018Haifa\u2019, \u2018Irrigation\u2019, \u2018Grasslands"
+    },
+    {
+     "bbox": [
+      64.44,
+      204.48,
+      191.88,
+      212.4
+     ],
+     "text": "Huia\u2019 and \u2018Grasslands Tahora\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comparison\n\u2018Ladino\u2019, \u2018Tamar\u2019, \u2018Haifa\u2019, \u2018Irrigation\u2019, \u2018Grasslands\nHuia\u2019 and \u2018Grasslands Tahora\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    64.44,
+    225.36,
+    276.48,
+    334.08
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      64.44,
+      225.36,
+      183.6,
+      235.08
+     ],
+     "text": "Comparative Growing Trials"
+    },
+    {
+     "bbox": [
+      64.44,
+      235.08,
+      274.32,
+      243.36
+     ],
+     "text": "All characteristics described and comparisons are,"
+    },
+    {
+     "bbox": [
+      64.8,
+      244.44,
+      261.36,
+      253.8
+     ],
+     "text": "unless stated otherwise, from glasshouse trials"
+    },
+    {
+     "bbox": [
+      64.44,
+      254.88,
+      257.4,
+      263.16
+     ],
+     "text": "conducted at Palmerston North, New Zealand,"
+    },
+    {
+     "bbox": [
+      64.8,
+      264.24,
+      272.88,
+      274.68
+     ],
+     "text": "sown in July 1988. 50 individually potted plants of"
+    },
+    {
+     "bbox": [
+      64.8,
+      275.04,
+      268.2,
+      284.76
+     ],
+     "text": "each variety were grown in \u201cD1\u201d formula potting"
+    },
+    {
+     "bbox": [
+      65.16,
+      284.76,
+      276.48,
+      294.84
+     ],
+     "text": "medium under natural light and temperatures held"
+    },
+    {
+     "bbox": [
+      64.44,
+      294.12,
+      267.48,
+      306.36
+     ],
+     "text": "within 16-24\u00b0C. Other trials, conducted outdoors"
+    },
+    {
+     "bbox": [
+      64.44,
+      305.64,
+      249.12,
+      315.36
+     ],
+     "text": "with 100 spaced plants per variety were also"
+    },
+    {
+     "bbox": [
+      65.16,
+      315.72,
+      257.76,
+      324.0
+     ],
+     "text": "conducted at Palmerston North in 1984/85 and"
+    },
+    {
+     "bbox": [
+      65.52,
+      326.88,
+      99.0,
+      334.08
+     ],
+     "text": "1985/86."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials\nAll characteristics described and comparisons are,\nunless stated otherwise, from glasshouse trials\nconducted at Palmerston North, New Zealand,\nsown in July 1988. 50 individually potted plants of\neach variety were grown in \u201cD1\u201d formula potting\nmedium under natural light and temperatures held\nwithin 16-24\u00b0C. Other trials, conducted outdoors\nwith 100 spaced plants per variety were also\nconducted at Palmerston North in 1984/85 and\n1985/86.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    65.16,
+    347.76,
+    279.0,
+    395.64
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      65.16,
+      347.76,
+      90.72,
+      356.4
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      65.16,
+      356.04,
+      279.0,
+      364.68
+     ],
+     "text": "The Breeders are W M Williams and B Cooper, both"
+    },
+    {
+     "bbox": [
+      65.16,
+      366.12,
+      244.08,
+      374.76
+     ],
+     "text": "of DSIR Grasslands Division, New Zealand."
+    },
+    {
+     "bbox": [
+      65.52,
+      375.84,
+      259.92,
+      385.56
+     ],
+     "text": "\u2018Grasslands Kopu\u2019 has been protected by Plant"
+    },
+    {
+     "bbox": [
+      65.16,
+      385.92,
+      239.4,
+      395.64
+     ],
+     "text": "Variety Rights in New Zealand since 1987."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\nThe Breeders are W M Williams and B Cooper, both\nof DSIR Grasslands Division, New Zealand.\n\u2018Grasslands Kopu\u2019 has been protected by Plant\nVariety Rights in New Zealand since 1987.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    65.52,
+    404.28,
+    280.08,
+    495.72
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      65.52,
+      404.28,
+      257.04,
+      417.24
+     ],
+     "text": "\u2018Grasslands Kopu\u2019 arises from selection of the"
+    },
+    {
+     "bbox": [
+      65.88,
+      415.8,
+      240.48,
+      426.24
+     ],
+     "text": "progeny of pair crosses between plants of"
+    },
+    {
+     "bbox": [
+      65.52,
+      426.24,
+      230.76,
+      435.24
+     ],
+     "text": "\u2018Grasslands Pitau\u2019 and plants of \u2018Regal\u2019,"
+    },
+    {
+     "bbox": [
+      65.88,
+      436.32,
+      255.96,
+      446.4
+     ],
+     "text": "\u2018Lodigiano\u2019, \u2018Lodi\u2019 and \u2018Pilgrim\u2019 made in 1967."
+    },
+    {
+     "bbox": [
+      65.88,
+      446.4,
+      280.08,
+      455.04
+     ],
+     "text": "Selection was made at F1 in 1967, F2 in 1972 and F3"
+    },
+    {
+     "bbox": [
+      65.88,
+      456.48,
+      262.08,
+      466.2
+     ],
+     "text": "in 1976 with yield and disease resistance as the"
+    },
+    {
+     "bbox": [
+      65.88,
+      466.2,
+      264.6,
+      475.92
+     ],
+     "text": "main criteria. An open pollination of 11 selected"
+    },
+    {
+     "bbox": [
+      66.24,
+      476.64,
+      230.76,
+      486.36
+     ],
+     "text": "parent plants forms the nucleus seed of"
+    },
+    {
+     "bbox": [
+      65.88,
+      487.44,
+      144.36,
+      495.72
+     ],
+     "text": "\u2018Grasslands Kopu\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Grasslands Kopu\u2019 arises from selection of the\nprogeny of pair crosses between plants of\n\u2018Grasslands Pitau\u2019 and plants of \u2018Regal\u2019,\n\u2018Lodigiano\u2019, \u2018Lodi\u2019 and \u2018Pilgrim\u2019 made in 1967.\nSelection was made at F1 in 1967, F2 in 1972 and F3\nin 1976 with yield and disease resistance as the\nmain criteria. An open pollination of 11 selected\nparent plants forms the nucleus seed of\n\u2018Grasslands Kopu\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    297.36,
+    47.52,
+    510.48,
+    158.4
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      297.36,
+      47.52,
+      460.08,
+      59.76
+     ],
+     "text": "Morphology \u2014 See comparison tables."
+    },
+    {
+     "bbox": [
+      297.36,
+      58.68,
+      493.92,
+      67.32
+     ],
+     "text": "The leaves of \u2018Grasslands Kopu\u2019 are longer and"
+    },
+    {
+     "bbox": [
+      297.36,
+      67.32,
+      466.2,
+      79.56
+     ],
+     "text": "wider than those of \u2018Haifa\u2019, \u2018Irrigation\u2019 or"
+    },
+    {
+     "bbox": [
+      297.72,
+      78.48,
+      491.76,
+      87.48
+     ],
+     "text": "\u2018Grasslands Tahora\u2019, longer but not wider than"
+    },
+    {
+     "bbox": [
+      297.36,
+      88.56,
+      509.4,
+      96.48
+     ],
+     "text": "those of \u2018Tamar\u2019 but shorter and more narrow than"
+    },
+    {
+     "bbox": [
+      297.36,
+      98.64,
+      503.28,
+      107.28
+     ],
+     "text": "those of \u2018Ladino\u2019. \u2018Grasslands Kopu\u2019 also has less"
+    },
+    {
+     "bbox": [
+      297.72,
+      108.36,
+      483.84,
+      117.36
+     ],
+     "text": "intense leaf markings than those of \u2018Haifa\u2019 or"
+    },
+    {
+     "bbox": [
+      297.72,
+      118.44,
+      508.68,
+      127.44
+     ],
+     "text": "\u2018Tamar\u2019. \u2018Grasslands Kopu\u2019 has a higher frequency"
+    },
+    {
+     "bbox": [
+      298.08,
+      128.52,
+      510.48,
+      137.88
+     ],
+     "text": "recorded of plants with cyanogenesis than \u2018Ladino\u2019"
+    },
+    {
+     "bbox": [
+      298.08,
+      138.96,
+      489.24,
+      146.88
+     ],
+     "text": "but lower than recorded for \u2018Haifa\u2019, \u2018Tamar\u2019 or"
+    },
+    {
+     "bbox": [
+      298.08,
+      149.76,
+      343.08,
+      158.4
+     ],
+     "text": "\u2018Irrigation\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 See comparison tables.\nThe leaves of \u2018Grasslands Kopu\u2019 are longer and\nwider than those of \u2018Haifa\u2019, \u2018Irrigation\u2019 or\n\u2018Grasslands Tahora\u2019, longer but not wider than\nthose of \u2018Tamar\u2019 but shorter and more narrow than\nthose of \u2018Ladino\u2019. \u2018Grasslands Kopu\u2019 also has less\nintense leaf markings than those of \u2018Haifa\u2019 or\n\u2018Tamar\u2019. \u2018Grasslands Kopu\u2019 has a higher frequency\nrecorded of plants with cyanogenesis than \u2018Ladino\u2019\nbut lower than recorded for \u2018Haifa\u2019, \u2018Tamar\u2019 or\n\u2018Irrigation\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    297.72,
+    167.4,
+    511.2,
+    276.12
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      298.08,
+      167.4,
+      494.64,
+      176.04
+     ],
+     "text": "\u2018Grasslands Kopu\u2019 had significantly taller mean"
+    },
+    {
+     "bbox": [
+      298.08,
+      177.48,
+      479.88,
+      186.84
+     ],
+     "text": "plant heights (about 24 cm in summer) than"
+    },
+    {
+     "bbox": [
+      298.08,
+      187.56,
+      501.12,
+      195.12
+     ],
+     "text": "\u2018Grasslands Tahora\u2019 (14 cm) or \u2018Grasslands Huia\u2019"
+    },
+    {
+     "bbox": [
+      298.08,
+      197.28,
+      506.52,
+      205.92
+     ],
+     "text": "(19 cm), recorded in two consecutive spaced plant"
+    },
+    {
+     "bbox": [
+      297.72,
+      207.36,
+      511.2,
+      216.0
+     ],
+     "text": "trials. The flowering dates in the same trials did not"
+    },
+    {
+     "bbox": [
+      298.08,
+      217.08,
+      471.24,
+      226.08
+     ],
+     "text": "differ significantly in those 3 varieties and"
+    },
+    {
+     "bbox": [
+      298.08,
+      225.72,
+      501.84,
+      237.24
+     ],
+     "text": "\u2018Grasslands Kopu\u2019 is regarded as a late flowering"
+    },
+    {
+     "bbox": [
+      298.08,
+      237.24,
+      487.8,
+      245.88
+     ],
+     "text": "variety. Flower colour is predominantly white"
+    },
+    {
+     "bbox": [
+      297.72,
+      247.32,
+      510.84,
+      255.96
+     ],
+     "text": "fading to pink, the heads appearing pink flushed. In"
+    },
+    {
+     "bbox": [
+      297.72,
+      257.04,
+      502.2,
+      266.04
+     ],
+     "text": "trials, about 95 % of plants had leaf markings and"
+    },
+    {
+     "bbox": [
+      297.72,
+      267.48,
+      466.92,
+      276.12
+     ],
+     "text": "40% of plants had red flecking on leaves."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Grasslands Kopu\u2019 had significantly taller mean\nplant heights (about 24 cm in summer) than\n\u2018Grasslands Tahora\u2019 (14 cm) or \u2018Grasslands Huia\u2019\n(19 cm), recorded in two consecutive spaced plant\ntrials. The flowering dates in the same trials did not\ndiffer significantly in those 3 varieties and\n\u2018Grasslands Kopu\u2019 is regarded as a late flowering\nvariety. Flower colour is predominantly white\nfading to pink, the heads appearing pink flushed. In\ntrials, about 95 % of plants had leaf markings and\n40% of plants had red flecking on leaves.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    297.36,
+    285.48,
+    512.28,
+    424.08
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      297.72,
+      285.48,
+      505.44,
+      294.48
+     ],
+     "text": "Grasslands Kopu\u2019 produced, in trials, significantly"
+    },
+    {
+     "bbox": [
+      298.08,
+      295.56,
+      498.96,
+      304.56
+     ],
+     "text": "longer peduncles (255 mm) than \u2018Irrigation\u2019 (189"
+    },
+    {
+     "bbox": [
+      298.08,
+      305.64,
+      479.52,
+      313.92
+     ],
+     "text": "mm) and \u2018Grasslands Tahora\u2019 (176 mm) but"
+    },
+    {
+     "bbox": [
+      297.72,
+      315.72,
+      486.36,
+      324.36
+     ],
+     "text": "significantly shorter than those of \u2018Ladino\u2019. In"
+    },
+    {
+     "bbox": [
+      297.72,
+      325.8,
+      512.28,
+      334.8
+     ],
+     "text": "addition to morphological data from growing trials,"
+    },
+    {
+     "bbox": [
+      297.36,
+      335.88,
+      496.8,
+      344.88
+     ],
+     "text": "the applicant has submitted, as a distinguishing"
+    },
+    {
+     "bbox": [
+      298.08,
+      345.6,
+      507.6,
+      354.6
+     ],
+     "text": "characteristic, prints of gel electrophoresis of seed"
+    },
+    {
+     "bbox": [
+      298.08,
+      355.68,
+      482.76,
+      364.68
+     ],
+     "text": "protein extracts which display a consistently"
+    },
+    {
+     "bbox": [
+      298.08,
+      365.4,
+      489.24,
+      374.4
+     ],
+     "text": "different banding pattern to those of the other"
+    },
+    {
+     "bbox": [
+      297.72,
+      375.48,
+      496.8,
+      384.48
+     ],
+     "text": "varieties (see photographs). The technique is as"
+    },
+    {
+     "bbox": [
+      297.72,
+      383.76,
+      502.92,
+      396.0
+     ],
+     "text": "described by S E Gardiner and M B Forde in Plant"
+    },
+    {
+     "bbox": [
+      298.8,
+      395.28,
+      508.68,
+      404.28
+     ],
+     "text": "Varieties and Seeds, 1988, Volume 1, pages 13-26,"
+    },
+    {
+     "bbox": [
+      298.08,
+      405.36,
+      511.56,
+      422.28
+     ],
+     "text": "using sodium dodecylsulphate and polyacrylamide"
+    },
+    {
+     "bbox": [
+      297.72,
+      417.24,
+      312.12,
+      424.08
+     ],
+     "text": "gel."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Grasslands Kopu\u2019 produced, in trials, significantly\nlonger peduncles (255 mm) than \u2018Irrigation\u2019 (189\nmm) and \u2018Grasslands Tahora\u2019 (176 mm) but\nsignificantly shorter than those of \u2018Ladino\u2019. In\naddition to morphological data from growing trials,\nthe applicant has submitted, as a distinguishing\ncharacteristic, prints of gel electrophoresis of seed\nprotein extracts which display a consistently\ndifferent banding pattern to those of the other\nvarieties (see photographs). The technique is as\ndescribed by S E Gardiner and M B Forde in Plant\nVarieties and Seeds, 1988, Volume 1, pages 13-26,\nusing sodium dodecylsulphate and polyacrylamide\ngel.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    297.36,
+    435.6,
+    509.4,
+    494.28
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      297.36,
+      435.6,
+      342.36,
+      444.6
+     ],
+     "text": "Agronomy"
+    },
+    {
+     "bbox": [
+      297.72,
+      445.68,
+      499.68,
+      455.4
+     ],
+     "text": "\u2018Grasslands Kopu\u2019 is a perennial pasture legume"
+    },
+    {
+     "bbox": [
+      297.36,
+      455.76,
+      509.4,
+      465.12
+     ],
+     "text": "for temperate regions which the applicant believes"
+    },
+    {
+     "bbox": [
+      297.36,
+      466.2,
+      482.04,
+      475.2
+     ],
+     "text": "to be more suited to cattle rather than sheep"
+    },
+    {
+     "bbox": [
+      297.72,
+      474.48,
+      506.52,
+      494.28
+     ],
+     "text": "grazing due to its large foliage and upright growth"
+    },
+    {
+     "bbox": [
+      303.12,
+      487.08,
+      320.4,
+      492.84
+     ],
+     "text": "abit."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Agronomy\n\u2018Grasslands Kopu\u2019 is a perennial pasture legume\nfor temperate regions which the applicant believes\nto be more suited to cattle rather than sheep\ngrazing due to its large foliage and upright growth\nabit.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    416.16,
+    520.92,
+    469.08,
+    559.8
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      416.88,
+      520.92,
+      460.8,
+      531.0
+     ],
+     "text": "HAIFA."
+    },
+    {
+     "bbox": [
+      416.16,
+      549.36,
+      469.08,
+      559.8
+     ],
+     "text": "TAMAR."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "HAIFA.\nTAMAR.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    417.24,
+    580.32,
+    478.8,
+    618.12
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      418.68,
+      580.32,
+      473.76,
+      590.76
+     ],
+     "text": "LADINO."
+    },
+    {
+     "bbox": [
+      417.24,
+      607.68,
+      478.8,
+      618.12
+     ],
+     "text": "G. KOPU."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "LADINO.\nG. KOPU.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    417.96,
+    639.0,
+    481.32,
+    680.76
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      418.32,
+      639.0,
+      481.32,
+      649.44
+     ],
+     "text": "G. PITAU."
+    },
+    {
+     "bbox": [
+      417.96,
+      670.32,
+      472.68,
+      680.76
+     ],
+     "text": "G. HUIA."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "G. PITAU.\nG. HUIA.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    396.72,
+    692.64,
+    505.08,
+    745.2
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      397.44,
+      692.64,
+      500.04,
+      712.44
+     ],
+     "text": "i G. TAHORA."
+    },
+    {
+     "bbox": [
+      396.72,
+      722.88,
+      505.08,
+      745.2
+     ],
+     "text": "i IRRIGATION."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "i G. TAHORA.\ni IRRIGATION.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    65.88,
+    759.6,
+    515.16,
+    768.96
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      65.88,
+      759.6,
+      515.16,
+      768.96
+     ],
+     "text": "Electrophoretic gels of white clover varieties seed protein showing characteristic banding patterns. (Photo"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Electrophoretic gels of white clover varieties seed protein showing characteristic banding patterns. (Photo",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    65.16,
+    769.68,
+    159.12,
+    779.04
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      65.16,
+      769.68,
+      159.12,
+      779.04
+     ],
+     "text": "supplied by applicant)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "supplied by applicant)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    509.04,
+    799.2,
+    517.32,
+    805.32
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      509.04,
+      799.2,
+      517.32,
+      805.32
+     ],
+     "text": "29"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "29",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    597.74,
+    846.36
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

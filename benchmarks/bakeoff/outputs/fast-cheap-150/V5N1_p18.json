@@ -1,0 +1,972 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    51.36,
+    31.68,
+    554.88,
+    72.0
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      51.36,
+      31.68,
+      554.88,
+      45.6
+     ],
+     "text": "Cee eeennnsnESEEEeel"
+    },
+    {
+     "bbox": [
+      58.56,
+      63.36,
+      264.48,
+      72.0
+     ],
+     "text": "Table of Comparison of Grazing Brome Varieties"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Cee eeennnsnESEEEeel\nTable of Comparison of Grazing Brome Varieties",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    53.76,
+    78.24,
+    168.48,
+    85.92
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      53.76,
+      78.24,
+      168.48,
+      85.92
+     ],
+     "text": "(* = variety used for comparison)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(* = variety used for comparison)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    132.0,
+    94.08,
+    287.52,
+    100.32
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      132.0,
+      94.08,
+      287.52,
+      100.32
+     ],
+     "text": "\u2018Grasslands Gala\u2019 * \u2018Grasslands Matua\u2019"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Grasslands Gala\u2019 * \u2018Grasslands Matua\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    395.04,
+    93.6,
+    551.04,
+    99.84
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      395.04,
+      93.6,
+      551.04,
+      99.84
+     ],
+     "text": "\u2018Grasslands Gala\u2019 * \u2018Grasslands Matua\u2019"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Grasslands Gala\u2019 * \u2018Grasslands Matua\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.36,
+    109.44,
+    503.52,
+    329.76
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      53.28,
+      109.44,
+      387.84,
+      116.64
+     ],
+     "text": "AWN LENGTH FLAG LEAF WIDTH"
+    },
+    {
+     "bbox": [
+      53.76,
+      120.0,
+      499.2,
+      126.72
+     ],
+     "text": "mean 7.74 mm 4.09 mm mean 10.8 mm 9.9 mm"
+    },
+    {
+     "bbox": [
+      53.76,
+      125.76,
+      490.08,
+      141.12
+     ],
+     "text": "range 3-10 2-10 range 14 8-12"
+    },
+    {
+     "bbox": [
+      53.28,
+      140.16,
+      486.72,
+      146.88
+     ],
+     "text": "std. deviation 1.51 1.46 std. deviation 1.46 4.21"
+    },
+    {
+     "bbox": [
+      51.36,
+      148.32,
+      501.12,
+      160.32
+     ],
+     "text": "significance P=0.001 significance P=0.001"
+    },
+    {
+     "bbox": [
+      53.76,
+      171.84,
+      421.92,
+      178.56
+     ],
+     "text": "PANICLE LENGTH VEGETATIVE LEAF LENGTH"
+    },
+    {
+     "bbox": [
+      53.28,
+      182.4,
+      501.12,
+      188.64
+     ],
+     "text": "mean 21.49 cm 24.42 cm mean 232 mm 226 mm"
+    },
+    {
+     "bbox": [
+      53.76,
+      187.2,
+      503.52,
+      202.56
+     ],
+     "text": "range 15-32.5 14-32.8 range 121-345 120-520"
+    },
+    {
+     "bbox": [
+      53.28,
+      201.6,
+      488.16,
+      208.32
+     ],
+     "text": "std. deviation 3.95 3.56 std. deviation 52.8 63.5"
+    },
+    {
+     "bbox": [
+      53.28,
+      206.88,
+      483.36,
+      222.72
+     ],
+     "text": "significance P=0.001 significance NS"
+    },
+    {
+     "bbox": [
+      53.76,
+      232.8,
+      415.68,
+      240.0
+     ],
+     "text": "FLAG LEAF LENGTH VEGETATIVE LEAF WIDTH"
+    },
+    {
+     "bbox": [
+      53.76,
+      243.36,
+      498.72,
+      249.6
+     ],
+     "text": "mean 169 mm 225 mm mean 5.8mm 65mm"
+    },
+    {
+     "bbox": [
+      53.76,
+      249.12,
+      490.08,
+      264.48
+     ],
+     "text": "range 70-290 108-305 range 210 310"
+    },
+    {
+     "bbox": [
+      53.28,
+      263.52,
+      487.68,
+      270.24
+     ],
+     "text": "std. deviation 54.8 36.1 std. deviation 1.66 1.66"
+    },
+    {
+     "bbox": [
+      53.28,
+      268.8,
+      497.76,
+      284.64
+     ],
+     "text": "significance P=0.001 significance P=0.05"
+    },
+    {
+     "bbox": [
+      182.4,
+      316.32,
+      459.84,
+      329.76
+     ],
+     "text": "8 = 1. \u2014molecular ref."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "AWN LENGTH FLAG LEAF WIDTH\nmean 7.74 mm 4.09 mm mean 10.8 mm 9.9 mm\nrange 3-10 2-10 range 14 8-12\nstd. deviation 1.51 1.46 std. deviation 1.46 4.21\nsignificance P=0.001 significance P=0.001\nPANICLE LENGTH VEGETATIVE LEAF LENGTH\nmean 21.49 cm 24.42 cm mean 232 mm 226 mm\nrange 15-32.5 14-32.8 range 121-345 120-520\nstd. deviation 3.95 3.56 std. deviation 52.8 63.5\nsignificance P=0.001 significance NS\nFLAG LEAF LENGTH VEGETATIVE LEAF WIDTH\nmean 169 mm 225 mm mean 5.8mm 65mm\nrange 70-290 108-305 range 210 310\nstd. deviation 54.8 36.1 std. deviation 1.66 1.66\nsignificance P=0.001 significance P=0.05\n8 = 1. \u2014molecular ref.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    172.8,
+    319.2,
+    319.2,
+    385.44
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      172.8,
+      373.44,
+      177.6,
+      380.64
+     ],
+     "text": "oe"
+    },
+    {
+     "bbox": [
+      197.28,
+      372.96,
+      203.52,
+      381.6
+     ],
+     "text": "*"
+    },
+    {
+     "bbox": [
+      225.12,
+      362.4,
+      229.44,
+      383.52
+     ],
+     "text": "\u2014"
+    },
+    {
+     "bbox": [
+      270.72,
+      362.4,
+      276.48,
+      384.0
+     ],
+     "text": "\u2014"
+    },
+    {
+     "bbox": [
+      276.96,
+      361.44,
+      289.44,
+      384.48
+     ],
+     "text": "oa"
+    },
+    {
+     "bbox": [
+      306.24,
+      319.2,
+      319.2,
+      385.44
+     ],
+     "text": "ale mee 99"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "oe\n*\n\u2014\n\u2014\noa\nale mee 99",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    382.08,
+    330.72,
+    467.52,
+    351.84
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      382.56,
+      330.72,
+      467.52,
+      337.92
+     ],
+     "text": "2. G.GALA (cb1486)"
+    },
+    {
+     "bbox": [
+      382.08,
+      343.68,
+      464.16,
+      351.84
+     ],
+     "text": "3. \u2014(Experimental)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "2. G.GALA (cb1486)\n3. \u2014(Experimental)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    382.08,
+    356.64,
+    479.52,
+    373.44
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      382.08,
+      356.64,
+      474.72,
+      363.84
+     ],
+     "text": "4, G.MATUA (cb1421)"
+    },
+    {
+     "bbox": [
+      397.44,
+      366.24,
+      479.52,
+      373.44
+     ],
+     "text": "(Bromus willdenowii)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "4, G.MATUA (cb1421)\n(Bromus willdenowii)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    382.08,
+    402.24,
+    498.24,
+    409.44
+   ],
+   "confidence": null,
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      382.08,
+      402.72,
+      388.32,
+      408.48
+     ],
+     "text": "Sal"
+    },
+    {
+     "bbox": [
+      397.44,
+      402.24,
+      498.24,
+      409.44
+     ],
+     "text": "G.GALA (cb1485)nucleus."
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       382.08,
+       402.72,
+       388.32,
+       408.48
+      ],
+      "text": "Sal"
+     },
+     {
+      "bbox": [
+       397.44,
+       402.24,
+       498.24,
+       409.44
+      ],
+      "text": "G.GALA (cb1485)nucleus."
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "Sal G.GALA (cb1485)nucleus.",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    382.08,
+    415.2,
+    545.76,
+    442.08
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      382.08,
+      415.2,
+      530.88,
+      423.84
+     ],
+     "text": "7. \u2014cb1315. The original seed from"
+    },
+    {
+     "bbox": [
+      397.44,
+      425.28,
+      545.76,
+      433.92
+     ],
+     "text": "which selections were made to produce"
+    },
+    {
+     "bbox": [
+      397.44,
+      435.84,
+      477.6,
+      442.08
+     ],
+     "text": "the vai G.GALA."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "7. \u2014cb1315. The original seed from\nwhich selections were made to produce\nthe vai G.GALA.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    293.76,
+    384.96,
+    504.96,
+    412.8
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      293.76,
+      384.96,
+      504.96,
+      412.8
+     ],
+     "text": "1 | 5. G.GALA (cb1486) breeders."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "1 | 5. G.GALA (cb1486) breeders.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    53.28,
+    521.28,
+    495.84,
+    533.76
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      53.28,
+      521.28,
+      495.84,
+      533.76
+     ],
+     "text": "Electrophoretic gel of seed proteins of two generations of \u2018Grasslands Gala\u2019 (bands 2 and 5) and \u2018Grasslands Matua\u2019 (band 4)."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Electrophoretic gel of seed proteins of two generations of \u2018Grasslands Gala\u2019 (bands 2 and 5) and \u2018Grasslands Matua\u2019 (band 4).",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    53.28,
+    532.32,
+    176.16,
+    540.0
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      53.28,
+      532.32,
+      176.16,
+      540.0
+     ],
+     "text": "(Photograph supplied by applicant)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(Photograph supplied by applicant)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    52.32,
+    603.84,
+    123.84,
+    625.44
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      52.32,
+      603.84,
+      108.96,
+      612.48
+     ],
+     "text": "TRITICALE"
+    },
+    {
+     "bbox": [
+      52.8,
+      617.28,
+      123.84,
+      625.44
+     ],
+     "text": "X Triticosecale"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "TRITICALE\nX Triticosecale",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.84,
+    633.12,
+    67.2,
+    648.48
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      51.84,
+      633.12,
+      67.2,
+      648.48
+     ],
+     "text": "C]"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "C]",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    52.32,
+    653.76,
+    287.52,
+    706.08
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      52.8,
+      653.76,
+      229.44,
+      662.4
+     ],
+     "text": "Variety: \u2018Abacus\u2019. See fig. 5 in colour section."
+    },
+    {
+     "bbox": [
+      52.32,
+      665.28,
+      141.6,
+      673.92
+     ],
+     "text": "Application No, 91/092"
+    },
+    {
+     "bbox": [
+      52.32,
+      676.8,
+      214.08,
+      684.96
+     ],
+     "text": "Application Received: 25 November 1991"
+    },
+    {
+     "bbox": [
+      52.32,
+      688.32,
+      287.52,
+      696.96
+     ],
+     "text": "Applicant: Luminis Pty. Ltd., The University of Adelaide,"
+    },
+    {
+     "bbox": [
+      52.32,
+      699.36,
+      110.88,
+      706.08
+     ],
+     "text": "South Australia"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Abacus\u2019. See fig. 5 in colour section.\nApplication No, 91/092\nApplication Received: 25 November 1991\nApplicant: Luminis Pty. Ltd., The University of Adelaide,\nSouth Australia",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.84,
+    716.16,
+    287.52,
+    771.36
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      52.32,
+      716.16,
+      228.48,
+      725.28
+     ],
+     "text": "Description\u2014see also comparison tables"
+    },
+    {
+     "bbox": [
+      51.84,
+      730.08,
+      287.52,
+      739.2
+     ],
+     "text": "This variety is a late-maturing, spring type, hexaploid triticale."
+    },
+    {
+     "bbox": [
+      52.8,
+      741.12,
+      287.04,
+      750.24
+     ],
+     "text": "\u201cAbacus\u201d has brown chaff, long tapering heads, strongly pig-"
+    },
+    {
+     "bbox": [
+      52.32,
+      752.16,
+      287.52,
+      761.28
+     ],
+     "text": "mented flag leaf auricles and pubescence present on the pedun-"
+    },
+    {
+     "bbox": [
+      51.84,
+      762.72,
+      287.52,
+      771.36
+     ],
+     "text": "cle. Abacus\u2019 has a longer head than \u2018Muir\u2019 or \u2018Tahara\u2019 and a"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Description\u2014see also comparison tables\nThis variety is a late-maturing, spring type, hexaploid triticale.\n\u201cAbacus\u201d has brown chaff, long tapering heads, strongly pig-\nmented flag leaf auricles and pubescence present on the pedun-\ncle. Abacus\u2019 has a longer head than \u2018Muir\u2019 or \u2018Tahara\u2019 and a",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    315.84,
+    607.68,
+    551.52,
+    637.92
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      315.84,
+      607.68,
+      551.52,
+      614.88
+     ],
+     "text": "denser head with shorter awns than \u2018Currency\u2019. Unlike"
+    },
+    {
+     "bbox": [
+      316.8,
+      618.24,
+      551.04,
+      627.84
+     ],
+     "text": "\u201cCurrency\u201d but like \u2018Muir\u2019 and \u2018Tahara\u2019, \u201cAbacus\u2019 has good"
+    },
+    {
+     "bbox": [
+      315.84,
+      629.76,
+      551.04,
+      637.92
+     ],
+     "text": "resistance to Puccinia graminis ssp. tritici race 34-2, 12, 13."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "denser head with shorter awns than \u2018Currency\u2019. Unlike\n\u201cCurrency\u201d but like \u2018Muir\u2019 and \u2018Tahara\u2019, \u201cAbacus\u2019 has good\nresistance to Puccinia graminis ssp. tritici race 34-2, 12, 13.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    315.36,
+    648.0,
+    551.04,
+    770.88
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      315.84,
+      648.0,
+      342.72,
+      657.12
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      315.36,
+      660.48,
+      551.04,
+      673.92
+     ],
+     "text": "The breeder is K V Cooper of the University of Adelaide, South"
+    },
+    {
+     "bbox": [
+      315.84,
+      673.92,
+      551.04,
+      683.04
+     ],
+     "text": "Australia. \u2018Abacus\u2019 derives from a locally produced primary"
+    },
+    {
+     "bbox": [
+      315.84,
+      684.48,
+      551.04,
+      694.08
+     ],
+     "text": "triticale topcrossed to advanced triticale varieties. The pedigree"
+    },
+    {
+     "bbox": [
+      315.36,
+      695.52,
+      551.04,
+      705.12
+     ],
+     "text": "of \u2018Abacu K875/\u2018Snoopy\u2019//T2893/3/ \u2018Currency\u2019. K875"
+    },
+    {
+     "bbox": [
+      315.36,
+      707.04,
+      551.04,
+      715.68
+     ],
+     "text": "(bread wheat), \u2018Anza\u2019/\u2018Raven\u2019//\u2018Olympic\u2019/Siete Cerros 66"
+    },
+    {
+     "bbox": [
+      315.36,
+      717.6,
+      551.04,
+      727.2
+     ],
+     "text": "obtained from A.J. Rathjen was crossed with \u2018Snoopy\u2019 Rye,"
+    },
+    {
+     "bbox": [
+      315.36,
+      728.64,
+      550.56,
+      738.24
+     ],
+     "text": "and amphiploids were obtained by embryo culture and"
+    },
+    {
+     "bbox": [
+      315.36,
+      739.68,
+      551.04,
+      748.8
+     ],
+     "text": "colchicine treatment. The resulting primary triticale was"
+    },
+    {
+     "bbox": [
+      315.36,
+      750.72,
+      551.04,
+      759.84
+     ],
+     "text": "topcrossed with T2898(BGL\"s\"/ARS\u2014Mexipak Mut //"
+    },
+    {
+     "bbox": [
+      315.36,
+      761.28,
+      550.08,
+      770.88
+     ],
+     "text": "BGL\"s\u201d, entry 192 in 10th ITSN) and \u2018Currency\u2019. \u2018Abacus\u2019"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\nThe breeder is K V Cooper of the University of Adelaide, South\nAustralia. \u2018Abacus\u2019 derives from a locally produced primary\ntriticale topcrossed to advanced triticale varieties. The pedigree\nof \u2018Abacu K875/\u2018Snoopy\u2019//T2893/3/ \u2018Currency\u2019. K875\n(bread wheat), \u2018Anza\u2019/\u2018Raven\u2019//\u2018Olympic\u2019/Siete Cerros 66\nobtained from A.J. Rathjen was crossed with \u2018Snoopy\u2019 Rye,\nand amphiploids were obtained by embryo culture and\ncolchicine treatment. The resulting primary triticale was\ntopcrossed with T2898(BGL\"s\"/ARS\u2014Mexipak Mut //\nBGL\"s\u201d, entry 192 in 10th ITSN) and \u2018Currency\u2019. \u2018Abacus\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    423.36,
+    792.48,
+    550.56,
+    800.16
+   ],
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      423.36,
+      792.48,
+      550.56,
+      800.16
+     ],
+     "text": "\u2014 17"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "\u2014 17",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [
+  {
+   "signal": "continuation-column",
+   "source": "e18",
+   "target": "e17",
+   "type": "continues_from"
+  }
+ ],
+ "schema": "0.1"
+}

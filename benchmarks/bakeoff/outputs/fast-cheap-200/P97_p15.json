@@ -1,0 +1,569 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    286.2,
+    66.96,
+    342.36,
+    101.52
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      304.2,
+      66.96,
+      328.32,
+      75.6
+     ],
+     "text": "-10-"
+    },
+    {
+     "bbox": [
+      286.2,
+      90.36,
+      342.36,
+      101.52
+     ],
+     "text": "Example 3"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "-10-\nExample 3",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    106.92,
+    117.36,
+    511.2,
+    147.24
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      106.92,
+      117.36,
+      511.2,
+      129.96
+     ],
+     "text": "a) Preparation of (Z)-(RS)-(2-aminothiazol-4-yl)-[(tetrahydropyran-2-yloxy-"
+    },
+    {
+     "bbox": [
+      129.96,
+      135.72,
+      393.48,
+      147.24
+     ],
+     "text": "imino)]-acetic acid diethoxythio-phosph.oryl ester"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a) Preparation of (Z)-(RS)-(2-aminothiazol-4-yl)-[(tetrahydropyran-2-yloxy-\nimino)]-acetic acid diethoxythio-phosph.oryl ester",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    317.52,
+    166.68,
+    352.08,
+    181.8
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      326.52,
+      166.68,
+      352.08,
+      173.88
+     ],
+     "text": "OTHP"
+    },
+    {
+     "bbox": [
+      317.52,
+      173.52,
+      325.8,
+      181.8
+     ],
+     "text": "7"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "OTHP\n7",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    241.92,
+    182.88,
+    386.28,
+    225.72
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      309.24,
+      182.88,
+      317.16,
+      201.24
+     ],
+     "text": "1"
+    },
+    {
+     "bbox": [
+      280.08,
+      196.92,
+      386.28,
+      215.28
+     ],
+     "text": "N: Oy re OBt"
+    },
+    {
+     "bbox": [
+      241.92,
+      209.88,
+      386.28,
+      225.72
+     ],
+     "text": "HN-< | ii ~ OBt"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "1\nN: Oy re OBt\nHN-< | ii ~ OBt",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    221.76,
+    252.36,
+    406.44,
+    263.52
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      221.76,
+      252.36,
+      406.44,
+      263.52
+     ],
+     "text": "wherein THP is tetrahydropyranyl"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "wherein THP is tetrahydropyranyl",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    134.64,
+    280.08,
+    495.36,
+    292.68
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      134.64,
+      280.08,
+      495.36,
+      292.68
+     ],
+     "text": "To a stirred suspension of 80 g (Z)-(RS)-(2-aminothiazol-4-yl)-[(tetra-"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "To a stirred suspension of 80 g (Z)-(RS)-(2-aminothiazol-4-yl)-[(tetra-",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    15.84,
+    297.72,
+    511.56,
+    426.96
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      16.56,
+      297.72,
+      435.96,
+      311.04
+     ],
+     "text": "8 otto hydropyran-2-yloxyimino)]-acetic acid (80.5 mmol) and 90 mg"
+    },
+    {
+     "bbox": [
+      16.56,
+      314.28,
+      505.8,
+      327.6
+     ],
+     "text": "ote\u2019? 1,4-diazabicyclo!2.2.2]octane (DABCO) (0.80 mmol) in 300 ml dimethylacet-"
+    },
+    {
+     "bbox": [
+      16.56,
+      331.2,
+      495.72,
+      343.8
+     ],
+     "text": "S\"poee 10 amide was added under argon over 45 min 17 ml diethyl chlorothiophos-"
+    },
+    {
+     "bbox": [
+      16.56,
+      348.12,
+      511.56,
+      360.72
+     ],
+     "text": "wernee phate (104.9 mmol). Stirring was continued at 0\u00b0C for 1 h. The reaction was"
+    },
+    {
+     "bbox": [
+      16.56,
+      364.68,
+      475.2,
+      377.64
+     ],
+     "text": "ores followed by HPLC. To the slightly turbid reaction mixture was added"
+    },
+    {
+     "bbox": [
+      109.8,
+      381.24,
+      502.2,
+      394.56
+     ],
+     "text": "dropwise over 50 min 450 ml water. The precipitated product was filtered,"
+    },
+    {
+     "bbox": [
+      15.84,
+      398.52,
+      501.12,
+      410.04
+     ],
+     "text": "{Teves washed with water and dissolved in dichloromethane. The aqueous layer"
+    },
+    {
+     "bbox": [
+      15.84,
+      414.72,
+      496.08,
+      426.96
+     ],
+     "text": "ms 15 was back-extracted with dichloromethane. The combirrd organic layers"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "8 otto hydropyran-2-yloxyimino)]-acetic acid (80.5 mmol) and 90 mg\note\u2019? 1,4-diazabicyclo!2.2.2]octane (DABCO) (0.80 mmol) in 300 ml dimethylacet-\nS\"poee 10 amide was added under argon over 45 min 17 ml diethyl chlorothiophos-\nwernee phate (104.9 mmol). Stirring was continued at 0\u00b0C for 1 h. The reaction was\nores followed by HPLC. To the slightly turbid reaction mixture was added\ndropwise over 50 min 450 ml water. The precipitated product was filtered,\n{Teves washed with water and dissolved in dichloromethane. The aqueous layer\nms 15 was back-extracted with dichloromethane. The combirrd organic layers",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    109.44,
+    432.72,
+    518.76,
+    478.8
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      109.44,
+      432.72,
+      503.64,
+      443.52
+     ],
+     "text": "were dried over sodium sulfate and concentrated under reduced pressure"
+    },
+    {
+     "bbox": [
+      109.8,
+      449.28,
+      504.0,
+      461.52
+     ],
+     "text": "until the product started to crystallize. To the residual solution was added"
+    },
+    {
+     "bbox": [
+      110.52,
+      466.2,
+      518.76,
+      478.8
+     ],
+     "text": "dropwise over 30 min n-hexane. The resulting suspension was cooled to 2\u00b0C,"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "were dried over sodium sulfate and concentrated under reduced pressure\nuntil the product started to crystallize. To the residual solution was added\ndropwise over 30 min n-hexane. The resulting suspension was cooled to 2\u00b0C,",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    8.64,
+    483.12,
+    513.36,
+    731.88
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      110.52,
+      483.12,
+      503.28,
+      494.64
+     ],
+     "text": "stirred for 1 h and then filtered. The crystalline product was washed with"
+    },
+    {
+     "bbox": [
+      87.84,
+      499.68,
+      481.32,
+      511.56
+     ],
+     "text": "2 n-hexane and dried to constant weight. (Z)-(RS)-(2-aminothiazol-4-yl)-"
+    },
+    {
+     "bbox": [
+      111.96,
+      516.96,
+      507.96,
+      529.2
+     ],
+     "text": "[(tetrahydropyran-2-yloxyimino)]-acetic acid diethoxythio-phosphoryl ester"
+    },
+    {
+     "bbox": [
+      110.52,
+      533.52,
+      496.8,
+      545.04
+     ],
+     "text": "was obtained as a white solid (28.01 g, yield = 82%) and was stored under"
+    },
+    {
+     "bbox": [
+      111.24,
+      550.44,
+      513.36,
+      562.68
+     ],
+     "text": "argon at -20\u00b0C. No further purificiation was necessary and the product was"
+    },
+    {
+     "bbox": [
+      111.24,
+      568.08,
+      287.64,
+      578.88
+     ],
+     "text": "usod as isolated for the next step."
+    },
+    {
+     "bbox": [
+      88.92,
+      584.64,
+      505.8,
+      596.16
+     ],
+     "text": "2 IR (KBr) 3428, 3261, 3169, 3145, 2946, 1772, 1614, 1541, 1388, 1241, 1204, 1156,"
+    },
+    {
+     "bbox": [
+      8.64,
+      601.56,
+      354.24,
+      613.44
+     ],
+     "text": "\\ 1110, 1020, 978, 944, 908, 888, 857, 827, 727, 692."
+    },
+    {
+     "bbox": [
+      8.64,
+      615.6,
+      470.16,
+      628.92
+     ],
+     "text": "4 1H-NMR (250 MHz, CDClg) 8 1.37 (t,J=7.1,6H); 1.50-1.95 (m,6H); 3.65"
+    },
+    {
+     "bbox": [
+      112.32,
+      633.6,
+      470.52,
+      645.48
+     ],
+     "text": "(dm,J=11.4,1H); 3.86 (tm,J=11.4,1H); 4.33 (dq,J1=8.0,Jo=7.0,4H); 5.47"
+    },
+    {
+     "bbox": [
+      112.32,
+      651.6,
+      301.68,
+      663.12
+     ],
+     "text": "(s,br,1H); 6.56 (s,br,2H); 6.79 (s,1H)."
+    },
+    {
+     "bbox": [
+      89.64,
+      667.08,
+      299.88,
+      678.6
+     ],
+     "text": "30 31P-NMR (100 MHz, CDClg) 6 59.33."
+    },
+    {
+     "bbox": [
+      112.68,
+      684.72,
+      423.72,
+      696.6
+     ],
+     "text": "ISP-MS 446.4 (19, [M+Na]*), 424.5 (26, [M+H]*), 340.2 (100)."
+    },
+    {
+     "bbox": [
+      112.68,
+      700.92,
+      501.12,
+      712.08
+     ],
+     "text": "MA calculated for Cj4Ha2N306PS2 C 89.71,H 5.24, N 9.92,5 15.14, P 7.31"
+    },
+    {
+     "bbox": [
+      135.72,
+      717.48,
+      506.16,
+      731.88
+     ],
+     "text": "found C 39.87, H 5.20, N 10.08, S 14.99, P 7.53."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "stirred for 1 h and then filtered. The crystalline product was washed with\n2 n-hexane and dried to constant weight. (Z)-(RS)-(2-aminothiazol-4-yl)-\n[(tetrahydropyran-2-yloxyimino)]-acetic acid diethoxythio-phosphoryl ester\nwas obtained as a white solid (28.01 g, yield = 82%) and was stored under\nargon at -20\u00b0C. No further purificiation was necessary and the product was\nusod as isolated for the next step.\n2 IR (KBr) 3428, 3261, 3169, 3145, 2946, 1772, 1614, 1541, 1388, 1241, 1204, 1156,\n\\ 1110, 1020, 978, 944, 908, 888, 857, 827, 727, 692.\n4 1H-NMR (250 MHz, CDClg) 8 1.37 (t,J=7.1,6H); 1.50-1.95 (m,6H); 3.65\n(dm,J=11.4,1H); 3.86 (tm,J=11.4,1H); 4.33 (dq,J1=8.0,Jo=7.0,4H); 5.47\n(s,br,1H); 6.56 (s,br,2H); 6.79 (s,1H).\n30 31P-NMR (100 MHz, CDClg) 6 59.33.\nISP-MS 446.4 (19, [M+Na]*), 424.5 (26, [M+H]*), 340.2 (100).\nMA calculated for Cj4Ha2N306PS2 C 89.71,H 5.24, N 9.92,5 15.14, P 7.31\nfound C 39.87, H 5.20, N 10.08, S 14.99, P 7.53.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    6.48,
+    654.48,
+    15.12,
+    715.68
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      6.48,
+      654.48,
+      15.12,
+      715.68
+     ],
+     "text": "< Cana nenneU eS SEs"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "< Cana nenneU eS SEs",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    10.08,
+    720.0,
+    12.96,
+    758.16
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      10.08,
+      720.0,
+      12.96,
+      758.16
+     ],
+     "text": "a ern"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a ern",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    570.24,
+    691.56,
+    573.48,
+    788.04
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      570.24,
+      691.56,
+      573.48,
+      788.04
+     ],
+     "text": "pg ge pepe"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "pg ge pepe",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    584.85,
+    791.87
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

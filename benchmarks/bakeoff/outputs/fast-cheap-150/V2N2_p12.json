@@ -1,0 +1,441 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    58.08,
+    51.36,
+    350.4,
+    62.4
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      58.08,
+      51.36,
+      350.4,
+      62.4
+     ],
+     "text": "TABLE OF COMPARISON FOR SOYBEAN VARIETIES"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "TABLE OF COMPARISON FOR SOYBEAN VARIETIES",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    55.68,
+    76.32,
+    441.12,
+    582.24
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      219.36,
+      76.32,
+      437.28,
+      92.16
+     ],
+     "text": "\u201cA6520' \u2018A5939\" \u201cA8474'"
+    },
+    {
+     "bbox": [
+      58.08,
+      98.4,
+      418.08,
+      106.56
+     ],
+     "text": "DAYS TO FLOWERING Mean 55 56 56"
+    },
+    {
+     "bbox": [
+      171.36,
+      108.0,
+      431.52,
+      115.68
+     ],
+     "text": "Range 45-60 47-59 46-60"
+    },
+    {
+     "bbox": [
+      145.44,
+      116.64,
+      420.0,
+      123.84
+     ],
+     "text": "Std deviation 49 25 4.0"
+    },
+    {
+     "bbox": [
+      58.08,
+      133.92,
+      417.6,
+      141.6
+     ],
+     "text": "MATURE PLANT Mean 50 76 63"
+    },
+    {
+     "bbox": [
+      57.6,
+      143.04,
+      431.04,
+      151.2
+     ],
+     "text": "HEIGHT Range 36-62 62-92 42-92"
+    },
+    {
+     "bbox": [
+      145.44,
+      152.16,
+      423.84,
+      159.36
+     ],
+     "text": "Std deviation 85 10.4 7.23"
+    },
+    {
+     "bbox": [
+      57.6,
+      165.6,
+      430.08,
+      181.92
+     ],
+     "text": "HYPOCOTYL COLOUR purple purple green"
+    },
+    {
+     "bbox": [
+      57.6,
+      183.84,
+      429.12,
+      200.16
+     ],
+     "text": "FLOWER COLOUR purple purple white"
+    },
+    {
+     "bbox": [
+      57.6,
+      206.4,
+      429.6,
+      214.08
+     ],
+     "text": "LEAF SHAPE ovoid ovoid ovoid"
+    },
+    {
+     "bbox": [
+      57.6,
+      224.64,
+      432.48,
+      231.84
+     ],
+     "text": "PUBESCENCE COLOUR brown brown brown"
+    },
+    {
+     "bbox": [
+      57.12,
+      242.4,
+      432.48,
+      249.12
+     ],
+     "text": "POD COLOUR tan tan brown"
+    },
+    {
+     "bbox": [
+      57.12,
+      260.16,
+      124.8,
+      266.88
+     ],
+     "text": "UNIFOLIATE LEAF"
+    },
+    {
+     "bbox": [
+      56.16,
+      269.28,
+      440.16,
+      276.0
+     ],
+     "text": "\u2014 LENGTH Mean 33.0 mm 38.6 mm 39.5 mm"
+    },
+    {
+     "bbox": [
+      170.4,
+      273.6,
+      430.08,
+      289.44
+     ],
+     "text": "Range 28-39 32-45 31-45"
+    },
+    {
+     "bbox": [
+      144.48,
+      287.04,
+      423.36,
+      293.76
+     ],
+     "text": "Stddeviation 3.53 2.93 4.15"
+    },
+    {
+     "bbox": [
+      56.16,
+      300.48,
+      439.68,
+      316.32
+     ],
+     "text": "\u2014 WIDTH Mean 27.0mm 34.9mm 34.5mm"
+    },
+    {
+     "bbox": [
+      169.92,
+      309.12,
+      430.08,
+      324.96
+     ],
+     "text": "Range 20-32 27-41 29-38"
+    },
+    {
+     "bbox": [
+      144.48,
+      323.52,
+      423.36,
+      329.76
+     ],
+     "text": "Std deviation 2.93 3.10 2.68"
+    },
+    {
+     "bbox": [
+      56.16,
+      341.28,
+      439.68,
+      348.0
+     ],
+     "text": "\u2014 PETIOLE Mean 8.1mm 129mm 13.3mm"
+    },
+    {
+     "bbox": [
+      169.92,
+      345.6,
+      425.76,
+      361.92
+     ],
+     "text": "Range 5-13 11-14 7-18"
+    },
+    {
+     "bbox": [
+      144.48,
+      360.0,
+      422.88,
+      366.24
+     ],
+     "text": "Std deviation 1.97 1.12 2.92"
+    },
+    {
+     "bbox": [
+      56.16,
+      377.76,
+      132.48,
+      384.0
+     ],
+     "text": "TERMINAL LEAFLET"
+    },
+    {
+     "bbox": [
+      56.16,
+      386.88,
+      437.28,
+      393.12
+     ],
+     "text": "\u2014 LENGTH Mean 101mm 115mm 115mm"
+    },
+    {
+     "bbox": [
+      169.92,
+      390.24,
+      434.4,
+      406.56
+     ],
+     "text": "Range 87-112 90-128 97-127"
+    },
+    {
+     "bbox": [
+      144.0,
+      404.16,
+      418.56,
+      410.88
+     ],
+     "text": "Std deviation 7.6 10.7 78"
+    },
+    {
+     "bbox": [
+      55.68,
+      422.4,
+      432.96,
+      428.64
+     ],
+     "text": "\u2014 WIDTH Mean 64mm 67mm 68mm"
+    },
+    {
+     "bbox": [
+      169.92,
+      431.04,
+      430.08,
+      439.2
+     ],
+     "text": "Range 57-77 57-81 53-76"
+    },
+    {
+     "bbox": [
+      144.48,
+      440.16,
+      417.6,
+      446.4
+     ],
+     "text": "Std deviation 53 67 6.1"
+    },
+    {
+     "bbox": [
+      56.64,
+      458.4,
+      439.2,
+      464.64
+     ],
+     "text": "PHYTOPHTHORA ROOT ROT immune immune immune"
+    },
+    {
+     "bbox": [
+      56.16,
+      471.36,
+      441.12,
+      487.68
+     ],
+     "text": "SEED SHAPE flattened spherical spherical"
+    },
+    {
+     "bbox": [
+      216.96,
+      485.76,
+      250.56,
+      493.44
+     ],
+     "text": "spherical"
+    },
+    {
+     "bbox": [
+      56.16,
+      503.52,
+      428.16,
+      511.2
+     ],
+     "text": "SEED COAT LUSTRE shiny shiny shiny"
+    },
+    {
+     "bbox": [
+      56.16,
+      521.28,
+      432.48,
+      528.96
+     ],
+     "text": "SEED COAT COLOUR yellow yellow yellow"
+    },
+    {
+     "bbox": [
+      56.16,
+      533.76,
+      432.48,
+      550.08
+     ],
+     "text": "COTYLEDON COLOUR yellow yellow yellow"
+    },
+    {
+     "bbox": [
+      56.16,
+      556.8,
+      426.72,
+      563.04
+     ],
+     "text": "HILUM COLOUR black black black"
+    },
+    {
+     "bbox": [
+      56.64,
+      574.56,
+      429.6,
+      582.24
+     ],
+     "text": "100 SEED WEIGHT 16.49 19.29 19.49"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u201cA6520' \u2018A5939\" \u201cA8474'\nDAYS TO FLOWERING Mean 55 56 56\nRange 45-60 47-59 46-60\nStd deviation 49 25 4.0\nMATURE PLANT Mean 50 76 63\nHEIGHT Range 36-62 62-92 42-92\nStd deviation 85 10.4 7.23\nHYPOCOTYL COLOUR purple purple green\nFLOWER COLOUR purple purple white\nLEAF SHAPE ovoid ovoid ovoid\nPUBESCENCE COLOUR brown brown brown\nPOD COLOUR tan tan brown\nUNIFOLIATE LEAF\n\u2014 LENGTH Mean 33.0 mm 38.6 mm 39.5 mm\nRange 28-39 32-45 31-45\nStddeviation 3.53 2.93 4.15\n\u2014 WIDTH Mean 27.0mm 34.9mm 34.5mm\nRange 20-32 27-41 29-38\nStd deviation 2.93 3.10 2.68\n\u2014 PETIOLE Mean 8.1mm 129mm 13.3mm\nRange 5-13 11-14 7-18\nStd deviation 1.97 1.12 2.92\nTERMINAL LEAFLET\n\u2014 LENGTH Mean 101mm 115mm 115mm\nRange 87-112 90-128 97-127\nStd deviation 7.6 10.7 78\n\u2014 WIDTH Mean 64mm 67mm 68mm\nRange 57-77 57-81 53-76\nStd deviation 53 67 6.1\nPHYTOPHTHORA ROOT ROT immune immune immune\nSEED SHAPE flattened spherical spherical\nspherical\nSEED COAT LUSTRE shiny shiny shiny\nSEED COAT COLOUR yellow yellow yellow\nCOTYLEDON COLOUR yellow yellow yellow\nHILUM COLOUR black black black\n100 SEED WEIGHT 16.49 19.29 19.49",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    56.16,
+    591.84,
+    415.68,
+    598.56
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      56.16,
+      591.84,
+      415.68,
+      598.56
+     ],
+     "text": "OIL CONTENT _ _ _"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "OIL CONTENT _ _ _",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    56.16,
+    610.08,
+    415.68,
+    616.8
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      56.16,
+      610.08,
+      415.68,
+      616.8
+     ],
+     "text": "PROTEIN CONTENT - _ ="
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PROTEIN CONTENT - _ =",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    594.85,
+    842.5
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

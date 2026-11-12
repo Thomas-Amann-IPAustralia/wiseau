@@ -1,0 +1,806 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    308.16,
+    60.84,
+    477.72,
+    69.48
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      308.16,
+      60.84,
+      477.72,
+      69.48
+     ],
+     "text": "Variety: \u2018Victoria\u2019 Application No, 88/025"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Victoria\u2019 Application No, 88/025",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    308.16,
+    81.0,
+    500.4,
+    117.72
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      308.52,
+      81.0,
+      349.2,
+      89.64
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      308.16,
+      90.72,
+      492.48,
+      99.72
+     ],
+     "text": "This variety is distinct from any other known"
+    },
+    {
+     "bbox": [
+      308.16,
+      100.44,
+      500.4,
+      109.44
+     ],
+     "text": "variety in having the following combination of"
+    },
+    {
+     "bbox": [
+      308.16,
+      110.88,
+      370.8,
+      117.72
+     ],
+     "text": "characteristics:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\nThis variety is distinct from any other known\nvariety in having the following combination of\ncharacteristics:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    309.24,
+    130.32,
+    519.48,
+    228.96
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      309.6,
+      130.32,
+      503.64,
+      138.6
+     ],
+     "text": "avery large diameter double flower with many"
+    },
+    {
+     "bbox": [
+      309.96,
+      140.04,
+      518.04,
+      148.68
+     ],
+     "text": "petals; a creamy white petal colour corresponding"
+    },
+    {
+     "bbox": [
+      309.6,
+      149.76,
+      519.48,
+      158.76
+     ],
+     "text": "to RHS 158D with few fine stripes of pale cyclamen"
+    },
+    {
+     "bbox": [
+      309.6,
+      159.84,
+      497.52,
+      168.48
+     ],
+     "text": "corresponding to RHS 58D (more frequent on"
+    },
+    {
+     "bbox": [
+      309.96,
+      169.92,
+      506.88,
+      178.56
+     ],
+     "text": "petals in the central cluster); petal margins with"
+    },
+    {
+     "bbox": [
+      309.6,
+      180.0,
+      477.72,
+      188.64
+     ],
+     "text": "serrations, varying from shallow to deep"
+    },
+    {
+     "bbox": [
+      309.96,
+      190.08,
+      513.72,
+      198.72
+     ],
+     "text": "indentations; an epicalyx with 3 pairs of opposite"
+    },
+    {
+     "bbox": [
+      309.96,
+      200.16,
+      506.88,
+      208.8
+     ],
+     "text": "lobes; a long thick stem; large foliage and calyx"
+    },
+    {
+     "bbox": [
+      309.24,
+      210.24,
+      509.4,
+      218.88
+     ],
+     "text": "with a thick wax coating; and a calyx resistant to"
+    },
+    {
+     "bbox": [
+      309.6,
+      220.32,
+      344.88,
+      228.96
+     ],
+     "text": "splitting."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "avery large diameter double flower with many\npetals; a creamy white petal colour corresponding\nto RHS 158D with few fine stripes of pale cyclamen\ncorresponding to RHS 58D (more frequent on\npetals in the central cluster); petal margins with\nserrations, varying from shallow to deep\nindentations; an epicalyx with 3 pairs of opposite\nlobes; a long thick stem; large foliage and calyx\nwith a thick wax coating; and a calyx resistant to\nsplitting.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    308.16,
+    239.4,
+    514.44,
+    288.72
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      308.52,
+      239.4,
+      470.52,
+      250.92
+     ],
+     "text": "Morphology \u2014 See comparison tables."
+    },
+    {
+     "bbox": [
+      308.52,
+      250.2,
+      514.44,
+      259.2
+     ],
+     "text": "\u2018Victoria\u2019 most closely resembles \u2018Sir Arthur Sim \u2018"
+    },
+    {
+     "bbox": [
+      308.52,
+      260.28,
+      514.08,
+      268.92
+     ],
+     "text": "in colouration but differs in having a larger flower"
+    },
+    {
+     "bbox": [
+      308.16,
+      270.0,
+      510.84,
+      278.64
+     ],
+     "text": "diameter, larger stems, more serrated petals and"
+    },
+    {
+     "bbox": [
+      308.52,
+      280.08,
+      399.96,
+      288.72
+     ],
+     "text": "pale cyclamen stripes."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 See comparison tables.\n\u2018Victoria\u2019 most closely resembles \u2018Sir Arthur Sim \u2018\nin colouration but differs in having a larger flower\ndiameter, larger stems, more serrated petals and\npale cyclamen stripes.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    66.96,
+    285.84,
+    222.48,
+    315.72
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      68.4,
+      285.84,
+      211.68,
+      294.84
+     ],
+     "text": "Zora (Photo supplied by applicant)"
+    },
+    {
+     "bbox": [
+      66.96,
+      303.84,
+      222.48,
+      315.72
+     ],
+     "text": "Variety: \u2018Zora\u2019 Application No. 88/024"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Zora (Photo supplied by applicant)\nVariety: \u2018Zora\u2019 Application No. 88/024",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    66.96,
+    325.8,
+    258.84,
+    363.24
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      67.32,
+      325.8,
+      108.0,
+      334.44
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      66.96,
+      335.52,
+      251.28,
+      344.88
+     ],
+     "text": "This variety is distinct from any other known"
+    },
+    {
+     "bbox": [
+      66.96,
+      345.6,
+      258.84,
+      354.96
+     ],
+     "text": "variety in having the following combination of"
+    },
+    {
+     "bbox": [
+      66.96,
+      355.68,
+      129.6,
+      363.24
+     ],
+     "text": "characteristics:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\nThis variety is distinct from any other known\nvariety in having the following combination of\ncharacteristics:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    66.96,
+    375.48,
+    278.28,
+    463.68
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      67.32,
+      375.48,
+      278.28,
+      384.48
+     ],
+     "text": "a medium large diameter double flower with many"
+    },
+    {
+     "bbox": [
+      67.32,
+      385.2,
+      276.12,
+      394.56
+     ],
+     "text": "flared petals; a petal colour fading from milky pink"
+    },
+    {
+     "bbox": [
+      67.32,
+      395.64,
+      259.2,
+      404.64
+     ],
+     "text": "corresponding to RHS 55A to paler pink on the"
+    },
+    {
+     "bbox": [
+      67.32,
+      405.36,
+      254.88,
+      414.0
+     ],
+     "text": "outer edges corresponding to RHS 55D; petal"
+    },
+    {
+     "bbox": [
+      67.68,
+      415.08,
+      262.8,
+      424.08
+     ],
+     "text": "margins having fine serrations; no thick central"
+    },
+    {
+     "bbox": [
+      66.96,
+      425.16,
+      245.88,
+      434.16
+     ],
+     "text": "cluster of petals; an epicalyx with 2 pairs of"
+    },
+    {
+     "bbox": [
+      67.32,
+      434.88,
+      268.2,
+      443.88
+     ],
+     "text": "opposite lobes; along thick stem; medium large"
+    },
+    {
+     "bbox": [
+      67.32,
+      444.6,
+      266.76,
+      453.6
+     ],
+     "text": "foliage and calyx with a thick wax coating; and a"
+    },
+    {
+     "bbox": [
+      66.96,
+      454.68,
+      175.32,
+      463.68
+     ],
+     "text": "calyx resistant to splitting."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a medium large diameter double flower with many\nflared petals; a petal colour fading from milky pink\ncorresponding to RHS 55A to paler pink on the\nouter edges corresponding to RHS 55D; petal\nmargins having fine serrations; no thick central\ncluster of petals; an epicalyx with 2 pairs of\nopposite lobes; along thick stem; medium large\nfoliage and calyx with a thick wax coating; and a\ncalyx resistant to splitting.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    66.6,
+    475.2,
+    275.4,
+    524.16
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      66.6,
+      475.2,
+      228.6,
+      484.2
+     ],
+     "text": "Morphology \u2014 See comparison tables."
+    },
+    {
+     "bbox": [
+      66.6,
+      485.28,
+      255.24,
+      494.28
+     ],
+     "text": "\u2018Zora\u2019 most closely resembles \u2018Lena Super\u2019 in"
+    },
+    {
+     "bbox": [
+      66.6,
+      495.36,
+      271.44,
+      504.36
+     ],
+     "text": "colouration but differs in having greater serration"
+    },
+    {
+     "bbox": [
+      66.6,
+      505.08,
+      275.4,
+      514.44
+     ],
+     "text": "of petal margins and darker pink petal colour (RHS"
+    },
+    {
+     "bbox": [
+      66.6,
+      515.52,
+      228.6,
+      524.16
+     ],
+     "text": "55A, 55D) than \u2018Lena Super\u2019 (RHS 49A)."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 See comparison tables.\n\u2018Zora\u2019 most closely resembles \u2018Lena Super\u2019 in\ncolouration but differs in having greater serration\nof petal margins and darker pink petal colour (RHS\n55A, 55D) than \u2018Lena Super\u2019 (RHS 49A).",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    154.08,
+    536.76,
+    172.8,
+    541.44
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      154.08,
+      536.76,
+      172.8,
+      541.44
+     ],
+     "text": "we"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "we",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    308.52,
+    562.68,
+    457.56,
+    572.04
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      308.52,
+      562.68,
+      457.56,
+      572.04
+     ],
+     "text": "Prolet (Photo supplied by applicant)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Prolet (Photo supplied by applicant)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    307.8,
+    584.28,
+    469.8,
+    593.28
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      307.8,
+      584.28,
+      469.8,
+      593.28
+     ],
+     "text": "Variety: \u2018Prolet\u2019 Application No, 88/026"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Prolet\u2019 Application No, 88/026",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    307.44,
+    604.08,
+    499.68,
+    640.8
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      308.16,
+      604.08,
+      349.2,
+      612.36
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      307.8,
+      613.8,
+      492.12,
+      623.16
+     ],
+     "text": "This variety is distinct from any other known"
+    },
+    {
+     "bbox": [
+      307.44,
+      623.88,
+      499.68,
+      633.24
+     ],
+     "text": "variety in having the following combination of"
+    },
+    {
+     "bbox": [
+      307.8,
+      633.96,
+      370.44,
+      640.8
+     ],
+     "text": "characteristics:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\nThis variety is distinct from any other known\nvariety in having the following combination of\ncharacteristics:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    307.8,
+    653.76,
+    520.92,
+    730.8
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      307.8,
+      653.76,
+      518.76,
+      662.04
+     ],
+     "text": "a medium large diameter double flower with many"
+    },
+    {
+     "bbox": [
+      307.8,
+      663.48,
+      498.6,
+      672.12
+     ],
+     "text": "evenly spaced petals; a bright milky pink petal"
+    },
+    {
+     "bbox": [
+      307.8,
+      673.56,
+      508.68,
+      681.84
+     ],
+     "text": "colour corresponding to RHS 55B fading to paler"
+    },
+    {
+     "bbox": [
+      307.8,
+      683.28,
+      520.92,
+      691.92
+     ],
+     "text": "pink corresponding to RHS 55D; petal margins with"
+    },
+    {
+     "bbox": [
+      307.8,
+      692.64,
+      519.12,
+      701.28
+     ],
+     "text": "fine serrations; an epicalyx with 3 pairs of opposite"
+    },
+    {
+     "bbox": [
+      308.16,
+      702.72,
+      518.4,
+      711.36
+     ],
+     "text": "lobes: a medium long thick stem; large foliage and"
+    },
+    {
+     "bbox": [
+      307.8,
+      712.44,
+      520.92,
+      720.72
+     ],
+     "text": "calyx with a thick wax coating; and a calyx resistant"
+    },
+    {
+     "bbox": [
+      307.8,
+      722.52,
+      353.52,
+      730.8
+     ],
+     "text": "to splitting."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a medium large diameter double flower with many\nevenly spaced petals; a bright milky pink petal\ncolour corresponding to RHS 55B fading to paler\npink corresponding to RHS 55D; petal margins with\nfine serrations; an epicalyx with 3 pairs of opposite\nlobes: a medium long thick stem; large foliage and\ncalyx with a thick wax coating; and a calyx resistant\nto splitting.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    66.6,
+    742.32,
+    515.88,
+    791.28
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      307.08,
+      742.32,
+      469.08,
+      751.32
+     ],
+     "text": "Morphology \u2014 See comparison tables."
+    },
+    {
+     "bbox": [
+      307.08,
+      752.4,
+      503.28,
+      761.76
+     ],
+     "text": "\u2018Prolet\u2019 most closely resembles \u2018Lena Super \u2018in"
+    },
+    {
+     "bbox": [
+      306.72,
+      762.48,
+      501.12,
+      771.48
+     ],
+     "text": "colouration but differs in having more serrated"
+    },
+    {
+     "bbox": [
+      210.6,
+      772.56,
+      515.88,
+      781.92
+     ],
+     "text": ": petals and a deeper pink (RHS 55B, RHS 55D) petal"
+    },
+    {
+     "bbox": [
+      66.6,
+      782.28,
+      455.4,
+      791.28
+     ],
+     "text": "Victoria (Photo supplied by applicant) colour than \u2018Lena Super\u2019 (RHS 49A)."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 See comparison tables.\n\u2018Prolet\u2019 most closely resembles \u2018Lena Super \u2018in\ncolouration but differs in having more serrated\n: petals and a deeper pink (RHS 55B, RHS 55D) petal\nVictoria (Photo supplied by applicant) colour than \u2018Lena Super\u2019 (RHS 49A).",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    0.0,
+    828.0,
+    308.16,
+    842.04
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      0.0,
+      828.0,
+      308.16,
+      842.04
+     ],
+     "text": "ee"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ee",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

@@ -1,0 +1,1215 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    49.92,
+    54.24,
+    193.68,
+    66.96
+   ],
+   "confidence": null,
+   "id": "e1",
+   "level": 1,
+   "level_signal": "heading-typography",
+   "lines": [
+    {
+     "bbox": [
+      49.92,
+      54.24,
+      193.68,
+      66.96
+     ],
+     "text": "Applications Withdrawn"
+    }
+   ],
+   "page": 1,
+   "score": 0.8466,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Applications Withdrawn",
+   "text_format": "plain",
+   "type": "heading"
+  },
+  {
+   "bbox": [
+    49.44,
+    84.96,
+    277.44,
+    113.28
+   ],
+   "confidence": null,
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      49.44,
+      84.96,
+      270.72,
+      93.6
+     ],
+     "text": "The following applications have been withdrawn at the"
+    },
+    {
+     "bbox": [
+      49.92,
+      95.04,
+      277.44,
+      103.2
+     ],
+     "text": "request of the applicant. Provisional protection no longer"
+    },
+    {
+     "bbox": [
+      49.68,
+      105.12,
+      151.2,
+      113.28
+     ],
+     "text": "applies to these varieties."
+    }
+   ],
+   "page": 1,
+   "score": 0.8575,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "The following applications have been withdrawn at the\nrequest of the applicant. Provisional protection no longer\napplies to these varieties.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    189.84,
+    124.32,
+    288.0,
+    142.08
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      189.84,
+      124.32,
+      287.52,
+      132.48
+     ],
+     "text": "Application No.: 89/027"
+    },
+    {
+     "bbox": [
+      189.84,
+      133.92,
+      288.0,
+      142.08
+     ],
+     "text": "Application No.: 89/020"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Application No.: 89/027\nApplication No.: 89/020",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    49.92,
+    124.56,
+    89.28,
+    140.88
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      49.92,
+      124.56,
+      89.28,
+      131.04
+     ],
+     "text": "\u2018Rainbow\u2019"
+    },
+    {
+     "bbox": [
+      49.92,
+      134.16,
+      70.56,
+      140.88
+     ],
+     "text": "\u2018Lich\u2019"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Rainbow\u2019\n\u2018Lich\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    49.92,
+    163.68,
+    193.92,
+    170.64
+   ],
+   "confidence": null,
+   "id": "e5",
+   "level": 2,
+   "level_signal": "heading-typography",
+   "lines": [
+    {
+     "bbox": [
+      49.92,
+      163.68,
+      193.92,
+      170.64
+     ],
+     "text": "2.2 PROVISIONAL PROTECTION"
+    }
+   ],
+   "page": 1,
+   "score": 0.8311,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "2.2 PROVISIONAL PROTECTION",
+   "text_format": "plain",
+   "type": "heading"
+  },
+  {
+   "bbox": [
+    49.44,
+    184.08,
+    278.16,
+    210.96
+   ],
+   "confidence": null,
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      49.44,
+      184.08,
+      278.16,
+      192.48
+     ],
+     "text": "The following varieties have provisional protection under"
+    },
+    {
+     "bbox": [
+      49.68,
+      194.16,
+      270.0,
+      202.56
+     ],
+     "text": "S22 of the Plant Variety Rights Act 1987 since the last"
+    },
+    {
+     "bbox": [
+      49.92,
+      204.24,
+      131.52,
+      210.96
+     ],
+     "text": "issue of the Journal:"
+    }
+   ],
+   "page": 1,
+   "score": 0.8747,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "The following varieties have provisional protection under\nS22 of the Plant Variety Rights Act 1987 since the last\nissue of the Journal:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    48.48,
+    222.96,
+    288.0,
+    589.2
+   ],
+   "confidence": null,
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      49.92,
+      222.96,
+      288.0,
+      233.28
+     ],
+     "text": "\u2018Elegance\u2019 Application No. 90/100"
+    },
+    {
+     "bbox": [
+      49.92,
+      234.0,
+      287.52,
+      241.92
+     ],
+     "text": "\u2018Sesia\u2019 Application No. 90/116"
+    },
+    {
+     "bbox": [
+      49.92,
+      243.84,
+      287.52,
+      252.0
+     ],
+     "text": "\u2018Lapins\u2019 Application No. 90/117"
+    },
+    {
+     "bbox": [
+      49.68,
+      252.96,
+      287.52,
+      262.8
+     ],
+     "text": "\u2018Arabella\u2019 Application No. 90/118"
+    },
+    {
+     "bbox": [
+      49.68,
+      263.52,
+      287.52,
+      271.68
+     ],
+     "text": "\u2018Jackaroo\u2019 Application No. 90/119"
+    },
+    {
+     "bbox": [
+      49.68,
+      273.6,
+      287.76,
+      281.76
+     ],
+     "text": "\u2018Astred\u2019 Application No. 90/120"
+    },
+    {
+     "bbox": [
+      49.68,
+      282.24,
+      285.84,
+      292.56
+     ],
+     "text": "\u2018Stagigi\u2019 Application No. 90/121"
+    },
+    {
+     "bbox": [
+      49.68,
+      292.08,
+      287.28,
+      302.4
+     ],
+     "text": "*Stagibrig\u2019 Application No. 90/122"
+    },
+    {
+     "bbox": [
+      49.68,
+      302.88,
+      287.28,
+      311.28
+     ],
+     "text": "\u2018Stagiten\u2019 Application No. 90/123"
+    },
+    {
+     "bbox": [
+      49.68,
+      311.76,
+      287.52,
+      322.32
+     ],
+     "text": "\u2018Stagidark\u2019 Application No. 90/124"
+    },
+    {
+     "bbox": [
+      49.68,
+      323.04,
+      287.28,
+      331.44
+     ],
+     "text": "\u2018Stagilak\u2019 Application No. 90/125"
+    },
+    {
+     "bbox": [
+      49.68,
+      332.4,
+      287.28,
+      342.48
+     ],
+     "text": "\u2018Statas\u2019 Application No. 90/126"
+    },
+    {
+     "bbox": [
+      49.68,
+      342.48,
+      287.04,
+      352.8
+     ],
+     "text": "\u2018Macseatri\u2019 Application No. 90/127"
+    },
+    {
+     "bbox": [
+      49.44,
+      352.56,
+      287.04,
+      362.64
+     ],
+     "text": "\u2018Macbucpal\u2019 Application No. 90/128"
+    },
+    {
+     "bbox": [
+      49.44,
+      362.4,
+      287.28,
+      372.48
+     ],
+     "text": "\u2018Macfirwal\u2019 Application No. 90/129"
+    },
+    {
+     "bbox": [
+      49.44,
+      372.48,
+      287.52,
+      382.32
+     ],
+     "text": "\u2018Aroshrel\u2019 Application No. 90/130"
+    },
+    {
+     "bbox": [
+      49.44,
+      382.08,
+      285.6,
+      392.16
+     ],
+     "text": "\u2018Poulander\u2019 Application No. 90/131"
+    },
+    {
+     "bbox": [
+      49.44,
+      392.88,
+      287.04,
+      401.28
+     ],
+     "text": "\u2018Afterglow\u2019 Application No. 90/132"
+    },
+    {
+     "bbox": [
+      49.44,
+      402.72,
+      287.04,
+      411.12
+     ],
+     "text": "\u2018Prime\u2019 Application No. 90/133"
+    },
+    {
+     "bbox": [
+      49.2,
+      411.6,
+      287.28,
+      421.68
+     ],
+     "text": "\u2018A5980\u2019 Application No. 90/134"
+    },
+    {
+     "bbox": [
+      49.2,
+      421.2,
+      285.36,
+      431.28
+     ],
+     "text": "\u2018Staranlo\u2019 Application No. 91/001"
+    },
+    {
+     "bbox": [
+      49.2,
+      431.28,
+      286.8,
+      441.36
+     ],
+     "text": "\u2018Stapripur\u2019 Application No. 91/002"
+    },
+    {
+     "bbox": [
+      49.2,
+      442.08,
+      286.8,
+      450.48
+     ],
+     "text": "\u2018Stasilva\u2019 Application No. 91/003"
+    },
+    {
+     "bbox": [
+      49.2,
+      451.2,
+      287.04,
+      461.28
+     ],
+     "text": "\u2018Staterpa\u2019 Application No. 91/004"
+    },
+    {
+     "bbox": [
+      48.96,
+      462.24,
+      286.56,
+      470.64
+     ],
+     "text": "\u2018Stajured\u2019 Application No. 91/005"
+    },
+    {
+     "bbox": [
+      48.96,
+      472.32,
+      286.56,
+      480.72
+     ],
+     "text": "\u2018Possum Magic\u2019 Application No. 91/006"
+    },
+    {
+     "bbox": [
+      48.96,
+      481.2,
+      286.56,
+      491.28
+     ],
+     "text": "\u2018Joey\u2019 Application No. 91/007"
+    },
+    {
+     "bbox": [
+      48.96,
+      491.28,
+      286.56,
+      501.36
+     ],
+     "text": "\u2018Celsia\u2019 Application No. 91/008"
+    },
+    {
+     "bbox": [
+      48.96,
+      502.08,
+      286.56,
+      510.48
+     ],
+     "text": "\u2018Dunya\u2019 Application No. 91/009"
+    },
+    {
+     "bbox": [
+      48.72,
+      511.92,
+      286.8,
+      520.32
+     ],
+     "text": "\u2018Anaea\u2019 Application No. 91/010"
+    },
+    {
+     "bbox": [
+      48.72,
+      521.76,
+      284.88,
+      530.16
+     ],
+     "text": "\u2018Interlien\u2019 Application No. 91/011"
+    },
+    {
+     "bbox": [
+      48.72,
+      531.6,
+      286.32,
+      540.0
+     ],
+     "text": "\u2018Interprince\u2019 Application No. 91/012"
+    },
+    {
+     "bbox": [
+      48.72,
+      540.24,
+      286.32,
+      550.56
+     ],
+     "text": "\u2018Intermotto\u2019 Application No. 91/013"
+    },
+    {
+     "bbox": [
+      48.72,
+      551.04,
+      286.56,
+      559.44
+     ],
+     "text": "\u2018Interniki\u2019 Application No. 91/014"
+    },
+    {
+     "bbox": [
+      48.72,
+      560.88,
+      286.32,
+      569.28
+     ],
+     "text": "\u2018Leura\u2019 Application No. 91/015"
+    },
+    {
+     "bbox": [
+      48.48,
+      570.72,
+      286.08,
+      579.12
+     ],
+     "text": "\u2018Bluey\u2019 Application No. 91/016"
+    },
+    {
+     "bbox": [
+      48.48,
+      580.56,
+      286.08,
+      589.2
+     ],
+     "text": "\u2018Moonbeam\u2019 Application No. 91/017"
+    }
+   ],
+   "page": 1,
+   "score": 0.9541,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "\u2018Elegance\u2019 Application No. 90/100\n\u2018Sesia\u2019 Application No. 90/116\n\u2018Lapins\u2019 Application No. 90/117\n\u2018Arabella\u2019 Application No. 90/118\n\u2018Jackaroo\u2019 Application No. 90/119\n\u2018Astred\u2019 Application No. 90/120\n\u2018Stagigi\u2019 Application No. 90/121\n*Stagibrig\u2019 Application No. 90/122\n\u2018Stagiten\u2019 Application No. 90/123\n\u2018Stagidark\u2019 Application No. 90/124\n\u2018Stagilak\u2019 Application No. 90/125\n\u2018Statas\u2019 Application No. 90/126\n\u2018Macseatri\u2019 Application No. 90/127\n\u2018Macbucpal\u2019 Application No. 90/128\n\u2018Macfirwal\u2019 Application No. 90/129\n\u2018Aroshrel\u2019 Application No. 90/130\n\u2018Poulander\u2019 Application No. 90/131\n\u2018Afterglow\u2019 Application No. 90/132\n\u2018Prime\u2019 Application No. 90/133\n\u2018A5980\u2019 Application No. 90/134\n\u2018Staranlo\u2019 Application No. 91/001\n\u2018Stapripur\u2019 Application No. 91/002\n\u2018Stasilva\u2019 Application No. 91/003\n\u2018Staterpa\u2019 Application No. 91/004\n\u2018Stajured\u2019 Application No. 91/005\n\u2018Possum Magic\u2019 Application No. 91/006\n\u2018Joey\u2019 Application No. 91/007\n\u2018Celsia\u2019 Application No. 91/008\n\u2018Dunya\u2019 Application No. 91/009\n\u2018Anaea\u2019 Application No. 91/010\n\u2018Interlien\u2019 Application No. 91/011\n\u2018Interprince\u2019 Application No. 91/012\n\u2018Intermotto\u2019 Application No. 91/013\n\u2018Interniki\u2019 Application No. 91/014\n\u2018Leura\u2019 Application No. 91/015\n\u2018Bluey\u2019 Application No. 91/016\n\u2018Moonbeam\u2019 Application No. 91/017",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    306.0,
+    53.76,
+    454.56,
+    66.48
+   ],
+   "confidence": null,
+   "id": "e8",
+   "level": 1,
+   "level_signal": "heading-typography",
+   "lines": [
+    {
+     "bbox": [
+      306.0,
+      53.76,
+      454.56,
+      66.48
+     ],
+     "text": "Variation to Applications"
+    }
+   ],
+   "page": 1,
+   "score": 0.8363,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Variation to Applications",
+   "text_format": "plain",
+   "type": "heading"
+  },
+  {
+   "bbox": [
+    305.28,
+    84.72,
+    540.0,
+    113.04
+   ],
+   "confidence": null,
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      305.28,
+      84.72,
+      540.0,
+      93.36
+     ],
+     "text": "The following submissions have been made for a variation"
+    },
+    {
+     "bbox": [
+      305.52,
+      94.8,
+      516.72,
+      103.2
+     ],
+     "text": "to an application under subsection 19(1) of the Plant"
+    },
+    {
+     "bbox": [
+      306.48,
+      104.88,
+      401.76,
+      113.04
+     ],
+     "text": "Variety Rights Act 1987"
+    }
+   ],
+   "page": 1,
+   "score": 0.7636,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "The following submissions have been made for a variation\nto an application under subsection 19(1) of the Plant\nVariety Rights Act 1987",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    305.52,
+    120.48,
+    423.36,
+    138.24
+   ],
+   "confidence": null,
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      305.52,
+      120.48,
+      400.8,
+      128.88
+     ],
+     "text": "Application No. 88/027"
+    },
+    {
+     "bbox": [
+      305.52,
+      130.56,
+      423.36,
+      138.24
+     ],
+     "text": "(Published in PVJ Vol 1 No 4)"
+    }
+   ],
+   "page": 1,
+   "score": 0.7124,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Application No. 88/027\n(Published in PVJ Vol 1 No 4)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    305.52,
+    146.16,
+    479.28,
+    174.48
+   ],
+   "confidence": null,
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      305.76,
+      146.16,
+      425.04,
+      154.32
+     ],
+     "text": "Applicant: Daratech Pty Ltd.,"
+    },
+    {
+     "bbox": [
+      305.52,
+      156.0,
+      445.68,
+      164.4
+     ],
+     "text": "Variety: \u2018Moss Early\u2019 (Vitis vinifera)"
+    },
+    {
+     "bbox": [
+      305.76,
+      165.84,
+      479.28,
+      174.48
+     ],
+     "text": "Variation: Change name to \u2018Moss Sultana\u2019"
+    }
+   ],
+   "page": 1,
+   "score": 0.7134,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Applicant: Daratech Pty Ltd.,\nVariety: \u2018Moss Early\u2019 (Vitis vinifera)\nVariation: Change name to \u2018Moss Sultana\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    305.52,
+    182.16,
+    529.92,
+    240.72
+   ],
+   "confidence": null,
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      305.76,
+      182.16,
+      401.04,
+      190.56
+     ],
+     "text": "Application No. 90/099"
+    },
+    {
+     "bbox": [
+      305.52,
+      192.48,
+      423.36,
+      200.4
+     ],
+     "text": "(Published in PVJ Vol 3 No 4)"
+    },
+    {
+     "bbox": [
+      305.76,
+      202.56,
+      529.92,
+      210.72
+     ],
+     "text": "Applicant: S Membrey & R Trimble of Faceys Nursery"
+    },
+    {
+     "bbox": [
+      306.24,
+      212.64,
+      335.04,
+      220.56
+     ],
+     "text": "Pty Ltd"
+    },
+    {
+     "bbox": [
+      305.52,
+      222.48,
+      482.64,
+      230.88
+     ],
+     "text": "Variety : \u2018Milky Way\u2019 (Anigozanthos hybrida)"
+    },
+    {
+     "bbox": [
+      305.52,
+      232.32,
+      478.08,
+      240.72
+     ],
+     "text": "Variation: Change name to \u2018Lemon Whizz\u2019"
+    }
+   ],
+   "page": 1,
+   "score": 0.6847,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Application No. 90/099\n(Published in PVJ Vol 3 No 4)\nApplicant: S Membrey & R Trimble of Faceys Nursery\nPty Ltd\nVariety : \u2018Milky Way\u2019 (Anigozanthos hybrida)\nVariation: Change name to \u2018Lemon Whizz\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    305.52,
+    248.16,
+    529.92,
+    305.76
+   ],
+   "confidence": null,
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      305.52,
+      248.16,
+      398.64,
+      256.32
+     ],
+     "text": "Application No.90/115"
+    },
+    {
+     "bbox": [
+      305.76,
+      258.0,
+      423.36,
+      265.92
+     ],
+     "text": "(Published in PVJ Vol 3 No 4)"
+    },
+    {
+     "bbox": [
+      305.52,
+      267.84,
+      529.92,
+      276.24
+     ],
+     "text": "Applicant: S Membrey & R Trimble of Faceys Nursery"
+    },
+    {
+     "bbox": [
+      306.24,
+      277.68,
+      335.04,
+      285.84
+     ],
+     "text": "Pty Ltd"
+    },
+    {
+     "bbox": [
+      305.76,
+      287.52,
+      464.88,
+      295.92
+     ],
+     "text": "Variety: \u2018Fireball\u2019 (Ca/listemon salignus)"
+    },
+    {
+     "bbox": [
+      305.52,
+      297.36,
+      497.52,
+      305.76
+     ],
+     "text": "Variation: Change name to \u2018Great Balls of Fire\u2019"
+    }
+   ],
+   "page": 1,
+   "score": 0.6918,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Application No.90/115\n(Published in PVJ Vol 3 No 4)\nApplicant: S Membrey & R Trimble of Faceys Nursery\nPty Ltd\nVariety: \u2018Fireball\u2019 (Ca/listemon salignus)\nVariation: Change name to \u2018Great Balls of Fire\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    306.48,
+    324.48,
+    371.52,
+    337.2
+   ],
+   "confidence": null,
+   "id": "e14",
+   "level": 1,
+   "level_signal": "heading-typography",
+   "lines": [
+    {
+     "bbox": [
+      306.48,
+      324.48,
+      371.52,
+      337.2
+     ],
+     "text": "Corrigenda"
+    }
+   ],
+   "page": 1,
+   "score": 0.7737,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Corrigenda",
+   "text_format": "plain",
+   "type": "heading"
+  },
+  {
+   "bbox": [
+    305.52,
+    354.24,
+    419.76,
+    408.0
+   ],
+   "confidence": null,
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      306.24,
+      354.24,
+      363.36,
+      364.8
+     ],
+     "text": "CLOVER"
+    },
+    {
+     "bbox": [
+      305.52,
+      368.16,
+      364.8,
+      380.16
+     ],
+     "text": "(Trifolium"
+    },
+    {
+     "bbox": [
+      305.76,
+      382.08,
+      419.76,
+      394.8
+     ],
+     "text": "subterraneum spp"
+    },
+    {
+     "bbox": [
+      305.52,
+      396.0,
+      412.08,
+      408.0
+     ],
+     "text": "brachycalicinum)"
+    }
+   ],
+   "page": 1,
+   "score": 0.7057,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "CLOVER\n(Trifolium\nsubterraneum spp\nbrachycalicinum)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    306.0,
+    427.44,
+    498.72,
+    460.08
+   ],
+   "confidence": null,
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      306.0,
+      427.44,
+      364.8,
+      435.6
+     ],
+     "text": "Variety: \u2018Nuba\u2019"
+    },
+    {
+     "bbox": [
+      306.24,
+      443.28,
+      498.72,
+      451.92
+     ],
+     "text": "In Vol 3 No 1, March 1990 the Applicants name"
+    },
+    {
+     "bbox": [
+      306.0,
+      453.6,
+      364.08,
+      460.08
+     ],
+     "text": "should read \u2014"
+    }
+   ],
+   "page": 1,
+   "score": 0.5148,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Nuba\u2019\nIn Vol 3 No 1, March 1990 the Applicants name\nshould read \u2014",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    305.52,
+    469.68,
+    515.04,
+    507.84
+   ],
+   "confidence": null,
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      305.52,
+      469.68,
+      515.04,
+      478.08
+     ],
+     "text": "Applicant: LH Nungesser GMBH, Darmstadt. West"
+    },
+    {
+     "bbox": [
+      306.24,
+      479.52,
+      342.96,
+      487.68
+     ],
+     "text": "Germany"
+    },
+    {
+     "bbox": [
+      305.52,
+      489.6,
+      508.32,
+      498.24
+     ],
+     "text": "Australian Agent: South Australian Seedgrowers"
+    },
+    {
+     "bbox": [
+      306.24,
+      499.44,
+      395.52,
+      507.84
+     ],
+     "text": "Co-op Ltd of Adelaide"
+    }
+   ],
+   "page": 1,
+   "score": 0.7192,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Applicant: LH Nungesser GMBH, Darmstadt. West\nGermany\nAustralian Agent: South Australian Seedgrowers\nCo-op Ltd of Adelaide",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    305.28,
+    524.16,
+    389.52,
+    563.52
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      306.0,
+      524.16,
+      351.36,
+      534.72
+     ],
+     "text": "STYLO"
+    },
+    {
+     "bbox": [
+      305.28,
+      537.84,
+      389.52,
+      549.84
+     ],
+     "text": "(Stylosanthes"
+    },
+    {
+     "bbox": [
+      305.52,
+      551.52,
+      350.16,
+      563.52
+     ],
+     "text": "scabra)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "STYLO\n(Stylosanthes\nscabra)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    305.76,
+    583.2,
+    506.16,
+    630.96
+   ],
+   "confidence": null,
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      306.0,
+      583.2,
+      366.72,
+      591.12
+     ],
+     "text": "Variety: \u2018Bahia\u2019"
+    },
+    {
+     "bbox": [
+      306.24,
+      592.8,
+      491.76,
+      601.68
+     ],
+     "text": "In Vol 3 No 4, December 1990 on p.33, Origin"
+    },
+    {
+     "bbox": [
+      305.76,
+      602.64,
+      472.08,
+      610.8
+     ],
+     "text": "of the variety, the second sentence in the"
+    },
+    {
+     "bbox": [
+      306.0,
+      612.96,
+      506.16,
+      621.12
+     ],
+     "text": "second paragraph should commence \u2018Selection in"
+    },
+    {
+     "bbox": [
+      305.76,
+      622.8,
+      438.72,
+      630.96
+     ],
+     "text": "the F5 generation was based......\u2019"
+    }
+   ],
+   "page": 1,
+   "score": 0.8367,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Bahia\u2019\nIn Vol 3 No 4, December 1990 on p.33, Origin\nof the variety, the second sentence in the\nsecond paragraph should commence \u2018Selection in\nthe F5 generation was based......\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    528.24,
+    794.4,
+    541.44,
+    803.52
+   ],
+   "confidence": null,
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      528.24,
+      794.4,
+      541.44,
+      803.52
+     ],
+     "text": "25"
+    }
+   ],
+   "page": 1,
+   "score": 0.7344,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "25",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

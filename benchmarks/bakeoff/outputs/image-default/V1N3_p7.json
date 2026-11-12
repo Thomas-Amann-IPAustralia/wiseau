@@ -1,0 +1,1122 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    67.92,
+    47.28,
+    278.4,
+    79.68
+   ],
+   "confidence": null,
+   "id": "e1",
+   "level": 1,
+   "level_signal": "heading-typography",
+   "lines": [
+    {
+     "bbox": [
+      67.92,
+      47.28,
+      278.4,
+      61.92
+     ],
+     "text": "PART 2\u2014 MATTERS FOR"
+    },
+    {
+     "bbox": [
+      68.16,
+      65.76,
+      200.16,
+      79.68
+     ],
+     "text": "PUBLIC NOTICE"
+    }
+   ],
+   "page": 1,
+   "score": 0.6438,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "PART 2\u2014 MATTERS FOR\nPUBLIC NOTICE",
+   "text_format": "plain",
+   "type": "title"
+  },
+  {
+   "bbox": [
+    66.96,
+    88.08,
+    217.92,
+    98.16
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      66.96,
+      88.08,
+      217.92,
+      98.16
+     ],
+     "text": "APPLICATIONS ACCEPTED"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "APPLICATIONS ACCEPTED",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    66.72,
+    103.2,
+    168.96,
+    112.08
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      66.72,
+      103.2,
+      168.96,
+      112.08
+     ],
+     "text": "a) Descriptions Finalised"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a) Descriptions Finalised",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    67.27,
+    115.32,
+    515.63,
+    369.51
+   ],
+   "confidence": null,
+   "id": "e4",
+   "page": 1,
+   "score": 0.9727,
+   "signal": "pp-doclayoutv3",
+   "source": "pp-doclayoutv3",
+   "text": "",
+   "text_format": "plain",
+   "type": "figure"
+  },
+  {
+   "bbox": [
+    68.16,
+    374.4,
+    375.84,
+    384.24
+   ],
+   "confidence": null,
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      68.16,
+      374.4,
+      375.84,
+      384.24
+     ],
+     "text": "*Yatsyn 1\u2019 sward at Courtenay New Zealand (Photo supplied by applicant}"
+    }
+   ],
+   "page": 1,
+   "score": 0.8709,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "*Yatsyn 1\u2019 sward at Courtenay New Zealand (Photo supplied by applicant}",
+   "text_format": "plain",
+   "type": "caption"
+  },
+  {
+   "bbox": [
+    68.64,
+    394.08,
+    192.72,
+    421.68
+   ],
+   "confidence": null,
+   "id": "e6",
+   "level": 2,
+   "level_signal": "heading-typography",
+   "lines": [
+    {
+     "bbox": [
+      68.64,
+      394.08,
+      192.72,
+      407.04
+     ],
+     "text": "Perennial Ryegrass"
+    },
+    {
+     "bbox": [
+      68.88,
+      408.24,
+      179.52,
+      421.68
+     ],
+     "text": "(Lolium perenne)"
+    }
+   ],
+   "page": 1,
+   "score": 0.748,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Perennial Ryegrass\n(Lolium perenne)",
+   "text_format": "plain",
+   "type": "heading"
+  },
+  {
+   "bbox": [
+    68.4,
+    429.36,
+    248.16,
+    461.28
+   ],
+   "confidence": null,
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      69.12,
+      429.36,
+      246.96,
+      438.72
+     ],
+     "text": "Variety \u2018Yatsyn 1\u00b0 Application No. 88/004"
+    },
+    {
+     "bbox": [
+      69.12,
+      442.08,
+      248.16,
+      451.44
+     ],
+     "text": "Applicants: New Zealand Agriseeds Ltd, of"
+    },
+    {
+     "bbox": [
+      68.4,
+      453.12,
+      180.96,
+      461.28
+     ],
+     "text": "Christchurch, New Zealand"
+    }
+   ],
+   "page": 1,
+   "score": 0.8936,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Variety \u2018Yatsyn 1\u00b0 Application No. 88/004\nApplicants: New Zealand Agriseeds Ltd, of\nChristchurch, New Zealand",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    68.16,
+    468.96,
+    108.96,
+    477.84
+   ],
+   "confidence": null,
+   "id": "e8",
+   "level": 3,
+   "level_signal": "heading-typography",
+   "lines": [
+    {
+     "bbox": [
+      68.16,
+      468.96,
+      108.96,
+      477.84
+     ],
+     "text": "Diagnosis"
+    }
+   ],
+   "page": 1,
+   "score": 0.7709,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Diagnosis",
+   "text_format": "plain",
+   "type": "heading"
+  },
+  {
+   "bbox": [
+    67.44,
+    481.68,
+    277.44,
+    530.4
+   ],
+   "confidence": null,
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      67.68,
+      481.68,
+      246.24,
+      490.8
+     ],
+     "text": "This variety is distinct from all other known"
+    },
+    {
+     "bbox": [
+      67.92,
+      491.52,
+      266.4,
+      500.64
+     ],
+     "text": "varieties in having the following combination of"
+    },
+    {
+     "bbox": [
+      67.92,
+      501.6,
+      262.56,
+      510.72
+     ],
+     "text": "characters: a light green colour, medium width"
+    },
+    {
+     "bbox": [
+      67.92,
+      511.44,
+      277.44,
+      520.32
+     ],
+     "text": "leaves, amedium-erect post-heading growth habit"
+    },
+    {
+     "bbox": [
+      67.44,
+      521.52,
+      189.36,
+      530.4
+     ],
+     "text": "and fewer spikelets per spike."
+    }
+   ],
+   "page": 1,
+   "score": 0.9261,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "This variety is distinct from all other known\nvarieties in having the following combination of\ncharacters: a light green colour, medium width\nleaves, amedium-erect post-heading growth habit\nand fewer spikelets per spike.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    67.92,
+    538.56,
+    193.2,
+    547.2
+   ],
+   "confidence": null,
+   "id": "e10",
+   "level": 3,
+   "level_signal": "heading-typography",
+   "lines": [
+    {
+     "bbox": [
+      67.92,
+      538.56,
+      193.2,
+      547.2
+     ],
+     "text": "Varieties used for comparison"
+    }
+   ],
+   "page": 1,
+   "score": 0.6704,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comparison",
+   "text_format": "plain",
+   "type": "heading"
+  },
+  {
+   "bbox": [
+    68.4,
+    551.04,
+    270.72,
+    559.2
+   ],
+   "confidence": null,
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      68.4,
+      551.04,
+      270.72,
+      559.2
+     ],
+     "text": "\u2018Ellett\u2019, \u2018Grasslands Nui\u2018 and \u2018Grasslands Ruanui\u2018"
+    }
+   ],
+   "page": 1,
+   "score": 0.7139,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "\u2018Ellett\u2019, \u2018Grasslands Nui\u2018 and \u2018Grasslands Ruanui\u2018",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    67.44,
+    568.32,
+    186.0,
+    577.2
+   ],
+   "confidence": null,
+   "id": "e12",
+   "level": 3,
+   "level_signal": "heading-typography",
+   "lines": [
+    {
+     "bbox": [
+      67.44,
+      568.32,
+      186.0,
+      577.2
+     ],
+     "text": "Comparative Growing Trials"
+    }
+   ],
+   "page": 1,
+   "score": 0.8047,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials",
+   "text_format": "plain",
+   "type": "heading"
+  },
+  {
+   "bbox": [
+    66.72,
+    581.04,
+    277.2,
+    726.24
+   ],
+   "confidence": null,
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      67.2,
+      581.04,
+      273.84,
+      589.44
+     ],
+     "text": "All characteristics described and comparisons are"
+    },
+    {
+     "bbox": [
+      67.68,
+      590.64,
+      258.0,
+      599.76
+     ],
+     "text": "from comparative growing trials conducted at"
+    },
+    {
+     "bbox": [
+      67.68,
+      600.48,
+      267.36,
+      609.6
+     ],
+     "text": "Courtenay (near Christchurch) in the Canterbury"
+    },
+    {
+     "bbox": [
+      67.2,
+      610.56,
+      273.6,
+      618.96
+     ],
+     "text": "district, on the South Island of New Zealand in the"
+    },
+    {
+     "bbox": [
+      67.92,
+      620.64,
+      271.2,
+      629.04
+     ],
+     "text": "1982/83 and 1983/84 seasons. In 1982, 100 plants,"
+    },
+    {
+     "bbox": [
+      67.44,
+      630.72,
+      244.8,
+      639.36
+     ],
+     "text": "each with 3 cloned replicates was used ina"
+    },
+    {
+     "bbox": [
+      67.44,
+      640.56,
+      276.48,
+      649.44
+     ],
+     "text": "randomised block pattern of spaced plants with 60"
+    },
+    {
+     "bbox": [
+      67.44,
+      650.4,
+      258.96,
+      659.52
+     ],
+     "text": "cm spacing. In 1983, 200 plants with replicates"
+    },
+    {
+     "bbox": [
+      67.2,
+      660.24,
+      274.56,
+      668.88
+     ],
+     "text": "were used in a randomised complete block design"
+    },
+    {
+     "bbox": [
+      67.2,
+      670.08,
+      277.2,
+      677.28
+     ],
+     "text": "with 60 cm between blocks and 1 m between rows."
+    },
+    {
+     "bbox": [
+      67.68,
+      679.92,
+      264.48,
+      688.08
+     ],
+     "text": "Further trials, to assess for field tolerance to the"
+    },
+    {
+     "bbox": [
+      67.2,
+      689.52,
+      260.88,
+      698.16
+     ],
+     "text": "diseases net blotch (Drechs/era dictyoides f.sp."
+    },
+    {
+     "bbox": [
+      66.72,
+      699.36,
+      276.24,
+      708.24
+     ],
+     "text": "perenne) and crown rust (Puccinia coronata), were"
+    },
+    {
+     "bbox": [
+      67.44,
+      709.2,
+      259.68,
+      717.12
+     ],
+     "text": "conducted at Hamilton, in Victoria, Australia in"
+    },
+    {
+     "bbox": [
+      67.68,
+      719.52,
+      88.8,
+      726.24
+     ],
+     "text": "1987,"
+    }
+   ],
+   "page": 1,
+   "score": 0.9441,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "All characteristics described and comparisons are\nfrom comparative growing trials conducted at\nCourtenay (near Christchurch) in the Canterbury\ndistrict, on the South Island of New Zealand in the\n1982/83 and 1983/84 seasons. In 1982, 100 plants,\neach with 3 cloned replicates was used ina\nrandomised block pattern of spaced plants with 60\ncm spacing. In 1983, 200 plants with replicates\nwere used in a randomised complete block design\nwith 60 cm between blocks and 1 m between rows.\nFurther trials, to assess for field tolerance to the\ndiseases net blotch (Drechs/era dictyoides f.sp.\nperenne) and crown rust (Puccinia coronata), were\nconducted at Hamilton, in Victoria, Australia in\n1987,",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    67.68,
+    734.88,
+    93.36,
+    743.76
+   ],
+   "confidence": null,
+   "id": "e14",
+   "level": 3,
+   "level_signal": "heading-typography",
+   "lines": [
+    {
+     "bbox": [
+      67.68,
+      734.88,
+      93.36,
+      743.76
+     ],
+     "text": "Origin"
+    }
+   ],
+   "page": 1,
+   "score": 0.8028,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Origin",
+   "text_format": "plain",
+   "type": "heading"
+  },
+  {
+   "bbox": [
+    67.2,
+    747.6,
+    273.12,
+    766.8
+   ],
+   "confidence": null,
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      67.2,
+      747.6,
+      271.2,
+      756.96
+     ],
+     "text": "This variety arises from the open crossing of four"
+    },
+    {
+     "bbox": [
+      67.92,
+      757.68,
+      273.12,
+      766.8
+     ],
+     "text": "parent lines and is sustained through generations"
+    }
+   ],
+   "page": 1,
+   "score": 0.8853,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "This variety arises from the open crossing of four\nparent lines and is sustained through generations",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    300.72,
+    401.28,
+    512.16,
+    480.0
+   ],
+   "confidence": null,
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      301.44,
+      401.28,
+      506.16,
+      410.4
+     ],
+     "text": "by open crossing of the progeny. The parent lines"
+    },
+    {
+     "bbox": [
+      300.72,
+      411.12,
+      505.68,
+      419.76
+     ],
+     "text": "were selected from the polycross progeny testing"
+    },
+    {
+     "bbox": [
+      300.96,
+      421.44,
+      498.24,
+      428.64
+     ],
+     "text": "of 154 lines from 1975 to 1978 at two sites in the"
+    },
+    {
+     "bbox": [
+      300.72,
+      431.28,
+      498.48,
+      439.2
+     ],
+     "text": "Auckland district on North Island, New Zealand."
+    },
+    {
+     "bbox": [
+      300.96,
+      441.12,
+      492.72,
+      449.76
+     ],
+     "text": "The main criteria for selection were vegetative"
+    },
+    {
+     "bbox": [
+      300.96,
+      450.96,
+      512.16,
+      460.08
+     ],
+     "text": "yield and crown rust (Puccinia coronata) resistance"
+    },
+    {
+     "bbox": [
+      300.96,
+      461.28,
+      469.68,
+      470.16
+     ],
+     "text": "of their progeny. The four parent lines all"
+    },
+    {
+     "bbox": [
+      300.96,
+      471.12,
+      477.12,
+      480.0
+     ],
+     "text": "originated at Mangere in Auckland district."
+    }
+   ],
+   "page": 1,
+   "score": 0.9397,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "by open crossing of the progeny. The parent lines\nwere selected from the polycross progeny testing\nof 154 lines from 1975 to 1978 at two sites in the\nAuckland district on North Island, New Zealand.\nThe main criteria for selection were vegetative\nyield and crown rust (Puccinia coronata) resistance\nof their progeny. The four parent lines all\noriginated at Mangere in Auckland district.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    300.96,
+    484.32,
+    495.36,
+    522.96
+   ],
+   "confidence": null,
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      301.2,
+      484.32,
+      477.12,
+      493.2
+     ],
+     "text": "Parents are maintained by the applicant as"
+    },
+    {
+     "bbox": [
+      300.96,
+      494.16,
+      495.36,
+      503.04
+     ],
+     "text": "vegetatively propagated cultures at Courtenay,"
+    },
+    {
+     "bbox": [
+      301.2,
+      504.24,
+      492.96,
+      511.68
+     ],
+     "text": "New Zealand which enables re-isolation of the"
+    },
+    {
+     "bbox": [
+      301.2,
+      514.08,
+      421.92,
+      522.96
+     ],
+     "text": "\u2018Yatsyn 1' variety at any time."
+    }
+   ],
+   "page": 1,
+   "score": 0.9183,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Parents are maintained by the applicant as\nvegetatively propagated cultures at Courtenay,\nNew Zealand which enables re-isolation of the\n\u2018Yatsyn 1' variety at any time.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    300.72,
+    535.68,
+    462.48,
+    544.56
+   ],
+   "confidence": null,
+   "id": "e18",
+   "level": 3,
+   "level_signal": "heading-typography",
+   "lines": [
+    {
+     "bbox": [
+      300.72,
+      535.68,
+      462.48,
+      544.56
+     ],
+     "text": "Morphology \u2014 See comparison tables."
+    }
+   ],
+   "page": 1,
+   "score": 0.6576,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 See comparison tables.",
+   "text_format": "plain",
+   "type": "heading"
+  },
+  {
+   "bbox": [
+    300.96,
+    548.4,
+    510.0,
+    585.12
+   ],
+   "confidence": null,
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      300.96,
+      548.4,
+      499.92,
+      557.28
+     ],
+     "text": "\u2018Yatsyn 1\u2018 is a semi-erect medium-green variety."
+    },
+    {
+     "bbox": [
+      300.96,
+      558.24,
+      510.0,
+      566.88
+     ],
+     "text": "Most of the distinguishing or stable characteristics"
+    },
+    {
+     "bbox": [
+      300.96,
+      568.08,
+      492.72,
+      576.72
+     ],
+     "text": "are presented in the comparison tables. Those"
+    },
+    {
+     "bbox": [
+      300.96,
+      578.16,
+      425.76,
+      585.12
+     ],
+     "text": "recorded but not included are:"
+    }
+   ],
+   "page": 1,
+   "score": 0.9199,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "\u2018Yatsyn 1\u2018 is a semi-erect medium-green variety.\nMost of the distinguishing or stable characteristics\nare presented in the comparison tables. Those\nrecorded but not included are:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    300.48,
+    590.88,
+    497.04,
+    608.88
+   ],
+   "confidence": null,
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      300.48,
+      590.88,
+      497.04,
+      599.76
+     ],
+     "text": "degree of aftermath heading which is about the"
+    },
+    {
+     "bbox": [
+      300.96,
+      600.96,
+      365.28,
+      608.88
+     ],
+     "text": "same as \u2018Ellett\u2019;"
+    }
+   ],
+   "page": 1,
+   "score": 0.882,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "degree of aftermath heading which is about the\nsame as \u2018Ellett\u2019;",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    300.72,
+    613.68,
+    512.16,
+    631.68
+   ],
+   "confidence": null,
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      300.96,
+      613.68,
+      512.16,
+      622.8
+     ],
+     "text": "tiller density at heading which is higher than \u2018Ellett\u2019"
+    },
+    {
+     "bbox": [
+      300.72,
+      623.76,
+      449.04,
+      631.68
+     ],
+     "text": "but lower than \u2018Grasslands Ruanui\u2019;"
+    }
+   ],
+   "page": 1,
+   "score": 0.8681,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "tiller density at heading which is higher than \u2018Ellett\u2019\nbut lower than \u2018Grasslands Ruanui\u2019;",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    300.72,
+    636.48,
+    512.64,
+    681.36
+   ],
+   "confidence": null,
+   "id": "e22",
+   "lines": [
+    {
+     "bbox": [
+      300.72,
+      636.48,
+      512.64,
+      645.6
+     ],
+     "text": "stem length which is shorter than \u2018Grasslands Nui\u2019;"
+    },
+    {
+     "bbox": [
+      300.72,
+      649.44,
+      512.4,
+      658.56
+     ],
+     "text": "a high proportion (the same as \u2018Ellett\u2019) of immature"
+    },
+    {
+     "bbox": [
+      300.72,
+      659.28,
+      498.48,
+      667.92
+     ],
+     "text": "leaves being foided in shoots rather than rolled;"
+    },
+    {
+     "bbox": [
+      300.72,
+      671.04,
+      394.8,
+      681.36
+     ],
+     "text": "and small leaf auricles."
+    }
+   ],
+   "page": 1,
+   "score": 0.8534,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "stem length which is shorter than \u2018Grasslands Nui\u2019;\na high proportion (the same as \u2018Ellett\u2019) of immature\nleaves being foided in shoots rather than rolled;\nand small leaf auricles.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    300.0,
+    685.68,
+    513.6,
+    724.08
+   ],
+   "confidence": null,
+   "id": "e23",
+   "lines": [
+    {
+     "bbox": [
+      300.0,
+      685.68,
+      513.6,
+      693.12
+     ],
+     "text": "Other characteristics were recorded but found to be"
+    },
+    {
+     "bbox": [
+      300.0,
+      695.76,
+      504.24,
+      702.96
+     ],
+     "text": "unstable. These include the number of leaf nodes"
+    },
+    {
+     "bbox": [
+      300.0,
+      705.6,
+      491.28,
+      714.24
+     ],
+     "text": "per stem, flag leaf inclination and anthocyanin"
+    },
+    {
+     "bbox": [
+      300.0,
+      715.2,
+      357.6,
+      724.08
+     ],
+     "text": "pigmentation."
+    }
+   ],
+   "page": 1,
+   "score": 0.9347,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Other characteristics were recorded but found to be\nunstable. These include the number of leaf nodes\nper stem, flag leaf inclination and anthocyanin\npigmentation.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    299.52,
+    728.16,
+    504.0,
+    767.04
+   ],
+   "confidence": null,
+   "id": "e24",
+   "lines": [
+    {
+     "bbox": [
+      300.0,
+      728.16,
+      497.28,
+      737.04
+     ],
+     "text": "In addition to morphological data from growing"
+    },
+    {
+     "bbox": [
+      299.52,
+      737.76,
+      460.56,
+      746.88
+     ],
+     "text": "trials, the applicant has submitted, as a"
+    },
+    {
+     "bbox": [
+      299.52,
+      747.84,
+      470.64,
+      757.2
+     ],
+     "text": "distinguishing characteristic, prints of gel"
+    },
+    {
+     "bbox": [
+      299.52,
+      757.92,
+      504.0,
+      767.04
+     ],
+     "text": "electrophoresis of seed protein extractions which"
+    }
+   ],
+   "page": 1,
+   "score": 0.9217,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "In addition to morphological data from growing\ntrials, the applicant has submitted, as a\ndistinguishing characteristic, prints of gel\nelectrophoresis of seed protein extractions which",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    596.4,
+    842.64
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [
+  {
+   "signal": "continuation-column",
+   "source": "e16",
+   "target": "e15",
+   "type": "continues_from"
+  },
+  {
+   "signal": "caption-geometry",
+   "source": "e5",
+   "target": "e4",
+   "type": "caption_of"
+  }
+ ],
+ "schema": "0.1"
+}

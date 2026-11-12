@@ -1,0 +1,600 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    45.72,
+    61.2,
+    157.32,
+    74.88
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      45.72,
+      61.2,
+      157.32,
+      74.88
+     ],
+     "text": "APPENDIX 2"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "APPENDIX 2",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    46.44,
+    107.28,
+    331.92,
+    121.32
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      46.44,
+      107.28,
+      331.92,
+      121.32
+     ],
+     "text": "Organisations Offering to Undertake PVR Trials"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Organisations Offering to Undertake PVR Trials",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    45.36,
+    139.68,
+    522.0,
+    596.16
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      45.36,
+      139.68,
+      507.6,
+      149.4
+     ],
+     "text": "The following organisations are interested in carrying out PVR trials on behalf of applicants \u2014 the PVR Office does"
+    },
+    {
+     "bbox": [
+      46.44,
+      149.76,
+      399.6,
+      159.12
+     ],
+     "text": "not accept any responsibility and is publishing the list for the convenience of applicants."
+    },
+    {
+     "bbox": [
+      46.44,
+      159.84,
+      377.64,
+      168.84
+     ],
+     "text": "lan Aberdeen, Valley Seeds Pty Ltd, RMB 1480, Alexandra Vic 3714; 057 976203"
+    },
+    {
+     "bbox": [
+      46.08,
+      169.56,
+      489.96,
+      179.28
+     ],
+     "text": "Agrisearch, PO Box 972 Orange NSW 2800; 063 624539; M J Hood (also at Shepparton, Moree, Ridgehaven,"
+    },
+    {
+     "bbox": [
+      46.08,
+      180.72,
+      174.24,
+      189.0
+     ],
+     "text": "Mackay, Armidale and Innisfail)."
+    },
+    {
+     "bbox": [
+      45.72,
+      190.08,
+      351.72,
+      199.44
+     ],
+     "text": "Agritech, PO Box 549 Toowoomba QLD 4350; 076 384322; Mary Ann Law"
+    },
+    {
+     "bbox": [
+      45.72,
+      199.8,
+      515.88,
+      209.16
+     ],
+     "text": "ANU Plant Culture Facility, Australian National University, GPO Box 4, Canberra ACT 2601; 06 249 4158; Mr AS"
+    },
+    {
+     "bbox": [
+      46.08,
+      210.96,
+      70.56,
+      217.8
+     ],
+     "text": "Carter"
+    },
+    {
+     "bbox": [
+      46.08,
+      219.96,
+      421.56,
+      228.96
+     ],
+     "text": "Paul Armitage, 2/84 Shady Grove, Forest Hill VIC 3131;(bh) 03 756 7233; (ah) 03 877 6539"
+    },
+    {
+     "bbox": [
+      46.44,
+      229.68,
+      473.4,
+      237.96
+     ],
+     "text": "Keith Bodman, Redlands Horticultural Research Station, PO Box 327, Cleveland QLD 4163; 07 286 1488"
+    },
+    {
+     "bbox": [
+      46.44,
+      239.4,
+      446.4,
+      248.4
+     ],
+     "text": "Geoff Butler, Australian Cultivar Registration Authority, National Botanic Gardens, GPO Box 1777,"
+    },
+    {
+     "bbox": [
+      46.08,
+      249.84,
+      183.96,
+      257.4
+     ],
+     "text": "Canberra ACT 2601; 06 267 1802"
+    },
+    {
+     "bbox": [
+      46.08,
+      259.2,
+      455.76,
+      268.2
+     ],
+     "text": "Chivers Computing & Agriculture, 3/258 Koorang Rd Carnegie VIC 3163; 03 5697538; lan Chivers."
+    },
+    {
+     "bbox": [
+      46.08,
+      268.92,
+      467.28,
+      277.92
+     ],
+     "text": "Colourwise Nursery, PO Box 162, Glenorie, NSW, 2157; ph 045 666 177, fax 045 666 219; lan Collins"
+    },
+    {
+     "bbox": [
+      46.08,
+      278.64,
+      462.96,
+      287.64
+     ],
+     "text": "Colourwise Nursery Queensland, PO Box 14, Redlands Bay, OLD 4165; 07 206 8818; Stephen Collins"
+    },
+    {
+     "bbox": [
+      45.72,
+      288.72,
+      426.24,
+      297.0
+     ],
+     "text": "Jan Dekker, Tesselaar\u2019s Padua Bulb Nurseries, Monbulk Road, Silvan VIC 3795; 03 737 9305"
+    },
+    {
+     "bbox": [
+      46.44,
+      298.8,
+      520.2,
+      307.08
+     ],
+     "text": "Dr. John Doran, CSIRO, Division of Forestry & Forest Products, PO Box 4008, Queen Victoria Terrace, Canberra ACT"
+    },
+    {
+     "bbox": [
+      46.44,
+      309.24,
+      66.96,
+      316.08
+     ],
+     "text": "2600"
+    },
+    {
+     "bbox": [
+      45.72,
+      318.96,
+      496.08,
+      327.6
+     ],
+     "text": "John Fennel; QLD Department of Primary Industry Tasmania, PO Box 303, Devonport, TAS 7310; 004 240 233"
+    },
+    {
+     "bbox": [
+      46.44,
+      329.04,
+      414.36,
+      337.68
+     ],
+     "text": "Flemings Nurseries Pty Ltd, Flemings Lane, Monbulk VIC 3793; 03 7566105; Liz Darmody"
+    },
+    {
+     "bbox": [
+      46.44,
+      339.12,
+      521.28,
+      347.76
+     ],
+     "text": "Dr Roger Kirkham, Department of Agriculture and Rural Affairs, Potato Research Station Private Bag, Healesville VIC"
+    },
+    {
+     "bbox": [
+      46.08,
+      349.2,
+      122.4,
+      356.76
+     ],
+     "text": "3630; 059 629218"
+    },
+    {
+     "bbox": [
+      46.08,
+      358.92,
+      438.12,
+      367.56
+     ],
+     "text": "David McDonald, Agrisearch Services Pty Ltd, PO Box 1387, Shepparton VIC 3630; 058 212021"
+    },
+    {
+     "bbox": [
+      46.08,
+      369.0,
+      462.96,
+      378.0
+     ],
+     "text": "Graeme McGregor, Department of Agriculture and Rural Affairs, Potato Research Station, Private Bag,"
+    },
+    {
+     "bbox": [
+      46.44,
+      379.08,
+      185.04,
+      386.64
+     ],
+     "text": "Healesville VIC 3630; 059 629218"
+    },
+    {
+     "bbox": [
+      46.44,
+      388.8,
+      357.48,
+      397.44
+     ],
+     "text": "Dr Geraldine McGuire, PO Box 3230, Loganholme, QLD 4127; 07 801 2929"
+    },
+    {
+     "bbox": [
+      46.44,
+      398.88,
+      522.0,
+      407.16
+     ],
+     "text": "Dr Neville Mendham, Department of Agricultural Science, University of Tasmania, GPO Box 252C, Hobart TAS 7001;"
+    },
+    {
+     "bbox": [
+      45.72,
+      408.6,
+      98.64,
+      415.8
+     ],
+     "text": "002 202 598"
+    },
+    {
+     "bbox": [
+      46.08,
+      418.32,
+      417.6,
+      426.96
+     ],
+     "text": "Les Mitchell, Agrisearch Services Pty Ltd, PO Box 1387, Shepparton VIC 3630; 058 212021"
+    },
+    {
+     "bbox": [
+      46.44,
+      428.04,
+      450.36,
+      436.32
+     ],
+     "text": "Murdoch University, School of Horticulture, Murdoch WA 6150; 09 3322810; Prof John Considine."
+    },
+    {
+     "bbox": [
+      46.44,
+      437.76,
+      457.56,
+      446.76
+     ],
+     "text": "Navy Bean Marketing Board, PO Box 252, Kingaroy QLD 4610; 071 621408/621666; Mr Kerry Heit."
+    },
+    {
+     "bbox": [
+      46.08,
+      447.84,
+      367.2,
+      455.76
+     ],
+     "text": "Paradise Plants, RMB 2117, Kulnura, NSW, 2250; 043 76 1330; lan Paananen"
+    },
+    {
+     "bbox": [
+      46.08,
+      457.92,
+      367.2,
+      466.2
+     ],
+     "text": "Radcliffe and Till; 42 Moss St West Ryde NSW 2114; 02 8046973; Sharon Till."
+    },
+    {
+     "bbox": [
+      46.44,
+      468.36,
+      481.68,
+      476.64
+     ],
+     "text": "Dr Malcolm Ryley, QLD Department of Primary Industries, Tor Street, Toowoomba QLD 4350; 076 314200"
+    },
+    {
+     "bbox": [
+      46.08,
+      478.44,
+      219.96,
+      486.0
+     ],
+     "text": "Robert Boden & Associates, 36 Carstensz"
+    },
+    {
+     "bbox": [
+      46.08,
+      488.16,
+      207.36,
+      496.08
+     ],
+     "text": "Street, Griffith ACT 2603; 06 295 7720;"
+    },
+    {
+     "bbox": [
+      46.08,
+      498.6,
+      101.88,
+      505.44
+     ],
+     "text": "Robert Boden."
+    },
+    {
+     "bbox": [
+      45.72,
+      508.32,
+      497.16,
+      517.32
+     ],
+     "text": "Scholefield Robinson Horticultural Services Pty Ltd, PO Box 145, Kingswood, SA 5062; 08 373 2488, or 364"
+    },
+    {
+     "bbox": [
+      46.08,
+      518.76,
+      199.8,
+      526.68
+     ],
+     "text": "2071; Dr P Scholefield/Dr B Robinson"
+    },
+    {
+     "bbox": [
+      45.36,
+      528.48,
+      219.24,
+      536.04
+     ],
+     "text": "Australian Turf Grass Research Institute ,"
+    },
+    {
+     "bbox": [
+      46.08,
+      538.2,
+      394.56,
+      546.48
+     ],
+     "text": "PO Box 190 Concord West NSW 2138; 02 7361233; lan Mclver/Alexandra Shakesby."
+    },
+    {
+     "bbox": [
+      45.72,
+      547.92,
+      511.56,
+      556.56
+     ],
+     "text": "Turfgrass Technology, PO Box 416 Seaford VIC 3198; 03 786 3300; Terry Woodcock, Michael Rubinson, J Neylan."
+    },
+    {
+     "bbox": [
+      46.44,
+      558.0,
+      513.0,
+      566.64
+     ],
+     "text": "University of Western Sydney, Hawkesbury, Bourke St, Richmond NSW 2753; 045 701333; Robert Spooner-Hart."
+    },
+    {
+     "bbox": [
+      46.08,
+      567.72,
+      311.4,
+      576.0
+     ],
+     "text": "Rob Van Der Staay PO Box 41, Moonah TAS 7009; 002 284 622"
+    },
+    {
+     "bbox": [
+      45.36,
+      577.44,
+      279.36,
+      586.08
+     ],
+     "text": "Jim Webb,86 Johnson Street, Wagga Wagga NSW 2650."
+    },
+    {
+     "bbox": [
+      45.72,
+      587.52,
+      471.24,
+      596.16
+     ],
+     "text": "State Departments of Agriculture and CSIRO may do trials on a fee for service basis for some varieties."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The following organisations are interested in carrying out PVR trials on behalf of applicants \u2014 the PVR Office does\nnot accept any responsibility and is publishing the list for the convenience of applicants.\nlan Aberdeen, Valley Seeds Pty Ltd, RMB 1480, Alexandra Vic 3714; 057 976203\nAgrisearch, PO Box 972 Orange NSW 2800; 063 624539; M J Hood (also at Shepparton, Moree, Ridgehaven,\nMackay, Armidale and Innisfail).\nAgritech, PO Box 549 Toowoomba QLD 4350; 076 384322; Mary Ann Law\nANU Plant Culture Facility, Australian National University, GPO Box 4, Canberra ACT 2601; 06 249 4158; Mr AS\nCarter\nPaul Armitage, 2/84 Shady Grove, Forest Hill VIC 3131;(bh) 03 756 7233; (ah) 03 877 6539\nKeith Bodman, Redlands Horticultural Research Station, PO Box 327, Cleveland QLD 4163; 07 286 1488\nGeoff Butler, Australian Cultivar Registration Authority, National Botanic Gardens, GPO Box 1777,\nCanberra ACT 2601; 06 267 1802\nChivers Computing & Agriculture, 3/258 Koorang Rd Carnegie VIC 3163; 03 5697538; lan Chivers.\nColourwise Nursery, PO Box 162, Glenorie, NSW, 2157; ph 045 666 177, fax 045 666 219; lan Collins\nColourwise Nursery Queensland, PO Box 14, Redlands Bay, OLD 4165; 07 206 8818; Stephen Collins\nJan Dekker, Tesselaar\u2019s Padua Bulb Nurseries, Monbulk Road, Silvan VIC 3795; 03 737 9305\nDr. John Doran, CSIRO, Division of Forestry & Forest Products, PO Box 4008, Queen Victoria Terrace, Canberra ACT\n2600\nJohn Fennel; QLD Department of Primary Industry Tasmania, PO Box 303, Devonport, TAS 7310; 004 240 233\nFlemings Nurseries Pty Ltd, Flemings Lane, Monbulk VIC 3793; 03 7566105; Liz Darmody\nDr Roger Kirkham, Department of Agriculture and Rural Affairs, Potato Research Station Private Bag, Healesville VIC\n3630; 059 629218\nDavid McDonald, Agrisearch Services Pty Ltd, PO Box 1387, Shepparton VIC 3630; 058 212021\nGraeme McGregor, Department of Agriculture and Rural Affairs, Potato Research Station, Private Bag,\nHealesville VIC 3630; 059 629218\nDr Geraldine McGuire, PO Box 3230, Loganholme, QLD 4127; 07 801 2929\nDr Neville Mendham, Department of Agricultural Science, University of Tasmania, GPO Box 252C, Hobart TAS 7001;\n002 202 598\nLes Mitchell, Agrisearch Services Pty Ltd, PO Box 1387, Shepparton VIC 3630; 058 212021\nMurdoch University, School of Horticulture, Murdoch WA 6150; 09 3322810; Prof John Considine.\nNavy Bean Marketing Board, PO Box 252, Kingaroy QLD 4610; 071 621408/621666; Mr Kerry Heit.\nParadise Plants, RMB 2117, Kulnura, NSW, 2250; 043 76 1330; lan Paananen\nRadcliffe and Till; 42 Moss St West Ryde NSW 2114; 02 8046973; Sharon Till.\nDr Malcolm Ryley, QLD Department of Primary Industries, Tor Street, Toowoomba QLD 4350; 076 314200\nRobert Boden & Associates, 36 Carstensz\nStreet, Griffith ACT 2603; 06 295 7720;\nRobert Boden.\nScholefield Robinson Horticultural Services Pty Ltd, PO Box 145, Kingswood, SA 5062; 08 373 2488, or 364\n2071; Dr P Scholefield/Dr B Robinson\nAustralian Turf Grass Research Institute ,\nPO Box 190 Concord West NSW 2138; 02 7361233; lan Mclver/Alexandra Shakesby.\nTurfgrass Technology, PO Box 416 Seaford VIC 3198; 03 786 3300; Terry Woodcock, Michael Rubinson, J Neylan.\nUniversity of Western Sydney, Hawkesbury, Bourke St, Richmond NSW 2753; 045 701333; Robert Spooner-Hart.\nRob Van Der Staay PO Box 41, Moonah TAS 7009; 002 284 622\nJim Webb,86 Johnson Street, Wagga Wagga NSW 2650.\nState Departments of Agriculture and CSIRO may do trials on a fee for service basis for some varieties.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    45.72,
+    612.0,
+    420.12,
+    640.08
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      46.08,
+      612.0,
+      84.24,
+      618.84
+     ],
+     "text": "Overseas"
+    },
+    {
+     "bbox": [
+      45.72,
+      621.72,
+      400.32,
+      630.36
+     ],
+     "text": "GPL International, Lavsenvaenget 18 (Postbox 29) DK Odense V Denmark: J H Selchau"
+    },
+    {
+     "bbox": [
+      46.08,
+      631.44,
+      420.12,
+      640.08
+     ],
+     "text": "M. Rene Royon, Conceil en Licences, 128 Les Bois de Font Merle, 06250, Mougins, France."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Overseas\nGPL International, Lavsenvaenget 18 (Postbox 29) DK Odense V Denmark: J H Selchau\nM. Rene Royon, Conceil en Licences, 128 Les Bois de Font Merle, 06250, Mougins, France.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    46.08,
+    655.56,
+    445.32,
+    673.56
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      46.08,
+      655.56,
+      140.4,
+      664.2
+     ],
+     "text": "Photographic Services"
+    },
+    {
+     "bbox": [
+      46.44,
+      664.92,
+      445.32,
+      673.56
+     ],
+     "text": "Hugh Elgar & Margie Bond, Uki Photography, 7 Sunrise Place, Uki via Murwillumbah NSW 2484"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Photographic Services\nHugh Elgar & Margie Bond, Uki Photography, 7 Sunrise Place, Uki via Murwillumbah NSW 2484",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    536.4,
+    792.0,
+    548.64,
+    800.64
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      536.4,
+      792.0,
+      548.64,
+      800.64
+     ],
+     "text": "25"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "25",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

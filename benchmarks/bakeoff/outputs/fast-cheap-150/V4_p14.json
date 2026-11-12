@@ -1,0 +1,1171 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    43.68,
+    58.56,
+    278.88,
+    148.8
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      45.12,
+      58.56,
+      265.44,
+      69.6
+     ],
+     "text": "\u2018Poorinda Royal Mantle\u2019 is entirely dark green suffused"
+    },
+    {
+     "bbox": [
+      44.64,
+      69.12,
+      273.6,
+      80.16
+     ],
+     "text": "with dark red corresponding to RHS 187A. As the foliage"
+    },
+    {
+     "bbox": [
+      45.12,
+      79.68,
+      252.0,
+      88.8
+     ],
+     "text": "matures, the red colours disappear in both varieties."
+    },
+    {
+     "bbox": [
+      44.64,
+      89.28,
+      276.96,
+      99.36
+     ],
+     "text": "Mature foliage is light green and variegated in \u2018Sunkissed"
+    },
+    {
+     "bbox": [
+      44.16,
+      99.36,
+      252.96,
+      111.84
+     ],
+     "text": "Waters\u2019 but uniformly dark green in \u2018Poorinda Royal"
+    },
+    {
+     "bbox": [
+      44.16,
+      109.44,
+      255.36,
+      119.04
+     ],
+     "text": "Mantle\u2019. The leaves of both are broadly lanceolate to"
+    },
+    {
+     "bbox": [
+      44.16,
+      119.52,
+      255.84,
+      129.6
+     ],
+     "text": "elliptic, with deeply lobed margins on fully-expanded"
+    },
+    {
+     "bbox": [
+      44.16,
+      129.12,
+      278.88,
+      138.72
+     ],
+     "text": "leaves. \u2018Sunkissed Waters\u2019 has shorter leaves and is more"
+    },
+    {
+     "bbox": [
+      43.68,
+      139.2,
+      203.04,
+      148.8
+     ],
+     "text": "branched than \u2018Poorinda Royal Mantle\u2019,"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Poorinda Royal Mantle\u2019 is entirely dark green suffused\nwith dark red corresponding to RHS 187A. As the foliage\nmatures, the red colours disappear in both varieties.\nMature foliage is light green and variegated in \u2018Sunkissed\nWaters\u2019 but uniformly dark green in \u2018Poorinda Royal\nMantle\u2019. The leaves of both are broadly lanceolate to\nelliptic, with deeply lobed margins on fully-expanded\nleaves. \u2018Sunkissed Waters\u2019 has shorter leaves and is more\nbranched than \u2018Poorinda Royal Mantle\u2019,",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    43.2,
+    163.2,
+    246.24,
+    192.0
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      43.2,
+      163.2,
+      88.8,
+      170.4
+     ],
+     "text": "Cultivation"
+    },
+    {
+     "bbox": [
+      43.68,
+      173.28,
+      246.24,
+      182.88
+     ],
+     "text": "\"Sunkissed Waters\u2019 is suited to sub-tropical to cool"
+    },
+    {
+     "bbox": [
+      43.2,
+      183.84,
+      120.0,
+      192.0
+     ],
+     "text": "temperate climates."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Cultivation\n\"Sunkissed Waters\u2019 is suited to sub-tropical to cool\ntemperate climates.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    42.72,
+    215.52,
+    131.52,
+    243.36
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      43.68,
+      215.52,
+      83.04,
+      226.56
+     ],
+     "text": "ROSE"
+    },
+    {
+     "bbox": [
+      42.72,
+      229.92,
+      131.52,
+      243.36
+     ],
+     "text": "(Rosa hybrida)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ROSE\n(Rosa hybrida)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    42.24,
+    261.12,
+    271.68,
+    320.16
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      42.72,
+      261.12,
+      161.28,
+      270.24
+     ],
+     "text": "Comparative Growing Trials"
+    },
+    {
+     "bbox": [
+      42.24,
+      271.68,
+      271.68,
+      280.32
+     ],
+     "text": "All characteristics described below are from comparative"
+    },
+    {
+     "bbox": [
+      42.72,
+      281.76,
+      271.2,
+      289.92
+     ],
+     "text": "growing trials conducted at Narre Warren North, Victoria."
+    },
+    {
+     "bbox": [
+      42.72,
+      291.36,
+      249.12,
+      300.0
+     ],
+     "text": "Twenty plants of each variety were planted out into"
+    },
+    {
+     "bbox": [
+      42.72,
+      301.44,
+      252.0,
+      310.56
+     ],
+     "text": "commercial beds in January 1991 and grown under"
+    },
+    {
+     "bbox": [
+      42.72,
+      312.0,
+      237.12,
+      320.16
+     ],
+     "text": "commercial conditions and management regime."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials\nAll characteristics described below are from comparative\ngrowing trials conducted at Narre Warren North, Victoria.\nTwenty plants of each variety were planted out into\ncommercial beds in January 1991 and grown under\ncommercial conditions and management regime.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    41.28,
+    365.76,
+    277.92,
+    423.36
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      75.84,
+      365.76,
+      238.08,
+      374.4
+     ],
+     "text": "\u2018Remember Me\u2019 (Synonym: \u2018Cocdestin\u2019)"
+    },
+    {
+     "bbox": [
+      41.76,
+      375.84,
+      136.8,
+      384.0
+     ],
+     "text": "Application No, 90/034"
+    },
+    {
+     "bbox": [
+      41.76,
+      385.92,
+      201.12,
+      394.56
+     ],
+     "text": "Application received: 19 February 1990"
+    },
+    {
+     "bbox": [
+      41.28,
+      395.52,
+      275.04,
+      403.68
+     ],
+     "text": "Applicant: James Cocker & Sons, of Aberdeen, Scotland."
+    },
+    {
+     "bbox": [
+      41.28,
+      405.6,
+      277.92,
+      414.24
+     ],
+     "text": "Australian Agent: S Brundrett & Sons (Roses) Pty Ltd, of"
+    },
+    {
+     "bbox": [
+      41.76,
+      415.2,
+      157.92,
+      423.36
+     ],
+     "text": "Narre Warren North, Victoria"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Remember Me\u2019 (Synonym: \u2018Cocdestin\u2019)\nApplication No, 90/034\nApplication received: 19 February 1990\nApplicant: James Cocker & Sons, of Aberdeen, Scotland.\nAustralian Agent: S Brundrett & Sons (Roses) Pty Ltd, of\nNarre Warren North, Victoria",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    41.28,
+    601.44,
+    271.68,
+    629.28
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      41.76,
+      601.44,
+      270.24,
+      609.6
+     ],
+     "text": "\"Remember Me\u2019 (Cocdestin) (left), \u2018Anne Marie Treschlin\u2019"
+    },
+    {
+     "bbox": [
+      41.28,
+      611.52,
+      271.68,
+      620.16
+     ],
+     "text": "(middle), and \u2018Royal Dane\u2019 (right) (Photograph supplied by"
+    },
+    {
+     "bbox": [
+      41.28,
+      621.12,
+      80.16,
+      629.28
+     ],
+     "text": "applicant)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\"Remember Me\u2019 (Cocdestin) (left), \u2018Anne Marie Treschlin\u2019\n(middle), and \u2018Royal Dane\u2019 (right) (Photograph supplied by\napplicant)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    40.8,
+    649.92,
+    276.48,
+    726.72
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      41.28,
+      649.92,
+      82.08,
+      658.08
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      41.28,
+      660.0,
+      261.6,
+      667.2
+     ],
+     "text": "\u201cRemember Me\u2019 (Cocdestin) is a russet shrub rose. It is"
+    },
+    {
+     "bbox": [
+      40.8,
+      669.6,
+      276.48,
+      678.24
+     ],
+     "text": "distinct from other known varieties in having the following"
+    },
+    {
+     "bbox": [
+      40.8,
+      679.68,
+      262.08,
+      687.84
+     ],
+     "text": "combination of characters: pointed buds; large flowers;"
+    },
+    {
+     "bbox": [
+      41.28,
+      689.76,
+      265.44,
+      697.44
+     ],
+     "text": "very strong sepal extensions; small pitcher shaped seed"
+    },
+    {
+     "bbox": [
+      40.8,
+      699.36,
+      258.24,
+      707.52
+     ],
+     "text": "vessel; yellow stamen filaments and strong fragrance;"
+    },
+    {
+     "bbox": [
+      41.28,
+      708.96,
+      263.04,
+      717.12
+     ],
+     "text": "narrow terminal leaflet in ratio to its length and a short"
+    },
+    {
+     "bbox": [
+      41.28,
+      718.56,
+      140.64,
+      726.72
+     ],
+     "text": "terminal leaflet petiolule."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\n\u201cRemember Me\u2019 (Cocdestin) is a russet shrub rose. It is\ndistinct from other known varieties in having the following\ncombination of characters: pointed buds; large flowers;\nvery strong sepal extensions; small pitcher shaped seed\nvessel; yellow stamen filaments and strong fragrance;\nnarrow terminal leaflet in ratio to its length and a short\nterminal leaflet petiolule.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    40.8,
+    742.08,
+    275.04,
+    768.96
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      40.8,
+      742.08,
+      166.08,
+      750.24
+     ],
+     "text": "Varieties used for comparison"
+    },
+    {
+     "bbox": [
+      41.28,
+      752.16,
+      275.04,
+      760.8
+     ],
+     "text": "\u2018Royal Dane\u2019 and \u2018Anne Marie Treschlin\u2019 being the closest"
+    },
+    {
+     "bbox": [
+      41.28,
+      762.24,
+      104.16,
+      768.96
+     ],
+     "text": "known varieties."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comparison\n\u2018Royal Dane\u2019 and \u2018Anne Marie Treschlin\u2019 being the closest\nknown varieties.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    310.56,
+    61.92,
+    546.24,
+    119.52
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      311.04,
+      61.92,
+      336.0,
+      71.04
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      311.04,
+      72.48,
+      516.0,
+      82.56
+     ],
+     "text": "This variety arose from the controlled pollination of"
+    },
+    {
+     "bbox": [
+      311.52,
+      82.56,
+      539.04,
+      93.12
+     ],
+     "text": "\u2018Alexander\u2019 by \u2018Silver Jubilee\u2019in 1979. This seedling was"
+    },
+    {
+     "bbox": [
+      310.56,
+      93.12,
+      514.08,
+      101.28
+     ],
+     "text": "selected on the basis of its colour. \u2018Remember Me\u2019"
+    },
+    {
+     "bbox": [
+      310.56,
+      102.72,
+      546.24,
+      112.8
+     ],
+     "text": "(Cocdestin) has been protected by Plant Breeders Rights in"
+    },
+    {
+     "bbox": [
+      310.56,
+      112.32,
+      372.0,
+      119.52
+     ],
+     "text": "UK since 1984."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\nThis variety arose from the controlled pollination of\n\u2018Alexander\u2019 by \u2018Silver Jubilee\u2019in 1979. This seedling was\nselected on the basis of its colour. \u2018Remember Me\u2019\n(Cocdestin) has been protected by Plant Breeders Rights in\nUK since 1984.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    309.6,
+    135.84,
+    541.92,
+    193.92
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      310.56,
+      135.84,
+      465.12,
+      144.96
+     ],
+     "text": "Morphology \u2014 see comparison tables."
+    },
+    {
+     "bbox": [
+      310.56,
+      145.92,
+      534.24,
+      156.0
+     ],
+     "text": "\u2018Remember Me\u2019 (Cocdestin) is a russet flowered upright"
+    },
+    {
+     "bbox": [
+      310.08,
+      155.52,
+      527.04,
+      165.12
+     ],
+     "text": "shrub rose which differs from \u2018Royal Dane\u2019 and \u2018Anne"
+    },
+    {
+     "bbox": [
+      309.6,
+      165.6,
+      541.92,
+      175.2
+     ],
+     "text": "Marie Treschlin\u2019 in having lighter coloured petals, smaller"
+    },
+    {
+     "bbox": [
+      309.6,
+      175.68,
+      527.04,
+      183.84
+     ],
+     "text": "flowers and narrower terminal leaflets in ratio to their"
+    },
+    {
+     "bbox": [
+      310.08,
+      185.76,
+      336.48,
+      193.92
+     ],
+     "text": "length."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 see comparison tables.\n\u2018Remember Me\u2019 (Cocdestin) is a russet flowered upright\nshrub rose which differs from \u2018Royal Dane\u2019 and \u2018Anne\nMarie Treschlin\u2019 in having lighter coloured petals, smaller\nflowers and narrower terminal leaflets in ratio to their\nlength.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    308.64,
+    210.24,
+    535.68,
+    268.32
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      309.6,
+      210.24,
+      523.2,
+      218.4
+     ],
+     "text": "\u2018Remember Me\u2019 (Cocdestin) is a midseason rose with"
+    },
+    {
+     "bbox": [
+      309.12,
+      220.32,
+      523.68,
+      228.96
+     ],
+     "text": "glossy medium green foliage as is \u2018Royal Dane\u2019 while"
+    },
+    {
+     "bbox": [
+      309.6,
+      229.92,
+      535.68,
+      239.52
+     ],
+     "text": "\u2018Anne Marie Treschlin\u2019 is an early flowering variety with"
+    },
+    {
+     "bbox": [
+      308.64,
+      240.48,
+      532.8,
+      249.12
+     ],
+     "text": "dull dark green foliage. \u2018Remember Me\u2019 (Cocdestin) and"
+    },
+    {
+     "bbox": [
+      309.6,
+      250.08,
+      533.76,
+      258.72
+     ],
+     "text": "\u2018Anne Marie Treschlin\u2019 both have yellow stamens while"
+    },
+    {
+     "bbox": [
+      309.6,
+      260.16,
+      444.96,
+      268.32
+     ],
+     "text": "\u2018Royal Dane\u2019 has bronze stamens."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Remember Me\u2019 (Cocdestin) is a midseason rose with\nglossy medium green foliage as is \u2018Royal Dane\u2019 while\n\u2018Anne Marie Treschlin\u2019 is an early flowering variety with\ndull dark green foliage. \u2018Remember Me\u2019 (Cocdestin) and\n\u2018Anne Marie Treschlin\u2019 both have yellow stamens while\n\u2018Royal Dane\u2019 has bronze stamens.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    308.64,
+    316.8,
+    504.48,
+    339.36
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      308.64,
+      316.8,
+      504.48,
+      328.32
+     ],
+     "text": "Table of Comparison of Rose Varieties"
+    },
+    {
+     "bbox": [
+      308.64,
+      331.2,
+      448.8,
+      339.36
+     ],
+     "text": "(* = varieties used for comparison)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Rose Varieties\n(* = varieties used for comparison)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    307.68,
+    359.04,
+    531.36,
+    566.4
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      368.16,
+      359.04,
+      531.36,
+      372.0
+     ],
+     "text": "\u2018Cocdestin\u2019 * \"Royal * \u2018Anne Marie"
+    },
+    {
+     "bbox": [
+      367.2,
+      371.04,
+      517.92,
+      379.2
+     ],
+     "text": "{Remember Me} Dane\u201d Treschlin\u2019"
+    },
+    {
+     "bbox": [
+      308.16,
+      386.4,
+      505.92,
+      398.88
+     ],
+     "text": "BLOOM COLOUR russet russel russet"
+    },
+    {
+     "bbox": [
+      308.16,
+      397.92,
+      499.68,
+      404.64
+     ],
+     "text": "RHS 338 ACB 408"
+    },
+    {
+     "bbox": [
+      308.16,
+      408.0,
+      360.0,
+      414.72
+     ],
+     "text": "midzone outs ce"
+    },
+    {
+     "bbox": [
+      308.16,
+      417.6,
+      500.16,
+      424.32
+     ],
+     "text": "RHS 338 408 408"
+    },
+    {
+     "bbox": [
+      308.16,
+      427.68,
+      355.2,
+      433.92
+     ],
+     "text": "midzone inside"
+    },
+    {
+     "bbox": [
+      308.16,
+      437.28,
+      440.64,
+      444.0
+     ],
+     "text": "RHS 24h 4298"
+    },
+    {
+     "bbox": [
+      308.16,
+      447.84,
+      355.2,
+      455.52
+     ],
+     "text": "margin outside"
+    },
+    {
+     "bbox": [
+      308.16,
+      456.96,
+      499.68,
+      463.68
+     ],
+     "text": "RHS 33K 40 40B"
+    },
+    {
+     "bbox": [
+      308.16,
+      468.48,
+      350.4,
+      475.2
+     ],
+     "text": "margin inside"
+    },
+    {
+     "bbox": [
+      308.16,
+      477.12,
+      500.16,
+      483.84
+     ],
+     "text": "RHS 28a 40B 408"
+    },
+    {
+     "bbox": [
+      308.16,
+      491.04,
+      372.0,
+      498.24
+     ],
+     "text": "FLOWER DIAMETER"
+    },
+    {
+     "bbox": [
+      307.68,
+      499.2,
+      520.32,
+      512.64
+     ],
+     "text": "mean 108 5 mm 121.2mm 124. 2mm"
+    },
+    {
+     "bbox": [
+      308.16,
+      509.76,
+      524.16,
+      522.72
+     ],
+     "text": "range 99-115 100 \u2014 137 113 \u2014 139"
+    },
+    {
+     "bbox": [
+      307.68,
+      521.76,
+      496.8,
+      528.48
+     ],
+     "text": "std. deviation 34 94 72"
+    },
+    {
+     "bbox": [
+      307.68,
+      535.2,
+      506.4,
+      543.36
+     ],
+     "text": "STAMEN COLOUR yellow bronze yellow"
+    },
+    {
+     "bbox": [
+      307.68,
+      549.12,
+      520.32,
+      557.28
+     ],
+     "text": "STYLE COLOUR red-green yellow-green green vath"
+    },
+    {
+     "bbox": [
+      487.2,
+      559.68,
+      506.88,
+      566.4
+     ],
+     "text": "red tp"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Cocdestin\u2019 * \"Royal * \u2018Anne Marie\n{Remember Me} Dane\u201d Treschlin\u2019\nBLOOM COLOUR russet russel russet\nRHS 338 ACB 408\nmidzone outs ce\nRHS 338 408 408\nmidzone inside\nRHS 24h 4298\nmargin outside\nRHS 33K 40 40B\nmargin inside\nRHS 28a 40B 408\nFLOWER DIAMETER\nmean 108 5 mm 121.2mm 124. 2mm\nrange 99-115 100 \u2014 137 113 \u2014 139\nstd. deviation 34 94 72\nSTAMEN COLOUR yellow bronze yellow\nSTYLE COLOUR red-green yellow-green green vath\nred tp",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    307.68,
+    572.64,
+    520.32,
+    631.2
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      308.16,
+      572.64,
+      403.2,
+      579.36
+     ],
+     "text": "FLOWERING TIME mid season"
+    },
+    {
+     "bbox": [
+      308.16,
+      586.08,
+      408.48,
+      593.76
+     ],
+     "text": "LEAF GLOSSINESS {upper side)"
+    },
+    {
+     "bbox": [
+      367.2,
+      596.64,
+      496.32,
+      604.32
+     ],
+     "text": "glossy glossy dul!"
+    },
+    {
+     "bbox": [
+      308.16,
+      610.08,
+      520.32,
+      618.24
+     ],
+     "text": "LEAF COLOUR medium green \u2014mediumagreen dark green"
+    },
+    {
+     "bbox": [
+      307.68,
+      624.0,
+      398.88,
+      631.2
+     ],
+     "text": "TERMINAL LEAFLET LENGTH"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "FLOWERING TIME mid season\nLEAF GLOSSINESS {upper side)\nglossy glossy dul!\nLEAF COLOUR medium green \u2014mediumagreen dark green\nTERMINAL LEAFLET LENGTH",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    427.68,
+    573.12,
+    501.6,
+    580.32
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      427.68,
+      573.12,
+      501.6,
+      580.32
+     ],
+     "text": "mid season early"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "mid season early",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    307.2,
+    633.6,
+    516.0,
+    765.12
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      307.68,
+      633.6,
+      516.0,
+      640.8
+     ],
+     "text": "mean 742mm 684mm 769mm"
+    },
+    {
+     "bbox": [
+      307.68,
+      644.16,
+      515.04,
+      652.8
+     ],
+     "text": "range 57-91 50 \u2014 88 46 \u2014 92"
+    },
+    {
+     "bbox": [
+      307.68,
+      653.76,
+      501.6,
+      660.96
+     ],
+     "text": "sid devaticn 104 109 150"
+    },
+    {
+     "bbox": [
+      307.2,
+      667.68,
+      395.52,
+      674.4
+     ],
+     "text": "TERMINAL LEAFLET WIDTH"
+    },
+    {
+     "bbox": [
+      307.68,
+      677.28,
+      515.52,
+      684.48
+     ],
+     "text": "mean 43.5 mm \u00a342. mm 529 mm"
+    },
+    {
+     "bbox": [
+      307.68,
+      687.36,
+      515.04,
+      695.52
+     ],
+     "text": "range 37-61 43-61 45-67"
+    },
+    {
+     "bbox": [
+      307.2,
+      696.96,
+      496.8,
+      703.68
+     ],
+     "text": "sid deviation 56 60 67"
+    },
+    {
+     "bbox": [
+      307.68,
+      710.88,
+      334.56,
+      717.12
+     ],
+     "text": "PEDICEL"
+    },
+    {
+     "bbox": [
+      307.68,
+      720.48,
+      497.76,
+      727.2
+     ],
+     "text": "PRICKLES few absent fow"
+    },
+    {
+     "bbox": [
+      307.68,
+      734.4,
+      506.4,
+      742.56
+     ],
+     "text": "FRAGRANCE strong medium strong"
+    },
+    {
+     "bbox": [
+      307.68,
+      747.84,
+      393.6,
+      755.04
+     ],
+     "text": "NUMBER OF TRUEPETALS"
+    },
+    {
+     "bbox": [
+      367.68,
+      757.92,
+      500.64,
+      765.12
+     ],
+     "text": "26 \u201450 26 \u2014 50 >50"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "mean 742mm 684mm 769mm\nrange 57-91 50 \u2014 88 46 \u2014 92\nsid devaticn 104 109 150\nTERMINAL LEAFLET WIDTH\nmean 43.5 mm \u00a342. mm 529 mm\nrange 37-61 43-61 45-67\nsid deviation 56 60 67\nPEDICEL\nPRICKLES few absent fow\nFRAGRANCE strong medium strong\nNUMBER OF TRUEPETALS\n26 \u201450 26 \u2014 50 >50",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    41.28,
+    794.4,
+    72.0,
+    803.04
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      41.28,
+      794.4,
+      72.0,
+      803.04
+     ],
+     "text": "V2 a"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "V2 a",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

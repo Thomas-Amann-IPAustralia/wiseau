@@ -1,0 +1,795 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    81.0,
+    80.28,
+    369.0,
+    99.0
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      81.36,
+      80.28,
+      369.0,
+      88.2
+     ],
+     "text": "PROPOSED SCHEDULE FOR INCLUDING GENERA/SPECIES IN"
+    },
+    {
+     "bbox": [
+      81.0,
+      91.08,
+      291.6,
+      99.0
+     ],
+     "text": "THE PLANT VARIETY RIGHTS REGULATIONS"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PROPOSED SCHEDULE FOR INCLUDING GENERA/SPECIES IN\nTHE PLANT VARIETY RIGHTS REGULATIONS",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    79.2,
+    127.08,
+    511.2,
+    714.24
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      81.0,
+      127.08,
+      496.08,
+      132.48
+     ],
+     "text": "PLANT GROUP APRIL 88 JULY 88 JAN 89 JULY 89 MARCH 90"
+    },
+    {
+     "bbox": [
+      81.0,
+      140.76,
+      358.2,
+      146.52
+     ],
+     "text": "STONE FRUIT Prunus All Stone Fruit"
+    },
+    {
+     "bbox": [
+      80.64,
+      150.84,
+      264.24,
+      156.6
+     ],
+     "text": "CITRUS All Citrus"
+    },
+    {
+     "bbox": [
+      80.64,
+      159.48,
+      351.0,
+      169.2
+     ],
+     "text": "OTHER FRUIT Malus (apple) Fragaria Pyrus (pear)"
+    },
+    {
+     "bbox": [
+      239.04,
+      165.96,
+      340.56,
+      175.68
+     ],
+     "text": "(strawberry) Actinidia"
+    },
+    {
+     "bbox": [
+      235.08,
+      174.6,
+      486.36,
+      181.44
+     ],
+     "text": "Vitis (grape) (kiwifruit) All Fruit"
+    },
+    {
+     "bbox": [
+      235.08,
+      181.44,
+      290.16,
+      188.28
+     ],
+     "text": "Carica (paw paw)"
+    },
+    {
+     "bbox": [
+      235.08,
+      188.28,
+      292.68,
+      195.12
+     ],
+     "text": "Rubus (raspberry)"
+    },
+    {
+     "bbox": [
+      235.08,
+      195.48,
+      291.96,
+      200.88
+     ],
+     "text": "Persea americana"
+    },
+    {
+     "bbox": [
+      239.04,
+      201.96,
+      270.36,
+      208.08
+     ],
+     "text": "(avocado)"
+    },
+    {
+     "bbox": [
+      80.28,
+      210.6,
+      435.24,
+      220.32
+     ],
+     "text": "VEGETABLES Phaseolus vulgaris Solanum tuberosum = Allium cepa All vegetables"
+    },
+    {
+     "bbox": [
+      161.64,
+      218.88,
+      338.76,
+      225.36
+     ],
+     "text": "(bean) (potato) (onion)"
+    },
+    {
+     "bbox": [
+      235.08,
+      224.64,
+      357.84,
+      234.0
+     ],
+     "text": "Lycopersicon Daucus carota"
+    },
+    {
+     "bbox": [
+      235.08,
+      231.12,
+      339.48,
+      241.92
+     ],
+     "text": "(tomato) (carrot)"
+    },
+    {
+     "bbox": [
+      235.08,
+      239.76,
+      338.76,
+      245.52
+     ],
+     "text": "Lactuca sativa Brassica"
+    },
+    {
+     "bbox": [
+      238.68,
+      245.16,
+      343.08,
+      255.96
+     ],
+     "text": "(lettuce) oleracea"
+    },
+    {
+     "bbox": [
+      235.08,
+      254.16,
+      347.4,
+      260.64
+     ],
+     "text": "Pisum (pea) (cabbage,"
+    },
+    {
+     "bbox": [
+      315.72,
+      261.0,
+      365.04,
+      267.12
+     ],
+     "text": "cauliflower etc)"
+    },
+    {
+     "bbox": [
+      80.64,
+      270.0,
+      413.64,
+      279.72
+     ],
+     "text": "NUTS Macadamia Prunus amygdalus Juglans All nuts"
+    },
+    {
+     "bbox": [
+      238.68,
+      276.12,
+      342.36,
+      286.92
+     ],
+     "text": "(almond) (walnut)"
+    },
+    {
+     "bbox": [
+      80.28,
+      286.92,
+      426.24,
+      296.28
+     ],
+     "text": "HERBAGE AND Phalaris Lolium (ryegrass) Dactylus All herbage"
+    },
+    {
+     "bbox": [
+      83.88,
+      293.76,
+      444.6,
+      303.12
+     ],
+     "text": "TURF GRASS. Agrostis (bent) (cocksfoot) and turf grasses"
+    },
+    {
+     "bbox": [
+      235.08,
+      302.04,
+      337.32,
+      308.16
+     ],
+     "text": "Festuca (tall Bromus"
+    },
+    {
+     "bbox": [
+      238.32,
+      307.44,
+      329.4,
+      318.24
+     ],
+     "text": "fescue) Lotus"
+    },
+    {
+     "bbox": [
+      234.36,
+      315.72,
+      343.44,
+      322.56
+     ],
+     "text": "Cynodon (bermuda Paspalum"
+    },
+    {
+     "bbox": [
+      238.32,
+      322.92,
+      257.76,
+      329.76
+     ],
+     "text": "grass)"
+    },
+    {
+     "bbox": [
+      234.36,
+      329.76,
+      255.24,
+      336.24
+     ],
+     "text": "Zoysia"
+    },
+    {
+     "bbox": [
+      234.72,
+      336.6,
+      281.16,
+      343.08
+     ],
+     "text": "Stenotaphrum"
+    },
+    {
+     "bbox": [
+      79.92,
+      346.32,
+      426.24,
+      353.16
+     ],
+     "text": "OILSEEDS Brassica sp Glycine max Sesamum indicum All oilseeds"
+    },
+    {
+     "bbox": [
+      160.92,
+      351.72,
+      344.52,
+      361.8
+     ],
+     "text": "(oilseeds) (soybean) (sesame)"
+    },
+    {
+     "bbox": [
+      160.92,
+      360.0,
+      347.4,
+      366.84
+     ],
+     "text": "(rape, mustard etc) Helianthus annuus Carthamus"
+    },
+    {
+     "bbox": [
+      234.72,
+      365.4,
+      345.96,
+      375.48
+     ],
+     "text": "(sunflower) tinctorius"
+    },
+    {
+     "bbox": [
+      315.72,
+      373.68,
+      350.28,
+      379.8
+     ],
+     "text": "(safflower)"
+    },
+    {
+     "bbox": [
+      312.12,
+      380.88,
+      331.56,
+      386.64
+     ],
+     "text": "Linum"
+    },
+    {
+     "bbox": [
+      315.72,
+      388.08,
+      361.08,
+      393.48
+     ],
+     "text": "usitatissimum"
+    },
+    {
+     "bbox": [
+      315.72,
+      394.92,
+      343.08,
+      401.04
+     ],
+     "text": "(linseed)"
+    },
+    {
+     "bbox": [
+      79.92,
+      405.36,
+      423.72,
+      411.84
+     ],
+     "text": "PASTURE AND Trifolium (clover) Lupinus All pasture"
+    },
+    {
+     "bbox": [
+      83.88,
+      411.12,
+      423.0,
+      420.84
+     ],
+     "text": "GRAIN LEGUMES Desmanthus and grain"
+    },
+    {
+     "bbox": [
+      234.72,
+      417.96,
+      420.84,
+      427.68
+     ],
+     "text": "Medicago Vigna (mungbean) legumes"
+    },
+    {
+     "bbox": [
+      234.36,
+      424.8,
+      360.72,
+      434.52
+     ],
+     "text": "Ornithopus Cicer arietinum"
+    },
+    {
+     "bbox": [
+      238.32,
+      432.0,
+      348.12,
+      441.72
+     ],
+     "text": "(serradella) (chickpea)"
+    },
+    {
+     "bbox": [
+      234.36,
+      438.84,
+      344.52,
+      448.2
+     ],
+     "text": "Stylosanthes Indigofera"
+    },
+    {
+     "bbox": [
+      79.56,
+      448.56,
+      490.68,
+      458.28
+     ],
+     "text": "GRAINS Setaria Hordeum (barley) All grains"
+    },
+    {
+     "bbox": [
+      234.0,
+      457.2,
+      349.92,
+      462.96
+     ],
+     "text": "Avena (oats) Pennisetum"
+    },
+    {
+     "bbox": [
+      234.36,
+      463.68,
+      356.04,
+      470.52
+     ],
+     "text": "Panicum (pear! millet)"
+    },
+    {
+     "bbox": [
+      234.36,
+      470.88,
+      341.64,
+      477.36
+     ],
+     "text": "Pisum (pea) Sorghum"
+    },
+    {
+     "bbox": [
+      234.0,
+      477.72,
+      285.48,
+      484.2
+     ],
+     "text": "Zea mays (corn)"
+    },
+    {
+     "bbox": [
+      79.56,
+      486.0,
+      490.32,
+      495.72
+     ],
+     "text": "AUST. NATIVE Anigozanthus Grevillea Macropidia Boronia All native"
+    },
+    {
+     "bbox": [
+      79.56,
+      492.84,
+      505.08,
+      502.56
+     ],
+     "text": "ORNAMENTALS (Kangaroo paw) Chamelaucium (Black Kangaroo Banksia ornamentals"
+    },
+    {
+     "bbox": [
+      237.96,
+      501.12,
+      424.08,
+      507.24
+     ],
+     "text": "{Geraldton wax) Paw) Verticordia"
+    },
+    {
+     "bbox": [
+      234.36,
+      506.88,
+      417.6,
+      516.6
+     ],
+     "text": "Lechenaultia Piper Darwinia"
+    },
+    {
+     "bbox": [
+      232.92,
+      513.36,
+      414.36,
+      524.16
+     ],
+     "text": "Melaleuca Callistemon Pimelea"
+    },
+    {
+     "bbox": [
+      234.36,
+      522.0,
+      355.32,
+      528.48
+     ],
+     "text": "Decaspermum Thryptomene"
+    },
+    {
+     "bbox": [
+      234.0,
+      527.4,
+      336.96,
+      537.12
+     ],
+     "text": "Artanema Telopea"
+    },
+    {
+     "bbox": [
+      311.76,
+      536.04,
+      341.28,
+      542.52
+     ],
+     "text": "Dryandra"
+    },
+    {
+     "bbox": [
+      79.56,
+      543.96,
+      511.2,
+      554.4
+     ],
+     "text": "OTHER Rosa (Rose) Orchids Rhipsalis Hemerocallis Alt ornamentals"
+    },
+    {
+     "bbox": [
+      83.16,
+      552.96,
+      432.72,
+      559.8
+     ],
+     "text": "ORNAMENTALS {all genera) Kalanchoe Bougainvillea"
+    },
+    {
+     "bbox": [
+      234.36,
+      558.72,
+      399.96,
+      568.44
+     ],
+     "text": "Dianthus Euphorbia Nex"
+    },
+    {
+     "bbox": [
+      237.96,
+      567.0,
+      351.72,
+      573.12
+     ],
+     "text": "(carnation) (Poinsettia)"
+    },
+    {
+     "bbox": [
+      232.2,
+      572.76,
+      365.4,
+      582.84
+     ],
+     "text": "Alstroemeria Chrysanthemum"
+    },
+    {
+     "bbox": [
+      234.0,
+      579.6,
+      354.24,
+      588.96
+     ],
+     "text": "Schlumbergera Zantedeschia"
+    },
+    {
+     "bbox": [
+      237.96,
+      586.08,
+      335.88,
+      596.16
+     ],
+     "text": "(Zygocactus) Cuphea"
+    },
+    {
+     "bbox": [
+      234.36,
+      594.72,
+      344.16,
+      601.56
+     ],
+     "text": "Lilium (Lily) Limonium"
+    },
+    {
+     "bbox": [
+      234.36,
+      600.48,
+      357.48,
+      609.84
+     ],
+     "text": "Metrosideros Cyphomandra"
+    },
+    {
+     "bbox": [
+      237.96,
+      608.4,
+      357.12,
+      614.88
+     ],
+     "text": "carminea Streptocarpus"
+    },
+    {
+     "bbox": [
+      234.36,
+      614.16,
+      343.08,
+      623.52
+     ],
+     "text": "Freesia Impatiens"
+    },
+    {
+     "bbox": [
+      234.36,
+      622.08,
+      343.08,
+      628.56
+     ],
+     "text": "Rhododendron Cyclamen"
+    },
+    {
+     "bbox": [
+      234.36,
+      627.84,
+      337.68,
+      637.56
+     ],
+     "text": "Gerbera Begonia"
+    },
+    {
+     "bbox": [
+      311.4,
+      635.76,
+      347.4,
+      641.16
+     ],
+     "text": "Achimenes"
+    },
+    {
+     "bbox": [
+      311.4,
+      642.6,
+      336.6,
+      649.08
+     ],
+     "text": "Choysia"
+    },
+    {
+     "bbox": [
+      79.56,
+      651.6,
+      495.72,
+      661.32
+     ],
+     "text": "FORESTRY Eucalyptus Pinus All forestry"
+    },
+    {
+     "bbox": [
+      311.4,
+      659.52,
+      332.28,
+      664.92
+     ],
+     "text": "Acacia"
+    },
+    {
+     "bbox": [
+      311.4,
+      666.36,
+      343.44,
+      672.12
+     ],
+     "text": "Casuarina"
+    },
+    {
+     "bbox": [
+      79.2,
+      675.0,
+      494.28,
+      684.72
+     ],
+     "text": "OTHER Gossypium Duboisia Humulus All species"
+    },
+    {
+     "bbox": [
+      156.96,
+      683.64,
+      416.52,
+      690.12
+     ],
+     "text": "(cotton) lupulus"
+    },
+    {
+     "bbox": [
+      79.56,
+      693.72,
+      335.52,
+      699.48
+     ],
+     "text": "PROPOSED Arachis"
+    },
+    {
+     "bbox": [
+      79.2,
+      699.48,
+      352.44,
+      709.92
+     ],
+     "text": "ADDITIONS Bothriochloa"
+    },
+    {
+     "bbox": [
+      311.4,
+      707.76,
+      350.64,
+      714.24
+     ],
+     "text": "Agapanthus"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PLANT GROUP APRIL 88 JULY 88 JAN 89 JULY 89 MARCH 90\nSTONE FRUIT Prunus All Stone Fruit\nCITRUS All Citrus\nOTHER FRUIT Malus (apple) Fragaria Pyrus (pear)\n(strawberry) Actinidia\nVitis (grape) (kiwifruit) All Fruit\nCarica (paw paw)\nRubus (raspberry)\nPersea americana\n(avocado)\nVEGETABLES Phaseolus vulgaris Solanum tuberosum = Allium cepa All vegetables\n(bean) (potato) (onion)\nLycopersicon Daucus carota\n(tomato) (carrot)\nLactuca sativa Brassica\n(lettuce) oleracea\nPisum (pea) (cabbage,\ncauliflower etc)\nNUTS Macadamia Prunus amygdalus Juglans All nuts\n(almond) (walnut)\nHERBAGE AND Phalaris Lolium (ryegrass) Dactylus All herbage\nTURF GRASS. Agrostis (bent) (cocksfoot) and turf grasses\nFestuca (tall Bromus\nfescue) Lotus\nCynodon (bermuda Paspalum\ngrass)\nZoysia\nStenotaphrum\nOILSEEDS Brassica sp Glycine max Sesamum indicum All oilseeds\n(oilseeds) (soybean) (sesame)\n(rape, mustard etc) Helianthus annuus Carthamus\n(sunflower) tinctorius\n(safflower)\nLinum\nusitatissimum\n(linseed)\nPASTURE AND Trifolium (clover) Lupinus All pasture\nGRAIN LEGUMES Desmanthus and grain\nMedicago Vigna (mungbean) legumes\nOrnithopus Cicer arietinum\n(serradella) (chickpea)\nStylosanthes Indigofera\nGRAINS Setaria Hordeum (barley) All grains\nAvena (oats) Pennisetum\nPanicum (pear! millet)\nPisum (pea) Sorghum\nZea mays (corn)\nAUST. NATIVE Anigozanthus Grevillea Macropidia Boronia All native\nORNAMENTALS (Kangaroo paw) Chamelaucium (Black Kangaroo Banksia ornamentals\n{Geraldton wax) Paw) Verticordia\nLechenaultia Piper Darwinia\nMelaleuca Callistemon Pimelea\nDecaspermum Thryptomene\nArtanema Telopea\nDryandra\nOTHER Rosa (Rose) Orchids Rhipsalis Hemerocallis Alt ornamentals\nORNAMENTALS {all genera) Kalanchoe Bougainvillea\nDianthus Euphorbia Nex\n(carnation) (Poinsettia)\nAlstroemeria Chrysanthemum\nSchlumbergera Zantedeschia\n(Zygocactus) Cuphea\nLilium (Lily) Limonium\nMetrosideros Cyphomandra\ncarminea Streptocarpus\nFreesia Impatiens\nRhododendron Cyclamen\nGerbera Begonia\nAchimenes\nChoysia\nFORESTRY Eucalyptus Pinus All forestry\nAcacia\nCasuarina\nOTHER Gossypium Duboisia Humulus All species\n(cotton) lupulus\nPROPOSED Arachis\nADDITIONS Bothriochloa\nAgapanthus",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    79.92,
+    785.16,
+    88.56,
+    791.64
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      79.92,
+      785.16,
+      88.56,
+      791.64
+     ],
+     "text": "14"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "14",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    594.0,
+    841.44
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

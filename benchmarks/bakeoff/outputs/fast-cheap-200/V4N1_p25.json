@@ -1,0 +1,1356 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    47.88,
+    53.28,
+    285.48,
+    130.68
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      48.24,
+      53.28,
+      261.0,
+      62.64
+     ],
+     "text": "per petiole, leaflets are absent and no anthocyanin is"
+    },
+    {
+     "bbox": [
+      48.24,
+      63.36,
+      257.4,
+      72.36
+     ],
+     "text": "present. The white flowers appear moderately early,"
+    },
+    {
+     "bbox": [
+      48.6,
+      73.44,
+      280.08,
+      82.44
+     ],
+     "text": "lasting only a short period. The pods of \u2018Bluey\u2019 are slightly"
+    },
+    {
+     "bbox": [
+      48.24,
+      83.16,
+      268.56,
+      91.8
+     ],
+     "text": "curved and mostly with an obtuse angled point. \u2018Bluey\u2019"
+    },
+    {
+     "bbox": [
+      47.88,
+      92.88,
+      265.68,
+      101.88
+     ],
+     "text": "differs from \u2018Dinkum\u2019 by having green cotyledons, and"
+    },
+    {
+     "bbox": [
+      48.24,
+      102.6,
+      277.92,
+      111.6
+     ],
+     "text": "from \u2018Buckley\u2019 by being semi-leafless, semi-dwarf and by"
+    },
+    {
+     "bbox": [
+      48.6,
+      112.68,
+      285.48,
+      121.68
+     ],
+     "text": "having larger seeds. The seeds of \u2018Bluey\u2019 are globose, have"
+    },
+    {
+     "bbox": [
+      48.6,
+      122.76,
+      225.36,
+      130.68
+     ],
+     "text": "a white seed coat and an occasional dimple."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "per petiole, leaflets are absent and no anthocyanin is\npresent. The white flowers appear moderately early,\nlasting only a short period. The pods of \u2018Bluey\u2019 are slightly\ncurved and mostly with an obtuse angled point. \u2018Bluey\u2019\ndiffers from \u2018Dinkum\u2019 by having green cotyledons, and\nfrom \u2018Buckley\u2019 by being semi-leafless, semi-dwarf and by\nhaving larger seeds. The seeds of \u2018Bluey\u2019 are globose, have\na white seed coat and an occasional dimple.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    48.24,
+    138.96,
+    276.48,
+    166.68
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      48.24,
+      138.96,
+      92.52,
+      146.88
+     ],
+     "text": "Agronomy"
+    },
+    {
+     "bbox": [
+      48.96,
+      147.6,
+      276.48,
+      156.6
+     ],
+     "text": "\u2018Bluey\u2019 is intended for cropping in low to medium rainfall"
+    },
+    {
+     "bbox": [
+      48.24,
+      158.4,
+      157.32,
+      166.68
+     ],
+     "text": "(300-500 mm p.a.) regions."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Agronomy\n\u2018Bluey\u2019 is intended for cropping in low to medium rainfall\n(300-500 mm p.a.) regions.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    48.24,
+    175.68,
+    237.96,
+    198.36
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      48.6,
+      175.68,
+      237.96,
+      187.2
+     ],
+     "text": "Table of Comparison of Pea Varieties"
+    },
+    {
+     "bbox": [
+      48.24,
+      190.08,
+      187.92,
+      198.36
+     ],
+     "text": "(* = varieties used for comparison)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Pea Varieties\n(* = varieties used for comparison)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    47.88,
+    209.52,
+    267.84,
+    611.64
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      96.48,
+      209.52,
+      267.84,
+      218.52
+     ],
+     "text": "\u2018Bluey\u2019 *'Dinkum\u2019 * \u2018Buckley\u2019 * \u2018PSA3\u2019"
+    },
+    {
+     "bbox": [
+      48.6,
+      224.28,
+      96.84,
+      231.12
+     ],
+     "text": "PLANT HEIGHT"
+    },
+    {
+     "bbox": [
+      48.6,
+      233.64,
+      262.44,
+      240.84
+     ],
+     "text": "mean 72.8cm 65.3 cm 116.6 cm 78.0cm"
+    },
+    {
+     "bbox": [
+      48.6,
+      243.72,
+      262.08,
+      252.36
+     ],
+     "text": "range 61-83 34-80 84-148 62-102"
+    },
+    {
+     "bbox": [
+      48.6,
+      253.44,
+      257.4,
+      260.64
+     ],
+     "text": "std deviation 6.64 11.33 14.45 10.57"
+    },
+    {
+     "bbox": [
+      48.6,
+      267.48,
+      119.16,
+      274.32
+     ],
+     "text": "DAYS TO FLOWERING"
+    },
+    {
+     "bbox": [
+      48.6,
+      275.76,
+      257.4,
+      287.28
+     ],
+     "text": "mean 107.0 107.4 101.1 110.4"
+    },
+    {
+     "bbox": [
+      48.6,
+      286.56,
+      266.76,
+      295.56
+     ],
+     "text": "range 104-111 102-112 96-105 106-114"
+    },
+    {
+     "bbox": [
+      48.6,
+      296.64,
+      253.44,
+      303.84
+     ],
+     "text": "std deviation 2.87 2.78 2.74 2.08"
+    },
+    {
+     "bbox": [
+      48.96,
+      311.04,
+      111.96,
+      317.88
+     ],
+     "text": "PEDUNCLE LENGTH"
+    },
+    {
+     "bbox": [
+      48.96,
+      321.12,
+      267.12,
+      327.96
+     ],
+     "text": "mean 69.3 mm 58.0 mm 81.0 mm 72.2 mm"
+    },
+    {
+     "bbox": [
+      48.6,
+      330.84,
+      258.48,
+      339.48
+     ],
+     "text": "range 54-82 42-74 59-105 62-90"
+    },
+    {
+     "bbox": [
+      48.24,
+      340.92,
+      253.08,
+      348.12
+     ],
+     "text": "stddeviation 7.23 7.47 12.98 7.13"
+    },
+    {
+     "bbox": [
+      48.6,
+      355.32,
+      90.72,
+      362.16
+     ],
+     "text": "POD LENGTH"
+    },
+    {
+     "bbox": [
+      48.6,
+      365.04,
+      267.12,
+      371.88
+     ],
+     "text": "mean 70.1 mm 64.3 mm 51.5 mm 69.2 mm"
+    },
+    {
+     "bbox": [
+      48.6,
+      375.12,
+      258.12,
+      383.4
+     ],
+     "text": "range 58-81 57-72 35-62 37-84"
+    },
+    {
+     "bbox": [
+      48.24,
+      384.84,
+      257.04,
+      392.04
+     ],
+     "text": "std deviation 5.77 4.88 8.07 11.32"
+    },
+    {
+     "bbox": [
+      48.6,
+      398.88,
+      86.4,
+      405.36
+     ],
+     "text": "POD WIDTH"
+    },
+    {
+     "bbox": [
+      48.6,
+      408.24,
+      267.12,
+      415.44
+     ],
+     "text": "mean 13.5 mm 12.9mm 12.2 mm 13.2 mm"
+    },
+    {
+     "bbox": [
+      48.6,
+      418.32,
+      258.12,
+      426.6
+     ],
+     "text": "range 12-16 12-14 11-13 11-15"
+    },
+    {
+     "bbox": [
+      48.24,
+      428.04,
+      252.0,
+      435.24
+     ],
+     "text": "stddeviation 0.97 0.79 0.68 1.21"
+    },
+    {
+     "bbox": [
+      48.24,
+      442.08,
+      106.2,
+      448.92
+     ],
+     "text": "OVULES PER POD"
+    },
+    {
+     "bbox": [
+      48.6,
+      452.16,
+      249.12,
+      459.0
+     ],
+     "text": "mean 63 7.3 6.4 68"
+    },
+    {
+     "bbox": [
+      48.24,
+      461.88,
+      249.84,
+      470.52
+     ],
+     "text": "range 5-7 5-9 4-8 5-8"
+    },
+    {
+     "bbox": [
+      48.24,
+      471.96,
+      253.08,
+      479.16
+     ],
+     "text": "stddeviation 0.62 0.89 0.91 1.26"
+    },
+    {
+     "bbox": [
+      48.24,
+      486.0,
+      101.16,
+      492.84
+     ],
+     "text": "SEEDS PER POD"
+    },
+    {
+     "bbox": [
+      48.6,
+      495.72,
+      248.76,
+      502.56
+     ],
+     "text": "mean 43 44 37 42"
+    },
+    {
+     "bbox": [
+      48.6,
+      505.8,
+      249.84,
+      514.08
+     ],
+     "text": "range 3-6 3-6 2-6 1-7"
+    },
+    {
+     "bbox": [
+      48.24,
+      515.88,
+      252.72,
+      522.72
+     ],
+     "text": "std deviation 0.94 1.06 1.35 1.42"
+    },
+    {
+     "bbox": [
+      48.24,
+      529.56,
+      259.92,
+      537.48
+     ],
+     "text": "SEED WEIGHT PER 1000 SEEDS (from 4 samples at 11% moisture)"
+    },
+    {
+     "bbox": [
+      48.24,
+      539.28,
+      256.68,
+      547.56
+     ],
+     "text": "mean 222g 206g 1359 232g"
+    },
+    {
+     "bbox": [
+      48.24,
+      549.0,
+      266.04,
+      557.64
+     ],
+     "text": "range 216-226 204-207 132-138 230-235"
+    },
+    {
+     "bbox": [
+      47.88,
+      559.08,
+      247.68,
+      565.92
+     ],
+     "text": "std deviation 4.2 2.0 27 2.1"
+    },
+    {
+     "bbox": [
+      48.6,
+      600.84,
+      132.48,
+      611.64
+     ],
+     "text": "OBJECTIONS"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Bluey\u2019 *'Dinkum\u2019 * \u2018Buckley\u2019 * \u2018PSA3\u2019\nPLANT HEIGHT\nmean 72.8cm 65.3 cm 116.6 cm 78.0cm\nrange 61-83 34-80 84-148 62-102\nstd deviation 6.64 11.33 14.45 10.57\nDAYS TO FLOWERING\nmean 107.0 107.4 101.1 110.4\nrange 104-111 102-112 96-105 106-114\nstd deviation 2.87 2.78 2.74 2.08\nPEDUNCLE LENGTH\nmean 69.3 mm 58.0 mm 81.0 mm 72.2 mm\nrange 54-82 42-74 59-105 62-90\nstddeviation 7.23 7.47 12.98 7.13\nPOD LENGTH\nmean 70.1 mm 64.3 mm 51.5 mm 69.2 mm\nrange 58-81 57-72 35-62 37-84\nstd deviation 5.77 4.88 8.07 11.32\nPOD WIDTH\nmean 13.5 mm 12.9mm 12.2 mm 13.2 mm\nrange 12-16 12-14 11-13 11-15\nstddeviation 0.97 0.79 0.68 1.21\nOVULES PER POD\nmean 63 7.3 6.4 68\nrange 5-7 5-9 4-8 5-8\nstddeviation 0.62 0.89 0.91 1.26\nSEEDS PER POD\nmean 43 44 37 42\nrange 3-6 3-6 2-6 1-7\nstd deviation 0.94 1.06 1.35 1.42\nSEED WEIGHT PER 1000 SEEDS (from 4 samples at 11% moisture)\nmean 222g 206g 1359 232g\nrange 216-226 204-207 132-138 230-235\nstd deviation 4.2 2.0 27 2.1\nOBJECTIONS",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    48.24,
+    632.16,
+    285.84,
+    659.88
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      48.6,
+      632.16,
+      285.84,
+      640.8
+     ],
+     "text": "Formal objections (S20, PVR Act 1987): against any of the"
+    },
+    {
+     "bbox": [
+      48.24,
+      642.24,
+      273.96,
+      650.52
+     ],
+     "text": "above applications can be lodged with the Registrar by a"
+    },
+    {
+     "bbox": [
+      48.24,
+      652.32,
+      97.2,
+      659.88
+     ],
+     "text": "person who:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Formal objections (S20, PVR Act 1987): against any of the\nabove applications can be lodged with the Registrar by a\nperson who:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    56.88,
+    668.16,
+    276.48,
+    686.16
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      56.88,
+      668.16,
+      269.64,
+      675.36
+     ],
+     "text": "a) considers their commercial interests would be"
+    },
+    {
+     "bbox": [
+      83.88,
+      677.52,
+      276.48,
+      686.16
+     ],
+     "text": "affected by a grant of PVR to the applicant; AND"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a) considers their commercial interests would be\naffected by a grant of PVR to the applicant; AND",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    56.88,
+    693.36,
+    270.72,
+    709.92
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      56.88,
+      693.36,
+      270.72,
+      701.28
+     ],
+     "text": "b) considers that the provisions of $26 cannot be"
+    },
+    {
+     "bbox": [
+      84.24,
+      704.16,
+      100.44,
+      709.92
+     ],
+     "text": "met."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "b) considers that the provisions of $26 cannot be\nmet.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    46.08,
+    717.12,
+    282.6,
+    755.28
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      46.08,
+      717.12,
+      268.92,
+      729.0
+     ],
+     "text": "A fee of $200 is payable at the time of lodging a formal"
+    },
+    {
+     "bbox": [
+      47.88,
+      728.64,
+      272.52,
+      737.28
+     ],
+     "text": "objection. An additional $70/hour will be charged if the"
+    },
+    {
+     "bbox": [
+      47.88,
+      738.72,
+      282.6,
+      747.0
+     ],
+     "text": "examination of the objection by the PVR Office takes more"
+    },
+    {
+     "bbox": [
+      47.88,
+      748.8,
+      110.88,
+      755.28
+     ],
+     "text": "than two hours."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "A fee of $200 is payable at the time of lodging a formal\nobjection. An additional $70/hour will be charged if the\nexamination of the objection by the PVR Office takes more\nthan two hours.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.56,
+    52.56,
+    535.68,
+    70.92
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      304.92,
+      52.56,
+      532.44,
+      60.84
+     ],
+     "text": "Comment: Any person may make written comment at no"
+    },
+    {
+     "bbox": [
+      304.56,
+      62.64,
+      535.68,
+      70.92
+     ],
+     "text": "charge on the eligibility of the above applications for PVR."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comment: Any person may make written comment at no\ncharge on the eligibility of the above applications for PVR.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.56,
+    78.84,
+    542.16,
+    126.36
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      304.56,
+      78.84,
+      542.16,
+      87.12
+     ],
+     "text": "A person submitting a formal objection or a comment must"
+    },
+    {
+     "bbox": [
+      304.92,
+      88.56,
+      530.64,
+      96.84
+     ],
+     "text": "provide supporting evidence to substantiate the claim. A"
+    },
+    {
+     "bbox": [
+      304.92,
+      98.28,
+      529.2,
+      106.92
+     ],
+     "text": "copy of the submission will also be sent to the applicant"
+    },
+    {
+     "bbox": [
+      304.92,
+      108.72,
+      521.64,
+      116.64
+     ],
+     "text": "and the latter will be asked to show why the objection"
+    },
+    {
+     "bbox": [
+      304.92,
+      118.44,
+      390.96,
+      126.36
+     ],
+     "text": "should not be upheld."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "A person submitting a formal objection or a comment must\nprovide supporting evidence to substantiate the claim. A\ncopy of the submission will also be sent to the applicant\nand the latter will be asked to show why the objection\nshould not be upheld.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.56,
+    133.92,
+    536.76,
+    161.64
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      304.56,
+      133.92,
+      534.6,
+      142.2
+     ],
+     "text": "All formal objections and comments relating to the above"
+    },
+    {
+     "bbox": [
+      305.28,
+      143.64,
+      536.76,
+      152.28
+     ],
+     "text": "applications must be lodged with the Registrar by close of"
+    },
+    {
+     "bbox": [
+      304.92,
+      153.36,
+      440.64,
+      161.64
+     ],
+     "text": "business on 30 September, 1991."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "All formal objections and comments relating to the above\napplications must be lodged with the Registrar by close of\nbusiness on 30 September, 1991.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.56,
+    180.0,
+    493.56,
+    192.96
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      304.56,
+      180.0,
+      493.56,
+      192.96
+     ],
+     "text": "b) Descriptions to be Finalised"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "b) Descriptions to be Finalised",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.92,
+    212.04,
+    540.36,
+    249.84
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      305.28,
+      212.04,
+      523.08,
+      220.32
+     ],
+     "text": "Descriptions for the Journal are being finalised for the"
+    },
+    {
+     "bbox": [
+      304.92,
+      221.76,
+      535.68,
+      230.4
+     ],
+     "text": "following applications. The six month period for comment"
+    },
+    {
+     "bbox": [
+      304.92,
+      231.84,
+      540.36,
+      240.48
+     ],
+     "text": "or formal objection will not begin until the full descriptions"
+    },
+    {
+     "bbox": [
+      304.92,
+      241.56,
+      474.12,
+      249.84
+     ],
+     "text": "are finalised and published in the Journal."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Descriptions for the Journal are being finalised for the\nfollowing applications. The six month period for comment\nor formal objection will not begin until the full descriptions\nare finalised and published in the Journal.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.2,
+    267.84,
+    398.88,
+    293.76
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      305.28,
+      267.84,
+      365.4,
+      278.28
+     ],
+     "text": "CHERRY"
+    },
+    {
+     "bbox": [
+      304.2,
+      281.88,
+      398.88,
+      293.76
+     ],
+     "text": "(Prunus avium)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "CHERRY\n(Prunus avium)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.2,
+    313.2,
+    524.88,
+    361.8
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      304.2,
+      313.2,
+      524.88,
+      321.48
+     ],
+     "text": "Applicant: Her Majesty the Queen, in right of Canada"
+    },
+    {
+     "bbox": [
+      304.2,
+      323.28,
+      484.56,
+      331.56
+     ],
+     "text": "Agent in Australia: South Australian Cherry"
+    },
+    {
+     "bbox": [
+      304.92,
+      333.0,
+      524.16,
+      341.64
+     ],
+     "text": "Improvement Committee of Adelaide South Australia"
+    },
+    {
+     "bbox": [
+      304.92,
+      343.44,
+      437.4,
+      351.72
+     ],
+     "text": "\u2018Lapins\u2019 Application No.: 90/117"
+    },
+    {
+     "bbox": [
+      304.2,
+      353.52,
+      426.96,
+      361.8
+     ],
+     "text": "Accepted: 26 November, 1990"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Her Majesty the Queen, in right of Canada\nAgent in Australia: South Australian Cherry\nImprovement Committee of Adelaide South Australia\n\u2018Lapins\u2019 Application No.: 90/117\nAccepted: 26 November, 1990",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    303.48,
+    378.72,
+    406.44,
+    404.64
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      304.92,
+      378.72,
+      384.48,
+      389.16
+     ],
+     "text": "RYEGRASS"
+    },
+    {
+     "bbox": [
+      303.48,
+      392.76,
+      406.44,
+      404.64
+     ],
+     "text": "(Lolium perrene)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "RYEGRASS\n(Lolium perrene)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    303.84,
+    424.44,
+    533.16,
+    461.88
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      303.84,
+      424.44,
+      533.16,
+      432.36
+     ],
+     "text": "Applicant: Department of Primary Industry Tasmania of"
+    },
+    {
+     "bbox": [
+      304.56,
+      434.16,
+      407.52,
+      442.08
+     ],
+     "text": "Kings Meadow. Tasmania"
+    },
+    {
+     "bbox": [
+      304.56,
+      443.88,
+      448.92,
+      452.16
+     ],
+     "text": "\u2018Jackaroo\u2019 Application No.: 90/119"
+    },
+    {
+     "bbox": [
+      303.84,
+      453.96,
+      421.2,
+      461.88
+     ],
+     "text": "Accepted: 6 December, 1990"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Department of Primary Industry Tasmania of\nKings Meadow. Tasmania\n\u2018Jackaroo\u2019 Application No.: 90/119\nAccepted: 6 December, 1990",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    303.48,
+    479.16,
+    425.88,
+    505.44
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      304.92,
+      479.16,
+      396.36,
+      489.6
+     ],
+     "text": "RED CLOVER"
+    },
+    {
+     "bbox": [
+      303.48,
+      493.2,
+      425.88,
+      505.44
+     ],
+     "text": "(Trifolium pratense)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "RED CLOVER\n(Trifolium pratense)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.2,
+    525.96,
+    533.52,
+    563.4
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      304.2,
+      525.96,
+      533.52,
+      534.6
+     ],
+     "text": "Applicant: Department of Primary Industry Tasmania of"
+    },
+    {
+     "bbox": [
+      304.56,
+      536.04,
+      407.88,
+      543.96
+     ],
+     "text": "Kings Meadow. Tasmania"
+    },
+    {
+     "bbox": [
+      304.56,
+      545.76,
+      438.48,
+      554.04
+     ],
+     "text": "\u2018Astred\u2019 Application No.: 90/120"
+    },
+    {
+     "bbox": [
+      304.2,
+      555.48,
+      426.6,
+      563.4
+     ],
+     "text": "Accepted: 10 December, 1990"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Department of Primary Industry Tasmania of\nKings Meadow. Tasmania\n\u2018Astred\u2019 Application No.: 90/120\nAccepted: 10 December, 1990",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    303.84,
+    581.76,
+    450.72,
+    608.04
+   ],
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      304.92,
+      581.76,
+      379.8,
+      591.84
+     ],
+     "text": "DIANTHUS"
+    },
+    {
+     "bbox": [
+      303.84,
+      595.44,
+      450.72,
+      608.04
+     ],
+     "text": "(Dianthus caryophyllus)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "DIANTHUS\n(Dianthus caryophyllus)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    303.84,
+    628.92,
+    525.6,
+    686.16
+   ],
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      303.84,
+      628.92,
+      525.6,
+      636.84
+     ],
+     "text": "Applicant: Van Staaveren B V, Aalsmeer, Netherlands,"
+    },
+    {
+     "bbox": [
+      304.2,
+      639.0,
+      480.6,
+      647.28
+     ],
+     "text": "Agent in Australia: Van Wijk & Son Flower"
+    },
+    {
+     "bbox": [
+      304.2,
+      648.72,
+      459.36,
+      657.36
+     ],
+     "text": "Supply Pty Ltd, Keysborough. Victoria"
+    },
+    {
+     "bbox": [
+      304.56,
+      658.44,
+      464.04,
+      667.08
+     ],
+     "text": "\u2018Statas\u2019 commercial synonym \u2018Tasman\u2019"
+    },
+    {
+     "bbox": [
+      303.84,
+      668.52,
+      401.4,
+      676.44
+     ],
+     "text": "Application No.: 90/126"
+    },
+    {
+     "bbox": [
+      303.84,
+      678.24,
+      426.24,
+      686.16
+     ],
+     "text": "Accepted: 11 December, 1990"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Van Staaveren B V, Aalsmeer, Netherlands,\nAgent in Australia: Van Wijk & Son Flower\nSupply Pty Ltd, Keysborough. Victoria\n\u2018Statas\u2019 commercial synonym \u2018Tasman\u2019\nApplication No.: 90/126\nAccepted: 11 December, 1990",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    303.12,
+    704.16,
+    391.32,
+    730.8
+   ],
+   "id": "e22",
+   "lines": [
+    {
+     "bbox": [
+      304.2,
+      704.16,
+      342.72,
+      714.6
+     ],
+     "text": "ROSE"
+    },
+    {
+     "bbox": [
+      303.12,
+      717.84,
+      391.32,
+      730.8
+     ],
+     "text": "(Rosa hybrida)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ROSE\n(Rosa hybrida)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    303.12,
+    751.32,
+    500.4,
+    780.84
+   ],
+   "id": "e23",
+   "lines": [
+    {
+     "bbox": [
+      303.48,
+      751.32,
+      500.4,
+      759.6
+     ],
+     "text": "Applicant: Sam McGredy Rose International, of"
+    },
+    {
+     "bbox": [
+      303.48,
+      761.4,
+      398.52,
+      768.96
+     ],
+     "text": "Auckland, New Zealand"
+    },
+    {
+     "bbox": [
+      303.12,
+      771.48,
+      485.64,
+      780.84
+     ],
+     "text": "Agent in Australia: Swane Brothers Nursery"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Sam McGredy Rose International, of\nAuckland, New Zealand\nAgent in Australia: Swane Brothers Nursery",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    321.12,
+    793.44,
+    542.16,
+    802.44
+   ],
+   "id": "e24",
+   "lines": [
+    {
+     "bbox": [
+      321.12,
+      793.44,
+      542.16,
+      802.44
+     ],
+     "text": "\u2014\u2014\u2014\u2014\u2014 23"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "\u2014\u2014\u2014\u2014\u2014 23",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

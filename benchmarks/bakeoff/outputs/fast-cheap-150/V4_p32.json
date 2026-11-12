@@ -1,0 +1,599 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    42.24,
+    58.08,
+    154.56,
+    72.0
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      42.24,
+      58.08,
+      154.56,
+      72.0
+     ],
+     "text": "APPENDIX 4"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "APPENDIX 4",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    39.84,
+    102.24,
+    279.84,
+    625.44
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      42.24,
+      102.24,
+      184.32,
+      120.0
+     ],
+     "text": "LIST OF PVR PART 2"
+    },
+    {
+     "bbox": [
+      42.24,
+      121.92,
+      196.32,
+      132.96
+     ],
+     "text": "APPLICATION FORMS"
+    },
+    {
+     "bbox": [
+      41.28,
+      155.52,
+      279.84,
+      163.68
+     ],
+     "text": "TITLE DATE"
+    },
+    {
+     "bbox": [
+      40.8,
+      179.52,
+      279.84,
+      188.16
+     ],
+     "text": "Agapanthus 2/89"
+    },
+    {
+     "bbox": [
+      40.8,
+      187.68,
+      279.84,
+      201.12
+     ],
+     "text": "Alstroemeria 10/89"
+    },
+    {
+     "bbox": [
+      40.8,
+      199.68,
+      279.84,
+      207.36
+     ],
+     "text": "Anthurium 4/90"
+    },
+    {
+     "bbox": [
+      40.8,
+      207.36,
+      277.92,
+      220.32
+     ],
+     "text": "Asparagus 2/91"
+    },
+    {
+     "bbox": [
+      41.76,
+      219.84,
+      279.84,
+      228.0
+     ],
+     "text": "Bean, green (Phaseolus) 4/90"
+    },
+    {
+     "bbox": [
+      41.28,
+      229.44,
+      279.36,
+      237.12
+     ],
+     "text": "Broadleaf Trees 4/90"
+    },
+    {
+     "bbox": [
+      41.28,
+      239.52,
+      277.92,
+      247.68
+     ],
+     "text": "Canola (Brassica) 4/91"
+    },
+    {
+     "bbox": [
+      41.28,
+      249.12,
+      279.36,
+      257.76
+     ],
+     "text": "Carnation (Dianthus) 8/89"
+    },
+    {
+     "bbox": [
+      41.28,
+      259.2,
+      279.36,
+      267.36
+     ],
+     "text": "Carrot (Daucus) 10/89"
+    },
+    {
+     "bbox": [
+      40.8,
+      268.8,
+      277.92,
+      277.44
+     ],
+     "text": "Cauliflower (Brassica) 3/91"
+    },
+    {
+     "bbox": [
+      41.28,
+      277.44,
+      279.36,
+      290.4
+     ],
+     "text": "Cereals 11/90"
+    },
+    {
+     "bbox": [
+      41.28,
+      287.04,
+      279.36,
+      299.52
+     ],
+     "text": "Chrysanthemum 4/90"
+    },
+    {
+     "bbox": [
+      41.28,
+      297.12,
+      279.36,
+      310.56
+     ],
+     "text": "Citrus 5/90"
+    },
+    {
+     "bbox": [
+      40.8,
+      309.12,
+      278.88,
+      317.76
+     ],
+     "text": "Cotton (Gossypium) 7/90"
+    },
+    {
+     "bbox": [
+      40.8,
+      317.76,
+      279.36,
+      330.72
+     ],
+     "text": "Cucurbits 2/90"
+    },
+    {
+     "bbox": [
+      40.32,
+      329.76,
+      279.36,
+      337.92
+     ],
+     "text": "Eucalyptus 6/90"
+    },
+    {
+     "bbox": [
+      40.8,
+      339.36,
+      278.88,
+      348.0
+     ],
+     "text": "Grain Legumes 10/89"
+    },
+    {
+     "bbox": [
+      40.8,
+      349.44,
+      278.88,
+      357.6
+     ],
+     "text": "Grapes (Vitis) 9/89"
+    },
+    {
+     "bbox": [
+      40.8,
+      357.12,
+      277.44,
+      370.56
+     ],
+     "text": "Grevillea 3/91"
+    },
+    {
+     "bbox": [
+      40.8,
+      369.12,
+      278.88,
+      377.76
+     ],
+     "text": "Herbage and Turf Grasses 9/89"
+    },
+    {
+     "bbox": [
+      40.32,
+      377.28,
+      278.88,
+      390.24
+     ],
+     "text": "Impatiens 11/90"
+    },
+    {
+     "bbox": [
+      40.8,
+      388.8,
+      278.4,
+      397.44
+     ],
+     "text": "Kangaroo Paw (Anigozanthos) 11/89"
+    },
+    {
+     "bbox": [
+      40.8,
+      398.88,
+      278.88,
+      407.04
+     ],
+     "text": "Kiwifruit (Actinidia) 4/30"
+    },
+    {
+     "bbox": [
+      40.32,
+      407.04,
+      276.96,
+      420.48
+     ],
+     "text": "Lechenaultia 7/91"
+    },
+    {
+     "bbox": [
+      40.8,
+      419.04,
+      278.88,
+      427.2
+     ],
+     "text": "Lettuce (Lactuca) 11/89"
+    },
+    {
+     "bbox": [
+      40.8,
+      428.64,
+      278.88,
+      437.28
+     ],
+     "text": "Lily (Lilium) 6/90"
+    },
+    {
+     "bbox": [
+      40.8,
+      439.2,
+      278.88,
+      447.36
+     ],
+     "text": "Lucerne (Medicago) 8/90"
+    },
+    {
+     "bbox": [
+      40.8,
+      448.8,
+      278.88,
+      457.44
+     ],
+     "text": "Maize (Zea mais) 10/90"
+    },
+    {
+     "bbox": [
+      40.32,
+      458.88,
+      276.0,
+      467.04
+     ],
+     "text": "Oat (Avena) 11/90"
+    },
+    {
+     "bbox": [
+      40.32,
+      468.96,
+      278.4,
+      477.12
+     ],
+     "text": "Oilseed \u2014 (Asteraceae) 10/89"
+    },
+    {
+     "bbox": [
+      40.32,
+      479.04,
+      278.4,
+      487.2
+     ],
+     "text": "Onion (Allium) 11/89"
+    },
+    {
+     "bbox": [
+      40.32,
+      487.2,
+      278.4,
+      500.64
+     ],
+     "text": "Ornamentals 9/89"
+    },
+    {
+     "bbox": [
+      40.8,
+      498.72,
+      278.4,
+      507.36
+     ],
+     "text": "Pasture Legumes 9/89"
+    },
+    {
+     "bbox": [
+      40.8,
+      508.8,
+      277.92,
+      516.96
+     ],
+     "text": "Pome fruit (Ma/us/Pyrus) 10/89"
+    },
+    {
+     "bbox": [
+      40.8,
+      518.4,
+      278.4,
+      526.56
+     ],
+     "text": "Potato (Solanum) 10/89"
+    },
+    {
+     "bbox": [
+      40.32,
+      528.48,
+      278.4,
+      537.12
+     ],
+     "text": "Raspberry (Rubus) 6/90"
+    },
+    {
+     "bbox": [
+      40.32,
+      538.08,
+      276.96,
+      546.24
+     ],
+     "text": "Roses (Rosa) 6/91"
+    },
+    {
+     "bbox": [
+      39.84,
+      545.76,
+      278.4,
+      559.2
+     ],
+     "text": "Schlumbergera 6/90"
+    },
+    {
+     "bbox": [
+      39.84,
+      557.76,
+      278.4,
+      566.4
+     ],
+     "text": "Sorghum 9/89"
+    },
+    {
+     "bbox": [
+      40.32,
+      567.84,
+      278.4,
+      576.0
+     ],
+     "text": "Stone Fruit (Prunus) 8/90"
+    },
+    {
+     "bbox": [
+      40.32,
+      577.44,
+      278.4,
+      586.08
+     ],
+     "text": "Strawberry (Fragaria) 2/90"
+    },
+    {
+     "bbox": [
+      39.84,
+      587.52,
+      278.4,
+      595.68
+     ],
+     "text": "Tomato (Lycopersicon) 4/90"
+    },
+    {
+     "bbox": [
+      39.84,
+      597.6,
+      276.48,
+      605.76
+     ],
+     "text": "Waxflower (Chamelaucium) 7/91"
+    },
+    {
+     "bbox": [
+      39.84,
+      607.68,
+      277.92,
+      615.84
+     ],
+     "text": "Waratah (Te/opea) 4/90"
+    },
+    {
+     "bbox": [
+      39.84,
+      617.28,
+      277.92,
+      625.44
+     ],
+     "text": "Wheat (7riticum) 10/90"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "LIST OF PVR PART 2\nAPPLICATION FORMS\nTITLE DATE\nAgapanthus 2/89\nAlstroemeria 10/89\nAnthurium 4/90\nAsparagus 2/91\nBean, green (Phaseolus) 4/90\nBroadleaf Trees 4/90\nCanola (Brassica) 4/91\nCarnation (Dianthus) 8/89\nCarrot (Daucus) 10/89\nCauliflower (Brassica) 3/91\nCereals 11/90\nChrysanthemum 4/90\nCitrus 5/90\nCotton (Gossypium) 7/90\nCucurbits 2/90\nEucalyptus 6/90\nGrain Legumes 10/89\nGrapes (Vitis) 9/89\nGrevillea 3/91\nHerbage and Turf Grasses 9/89\nImpatiens 11/90\nKangaroo Paw (Anigozanthos) 11/89\nKiwifruit (Actinidia) 4/30\nLechenaultia 7/91\nLettuce (Lactuca) 11/89\nLily (Lilium) 6/90\nLucerne (Medicago) 8/90\nMaize (Zea mais) 10/90\nOat (Avena) 11/90\nOilseed \u2014 (Asteraceae) 10/89\nOnion (Allium) 11/89\nOrnamentals 9/89\nPasture Legumes 9/89\nPome fruit (Ma/us/Pyrus) 10/89\nPotato (Solanum) 10/89\nRaspberry (Rubus) 6/90\nRoses (Rosa) 6/91\nSchlumbergera 6/90\nSorghum 9/89\nStone Fruit (Prunus) 8/90\nStrawberry (Fragaria) 2/90\nTomato (Lycopersicon) 4/90\nWaxflower (Chamelaucium) 7/91\nWaratah (Te/opea) 4/90\nWheat (7riticum) 10/90",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    395.52,
+    720.96,
+    487.68,
+    760.32
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      395.52,
+      720.96,
+      487.68,
+      760.32
+     ],
+     "text": "LN"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "LN",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    385.92,
+    762.72,
+    486.24,
+    773.76
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      385.92,
+      762.72,
+      486.24,
+      773.76
+     ],
+     "text": "9 780b44 146753"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "9 780b44 146753",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    39.36,
+    780.0,
+    594.24,
+    799.68
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      384.0,
+      780.0,
+      594.24,
+      786.24
+     ],
+     "text": "91/21054. Cat. No. 91 0913 4 ="
+    },
+    {
+     "bbox": [
+      39.36,
+      789.6,
+      542.88,
+      799.68
+     ],
+     "text": "C\u2014O"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "91/21054. Cat. No. 91 0913 4 =\nC\u2014O",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    2.88,
+    827.04,
+    595.2,
+    841.92
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      2.88,
+      827.04,
+      595.2,
+      841.92
+     ],
+     "text": "ee"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ee",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

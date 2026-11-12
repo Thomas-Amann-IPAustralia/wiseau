@@ -5,7 +5,47 @@
 > session. Keep it honest — "scaffolded but untested" is more useful than a
 > green checkmark that lies.
 
-**Last updated:** 2026-11-12 (twelfth session: streaming progress + CPU meter, ADR-058, API 0.17.0; eleventh session: frontend redesign as **Wiseau**, animated pipeline, page-aware progress, ADR-057; tenth session: GPU worth it? end-to-end Kaggle T4 runs, verdict no; ADR-056 overlaps a scanned page's CPU stages, 11.7 → 8.3 s; ninth session: roadmap Tier 3 structure recovery, ADR-049..055, `POST /convert/bundle`, per-request reader mode, API 0.16.0; eighth session: Kaggle T4 run of OvisOCR3, experiment closed; seventh session: 3.7b layout-region spike, CPU leg, held-out set T, then ADR-048 shipping the layout detector in the image; sixth session: planning only, OvisOCR3/TeleOCR assessment; fifth session: ADR-047, table pass on in the Docker image; MuPDF OCR concurrency fix)
+**Last updated:** 2026-11-12 (thirteenth session: a fast engine, the picker relabelled Fast / Accurate / docling, a GIL fix to the OCR overlap, ADR-059, API 0.18.0; twelfth session: streaming progress + CPU meter, ADR-058, API 0.17.0; eleventh session: frontend redesign as **Wiseau**, animated pipeline, page-aware progress, ADR-057; tenth session: GPU worth it? end-to-end Kaggle T4 runs, verdict no; ADR-056 overlaps a scanned page's CPU stages, 11.7 → 8.3 s; ninth session: roadmap Tier 3 structure recovery, ADR-049..055, `POST /convert/bundle`, per-request reader mode, API 0.16.0; eighth session: Kaggle T4 run of OvisOCR3, experiment closed; seventh session: 3.7b layout-region spike, CPU leg, held-out set T, then ADR-048 shipping the layout detector in the image; sixth session: planning only, OvisOCR3/TeleOCR assessment; fifth session: ADR-047, table pass on in the Docker image; MuPDF OCR concurrency fix)
+
+**Build note (2026-11-12, ADR-059, API 0.18.0):** The user asked for an "Extra Fast" CPU mode and asked how much more accurate the slow engine is. The existing benchmarks said docling is *less* accurate. The user then chose: a new fast engine running psm 3 only, the current path kept as the default under the name "Accurate", and a lower DPI to be measured. The amendments they accepted were to keep a guard and keep docling, labelled experimental. Write-up: [`docs/benchmarks/2026-11-12-fast-engine.md`](docs/benchmarks/2026-11-12-fast-engine.md).
+
+What was built:
+- **`engine="fast"`** (`ocr.FastTesseractEngine`; also accepted as `WISEAU_PDF_ENGINE`):
+  - scans are read by Tesseract psm 3 with band cleanup, the photo mask and row stitching, and no layout or table model;
+  - a cheap guard: MuPDF's OCR at 100 dpi counted with the 85% rule, and the full 300 dpi guard only for a page that fails;
+  - `WISEAU_FAST_OCR_DPI`, default 300;
+  - text-layer pages, DOCX and URLs are read exactly as by `pymupdf`, and the structure passes still run.
+- **A GIL fix for both engines:** MuPDF's OCR holds the GIL, so psm 3's worker could not launch Tesseract until the guard was done, and the "overlapped" stages ran one after the other. psm 3 is now launched first, through temporary files (`tesseract_layout.start_tsv`). The TSV is byte-identical.
+- **UI:** the picker is Auto / Fast / Accurate (`pymupdf`) / docling ("Experimental · slow"). Fast is shown only when `/ping` lists it. The Fast route draws "OCR · Tesseract only", with no layout stage. "Highest fidelity" claims are removed from the UI, the API description, the MCP tools and the docs.
+- **Harness:**
+  - `run_engines.py image-default` (the image's path exactly), `fast-GUARD-DPI`, and `ENGINE@LABEL`;
+  - `fast_guard.py` (survey of 336 scanned pages);
+  - `score.py` and `structure.py` know the new engines.
+
+Results on 72 scored scans and set S (4 CPUs, quiet box):
+- **Speed:** Fast 2.77 s a scanned page against Accurate's 7.70 s; on 1 CPU, 4.9 against 11.3 s.
+- **Memory:** 0.44 GB peak against 2.2 GB.
+- **Words:** identical word and number recall to Accurate on every page. Fast's wer is lower (0.056 against 0.068), because Accurate's regrouping counts as order error against line-based references.
+- **Structure lost:** no heading levels on scans (heading recall 0 against 0.765), and tables as rows of text (TEDS 0.26 against 0.57).
+- **Lower DPI rejected:**
+  - 200 dpi: +40% wer for 0.3 s;
+  - 150 dpi: +78% wer for 0.5 s.
+- **The guard is needed:** psm 3 alone loses 47% of V4 p32's words. The 100 dpi check caught every page where psm 3 loses 37+ words, out of 336, with no needless full-guard run. It can miss losses of up to 34 words, mostly on covers.
+- **Accurate as shipped beats docling on structure on set S:** block F1 0.817 against 0.732, heading levels 0.73 against 0.30, TEDS 0.57 against 0.51. docling wins only heading recall (0.865 against 0.765). This answers the user's "how much more accurate is Slow".
+
+Verified:
+- 646 tests pass, 8 skipped (13 new: `tests/test_fast_engine.py`, plus psm 3 launch tests).
+- **Accurate's outputs are byte-identical before and after the GIL fix** (76 pages, Markdown and IR), 7.7 s against 8.2 s a scanned page.
+- **Fast is byte-identical** across its two runs and between 1 and 4 CPUs.
+- The real UI was driven in headless Chromium against a local backend: options, Auto hint, the Fast route, a 2-page scan converted, no console errors, 390 px without overflow.
+
+Not verified:
+- the speed-up on Cloud Run's CPUs;
+- the Docker image (no daemon here);
+- handwriting (`fast` always uses Tesseract);
+- other corpora.
+
+The UI's Fast estimate (7 s a scanned page) is a starting point; calibration corrects it per deployment.
 
 **Build note (2026-11-12, ADR-058, API 0.17.0):** The user asked to convert very large documents, asked why the timeout was 300 s, and asked about job IDs.
 - The 300 s was only the hosting guide's copy of the Cloud Run default, never a product decision.

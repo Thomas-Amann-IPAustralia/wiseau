@@ -1,0 +1,815 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    88.8,
+    49.44,
+    489.12,
+    60.48
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      88.8,
+      49.44,
+      489.12,
+      60.48
+     ],
+     "text": "WYALONG WATTLE TABLE OF COMPARISON FOR"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "WYALONG WATTLE TABLE OF COMPARISON FOR",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    88.32,
+    63.36,
+    535.2,
+    144.0
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      89.28,
+      63.36,
+      500.16,
+      78.72
+     ],
+     "text": "(Acacia cardiophylla) WYALONG WATTLE VARIETIES"
+    },
+    {
+     "bbox": [
+      423.36,
+      92.64,
+      535.2,
+      100.32
+     ],
+     "text": "\u201cKuranga A. cardiophylla"
+    },
+    {
+     "bbox": [
+      423.36,
+      101.28,
+      461.76,
+      107.52
+     ],
+     "text": "Gold Lace\u2019"
+    },
+    {
+     "bbox": [
+      88.32,
+      116.64,
+      507.36,
+      125.76
+     ],
+     "text": "Variety: \u2018Kuranga Gold Lace\u2019 Application No. 89/ PLANTHEIGHT Mean 84cm 60.3cm"
+    },
+    {
+     "bbox": [
+      88.32,
+      126.72,
+      514.56,
+      135.84
+     ],
+     "text": "022 AT 94 DAYS Range 4.4-14.4 44.8-79.6"
+    },
+    {
+     "bbox": [
+      322.08,
+      136.8,
+      494.4,
+      144.0
+     ],
+     "text": "(POTTED) Std deviation 2.4 8.82"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(Acacia cardiophylla) WYALONG WATTLE VARIETIES\n\u201cKuranga A. cardiophylla\nGold Lace\u2019\nVariety: \u2018Kuranga Gold Lace\u2019 Application No. 89/ PLANTHEIGHT Mean 84cm 60.3cm\n022 AT 94 DAYS Range 4.4-14.4 44.8-79.6\n(POTTED) Std deviation 2.4 8.82",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    88.32,
+    146.88,
+    487.2,
+    180.0
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      88.32,
+      146.88,
+      292.32,
+      155.52
+     ],
+     "text": "Applicant: Kuranga Native Nursery of Ringwood,"
+    },
+    {
+     "bbox": [
+      88.32,
+      154.56,
+      487.2,
+      166.08
+     ],
+     "text": "Victoria PLANTHEIGHT Mean 13.6cm -"
+    },
+    {
+     "bbox": [
+      321.12,
+      164.16,
+      487.2,
+      171.84
+     ],
+     "text": "AT4 YEARS Range 9.0-19.4 _"
+    },
+    {
+     "bbox": [
+      322.08,
+      172.8,
+      487.2,
+      180.0
+     ],
+     "text": "(POTTED) Stddeviation 2.33 -"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Kuranga Native Nursery of Ringwood,\nVictoria PLANTHEIGHT Mean 13.6cm -\nAT4 YEARS Range 9.0-19.4 _\n(POTTED) Stddeviation 2.33 -",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    86.88,
+    176.64,
+    518.4,
+    483.84
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      88.32,
+      176.64,
+      129.6,
+      185.28
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      88.32,
+      184.32,
+      505.44,
+      200.16
+     ],
+     "text": "This variety is distinct from all other known GROWTH HABIT prostrate & erect &"
+    },
+    {
+     "bbox": [
+      88.32,
+      196.32,
+      506.4,
+      207.36
+     ],
+     "text": "varieties in having the following combination of trailing arching"
+    },
+    {
+     "bbox": [
+      88.32,
+      206.4,
+      269.28,
+      215.04
+     ],
+     "text": "characters: a prostrate trailing growth habit"
+    },
+    {
+     "bbox": [
+      88.32,
+      216.0,
+      491.04,
+      225.12
+     ],
+     "text": "(attaining little more than 20 cm height) with stems MAIN STEM slightly not"
+    },
+    {
+     "bbox": [
+      88.32,
+      224.16,
+      510.24,
+      236.64
+     ],
+     "text": "becoming slightly tortuous in age. tortuous tortuous"
+    },
+    {
+     "bbox": [
+      87.84,
+      241.92,
+      506.88,
+      261.12
+     ],
+     "text": "Variety used for comparison ei! OF Mean 5.38 on 8.06em"
+    },
+    {
+     "bbox": [
+      204.0,
+      249.6,
+      500.16,
+      264.0
+     ],
+     "text": "je ie ange | 3.8-7: 8-7."
+    },
+    {
+     "bbox": [
+      88.32,
+      255.84,
+      498.24,
+      268.32
+     ],
+     "text": "Standard erect form of Acacia cardiophylla. Std deviation 1.14 0967"
+    },
+    {
+     "bbox": [
+      87.84,
+      274.08,
+      506.88,
+      292.32
+     ],
+     "text": "Comparative Growing Trials . WIDTH Mean 1.74cm 1.85cm"
+    },
+    {
+     "bbox": [
+      87.84,
+      286.08,
+      504.48,
+      297.12
+     ],
+     "text": "All characteristics described and comparisons are Range 1.2-2.2 16-27"
+    },
+    {
+     "bbox": [
+      87.84,
+      296.64,
+      493.92,
+      305.28
+     ],
+     "text": "from comparative growing trials conducted at Stddeviation 0.27 0.36"
+    },
+    {
+     "bbox": [
+      87.84,
+      306.24,
+      295.2,
+      314.4
+     ],
+     "text": "Wandin North, Victoria in 1989. Trials consisted of"
+    },
+    {
+     "bbox": [
+      87.84,
+      316.32,
+      493.92,
+      324.96
+     ],
+     "text": "25 plants \u2018Kuranga Gold Lace\u2019 grown from cuttings LENGTH TO Mean 3.1 3.14"
+    },
+    {
+     "bbox": [
+      88.32,
+      324.96,
+      504.48,
+      334.56
+     ],
+     "text": "(potted January, 1989) with 25 plants grown from WIDTHRATIO Range 2.2-3.6 1.6-2.7"
+    },
+    {
+     "bbox": [
+      86.88,
+      333.6,
+      493.44,
+      344.64
+     ],
+     "text": "A.cardiophylla seed (sown August 1988 \u2014 potted Stddeviation 0.4 0.38"
+    },
+    {
+     "bbox": [
+      87.36,
+      345.6,
+      510.72,
+      354.24
+     ],
+     "text": "January 19839), all in 15 cm pots outdoors. Potting ."
+    },
+    {
+     "bbox": [
+      88.32,
+      351.36,
+      518.4,
+      366.72
+     ],
+     "text": "mixture was \u2018Debco\u2019 soilless mix. Measurements of nyeer OF pean 18.6pairs 17.85 pairs"
+    },
+    {
+     "bbox": [
+      279.84,
+      360.48,
+      500.16,
+      368.16
+     ],
+     "text": "n ange 13-19 12-20"
+    },
+    {
+     "bbox": [
+      87.84,
+      365.28,
+      489.12,
+      375.36
+     ],
+     "text": "20 randomly selected plants were taken in April, 94 Stddeviation 1.77 19"
+    },
+    {
+     "bbox": [
+      87.84,
+      374.4,
+      484.32,
+      384.0
+     ],
+     "text": "days after potting. Four-year-old tub grown plants : :"
+    },
+    {
+     "bbox": [
+      87.84,
+      385.44,
+      505.44,
+      394.08
+     ],
+     "text": "of the variety were also measured. PINNAE Mean 3.4mm 3.4mm"
+    },
+    {
+     "bbox": [
+      321.12,
+      396.0,
+      507.84,
+      403.68
+     ],
+     "text": "INTERVAL Range 2.4-04.2 2.7-04.1"
+    },
+    {
+     "bbox": [
+      87.84,
+      403.2,
+      493.44,
+      416.16
+     ],
+     "text": "Origin Stddeviation 0.48 0.37"
+    },
+    {
+     "bbox": [
+      87.84,
+      414.72,
+      268.8,
+      423.84
+     ],
+     "text": "The breeder is E P Clucas of Kuranga Native"
+    },
+    {
+     "bbox": [
+      88.32,
+      421.44,
+      493.44,
+      435.84
+     ],
+     "text": "Nursery. NUMBER OF Mean 16.7 19.5"
+    },
+    {
+     "bbox": [
+      321.12,
+      432.0,
+      500.16,
+      439.68
+     ],
+     "text": "PINNULES Range 14-22 16-24"
+    },
+    {
+     "bbox": [
+      87.36,
+      441.12,
+      493.44,
+      454.08
+     ],
+     "text": "This variety was selected for its prostrate growth Stddeviation 1.92 2.08"
+    },
+    {
+     "bbox": [
+      87.84,
+      453.12,
+      505.44,
+      467.04
+     ],
+     "text": "habit in 1980 from seedlings of Acacia cardiophylia PINNULE Mean 1.05mm 1.0mm"
+    },
+    {
+     "bbox": [
+      87.84,
+      465.12,
+      508.32,
+      475.2
+     ],
+     "text": "sown and grown on the breeders property. INTERVAL Range 0.78-1.38 \u20140.8-1.35"
+    },
+    {
+     "bbox": [
+      88.32,
+      474.72,
+      493.44,
+      483.84
+     ],
+     "text": "Material has been vegetatively propagated since (WIDTH Stddeviation 0.15 0.14"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\nThis variety is distinct from all other known GROWTH HABIT prostrate & erect &\nvarieties in having the following combination of trailing arching\ncharacters: a prostrate trailing growth habit\n(attaining little more than 20 cm height) with stems MAIN STEM slightly not\nbecoming slightly tortuous in age. tortuous tortuous\nVariety used for comparison ei! OF Mean 5.38 on 8.06em\nje ie ange | 3.8-7: 8-7.\nStandard erect form of Acacia cardiophylla. Std deviation 1.14 0967\nComparative Growing Trials . WIDTH Mean 1.74cm 1.85cm\nAll characteristics described and comparisons are Range 1.2-2.2 16-27\nfrom comparative growing trials conducted at Stddeviation 0.27 0.36\nWandin North, Victoria in 1989. Trials consisted of\n25 plants \u2018Kuranga Gold Lace\u2019 grown from cuttings LENGTH TO Mean 3.1 3.14\n(potted January, 1989) with 25 plants grown from WIDTHRATIO Range 2.2-3.6 1.6-2.7\nA.cardiophylla seed (sown August 1988 \u2014 potted Stddeviation 0.4 0.38\nJanuary 19839), all in 15 cm pots outdoors. Potting .\nmixture was \u2018Debco\u2019 soilless mix. Measurements of nyeer OF pean 18.6pairs 17.85 pairs\nn ange 13-19 12-20\n20 randomly selected plants were taken in April, 94 Stddeviation 1.77 19\ndays after potting. Four-year-old tub grown plants : :\nof the variety were also measured. PINNAE Mean 3.4mm 3.4mm\nINTERVAL Range 2.4-04.2 2.7-04.1\nOrigin Stddeviation 0.48 0.37\nThe breeder is E P Clucas of Kuranga Native\nNursery. NUMBER OF Mean 16.7 19.5\nPINNULES Range 14-22 16-24\nThis variety was selected for its prostrate growth Stddeviation 1.92 2.08\nhabit in 1980 from seedlings of Acacia cardiophylia PINNULE Mean 1.05mm 1.0mm\nsown and grown on the breeders property. INTERVAL Range 0.78-1.38 \u20140.8-1.35\nMaterial has been vegetatively propagated since (WIDTH Stddeviation 0.15 0.14",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    87.84,
+    484.32,
+    373.92,
+    503.52
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      87.84,
+      484.32,
+      373.92,
+      492.96
+     ],
+     "text": "selection and further evaluated by the applicant for PER PINNULE)"
+    },
+    {
+     "bbox": [
+      87.84,
+      494.4,
+      193.92,
+      503.52
+     ],
+     "text": "its growth characteristics."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "selection and further evaluated by the applicant for PER PINNULE)\nits growth characteristics.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    87.36,
+    514.08,
+    295.2,
+    602.4
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      87.84,
+      514.08,
+      249.12,
+      522.72
+     ],
+     "text": "Morphology \u2014 See comparison tables."
+    },
+    {
+     "bbox": [
+      87.84,
+      523.68,
+      282.24,
+      532.8
+     ],
+     "text": "\u2018Kuranga Gold Lace\u2019 is a perennial shrub with a"
+    },
+    {
+     "bbox": [
+      87.36,
+      533.76,
+      293.76,
+      542.4
+     ],
+     "text": "trailing prostrate growth habit. Its flowering is not"
+    },
+    {
+     "bbox": [
+      87.36,
+      543.84,
+      247.68,
+      551.04
+     ],
+     "text": "observed to differ from the standard A."
+    },
+    {
+     "bbox": [
+      87.36,
+      553.44,
+      292.32,
+      563.04
+     ],
+     "text": "cardiophylia form. Flowering occurs from August"
+    },
+    {
+     "bbox": [
+      87.36,
+      564.0,
+      277.44,
+      572.64
+     ],
+     "text": "to September, when the plants produce many"
+    },
+    {
+     "bbox": [
+      87.84,
+      573.6,
+      281.76,
+      582.72
+     ],
+     "text": "mildly perfumed golden yellow globular heads"
+    },
+    {
+     "bbox": [
+      87.84,
+      583.68,
+      295.2,
+      591.84
+     ],
+     "text": "about 1. cm in diameter in dense ancillary racemes"
+    },
+    {
+     "bbox": [
+      87.36,
+      593.76,
+      139.68,
+      602.4
+     ],
+     "text": "3-5 cm long."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 See comparison tables.\n\u2018Kuranga Gold Lace\u2019 is a perennial shrub with a\ntrailing prostrate growth habit. Its flowering is not\nobserved to differ from the standard A.\ncardiophylia form. Flowering occurs from August\nto September, when the plants produce many\nmildly perfumed golden yellow globular heads\nabout 1. cm in diameter in dense ancillary racemes\n3-5 cm long.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    87.36,
+    612.96,
+    286.08,
+    640.32
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      87.36,
+      612.96,
+      278.88,
+      622.56
+     ],
+     "text": "The foliage of \u2018Kuranga Gold Lace\u2019 is typical A."
+    },
+    {
+     "bbox": [
+      87.36,
+      623.04,
+      286.08,
+      632.16
+     ],
+     "text": "cardiophylla and not observed to differ from the"
+    },
+    {
+     "bbox": [
+      87.36,
+      633.12,
+      148.32,
+      640.32
+     ],
+     "text": "standard form."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The foliage of \u2018Kuranga Gold Lace\u2019 is typical A.\ncardiophylla and not observed to differ from the\nstandard form.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    87.36,
+    652.32,
+    297.12,
+    701.28
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      87.36,
+      652.32,
+      275.52,
+      660.96
+     ],
+     "text": "The stems\u2019 prostrate growth habit is the main"
+    },
+    {
+     "bbox": [
+      87.36,
+      661.92,
+      290.88,
+      671.04
+     ],
+     "text": "characteristic distinguishing \u2018Kuranga Gold Lace\u2019"
+    },
+    {
+     "bbox": [
+      87.36,
+      672.0,
+      294.24,
+      680.64
+     ],
+     "text": "from other A. cardiophylla. The stems of \u2018Kuranga"
+    },
+    {
+     "bbox": [
+      87.84,
+      682.08,
+      297.12,
+      689.28
+     ],
+     "text": "Gold Lace\u2019 also differ from those of the standard A."
+    },
+    {
+     "bbox": [
+      87.36,
+      692.16,
+      270.72,
+      701.28
+     ],
+     "text": "cardiophylla in becoming tortuous with age."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The stems\u2019 prostrate growth habit is the main\ncharacteristic distinguishing \u2018Kuranga Gold Lace\u2019\nfrom other A. cardiophylla. The stems of \u2018Kuranga\nGold Lace\u2019 also differ from those of the standard A.\ncardiophylla in becoming tortuous with age.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    87.36,
+    712.32,
+    299.04,
+    768.96
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      87.36,
+      712.32,
+      120.48,
+      719.52
+     ],
+     "text": "Culture\u2019"
+    },
+    {
+     "bbox": [
+      87.36,
+      722.4,
+      283.68,
+      731.04
+     ],
+     "text": "\u2018Kuranga Gold Lace\u2019 is propagated vegetatively"
+    },
+    {
+     "bbox": [
+      87.36,
+      732.0,
+      288.96,
+      741.12
+     ],
+     "text": "from cuttings. It is considered by the applicant to"
+    },
+    {
+     "bbox": [
+      87.84,
+      742.08,
+      273.6,
+      750.72
+     ],
+     "text": "be suitable for growth outdoors in temperate"
+    },
+    {
+     "bbox": [
+      87.84,
+      751.68,
+      299.04,
+      760.8
+     ],
+     "text": "regions of Australia. It is frost-tolerant and requires"
+    },
+    {
+     "bbox": [
+      87.36,
+      761.76,
+      164.16,
+      768.96
+     ],
+     "text": "a well drained soil."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Culture\u2019\n\u2018Kuranga Gold Lace\u2019 is propagated vegetatively\nfrom cuttings. It is considered by the applicant to\nbe suitable for growth outdoors in temperate\nregions of Australia. It is frost-tolerant and requires\na well drained soil.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    87.84,
+    790.56,
+    96.48,
+    796.8
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      87.84,
+      790.56,
+      96.48,
+      796.8
+     ],
+     "text": "26"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "26",
+   "text_format": "plain",
+   "type": "page_number"
+  },
+  {
+   "bbox": [
+    0.0,
+    827.52,
+    594.24,
+    841.44
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      0.0,
+      827.52,
+      594.24,
+      841.44
+     ],
+     "text": "i eoOw"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "i eoOw",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    594.06,
+    841.36
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

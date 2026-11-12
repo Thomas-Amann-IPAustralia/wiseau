@@ -1,0 +1,351 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    108.96,
+    303.6,
+    118.56,
+    311.28
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      108.96,
+      303.6,
+      118.56,
+      311.28
+     ],
+     "text": "iG"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "iG",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    354.0,
+    101.76,
+    379.68,
+    110.64
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      354.0,
+      101.76,
+      379.68,
+      110.64
+     ],
+     "text": "-~16~"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "-~16~",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    147.84,
+    143.28,
+    589.92,
+    438.48
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      149.04,
+      143.28,
+      512.88,
+      156.96
+     ],
+     "text": "l-octanol within the limits of this disclosure would"
+    },
+    {
+     "bbox": [
+      148.8,
+      162.24,
+      587.76,
+      178.56
+     ],
+     "text": "essentially perform as well as polyoxyethylene (3.0) l-octanol,"
+    },
+    {
+     "bbox": [
+      219.12,
+      182.64,
+      575.76,
+      194.4
+     ],
+     "text": "The preferred alkoxylating agent would appear to be"
+    },
+    {
+     "bbox": [
+      148.56,
+      200.16,
+      589.92,
+      211.44
+     ],
+     "text": "ethylene oxide. We could find no advantage to the inclusion of"
+    },
+    {
+     "bbox": [
+      148.08,
+      217.2,
+      561.36,
+      229.2
+     ],
+     "text": "propylene oxide in the molecule. However, the illustrative"
+    },
+    {
+     "bbox": [
+      148.56,
+      234.96,
+      525.84,
+      246.72
+     ],
+     "text": "examples shows that compounds within the range cf this"
+    },
+    {
+     "bbox": [
+      148.32,
+      252.48,
+      582.48,
+      264.24
+     ],
+     "text": "disclosure centaining propylene oxide do act as sucker control"
+    },
+    {
+     "bbox": [
+      148.56,
+      270.0,
+      581.04,
+      281.52
+     ],
+     "text": "agents and as such should not be excluded from this invention."
+    },
+    {
+     "bbox": [
+      148.8,
+      287.28,
+      533.52,
+      298.8
+     ],
+     "text": "It is contemplated that alkoxylated alcchols containing"
+    },
+    {
+     "bbox": [
+      147.84,
+      305.04,
+      547.2,
+      316.56
+     ],
+     "text": "butylene oxide may also perform as tobacco sucker control"
+    },
+    {
+     "bbox": [
+      148.56,
+      319.92,
+      226.08,
+      333.6
+     ],
+     "text": "agents. |"
+    },
+    {
+     "bbox": [
+      218.64,
+      338.16,
+      568.08,
+      351.36
+     ],
+     "text": "Some of the alkoxylated alcohols disclosed in this"
+    },
+    {
+     "bbox": [
+      148.8,
+      357.6,
+      554.64,
+      368.88
+     ],
+     "text": "invention are available as commercial products, being sold"
+    },
+    {
+     "bbox": [
+      148.08,
+      374.88,
+      568.08,
+      386.4
+     ],
+     "text": "primarily for their surface active agent properties. Others"
+    },
+    {
+     "bbox": [
+      148.32,
+      392.64,
+      532.8,
+      404.16
+     ],
+     "text": "are net commonly commercially available. All materials"
+    },
+    {
+     "bbox": [
+      147.84,
+      409.92,
+      576.24,
+      421.2
+     ],
+     "text": "utilized in the trials reported in this text were synthesized"
+    },
+    {
+     "bbox": [
+      149.04,
+      427.2,
+      582.96,
+      438.48
+     ],
+     "text": "in a similar manner to the method listed below fcr composition"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "l-octanol within the limits of this disclosure would\nessentially perform as well as polyoxyethylene (3.0) l-octanol,\nThe preferred alkoxylating agent would appear to be\nethylene oxide. We could find no advantage to the inclusion of\npropylene oxide in the molecule. However, the illustrative\nexamples shows that compounds within the range cf this\ndisclosure centaining propylene oxide do act as sucker control\nagents and as such should not be excluded from this invention.\nIt is contemplated that alkoxylated alcchols containing\nbutylene oxide may also perform as tobacco sucker control\nagents. |\nSome of the alkoxylated alcohols disclosed in this\ninvention are available as commercial products, being sold\nprimarily for their surface active agent properties. Others\nare net commonly commercially available. All materials\nutilized in the trials reported in this text were synthesized\nin a similar manner to the method listed below fcr composition",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    148.08,
+    461.76,
+    589.68,
+    644.4
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      217.92,
+      461.76,
+      589.68,
+      475.2
+     ],
+     "text": "Aithough evaluations were conducted with Delhi 76 and"
+    },
+    {
+     "bbox": [
+      148.56,
+      479.04,
+      561.84,
+      489.36
+     ],
+     "text": "34 varieties of tobacco, the invention i. not restricted to"
+    },
+    {
+     "bbox": [
+      148.8,
+      496.56,
+      582.48,
+      508.08
+     ],
+     "text": "these specific varieties. Delhi 76 and 34 are among the three"
+    },
+    {
+     "bbox": [
+      148.56,
+      514.08,
+      532.8,
+      523.2
+     ],
+     "text": "recommended varieties for Ontario since these varieties"
+    },
+    {
+     "bbox": [
+      148.56,
+      531.6,
+      561.6,
+      543.12
+     ],
+     "text": "together with Virginia 115 are considered superior to other"
+    },
+    {
+     "bbox": [
+      148.08,
+      548.88,
+      589.2,
+      559.92
+     ],
+     "text": "varieties of flue-cured tobacce in most respects. Studies have"
+    },
+    {
+     "bbox": [
+      149.28,
+      566.16,
+      582.48,
+      577.68
+     ],
+     "text": "shown that contact type desuckerants are relatively unaffected"
+    },
+    {
+     "bbox": [
+      148.08,
+      581.52,
+      533.04,
+      594.72
+     ],
+     "text": "by tobacco variety and thus it is contemplated that the"
+    },
+    {
+     "bbox": [
+      149.04,
+      600.24,
+      547.44,
+      611.76
+     ],
+     "text": "compositions of this invention will inhibit the growth of"
+    },
+    {
+     "bbox": [
+      149.04,
+      617.76,
+      533.76,
+      629.28
+     ],
+     "text": "axillary buds on other licensed varieties of flue-cured"
+    },
+    {
+     "bbox": [
+      149.04,
+      635.28,
+      201.6,
+      644.4
+     ],
+     "text": "tobacco."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Aithough evaluations were conducted with Delhi 76 and\n34 varieties of tobacco, the invention i. not restricted to\nthese specific varieties. Delhi 76 and 34 are among the three\nrecommended varieties for Ontario since these varieties\ntogether with Virginia 115 are considered superior to other\nvarieties of flue-cured tobacce in most respects. Studies have\nshown that contact type desuckerants are relatively unaffected\nby tobacco variety and thus it is contemplated that the\ncompositions of this invention will inhibit the growth of\naxillary buds on other licensed varieties of flue-cured\ntobacco.",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    675.84,
+    960.0
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

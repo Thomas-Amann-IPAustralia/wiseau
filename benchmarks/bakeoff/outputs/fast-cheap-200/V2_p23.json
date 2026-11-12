@@ -1,0 +1,1250 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    77.76,
+    68.04,
+    129.96,
+    77.04
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      77.76,
+      68.04,
+      129.96,
+      77.04
+     ],
+     "text": "Appendix 2"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Appendix 2",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    63.72,
+    106.2,
+    246.24,
+    114.84
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      63.72,
+      106.2,
+      246.24,
+      114.84
+     ],
+     "text": "SECTIONS 16 AND 17 OF THE PVR ACT"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "SECTIONS 16 AND 17 OF THE PVR ACT",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    63.72,
+    130.68,
+    264.24,
+    190.8
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      64.08,
+      130.68,
+      145.08,
+      139.32
+     ],
+     "text": "Form of application"
+    },
+    {
+     "bbox": [
+      64.44,
+      143.28,
+      245.88,
+      152.28
+     ],
+     "text": "16. An application for plant variety rights in"
+    },
+    {
+     "bbox": [
+      64.44,
+      153.36,
+      258.84,
+      162.36
+     ],
+     "text": "respect of a plant variety shall be in writing ina"
+    },
+    {
+     "bbox": [
+      63.72,
+      163.44,
+      264.24,
+      172.44
+     ],
+     "text": "form approved by the Secretary, shall be lodged"
+    },
+    {
+     "bbox": [
+      63.72,
+      173.16,
+      264.24,
+      181.8
+     ],
+     "text": "with the Secretary in the prescribed manner and"
+    },
+    {
+     "bbox": [
+      64.08,
+      183.6,
+      128.52,
+      190.8
+     ],
+     "text": "shall contain \u2014"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Form of application\n16. An application for plant variety rights in\nrespect of a plant variety shall be in writing ina\nform approved by the Secretary, shall be lodged\nwith the Secretary in the prescribed manner and\nshall contain \u2014",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    73.08,
+    196.2,
+    276.12,
+    365.4
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      73.08,
+      196.2,
+      234.0,
+      204.84
+     ],
+     "text": "(a) the name of the person making the"
+    },
+    {
+     "bbox": [
+      90.0,
+      206.28,
+      138.6,
+      214.92
+     ],
+     "text": "application;"
+    },
+    {
+     "bbox": [
+      73.08,
+      218.52,
+      256.32,
+      227.52
+     ],
+     "text": "(b) where the applicant is the breeder of the"
+    },
+    {
+     "bbox": [
+      89.64,
+      228.6,
+      270.72,
+      237.24
+     ],
+     "text": "variety, a statement that the applicant is the"
+    },
+    {
+     "bbox": [
+      90.36,
+      238.68,
+      181.44,
+      246.96
+     ],
+     "text": "breeder of the variety;"
+    },
+    {
+     "bbox": [
+      73.08,
+      250.92,
+      272.52,
+      259.92
+     ],
+     "text": "(c) where the applicant is not the breeder of the"
+    },
+    {
+     "bbox": [
+      89.64,
+      261.0,
+      275.76,
+      270.0
+     ],
+     "text": "variety, the name and address of the breeder"
+    },
+    {
+     "bbox": [
+      89.64,
+      271.08,
+      276.12,
+      279.72
+     ],
+     "text": "from whom the applicant derived the right to"
+    },
+    {
+     "bbox": [
+      90.0,
+      281.16,
+      259.92,
+      289.8
+     ],
+     "text": "make an application and particulars of all"
+    },
+    {
+     "bbox": [
+      90.36,
+      291.24,
+      269.28,
+      300.24
+     ],
+     "text": "relevant assignments and transmissions of"
+    },
+    {
+     "bbox": [
+      89.64,
+      301.32,
+      267.48,
+      310.32
+     ],
+     "text": "the right to make the relevant applications;"
+    },
+    {
+     "bbox": [
+      73.08,
+      314.28,
+      230.04,
+      322.92
+     ],
+     "text": "(d) adescription, or a description and"
+    },
+    {
+     "bbox": [
+      90.0,
+      324.36,
+      239.04,
+      333.0
+     ],
+     "text": "photograph, of a plant of the variety"
+    },
+    {
+     "bbox": [
+      89.64,
+      333.72,
+      262.44,
+      342.72
+     ],
+     "text": "sufficient to identify plants of that variety;"
+    },
+    {
+     "bbox": [
+      73.08,
+      346.68,
+      240.48,
+      355.68
+     ],
+     "text": "(e) particulars of the characteristics that"
+    },
+    {
+     "bbox": [
+      89.64,
+      356.76,
+      269.28,
+      365.4
+     ],
+     "text": "distinguish the variety from other varieties;"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(a) the name of the person making the\napplication;\n(b) where the applicant is the breeder of the\nvariety, a statement that the applicant is the\nbreeder of the variety;\n(c) where the applicant is not the breeder of the\nvariety, the name and address of the breeder\nfrom whom the applicant derived the right to\nmake an application and particulars of all\nrelevant assignments and transmissions of\nthe right to make the relevant applications;\n(d) adescription, or a description and\nphotograph, of a plant of the variety\nsufficient to identify plants of that variety;\n(e) particulars of the characteristics that\ndistinguish the variety from other varieties;",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    73.08,
+    369.36,
+    277.56,
+    433.8
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      73.08,
+      369.36,
+      277.56,
+      378.0
+     ],
+     "text": "(f} particulars of the manner in which the variety"
+    },
+    {
+     "bbox": [
+      89.28,
+      379.44,
+      153.72,
+      388.08
+     ],
+     "text": "was originated;"
+    },
+    {
+     "bbox": [
+      73.08,
+      390.6,
+      187.2,
+      402.48
+     ],
+     "text": "(g) the name of the variety;"
+    },
+    {
+     "bbox": [
+      73.08,
+      405.0,
+      276.12,
+      414.0
+     ],
+     "text": "(h) particulars of any application for, or approval"
+    },
+    {
+     "bbox": [
+      89.64,
+      415.08,
+      269.28,
+      424.08
+     ],
+     "text": "of a grant of, rights of any kind in respect of"
+    },
+    {
+     "bbox": [
+      89.28,
+      425.16,
+      221.76,
+      433.8
+     ],
+     "text": "the variety in any other country;"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(f} particulars of the manner in which the variety\nwas originated;\n(g) the name of the variety;\n(h) particulars of any application for, or approval\nof a grant of, rights of any kind in respect of\nthe variety in any other country;",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    72.72,
+    438.12,
+    274.32,
+    548.28
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      72.72,
+      438.12,
+      240.48,
+      447.12
+     ],
+     "text": "(j) particulars of any tests carried out to"
+    },
+    {
+     "bbox": [
+      89.64,
+      448.2,
+      263.52,
+      457.2
+     ],
+     "text": "establish that the variety is homogeneous"
+    },
+    {
+     "bbox": [
+      89.28,
+      457.92,
+      274.32,
+      467.28
+     ],
+     "text": "and stable (including particulars of any cycle"
+    },
+    {
+     "bbox": [
+      89.28,
+      468.36,
+      254.52,
+      476.64
+     ],
+     "text": "of reproduction or multiplication for the"
+    },
+    {
+     "bbox": [
+      89.64,
+      477.72,
+      219.24,
+      486.72
+     ],
+     "text": "purposes of paragraph 3(2)(b));"
+    },
+    {
+     "bbox": [
+      72.72,
+      490.68,
+      249.12,
+      499.68
+     ],
+     "text": "(k) in the case of a ptant variety originated"
+    },
+    {
+     "bbox": [
+      89.28,
+      500.76,
+      254.52,
+      509.04
+     ],
+     "text": "outside Australia, particulars of any test"
+    },
+    {
+     "bbox": [
+      89.28,
+      510.48,
+      260.28,
+      519.12
+     ],
+     "text": "growing of that variety carried out for the"
+    },
+    {
+     "bbox": [
+      89.64,
+      520.56,
+      270.72,
+      529.2
+     ],
+     "text": "purpose of determining whether the variety"
+    },
+    {
+     "bbox": [
+      88.92,
+      530.28,
+      266.76,
+      538.92
+     ],
+     "text": "will, if grown in Australia, have a particular"
+    },
+    {
+     "bbox": [
+      88.92,
+      540.36,
+      147.24,
+      548.28
+     ],
+     "text": "characteristic;"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(j) particulars of any tests carried out to\nestablish that the variety is homogeneous\nand stable (including particulars of any cycle\nof reproduction or multiplication for the\npurposes of paragraph 3(2)(b));\n(k) in the case of a ptant variety originated\noutside Australia, particulars of any test\ngrowing of that variety carried out for the\npurpose of determining whether the variety\nwill, if grown in Australia, have a particular\ncharacteristic;",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    72.36,
+    552.96,
+    275.4,
+    583.92
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      72.36,
+      552.96,
+      255.6,
+      561.24
+     ],
+     "text": "(m) an address in Australia for the service of"
+    },
+    {
+     "bbox": [
+      88.92,
+      563.4,
+      275.4,
+      572.04
+     ],
+     "text": "documents on the applicant for the purposes"
+    },
+    {
+     "bbox": [
+      88.92,
+      572.04,
+      151.2,
+      583.92
+     ],
+     "text": "of this Act; and"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(m) an address in Australia for the service of\ndocuments on the applicant for the purposes\nof this Act; and",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    72.36,
+    583.56,
+    236.52,
+    604.8
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      72.36,
+      583.56,
+      236.52,
+      595.08
+     ],
+     "text": "(n) such other particulars (if any) as are"
+    },
+    {
+     "bbox": [
+      89.28,
+      596.16,
+      135.0,
+      604.8
+     ],
+     "text": "prescribed."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(n) such other particulars (if any) as are\nprescribed.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    63.0,
+    615.96,
+    185.4,
+    624.96
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      63.0,
+      615.96,
+      185.4,
+      624.96
+     ],
+     "text": "Names of new plant varieties"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Names of new plant varieties",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.64,
+    628.56,
+    257.4,
+    692.64
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      63.36,
+      628.56,
+      245.52,
+      637.2
+     ],
+     "text": "17.(1) The name of a new plant variety shall"
+    },
+    {
+     "bbox": [
+      63.0,
+      638.64,
+      248.04,
+      647.28
+     ],
+     "text": "consist of a word or words (which may be an"
+    },
+    {
+     "bbox": [
+      63.0,
+      648.0,
+      246.24,
+      655.92
+     ],
+     "text": "invented word or words) with or without the"
+    },
+    {
+     "bbox": [
+      62.64,
+      656.64,
+      120.6,
+      668.52
+     ],
+     "text": "addition of \u2014"
+    },
+    {
+     "bbox": [
+      72.0,
+      670.68,
+      257.4,
+      679.68
+     ],
+     "text": "(a) aletter or letters not constituting a word;"
+    },
+    {
+     "bbox": [
+      71.64,
+      683.64,
+      176.04,
+      692.64
+     ],
+     "text": "(b) a figure or figures; or"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "17.(1) The name of a new plant variety shall\nconsist of a word or words (which may be an\ninvented word or words) with or without the\naddition of \u2014\n(a) aletter or letters not constituting a word;\n(b) a figure or figures; or",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    71.64,
+    694.8,
+    275.76,
+    715.68
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      71.64,
+      694.8,
+      275.76,
+      707.04
+     ],
+     "text": "(c) both a letter or letters not constituting a word"
+    },
+    {
+     "bbox": [
+      88.56,
+      706.68,
+      181.8,
+      715.68
+     ],
+     "text": "and a figure or figures."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(c) both a letter or letters not constituting a word\nand a figure or figures.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.28,
+    726.84,
+    226.8,
+    735.48
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      62.28,
+      726.84,
+      226.8,
+      735.48
+     ],
+     "text": "2. Anew plant variety shall not have \u2014"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "2. Anew plant variety shall not have \u2014",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    71.64,
+    739.44,
+    263.52,
+    787.68
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      71.64,
+      739.44,
+      263.52,
+      748.8
+     ],
+     "text": "(a) aname the use of which would be likely to"
+    },
+    {
+     "bbox": [
+      88.2,
+      749.88,
+      251.64,
+      758.88
+     ],
+     "text": "deceive or cause confusion, including a"
+    },
+    {
+     "bbox": [
+      88.56,
+      759.6,
+      259.92,
+      768.24
+     ],
+     "text": "name that is the same as, or is likely to be"
+    },
+    {
+     "bbox": [
+      88.2,
+      769.32,
+      252.36,
+      777.96
+     ],
+     "text": "mistaken for, the name of another plant"
+    },
+    {
+     "bbox": [
+      87.84,
+      779.04,
+      119.16,
+      787.68
+     ],
+     "text": "variety;"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(a) aname the use of which would be likely to\ndeceive or cause confusion, including a\nname that is the same as, or is likely to be\nmistaken for, the name of another plant\nvariety;",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    311.4,
+    104.76,
+    516.96,
+    124.2
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      311.4,
+      104.76,
+      516.96,
+      117.0
+     ],
+     "text": "(b) aname the use of which would be contrary to"
+    },
+    {
+     "bbox": [
+      328.68,
+      116.64,
+      345.6,
+      124.2
+     ],
+     "text": "law;"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(b) aname the use of which would be contrary to\nlaw;",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    311.4,
+    129.24,
+    471.96,
+    147.24
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      311.4,
+      129.24,
+      471.24,
+      138.24
+     ],
+     "text": "(c) aname that comprises or contains"
+    },
+    {
+     "bbox": [
+      328.32,
+      139.68,
+      471.96,
+      147.24
+     ],
+     "text": "scandalous or offensive matter; or"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(c) aname that comprises or contains\nscandalous or offensive matter; or",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    311.76,
+    151.2,
+    513.36,
+    181.44
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      311.76,
+      151.2,
+      513.36,
+      163.08
+     ],
+     "text": "(d) aname, or name of a kind, that is, at the time"
+    },
+    {
+     "bbox": [
+      327.96,
+      162.36,
+      511.2,
+      171.0
+     ],
+     "text": "when tne application is made, prohibited by"
+    },
+    {
+     "bbox": [
+      328.32,
+      172.8,
+      393.12,
+      181.44
+     ],
+     "text": "the regulations."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(d) aname, or name of a kind, that is, at the time\nwhen tne application is made, prohibited by\nthe regulations.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    302.4,
+    192.6,
+    516.6,
+    280.44
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      302.76,
+      192.6,
+      504.72,
+      201.24
+     ],
+     "text": "(3) The name of a new plant variety in respect of"
+    },
+    {
+     "bbox": [
+      302.4,
+      202.68,
+      516.6,
+      211.32
+     ],
+     "text": "which an application is made shall comply with any"
+    },
+    {
+     "bbox": [
+      303.12,
+      210.6,
+      495.36,
+      222.84
+     ],
+     "text": "recommendations of the International Code of"
+    },
+    {
+     "bbox": [
+      303.12,
+      222.12,
+      496.44,
+      230.04
+     ],
+     "text": "Nomenclature for Cultivated Plants, as in force"
+    },
+    {
+     "bbox": [
+      302.4,
+      232.2,
+      493.56,
+      240.84
+     ],
+     "text": "when the application is made, formulated and"
+    },
+    {
+     "bbox": [
+      302.76,
+      241.56,
+      489.96,
+      250.56
+     ],
+     "text": "adopted by the International Commission for"
+    },
+    {
+     "bbox": [
+      303.12,
+      251.64,
+      471.24,
+      258.84
+     ],
+     "text": "Nomenclature of Cultivated Plants of the"
+    },
+    {
+     "bbox": [
+      303.12,
+      261.72,
+      511.2,
+      270.36
+     ],
+     "text": "International Union of Biological Sciences that are"
+    },
+    {
+     "bbox": [
+      302.76,
+      271.8,
+      394.2,
+      280.44
+     ],
+     "text": "accepted by Australia."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(3) The name of a new plant variety in respect of\nwhich an application is made shall comply with any\nrecommendations of the International Code of\nNomenclature for Cultivated Plants, as in force\nwhen the application is made, formulated and\nadopted by the International Commission for\nNomenclature of Cultivated Plants of the\nInternational Union of Biological Sciences that are\naccepted by Australia.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    302.4,
+    292.32,
+    516.96,
+    322.92
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      302.76,
+      292.32,
+      504.72,
+      300.96
+     ],
+     "text": "(4) The name of a new plant variety in respect of"
+    },
+    {
+     "bbox": [
+      302.4,
+      302.4,
+      516.96,
+      311.04
+     ],
+     "text": "which an application is made shall not consist of, or"
+    },
+    {
+     "bbox": [
+      303.12,
+      311.04,
+      346.32,
+      322.92
+     ],
+     "text": "include \u2014"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(4) The name of a new plant variety in respect of\nwhich an application is made shall not consist of, or\ninclude \u2014",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    312.12,
+    323.64,
+    516.96,
+    427.68
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      312.12,
+      323.64,
+      498.24,
+      335.52
+     ],
+     "text": "(a) the name of a natural person living at the"
+    },
+    {
+     "bbox": [
+      328.32,
+      335.16,
+      507.24,
+      343.8
+     ],
+     "text": "time of the application, other than a person"
+    },
+    {
+     "bbox": [
+      328.32,
+      345.24,
+      507.6,
+      353.52
+     ],
+     "text": "who has given written consent to the name"
+    },
+    {
+     "bbox": [
+      328.68,
+      353.16,
+      408.96,
+      365.04
+     ],
+     "text": "of the plant variety;"
+    },
+    {
+     "bbox": [
+      312.12,
+      367.56,
+      516.24,
+      376.56
+     ],
+     "text": "(b) the name of a natural person who died within"
+    },
+    {
+     "bbox": [
+      328.32,
+      377.64,
+      516.96,
+      386.64
+     ],
+     "text": "the period of 10 years immediately preceding"
+    },
+    {
+     "bbox": [
+      328.32,
+      387.72,
+      513.72,
+      396.0
+     ],
+     "text": "the application, other than a person who has"
+    },
+    {
+     "bbox": [
+      328.68,
+      397.44,
+      455.4,
+      406.44
+     ],
+     "text": "given, or whose legal personal"
+    },
+    {
+     "bbox": [
+      329.04,
+      407.52,
+      511.2,
+      416.16
+     ],
+     "text": "representative has given, written consent to"
+    },
+    {
+     "bbox": [
+      328.32,
+      415.8,
+      461.88,
+      427.68
+     ],
+     "text": "the name of the plant variety; or"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(a) the name of a natural person living at the\ntime of the application, other than a person\nwho has given written consent to the name\nof the plant variety;\n(b) the name of a natural person who died within\nthe period of 10 years immediately preceding\nthe application, other than a person who has\ngiven, or whose legal personal\nrepresentative has given, written consent to\nthe name of the plant variety; or",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    312.12,
+    430.56,
+    509.76,
+    479.16
+   ],
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      312.12,
+      430.56,
+      504.0,
+      439.56
+     ],
+     "text": "(c) the name of a corporation, organisation or"
+    },
+    {
+     "bbox": [
+      328.68,
+      440.64,
+      479.16,
+      449.28
+     ],
+     "text": "institution, other than a corporation,"
+    },
+    {
+     "bbox": [
+      328.68,
+      450.72,
+      509.76,
+      459.36
+     ],
+     "text": "organisation or institution that has given its"
+    },
+    {
+     "bbox": [
+      328.32,
+      460.44,
+      494.28,
+      469.44
+     ],
+     "text": "written consent to the name of the plant"
+    },
+    {
+     "bbox": [
+      328.32,
+      470.52,
+      358.92,
+      479.16
+     ],
+     "text": "variety."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(c) the name of a corporation, organisation or\ninstitution, other than a corporation,\norganisation or institution that has given its\nwritten consent to the name of the plant\nvariety.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    508.68,
+    804.96,
+    516.24,
+    810.72
+   ],
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      508.68,
+      804.96,
+      516.24,
+      810.72
+     ],
+     "text": "17"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "17",
+   "text_format": "plain",
+   "type": "page_number"
+  },
+  {
+   "bbox": [
+    0.0,
+    828.0,
+    593.28,
+    842.04
+   ],
+   "id": "e22",
+   "lines": [
+    {
+     "bbox": [
+      0.0,
+      828.0,
+      593.28,
+      842.04
+     ],
+     "text": "\u2014\u201ca_Tle_\"_,_lRlCe LLL"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2014\u201ca_Tle_\"_,_lRlCe LLL",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    594.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [
+  {
+   "signal": "continuation-column",
+   "source": "e14",
+   "target": "e13",
+   "type": "continues_from"
+  }
+ ],
+ "schema": "0.1"
+}

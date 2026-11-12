@@ -1,0 +1,1069 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    41.4,
+    56.88,
+    277.2,
+    100.08
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      41.4,
+      56.88,
+      277.2,
+      68.4
+     ],
+     "text": "derives from a single head selection from this cross at F2. Field"
+    },
+    {
+     "bbox": [
+      41.76,
+      69.12,
+      276.84,
+      78.12
+     ],
+     "text": "testing in replicated field trials commenced at the F5 genera-"
+    },
+    {
+     "bbox": [
+      41.4,
+      80.28,
+      276.84,
+      88.92
+     ],
+     "text": "tion and lines were evaluated for yield, disease resistance and"
+    },
+    {
+     "bbox": [
+      41.4,
+      91.08,
+      74.52,
+      100.08
+     ],
+     "text": "maturity."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "derives from a single head selection from this cross at F2. Field\ntesting in replicated field trials commenced at the F5 genera-\ntion and lines were evaluated for yield, disease resistance and\nmaturity.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    41.04,
+    109.8,
+    276.84,
+    163.08
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      41.4,
+      109.8,
+      176.04,
+      118.8
+     ],
+     "text": "Varieties used for comparison"
+    },
+    {
+     "bbox": [
+      42.12,
+      124.92,
+      276.84,
+      133.56
+     ],
+     "text": "\u2018Currency\u2019 being the closest known variety and \u2018Muir\u2019 and"
+    },
+    {
+     "bbox": [
+      42.12,
+      136.08,
+      200.88,
+      144.36
+     ],
+     "text": "\u2018Tahara\u2019 being industry standard varieties."
+    },
+    {
+     "bbox": [
+      41.04,
+      154.08,
+      166.68,
+      163.08
+     ],
+     "text": "Comparative Growing Trials"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comparison\n\u2018Currency\u2019 being the closest known variety and \u2018Muir\u2019 and\n\u2018Tahara\u2019 being industry standard varieties.\nComparative Growing Trials",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    41.04,
+    168.84,
+    276.84,
+    188.28
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      41.4,
+      168.84,
+      276.84,
+      177.84
+     ],
+     "text": "All characteristics described and comparisons are from com-"
+    },
+    {
+     "bbox": [
+      41.04,
+      180.0,
+      276.48,
+      188.28
+     ],
+     "text": "parative growing trials conducted at Urrbrae Agricultural High"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "All characteristics described and comparisons are from com-\nparative growing trials conducted at Urrbrae Agricultural High",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.56,
+    58.68,
+    541.44,
+    111.24
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      304.92,
+      58.68,
+      541.44,
+      67.32
+     ],
+     "text": "School, near Adelaide, South Australia, in 1991, on Bay of"
+    },
+    {
+     "bbox": [
+      304.92,
+      69.48,
+      540.36,
+      78.12
+     ],
+     "text": "Biscay clay soil, with 620 mm annual rainfall. Varieties were"
+    },
+    {
+     "bbox": [
+      304.56,
+      80.64,
+      540.36,
+      89.64
+     ],
+     "text": "grown in three replications at a density of 100 plants per square"
+    },
+    {
+     "bbox": [
+      304.92,
+      91.8,
+      540.0,
+      98.64
+     ],
+     "text": "metre. Measurements were taken at random from at least 25"
+    },
+    {
+     "bbox": [
+      304.92,
+      102.96,
+      328.68,
+      111.24
+     ],
+     "text": "plants."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "School, near Adelaide, South Australia, in 1991, on Bay of\nBiscay clay soil, with 620 mm annual rainfall. Varieties were\ngrown in three replications at a density of 100 plants per square\nmetre. Measurements were taken at random from at least 25\nplants.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.56,
+    121.32,
+    351.36,
+    130.32
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      304.56,
+      121.32,
+      351.36,
+      130.32
+     ],
+     "text": "Agronomy"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Agronomy",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.56,
+    136.44,
+    541.08,
+    188.28
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      305.28,
+      136.44,
+      540.36,
+      145.08
+     ],
+     "text": "\u2018Abacus\u2019 is intended for sowing in autumn and winter in the"
+    },
+    {
+     "bbox": [
+      304.92,
+      147.24,
+      541.08,
+      155.88
+     ],
+     "text": "longer season, wetter areas (600-1000 mm annual rainfall) of"
+    },
+    {
+     "bbox": [
+      304.92,
+      158.4,
+      540.0,
+      165.24
+     ],
+     "text": "the southern wheat belt. \u2018Abacus\u2019 has been observed to be tol-"
+    },
+    {
+     "bbox": [
+      304.56,
+      169.2,
+      540.0,
+      176.4
+     ],
+     "text": "erant of acid soil, and shows field resistance to stem, leaf and"
+    },
+    {
+     "bbox": [
+      304.56,
+      180.36,
+      536.76,
+      188.28
+     ],
+     "text": "stripe rusts (Puccinia graminis, P. recondita and P. striiformis)."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Abacus\u2019 is intended for sowing in autumn and winter in the\nlonger season, wetter areas (600-1000 mm annual rainfall) of\nthe southern wheat belt. \u2018Abacus\u2019 has been observed to be tol-\nerant of acid soil, and shows field resistance to stem, leaf and\nstripe rusts (Puccinia graminis, P. recondita and P. striiformis).",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    55.8,
+    203.04,
+    221.4,
+    211.68
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      55.8,
+      203.04,
+      221.4,
+      211.68
+     ],
+     "text": "ible of Comparison of Triticale Varieties"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ible of Comparison of Triticale Varieties",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    41.4,
+    217.8,
+    156.24,
+    225.72
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      41.4,
+      217.8,
+      156.24,
+      225.72
+     ],
+     "text": "(* = variety used for comparison)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(* = variety used for comparison)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    40.68,
+    232.56,
+    469.44,
+    544.68
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      185.4,
+      232.56,
+      461.16,
+      243.36
+     ],
+     "text": "\u2018Abacus\u2019 Currency\u2019 \u201cTahara\u2019 Muir\u2019"
+    },
+    {
+     "bbox": [
+      41.04,
+      248.04,
+      455.4,
+      259.56
+     ],
+     "text": "CHAFF COLOUR brown white white white"
+    },
+    {
+     "bbox": [
+      41.4,
+      263.88,
+      243.36,
+      275.4
+     ],
+     "text": "DAYS TO 50% HEAD EMERGENCE (sown 5 June 1991)"
+    },
+    {
+     "bbox": [
+      185.76,
+      275.76,
+      449.28,
+      281.88
+     ],
+     "text": "130 116 118 113"
+    },
+    {
+     "bbox": [
+      41.4,
+      291.24,
+      147.24,
+      298.8
+     ],
+     "text": "LEAF WIDTH (first below flag)"
+    },
+    {
+     "bbox": [
+      41.4,
+      300.96,
+      467.64,
+      307.08
+     ],
+     "text": "mean 18.7mm 21.0mm 18.5 mm 20.6 mm"
+    },
+    {
+     "bbox": [
+      41.4,
+      311.04,
+      458.64,
+      318.6
+     ],
+     "text": "range 16-22 16-25 16-22 17-25"
+    },
+    {
+     "bbox": [
+      40.68,
+      320.76,
+      452.16,
+      326.88
+     ],
+     "text": "std. deviation 1.28 1.99 1.28 1.98"
+    },
+    {
+     "bbox": [
+      41.04,
+      335.88,
+      153.72,
+      343.8
+     ],
+     "text": "LEAF LENGTH (first below flag)"
+    },
+    {
+     "bbox": [
+      41.04,
+      345.96,
+      469.44,
+      352.08
+     ],
+     "text": "mean 39.94 cm 39.32 cm 32.44 cm 33.06 cm"
+    },
+    {
+     "bbox": [
+      41.04,
+      354.6,
+      459.0,
+      365.04
+     ],
+     "text": "range 32-45 30-48 26-36 26-40"
+    },
+    {
+     "bbox": [
+      40.68,
+      365.76,
+      452.16,
+      371.88
+     ],
+     "text": "std. deviation 2.74 3.69 2.09 2.94"
+    },
+    {
+     "bbox": [
+      41.04,
+      381.24,
+      159.12,
+      389.16
+     ],
+     "text": "HEAD LENGTH (excluding awns)"
+    },
+    {
+     "bbox": [
+      41.04,
+      391.68,
+      464.76,
+      397.8
+     ],
+     "text": "mean 16.0 cm 16.7. cm 12.9cm 13.6 cm"
+    },
+    {
+     "bbox": [
+      41.04,
+      401.76,
+      454.68,
+      409.68
+     ],
+     "text": "range 13.5-19 14-19 11-14.5 9-17"
+    },
+    {
+     "bbox": [
+      40.68,
+      411.84,
+      452.16,
+      417.96
+     ],
+     "text": "std. deviation 1.32 1.12 0.93 2.05"
+    },
+    {
+     "bbox": [
+      40.68,
+      427.32,
+      162.0,
+      435.24
+     ],
+     "text": "AWN LENGTH (above tip of head)"
+    },
+    {
+     "bbox": [
+      41.04,
+      437.4,
+      460.44,
+      443.52
+     ],
+     "text": "mean 5.5m 6.5cm 5.6 cm 5.2cm"
+    },
+    {
+     "bbox": [
+      41.04,
+      446.04,
+      456.48,
+      456.48
+     ],
+     "text": "range 4-6 5-8 4.5-7.5 2.5-8"
+    },
+    {
+     "bbox": [
+      40.68,
+      457.2,
+      450.72,
+      463.32
+     ],
+     "text": "std. deviation 0.58 0.78 0.76 0.41"
+    },
+    {
+     "bbox": [
+      41.04,
+      472.68,
+      176.76,
+      479.16
+     ],
+     "text": "LENGTH OF 10 RACHIS SEGMENTS"
+    },
+    {
+     "bbox": [
+      41.04,
+      482.4,
+      460.44,
+      488.88
+     ],
+     "text": "mean 3.78 cm 5.02 cm 3.8 cm 4.2cm"
+    },
+    {
+     "bbox": [
+      40.68,
+      492.48,
+      451.8,
+      498.96
+     ],
+     "text": "std. deviation 0.36 0.39 0.25 0.54"
+    },
+    {
+     "bbox": [
+      41.04,
+      507.96,
+      266.76,
+      515.88
+     ],
+     "text": "PLANT HEIGHT (excluding awns; heads pulled up to full extent)"
+    },
+    {
+     "bbox": [
+      41.04,
+      518.04,
+      468.72,
+      524.16
+     ],
+     "text": "mean 117.4cm 109.4 cm 113.9 cm 118.5 cm"
+    },
+    {
+     "bbox": [
+      41.04,
+      527.76,
+      467.64,
+      536.04
+     ],
+     "text": "range 109-129 91-116 97-126 109-136"
+    },
+    {
+     "bbox": [
+      40.68,
+      537.84,
+      452.16,
+      544.68
+     ],
+     "text": "std. deviation 6.05 7.71 6.11 8.38"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Abacus\u2019 Currency\u2019 \u201cTahara\u2019 Muir\u2019\nCHAFF COLOUR brown white white white\nDAYS TO 50% HEAD EMERGENCE (sown 5 June 1991)\n130 116 118 113\nLEAF WIDTH (first below flag)\nmean 18.7mm 21.0mm 18.5 mm 20.6 mm\nrange 16-22 16-25 16-22 17-25\nstd. deviation 1.28 1.99 1.28 1.98\nLEAF LENGTH (first below flag)\nmean 39.94 cm 39.32 cm 32.44 cm 33.06 cm\nrange 32-45 30-48 26-36 26-40\nstd. deviation 2.74 3.69 2.09 2.94\nHEAD LENGTH (excluding awns)\nmean 16.0 cm 16.7. cm 12.9cm 13.6 cm\nrange 13.5-19 14-19 11-14.5 9-17\nstd. deviation 1.32 1.12 0.93 2.05\nAWN LENGTH (above tip of head)\nmean 5.5m 6.5cm 5.6 cm 5.2cm\nrange 4-6 5-8 4.5-7.5 2.5-8\nstd. deviation 0.58 0.78 0.76 0.41\nLENGTH OF 10 RACHIS SEGMENTS\nmean 3.78 cm 5.02 cm 3.8 cm 4.2cm\nstd. deviation 0.36 0.39 0.25 0.54\nPLANT HEIGHT (excluding awns; heads pulled up to full extent)\nmean 117.4cm 109.4 cm 113.9 cm 118.5 cm\nrange 109-129 91-116 97-126 109-136\nstd. deviation 6.05 7.71 6.11 8.38",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    40.68,
+    566.64,
+    150.84,
+    588.6
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      40.68,
+      566.64,
+      136.8,
+      574.92
+     ],
+     "text": "WALLABY GRASS"
+    },
+    {
+     "bbox": [
+      41.4,
+      580.32,
+      150.84,
+      588.6
+     ],
+     "text": "Danthonia richardsonii"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "WALLABY GRASS\nDanthonia richardsonii",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    40.32,
+    596.52,
+    55.44,
+    611.28
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      40.32,
+      596.52,
+      55.44,
+      611.28
+     ],
+     "text": "L"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "L",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    41.04,
+    616.68,
+    224.28,
+    660.24
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      41.04,
+      616.68,
+      224.28,
+      624.96
+     ],
+     "text": "Variety: \u201cTaranna\u2019. See fig. 6 in colour section."
+    },
+    {
+     "bbox": [
+      41.04,
+      628.2,
+      129.96,
+      636.84
+     ],
+     "text": "Application No. 91/098"
+    },
+    {
+     "bbox": [
+      41.04,
+      639.72,
+      204.48,
+      648.36
+     ],
+     "text": "Application Received: 27 September 1991"
+    },
+    {
+     "bbox": [
+      41.04,
+      651.24,
+      215.64,
+      660.24
+     ],
+     "text": "Applicant: NSW Agriculture, Orange, NSW"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u201cTaranna\u2019. See fig. 6 in colour section.\nApplication No. 91/098\nApplication Received: 27 September 1991\nApplicant: NSW Agriculture, Orange, NSW",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    41.4,
+    671.4,
+    217.08,
+    680.76
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      41.4,
+      671.4,
+      217.08,
+      680.76
+     ],
+     "text": "Description\u2014see also comparison tables"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Description\u2014see also comparison tables",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    41.04,
+    686.52,
+    276.84,
+    769.68
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      41.76,
+      686.52,
+      276.48,
+      695.16
+     ],
+     "text": "\u2018Taranna\u2019 is a new variety of the native grass Danthonia"
+    },
+    {
+     "bbox": [
+      41.4,
+      697.68,
+      276.12,
+      706.32
+     ],
+     "text": "richardsonii. It is distinct from the only other known variety"
+    },
+    {
+     "bbox": [
+      41.76,
+      708.48,
+      276.84,
+      717.48
+     ],
+     "text": "\u2018Hume\u2019 in having a wider inflorescence and glumes, longer"
+    },
+    {
+     "bbox": [
+      41.04,
+      719.28,
+      276.12,
+      728.28
+     ],
+     "text": "flag leaves and wider flag and tiller leaves. Although the culm"
+    },
+    {
+     "bbox": [
+      41.04,
+      730.44,
+      276.84,
+      739.44
+     ],
+     "text": "heights of the two varieties are similar, \u201cTaranna\u2019 has a greater"
+    },
+    {
+     "bbox": [
+      41.4,
+      741.24,
+      276.48,
+      748.44
+     ],
+     "text": "internodal distance between the first and second nodes on the"
+    },
+    {
+     "bbox": [
+      41.04,
+      751.68,
+      276.84,
+      760.68
+     ],
+     "text": "culm. At flowering the leaves of \u2018Taranna\u2019 tend to be a darker"
+    },
+    {
+     "bbox": [
+      41.04,
+      762.84,
+      150.12,
+      769.68
+     ],
+     "text": "colour than those of \u2018Hume\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Taranna\u2019 is a new variety of the native grass Danthonia\nrichardsonii. It is distinct from the only other known variety\n\u2018Hume\u2019 in having a wider inflorescence and glumes, longer\nflag leaves and wider flag and tiller leaves. Although the culm\nheights of the two varieties are similar, \u201cTaranna\u2019 has a greater\ninternodal distance between the first and second nodes on the\nculm. At flowering the leaves of \u2018Taranna\u2019 tend to be a darker\ncolour than those of \u2018Hume\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    303.84,
+    565.92,
+    540.72,
+    712.44
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      304.92,
+      565.92,
+      539.64,
+      574.56
+     ],
+     "text": "*Taranna\u2019 is distinct from naturally occurring ecotypes in that"
+    },
+    {
+     "bbox": [
+      304.2,
+      576.72,
+      539.64,
+      585.36
+     ],
+     "text": "it has a wider and longer inflorescence, a longer interbranch"
+    },
+    {
+     "bbox": [
+      304.2,
+      586.08,
+      539.64,
+      598.32
+     ],
+     "text": "distance between the first and second branches of the inflores-"
+    },
+    {
+     "bbox": [
+      304.2,
+      598.32,
+      539.64,
+      606.6
+     ],
+     "text": "cence. \u2018Taranna\u2019 also has a longer culm and longer flag and"
+    },
+    {
+     "bbox": [
+      304.2,
+      609.12,
+      492.84,
+      617.4
+     ],
+     "text": "tiller leaves than the naturally occurring ecotypes."
+    },
+    {
+     "bbox": [
+      304.2,
+      630.72,
+      331.2,
+      640.08
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      304.92,
+      646.92,
+      540.72,
+      655.92
+     ],
+     "text": "*Taranna\u2019 was selected by Dr G.M. Lodge from an ecotype of"
+    },
+    {
+     "bbox": [
+      304.2,
+      658.08,
+      540.0,
+      667.08
+     ],
+     "text": "the native grass Danthonia richardsonii. Selection over four"
+    },
+    {
+     "bbox": [
+      304.2,
+      669.24,
+      539.64,
+      677.88
+     ],
+     "text": "successive generations was based predominantly on seed reten-"
+    },
+    {
+     "bbox": [
+      304.2,
+      680.04,
+      539.28,
+      689.04
+     ],
+     "text": "tion and production characteristics assessed on spaced plants."
+    },
+    {
+     "bbox": [
+      303.84,
+      689.76,
+      539.64,
+      701.64
+     ],
+     "text": "The original parent plant was collected in 1985 from a naturally"
+    },
+    {
+     "bbox": [
+      304.2,
+      700.56,
+      539.64,
+      712.44
+     ],
+     "text": "occurring population of plants growing on a stock route on a"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "*Taranna\u2019 is distinct from naturally occurring ecotypes in that\nit has a wider and longer inflorescence, a longer interbranch\ndistance between the first and second branches of the inflores-\ncence. \u2018Taranna\u2019 also has a longer culm and longer flag and\ntiller leaves than the naturally occurring ecotypes.\nOrigin\n*Taranna\u2019 was selected by Dr G.M. Lodge from an ecotype of\nthe native grass Danthonia richardsonii. Selection over four\nsuccessive generations was based predominantly on seed reten-\ntion and production characteristics assessed on spaced plants.\nThe original parent plant was collected in 1985 from a naturally\noccurring population of plants growing on a stock route on a",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.2,
+    712.8,
+    540.72,
+    731.16
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      304.2,
+      712.8,
+      540.72,
+      721.8
+     ],
+     "text": "red-brown earth soil, approximately 30 kilometres south of"
+    },
+    {
+     "bbox": [
+      304.2,
+      723.96,
+      459.0,
+      731.16
+     ],
+     "text": "Tamworth in northern New South Wales."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "red-brown earth soil, approximately 30 kilometres south of\nTamworth in northern New South Wales.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.2,
+    745.92,
+    439.2,
+    754.56
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      304.2,
+      745.92,
+      439.2,
+      754.56
+     ],
+     "text": "Varieties used for comparison"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comparison",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.92,
+    761.76,
+    478.44,
+    770.76
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      304.92,
+      761.76,
+      478.44,
+      770.76
+     ],
+     "text": "\u2018Hume\u2019 and two naturally occurring ecotypes."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Hume\u2019 and two naturally occurring ecotypes.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    41.76,
+    790.92,
+    52.56,
+    798.84
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      41.76,
+      790.92,
+      52.56,
+      798.84
+     ],
+     "text": "18"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "18",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}
