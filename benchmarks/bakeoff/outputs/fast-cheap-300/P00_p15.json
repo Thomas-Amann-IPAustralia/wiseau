@@ -1,0 +1,635 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    47.76,
+    255.12,
+    60.0,
+    262.32
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      47.76,
+      255.12,
+      60.0,
+      262.32
+     ],
+     "text": "10"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "10",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    34.56,
+    434.16,
+    57.84,
+    443.28
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      34.56,
+      434.16,
+      57.84,
+      443.28
+     ],
+     "text": ", 20"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": ", 20",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    43.92,
+    523.44,
+    56.64,
+    530.64
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      43.92,
+      523.44,
+      56.64,
+      530.64
+     ],
+     "text": "25"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "25",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    42.96,
+    613.44,
+    55.68,
+    620.64
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      42.96,
+      613.44,
+      55.68,
+      620.64
+     ],
+     "text": "30"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "30",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    42.0,
+    702.96,
+    54.72,
+    709.92
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      42.0,
+      702.96,
+      54.72,
+      709.92
+     ],
+     "text": "35"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "35",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    100.08,
+    79.44,
+    532.8,
+    143.52
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      100.8,
+      79.44,
+      504.0,
+      90.24
+     ],
+     "text": "compression molded bars. Historically, companies which"
+    },
+    {
+     "bbox": [
+      100.08,
+      96.24,
+      495.84,
+      109.2
+     ],
+     "text": "make implants have used GUR 412 and GUR 415 for making"
+    },
+    {
+     "bbox": [
+      100.32,
+      114.0,
+      525.6,
+      127.2
+     ],
+     "text": "acetabular cups. Recently, Hoechst-Celanese Corp. changed"
+    },
+    {
+     "bbox": [
+      100.32,
+      128.88,
+      532.8,
+      143.52
+     ],
+     "text": "the designation of GUR 415 to 4150 resin and indicated that"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "compression molded bars. Historically, companies which\nmake implants have used GUR 412 and GUR 415 for making\nacetabular cups. Recently, Hoechst-Celanese Corp. changed\nthe designation of GUR 415 to 4150 resin and indicated that",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    100.32,
+    149.04,
+    390.72,
+    159.84
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      100.32,
+      149.04,
+      390.72,
+      159.84
+     ],
+     "text": "4150 HP was for use in medical implants."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "4150 HP was for use in medical implants.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    98.88,
+    184.32,
+    532.08,
+    232.56
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      98.88,
+      184.32,
+      502.56,
+      194.88
+     ],
+     "text": "Methods for Characterizing the Polymers (Especially the"
+    },
+    {
+     "bbox": [
+      99.6,
+      200.16,
+      441.12,
+      213.36
+     ],
+     "text": "Determination of Their Crystallinity) :"
+    },
+    {
+     "bbox": [
+      135.12,
+      219.84,
+      532.08,
+      232.56
+     ],
+     "text": "The degree of crystallinity of the crosslinked polymer"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Methods for Characterizing the Polymers (Especially the\nDetermination of Their Crystallinity) :\nThe degree of crystallinity of the crosslinked polymer",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    96.48,
+    237.6,
+    531.6,
+    428.64
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      98.4,
+      237.6,
+      522.24,
+      248.64
+     ],
+     "text": "may be determined after it has been crosslinked or molded."
+    },
+    {
+     "bbox": [
+      99.12,
+      255.84,
+      531.6,
+      268.08
+     ],
+     "text": "In case the treated polymer is further irradiated, e.g., to"
+    },
+    {
+     "bbox": [
+      98.64,
+      273.12,
+      516.72,
+      285.84
+     ],
+     "text": "sterilize the polymer before its implant into humans, the"
+    },
+    {
+     "bbox": [
+      97.92,
+      291.36,
+      441.6,
+      302.64
+     ],
+     "text": "degree of crystallinity may be determined after"
+    },
+    {
+     "bbox": [
+      98.64,
+      308.64,
+      434.64,
+      319.44
+     ],
+     "text": "irradiation, since irradiation effects further"
+    },
+    {
+     "bbox": [
+      97.68,
+      326.88,
+      321.36,
+      338.16
+     ],
+     "text": "crystallization of the polymer."
+    },
+    {
+     "bbox": [
+      133.44,
+      344.88,
+      508.56,
+      357.36
+     ],
+     "text": "The degree of crystallinity can be determined using"
+    },
+    {
+     "bbox": [
+      96.72,
+      362.4,
+      500.88,
+      376.32
+     ],
+     "text": "methods known in the art, e.g. by differential scanning"
+    },
+    {
+     "bbox": [
+      96.48,
+      379.92,
+      508.08,
+      391.92
+     ],
+     "text": "calorimetry (DSC), which is generally used to assess the"
+    },
+    {
+     "bbox": [
+      96.72,
+      398.4,
+      520.32,
+      410.88
+     ],
+     "text": "crystallinity and melting behavior of a polymer. Wang, X."
+    },
+    {
+     "bbox": [
+      97.2,
+      414.96,
+      505.44,
+      428.64
+     ],
+     "text": "& Salovey, R., J. App. Polymer Sci., 34:. 593-599 (1987)."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "may be determined after it has been crosslinked or molded.\nIn case the treated polymer is further irradiated, e.g., to\nsterilize the polymer before its implant into humans, the\ndegree of crystallinity may be determined after\nirradiation, since irradiation effects further\ncrystallization of the polymer.\nThe degree of crystallinity can be determined using\nmethods known in the art, e.g. by differential scanning\ncalorimetry (DSC), which is generally used to assess the\ncrystallinity and melting behavior of a polymer. Wang, X.\n& Salovey, R., J. App. Polymer Sci., 34:. 593-599 (1987).",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    132.72,
+    434.88,
+    515.04,
+    446.16
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      132.72,
+      434.88,
+      515.04,
+      446.16
+     ],
+     "text": "X-ray scattering from the resulting polymer can also"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "X-ray scattering from the resulting polymer can also",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    94.8,
+    452.4,
+    521.52,
+    571.2
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      96.24,
+      452.4,
+      514.8,
+      464.64
+     ],
+     "text": "be used to further confirm the degree of crystallinity of"
+    },
+    {
+     "bbox": [
+      96.24,
+      470.16,
+      519.84,
+      482.4
+     ],
+     "text": "the polymer, e.g. as described in Spruiell, J.E., & Clark,"
+    },
+    {
+     "bbox": [
+      95.76,
+      487.92,
+      512.4,
+      499.44
+     ],
+     "text": "E.S.,in \"Methods of Experimental Physics\", L. Marton & C."
+    },
+    {
+     "bbox": [
+      95.04,
+      506.16,
+      499.44,
+      517.2
+     ],
+     "text": "Marton, Eds., Vol. 16, Part B, Academic Press, New York"
+    },
+    {
+     "bbox": [
+      97.44,
+      523.92,
+      468.96,
+      535.2
+     ],
+     "text": "(1980). Swelling is generally used to characterize"
+    },
+    {
+     "bbox": [
+      95.04,
+      541.68,
+      483.12,
+      553.44
+     ],
+     "text": "crosslink distributions in polymers, the procedure is"
+    },
+    {
+     "bbox": [
+      94.8,
+      559.92,
+      521.52,
+      571.2
+     ],
+     "text": "described in Ding, Z. Y., et al., J. Polymer Sci., Polymer"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "be used to further confirm the degree of crystallinity of\nthe polymer, e.g. as described in Spruiell, J.E., & Clark,\nE.S.,in \"Methods of Experimental Physics\", L. Marton & C.\nMarton, Eds., Vol. 16, Part B, Academic Press, New York\n(1980). Swelling is generally used to characterize\ncrosslink distributions in polymers, the procedure is\ndescribed in Ding, Z. Y., et al., J. Polymer Sci., Polymer",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    94.56,
+    577.68,
+    521.52,
+    626.16
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      94.8,
+      577.68,
+      521.52,
+      590.64
+     ],
+     "text": "Chem., 29: 1035-38 (1990). Another method for determining"
+    },
+    {
+     "bbox": [
+      94.56,
+      595.68,
+      506.64,
+      608.64
+     ],
+     "text": "the degree of crystallinity of the resulting polymer may"
+    },
+    {
+     "bbox": [
+      95.04,
+      612.96,
+      466.56,
+      626.16
+     ],
+     "text": "include FTIR (Painter, P.C. et al., \"The Theory Of\u2019"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Chem., 29: 1035-38 (1990). Another method for determining\nthe degree of crystallinity of the resulting polymer may\ninclude FTIR (Painter, P.C. et al., \"The Theory Of\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    93.36,
+    629.52,
+    528.0,
+    714.72
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      93.84,
+      629.52,
+      513.6,
+      644.4
+     ],
+     "text": "Vibrational Spectroscopy And Its Application To Polymeric"
+    },
+    {
+     "bbox": [
+      93.36,
+      646.56,
+      512.88,
+      663.12
+     ],
+     "text": "Materials\", John Wiley and Sons, New York, U.S.A. (1982) )}"
+    },
+    {
+     "bbox": [
+      93.84,
+      667.68,
+      528.0,
+      680.16
+     ],
+     "text": "and electron diffraction. FTIR assesses the depth profiles"
+    },
+    {
+     "bbox": [
+      93.6,
+      683.04,
+      489.84,
+      697.2
+     ],
+     "text": "of oxidation as well as other chemical changes such as"
+    },
+    {
+     "bbox": [
+      93.36,
+      703.44,
+      505.92,
+      714.72
+     ],
+     "text": "unsaturation (Nagy, E.V., & Li, S., \"A Fourier transform"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Vibrational Spectroscopy And Its Application To Polymeric\nMaterials\", John Wiley and Sons, New York, U.S.A. (1982) )}\nand electron diffraction. FTIR assesses the depth profiles\nof oxidation as well as other chemical changes such as\nunsaturation (Nagy, E.V., & Li, S., \"A Fourier transform",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    94.08,
+    720.24,
+    482.16,
+    733.92
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      94.08,
+      720.24,
+      482.16,
+      733.92
+     ],
+     "text": "infrared technique for the evaluation of polyethylene"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "infrared technique for the evaluation of polyethylene",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    306.48,
+    761.04,
+    318.48,
+    768.24
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      306.48,
+      761.04,
+      318.48,
+      768.24
+     ],
+     "text": "11"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "11",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    599.04,
+    867.84
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

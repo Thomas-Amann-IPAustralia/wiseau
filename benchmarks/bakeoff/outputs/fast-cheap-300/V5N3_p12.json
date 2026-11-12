@@ -1,0 +1,1471 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    36.96,
+    59.76,
+    231.6,
+    66.24
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      36.96,
+      59.76,
+      231.6,
+      66.24
+     ],
+     "text": "TABLE OF COMPARISON OF ROSE VARIETIES\u2014Continued"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "TABLE OF COMPARISON OF ROSE VARIETIES\u2014Continued",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    36.24,
+    75.12,
+    271.44,
+    168.0
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      115.44,
+      75.12,
+      271.44,
+      84.96
+     ],
+     "text": "\u2018Brigadoon\u2019 *\u2018Queen *Pristine\u2019"
+    },
+    {
+     "bbox": [
+      175.44,
+      87.36,
+      211.68,
+      93.6
+     ],
+     "text": "Elizabeth\u2019"
+    },
+    {
+     "bbox": [
+      36.48,
+      102.24,
+      150.48,
+      108.96
+     ],
+     "text": "THORN SHAPE\u2014UPPER SIDE"
+    },
+    {
+     "bbox": [
+      114.72,
+      112.8,
+      252.24,
+      120.72
+     ],
+     "text": "flat concave deep"
+    },
+    {
+     "bbox": [
+      234.96,
+      124.56,
+      264.0,
+      129.36
+     ],
+     "text": "concave"
+    },
+    {
+     "bbox": [
+      36.24,
+      140.88,
+      151.68,
+      147.6
+     ],
+     "text": "THORN SHAPE\u2014LOWER SIDE"
+    },
+    {
+     "bbox": [
+      114.48,
+      151.44,
+      252.0,
+      159.6
+     ],
+     "text": "deep deep deep"
+    },
+    {
+     "bbox": [
+      114.24,
+      162.72,
+      264.0,
+      168.0
+     ],
+     "text": "concave concave concave"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Brigadoon\u2019 *\u2018Queen *Pristine\u2019\nElizabeth\u2019\nTHORN SHAPE\u2014UPPER SIDE\nflat concave deep\nconcave\nTHORN SHAPE\u2014LOWER SIDE\ndeep deep deep\nconcave concave concave",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    36.72,
+    175.68,
+    216.48,
+    182.64
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      36.72,
+      175.68,
+      216.48,
+      182.64
+     ],
+     "text": "Rose descriptions prepared by Swanes Roses and PVRO."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Rose descriptions prepared by Swanes Roses and PVRO.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    36.24,
+    229.92,
+    151.92,
+    253.44
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      36.24,
+      229.92,
+      106.32,
+      238.32
+     ],
+     "text": "HYDRANGEA"
+    },
+    {
+     "bbox": [
+      36.24,
+      242.88,
+      151.92,
+      253.44
+     ],
+     "text": "Hydrangea macrophylla"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "HYDRANGEA\nHydrangea macrophylla",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    35.52,
+    260.64,
+    161.04,
+    270.0
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      35.52,
+      260.64,
+      161.04,
+      270.0
+     ],
+     "text": "Comparative Growing Trials"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    34.8,
+    275.04,
+    271.2,
+    393.84
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      35.52,
+      275.04,
+      271.2,
+      284.16
+     ],
+     "text": "All characteristics and comparisons are from comparative"
+    },
+    {
+     "bbox": [
+      35.52,
+      285.84,
+      270.96,
+      294.24
+     ],
+     "text": "growing trials conducted at Emerald in Victoria between"
+    },
+    {
+     "bbox": [
+      35.52,
+      296.64,
+      271.2,
+      305.76
+     ],
+     "text": "March 1990 and March 1992. Growing conditions were the"
+    },
+    {
+     "bbox": [
+      35.52,
+      308.16,
+      270.96,
+      316.8
+     ],
+     "text": "same as would be used in commercial production. One hundred"
+    },
+    {
+     "bbox": [
+      35.04,
+      318.96,
+      270.96,
+      327.84
+     ],
+     "text": "plants of the variety were grown in 200 mm containers for two"
+    },
+    {
+     "bbox": [
+      35.28,
+      330.0,
+      270.96,
+      338.88
+     ],
+     "text": "seasons in a typical pine bark and sand based medium enriched"
+    },
+    {
+     "bbox": [
+      35.28,
+      341.28,
+      270.96,
+      348.48
+     ],
+     "text": "with time release fertilizer. Plants were raised outside and"
+    },
+    {
+     "bbox": [
+      35.28,
+      352.32,
+      270.72,
+      360.96
+     ],
+     "text": "spaced to allow full development. Chemical treatment was"
+    },
+    {
+     "bbox": [
+      35.04,
+      363.12,
+      270.48,
+      372.0
+     ],
+     "text": "used for fungal and pest control only. Measurements and obser-"
+    },
+    {
+     "bbox": [
+      35.04,
+      374.16,
+      270.72,
+      382.8
+     ],
+     "text": "vations are from 10 specimens selected at random from the 100"
+    },
+    {
+     "bbox": [
+      34.8,
+      384.96,
+      117.12,
+      393.84
+     ],
+     "text": "plants of each variety."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "All characteristics and comparisons are from comparative\ngrowing trials conducted at Emerald in Victoria between\nMarch 1990 and March 1992. Growing conditions were the\nsame as would be used in commercial production. One hundred\nplants of the variety were grown in 200 mm containers for two\nseasons in a typical pine bark and sand based medium enriched\nwith time release fertilizer. Plants were raised outside and\nspaced to allow full development. Chemical treatment was\nused for fungal and pest control only. Measurements and obser-\nvations are from 10 specimens selected at random from the 100\nplants of each variety.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    34.32,
+    403.92,
+    49.44,
+    419.28
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      34.32,
+      403.92,
+      49.44,
+      419.28
+     ],
+     "text": "(|"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(|",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    34.32,
+    425.52,
+    266.88,
+    510.48
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      34.8,
+      425.52,
+      266.88,
+      434.4
+     ],
+     "text": "Variety: \u2018Kirsten\u2019 (Breeder\u2019s Reference: HOR 4). Sce figs. 6"
+    },
+    {
+     "bbox": [
+      34.56,
+      436.56,
+      122.4,
+      443.52
+     ],
+     "text": "and 8 in colour section."
+    },
+    {
+     "bbox": [
+      34.56,
+      447.6,
+      123.84,
+      456.24
+     ],
+     "text": "Application No. 92/052"
+    },
+    {
+     "bbox": [
+      34.56,
+      458.64,
+      176.4,
+      467.52
+     ],
+     "text": "Application Received: 15 April 1992"
+    },
+    {
+     "bbox": [
+      34.32,
+      469.92,
+      242.4,
+      478.8
+     ],
+     "text": "Applicant: L. Kientzler, Kientzler KG. of Gensingen,"
+    },
+    {
+     "bbox": [
+      34.32,
+      480.96,
+      69.12,
+      489.6
+     ],
+     "text": "Germany"
+    },
+    {
+     "bbox": [
+      34.56,
+      492.24,
+      244.8,
+      500.88
+     ],
+     "text": "Australian Agent: RW Rother of Outeniqua Nursery,"
+    },
+    {
+     "bbox": [
+      34.56,
+      503.52,
+      101.28,
+      510.48
+     ],
+     "text": "Emerald, Victoria"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Kirsten\u2019 (Breeder\u2019s Reference: HOR 4). Sce figs. 6\nand 8 in colour section.\nApplication No. 92/052\nApplication Received: 15 April 1992\nApplicant: L. Kientzler, Kientzler KG. of Gensingen,\nGermany\nAustralian Agent: RW Rother of Outeniqua Nursery,\nEmerald, Victoria",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    34.56,
+    522.72,
+    269.52,
+    531.84
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      34.56,
+      522.72,
+      269.52,
+      531.84
+     ],
+     "text": "Description\u2014see comparison tables and figs. 6 and 8."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Description\u2014see comparison tables and figs. 6 and 8.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    33.84,
+    536.88,
+    270.0,
+    600.0
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      34.8,
+      536.88,
+      270.0,
+      545.76
+     ],
+     "text": "\u2018Kirsten\u2019 is a hybrid Hydrangea with low, bushy growth and"
+    },
+    {
+     "bbox": [
+      34.32,
+      547.68,
+      269.52,
+      556.56
+     ],
+     "text": "light green, oval leaves with acuminate apices. Venation of the"
+    },
+    {
+     "bbox": [
+      34.32,
+      558.72,
+      269.76,
+      567.36
+     ],
+     "text": "leaf is reticulate. The inflorescence is umbrella shaped and"
+    },
+    {
+     "bbox": [
+      33.84,
+      569.52,
+      269.76,
+      578.4
+     ],
+     "text": "flowers with a small calyx are inconspicuous. Sepals are"
+    },
+    {
+     "bbox": [
+      34.08,
+      580.56,
+      269.76,
+      589.2
+     ],
+     "text": "blue/red and average 4-5. Overlapping of sepals is sometimes"
+    },
+    {
+     "bbox": [
+      34.08,
+      591.36,
+      203.28,
+      600.0
+     ],
+     "text": "present and there is no incision of the sepals."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Kirsten\u2019 is a hybrid Hydrangea with low, bushy growth and\nlight green, oval leaves with acuminate apices. Venation of the\nleaf is reticulate. The inflorescence is umbrella shaped and\nflowers with a small calyx are inconspicuous. Sepals are\nblue/red and average 4-5. Overlapping of sepals is sometimes\npresent and there is no incision of the sepals.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    33.6,
+    610.8,
+    270.48,
+    666.96
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      33.84,
+      610.8,
+      60.96,
+      619.92
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      33.6,
+      625.68,
+      269.52,
+      634.32
+     ],
+     "text": "The breeder was L. Kientzler of Kientzler KG, Gensingen,"
+    },
+    {
+     "bbox": [
+      33.6,
+      636.48,
+      270.48,
+      645.36
+     ],
+     "text": "Germany. \u2018Kirsten\u2019 was selected from the seedling progeny of"
+    },
+    {
+     "bbox": [
+      34.32,
+      647.76,
+      269.28,
+      656.16
+     ],
+     "text": "\u201cAlpengluhen\u2019 as seed parent and \u2018No. 24\u2019 as pollen parent."
+    },
+    {
+     "bbox": [
+      33.84,
+      658.56,
+      269.28,
+      666.96
+     ],
+     "text": "PVR was applied for in Germany in October 1985 and subse-"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\nThe breeder was L. Kientzler of Kientzler KG, Gensingen,\nGermany. \u2018Kirsten\u2019 was selected from the seedling progeny of\n\u201cAlpengluhen\u2019 as seed parent and \u2018No. 24\u2019 as pollen parent.\nPVR was applied for in Germany in October 1985 and subse-",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    33.36,
+    669.12,
+    269.28,
+    686.4
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      33.36,
+      669.12,
+      269.28,
+      677.76
+     ],
+     "text": "quently granted. \u2018Kirsten\u2019 was first sold in Germany in July"
+    },
+    {
+     "bbox": [
+      35.04,
+      680.16,
+      54.0,
+      686.4
+     ],
+     "text": "1987."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "quently granted. \u2018Kirsten\u2019 was first sold in Germany in July\n1987.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    33.6,
+    699.12,
+    269.28,
+    731.04
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      33.6,
+      699.12,
+      86.88,
+      708.0
+     ],
+     "text": "Comparator"
+    },
+    {
+     "bbox": [
+      34.08,
+      713.28,
+      269.28,
+      721.92
+     ],
+     "text": "\u2018LK 49\u2019, also a Kientzler hybrid, is the closest existing variety"
+    },
+    {
+     "bbox": [
+      33.6,
+      724.32,
+      129.6,
+      731.04
+     ],
+     "text": "in flower colour and size."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparator\n\u2018LK 49\u2019, also a Kientzler hybrid, is the closest existing variety\nin flower colour and size.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    300.24,
+    61.44,
+    315.36,
+    76.56
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      300.24,
+      61.44,
+      315.36,
+      76.56
+     ],
+     "text": "|"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "|",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    300.0,
+    82.56,
+    531.12,
+    166.32
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      300.72,
+      82.56,
+      531.12,
+      91.92
+     ],
+     "text": "Variety: \u2018LK49\u2019 (Breeder\u2019s Reference: \u201cHOR 5\u00b0). See figs. 7"
+    },
+    {
+     "bbox": [
+      300.48,
+      92.64,
+      388.32,
+      102.96
+     ],
+     "text": "and 8 in colour section."
+    },
+    {
+     "bbox": [
+      300.48,
+      104.4,
+      389.28,
+      112.56
+     ],
+     "text": "Application No. 92/078"
+    },
+    {
+     "bbox": [
+      300.24,
+      115.2,
+      438.96,
+      123.84
+     ],
+     "text": "Application Received: 26 May 1992"
+    },
+    {
+     "bbox": [
+      300.24,
+      126.0,
+      507.84,
+      135.36
+     ],
+     "text": "Applicant: L. Kientzler, Kientzler KG, of Gensingen,"
+    },
+    {
+     "bbox": [
+      300.0,
+      136.8,
+      334.56,
+      145.2
+     ],
+     "text": "Germany"
+    },
+    {
+     "bbox": [
+      300.0,
+      147.84,
+      521.52,
+      157.2
+     ],
+     "text": "Australian Agent: RW Rother of Outeniqua Nursery, of"
+    },
+    {
+     "bbox": [
+      300.24,
+      158.88,
+      366.96,
+      166.32
+     ],
+     "text": "Emerald, Victoria"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018LK49\u2019 (Breeder\u2019s Reference: \u201cHOR 5\u00b0). See figs. 7\nand 8 in colour section.\nApplication No. 92/078\nApplication Received: 26 May 1992\nApplicant: L. Kientzler, Kientzler KG, of Gensingen,\nGermany\nAustralian Agent: RW Rother of Outeniqua Nursery, of\nEmerald, Victoria",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    298.8,
+    178.32,
+    535.44,
+    366.0
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      300.24,
+      178.32,
+      534.96,
+      188.4
+     ],
+     "text": "Description\u2014see comparison tables and figs. 7 and 8."
+    },
+    {
+     "bbox": [
+      300.48,
+      193.2,
+      535.2,
+      202.32
+     ],
+     "text": "*LK49\u2019 is a hybrid Hydrangea with medium bushy growth and"
+    },
+    {
+     "bbox": [
+      299.76,
+      204.24,
+      534.96,
+      213.12
+     ],
+     "text": "broad, light green, elliptical leaves. Inflorescences are umbrella"
+    },
+    {
+     "bbox": [
+      299.52,
+      215.28,
+      534.72,
+      224.64
+     ],
+     "text": "shaped and flowers with a small calyx are inconspicuous."
+    },
+    {
+     "bbox": [
+      299.52,
+      226.32,
+      535.2,
+      235.2
+     ],
+     "text": "Sepals are red/blue, corresponding to RHS 59B-60B. The"
+    },
+    {
+     "bbox": [
+      299.52,
+      237.36,
+      534.96,
+      245.76
+     ],
+     "text": "average number of sepals is 3-4 and there is no incision of the"
+    },
+    {
+     "bbox": [
+      299.52,
+      248.16,
+      323.76,
+      256.32
+     ],
+     "text": "sepals."
+    },
+    {
+     "bbox": [
+      299.28,
+      267.12,
+      326.16,
+      276.0
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      298.8,
+      281.28,
+      534.48,
+      290.16
+     ],
+     "text": "The breeder was L. Kientzler of Kicntzler KG, Gensingen,"
+    },
+    {
+     "bbox": [
+      299.04,
+      292.08,
+      535.44,
+      301.44
+     ],
+     "text": "Germany. \u2018LK49\u2019 was selectcd from the seedling progeny of"
+    },
+    {
+     "bbox": [
+      299.76,
+      303.36,
+      534.48,
+      311.76
+     ],
+     "text": "\u2018Alpengluhen\u2019 and \u2018Merkur\u2019. \u201cLK49\u00b0 was first sold in"
+    },
+    {
+     "bbox": [
+      298.8,
+      314.16,
+      384.96,
+      322.8
+     ],
+     "text": "Germany in July 1987."
+    },
+    {
+     "bbox": [
+      298.8,
+      333.84,
+      352.08,
+      342.72
+     ],
+     "text": "Comparator"
+    },
+    {
+     "bbox": [
+      299.52,
+      348.48,
+      534.0,
+      357.36
+     ],
+     "text": "\u2018Kirsten\u2019, also a Kientzler hybrid, is the closest variety in"
+    },
+    {
+     "bbox": [
+      298.8,
+      359.52,
+      384.72,
+      366.0
+     ],
+     "text": "flower colour and size."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Description\u2014see comparison tables and figs. 7 and 8.\n*LK49\u2019 is a hybrid Hydrangea with medium bushy growth and\nbroad, light green, elliptical leaves. Inflorescences are umbrella\nshaped and flowers with a small calyx are inconspicuous.\nSepals are red/blue, corresponding to RHS 59B-60B. The\naverage number of sepals is 3-4 and there is no incision of the\nsepals.\nOrigin\nThe breeder was L. Kientzler of Kicntzler KG, Gensingen,\nGermany. \u2018LK49\u2019 was selectcd from the seedling progeny of\n\u2018Alpengluhen\u2019 and \u2018Merkur\u2019. \u201cLK49\u00b0 was first sold in\nGermany in July 1987.\nComparator\n\u2018Kirsten\u2019, also a Kientzler hybrid, is the closest variety in\nflower colour and size.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    298.8,
+    376.8,
+    475.68,
+    384.72
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      298.8,
+      376.8,
+      475.68,
+      384.72
+     ],
+     "text": "Descriptions prepared by Roy Rother and PVRO."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Descriptions prepared by Roy Rother and PVRO.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    303.12,
+    408.0,
+    491.28,
+    416.64
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      303.12,
+      408.0,
+      491.28,
+      416.64
+     ],
+     "text": "Table of Comparison of Hydrangea Varieties"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Hydrangea Varieties",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    298.56,
+    422.64,
+    359.28,
+    430.32
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      298.56,
+      422.64,
+      359.28,
+      430.32
+     ],
+     "text": "(* = comparators)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(* = comparators)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    376.56,
+    439.68,
+    494.4,
+    445.68
+   ],
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      376.56,
+      439.68,
+      494.4,
+      445.68
+     ],
+     "text": "\u201cLK49\u2019 \u201cKirsten\u2019"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u201cLK49\u2019 \u201cKirsten\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    298.32,
+    455.28,
+    471.6,
+    471.84
+   ],
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      298.32,
+      455.28,
+      355.68,
+      461.52
+     ],
+     "text": "PLANT HEIGHT"
+    },
+    {
+     "bbox": [
+      376.56,
+      465.84,
+      471.6,
+      471.84
+     ],
+     "text": "medium low"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PLANT HEIGHT\nmedium low",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    298.32,
+    485.04,
+    480.72,
+    503.04
+   ],
+   "id": "e22",
+   "lines": [
+    {
+     "bbox": [
+      298.32,
+      485.04,
+      387.6,
+      491.28
+     ],
+     "text": "PLANT GROWTH HABIT"
+    },
+    {
+     "bbox": [
+      376.32,
+      495.36,
+      480.72,
+      503.04
+     ],
+     "text": "bushy bushy"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PLANT GROWTH HABIT\nbushy bushy",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    297.84,
+    513.84,
+    479.52,
+    531.6
+   ],
+   "id": "e23",
+   "lines": [
+    {
+     "bbox": [
+      297.84,
+      513.84,
+      406.56,
+      520.08
+     ],
+     "text": "LEAF BLADE: MAIN COLOUR"
+    },
+    {
+     "bbox": [
+      376.08,
+      525.36,
+      479.52,
+      531.6
+     ],
+     "text": "green green"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "LEAF BLADE: MAIN COLOUR\ngreen green",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    298.08,
+    542.64,
+    474.0,
+    560.16
+   ],
+   "id": "e24",
+   "lines": [
+    {
+     "bbox": [
+      298.08,
+      542.64,
+      463.68,
+      548.88
+     ],
+     "text": "LEAF BLADE: INTENSITY OF MAIN COLOUR"
+    },
+    {
+     "bbox": [
+      376.08,
+      552.48,
+      474.0,
+      560.16
+     ],
+     "text": "light light"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "LEAF BLADE: INTENSITY OF MAIN COLOUR\nlight light",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    297.84,
+    571.2,
+    485.76,
+    589.68
+   ],
+   "id": "e25",
+   "lines": [
+    {
+     "bbox": [
+      297.84,
+      571.2,
+      484.56,
+      577.44
+     ],
+     "text": "LEAF BLADE: GLOSSINESS OF UPPER SURFACE"
+    },
+    {
+     "bbox": [
+      375.84,
+      580.56,
+      485.76,
+      589.68
+     ],
+     "text": "present present"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "LEAF BLADE: GLOSSINESS OF UPPER SURFACE\npresent present",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    297.84,
+    599.76,
+    473.28,
+    618.48
+   ],
+   "id": "e26",
+   "lines": [
+    {
+     "bbox": [
+      297.84,
+      599.76,
+      376.8,
+      606.0
+     ],
+     "text": "LEAF BLADE: SHAPE"
+    },
+    {
+     "bbox": [
+      375.6,
+      609.12,
+      473.28,
+      618.48
+     ],
+     "text": "elliptical oval"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "LEAF BLADE: SHAPE\nelliptical oval",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    297.6,
+    629.04,
+    495.84,
+    645.12
+   ],
+   "id": "e27",
+   "lines": [
+    {
+     "bbox": [
+      297.6,
+      629.04,
+      413.76,
+      635.04
+     ],
+     "text": "LEAF BLADE: SHAPE OF APEX"
+    },
+    {
+     "bbox": [
+      375.6,
+      639.36,
+      495.84,
+      645.12
+     ],
+     "text": "acute acuminate"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "LEAF BLADE: SHAPE OF APEX\nacute acuminate",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    297.6,
+    657.84,
+    511.68,
+    683.28
+   ],
+   "id": "e28",
+   "lines": [
+    {
+     "bbox": [
+      297.6,
+      657.84,
+      413.52,
+      663.84
+     ],
+     "text": "LEAF BLADE: SHAPE OF BASE"
+    },
+    {
+     "bbox": [
+      375.6,
+      667.44,
+      511.68,
+      674.64
+     ],
+     "text": "rounded broad v-shape."
+    },
+    {
+     "bbox": [
+      459.36,
+      677.52,
+      497.52,
+      683.28
+     ],
+     "text": "sometimes"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "LEAF BLADE: SHAPE OF BASE\nrounded broad v-shape.\nsometimes",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    459.6,
+    687.12,
+    479.04,
+    693.12
+   ],
+   "id": "e29",
+   "lines": [
+    {
+     "bbox": [
+      459.6,
+      687.12,
+      479.04,
+      693.12
+     ],
+     "text": "round"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "round",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    297.6,
+    705.6,
+    387.36,
+    711.84
+   ],
+   "id": "e30",
+   "lines": [
+    {
+     "bbox": [
+      297.6,
+      705.6,
+      387.36,
+      711.84
+     ],
+     "text": "INFLORESCENCE TYPE"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "INFLORESCENCE TYPE",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    375.36,
+    715.68,
+    517.44,
+    722.88
+   ],
+   "id": "e31",
+   "lines": [
+    {
+     "bbox": [
+      375.36,
+      715.68,
+      517.44,
+      722.88
+     ],
+     "text": "umbrella shaped umbrella shaped"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "umbrella shaped umbrella shaped",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    297.36,
+    734.4,
+    407.52,
+    740.64
+   ],
+   "id": "e32",
+   "lines": [
+    {
+     "bbox": [
+      297.36,
+      734.4,
+      407.52,
+      740.64
+     ],
+     "text": "INFLORESCENCE DIAMETER"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "INFLORESCENCE DIAMETER",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    375.36,
+    744.48,
+    486.72,
+    750.48
+   ],
+   "id": "e33",
+   "lines": [
+    {
+     "bbox": [
+      375.36,
+      744.48,
+      486.72,
+      750.48
+     ],
+     "text": "medium medium"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "medium medium",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    34.08,
+    794.16,
+    44.88,
+    802.32
+   ],
+   "id": "e34",
+   "lines": [
+    {
+     "bbox": [
+      34.08,
+      794.16,
+      44.88,
+      802.32
+     ],
+     "text": "10"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "10",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

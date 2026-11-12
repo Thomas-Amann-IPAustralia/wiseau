@@ -1,0 +1,501 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    80.4,
+    356.4,
+    243.36,
+    365.52
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      80.4,
+      356.4,
+      243.36,
+      365.52
+     ],
+     "text": "Fantastic (Photo supplied by applicant)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Fantastic (Photo supplied by applicant)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    80.88,
+    451.92,
+    228.72,
+    461.04
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      80.88,
+      451.92,
+      228.72,
+      461.04
+     ],
+     "text": "Valya (Photo supplied by applicant)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Valya (Photo supplied by applicant)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    318.96,
+    58.8,
+    529.68,
+    97.68
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      319.44,
+      58.8,
+      521.76,
+      67.92
+     ],
+     "text": "flower, a stronger perfume, more serrated petals"
+    },
+    {
+     "bbox": [
+      318.96,
+      68.88,
+      516.48,
+      77.76
+     ],
+     "text": "and a petal colour of lilac flecked with cyclamen"
+    },
+    {
+     "bbox": [
+      318.96,
+      78.96,
+      529.68,
+      87.84
+     ],
+     "text": "compared to the white (RHS 155B) flecked with red"
+    },
+    {
+     "bbox": [
+      319.44,
+      89.04,
+      440.4,
+      97.68
+     ],
+     "text": "(RHS 45C) of \u2018Sir Arthur Sim\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "flower, a stronger perfume, more serrated petals\nand a petal colour of lilac flecked with cyclamen\ncompared to the white (RHS 155B) flecked with red\n(RHS 45C) of \u2018Sir Arthur Sim\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    318.96,
+    108.48,
+    478.8,
+    119.52
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      318.96,
+      108.48,
+      478.8,
+      119.52
+     ],
+     "text": "Variety: \u2018Valya\u2019 Application No. 88/017"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Valya\u2019 Application No. 88/017",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    318.96,
+    129.6,
+    510.96,
+    166.56
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      319.2,
+      129.6,
+      360.48,
+      138.24
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      318.96,
+      139.44,
+      503.04,
+      148.08
+     ],
+     "text": "This variety is distinct from any other known"
+    },
+    {
+     "bbox": [
+      318.96,
+      149.04,
+      510.96,
+      158.16
+     ],
+     "text": "variety in having the following combination of"
+    },
+    {
+     "bbox": [
+      319.2,
+      159.36,
+      381.84,
+      166.56
+     ],
+     "text": "characteristics:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\nThis variety is distinct from any other known\nvariety in having the following combination of\ncharacteristics:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    319.92,
+    173.76,
+    533.28,
+    282.0
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      320.16,
+      173.76,
+      531.36,
+      182.4
+     ],
+     "text": "a medium large diameter double flower with many"
+    },
+    {
+     "bbox": [
+      320.64,
+      183.6,
+      504.24,
+      192.24
+     ],
+     "text": "petals; central petals forming a loose central"
+    },
+    {
+     "bbox": [
+      320.16,
+      193.2,
+      522.72,
+      202.08
+     ],
+     "text": "cluster; petal colour violet corresponding to RHS"
+    },
+    {
+     "bbox": [
+      320.16,
+      203.04,
+      521.52,
+      211.92
+     ],
+     "text": "74B at the base fading to a (6 mm) border of very"
+    },
+    {
+     "bbox": [
+      320.4,
+      213.12,
+      520.8,
+      222.0
+     ],
+     "text": "pale violet corresponding to RHS 74D at the tips;"
+    },
+    {
+     "bbox": [
+      320.16,
+      223.2,
+      522.24,
+      232.32
+     ],
+     "text": "the pale petal border becoming narrower (3 mm)"
+    },
+    {
+     "bbox": [
+      320.4,
+      233.28,
+      494.16,
+      242.16
+     ],
+     "text": "on central petals; petal margins with even"
+    },
+    {
+     "bbox": [
+      320.16,
+      243.36,
+      513.6,
+      252.24
+     ],
+     "text": "serrations; an epicalyx with 3 pairs of opposite"
+    },
+    {
+     "bbox": [
+      320.4,
+      253.44,
+      530.88,
+      262.32
+     ],
+     "text": "lobes; a long thick stem; medium large foliage and"
+    },
+    {
+     "bbox": [
+      319.92,
+      263.52,
+      533.28,
+      272.16
+     ],
+     "text": "calyx with a thick wax coating; and acalyx resistant"
+    },
+    {
+     "bbox": [
+      319.92,
+      273.6,
+      366.24,
+      282.0
+     ],
+     "text": "to splitting."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a medium large diameter double flower with many\npetals; central petals forming a loose central\ncluster; petal colour violet corresponding to RHS\n74B at the base fading to a (6 mm) border of very\npale violet corresponding to RHS 74D at the tips;\nthe pale petal border becoming narrower (3 mm)\non central petals; petal margins with even\nserrations; an epicalyx with 3 pairs of opposite\nlobes; a long thick stem; medium large foliage and\ncalyx with a thick wax coating; and acalyx resistant\nto splitting.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    318.72,
+    287.52,
+    523.44,
+    336.72
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      318.96,
+      287.52,
+      478.8,
+      298.56
+     ],
+     "text": "Morphology \u2014 See comparison tables"
+    },
+    {
+     "bbox": [
+      318.96,
+      298.32,
+      511.2,
+      307.2
+     ],
+     "text": "\u2018Valya\u2019 most closely resembles \u2018Safari\u2019 in petal"
+    },
+    {
+     "bbox": [
+      318.96,
+      307.92,
+      504.0,
+      316.8
+     ],
+     "text": "colouration but differs in having darker (RHS"
+    },
+    {
+     "bbox": [
+      318.72,
+      317.76,
+      523.44,
+      326.64
+     ],
+     "text": "74B,74D) petals than \u2018Safari\u2019 (RHS 68A,68C) more"
+    },
+    {
+     "bbox": [
+      318.72,
+      327.84,
+      483.12,
+      336.72
+     ],
+     "text": "serrated petals and a stronger perfume."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 See comparison tables\n\u2018Valya\u2019 most closely resembles \u2018Safari\u2019 in petal\ncolouration but differs in having darker (RHS\n74B,74D) petals than \u2018Safari\u2019 (RHS 68A,68C) more\nserrated petals and a stronger perfume.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    318.72,
+    347.76,
+    505.68,
+    356.64
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      318.72,
+      347.76,
+      505.68,
+      356.64
+     ],
+     "text": "Variety: \u2018Charodeyka\u2019 Application No, 88/018"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Charodeyka\u2019 Application No, 88/018",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    318.72,
+    367.92,
+    510.72,
+    405.12
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      318.72,
+      367.92,
+      360.24,
+      376.8
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      318.72,
+      377.76,
+      502.8,
+      386.4
+     ],
+     "text": "This variety is distinct from any other known"
+    },
+    {
+     "bbox": [
+      318.72,
+      387.84,
+      510.72,
+      396.96
+     ],
+     "text": "variety in having the following combination of"
+    },
+    {
+     "bbox": [
+      318.96,
+      398.16,
+      381.36,
+      405.12
+     ],
+     "text": "characteristics:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\nThis variety is distinct from any other known\nvariety in having the following combination of\ncharacteristics:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    319.2,
+    418.56,
+    527.52,
+    457.2
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      319.2,
+      418.56,
+      523.2,
+      427.44
+     ],
+     "text": "a large diameter double flower with many petals;"
+    },
+    {
+     "bbox": [
+      319.2,
+      428.4,
+      516.72,
+      437.28
+     ],
+     "text": "some forming a thick cluster in the centre of the"
+    },
+    {
+     "bbox": [
+      319.44,
+      438.24,
+      518.88,
+      447.36
+     ],
+     "text": "flower; a petal colour ranging from dark reddish"
+    },
+    {
+     "bbox": [
+      319.68,
+      448.08,
+      527.52,
+      457.2
+     ],
+     "text": "pink corresponding to RHS 50A at the base to very"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a large diameter double flower with many petals;\nsome forming a thick cluster in the centre of the\nflower; a petal colour ranging from dark reddish\npink corresponding to RHS 50A at the base to very",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

@@ -1,0 +1,430 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    149.28,
+    231.84,
+    157.68,
+    237.36
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      149.28,
+      231.84,
+      157.68,
+      237.36
+     ],
+     "text": "10"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "10",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    149.28,
+    316.08,
+    157.68,
+    322.56
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      149.28,
+      316.08,
+      157.68,
+      322.56
+     ],
+     "text": "15"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "15",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    285.84,
+    47.04,
+    410.88,
+    62.16
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      285.84,
+      47.04,
+      410.88,
+      62.16
+     ],
+     "text": "266213 | ;"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "266213 | ;",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    176.64,
+    75.12,
+    442.56,
+    118.08
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      220.32,
+      75.12,
+      441.12,
+      83.04
+     ],
+     "text": "It, is further recognized that most if not all of the"
+    },
+    {
+     "bbox": [
+      176.88,
+      89.28,
+      442.32,
+      100.8
+     ],
+     "text": "combinations of signals for FIG. 2 to effect the corresponding"
+    },
+    {
+     "bbox": [
+      176.64,
+      107.04,
+      442.56,
+      118.08
+     ],
+     "text": "Boolean logical function output signals can be achieved at ,"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "It, is further recognized that most if not all of the\ncombinations of signals for FIG. 2 to effect the corresponding\nBoolean logical function output signals can be achieved at ,",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    176.4,
+    126.48,
+    424.32,
+    134.88
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      176.4,
+      126.48,
+      424.32,
+      134.88
+     ],
+     "text": "least as efficiently utilizing the well-known AND-OR logic"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "least as efficiently utilizing the well-known AND-OR logic",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    172.8,
+    143.52,
+    432.72,
+    152.16
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      172.8,
+      143.52,
+      432.72,
+      152.16
+     ],
+     "text": "\u2018circuits. However, the array of FIG. 2 does provide a logic"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018circuits. However, the array of FIG. 2 does provide a logic",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    175.92,
+    160.56,
+    437.04,
+    221.04
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      176.4,
+      160.56,
+      437.04,
+      169.68
+     ],
+     "text": "array utilizing majority-decision logic circuits which can be"
+    },
+    {
+     "bbox": [
+      176.16,
+      175.2,
+      424.32,
+      186.48
+     ],
+     "text": "utilized in conjunction with other majority-decision logic"
+    },
+    {
+     "bbox": [
+      176.4,
+      190.8,
+      436.32,
+      203.52
+     ],
+     "text": "circuit arrays, such as the general purpose one shown in FIG."
+    },
+    {
+     "bbox": [
+      175.92,
+      206.88,
+      427.92,
+      221.04
+     ],
+     "text": "1, in the formation of circuits for data processing devices"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "array utilizing majority-decision logic circuits which can be\nutilized in conjunction with other majority-decision logic\ncircuit arrays, such as the general purpose one shown in FIG.\n1, in the formation of circuits for data processing devices",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    175.92,
+    228.48,
+    420.24,
+    236.64
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      175.92,
+      228.48,
+      420.24,
+      236.64
+     ],
+     "text": "whereas the well-known AND-CR logic circuits would not be"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "whereas the well-known AND-CR logic circuits would not be",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    168.48,
+    243.6,
+    424.56,
+    254.4
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      168.48,
+      243.6,
+      424.56,
+      254.4
+     ],
+     "text": ". readily or efficiently adapted for use in combination with"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": ". readily or efficiently adapted for use in combination with",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    175.68,
+    263.28,
+    441.12,
+    304.56
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      175.68,
+      263.28,
+      317.28,
+      271.2
+     ],
+     "text": "majority-decision logic circuits."
+    },
+    {
+     "bbox": [
+      219.6,
+      277.68,
+      432.48,
+      286.56
+     ],
+     "text": "It is understood that suitable modification nay be"
+    },
+    {
+     "bbox": [
+      175.68,
+      295.92,
+      441.12,
+      304.56
+     ],
+     "text": "made in the structure as disclosed provided such modifications"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "majority-decision logic circuits.\nIt is understood that suitable modification nay be\nmade in the structure as disclosed provided such modifications",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    175.92,
+    312.72,
+    445.92,
+    321.6
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      175.92,
+      312.72,
+      445.92,
+      321.6
+     ],
+     "text": "come within the spirit and scope of the appended clains. Having"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "come within the spirit and scope of the appended clains. Having",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    169.68,
+    329.76,
+    440.64,
+    338.88
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      169.68,
+      329.76,
+      440.64,
+      338.88
+     ],
+     "text": "\u2018now, therefore, fully illustrated and described our invention,"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018now, therefore, fully illustrated and described our invention,",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    175.68,
+    342.72,
+    428.4,
+    354.96
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      175.68,
+      342.72,
+      428.4,
+      354.96
+     ],
+     "text": "what we claim to be new and desire to protect under Letters"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "what we claim to be new and desire to protect under Letters",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    175.44,
+    365.52,
+    217.44,
+    371.76
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      175.44,
+      365.52,
+      217.44,
+      371.76
+     ],
+     "text": "Patent is:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Patent is:",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    501.36,
+    702.0
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}
