@@ -1,0 +1,1118 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    57.6,
+    33.6,
+    104.64,
+    42.0
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      57.6,
+      33.6,
+      104.64,
+      42.0
+     ],
+     "text": "\u2014\u2014\u2014\u2014\u2014"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2014\u2014\u2014\u2014\u2014",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    59.04,
+    57.36,
+    408.96,
+    68.16
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      59.04,
+      57.36,
+      408.96,
+      68.16
+     ],
+     "text": "ALDER Payment of Fees"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ALDER Payment of Fees",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    59.04,
+    71.04,
+    280.56,
+    103.2
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      59.04,
+      71.04,
+      138.48,
+      81.6
+     ],
+     "text": "Alnus jorullensis"
+    },
+    {
+     "bbox": [
+      59.28,
+      82.32,
+      280.56,
+      92.4
+     ],
+     "text": "Application No. 91/097 (Public Notice in PVJ Vol 4 No 4)"
+    },
+    {
+     "bbox": [
+      59.04,
+      93.36,
+      275.52,
+      103.2
+     ],
+     "text": "Change of variety name from \u2018Weeping Willy\u2019 to \u2018Royal"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Alnus jorullensis\nApplication No. 91/097 (Public Notice in PVJ Vol 4 No 4)\nChange of variety name from \u2018Weeping Willy\u2019 to \u2018Royal",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    321.6,
+    75.36,
+    536.4,
+    98.64
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      321.6,
+      75.36,
+      536.4,
+      84.96
+     ],
+     "text": "All cheques for fees should be made payable and sent to:"
+    },
+    {
+     "bbox": [
+      358.08,
+      89.76,
+      467.28,
+      98.64
+     ],
+     "text": "Plant Variety Rights Office"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "All cheques for fees should be made payable and sent to:\nPlant Variety Rights Office",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    59.52,
+    101.28,
+    442.8,
+    131.28
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      59.52,
+      101.28,
+      380.64,
+      114.96
+     ],
+     "text": "Cascade\u2019 DPIE"
+    },
+    {
+     "bbox": [
+      59.52,
+      112.08,
+      413.52,
+      124.8
+     ],
+     "text": "Change of applicants from WL Robinson & WR Bailey to GPO Box 858"
+    },
+    {
+     "bbox": [
+      358.32,
+      122.88,
+      442.8,
+      131.28
+     ],
+     "text": "Canberra, ACT 2601"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Cascade\u2019 DPIE\nChange of applicants from WL Robinson & WR Bailey to GPO Box 858\nCanberra, ACT 2601",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    59.04,
+    126.0,
+    289.2,
+    135.6
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      59.04,
+      126.0,
+      289.2,
+      135.6
+     ],
+     "text": "Javmain Pty Ltd and Perruna Pty Ltd, of Baxter, Victoria"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Javmain Pty Ltd and Perruna Pty Ltd, of Baxter, Victoria",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    322.32,
+    139.68,
+    558.0,
+    159.84
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      322.32,
+      139.68,
+      558.0,
+      149.04
+     ],
+     "text": "The application fee ($400) must accompany the application at"
+    },
+    {
+     "bbox": [
+      322.8,
+      151.2,
+      407.52,
+      159.84
+     ],
+     "text": "the time of lodgement."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The application fee ($400) must accompany the application at\nthe time of lodgement.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    322.32,
+    167.76,
+    558.0,
+    176.88
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      322.32,
+      167.76,
+      558.0,
+      176.88
+     ],
+     "text": "The full examination fee ($1400) must be paid before the"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The full examination fee ($1400) must be paid before the",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    59.76,
+    174.48,
+    558.96,
+    233.52
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      59.76,
+      174.48,
+      558.0,
+      188.16
+     ],
+     "text": "Corrigenda expiry of the 12th month from the date of acceptance of the"
+    },
+    {
+     "bbox": [
+      322.8,
+      189.6,
+      558.0,
+      199.44
+     ],
+     "text": "application. The PVR Office will routinely invoice the appli-"
+    },
+    {
+     "bbox": [
+      60.0,
+      194.64,
+      558.96,
+      212.64
+     ],
+     "text": "CUPRESSOCYPARIS cant or their agent for the examination fee with the letter of"
+    },
+    {
+     "bbox": [
+      59.76,
+      208.32,
+      557.76,
+      221.52
+     ],
+     "text": "XCupressocyparis acceptance, This will notify the applicant of their legal liability"
+    },
+    {
+     "bbox": [
+      60.0,
+      223.2,
+      558.0,
+      233.52
+     ],
+     "text": "\u2018Peter Nitschke\u2019 for the examination fee from the date of acceptance. At the end"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Corrigenda expiry of the 12th month from the date of acceptance of the\napplication. The PVR Office will routinely invoice the appli-\nCUPRESSOCYPARIS cant or their agent for the examination fee with the letter of\nXCupressocyparis acceptance, This will notify the applicant of their legal liability\n\u2018Peter Nitschke\u2019 for the examination fee from the date of acceptance. At the end",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    322.56,
+    234.24,
+    558.24,
+    264.72
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      322.56,
+      234.24,
+      558.24,
+      243.12
+     ],
+     "text": "of the 11th month after acceptance of the application, should"
+    },
+    {
+     "bbox": [
+      323.04,
+      245.04,
+      558.24,
+      253.68
+     ],
+     "text": "the examination fee not have been paid, a final invoice"
+    },
+    {
+     "bbox": [
+      323.04,
+      256.08,
+      501.12,
+      264.72
+     ],
+     "text": "(reminder) will be despatched to the applicant ."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "of the 11th month after acceptance of the application, should\nthe examination fee not have been paid, a final invoice\n(reminder) will be despatched to the applicant .",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    59.52,
+    239.76,
+    551.76,
+    315.36
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      60.0,
+      239.76,
+      204.72,
+      248.64
+     ],
+     "text": "Vol. 5 No. 2, June 1992, p 18, figure 9"
+    },
+    {
+     "bbox": [
+      59.52,
+      250.32,
+      276.72,
+      259.92
+     ],
+     "text": "The photograph of \u2018Peter Nitschke\u2019 with the comparative"
+    },
+    {
+     "bbox": [
+      60.24,
+      260.88,
+      281.04,
+      270.48
+     ],
+     "text": "variety \u2018Castwellan Gold\u2019, was incorrectly labelled. \u2018Peter"
+    },
+    {
+     "bbox": [
+      60.0,
+      272.16,
+      217.68,
+      280.8
+     ],
+     "text": "Nitschke\u2019 is on the left of the photograph."
+    },
+    {
+     "bbox": [
+      323.04,
+      283.44,
+      551.76,
+      294.0
+     ],
+     "text": "Consequences of not paying fees when due"
+    },
+    {
+     "bbox": [
+      60.24,
+      294.72,
+      152.4,
+      303.36
+     ],
+     "text": "STENANTHEMUM"
+    },
+    {
+     "bbox": [
+      60.72,
+      306.48,
+      193.2,
+      315.36
+     ],
+     "text": "Stenanthemum scortechinit"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Vol. 5 No. 2, June 1992, p 18, figure 9\nThe photograph of \u2018Peter Nitschke\u2019 with the comparative\nvariety \u2018Castwellan Gold\u2019, was incorrectly labelled. \u2018Peter\nNitschke\u2019 is on the left of the photograph.\nConsequences of not paying fees when due\nSTENANTHEMUM\nStenanthemum scortechinit",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    59.76,
+    325.2,
+    280.08,
+    354.48
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      60.24,
+      325.2,
+      177.84,
+      333.84
+     ],
+     "text": "Vol.5 No. 2 of June 1992, p.35."
+    },
+    {
+     "bbox": [
+      59.76,
+      336.0,
+      273.6,
+      344.64
+     ],
+     "text": "The botanical name of \u2018White Mischief\u2019 was incorrectly"
+    },
+    {
+     "bbox": [
+      60.0,
+      347.28,
+      280.08,
+      354.48
+     ],
+     "text": "recorded. The correct name is Stenanthemum scortechinii."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Vol.5 No. 2 of June 1992, p.35.\nThe botanical name of \u2018White Mischief\u2019 was incorrectly\nrecorded. The correct name is Stenanthemum scortechinii.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    322.8,
+    301.68,
+    390.48,
+    311.28
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      322.8,
+      301.68,
+      390.48,
+      311.28
+     ],
+     "text": "Application fee"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Application fee",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    323.04,
+    316.56,
+    558.96,
+    358.56
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      323.28,
+      316.56,
+      558.48,
+      325.2
+     ],
+     "text": "Should an application not be accompanied by the prescribed"
+    },
+    {
+     "bbox": [
+      323.28,
+      327.6,
+      557.76,
+      336.72
+     ],
+     "text": "application fee the application will be deemed to be \u2018non-valid\u2019"
+    },
+    {
+     "bbox": [
+      323.04,
+      338.88,
+      558.96,
+      347.76
+     ],
+     "text": "and neither assigned an application number nor examined for"
+    },
+    {
+     "bbox": [
+      323.04,
+      349.92,
+      486.48,
+      358.56
+     ],
+     "text": "acceptance pending the payment of the fee."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Should an application not be accompanied by the prescribed\napplication fee the application will be deemed to be \u2018non-valid\u2019\nand neither assigned an application number nor examined for\nacceptance pending the payment of the fee.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    323.28,
+    369.84,
+    395.28,
+    377.04
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      323.28,
+      369.84,
+      395.28,
+      377.04
+     ],
+     "text": "Examination fee"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Examination fee",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    322.8,
+    384.24,
+    558.96,
+    446.88
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      322.8,
+      384.24,
+      558.48,
+      393.12
+     ],
+     "text": "Non-payment of the examination fee before the expiry of 12"
+    },
+    {
+     "bbox": [
+      323.28,
+      395.04,
+      558.24,
+      403.92
+     ],
+     "text": "months from the date of acceptance of an application will auto-"
+    },
+    {
+     "bbox": [
+      322.8,
+      406.08,
+      558.48,
+      414.72
+     ],
+     "text": "matically result at the end of 12 months in a refusal of the appli-"
+    },
+    {
+     "bbox": [
+      322.8,
+      416.88,
+      558.96,
+      425.52
+     ],
+     "text": "cation, The consequences of refusal are the same as for"
+    },
+    {
+     "bbox": [
+      323.04,
+      427.68,
+      557.76,
+      436.56
+     ],
+     "text": "applications deemed to be inactive (see \u2018inactive applications\u2019"
+    },
+    {
+     "bbox": [
+      323.28,
+      438.96,
+      350.88,
+      446.88
+     ],
+     "text": "below)."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Non-payment of the examination fee before the expiry of 12\nmonths from the date of acceptance of an application will auto-\nmatically result at the end of 12 months in a refusal of the appli-\ncation, The consequences of refusal are the same as for\napplications deemed to be inactive (see \u2018inactive applications\u2019\nbelow).",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    60.24,
+    370.08,
+    149.28,
+    392.4
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      60.24,
+      370.08,
+      117.6,
+      378.72
+     ],
+     "text": "IMPATIENS"
+    },
+    {
+     "bbox": [
+      60.96,
+      382.08,
+      149.28,
+      392.4
+     ],
+     "text": "Impatiens hawkeri"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "IMPATIENS\nImpatiens hawkeri",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    60.0,
+    399.84,
+    280.56,
+    430.32
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      60.0,
+      399.84,
+      180.24,
+      408.72
+     ],
+     "text": "Vol. 5 No. 2 of June 1992, p.28."
+    },
+    {
+     "bbox": [
+      60.0,
+      410.64,
+      269.52,
+      419.52
+     ],
+     "text": "\u2018Papete\u2019. The comparative table is incorrectly labelled."
+    },
+    {
+     "bbox": [
+      60.0,
+      421.44,
+      280.56,
+      430.32
+     ],
+     "text": "Replace \u2018Samoa\u2019 with \u2018Papete\u2019 and \u2018Jasius\u2019 with \u2018Dunya\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Vol. 5 No. 2 of June 1992, p.28.\n\u2018Papete\u2019. The comparative table is incorrectly labelled.\nReplace \u2018Samoa\u2019 with \u2018Papete\u2019 and \u2018Jasius\u2019 with \u2018Dunya\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    322.8,
+    455.76,
+    558.48,
+    485.28
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      323.04,
+      455.76,
+      558.48,
+      464.88
+     ],
+     "text": "Field examinations and final examinations falling within the"
+    },
+    {
+     "bbox": [
+      323.28,
+      467.04,
+      558.48,
+      476.16
+     ],
+     "text": "first 12 months will not be undertaken without prior payment"
+    },
+    {
+     "bbox": [
+      322.8,
+      478.32,
+      409.68,
+      485.28
+     ],
+     "text": "of the examination fee."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Field examinations and final examinations falling within the\nfirst 12 months will not be undertaken without prior payment\nof the examination fee.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    322.8,
+    495.36,
+    558.48,
+    515.52
+   ],
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      322.8,
+      495.36,
+      558.48,
+      504.48
+     ],
+     "text": "Consideration of a request for an extension of the period of pro-"
+    },
+    {
+     "bbox": [
+      323.04,
+      506.64,
+      558.48,
+      515.52
+     ],
+     "text": "visional protection from the initial 12 month period requires the"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Consideration of a request for an extension of the period of pro-\nvisional protection from the initial 12 month period requires the",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    59.52,
+    514.32,
+    559.2,
+    720.72
+   ],
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      60.0,
+      514.32,
+      465.36,
+      526.08
+     ],
+     "text": "APPENDIX 1 prior payment of the examination fee."
+    },
+    {
+     "bbox": [
+      60.48,
+      530.64,
+      385.44,
+      544.32
+     ],
+     "text": "Fees Certificate fee"
+    },
+    {
+     "bbox": [
+      60.0,
+      549.6,
+      558.0,
+      560.16
+     ],
+     "text": "Basic PVR Fees $ Following the successful completion of the examination,"
+    },
+    {
+     "bbox": [
+      60.0,
+      562.08,
+      558.48,
+      573.6
+     ],
+     "text": "Application 400 including the public notice period, the applicant will be"
+    },
+    {
+     "bbox": [
+      59.76,
+      572.88,
+      559.2,
+      585.36
+     ],
+     "text": "Examination of application 1400 required and invoiced to pay the certification fee. Payment of"
+    },
+    {
+     "bbox": [
+      59.76,
+      583.92,
+      558.0,
+      595.68
+     ],
+     "text": "Certificate of PVR 250 the certification fee is a prerequisite to granting PVR and issu-"
+    },
+    {
+     "bbox": [
+      96.24,
+      594.72,
+      558.48,
+      605.52
+     ],
+     "text": "- ing the official certificate by the PVR Office. Failure to pay the"
+    },
+    {
+     "bbox": [
+      59.52,
+      604.32,
+      475.2,
+      614.64
+     ],
+     "text": "Total Basic Fees 2050 fee may result in a refusal to grant PVR."
+    },
+    {
+     "bbox": [
+      59.76,
+      620.64,
+      377.28,
+      632.88
+     ],
+     "text": "Annual Renewal Fee 230 Renewal fee"
+    },
+    {
+     "bbox": [
+      59.76,
+      638.4,
+      558.48,
+      648.96
+     ],
+     "text": "Other Fees Should an annual renewal fee not be paid within 30 days after"
+    },
+    {
+     "bbox": [
+      59.52,
+      651.12,
+      558.0,
+      661.92
+     ],
+     "text": "Variation to application 70 the due date the grant of PVR will be revoked under para. 35"
+    },
+    {
+     "bbox": [
+      59.52,
+      661.68,
+      558.0,
+      673.68
+     ],
+     "text": "Copy of application 70 (1) (b) of the Act. To assist grantees the PVR Office will"
+    },
+    {
+     "bbox": [
+      59.52,
+      672.48,
+      548.4,
+      685.2
+     ],
+     "text": "Lodging an objection 200 invoice grantees or their Australian agents for renewal fees."
+    },
+    {
+     "bbox": [
+      59.52,
+      688.32,
+      415.68,
+      701.28
+     ],
+     "text": "Copy of objection 70 Inactive applications"
+    },
+    {
+     "bbox": [
+      59.52,
+      700.08,
+      478.08,
+      708.96
+     ],
+     "text": "Compulsory license 140 ar . vo,"
+    },
+    {
+     "bbox": [
+      59.52,
+      706.08,
+      558.96,
+      720.72
+     ],
+     "text": "Transfer of rights 140 An application will be deemed inactive if, after 24 months of"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "APPENDIX 1 prior payment of the examination fee.\nFees Certificate fee\nBasic PVR Fees $ Following the successful completion of the examination,\nApplication 400 including the public notice period, the applicant will be\nExamination of application 1400 required and invoiced to pay the certification fee. Payment of\nCertificate of PVR 250 the certification fee is a prerequisite to granting PVR and issu-\n- ing the official certificate by the PVR Office. Failure to pay the\nTotal Basic Fees 2050 fee may result in a refusal to grant PVR.\nAnnual Renewal Fee 230 Renewal fee\nOther Fees Should an annual renewal fee not be paid within 30 days after\nVariation to application 70 the due date the grant of PVR will be revoked under para. 35\nCopy of application 70 (1) (b) of the Act. To assist grantees the PVR Office will\nLodging an objection 200 invoice grantees or their Australian agents for renewal fees.\nCopy of objection 70 Inactive applications\nCompulsory license 140 ar . vo,\nTransfer of rights 140 An application will be deemed inactive if, after 24 months of",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    59.52,
+    724.08,
+    137.52,
+    732.72
+   ],
+   "id": "e22",
+   "lines": [
+    {
+     "bbox": [
+      59.52,
+      724.08,
+      137.52,
+      732.72
+     ],
+     "text": "Issue of publications"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Issue of publications",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    322.32,
+    717.36,
+    558.24,
+    735.84
+   ],
+   "id": "e23",
+   "lines": [
+    {
+     "bbox": [
+      322.32,
+      717.36,
+      558.0,
+      726.24
+     ],
+     "text": "provisional protection (or 12 months in the case of non-pay-"
+    },
+    {
+     "bbox": [
+      322.56,
+      728.16,
+      558.24,
+      735.84
+     ],
+     "text": "ment of the examination fee) the PVR Office has not received"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "provisional protection (or 12 months in the case of non-pay-\nment of the examination fee) the PVR Office has not received",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    59.52,
+    735.84,
+    558.0,
+    770.16
+   ],
+   "id": "e24",
+   "lines": [
+    {
+     "bbox": [
+      59.52,
+      735.84,
+      558.0,
+      749.04
+     ],
+     "text": "(first 10 pages, then 50c/page) 8 a completed application or has not been advised to proceed"
+    },
+    {
+     "bbox": [
+      59.52,
+      747.84,
+      558.0,
+      759.12
+     ],
+     "text": "Back issues of PVJ 8 with the examination or an extension of provisional protection"
+    },
+    {
+     "bbox": [
+      59.52,
+      759.84,
+      558.0,
+      770.16
+     ],
+     "text": "Other work relevant to PVR (per hour) 70 has not been requested or not granted or a certificate fee has not"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(first 10 pages, then 50c/page) 8 a completed application or has not been advised to proceed\nBack issues of PVJ 8 with the examination or an extension of provisional protection\nOther work relevant to PVR (per hour) 70 has not been requested or not granted or a certificate fee has not",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    408.24,
+    790.32,
+    556.56,
+    798.24
+   ],
+   "id": "e25",
+   "lines": [
+    {
+     "bbox": [
+      408.24,
+      790.32,
+      556.56,
+      798.24
+     ],
+     "text": "- 21"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "- 21",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.09,
+    841.77
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [
+  {
+   "signal": "continuation-column",
+   "source": "e23",
+   "target": "e22",
+   "type": "continues_from"
+  }
+ ],
+ "schema": "0.1"
+}

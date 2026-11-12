@@ -1,0 +1,1146 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    64.8,
+    58.56,
+    278.16,
+    66.24
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      64.8,
+      58.56,
+      278.16,
+      66.24
+     ],
+     "text": "TABLE OF COMPARISON OF CHICK PEA VARIETIES\u2014Continued"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "TABLE OF COMPARISON OF CHICK PEA VARIETIES\u2014Continued",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    64.8,
+    72.96,
+    523.44,
+    386.88
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      233.52,
+      72.96,
+      523.44,
+      82.8
+     ],
+     "text": "\u2018Norwin\u2019 *Barwon\u2019 *Dooen\u2019 \u201cPl 13768\u2019"
+    },
+    {
+     "bbox": [
+      65.52,
+      89.04,
+      136.08,
+      95.28
+     ],
+     "text": "LEAFLET NUMBER"
+    },
+    {
+     "bbox": [
+      65.52,
+      98.4,
+      500.4,
+      105.36
+     ],
+     "text": "mean 16.3 16.4 15.9 14.9"
+    },
+    {
+     "bbox": [
+      65.52,
+      108.24,
+      505.2,
+      116.88
+     ],
+     "text": "range 15-18 15-19 13-18 12-17"
+    },
+    {
+     "bbox": [
+      65.28,
+      118.32,
+      500.64,
+      125.28
+     ],
+     "text": "std. dev 0.59 0.67 0.66 0.93"
+    },
+    {
+     "bbox": [
+      65.52,
+      135.84,
+      511.44,
+      145.68
+     ],
+     "text": "PEDUNCLE ANTHOCYANIN absent present present present"
+    },
+    {
+     "bbox": [
+      65.52,
+      154.8,
+      511.44,
+      164.64
+     ],
+     "text": "POD WALL ANTHOCYANIN absent present present present"
+    },
+    {
+     "bbox": [
+      65.28,
+      174.72,
+      154.8,
+      182.4
+     ],
+     "text": "CALYX DIAMETER (mm)"
+    },
+    {
+     "bbox": [
+      65.52,
+      184.56,
+      499.44,
+      191.04
+     ],
+     "text": "mean 11.5 13.1 16.4 14.1"
+    },
+    {
+     "bbox": [
+      65.52,
+      194.16,
+      504.72,
+      203.52
+     ],
+     "text": "range 9-14 10-17 12-26 11-16"
+    },
+    {
+     "bbox": [
+      65.28,
+      204.48,
+      500.4,
+      211.2
+     ],
+     "text": "std. dev 0.94 1.33 1.77 1.19"
+    },
+    {
+     "bbox": [
+      65.52,
+      223.92,
+      137.52,
+      231.84
+     ],
+     "text": "POD LENGTH (mm)"
+    },
+    {
+     "bbox": [
+      65.52,
+      234.0,
+      500.64,
+      240.48
+     ],
+     "text": "mean 18.4 20.0 20.4 20.8"
+    },
+    {
+     "bbox": [
+      65.28,
+      244.08,
+      505.2,
+      251.76
+     ],
+     "text": "range 15-21 15-25 16-25 16-25"
+    },
+    {
+     "bbox": [
+      65.04,
+      253.92,
+      500.16,
+      260.4
+     ],
+     "text": "std. dev 1.23 1.91 2.02 1.78"
+    },
+    {
+     "bbox": [
+      65.28,
+      272.4,
+      143.04,
+      280.08
+     ],
+     "text": "POD BREADTH (mm)"
+    },
+    {
+     "bbox": [
+      65.28,
+      282.24,
+      495.84,
+      288.96
+     ],
+     "text": "mean 7.7 8.5 8.3 9.2"
+    },
+    {
+     "bbox": [
+      65.52,
+      292.08,
+      498.72,
+      299.76
+     ],
+     "text": "range 6-9 7-10 7-10 7-11"
+    },
+    {
+     "bbox": [
+      65.04,
+      301.92,
+      500.16,
+      308.88
+     ],
+     "text": "std. dev 0.61 0.71 0.69 0.79"
+    },
+    {
+     "bbox": [
+      65.52,
+      320.64,
+      152.64,
+      328.56
+     ],
+     "text": "1000 SEED WEIGHT (g)"
+    },
+    {
+     "bbox": [
+      65.28,
+      330.72,
+      504.48,
+      337.68
+     ],
+     "text": "mean 164.0 183.0 181.0 196.5"
+    },
+    {
+     "bbox": [
+      64.8,
+      374.88,
+      398.4,
+      386.88
+     ],
+     "text": "(b) Descriptions to be finalised HYDRANGEA"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Norwin\u2019 *Barwon\u2019 *Dooen\u2019 \u201cPl 13768\u2019\nLEAFLET NUMBER\nmean 16.3 16.4 15.9 14.9\nrange 15-18 15-19 13-18 12-17\nstd. dev 0.59 0.67 0.66 0.93\nPEDUNCLE ANTHOCYANIN absent present present present\nPOD WALL ANTHOCYANIN absent present present present\nCALYX DIAMETER (mm)\nmean 11.5 13.1 16.4 14.1\nrange 9-14 10-17 12-26 11-16\nstd. dev 0.94 1.33 1.77 1.19\nPOD LENGTH (mm)\nmean 18.4 20.0 20.4 20.8\nrange 15-21 15-25 16-25 16-25\nstd. dev 1.23 1.91 2.02 1.78\nPOD BREADTH (mm)\nmean 7.7 8.5 8.3 9.2\nrange 6-9 7-10 7-10 7-11\nstd. dev 0.61 0.71 0.69 0.79\n1000 SEED WEIGHT (g)\nmean 164.0 183.0 181.0 196.5\n(b) Descriptions to be finalised HYDRANGEA",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    328.56,
+    388.08,
+    444.0,
+    398.88
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      328.56,
+      388.08,
+      444.0,
+      398.88
+     ],
+     "text": "Hydrangea macrophylla"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Hydrangea macrophylla",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    64.56,
+    395.28,
+    300.72,
+    447.36
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      64.56,
+      395.28,
+      300.24,
+      403.92
+     ],
+     "text": "Descriptions for the Journal are being finalised for the follow-"
+    },
+    {
+     "bbox": [
+      65.04,
+      405.84,
+      300.24,
+      415.44
+     ],
+     "text": "ing applications. The six month period for comment or formal"
+    },
+    {
+     "bbox": [
+      64.8,
+      416.64,
+      300.48,
+      425.76
+     ],
+     "text": "objection will not begin until the full descriptions are finalised"
+    },
+    {
+     "bbox": [
+      64.8,
+      427.68,
+      300.24,
+      436.56
+     ],
+     "text": "and published in the Journal. These varieties have provisional"
+    },
+    {
+     "bbox": [
+      65.04,
+      438.48,
+      300.72,
+      447.36
+     ],
+     "text": "protection under Section 22 of the Plant Variety Rights Act"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Descriptions for the Journal are being finalised for the follow-\ning applications. The six month period for comment or formal\nobjection will not begin until the full descriptions are finalised\nand published in the Journal. These varieties have provisional\nprotection under Section 22 of the Plant Variety Rights Act",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    328.08,
+    405.6,
+    538.56,
+    435.36
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      328.08,
+      405.6,
+      520.8,
+      414.96
+     ],
+     "text": "Applicant: Kientzler KG, of Gensingen, Germany"
+    },
+    {
+     "bbox": [
+      328.32,
+      416.64,
+      538.56,
+      426.24
+     ],
+     "text": "Agent in Australia: RW Rother, of Outeniqua Nursery,"
+    },
+    {
+     "bbox": [
+      328.08,
+      427.68,
+      395.04,
+      435.36
+     ],
+     "text": "Emerald, Victoria"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Kientzler KG, of Gensingen, Germany\nAgent in Australia: RW Rother, of Outeniqua Nursery,\nEmerald, Victoria",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    328.56,
+    443.28,
+    493.92,
+    452.64
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      328.56,
+      443.28,
+      493.92,
+      452.64
+     ],
+     "text": "\u2018Messalina\u2019 commercial synonym \u2018HOR 4\u2019"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Messalina\u2019 commercial synonym \u2018HOR 4\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    65.52,
+    449.04,
+    85.2,
+    456.24
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      65.52,
+      449.04,
+      85.2,
+      456.24
+     ],
+     "text": "1987."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "1987.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    64.56,
+    472.32,
+    191.76,
+    493.92
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      64.56,
+      472.32,
+      139.68,
+      480.96
+     ],
+     "text": "WAX FLOWER"
+    },
+    {
+     "bbox": [
+      65.52,
+      484.8,
+      191.76,
+      493.92
+     ],
+     "text": "Chamelaucium uncinatum"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "WAX FLOWER\nChamelaucium uncinatum",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    64.56,
+    504.48,
+    291.12,
+    513.12
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      64.56,
+      504.48,
+      291.12,
+      513.12
+     ],
+     "text": "Applicant: Australian Wax Farms, of West Perth, Western"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Australian Wax Farms, of West Perth, Western",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    64.08,
+    515.52,
+    155.04,
+    559.44
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      64.32,
+      515.52,
+      98.88,
+      522.48
+     ],
+     "text": "Australia"
+    },
+    {
+     "bbox": [
+      64.56,
+      527.28,
+      132.72,
+      534.48
+     ],
+     "text": "\u201cMuchea Mauve\u2019"
+    },
+    {
+     "bbox": [
+      64.08,
+      539.04,
+      153.6,
+      547.68
+     ],
+     "text": "Application No, 92/013"
+    },
+    {
+     "bbox": [
+      64.32,
+      550.56,
+      155.04,
+      559.44
+     ],
+     "text": "Accepted: 25 May 1992"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Australia\n\u201cMuchea Mauve\u2019\nApplication No, 92/013\nAccepted: 25 May 1992",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    64.32,
+    567.84,
+    155.04,
+    599.76
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      64.56,
+      567.84,
+      115.44,
+      576.24
+     ],
+     "text": "\u2018Jenny Jane\u2019"
+    },
+    {
+     "bbox": [
+      64.32,
+      579.36,
+      153.36,
+      588.0
+     ],
+     "text": "Application No. 92/014"
+    },
+    {
+     "bbox": [
+      64.32,
+      591.12,
+      155.04,
+      599.76
+     ],
+     "text": "Accepted: 25 May 1992"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Jenny Jane\u2019\nApplication No. 92/014\nAccepted: 25 May 1992",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    63.84,
+    607.92,
+    154.8,
+    640.56
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      64.32,
+      607.92,
+      98.4,
+      615.6
+     ],
+     "text": "\u2018Jubilee\u2019"
+    },
+    {
+     "bbox": [
+      63.84,
+      619.92,
+      152.88,
+      628.56
+     ],
+     "text": "Application No. 92/015"
+    },
+    {
+     "bbox": [
+      63.84,
+      631.68,
+      154.8,
+      640.56
+     ],
+     "text": "Accepted: 25 May 1992"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Jubilee\u2019\nApplication No. 92/015\nAccepted: 25 May 1992",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    63.6,
+    649.2,
+    154.32,
+    680.88
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      63.84,
+      649.2,
+      98.16,
+      656.16
+     ],
+     "text": "\u2018Kismet\u2019"
+    },
+    {
+     "bbox": [
+      63.6,
+      660.96,
+      153.12,
+      669.6
+     ],
+     "text": "Application No. 92/016"
+    },
+    {
+     "bbox": [
+      63.6,
+      672.48,
+      154.32,
+      680.88
+     ],
+     "text": "Accepted: 25 May 1992"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Kismet\u2019\nApplication No. 92/016\nAccepted: 25 May 1992",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    64.08,
+    695.04,
+    93.84,
+    715.92
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      64.08,
+      695.04,
+      93.84,
+      703.68
+     ],
+     "text": "ROSE"
+    },
+    {
+     "bbox": [
+      64.08,
+      707.76,
+      88.8,
+      715.92
+     ],
+     "text": "Rosa"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ROSE\nRosa",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    63.12,
+    726.48,
+    286.08,
+    769.92
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      63.6,
+      726.48,
+      286.08,
+      734.88
+     ],
+     "text": "Appplicant: Eric Welsh Roses of Erina, New South Wales"
+    },
+    {
+     "bbox": [
+      63.6,
+      738.0,
+      243.6,
+      746.64
+     ],
+     "text": "*Woman\u2019s Day\u2019 commercial synonym \u2018Welira\u2019"
+    },
+    {
+     "bbox": [
+      63.12,
+      749.52,
+      152.4,
+      758.16
+     ],
+     "text": "Application No. 92/018"
+    },
+    {
+     "bbox": [
+      63.12,
+      761.28,
+      147.6,
+      769.92
+     ],
+     "text": "Accepted: | July 1992"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Appplicant: Eric Welsh Roses of Erina, New South Wales\n*Woman\u2019s Day\u2019 commercial synonym \u2018Welira\u2019\nApplication No. 92/018\nAccepted: | July 1992",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    328.08,
+    454.56,
+    417.36,
+    474.24
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      328.08,
+      454.56,
+      417.36,
+      463.2
+     ],
+     "text": "Application No. 92/053"
+    },
+    {
+     "bbox": [
+      328.08,
+      465.84,
+      414.24,
+      474.24
+     ],
+     "text": "Accepted: 4 June 1992"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Application No. 92/053\nAccepted: 4 June 1992",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    327.84,
+    481.68,
+    491.28,
+    513.36
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      328.32,
+      481.68,
+      491.28,
+      491.04
+     ],
+     "text": "\u2018Rotenfels\u2019 commercial synonym \u2018HOR 5\u2019"
+    },
+    {
+     "bbox": [
+      328.08,
+      493.44,
+      417.12,
+      501.84
+     ],
+     "text": "Application No. 92/054"
+    },
+    {
+     "bbox": [
+      327.84,
+      504.48,
+      413.76,
+      513.36
+     ],
+     "text": "Accepted: 4 June 1992"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Rotenfels\u2019 commercial synonym \u2018HOR 5\u2019\nApplication No. 92/054\nAccepted: 4 June 1992",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    328.08,
+    527.28,
+    382.32,
+    547.92
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      328.08,
+      527.28,
+      382.32,
+      536.16
+     ],
+     "text": "LIMONIUM"
+    },
+    {
+     "bbox": [
+      328.32,
+      539.28,
+      375.12,
+      547.92
+     ],
+     "text": "Limonium"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "LIMONIUM\nLimonium",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    327.36,
+    557.28,
+    545.28,
+    620.64
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      327.6,
+      557.28,
+      521.76,
+      566.4
+     ],
+     "text": "Applicant: Dai-ichi Seed Co. Ltd, of Tokyo, Japan"
+    },
+    {
+     "bbox": [
+      327.6,
+      568.08,
+      545.28,
+      577.2
+     ],
+     "text": "Agent in Australia: Burbank Biotechnology Pty Ltd, of"
+    },
+    {
+     "bbox": [
+      327.36,
+      578.88,
+      426.72,
+      587.28
+     ],
+     "text": "Wyong, New South Wales"
+    },
+    {
+     "bbox": [
+      327.84,
+      589.68,
+      502.8,
+      598.8
+     ],
+     "text": "\u2018Daicean\u2019 commercial synonym \u2018Ocean Blue\u2019"
+    },
+    {
+     "bbox": [
+      327.6,
+      600.72,
+      416.64,
+      609.12
+     ],
+     "text": "Application No. 92/057"
+    },
+    {
+     "bbox": [
+      327.36,
+      611.76,
+      413.52,
+      620.64
+     ],
+     "text": "Accepted: 7 May 1992"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Dai-ichi Seed Co. Ltd, of Tokyo, Japan\nAgent in Australia: Burbank Biotechnology Pty Ltd, of\nWyong, New South Wales\n\u2018Daicean\u2019 commercial synonym \u2018Ocean Blue\u2019\nApplication No. 92/057\nAccepted: 7 May 1992",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    327.12,
+    627.84,
+    513.6,
+    670.32
+   ],
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      327.36,
+      627.84,
+      513.6,
+      636.96
+     ],
+     "text": "\u2018Qceanic Blue\u2019 commercial synonym in Holland"
+    },
+    {
+     "bbox": [
+      327.6,
+      638.88,
+      374.64,
+      647.52
+     ],
+     "text": "\u2018Misty Blue\u2019"
+    },
+    {
+     "bbox": [
+      327.12,
+      650.16,
+      416.16,
+      658.8
+     ],
+     "text": "Application No. 92/058"
+    },
+    {
+     "bbox": [
+      327.12,
+      661.44,
+      413.28,
+      670.32
+     ],
+     "text": "Accepted: 7 May 1992"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Qceanic Blue\u2019 commercial synonym in Holland\n\u2018Misty Blue\u2019\nApplication No. 92/058\nAccepted: 7 May 1992",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    326.88,
+    677.04,
+    532.56,
+    708.48
+   ],
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      327.12,
+      677.04,
+      532.56,
+      686.64
+     ],
+     "text": "\u2018Oceanic White\u2019 commercial synonym \u2018Misty White\u2019"
+    },
+    {
+     "bbox": [
+      326.88,
+      688.08,
+      416.16,
+      696.96
+     ],
+     "text": "Application No. 92/059"
+    },
+    {
+     "bbox": [
+      327.12,
+      699.36,
+      413.04,
+      708.48
+     ],
+     "text": "Accepted: 7 May 1992"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Oceanic White\u2019 commercial synonym \u2018Misty White\u2019\nApplication No. 92/059\nAccepted: 7 May 1992",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    327.12,
+    720.96,
+    357.12,
+    741.84
+   ],
+   "id": "e22",
+   "lines": [
+    {
+     "bbox": [
+      327.12,
+      720.96,
+      357.12,
+      729.84
+     ],
+     "text": "ROSE"
+    },
+    {
+     "bbox": [
+      327.6,
+      733.44,
+      352.08,
+      741.84
+     ],
+     "text": "Rosa"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ROSE\nRosa",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    326.4,
+    750.96,
+    559.68,
+    760.56
+   ],
+   "id": "e23",
+   "lines": [
+    {
+     "bbox": [
+      326.4,
+      750.96,
+      559.68,
+      760.56
+     ],
+     "text": "Applicant: David Austin Roses, of Wolverhampton, England"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: David Austin Roses, of Wolverhampton, England",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    326.4,
+    762.0,
+    505.92,
+    770.64
+   ],
+   "id": "e24",
+   "lines": [
+    {
+     "bbox": [
+      326.4,
+      762.0,
+      505.92,
+      770.64
+     ],
+     "text": "Agent in Australia: The Perfumed Garden, of"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Agent in Australia: The Perfumed Garden, of",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    527.76,
+    791.04,
+    563.04,
+    803.76
+   ],
+   "id": "e25",
+   "lines": [
+    {
+     "bbox": [
+      527.76,
+      791.04,
+      563.04,
+      803.76
+     ],
+     "text": "moe 1 /"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "moe 1 /",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.09,
+    841.77
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

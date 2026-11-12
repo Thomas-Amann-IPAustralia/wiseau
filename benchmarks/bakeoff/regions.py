@@ -24,6 +24,13 @@ DOCS = {
     "P00": "pdf-test/Extra-4-Broad-Test/2000028878 B2 specification (1).pdf",
     "WO06": "pdf-test/Extra-4-Broad-Test/WO_2006070397_A1 (1).pdf",
 }
+# The same documents OCR'd by the user with Adobe Acrobat (64-bit) 26 Paper Capture,
+# 2026-11-12 (`run_engines.py ... --acrobat`). Same page count and order as DOCS;
+# Acrobat deskews and resamples the page image, so its pixels are not the original's.
+ACROBAT_DOCS = {
+    "V5N1": "pdf-test/acrobat-pdf/Volume 5 Number 1_AA-OCR.pdf",
+    "V5N3": "pdf-test/acrobat-pdf/Volume 5 Number 3_AA-OCR.pdf",
+}
 
 # 1-based page numbers (the same pages as the 2026-11-01 bake-off).
 SAMPLE = {"V16": [11, 25, 34, 90], "V2": [6, 17, 20], "V4": [7, 11, 26]}

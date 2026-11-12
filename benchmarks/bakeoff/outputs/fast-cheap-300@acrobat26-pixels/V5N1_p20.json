@@ -1,0 +1,756 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    50.16,
+    62.4,
+    175.92,
+    72.24
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      50.16,
+      62.4,
+      175.92,
+      72.24
+     ],
+     "text": "Comparative Growing Trials"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    50.16,
+    76.08,
+    286.56,
+    185.04
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      50.16,
+      76.08,
+      285.84,
+      84.96
+     ],
+     "text": "All characteristics and comparisons are from a comparative"
+    },
+    {
+     "bbox": [
+      50.16,
+      86.88,
+      285.84,
+      96.96
+     ],
+     "text": "growing trial conducted at the Agricultural Research Centre,"
+    },
+    {
+     "bbox": [
+      50.16,
+      97.92,
+      286.08,
+      107.28
+     ],
+     "text": "Tamworth in 1990 and 1991. Transplanted seedlings were"
+    },
+    {
+     "bbox": [
+      50.64,
+      108.24,
+      284.64,
+      119.28
+     ],
+     "text": "sown in the field on 16 July 1990. Plants were sown on a |"
+    },
+    {
+     "bbox": [
+      50.64,
+      120.24,
+      286.08,
+      130.32
+     ],
+     "text": "metre square grid in 30 metre rows. Rows were randomly allo-"
+    },
+    {
+     "bbox": [
+      50.64,
+      131.52,
+      286.56,
+      141.36
+     ],
+     "text": "cated among lines and each consisted of 3 replicates of 10"
+    },
+    {
+     "bbox": [
+      50.64,
+      142.8,
+      286.32,
+      152.4
+     ],
+     "text": "plants of each line. Morphological characteristics were mea-"
+    },
+    {
+     "bbox": [
+      50.88,
+      153.6,
+      286.32,
+      162.48
+     ],
+     "text": "sured on cither 20 or 30 plants of each type. Plots were main-"
+    },
+    {
+     "bbox": [
+      50.88,
+      164.4,
+      286.32,
+      174.0
+     ],
+     "text": "tained weed-free by cultivation, fertilised annually and watered"
+    },
+    {
+     "bbox": [
+      50.88,
+      175.68,
+      166.8,
+      185.04
+     ],
+     "text": "by spray irrigation as required."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "All characteristics and comparisons are from a comparative\ngrowing trial conducted at the Agricultural Research Centre,\nTamworth in 1990 and 1991. Transplanted seedlings were\nsown in the field on 16 July 1990. Plants were sown on a |\nmetre square grid in 30 metre rows. Rows were randomly allo-\ncated among lines and each consisted of 3 replicates of 10\nplants of each line. Morphological characteristics were mea-\nsured on cither 20 or 30 plants of each type. Plots were main-\ntained weed-free by cultivation, fertilised annually and watered\nby spray irrigation as required.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    78.96,
+    208.32,
+    244.8,
+    222.48
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      78.96,
+      208.32,
+      244.8,
+      222.48
+     ],
+     "text": "\u2018of Comparison of Danthonia Varietios"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018of Comparison of Danthonia Varietios",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    313.92,
+    61.2,
+    360.96,
+    70.32
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      313.92,
+      61.2,
+      360.96,
+      70.32
+     ],
+     "text": "Agronomy"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Agronomy",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    313.92,
+    84.24,
+    550.08,
+    149.52
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      314.64,
+      84.24,
+      549.6,
+      93.84
+     ],
+     "text": "\u2018Taranna\u2019 is a perennial grass native to Australia and so should"
+    },
+    {
+     "bbox": [
+      314.16,
+      95.28,
+      549.6,
+      105.12
+     ],
+     "text": "be adapted to dry conditions and low soil fertility. It is intended"
+    },
+    {
+     "bbox": [
+      313.92,
+      106.8,
+      549.84,
+      116.16
+     ],
+     "text": "for use in temperate areas either for aerial establishment into"
+    },
+    {
+     "bbox": [
+      314.64,
+      118.32,
+      549.84,
+      127.44
+     ],
+     "text": "non-arable, hilly country or as a pasture grass in degraded crop-"
+    },
+    {
+     "bbox": [
+      314.4,
+      129.36,
+      550.08,
+      138.96
+     ],
+     "text": "ping lands. It produces more growth in spring, early-summer"
+    },
+    {
+     "bbox": [
+      314.16,
+      140.64,
+      503.52,
+      149.52
+     ],
+     "text": "than \u2018Hume\u2019 and has a high rate of seed retention."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Taranna\u2019 is a perennial grass native to Australia and so should\nbe adapted to dry conditions and low soil fertility. It is intended\nfor use in temperate areas either for aerial establishment into\nnon-arable, hilly country or as a pasture grass in degraded crop-\nping lands. It produces more growth in spring, early-summer\nthan \u2018Hume\u2019 and has a high rate of seed retention.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    314.16,
+    164.4,
+    550.08,
+    184.32
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      314.16,
+      164.4,
+      550.08,
+      173.52
+     ],
+     "text": "This work was supported by a grant from the Wool Research"
+    },
+    {
+     "bbox": [
+      314.64,
+      175.92,
+      431.52,
+      184.32
+     ],
+     "text": "and Development Corporation."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "This work was supported by a grant from the Wool Research\nand Development Corporation.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.12,
+    226.8,
+    166.08,
+    234.72
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      51.12,
+      226.8,
+      166.08,
+      234.72
+     ],
+     "text": "(* = variety used for comparison)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(* = variety used for comparison)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    50.88,
+    241.2,
+    490.08,
+    768.0
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      195.36,
+      241.2,
+      490.08,
+      250.8
+     ],
+     "text": "\u2018Taranna\u2019 Hume\u2019 \u201cEcotype 1\u00b0 \u201cEcotype 2"
+    },
+    {
+     "bbox": [
+      51.36,
+      258.96,
+      146.64,
+      265.2
+     ],
+     "text": "INFLORESCENCE WIDTH"
+    },
+    {
+     "bbox": [
+      51.36,
+      268.32,
+      477.84,
+      275.28
+     ],
+     "text": "mean 33.4 mm 17.7 mm 14.5 mm 18.9 mm"
+    },
+    {
+     "bbox": [
+      51.36,
+      278.4,
+      478.08,
+      287.04
+     ],
+     "text": "range 17.9-64.1 9.5-27.4 5.3-24.4 7.9-33.4"
+    },
+    {
+     "bbox": [
+      51.12,
+      288.72,
+      458.16,
+      295.2
+     ],
+     "text": "std. deviation 12.8 4.3 3.7 5.7"
+    },
+    {
+     "bbox": [
+      51.12,
+      297.12,
+      471.36,
+      307.92
+     ],
+     "text": "significance P=0.01 P=0.01 P=0.01"
+    },
+    {
+     "bbox": [
+      51.36,
+      320.64,
+      152.88,
+      326.88
+     ],
+     "text": "INFLORESCENCE LENGTH"
+    },
+    {
+     "bbox": [
+      51.36,
+      330.0,
+      477.84,
+      336.48
+     ],
+     "text": "mean 75.6 mm 80.2 mm 63.3 mm 45.8 mm"
+    },
+    {
+     "bbox": [
+      51.36,
+      339.84,
+      482.88,
+      348.0
+     ],
+     "text": "range 41.6-100.1 55.6-104.1 27.1-95.2 30.1-80.6"
+    },
+    {
+     "bbox": [
+      51.12,
+      349.68,
+      458.16,
+      356.4
+     ],
+     "text": "std. deviation 12.3 10.9 10.8 8.9"
+    },
+    {
+     "bbox": [
+      51.12,
+      359.04,
+      471.36,
+      369.12
+     ],
+     "text": "significance P=0.01 P=0.01 P=0.01"
+    },
+    {
+     "bbox": [
+      51.36,
+      381.84,
+      201.12,
+      389.76
+     ],
+     "text": "GLUME WIDTH (1st glume on 3rd branch)"
+    },
+    {
+     "bbox": [
+      51.6,
+      392.16,
+      477.84,
+      398.64
+     ],
+     "text": "mean 1.97 mm 1.73 mm 1.43 mm 2.07 mm"
+    },
+    {
+     "bbox": [
+      51.36,
+      402.0,
+      473.76,
+      410.16
+     ],
+     "text": "range 1.0-3.3 0.8-3.2 0.7-2.5 1.3-3.3"
+    },
+    {
+     "bbox": [
+      50.88,
+      412.08,
+      462.48,
+      418.56
+     ],
+     "text": "std. deviation 0.43 0.44 0.38 0.39"
+    },
+    {
+     "bbox": [
+      51.12,
+      421.44,
+      387.36,
+      431.52
+     ],
+     "text": "significance P=0.01 P=0.01"
+    },
+    {
+     "bbox": [
+      51.6,
+      444.0,
+      335.28,
+      451.68
+     ],
+     "text": "INFLORESCENCE INTERBRANCH LENGTH (between the 1st and 2nd branch)"
+    },
+    {
+     "bbox": [
+      51.36,
+      454.32,
+      473.52,
+      460.32
+     ],
+     "text": "mean 12.2 mm 12.3 mm 10.7 mm 7.3mm"
+    },
+    {
+     "bbox": [
+      51.6,
+      464.16,
+      477.6,
+      471.84
+     ],
+     "text": "range 6.4-18.6 8.2-18.2 5.0-15.8 2.9-11.3"
+    },
+    {
+     "bbox": [
+      51.36,
+      474.0,
+      458.4,
+      480.0
+     ],
+     "text": "std. deviation 24 2.4 1.8 1.5"
+    },
+    {
+     "bbox": [
+      51.12,
+      483.84,
+      471.36,
+      491.52
+     ],
+     "text": "significance P=0.01 P=0.01"
+    },
+    {
+     "bbox": [
+      51.36,
+      505.44,
+      272.88,
+      512.88
+     ],
+     "text": "NUMBER OF REPRODUCTIVE TILLERS (over 10 day period)"
+    },
+    {
+     "bbox": [
+      51.36,
+      515.52,
+      458.16,
+      522.0
+     ],
+     "text": "mean 13.8 10.4 16.0 3.2"
+    },
+    {
+     "bbox": [
+      51.36,
+      525.6,
+      464.88,
+      533.76
+     ],
+     "text": "range 5-24 4-20 6-27 0-13"
+    },
+    {
+     "bbox": [
+      51.12,
+      535.68,
+      458.16,
+      541.92
+     ],
+     "text": "std. deviation 4.4 5.0 46 3.4"
+    },
+    {
+     "bbox": [
+      51.12,
+      545.04,
+      471.36,
+      554.88
+     ],
+     "text": "significance P=0.05 P=0.01 P=0.01"
+    },
+    {
+     "bbox": [
+      51.12,
+      567.84,
+      107.76,
+      574.08
+     ],
+     "text": "CULM LENGTH"
+    },
+    {
+     "bbox": [
+      51.36,
+      577.92,
+      475.2,
+      584.16
+     ],
+     "text": "mean 56.0 cm 57.3 cm 46.4 cm 46.1 cm"
+    },
+    {
+     "bbox": [
+      51.36,
+      588.0,
+      469.2,
+      595.68
+     ],
+     "text": "range 37-69 40-70 32-61 28-59"
+    },
+    {
+     "bbox": [
+      51.12,
+      597.6,
+      458.16,
+      603.84
+     ],
+     "text": "std. deviation 7.0 6.0 7.4 8.0"
+    },
+    {
+     "bbox": [
+      51.12,
+      606.48,
+      471.36,
+      616.32
+     ],
+     "text": "significance P=0.01 P=0.01"
+    },
+    {
+     "bbox": [
+      51.6,
+      629.04,
+      132.24,
+      635.04
+     ],
+     "text": "INTERNODE LENGTH"
+    },
+    {
+     "bbox": [
+      51.6,
+      638.64,
+      482.4,
+      644.88
+     ],
+     "text": "mean 149.3 mm 128.2 mm 145.8 mm 129.7 mm"
+    },
+    {
+     "bbox": [
+      51.6,
+      648.72,
+      473.76,
+      656.4
+     ],
+     "text": "range 82-192 76-180 60-194 43-189"
+    },
+    {
+     "bbox": [
+      51.12,
+      658.32,
+      462.72,
+      664.8
+     ],
+     "text": "std. deviation 22.6 22.3 27.7 31.0"
+    },
+    {
+     "bbox": [
+      51.12,
+      668.4,
+      471.12,
+      676.32
+     ],
+     "text": "significance P=0.01 P=0.01"
+    },
+    {
+     "bbox": [
+      51.36,
+      690.72,
+      128.16,
+      696.72
+     ],
+     "text": "FLAG LEAF LENGTH"
+    },
+    {
+     "bbox": [
+      51.36,
+      700.8,
+      477.84,
+      706.8
+     ],
+     "text": "mean 95.4 mm 81.0 mm 43.0 mm 46.0 mm"
+    },
+    {
+     "bbox": [
+      51.36,
+      710.64,
+      469.2,
+      718.32
+     ],
+     "text": "range 46-170 33-150 15-80 25-79"
+    },
+    {
+     "bbox": [
+      51.12,
+      720.48,
+      462.48,
+      726.96
+     ],
+     "text": "std. deviation 28.2 27.8 19.1 12.5"
+    },
+    {
+     "bbox": [
+      51.12,
+      729.6,
+      471.36,
+      739.2
+     ],
+     "text": "significance P=0.01 P=0.01 P=0.01"
+    },
+    {
+     "bbox": [
+      51.12,
+      751.92,
+      174.48,
+      759.36
+     ],
+     "text": "TILLER LEAF LENGTH (third tiller)"
+    },
+    {
+     "bbox": [
+      51.36,
+      762.0,
+      482.16,
+      768.0
+     ],
+     "text": "mean 176.4mm 172.3mm 120.2 mm 100.3 mm"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Taranna\u2019 Hume\u2019 \u201cEcotype 1\u00b0 \u201cEcotype 2\nINFLORESCENCE WIDTH\nmean 33.4 mm 17.7 mm 14.5 mm 18.9 mm\nrange 17.9-64.1 9.5-27.4 5.3-24.4 7.9-33.4\nstd. deviation 12.8 4.3 3.7 5.7\nsignificance P=0.01 P=0.01 P=0.01\nINFLORESCENCE LENGTH\nmean 75.6 mm 80.2 mm 63.3 mm 45.8 mm\nrange 41.6-100.1 55.6-104.1 27.1-95.2 30.1-80.6\nstd. deviation 12.3 10.9 10.8 8.9\nsignificance P=0.01 P=0.01 P=0.01\nGLUME WIDTH (1st glume on 3rd branch)\nmean 1.97 mm 1.73 mm 1.43 mm 2.07 mm\nrange 1.0-3.3 0.8-3.2 0.7-2.5 1.3-3.3\nstd. deviation 0.43 0.44 0.38 0.39\nsignificance P=0.01 P=0.01\nINFLORESCENCE INTERBRANCH LENGTH (between the 1st and 2nd branch)\nmean 12.2 mm 12.3 mm 10.7 mm 7.3mm\nrange 6.4-18.6 8.2-18.2 5.0-15.8 2.9-11.3\nstd. deviation 24 2.4 1.8 1.5\nsignificance P=0.01 P=0.01\nNUMBER OF REPRODUCTIVE TILLERS (over 10 day period)\nmean 13.8 10.4 16.0 3.2\nrange 5-24 4-20 6-27 0-13\nstd. deviation 4.4 5.0 46 3.4\nsignificance P=0.05 P=0.01 P=0.01\nCULM LENGTH\nmean 56.0 cm 57.3 cm 46.4 cm 46.1 cm\nrange 37-69 40-70 32-61 28-59\nstd. deviation 7.0 6.0 7.4 8.0\nsignificance P=0.01 P=0.01\nINTERNODE LENGTH\nmean 149.3 mm 128.2 mm 145.8 mm 129.7 mm\nrange 82-192 76-180 60-194 43-189\nstd. deviation 22.6 22.3 27.7 31.0\nsignificance P=0.01 P=0.01\nFLAG LEAF LENGTH\nmean 95.4 mm 81.0 mm 43.0 mm 46.0 mm\nrange 46-170 33-150 15-80 25-79\nstd. deviation 28.2 27.8 19.1 12.5\nsignificance P=0.01 P=0.01 P=0.01\nTILLER LEAF LENGTH (third tiller)\nmean 176.4mm 172.3mm 120.2 mm 100.3 mm",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    539.76,
+    794.4,
+    550.08,
+    802.32
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      539.76,
+      794.4,
+      550.08,
+      802.32
+     ],
+     "text": "19"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "19",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.02,
+    841.85
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}
