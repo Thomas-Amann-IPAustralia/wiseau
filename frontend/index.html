@@ -156,11 +156,11 @@
             <strong>Accurate</strong>, in about a second. The two differ on <em>scanned</em> pages.
             <strong>Accurate</strong>, the default, reads each scan with Tesseract plus a layout model
             and a table model, so headings get their levels and tables come back as tables.
-            <strong>Fast</strong> runs Tesseract alone: about twice as quick a scanned page, with slightly
-            more misread words and no heading levels or rebuilt tables. Both are deterministic.
-            <strong>docling</strong> is an ML converter run as a separate service. On our test pages
-            it was <em>less</em> accurate than Accurate and several times slower, so treat it as
-            experimental. It falls back to the local parser if it is unavailable. The engine
+            <strong>Fast</strong> runs Tesseract alone: two to three times as quick a scanned page and
+            the same words on our test scans, but no heading levels and tables as rows of text.
+            Both are deterministic. <strong>docling</strong> is an ML converter run as a separate
+            service. On our test pages it misread more words than Accurate, recovered less
+            structure, and was several times slower, so treat it as experimental. It falls back to the local parser if it is unavailable. The engine
             applies to documents; a URL that serves an HTML page is always extracted the same way.
           </p>
         </details>

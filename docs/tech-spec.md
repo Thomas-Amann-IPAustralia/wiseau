@@ -48,8 +48,8 @@ interactive docs are at `/docs`.
     "status": "ok",
     "service": "markdown-ingestion-engine",
     "version": "0.10.0",
-    "engines": ["docling", "glm-ocr", "pymupdf"],
-    "available_engines": ["pymupdf"],
+    "engines": ["docling", "fast", "glm-ocr", "pymupdf"],
+    "available_engines": ["fast", "pymupdf"],
     "default_engine": "pymupdf",
     "mcp_endpoint": "/mcp",
     "keyword_methods": ["frequency", "yake"],
@@ -62,9 +62,11 @@ interactive docs are at `/docs`.
   actually run: the local parser plus each remote engine whose service is
   configured. A remote engine that is not configured is still accepted — and
   falls back — so a client should offer only what is listed here (ADR-034).
+  `fast` (ADR-059, API 0.18.0) is local and always listed; a client should still
+  read it from this list, because an older server rejects it with a 400.
   `default_engine` is the one `auto` resolves to *here* — i.e.
   this deployment's `WISEAU_PDF_ENGINE`, reported as the engine that will
-  actually run (anything but `docling` or `glm-ocr` runs the local parser). A client uses it
+  actually run (anything but `docling`, `glm-ocr` or `fast` runs the local parser). A client uses it
   to label its "auto" option and size a progress estimate (ADR-027).
   `mcp_endpoint` is the path of this deployment's MCP endpoint, or `null` if it
   serves none — `WISEAU_MCP_PATH` may have moved it, so a client discovers the
@@ -518,7 +520,8 @@ All backend configuration is via environment variables (12-factor).
 | `WISEAU_OCR_OVERLAP` | `auto` | Run a scanned page's independent stages side by side (ADR-056): Tesseract psm 3 and both model passes' inference beside MuPDF's OCR. Page images are still rendered on the calling thread and results are combined in the same order, so the Markdown is byte-identical either way. `auto` overlaps when 2+ CPUs are available (affinity, capped by a cgroup v2 quota); `1` forces it, `0` runs the stages in sequence. 4 CPUs: 11.7 → 8.3 s a scanned page; 1 CPU: overlap would cost ~6%. |
 | `WISEAU_STRUCTURE` | unset in code; **`all` in the Docker image** (ADR-055) | Structure-recovery passes over the IR (§20, roadmap Tier 3): a comma list of `headings`, `furniture`, `continuation`, `captions`, `footnotes`, `tables`, or `all`. Pure IR passes: no model, no extra dependency, deterministic. Unset, the output is unchanged. |
 | `WISEAU_FURNITURE` | `keep` | The deployment's default for a request that sends no `reader` field. `drop` is **reader mode**: page furniture the `furniture` pass detected is left out of the Markdown, and a continued table's repeated header row is written once. `keep` writes every word as read (faithful). |
-| `WISEAU_PDF_ENGINE` | `pymupdf` | **Default** document engine: `pymupdf` (the fast, deterministic local parser — ADR-027), `docling` (via docling-serve, for fidelity), or `glm-ocr` (via the GLM-OCR service, for scans — ADR-034). A request's `engine` field overrides it per conversion (ADR-025). |
+| `WISEAU_PDF_ENGINE` | `pymupdf` | **Default** document engine: `pymupdf` (the accurate, deterministic local parser — ADR-027), `fast` (the same parser with a lighter OCR stage for scans — ADR-059), `docling` (via docling-serve; experimental, ADR-059), or `glm-ocr` (via the GLM-OCR service, for scans — ADR-034). A request's `engine` field overrides it per conversion (ADR-025). |
+| `WISEAU_FAST_OCR_DPI` | `300` | *(ADR-059)* The fast engine's OCR resolution. 200 dpi saved 0.3 s a page for +40% word errors on the 72 scored scans, and 150 dpi saved 0.5 s for +78%, so 300 stays the default. Fixed per deployment, so the output is the same on every run. |
 | `WISEAU_DOCLING_BASE` | — | *(Phase 6)* Base URL of the internal docling-serve service (HF Space #2). Unset ⇒ docling is skipped even when it is selected. |
 | `WISEAU_DOCLING_TOKEN` | — | *(Phase 6)* Sent as `Authorization: Bearer` — the *platform gateway* credential (an HF token when Space #2 is private). |
 | `WISEAU_DOCLING_API_KEY` | — | *(Phase 6)* Sent as `X-Api-Key` — docling-serve's *own* guard, matching its `DOCLING_SERVE_API_KEY`. A different mechanism from the bearer token; either, both, or neither may be in use (ADR-018). |
@@ -566,6 +569,9 @@ API **0.16.0** (2026-11-11): optional `reader` field on `/convert/file`,
 `/convert/batch` and `/convert/bundle` (ADR-055). Additive.
 API **0.17.0** (2026-11-12): `POST /convert/{url,file,batch}/stream` (NDJSON
 progress), `GET /usage`, and `streaming` on `/ping` (ADR-058). Additive.
+API **0.18.0** (2026-11-12): `engine="fast"` on every convert route and MCP tool
+(ADR-059), listed in `/ping`'s `engines` and `available_engines`; `fast` is also
+accepted as `WISEAU_PDF_ENGINE`. Additive.
 
 
 - The API `version` lives in `main.py` (`FastAPI(version=...)`) and is echoed by
@@ -757,6 +763,27 @@ OCR DPI is a fixed constant (300). All OCR output still ends in `clean_markdown(
   alone). Each band is covered by white vector rectangles on a copy of the page
   (never a re-rasterised image), and every OCR pass reads that copy. Pages with
   no band are untouched. `ocr.BORDER_CLEANUP = False` switches it off.
+- **The fast engine (ADR-059, `engine="fast"`).** The same `tesseract` reading
+  of a scanned page, lightened. It runs scanner-band cleanup, the photo mask,
+  psm 3 and row stitching as above, but **no layout or table model**, even where
+  the deployment turns them on. Its guard is cheap:
+  - MuPDF's OCR at `ocr.FAST_GUARD_DPI` (100) is counted against psm 3 with the
+    same 85% plausible-word rule (ADR-042).
+  - A page that passes gives psm 3's reading. A page that fails runs the full
+    300 dpi guard and the default path's rule, so it gets exactly what the
+    default path's OCR stage would give it.
+  - psm 3 at its own DPI, `WISEAU_FAST_OCR_DPI` (default 300; 200 and 150 were
+    measured and lose words, ADR-059).
+  - Text-layer pages, DOCX and URLs are read exactly as by `pymupdf`. The
+    structure passes (`WISEAU_STRUCTURE`) still run.
+  - Deterministic. On sets A–F and L (72 scans, 4 CPUs) it gave the default
+    path's words exactly at 2.8 s a scanned page, against 7.7 s for the image's
+    default path (4.9 against 11.3 s on 1 CPU), and 0.44 GB peak memory against
+    2.2 GB. It writes no heading levels on scans and tables as rows of text.
+- **psm 3 is launched before MuPDF's OCR runs (ADR-059).** MuPDF's OCR holds
+  Python's GIL for its whole run, so psm 3 is started as a process on the
+  calling thread, image in and TSV out through temporary files. It then runs on
+  its own core while the guard reads. The TSV is byte-identical to the stdin path.
 - `easyocr` (opt-in) — a neural engine that handles handwriting and noisy
   captures. Enabled with `WISEAU_OCR_ENGINE=easyocr` after
   `pip install -r requirements-ocr.txt`. PyTorch is heavy, so it is kept out of

@@ -21,6 +21,77 @@ one `Superseded`.
 
 ---
 
+## ADR-059 — A fast engine (Tesseract psm 3 alone, a cheap guard, 300 dpi); the picker becomes Fast / Accurate / docling
+**Date:** 2026-11-12 · **Status:** Accepted (the user chose this; API 0.18.0)
+**Context:**
+- The user asked for an "Extra Fast" mode, CPU only, that trades structure or
+  accuracy for speed per page. They also asked how much more accurate the slow
+  engine (docling) is than the fast one.
+- The existing benchmarks say docling is *less* accurate on text:
+  - wer 0.27 against 0.06 on 42 pages (2026-11-11 GPU run);
+  - on born-digital pages, 0.49 against 0.02.
+- The user's proposal, which was accepted with three amendments:
+  1. keep the current path as the default;
+  2. keep docling but relabel it experimental;
+  3. keep a guard against psm 3 dropping a column.
+  The new fast mode is psm 3 only; a lower DPI was to be measured first.
+- Where a scanned page's time went (ADR-056): the guard (MuPDF's OCR) 4.5 s,
+  the layout model 2.9, psm 3 2.8, and the table model 1.8.
+**Decision:**
+- **`engine="fast"`**, a local engine, requestable per request and as
+  `WISEAU_PDF_ENGINE`.
+  - Text-layer pages, DOCX and URLs are read exactly as by `pymupdf`.
+  - Scanned pages and images go to `ocr.FastTesseractEngine`: band cleanup,
+    the photo mask, psm 3 and row stitching, with **no layout or table model**,
+    even where the deployment turns them on.
+  - The structure passes still run.
+- **A cheap guard, not none.** MuPDF's OCR at 100 dpi (`FAST_GUARD_DPI`) is
+  counted against psm 3 with the existing 85% plausible-word rule. A page that
+  fails runs the full 300 dpi guard and the default path's rule.
+  - On the 336-page survey it caught every page where psm 3 loses 37 or more
+    words (the patents lose up to a third), and never ran the full guard
+    needlessly.
+  - 150 dpi caught 4 more small losses (34 words at most) for about 45% more
+    time on every page.
+  - Lower resolution barely cheapens the read itself: 4.2 s at 150 dpi against
+    5.4 s at 300. It keeps the *count*, which is all the guard needs.
+- **300 dpi** (`WISEAU_FAST_OCR_DPI`, default 300).
+  - 200 dpi saved 0.3 s a page for +40% wer.
+  - 150 dpi saved 0.5 s for +78%.
+  - The page time is mostly psm 3, which needs the resolution.
+- **psm 3 is launched before MuPDF's OCR** (`tesseract_layout.start_tsv`; both
+  engines). MuPDF's OCR holds the GIL, so the worker that was to launch
+  Tesseract waited for it, and the "overlapped" stages ran in sequence. The
+  image goes in and the TSV comes out through files. The TSV and the Markdown
+  are byte-identical.
+- **The UI picker becomes Auto / Fast / Accurate (`pymupdf`, the default) /
+  docling.** docling's label is "Experimental · slow", and the claims that it
+  is the most faithful engine are removed from the UI, the API descriptions
+  and the MCP tools. `fast` is offered only when `/ping` lists it.
+**Consequences:**
+- **Speed:** a scanned page takes 2.8 s on Fast against 7.7 s on Accurate (4
+  CPUs), and 4.9 against 11.3 s on 1 CPU. Peak memory is 0.44 against 2.2 GB.
+- **Words:** identical to Accurate's on all 72 scored scans.
+- **Structure lost:** no heading levels on scans (heading recall 0 against
+  0.765 on set S), tables as rows of text (TEDS 0.26 against 0.57), and more
+  merged blocks.
+- **The guard's residual risk is bounded, not zero:** a page can keep psm 3's
+  reading with up to 34 fewer words than the full guard would give (P85 p2).
+  Most such pages are covers.
+- **The default path got the GIL fix too:** 8.2 → 7.7 s a scanned page, with
+  byte-identical output.
+- **The same benchmark settles the user's second question:**
+  - Accurate as shipped beats docling on structure on set S everywhere except
+    heading recall: block F1 0.817 against 0.732, heading levels 0.73 against
+    0.30, TEDS 0.57 against 0.51.
+  - docling's role is now "experimental". Removing it would need a test on
+    complex born-digital layouts, which this corpus lacks.
+- **Untested:** the speed-up on Cloud Run's CPUs, handwriting (`fast` always
+  uses Tesseract), and corpora beyond PBR journals and patents.
+- **How to revisit it:** `benchmarks/bakeoff/fast_guard.py` (the guard) and
+  `run_engines.py fast-GUARD-DPI` (each leg); write-up in
+  `docs/benchmarks/2026-11-12-fast-engine.md`.
+
 ## ADR-058 — Progress streams over the same request; a CPU meter from Cloud Run's own billing metric
 **Date:** 2026-11-12 · **Status:** Accepted (the user chose this over job IDs; API 0.17.0)
 **Context:**

@@ -678,6 +678,15 @@ No paid API is used for this work unless the user says otherwise.
   `docs/benchmarks/2026-11-11-gpu-e2e.md`. Open: a gold set of complex
   born-digital documents, to see whether docling (or another engine) beats the
   default path where a GPU would then matter; raising `WISEAU_TABLE_THREADS`.
+- [x] **A fast engine (2026-11-12), ADR-059, API 0.18.0.** `engine="fast"` reads
+  scans with Tesseract psm 3 alone, plus a cheap 100 dpi guard that escalates to
+  the full guard. It takes 2.8 s a scanned page against 7.7 s on 4 CPUs (4.9
+  against 11.3 s on 1 CPU) and keeps the same words. It has no heading levels or
+  rebuilt tables on scans. 200 and 150 dpi lose words for 0.3–0.5 s, so it stays
+  at 300 dpi. psm 3 now really overlaps the guard on both engines (a GIL fix).
+  The UI picker is Fast / Accurate / docling (experimental). Write-up:
+  `docs/benchmarks/2026-11-12-fast-engine.md`. Open: the speed-up on Cloud Run's
+  CPUs; handwriting.
 
 Started 2026-11-08. Tiered plan, gates and rationale in
 [`roadmap-ocr-and-structure.md`](roadmap-ocr-and-structure.md), drawn from the two

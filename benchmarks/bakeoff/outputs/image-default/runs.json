@@ -20,8 +20,8 @@
   "P63a_p7": {
     "error": null,
     "ok": true,
-    "rss_mb": 1950.1,
-    "seconds": 6.5
+    "rss_mb": 2100.7,
+    "seconds": 6.4
   },
   "P63b_p14": {
     "error": null,
@@ -71,6 +71,12 @@
     "rss_mb": 193.6,
     "seconds": 0.1
   },
+  "V16_p3": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 2103.5,
+    "seconds": 0.3
+  },
   "V16_p34": {
     "error": null,
     "ok": true,
@@ -80,7 +86,13 @@
   "V16_p90": {
     "error": null,
     "ok": true,
-    "rss_mb": 193.6,
+    "rss_mb": 2103.5,
+    "seconds": 0.2
+  },
+  "V16_p97": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 2103.5,
     "seconds": 0.1
   },
   "V1N3_p12": {
@@ -182,14 +194,14 @@
   "V2_p11": {
     "error": null,
     "ok": true,
-    "rss_mb": 2133.8,
-    "seconds": 7.9
+    "rss_mb": 2045.4,
+    "seconds": 7.7
   },
   "V2_p12": {
     "error": null,
     "ok": true,
-    "rss_mb": 2119.4,
-    "seconds": 8.2
+    "rss_mb": 2045.4,
+    "seconds": 8.5
   },
   "V2_p14": {
     "error": null,
@@ -212,14 +224,14 @@
   "V2_p20": {
     "error": null,
     "ok": true,
-    "rss_mb": 2159.2,
-    "seconds": 7.6
+    "rss_mb": 2045.6,
+    "seconds": 7.4
   },
   "V2_p21": {
     "error": null,
     "ok": true,
-    "rss_mb": 2119.4,
-    "seconds": 6.0
+    "rss_mb": 2045.6,
+    "seconds": 6.4
   },
   "V2_p23": {
     "error": null,
@@ -284,8 +296,8 @@
   "V4N1_p7": {
     "error": null,
     "ok": true,
-    "rss_mb": 2244.1,
-    "seconds": 8.6
+    "rss_mb": 2067.6,
+    "seconds": 8.2
   },
   "V4_p10": {
     "error": null,
@@ -314,38 +326,38 @@
   "V4_p19": {
     "error": null,
     "ok": true,
-    "rss_mb": 2120.7,
-    "seconds": 8.0
+    "rss_mb": 1991.2,
+    "seconds": 8.4
   },
   "V4_p22": {
     "error": null,
     "ok": true,
-    "rss_mb": 2167.9,
-    "seconds": 7.6
+    "rss_mb": 1991.2,
+    "seconds": 7.8
   },
   "V4_p23": {
     "error": null,
     "ok": true,
-    "rss_mb": 2120.7,
-    "seconds": 7.3
+    "rss_mb": 1991.3,
+    "seconds": 7.2
   },
   "V4_p25": {
     "error": null,
     "ok": true,
-    "rss_mb": 2167.9,
-    "seconds": 6.9
+    "rss_mb": 2004.5,
+    "seconds": 6.4
   },
   "V4_p26": {
     "error": null,
     "ok": true,
-    "rss_mb": 2201.1,
-    "seconds": 6.3
+    "rss_mb": 2038.1,
+    "seconds": 5.9
   },
   "V4_p27": {
     "error": null,
     "ok": true,
-    "rss_mb": 2167.9,
-    "seconds": 8.3
+    "rss_mb": 2038.1,
+    "seconds": 8.2
   },
   "V4_p3": {
     "error": null,
@@ -380,20 +392,20 @@
   "V5N1_p18": {
     "error": null,
     "ok": true,
-    "rss_mb": 2042.8,
-    "seconds": 8.1
+    "rss_mb": 1918.9,
+    "seconds": 12.2
   },
   "V5N1_p19": {
     "error": null,
     "ok": true,
-    "rss_mb": 2042.8,
-    "seconds": 8.4
+    "rss_mb": 1964.7,
+    "seconds": 7.4
   },
   "V5N1_p20": {
     "error": null,
     "ok": true,
-    "rss_mb": 2042.8,
-    "seconds": 6.6
+    "rss_mb": 1964.7,
+    "seconds": 6.7
   },
   "V5N1_p24": {
     "error": null,
@@ -428,13 +440,13 @@
   "V5N3_p23": {
     "error": null,
     "ok": true,
-    "rss_mb": 2225.3,
-    "seconds": 7.7
+    "rss_mb": 2103.5,
+    "seconds": 8.0
   },
   "V5N3_p24": {
     "error": null,
     "ok": true,
-    "rss_mb": 2225.3,
+    "rss_mb": 2103.5,
     "seconds": 7.5
   },
   "V5N3_p4": {

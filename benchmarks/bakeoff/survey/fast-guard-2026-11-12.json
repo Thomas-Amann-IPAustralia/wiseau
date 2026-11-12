@@ -2995,6 +2995,20 @@
 "psm3": 1064,
 "psm3_s": 5.55
 },
+"V4N1_p32": {
+"fires": false,
+"fires100": false,
+"fires150": false,
+"guard100": 568,
+"guard100_s": 2.54,
+"guard150": 808,
+"guard150_s": 2.88,
+"guard300": 844,
+"ink_out": 0.7645,
+"ink_s": 0.023,
+"psm3": 809,
+"psm3_s": 2.77
+},
 "V4N1_p33": {
 "fires": false,
 "fires100": false,
@@ -3274,6 +3288,20 @@
 "ink_s": 0.025,
 "psm3": 465,
 "psm3_s": 2.83
+},
+"V4_p19": {
+"fires": false,
+"fires100": false,
+"fires150": false,
+"guard100": 531,
+"guard100_s": 3.13,
+"guard150": 592,
+"guard150_s": 3.97,
+"guard300": 629,
+"ink_out": 0.3532,
+"ink_s": 0.024,
+"psm3": 626,
+"psm3_s": 2.98
 },
 "V4_p2": {
 "fires": false,

@@ -25,7 +25,8 @@ const MODEL = {
   // A PDF link: the render and the download, then a document of unknown length.
   urlPdf: { base: 14 },
   pymupdf: { base: 2, textPage: 0.25, scanPage: 16, docxPerMb: 1, unknownPerMb: 6 },
-  // The fast engine (ADR-059): the same text-layer reading, Tesseract alone on scans.
+  // The fast engine (ADR-059): the same text-layer reading, Tesseract alone on scans:
+  // 2.3x quicker a scanned page than pymupdf on 1 CPU, 2.8x on 4 (docs/benchmarks/2026-11-12-fast-engine.md).
   fast: { base: 2, textPage: 0.25, scanPage: 7, docxPerMb: 1, unknownPerMb: 3 },
   // docling on a free CPU: an ML pipeline, plus a possible cold start.
   docling: { base: 25, textPage: 4, scanPage: 40, docxPerMb: 6, unknownPerMb: 25 },

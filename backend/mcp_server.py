@@ -145,9 +145,10 @@ async def convert_file(path: str, engine: str = "auto", split_chapters: bool = F
         path: Filesystem path to a local ``.pdf`` or ``.docx`` file.
         engine: ``"pymupdf"`` for the accurate deterministic parser (on scans it
             recovers heading levels and tables), ``"fast"`` for the same parser
-            with a lighter OCR stage (several times quicker a scanned page; no
-            heading levels or rebuilt tables, a few more misread words; text-layer
-            PDFs and DOCX come out the same), ``"docling"`` (experimental: an ML
+            with a lighter OCR stage (two to three times quicker a scanned page,
+            the same words on the project's benchmarks, but no heading levels or
+            rebuilt tables on scans; text-layer PDFs and DOCX come out the same),
+            ``"docling"`` (experimental: an ML
             converter, much slower on CPU and less accurate on the project's
             benchmarks), or ``"auto"`` (the deployment's default). docling always
             falls back to the local parser if it is unavailable.

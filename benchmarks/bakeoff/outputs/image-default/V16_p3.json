@@ -1,0 +1,1614 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    424.96,
+    56.35,
+    575.46,
+    63.67
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      424.96,
+      56.35,
+      575.46,
+      63.67
+     ],
+     "text": "PLANT VARIETIES JOURNAL 2003 VOL 16 NO. 3"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-head",
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "<u>PLANT VARIETIES JOURNAL 2003 VOL 16 NO. 3</u>",
+   "text_format": "markdown",
+   "type": "page_header"
+  },
+  {
+   "bbox": [
+    100.99,
+    104.88,
+    550.96,
+    150.68
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e2",
+   "level": 1,
+   "lines": [
+    {
+     "bbox": [
+      100.99,
+      104.88,
+      550.96,
+      150.68
+     ],
+     "text": "Plant Varieties Journal"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "# Plant Varieties Journal",
+   "text_format": "markdown",
+   "type": "heading"
+  },
+  {
+   "bbox": [
+    181.73,
+    157.89,
+    470.16,
+    170.71
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e3",
+   "level": 2,
+   "lines": [
+    {
+     "bbox": [
+      181.73,
+      157.89,
+      470.16,
+      170.71
+     ],
+     "text": "Official Journal of Plant Breeder\u2019s Rights Australia"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "## Official Journal of Plant Breeder\u2019s Rights Australia",
+   "text_format": "markdown",
+   "type": "heading"
+  },
+  {
+   "bbox": [
+    76.46,
+    194.93,
+    573.93,
+    203.97
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      76.46,
+      194.93,
+      188.07,
+      203.97
+     ],
+     "text": "QUARTER THREE, 2003"
+    },
+    {
+     "bbox": [
+      461.69,
+      194.93,
+      573.93,
+      203.97
+     ],
+     "text": "VOLUME 16 NUMBER 3"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**QUARTER THREE, 2003** **VOLUME 16 NUMBER 3**",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    82.13,
+    219.83,
+    257.28,
+    231.86
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e5",
+   "level": 3,
+   "lines": [
+    {
+     "bbox": [
+      82.13,
+      219.83,
+      257.28,
+      231.86
+     ],
+     "text": "Part 1 \u2013 General Information"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "### ~~**Part 1 \u2013 General Information**~~",
+   "text_format": "markdown",
+   "type": "heading"
+  },
+  {
+   "bbox": [
+    76.46,
+    238.37,
+    380.31,
+    396.55
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      76.46,
+      238.37,
+      380.29,
+      246.55
+     ],
+     "text": "Objections to Applications and Requests for Revocation . . . . . . . . . . . . . . . . . . . . 2"
+    },
+    {
+     "bbox": [
+      76.46,
+      248.37,
+      380.25,
+      256.55
+     ],
+     "text": "Federal Court Decision . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2"
+    },
+    {
+     "bbox": [
+      76.46,
+      258.37,
+      380.27,
+      266.55
+     ],
+     "text": "Plant Breeder\u2019s Rights Advisory Committee . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3"
+    },
+    {
+     "bbox": [
+      76.46,
+      268.32,
+      380.3,
+      276.55
+     ],
+     "text": "The Plant Varieties Journal goes electronic. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3"
+    },
+    {
+     "bbox": [
+      76.47,
+      278.37,
+      380.3,
+      286.55
+     ],
+     "text": "Report on Breeding Issues. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3"
+    },
+    {
+     "bbox": [
+      76.47,
+      288.37,
+      380.3,
+      296.55
+     ],
+     "text": "PBR Infringement. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3"
+    },
+    {
+     "bbox": [
+      76.47,
+      298.37,
+      380.28,
+      306.55
+     ],
+     "text": "On-line Database for PBR Varieties. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3"
+    },
+    {
+     "bbox": [
+      76.47,
+      308.32,
+      380.29,
+      316.55
+     ],
+     "text": "Cumulative Index to Plant Varieties Journal . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3"
+    },
+    {
+     "bbox": [
+      76.46,
+      318.37,
+      380.3,
+      326.55
+     ],
+     "text": "Applying for Plant Breeder\u2019s Rights . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3"
+    },
+    {
+     "bbox": [
+      76.46,
+      328.37,
+      380.31,
+      336.55
+     ],
+     "text": "Requirement to Supply Comparative Varieties. . . . . . . . . . . . . . . . . . . . . . . . . . . . 4"
+    },
+    {
+     "bbox": [
+      76.46,
+      338.37,
+      380.29,
+      346.55
+     ],
+     "text": "UPOV Developments . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4"
+    },
+    {
+     "bbox": [
+      76.46,
+      348.36,
+      380.29,
+      356.55
+     ],
+     "text": "CPVO Developments . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4"
+    },
+    {
+     "bbox": [
+      76.46,
+      358.36,
+      260.82,
+      366.55
+     ],
+     "text": "Obligations under the International Convention for"
+    },
+    {
+     "bbox": [
+      76.46,
+      368.36,
+      380.3,
+      376.55
+     ],
+     "text": "the Protection of New Varieties of Plants 1991 (UPOV 91) . . . . . . . . . . . . . . . . . . 4"
+    },
+    {
+     "bbox": [
+      76.46,
+      378.36,
+      380.3,
+      386.55
+     ],
+     "text": "Instructions to Authors . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4"
+    },
+    {
+     "bbox": [
+      76.46,
+      388.36,
+      380.3,
+      396.55
+     ],
+     "text": "Important Changes \u2013 Improved Client Service . . . . . . . . . . . . . . . . . . . . . . . . . . . 7"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "Objections to Applications and Requests for Revocation . . . . . . . . . . . . . . . . . . . . 2\nFederal Court Decision . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2\nPlant Breeder\u2019s Rights Advisory Committee . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3\nThe _Plant Varieties Journal_ goes electronic. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3\nReport on Breeding Issues. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3\nPBR Infringement. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3\nOn-line Database for PBR Varieties. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3\nCumulative Index to _Plant Varieties Journal_ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3\nApplying for Plant Breeder\u2019s Rights . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3\nRequirement to Supply Comparative Varieties. . . . . . . . . . . . . . . . . . . . . . . . . . . . 4\nUPOV Developments . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4\nCPVO Developments . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4\nObligations under the International Convention for\nthe Protection of New Varieties of Plants 1991 (UPOV 91) . . . . . . . . . . . . . . . . . . 4\nInstructions to Authors . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4\nImportant Changes - Improved Client Service . . . . . . . . . . . . . . . . . . . . . . . . . . . 7",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    398.36,
+    380.3,
+    426.54
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      149.0,
+      398.36,
+      380.29,
+      406.55
+     ],
+     "text": "\u2013 Current PBR Forms. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7"
+    },
+    {
+     "bbox": [
+      76.46,
+      408.36,
+      380.3,
+      416.54
+     ],
+     "text": "Overseas Testing/Data. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7"
+    },
+    {
+     "bbox": [
+      76.46,
+      418.36,
+      380.3,
+      426.54
+     ],
+     "text": "Closure of the PBR Office . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "             - Current PBR Forms. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7\nOverseas Testing/Data. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7\nClosure of the PBR Office . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    82.13,
+    433.23,
+    234.34,
+    446.18
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e8",
+   "level": 2,
+   "lines": [
+    {
+     "bbox": [
+      82.13,
+      433.23,
+      234.34,
+      446.18
+     ],
+     "text": "Part 2 \u2013 Public Notices"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "## ~~**Part 2 \u2013 Public Notices**~~",
+   "text_format": "markdown",
+   "type": "heading"
+  },
+  {
+   "bbox": [
+    76.46,
+    455.54,
+    380.31,
+    722.0
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      76.46,
+      455.54,
+      380.3,
+      463.72
+     ],
+     "text": "Varieties Included in this Issue . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9"
+    },
+    {
+     "bbox": [
+      76.46,
+      465.54,
+      380.3,
+      473.72
+     ],
+     "text": "Acceptances . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12"
+    },
+    {
+     "bbox": [
+      76.46,
+      475.54,
+      380.3,
+      483.72
+     ],
+     "text": "Variety Descriptions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18"
+    },
+    {
+     "bbox": [
+      76.46,
+      485.54,
+      380.29,
+      493.72
+     ],
+     "text": "Grants . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 65"
+    },
+    {
+     "bbox": [
+      76.46,
+      495.54,
+      380.3,
+      503.72
+     ],
+     "text": "Denomination Changed. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69"
+    },
+    {
+     "bbox": [
+      76.46,
+      505.54,
+      380.29,
+      513.72
+     ],
+     "text": "Synonym Changed . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69"
+    },
+    {
+     "bbox": [
+      76.46,
+      515.54,
+      380.3,
+      523.72
+     ],
+     "text": "Agent Amended . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69"
+    },
+    {
+     "bbox": [
+      76.46,
+      525.54,
+      380.3,
+      533.72
+     ],
+     "text": "Nomination of an Agent . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 70"
+    },
+    {
+     "bbox": [
+      76.46,
+      535.54,
+      380.31,
+      543.72
+     ],
+     "text": "Clarification of Applicant\u2019s Name . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 70"
+    },
+    {
+     "bbox": [
+      76.46,
+      545.54,
+      380.3,
+      553.72
+     ],
+     "text": "Applications Withdrawn . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 70"
+    },
+    {
+     "bbox": [
+      76.46,
+      555.54,
+      380.29,
+      563.72
+     ],
+     "text": "Grants Surrendered . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71"
+    },
+    {
+     "bbox": [
+      76.46,
+      565.54,
+      380.3,
+      573.72
+     ],
+     "text": "Corrigenda . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 72"
+    },
+    {
+     "bbox": [
+      76.46,
+      575.54,
+      380.29,
+      583.72
+     ],
+     "text": "Appendix 1 \u2013 Fees . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73"
+    },
+    {
+     "bbox": [
+      76.46,
+      585.54,
+      380.3,
+      593.72
+     ],
+     "text": "Appendix 2 \u2013 Plant Breeder\u2019s Rights Advisory Committee . . . . . . . . . . . . . . . . . 75"
+    },
+    {
+     "bbox": [
+      76.46,
+      595.54,
+      380.3,
+      603.72
+     ],
+     "text": "Appendix 3 \u2013 Index of Accredited Consultant \u2018Qualified Persons\u2019 . . . . . . . . . . . 76"
+    },
+    {
+     "bbox": [
+      76.46,
+      605.54,
+      380.3,
+      613.72
+     ],
+     "text": "Appendix 4 \u2013 Index of Accredited Non-Consultant \u2018Qualified Persons\u2019. . . . . . . . 82"
+    },
+    {
+     "bbox": [
+      76.46,
+      615.54,
+      380.29,
+      623.72
+     ],
+     "text": "Appendix 5 \u2013 Addresses of UPOV and Member States . . . . . . . . . . . . . . . . . . . . 83"
+    },
+    {
+     "bbox": [
+      76.46,
+      625.54,
+      380.3,
+      633.72
+     ],
+     "text": "Appendix 6 \u2013 Centralised Testing Centres . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 88"
+    },
+    {
+     "bbox": [
+      76.46,
+      635.54,
+      380.3,
+      643.72
+     ],
+     "text": "Appendix 7 \u2013 List of Plant Classes for Denomination Purposes. . . . . . . . . . . . . . 92"
+    },
+    {
+     "bbox": [
+      76.46,
+      645.54,
+      380.3,
+      653.72
+     ],
+     "text": "Appendix 8 \u2013 Register of Plant Varieties . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 93"
+    },
+    {
+     "bbox": [
+      76.46,
+      655.54,
+      380.31,
+      663.72
+     ],
+     "text": "Appendix 9 \u2013 Common Name to Botanical Name Index . . . . . . . . . . . . . . . . . . . 93"
+    },
+    {
+     "bbox": [
+      76.46,
+      666.72,
+      229.42,
+      674.0
+     ],
+     "text": "ENQUIRIES SHOULD BE ADDRESSED TO:"
+    },
+    {
+     "bbox": [
+      76.46,
+      674.98,
+      184.74,
+      682.0
+     ],
+     "text": "PLANT BREEDER\u2019S RIGHTS"
+    },
+    {
+     "bbox": [
+      76.46,
+      682.98,
+      333.54,
+      690.0
+     ],
+     "text": "Australian Government Department of Agriculture, Fisheries and Forestry"
+    },
+    {
+     "bbox": [
+      76.46,
+      690.98,
+      199.77,
+      698.0
+     ],
+     "text": "GPO Box 858, Canberra, ACT 2601"
+    },
+    {
+     "bbox": [
+      76.46,
+      698.98,
+      255.11,
+      706.0
+     ],
+     "text": "Telephone: (02) 6272 4228 Facsimile: (02) 6272 3650"
+    },
+    {
+     "bbox": [
+      76.46,
+      706.98,
+      201.12,
+      714.0
+     ],
+     "text": "Website: http://www.daff.gov.au/pbr"
+    },
+    {
+     "bbox": [
+      76.46,
+      714.72,
+      157.79,
+      722.0
+     ],
+     "text": "E-mail: pbr@affa.gov.au"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "Varieties Included in this Issue . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9\nAcceptances . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12\nVariety Descriptions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18\nGrants . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 65\nDenomination Changed. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69\nSynonym Changed . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69\nAgent Amended . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69\nNomination of an Agent . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 70\nClarification of Applicant\u2019s Name . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 70\nApplications Withdrawn . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 70\nGrants Surrendered . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71\nCorrigenda . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 72\nAppendix 1 \u2013 Fees . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73\nAppendix 2 \u2013 Plant Breeder\u2019s Rights Advisory Committee . . . . . . . . . . . . . . . . . 75\nAppendix 3 \u2013 Index of Accredited Consultant \u2018Qualified Persons\u2019 . . . . . . . . . . . 76\nAppendix 4 \u2013 Index of Accredited Non-Consultant \u2018Qualified Persons\u2019. . . . . . . . 82\nAppendix 5 \u2013 Addresses of UPOV and Member States . . . . . . . . . . . . . . . . . . . . 83\nAppendix 6 \u2013 Centralised Testing Centres . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 88\nAppendix 7 \u2013 List of Plant Classes for Denomination Purposes. . . . . . . . . . . . . . 92\nAppendix 8 \u2013 Register of Plant Varieties . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 93\nAppendix 9 \u2013 Common Name to Botanical Name Index . . . . . . . . . . . . . . . . . . . 93\nENQUIRIES SHOULD BE ADDRESSED TO:\n**PLANT BREEDER\u2019S RIGHTS**\n**Australian Government Department of Agriculture, Fisheries and Forestry**\n**GPO Box 858, Canberra, ACT 2601**\n**Telephone: (02) 6272 4228 Facsimile: (02) 6272 3650**\n**Website: http://www.daff.gov.au/pbr**\n**E-mail:** pbr@affa.gov.au",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    81.46,
+    729.27,
+    328.53,
+    737.4
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      81.46,
+      729.27,
+      328.53,
+      737.4
+     ],
+     "text": "CLOSING DATE FOR ISSUE VOL 16 NO 4: December 21, 2003."
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**CLOSING DATE FOR ISSUE VOL 16 NO 4: December 21, 2003.**",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    746.27,
+    382.61,
+    761.63
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      76.46,
+      746.27,
+      382.61,
+      753.58
+     ],
+     "text": "Citation: Anon (2003). Plant Varieties Journal. Editors, Hossain T, Hulse N, Prakash K,"
+    },
+    {
+     "bbox": [
+      76.46,
+      754.35,
+      319.39,
+      761.63
+     ],
+     "text": "Costa H, Waterhouse D, Dawes-Read K, Blazey B. September 2003, 16(3)."
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "Citation: Anon (2003). _Plant Varieties Journal_ . Editors, Hossain T, Hulse N, Prakash K,\nCosta H, Waterhouse D, Dawes-Read K, Blazey B. September 2003, **16** (3).",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    261.14,
+    762.84,
+    422.53,
+    823.49
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      261.14,
+      762.84,
+      352.92,
+      768.34
+     ],
+     "text": "\u00a9 Commonwealth of Australia [2003]."
+    },
+    {
+     "bbox": [
+      261.14,
+      768.97,
+      422.52,
+      774.47
+     ],
+     "text": "This work is copyright. Apart from any use as permitted under the"
+    },
+    {
+     "bbox": [
+      261.14,
+      775.1,
+      422.51,
+      780.6
+     ],
+     "text": "Copyright Act 1968, no part may be reproduced by any process"
+    },
+    {
+     "bbox": [
+      261.14,
+      781.23,
+      422.53,
+      786.73
+     ],
+     "text": "without prior written permission from the Commonwealth available"
+    },
+    {
+     "bbox": [
+      261.14,
+      787.36,
+      422.53,
+      792.86
+     ],
+     "text": "from the Department of Communications, Information Technology"
+    },
+    {
+     "bbox": [
+      261.14,
+      793.49,
+      422.53,
+      798.98
+     ],
+     "text": "and the Arts. Requests and inquiries concerning reproduction and"
+    },
+    {
+     "bbox": [
+      261.14,
+      799.62,
+      422.5,
+      805.11
+     ],
+     "text": "rights should be addressed to the Commonwealth Copyright"
+    },
+    {
+     "bbox": [
+      261.14,
+      805.74,
+      422.51,
+      811.24
+     ],
+     "text": "Administration, Intellectual Property Branch, Department of"
+    },
+    {
+     "bbox": [
+      261.14,
+      811.87,
+      422.49,
+      817.37
+     ],
+     "text": "Communications, Information Technology and the Arts, GPO"
+    },
+    {
+     "bbox": [
+      261.14,
+      818.0,
+      414.75,
+      823.49
+     ],
+     "text": "Box 2154, Canberra ACT 2601 or at http://www.dcita.gov.au/cca"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "\u00a9 Commonwealth of Australia [2003].\nThis work is copyright. Apart from any use as permitted under the\n_Copyright Act 1968_, no part may be reproduced by any process\nwithout prior written permission from the Commonwealth available\nfrom the Department of Communications, Information Technology\nand the Arts. Requests and inquiries concerning reproduction and\nrights should be addressed to the Commonwealth Copyright\nAdministration, Intellectual Property Branch, Department of\nCommunications, Information Technology and the Arts, GPO\nBox 2154, Canberra ACT 2601 or at http://www.dcita.gov.au/cca",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    76.46,
+    830.39,
+    344.48,
+    836.34
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      76.46,
+      830.39,
+      344.48,
+      836.34
+     ],
+     "text": "ISSN: 1030\u20139748 Printed by National Capital Printing, Fyshwick, ACT"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "ISSN: 1030\u20139748                        Printed by National Capital Printing, Fyshwick, ACT",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    442.77,
+    735.11,
+    559.29,
+    742.34
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      518.06,
+      735.11,
+      559.29,
+      742.34
+     ],
+     "text": "Tony Whalan"
+    },
+    {
+     "bbox": [
+      442.77,
+      735.11,
+      484.91,
+      742.34
+     ],
+     "text": "Dale Thomas"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_Dale Thomas_ _Tony Whalan_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    429.39,
+    746.11,
+    574.89,
+    753.34
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      502.46,
+      746.11,
+      574.89,
+      753.34
+     ],
+     "text": "Resource Co-ordinator"
+    },
+    {
+     "bbox": [
+      429.39,
+      746.11,
+      498.29,
+      753.34
+     ],
+     "text": "Finance Co-ordinator"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_Finance Co-ordinator_ _Resource Co-ordinator_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    427.48,
+    762.8,
+    575.39,
+    804.29
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      427.48,
+      762.8,
+      575.36,
+      768.29
+     ],
+     "text": "The Australian Government Department of Agriculture,"
+    },
+    {
+     "bbox": [
+      427.48,
+      768.8,
+      575.38,
+      774.29
+     ],
+     "text": "Fisheries and Forestry seeks to publish its work to the highest"
+    },
+    {
+     "bbox": [
+      427.48,
+      774.8,
+      458.12,
+      780.29
+     ],
+     "text": "professional"
+    },
+    {
+     "bbox": [
+      464.59,
+      774.8,
+      489.82,
+      780.29
+     ],
+     "text": "standards."
+    },
+    {
+     "bbox": [
+      496.29,
+      774.8,
+      519.99,
+      780.29
+     ],
+     "text": "However,"
+    },
+    {
+     "bbox": [
+      526.45,
+      774.8,
+      529.91,
+      780.29
+     ],
+     "text": "it"
+    },
+    {
+     "bbox": [
+      536.38,
+      774.8,
+      552.97,
+      780.29
+     ],
+     "text": "cannot"
+    },
+    {
+     "bbox": [
+      559.44,
+      774.8,
+      575.36,
+      780.29
+     ],
+     "text": "accept"
+    },
+    {
+     "bbox": [
+      427.48,
+      780.8,
+      575.39,
+      786.29
+     ],
+     "text": "responsibility for any consequences arising from the use of"
+    },
+    {
+     "bbox": [
+      427.48,
+      786.8,
+      575.39,
+      792.29
+     ],
+     "text": "information herein. Readers should rely on their own skill and"
+    },
+    {
+     "bbox": [
+      427.48,
+      792.8,
+      575.36,
+      798.29
+     ],
+     "text": "judgment in applying any information for analysis to"
+    },
+    {
+     "bbox": [
+      427.48,
+      798.8,
+      510.24,
+      804.29
+     ],
+     "text": "particular issues or circumstances."
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "The Australian Government Department of Agriculture,\nFisheries and Forestry seeks to publish its work to the highest\nprofessional standards. However, it cannot accept\nresponsibility for any consequences arising from the use of\ninformation herein. Readers should rely on their own skill and\njudgment in applying any information for analysis to\nparticular issues or circumstances.",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    427.72,
+    811.97,
+    560.69,
+    823.79
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      427.72,
+      811.97,
+      560.69,
+      816.79
+     ],
+     "text": "Plant Breeder\u2019s Rights Office is an agency within the"
+    },
+    {
+     "bbox": [
+      427.72,
+      818.97,
+      554.64,
+      823.79
+     ],
+     "text": "Department of Agriculture, Fisheries and Forestry."
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "**Plant Breeder\u2019s Rights Office is an agency within the**\n**Department of Agriculture, Fisheries and Forestry.**",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    570.36,
+    831.7,
+    575.36,
+    840.86
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      570.36,
+      831.7,
+      575.36,
+      840.86
+     ],
+     "text": "1"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "1",
+   "text_format": "markdown",
+   "type": "page_number"
+  },
+  {
+   "bbox": [
+    435.88,
+    297.86,
+    493.02,
+    305.09
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      435.88,
+      297.86,
+      493.02,
+      305.09
+     ],
+     "text": "Doug Waterhouse"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_Doug Waterhouse_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    449.56,
+    308.86,
+    479.34,
+    316.09
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      449.56,
+      308.86,
+      479.34,
+      316.09
+     ],
+     "text": "Registrar"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_Registrar_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    446.73,
+    407.44,
+    482.9,
+    414.67
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      446.73,
+      407.44,
+      482.9,
+      414.67
+     ],
+     "text": "Bob Blazey"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_Bob Blazey_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    432.77,
+    418.44,
+    496.86,
+    425.67
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e22",
+   "lines": [
+    {
+     "bbox": [
+      432.77,
+      418.44,
+      496.86,
+      425.67
+     ],
+     "text": "Policy Development"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_Policy Development_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    527.95,
+    297.71,
+    559.92,
+    304.94
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e23",
+   "lines": [
+    {
+     "bbox": [
+      527.95,
+      297.71,
+      559.92,
+      304.94
+     ],
+     "text": "Nik Hulse"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_Nik Hulse_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    516.39,
+    308.71,
+    571.48,
+    315.94
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e24",
+   "lines": [
+    {
+     "bbox": [
+      516.39,
+      308.71,
+      571.48,
+      315.94
+     ],
+     "text": "Deputy Registrar"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_Deputy Registrar_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    521.98,
+    407.74,
+    568.06,
+    414.97
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e25",
+   "lines": [
+    {
+     "bbox": [
+      521.98,
+      407.74,
+      568.06,
+      414.97
+     ],
+     "text": "Katte Prakash"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_Katte Prakash_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    529.47,
+    418.74,
+    560.57,
+    425.97
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e26",
+   "lines": [
+    {
+     "bbox": [
+      529.47,
+      418.74,
+      560.57,
+      425.97
+     ],
+     "text": "Examiner"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_Examiner_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    523.94,
+    516.09,
+    563.92,
+    523.32
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e27",
+   "lines": [
+    {
+     "bbox": [
+      523.94,
+      516.09,
+      563.92,
+      523.32
+     ],
+     "text": "Helen Costa"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_Helen Costa_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    439.71,
+    516.59,
+    488.41,
+    523.82
+   ],
+   "bbox_coverage": 0.5,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e28",
+   "lines": [
+    {
+     "bbox": [
+      439.71,
+      516.59,
+      488.41,
+      523.82
+     ],
+     "text": "Tanvir Hossain"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_Tanvir Hossain_ _Helen Costa_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": null,
+   "bbox_coverage": 0.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e29",
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_Examiner_ _Examiner_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    448.51,
+    527.59,
+    479.62,
+    534.82
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e30",
+   "lines": [
+    {
+     "bbox": [
+      448.51,
+      527.59,
+      479.62,
+      534.82
+     ],
+     "text": "Examiner"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_Examiner_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    430.15,
+    626.3,
+    498.08,
+    633.53
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e31",
+   "lines": [
+    {
+     "bbox": [
+      430.15,
+      626.3,
+      498.08,
+      633.53
+     ],
+     "text": "Kathryn Dawes-Read"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_Kathryn Dawes-Read_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    428.74,
+    637.3,
+    499.49,
+    644.53
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e32",
+   "lines": [
+    {
+     "bbox": [
+      428.74,
+      637.3,
+      499.49,
+      644.53
+     ],
+     "text": "Administration Officer"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_Administration Officer_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    518.95,
+    626.3,
+    567.16,
+    633.54
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e33",
+   "lines": [
+    {
+     "bbox": [
+      518.95,
+      626.3,
+      567.16,
+      633.54
+     ],
+     "text": "Jurgen Parsons"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_Jurgen Parsons_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  },
+  {
+   "bbox": [
+    507.69,
+    637.3,
+    578.44,
+    644.54
+   ],
+   "bbox_coverage": 1.0,
+   "bbox_signal": "text-layer-alignment",
+   "confidence": null,
+   "id": "e34",
+   "lines": [
+    {
+     "bbox": [
+      507.69,
+      637.3,
+      578.44,
+      644.54
+     ],
+     "text": "Administration Officer"
+    }
+   ],
+   "page": 1,
+   "signal": "markdown-syntax",
+   "source": "pymupdf4llm",
+   "text": "_Administration Officer_",
+   "text_format": "markdown",
+   "type": "paragraph"
+  }
+ ],
+ "pages": [
+  {
+   "method": "text-layer",
+   "number": 1,
+   "size": [
+    651.0,
+    898.0
+   ],
+   "source": "pymupdf4llm"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

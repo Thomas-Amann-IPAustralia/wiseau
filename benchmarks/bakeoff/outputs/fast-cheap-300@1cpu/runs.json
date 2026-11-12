@@ -1,0 +1,122 @@
+{
+  "V16_p11": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 192.6,
+    "seconds": 0.3
+  },
+  "V16_p25": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 192.9,
+    "seconds": 0.1
+  },
+  "V16_p34": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 192.9,
+    "seconds": 0.2
+  },
+  "V16_p90": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 192.9,
+    "seconds": 0.2
+  },
+  "V2_p11": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 277.2,
+    "seconds": 4.9
+  },
+  "V2_p14": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 277.2,
+    "seconds": 3.1
+  },
+  "V2_p17": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 274.2,
+    "seconds": 2.5
+  },
+  "V2_p2": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 250.4,
+    "seconds": 3.3
+  },
+  "V2_p20": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 283.9,
+    "seconds": 5.1
+  },
+  "V2_p23": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 281.6,
+    "seconds": 4.9
+  },
+  "V2_p6": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 265.0,
+    "seconds": 6.3
+  },
+  "V2_p9": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 268.8,
+    "seconds": 4.3
+  },
+  "V4_p11": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 317.0,
+    "seconds": 5.8
+  },
+  "V4_p22": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 310.3,
+    "seconds": 5.3
+  },
+  "V4_p25": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 315.4,
+    "seconds": 4.9
+  },
+  "V4_p26": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 317.0,
+    "seconds": 3.3
+  },
+  "V4_p27": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 323.8,
+    "seconds": 6.2
+  },
+  "V4_p32": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 397.4,
+    "seconds": 4.9
+  },
+  "V4_p7": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 312.8,
+    "seconds": 6.5
+  },
+  "V4_p8": {
+    "error": null,
+    "ok": true,
+    "rss_mb": 310.0,
+    "seconds": 7.3
+  }
+}
