@@ -34,5 +34,14 @@
     "peak_rss_mb": 570,
     "s_per_page": 2.93,
     "wall_s": 79.0
+  },
+  "fast-V6N1": {
+    "chars": 103446,
+    "cpu_s": 207.5,
+    "cpus": 4,
+    "pages": 40,
+    "peak_rss_mb": 537,
+    "s_per_page": 3.06,
+    "wall_s": 122.4
   }
 }
