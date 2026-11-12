@@ -35,6 +35,15 @@
     "s_per_page": 8.3,
     "wall_s": 331.8
   },
+  "fast-V20N4": {
+    "chars": 342785,
+    "cpu_s": 31.4,
+    "cpus": 4,
+    "pages": 371,
+    "peak_rss_mb": 215,
+    "s_per_page": 0.09,
+    "wall_s": 31.6
+  },
   "fast-V2N2": {
     "chars": 91611,
     "cpu_s": 205.3,
