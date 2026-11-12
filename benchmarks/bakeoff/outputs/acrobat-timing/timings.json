@@ -1,0 +1,20 @@
+{
+  "fast-V5N1": {
+    "chars": 92118,
+    "cpu_s": 163.7,
+    "cpus": 4,
+    "pages": 31,
+    "peak_rss_mb": 583,
+    "s_per_page": 3.02,
+    "wall_s": 93.6
+  },
+  "fast-V5N3": {
+    "chars": 66128,
+    "cpu_s": 130.7,
+    "cpus": 4,
+    "pages": 27,
+    "peak_rss_mb": 570,
+    "s_per_page": 2.84,
+    "wall_s": 76.8
+  }
+}
