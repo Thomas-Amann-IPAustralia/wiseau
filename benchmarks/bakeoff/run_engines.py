@@ -29,7 +29,9 @@ side by side: concurrent runs on a small box inflate every timing (post-mortem
   python benchmarks/bakeoff/run_engines.py tatr           # psm 3 layout, tables found by Table Transformer (1.3)
   python benchmarks/bakeoff/run_engines.py ppstructure-v3 # PaddleOCR's PP-StructureV3 pipeline (1.3)
 
-Add `--pages KEY,KEY` to run only those pages of the set. Add `--set b`, `--set c`, `--set d`, `--set e`, `--set f`, `--set l` or `--set s` (the structural gold set's pages) to run another independently
+Add `--pages KEY,KEY` to run only those pages of the set. Add `--acrobat` to cut the
+pages from the Acrobat 26 OCR'd copies instead (ACROBAT_DOCS; sets D and L's V5 pages),
+e.g. `hidden-layer@acrobat26 --set d --acrobat` for Acrobat's own text. Add `--set b`, `--set c`, `--set d`, `--set e`, `--set f`, `--set l` or `--set s` (the structural gold set's pages) to run another independently
 transcribed sample (SAMPLE_B ... SAMPLE_L in regions.py) instead of the original one. Timings are merged into the engine's
 timings.json, so running one set never erases the other's.
 
@@ -56,16 +58,21 @@ import pymupdf
 HERE = Path(__file__).parent
 ROOT = HERE.parent.parent
 sys.path.insert(0, str(HERE))
-from regions import DOCS, SAMPLE, SAMPLE_B, SAMPLE_C, SAMPLE_D, SAMPLE_E, SAMPLE_F, SAMPLE_L, SAMPLE_S, SAMPLE_T  # noqa: E402
+from regions import ACROBAT_DOCS, DOCS, SAMPLE, SAMPLE_B, SAMPLE_C, SAMPLE_D, SAMPLE_E, SAMPLE_F, SAMPLE_L, SAMPLE_S, SAMPLE_T  # noqa: E402
 
 _SET = sys.argv[sys.argv.index("--set") + 1].lower() if "--set" in sys.argv else "a"
 ACTIVE = {"a": SAMPLE, "b": SAMPLE_B, "c": SAMPLE_C, "d": SAMPLE_D, "e": SAMPLE_E, "f": SAMPLE_F,
           "l": SAMPLE_L, "s": SAMPLE_S, "t": SAMPLE_T}[_SET]
 
 
+# `--acrobat` cuts each page from the user's Acrobat 26 OCR of the document instead
+# (ACROBAT_DOCS); run it under an `ENGINE@LABEL` name so the outputs stay apart.
+_SOURCE = ACROBAT_DOCS if "--acrobat" in sys.argv else DOCS
+
+
 def pages():
     for doc_key, nums in ACTIVE.items():
-        doc = pymupdf.open(ROOT / DOCS[doc_key])
+        doc = pymupdf.open(ROOT / _SOURCE[doc_key])
         for n in nums:
             one = pymupdf.open()
             one.insert_pdf(doc, from_page=n - 1, to_page=n - 1)

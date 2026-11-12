@@ -64,7 +64,9 @@ ENGINES = ["pymupdf", "no-borders", "trust-layer", "hidden-layer", "forced-ocr",
            "rec-tesseract", "rec-PP-OCRv6_small_rec", "rec-en_PP-OCRv5_mobile_rec",
            "wrec-PP-OCRv6_small_rec", "wrec-en_PP-OCRv5_mobile_rec", "tatr", "ppstructure-v3",
            # roadmap 14 item 3.7 (ADR-046), 2026-11-09
-           "tables-tatr"]
+           "tables-tatr",
+           # Adobe Acrobat 26's OCR of the same scans (run_engines.py --acrobat), 2026-11-12
+           "hidden-layer@acrobat26", "trust-layer@acrobat26", "fast-cheap-300@acrobat26-pixels"]
 METRICS = ["wer", "cer", "ord", "bow_r", "bow_p", "num_r", "num_p", "pun_r", "pun_p"]
 
 

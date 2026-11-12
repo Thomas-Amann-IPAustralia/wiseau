@@ -1,0 +1,92 @@
+{
+  "accurate-V20N4": {
+    "chars": 342785,
+    "cpu_s": 31.1,
+    "cpus": 4,
+    "pages": 371,
+    "peak_rss_mb": 1885,
+    "s_per_page": 0.08,
+    "wall_s": 31.5
+  },
+  "accurate-V2N2": {
+    "chars": 99089,
+    "cpu_s": 438.2,
+    "cpus": 4,
+    "pages": 40,
+    "peak_rss_mb": 2331,
+    "s_per_page": 7.42,
+    "wall_s": 296.8
+  },
+  "accurate-V5N1": {
+    "chars": 99270,
+    "cpu_s": 383.3,
+    "cpus": 4,
+    "pages": 31,
+    "peak_rss_mb": 2437,
+    "s_per_page": 8.5,
+    "wall_s": 263.6
+  },
+  "accurate-V5N3": {
+    "chars": 70947,
+    "cpu_s": 309.6,
+    "cpus": 4,
+    "pages": 27,
+    "peak_rss_mb": 2303,
+    "s_per_page": 7.81,
+    "wall_s": 210.8
+  },
+  "accurate-V6N1": {
+    "chars": 116147,
+    "cpu_s": 490.6,
+    "cpus": 4,
+    "pages": 40,
+    "peak_rss_mb": 2432,
+    "s_per_page": 8.3,
+    "wall_s": 331.8
+  },
+  "fast-V20N4": {
+    "chars": 342785,
+    "cpu_s": 31.4,
+    "cpus": 4,
+    "pages": 371,
+    "peak_rss_mb": 215,
+    "s_per_page": 0.09,
+    "wall_s": 31.6
+  },
+  "fast-V2N2": {
+    "chars": 91611,
+    "cpu_s": 205.3,
+    "cpus": 4,
+    "pages": 40,
+    "peak_rss_mb": 583,
+    "s_per_page": 3.2,
+    "wall_s": 128.1
+  },
+  "fast-V5N1": {
+    "chars": 92118,
+    "cpu_s": 163.7,
+    "cpus": 4,
+    "pages": 31,
+    "peak_rss_mb": 583,
+    "s_per_page": 3.02,
+    "wall_s": 93.6
+  },
+  "fast-V5N3": {
+    "chars": 66128,
+    "cpu_s": 133.9,
+    "cpus": 4,
+    "pages": 27,
+    "peak_rss_mb": 570,
+    "s_per_page": 2.93,
+    "wall_s": 79.0
+  },
+  "fast-V6N1": {
+    "chars": 103446,
+    "cpu_s": 207.5,
+    "cpus": 4,
+    "pages": 40,
+    "peak_rss_mb": 537,
+    "s_per_page": 3.06,
+    "wall_s": 122.4
+  }
+}
