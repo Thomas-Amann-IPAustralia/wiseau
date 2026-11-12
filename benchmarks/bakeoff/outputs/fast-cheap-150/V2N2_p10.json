@@ -1,0 +1,409 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    86.88,
+    52.32,
+    379.68,
+    63.84
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      86.88,
+      52.32,
+      379.68,
+      63.84
+     ],
+     "text": "TABLE OF COMPARISON FOR SOYBEAN VARIETIES"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "TABLE OF COMPARISON FOR SOYBEAN VARIETIES",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    83.52,
+    80.64,
+    502.08,
+    620.16
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      248.16,
+      80.64,
+      494.4,
+      94.08
+     ],
+     "text": "\u2018Manark\u2019 \u2018Davis\u2019 \u2018Centaur\u2019 \u2018Dragon\u2019"
+    },
+    {
+     "bbox": [
+      86.4,
+      98.88,
+      470.88,
+      111.36
+     ],
+     "text": "DAYS TO FLOWERING Mean 63 67 57 73"
+    },
+    {
+     "bbox": [
+      200.16,
+      108.48,
+      483.36,
+      121.44
+     ],
+     "text": "Range 59-67 61-69 55-60 68-81"
+    },
+    {
+     "bbox": [
+      174.24,
+      118.56,
+      473.28,
+      126.72
+     ],
+     "text": "Std deviation 2.5 24 17 3.8"
+    },
+    {
+     "bbox": [
+      85.92,
+      134.88,
+      469.92,
+      147.84
+     ],
+     "text": "MATURE PLANT Mean 88 92 70 31"
+    },
+    {
+     "bbox": [
+      86.4,
+      144.48,
+      488.64,
+      156.48
+     ],
+     "text": "HEIGHT Range 74-106 72-106 62-82 78-102"
+    },
+    {
+     "bbox": [
+      173.76,
+      154.56,
+      472.8,
+      162.24
+     ],
+     "text": "Std deviation 8.4 91 Ww 73"
+    },
+    {
+     "bbox": [
+      85.92,
+      172.32,
+      482.88,
+      181.44
+     ],
+     "text": "HYPOCOTYL COLOUR green green green green"
+    },
+    {
+     "bbox": [
+      85.92,
+      189.12,
+      482.4,
+      202.08
+     ],
+     "text": "FLOWER COLOUR white white white white"
+    },
+    {
+     "bbox": [
+      85.44,
+      206.88,
+      482.4,
+      219.84
+     ],
+     "text": "LEAF SHAPE ovoid ovoid ovoid ovoid"
+    },
+    {
+     "bbox": [
+      85.44,
+      225.12,
+      478.08,
+      238.08
+     ],
+     "text": "PUBESCENCE COLOUR grey grey grey grey"
+    },
+    {
+     "bbox": [
+      84.96,
+      243.36,
+      472.8,
+      256.32
+     ],
+     "text": "POD COLOUR tan tan tan tan"
+    },
+    {
+     "bbox": [
+      85.44,
+      263.04,
+      153.12,
+      269.76
+     ],
+     "text": "UNIFOLIATE LEAF"
+    },
+    {
+     "bbox": [
+      84.48,
+      272.16,
+      492.96,
+      278.88
+     ],
+     "text": "\u2014 LENGTH Mean 42.2mm 43.5mm 45.0mm 45.0 mm"
+    },
+    {
+     "bbox": [
+      198.72,
+      277.92,
+      481.92,
+      292.32
+     ],
+     "text": "Range 35-49 38-48 39-49 40-51"
+    },
+    {
+     "bbox": [
+      172.8,
+      288.96,
+      476.16,
+      300.96
+     ],
+     "text": "Std deviation 3.12 2.67 2.98 3.50"
+    },
+    {
+     "bbox": [
+      84.48,
+      308.16,
+      492.48,
+      314.88
+     ],
+     "text": "\u2014 WIDTH Mean 39.7 mm 38.8 mm 36.9mm 41.6mm"
+    },
+    {
+     "bbox": [
+      198.72,
+      315.36,
+      482.88,
+      327.84
+     ],
+     "text": "Range 33-44 35-46 33-41 35-48"
+    },
+    {
+     "bbox": [
+      172.8,
+      324.0,
+      476.16,
+      336.48
+     ],
+     "text": "Std deviation 2.94 2.92 2.25 3.23"
+    },
+    {
+     "bbox": [
+      84.0,
+      341.76,
+      492.48,
+      354.24
+     ],
+     "text": "\u2014 PETIOLE Mean 17.4mm 13.8mm 16.3 mm 13.6mm"
+    },
+    {
+     "bbox": [
+      198.24,
+      350.88,
+      482.4,
+      363.36
+     ],
+     "text": "Range 11-22 8-19 12-23 10-18"
+    },
+    {
+     "bbox": [
+      172.32,
+      361.92,
+      475.68,
+      368.64
+     ],
+     "text": "Std deviation 2.72 3.23 2.65 1.67"
+    },
+    {
+     "bbox": [
+      84.0,
+      380.16,
+      160.8,
+      386.88
+     ],
+     "text": "TERMINAL LEAFLET"
+    },
+    {
+     "bbox": [
+      84.0,
+      387.36,
+      490.08,
+      399.84
+     ],
+     "text": "\u2014 LENGTH Mean 121mm 109 mm 124mm 107 mm"
+    },
+    {
+     "bbox": [
+      198.24,
+      396.48,
+      486.72,
+      408.96
+     ],
+     "text": "Range 105-144 98-124 112-137 85-135"
+    },
+    {
+     "bbox": [
+      172.32,
+      407.04,
+      475.68,
+      413.76
+     ],
+     "text": "Std deviation 9.4 61 68 12.5"
+    },
+    {
+     "bbox": [
+      83.52,
+      423.36,
+      485.76,
+      435.84
+     ],
+     "text": "\u2014 WIOTH Mean 70mm 67mm 71mm 65mm"
+    },
+    {
+     "bbox": [
+      198.24,
+      432.48,
+      482.4,
+      444.96
+     ],
+     "text": "Range 58-83 60-76 61-84 52-79"
+    },
+    {
+     "bbox": [
+      172.32,
+      443.04,
+      471.36,
+      449.76
+     ],
+     "text": "Std deviation 6.6 4.2 5.5 8.0"
+    },
+    {
+     "bbox": [
+      84.0,
+      459.36,
+      502.08,
+      471.36
+     ],
+     "text": "PHYTOPHTHORA ROOT ROT f-resistant f-resistant f-resistant susceptible"
+    },
+    {
+     "bbox": [
+      84.0,
+      477.12,
+      493.92,
+      489.12
+     ],
+     "text": "SEED SHAPE spherical spherical spherical spherical"
+    },
+    {
+     "bbox": [
+      316.8,
+      485.76,
+      420.96,
+      498.24
+     ],
+     "text": "flattened flattened"
+    },
+    {
+     "bbox": [
+      83.52,
+      504.0,
+      480.0,
+      516.0
+     ],
+     "text": "SEED COAT LUSTRE shiny dull dull shiny"
+    },
+    {
+     "bbox": [
+      83.52,
+      519.36,
+      484.8,
+      534.24
+     ],
+     "text": "SEED COAT COLOUR yellow yellow yellow yellow"
+    },
+    {
+     "bbox": [
+      83.52,
+      540.0,
+      484.32,
+      552.48
+     ],
+     "text": "COTYLEDON COLOUR yellow yellow yellow yellow"
+    },
+    {
+     "bbox": [
+      84.0,
+      558.24,
+      475.2,
+      570.72
+     ],
+     "text": "HILUM COLOUR buff buff buff buff"
+    },
+    {
+     "bbox": [
+      84.0,
+      573.6,
+      481.44,
+      588.0
+     ],
+     "text": "100 SEED WEIGHT 17.69 17.39 18.99 18.49"
+    },
+    {
+     "bbox": [
+      83.52,
+      595.2,
+      483.84,
+      602.4
+     ],
+     "text": "OIL CONTENT 19.8% 20.8% 20.5% 20.2%"
+    },
+    {
+     "bbox": [
+      83.52,
+      612.96,
+      483.84,
+      620.16
+     ],
+     "text": "PROTEIN CONTENT 40.1% 39.8% 39.9% 40.8%"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Manark\u2019 \u2018Davis\u2019 \u2018Centaur\u2019 \u2018Dragon\u2019\nDAYS TO FLOWERING Mean 63 67 57 73\nRange 59-67 61-69 55-60 68-81\nStd deviation 2.5 24 17 3.8\nMATURE PLANT Mean 88 92 70 31\nHEIGHT Range 74-106 72-106 62-82 78-102\nStd deviation 8.4 91 Ww 73\nHYPOCOTYL COLOUR green green green green\nFLOWER COLOUR white white white white\nLEAF SHAPE ovoid ovoid ovoid ovoid\nPUBESCENCE COLOUR grey grey grey grey\nPOD COLOUR tan tan tan tan\nUNIFOLIATE LEAF\n\u2014 LENGTH Mean 42.2mm 43.5mm 45.0mm 45.0 mm\nRange 35-49 38-48 39-49 40-51\nStd deviation 3.12 2.67 2.98 3.50\n\u2014 WIDTH Mean 39.7 mm 38.8 mm 36.9mm 41.6mm\nRange 33-44 35-46 33-41 35-48\nStd deviation 2.94 2.92 2.25 3.23\n\u2014 PETIOLE Mean 17.4mm 13.8mm 16.3 mm 13.6mm\nRange 11-22 8-19 12-23 10-18\nStd deviation 2.72 3.23 2.65 1.67\nTERMINAL LEAFLET\n\u2014 LENGTH Mean 121mm 109 mm 124mm 107 mm\nRange 105-144 98-124 112-137 85-135\nStd deviation 9.4 61 68 12.5\n\u2014 WIOTH Mean 70mm 67mm 71mm 65mm\nRange 58-83 60-76 61-84 52-79\nStd deviation 6.6 4.2 5.5 8.0\nPHYTOPHTHORA ROOT ROT f-resistant f-resistant f-resistant susceptible\nSEED SHAPE spherical spherical spherical spherical\nflattened flattened\nSEED COAT LUSTRE shiny dull dull shiny\nSEED COAT COLOUR yellow yellow yellow yellow\nCOTYLEDON COLOUR yellow yellow yellow yellow\nHILUM COLOUR buff buff buff buff\n100 SEED WEIGHT 17.69 17.39 18.99 18.49\nOIL CONTENT 19.8% 20.8% 20.5% 20.2%\nPROTEIN CONTENT 40.1% 39.8% 39.9% 40.8%",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    596.95,
+    844.01
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

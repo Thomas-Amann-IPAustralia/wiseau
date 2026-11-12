@@ -150,6 +150,16 @@ class _Later:
         return self._done.result()
 
 
+def _start_psm3(page: pymupdf.Page, *, dpi: int, language: str) -> "tesseract_layout.TesseractRun":
+    """Render the page and launch Tesseract psm 3 on it, on the calling thread: the
+    process then runs beside MuPDF's OCR, which holds the GIL (ADR-059)."""
+    return tesseract_layout.start_tsv(tesseract_layout.page_png(page, dpi=dpi), language=language)
+
+
+def _psm3_result(run: "tesseract_layout.TesseractRun"):
+    return run.result()
+
+
 class _Steps:
     """Where a page's independent steps run (ADR-056).
 
@@ -265,8 +275,7 @@ class TesseractEngine(OcrEngine):
         # while MuPDF's OCR reads the guard (ADR-056).
         psm3 = detections = None
         if TESSERACT_LAYOUT:
-            psm3 = steps.start(lambda: tesseract_layout.page_png(page, dpi=dpi),
-                               lambda png: tesseract_layout.tsv_from_png(png, language=language))
+            psm3 = steps.start(lambda: _start_psm3(page, dpi=dpi, language=language), _psm3_result)
             if tables.enabled():
                 detections = steps.start(lambda: tables.render(page), tables.detect_image)
         guard = self._geometric_elements(page, dpi=dpi, language=language, mask=mask)
@@ -365,8 +374,7 @@ class FastTesseractEngine(TesseractEngine):
         if cleaned is not None:
             _doc, page = cleaned  # _doc keeps the cleaned page alive
         mask = photo_regions.photo_mask(page) if SKIP_PHOTO_REGIONS else None
-        psm3 = steps.start(lambda: tesseract_layout.page_png(page, dpi=dpi),
-                           lambda png: tesseract_layout.tsv_from_png(png, language=language))
+        psm3 = steps.start(lambda: _start_psm3(page, dpi=dpi, language=language), _psm3_result)
         cheap = None
         if FAST_GUARD == FAST_GUARD_CHEAP:
             cheap = self._geometric_elements(page, dpi=min(dpi, FAST_GUARD_DPI), language=language, mask=mask)

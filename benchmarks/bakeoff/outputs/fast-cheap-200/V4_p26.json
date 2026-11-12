@@ -1,0 +1,882 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    40.32,
+    61.2,
+    105.12,
+    74.16
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      40.32,
+      61.2,
+      105.12,
+      74.16
+     ],
+     "text": "Corrigenda"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Corrigenda",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    38.88,
+    90.36,
+    331.2,
+    119.16
+   ],
+   "confidence": null,
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      39.96,
+      90.36,
+      232.56,
+      101.88
+     ],
+     "text": "GERALDTON WAX FLOWER"
+    },
+    {
+     "bbox": [
+      38.88,
+      104.76,
+      213.48,
+      117.36
+     ],
+     "text": "(Chamelaucium uncinatum)"
+    },
+    {
+     "bbox": [
+      305.64,
+      109.08,
+      331.2,
+      119.16
+     ],
+     "text": "Fees"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       39.96,
+       90.36,
+       232.56,
+       101.88
+      ],
+      "text": "GERALDTON WAX FLOWER"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       38.88,
+       104.76,
+       213.48,
+       117.36
+      ],
+      "text": "(Chamelaucium uncinatum)"
+     },
+     {
+      "bbox": [
+       305.64,
+       109.08,
+       331.2,
+       119.16
+      ],
+      "text": "Fees"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "GERALDTON WAX FLOWER\n(Chamelaucium uncinatum) Fees",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    39.24,
+    129.6,
+    212.76,
+    137.88
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      39.24,
+      129.6,
+      212.76,
+      137.88
+     ],
+     "text": "Variety: \u2018Elegance\u2019 Application No. 90/100"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Elegance\u2019 Application No. 90/100",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    39.24,
+    153.72,
+    276.12,
+    191.88
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      39.24,
+      153.72,
+      276.12,
+      162.36
+     ],
+     "text": "The photograph of \u2018Mullering Brook\u2019 should have appeared"
+    },
+    {
+     "bbox": [
+      39.96,
+      163.8,
+      235.44,
+      172.44
+     ],
+     "text": "in conjunction with and be/ow the photograph of"
+    },
+    {
+     "bbox": [
+      39.96,
+      173.52,
+      272.88,
+      182.52
+     ],
+     "text": "\u2018Elegance\u2019 shown in PVJ Vol 4 No 1, March 1991, page 9."
+    },
+    {
+     "bbox": [
+      39.24,
+      183.96,
+      102.24,
+      191.88
+     ],
+     "text": "(Printer\u2019s error.)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The photograph of \u2018Mullering Brook\u2019 should have appeared\nin conjunction with and be/ow the photograph of\n\u2018Elegance\u2019 shown in PVJ Vol 4 No 1, March 1991, page 9.\n(Printer\u2019s error.)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    38.88,
+    218.16,
+    169.2,
+    244.44
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      40.32,
+      218.16,
+      149.4,
+      228.6
+     ],
+     "text": "LECHENAULTIA"
+    },
+    {
+     "bbox": [
+      38.88,
+      232.2,
+      169.2,
+      244.44
+     ],
+     "text": "(Lechenaultia biloba)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "LECHENAULTIA\n(Lechenaultia biloba)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    38.88,
+    257.76,
+    229.32,
+    266.04
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      38.88,
+      257.76,
+      229.32,
+      266.04
+     ],
+     "text": "Variety: \u2018Autumn Blue\u2019 Application No. 89/028"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Autumn Blue\u2019 Application No. 89/028",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    38.52,
+    281.16,
+    270.0,
+    320.04
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      39.6,
+      281.16,
+      264.96,
+      289.8
+     ],
+     "text": "PVJ Vol 4 No 1, March 1991, page 5. The caption under"
+    },
+    {
+     "bbox": [
+      38.88,
+      290.88,
+      270.0,
+      299.52
+     ],
+     "text": "the photograph should read: From left to right; Flowers of"
+    },
+    {
+     "bbox": [
+      38.88,
+      300.96,
+      237.6,
+      308.88
+     ],
+     "text": "L. biloba blue form, \u2018Autumn Blue\u2019, \u2018White Flash\u2019."
+    },
+    {
+     "bbox": [
+      38.52,
+      311.4,
+      242.64,
+      320.04
+     ],
+     "text": "(photograph supplied by applicant). (Printers error.)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PVJ Vol 4 No 1, March 1991, page 5. The caption under\nthe photograph should read: From left to right; Flowers of\nL. biloba blue form, \u2018Autumn Blue\u2019, \u2018White Flash\u2019.\n(photograph supplied by applicant). (Printers error.)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    39.6,
+    345.6,
+    179.64,
+    372.24
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      39.96,
+      345.6,
+      163.08,
+      356.4
+     ],
+     "text": "LEUCADENDRON"
+    },
+    {
+     "bbox": [
+      39.6,
+      359.64,
+      179.64,
+      372.24
+     ],
+     "text": "(Leucadendron hybrid)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "LEUCADENDRON\n(Leucadendron hybrid)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    38.52,
+    385.2,
+    224.28,
+    393.48
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      38.52,
+      385.2,
+      224.28,
+      393.48
+     ],
+     "text": "Variety: \u2018Katies Blush\u2019 Application No. 90/061"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Katies Blush\u2019 Application No. 90/061",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    38.88,
+    408.96,
+    271.44,
+    437.04
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      39.24,
+      408.96,
+      268.56,
+      417.24
+     ],
+     "text": "PVJ Vol 4 No 1, March 1991, page 8 under \u2018Comparative"
+    },
+    {
+     "bbox": [
+      39.24,
+      418.68,
+      271.44,
+      426.96
+     ],
+     "text": "Growing Trials\u2019, last sentence, replace \u2018...on a west facing"
+    },
+    {
+     "bbox": [
+      38.88,
+      428.76,
+      205.92,
+      437.04
+     ],
+     "text": "slope...\u2019 with \u2018...on an east facing slope...\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PVJ Vol 4 No 1, March 1991, page 8 under \u2018Comparative\nGrowing Trials\u2019, last sentence, replace \u2018...on a west facing\nslope...\u2019 with \u2018...on an east facing slope...\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    39.24,
+    462.96,
+    146.88,
+    489.6
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      39.24,
+      462.96,
+      126.36,
+      473.4
+     ],
+     "text": "CARNATION"
+    },
+    {
+     "bbox": [
+      39.6,
+      477.0,
+      146.88,
+      489.6
+     ],
+     "text": "(Dianthus hybrid)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "CARNATION\n(Dianthus hybrid)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    38.52,
+    502.56,
+    215.28,
+    511.2
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      38.52,
+      502.56,
+      215.28,
+      511.2
+     ],
+     "text": "Variety: \u2018Stagidark\u2019 Application No. 90/124."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Stagidark\u2019 Application No. 90/124.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    39.6,
+    522.72,
+    263.52,
+    541.08
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      39.6,
+      522.72,
+      263.52,
+      531.0
+     ],
+     "text": "PVJ Vol 4 No 1, March 1991 page 15 should read \u2018Dark"
+    },
+    {
+     "bbox": [
+      39.6,
+      532.8,
+      147.96,
+      541.08
+     ],
+     "text": "Eye Gypsy\u2019. (Agent\u2019s error.)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PVJ Vol 4 No 1, March 1991 page 15 should read \u2018Dark\nEye Gypsy\u2019. (Agent\u2019s error.)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    38.88,
+    552.6,
+    211.32,
+    560.88
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      38.88,
+      552.6,
+      211.32,
+      560.88
+     ],
+     "text": "Variety: \u2018Stagibrig\u2019 Application No. 90/122"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Stagibrig\u2019 Application No. 90/122",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    39.24,
+    572.76,
+    271.44,
+    591.12
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      39.24,
+      572.76,
+      271.44,
+      581.04
+     ],
+     "text": "PVJ Vol 4 No. 1, March 1991 page 16 should read \u2018Bright"
+    },
+    {
+     "bbox": [
+      39.24,
+      582.84,
+      145.44,
+      591.12
+     ],
+     "text": "Eye Gypsy\u2019. (Agents error.)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PVJ Vol 4 No. 1, March 1991 page 16 should read \u2018Bright\nEye Gypsy\u2019. (Agents error.)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    305.64,
+    61.92,
+    415.08,
+    75.24
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      305.64,
+      61.92,
+      415.08,
+      75.24
+     ],
+     "text": "APPENDIX 1"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "APPENDIX 1",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.92,
+    141.12,
+    534.96,
+    158.4
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      304.92,
+      141.12,
+      534.96,
+      149.76
+     ],
+     "text": "The Fee schedule which commenced on 1 July 1990 will"
+    },
+    {
+     "bbox": [
+      304.92,
+      151.56,
+      480.96,
+      158.4
+     ],
+     "text": "continue until the fee structure is reviewed."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The Fee schedule which commenced on 1 July 1990 will\ncontinue until the fee structure is reviewed.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.56,
+    175.68,
+    507.6,
+    194.04
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      304.56,
+      175.68,
+      507.6,
+      183.96
+     ],
+     "text": "These rates also apply to fees, not yet charged, for"
+    },
+    {
+     "bbox": [
+      305.28,
+      185.76,
+      404.28,
+      194.04
+     ],
+     "text": "submissions in progress."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "These rates also apply to fees, not yet charged, for\nsubmissions in progress.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.56,
+    208.08,
+    543.96,
+    359.28
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      305.28,
+      208.08,
+      542.88,
+      219.6
+     ],
+     "text": "Function $"
+    },
+    {
+     "bbox": [
+      304.56,
+      231.84,
+      543.96,
+      243.36
+     ],
+     "text": "APPLICATION 400"
+    },
+    {
+     "bbox": [
+      305.28,
+      242.64,
+      543.6,
+      249.84
+     ],
+     "text": "EXAMINATION OF APPLICATION 1400"
+    },
+    {
+     "bbox": [
+      304.92,
+      252.36,
+      543.6,
+      259.56
+     ],
+     "text": "COPY OF APPLICATION 70"
+    },
+    {
+     "bbox": [
+      304.56,
+      262.44,
+      543.6,
+      269.28
+     ],
+     "text": "VARIATION TO APPLICATION 70"
+    },
+    {
+     "bbox": [
+      305.28,
+      272.16,
+      543.6,
+      279.36
+     ],
+     "text": "LODGING AN OBJECTION 200"
+    },
+    {
+     "bbox": [
+      304.92,
+      281.88,
+      543.6,
+      289.08
+     ],
+     "text": "COPY OF OBJECTION 70"
+    },
+    {
+     "bbox": [
+      304.92,
+      291.96,
+      543.6,
+      299.16
+     ],
+     "text": "CERTIFICATE OF PVR 250"
+    },
+    {
+     "bbox": [
+      304.56,
+      302.04,
+      543.6,
+      308.88
+     ],
+     "text": "ANNUAL RENEWAL FEE 250"
+    },
+    {
+     "bbox": [
+      305.28,
+      312.12,
+      543.6,
+      319.32
+     ],
+     "text": "REQUEST FOR RE-EXAMINATION 800"
+    },
+    {
+     "bbox": [
+      313.56,
+      322.56,
+      359.64,
+      330.84
+     ],
+     "text": "(if required)"
+    },
+    {
+     "bbox": [
+      304.92,
+      331.92,
+      543.24,
+      339.48
+     ],
+     "text": "COMPULSORY LICENCE 140"
+    },
+    {
+     "bbox": [
+      304.92,
+      342.0,
+      543.6,
+      349.2
+     ],
+     "text": "TRANSFER OF RIGHTS 140"
+    },
+    {
+     "bbox": [
+      305.28,
+      351.72,
+      543.24,
+      359.28
+     ],
+     "text": "ISSUE OF PUBLICATIONS 8"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Function $\nAPPLICATION 400\nEXAMINATION OF APPLICATION 1400\nCOPY OF APPLICATION 70\nVARIATION TO APPLICATION 70\nLODGING AN OBJECTION 200\nCOPY OF OBJECTION 70\nCERTIFICATE OF PVR 250\nANNUAL RENEWAL FEE 250\nREQUEST FOR RE-EXAMINATION 800\n(if required)\nCOMPULSORY LICENCE 140\nTRANSFER OF RIGHTS 140\nISSUE OF PUBLICATIONS 8",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    313.56,
+    362.16,
+    438.84,
+    380.16
+   ],
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      313.92,
+      362.16,
+      438.84,
+      370.44
+     ],
+     "text": "(first 10 pages, then 50c/page)"
+    },
+    {
+     "bbox": [
+      313.56,
+      372.24,
+      423.36,
+      380.16
+     ],
+     "text": "(other than the PV Journal)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(first 10 pages, then 50c/page)\n(other than the PV Journal)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.92,
+    381.6,
+    543.6,
+    389.88
+   ],
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      304.92,
+      381.6,
+      543.6,
+      389.88
+     ],
+     "text": "OTHER WORK RELEVANT TO PVR 70 (per hour)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "OTHER WORK RELEVANT TO PVR 70 (per hour)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    39.96,
+    792.72,
+    51.84,
+    801.36
+   ],
+   "id": "e22",
+   "lines": [
+    {
+     "bbox": [
+      39.96,
+      792.72,
+      51.84,
+      801.36
+     ],
+     "text": "24"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "24",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

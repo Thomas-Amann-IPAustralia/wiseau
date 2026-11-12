@@ -1,0 +1,473 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    48.0,
+    254.88,
+    60.0,
+    262.08
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      48.0,
+      254.88,
+      60.0,
+      262.08
+     ],
+     "text": "10"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "10",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    43.2,
+    613.44,
+    55.68,
+    620.64
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      43.2,
+      613.44,
+      55.68,
+      620.64
+     ],
+     "text": "30"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "30",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    41.76,
+    702.72,
+    54.72,
+    709.92
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      41.76,
+      702.72,
+      54.72,
+      709.92
+     ],
+     "text": "35"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "35",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    100.32,
+    79.2,
+    532.8,
+    159.84
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      100.8,
+      79.2,
+      504.0,
+      90.24
+     ],
+     "text": "compression molded bars. Historically, companies which"
+    },
+    {
+     "bbox": [
+      100.32,
+      96.0,
+      495.84,
+      109.44
+     ],
+     "text": "make implants have used GUR 412 and GUR 415 for making"
+    },
+    {
+     "bbox": [
+      100.32,
+      113.76,
+      525.6,
+      127.2
+     ],
+     "text": "acetabular cups. Recently, Hoechst-Celanese Corp. changed"
+    },
+    {
+     "bbox": [
+      100.32,
+      128.64,
+      532.8,
+      143.52
+     ],
+     "text": "the designation of GUR 415 to 4150 resin and indicated that"
+    },
+    {
+     "bbox": [
+      100.32,
+      149.28,
+      390.72,
+      159.84
+     ],
+     "text": "4150 HP was for use in medical implants."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "compression molded bars. Historically, companies which\nmake implants have used GUR 412 and GUR 415 for making\nacetabular cups. Recently, Hoechst-Celanese Corp. changed\nthe designation of GUR 415 to 4150 resin and indicated that\n4150 HP was for use in medical implants.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    93.12,
+    184.32,
+    532.32,
+    733.92
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      98.88,
+      184.32,
+      502.56,
+      194.88
+     ],
+     "text": "Methods for Characterizing the Polymers (Especially the"
+    },
+    {
+     "bbox": [
+      99.36,
+      200.16,
+      442.08,
+      213.12
+     ],
+     "text": "Determination of Their Crystallinity) ."
+    },
+    {
+     "bbox": [
+      134.88,
+      219.84,
+      532.32,
+      232.8
+     ],
+     "text": "The degree of crystallinity of the crosslinked polymer"
+    },
+    {
+     "bbox": [
+      98.4,
+      237.6,
+      522.24,
+      248.64
+     ],
+     "text": "may be determined after it has been crosslinked or molded."
+    },
+    {
+     "bbox": [
+      98.88,
+      255.84,
+      531.84,
+      268.32
+     ],
+     "text": "In case the treated polymer is further irradiated, e.g., to"
+    },
+    {
+     "bbox": [
+      98.4,
+      273.12,
+      516.48,
+      286.08
+     ],
+     "text": "sterilize the polymer before its implant into humans, the"
+    },
+    {
+     "bbox": [
+      97.92,
+      291.36,
+      441.6,
+      302.88
+     ],
+     "text": "degree of crystallinity may be determined after"
+    },
+    {
+     "bbox": [
+      98.88,
+      308.64,
+      434.4,
+      319.2
+     ],
+     "text": "irradiation, since irradiation effects further"
+    },
+    {
+     "bbox": [
+      97.44,
+      326.88,
+      321.6,
+      338.4
+     ],
+     "text": "crystallization of the polymer."
+    },
+    {
+     "bbox": [
+      133.44,
+      344.64,
+      508.32,
+      357.6
+     ],
+     "text": "The degree of crystallinity can be determined using"
+    },
+    {
+     "bbox": [
+      96.48,
+      362.4,
+      500.64,
+      376.32
+     ],
+     "text": "methods known in the art, e.g. by differential scanning"
+    },
+    {
+     "bbox": [
+      96.48,
+      380.16,
+      508.32,
+      391.68
+     ],
+     "text": "calorimetry (DSC), which is generally used to assess the"
+    },
+    {
+     "bbox": [
+      96.48,
+      398.4,
+      520.32,
+      410.88
+     ],
+     "text": "crystallinity and melting behavior of a polymer. Wang, X."
+    },
+    {
+     "bbox": [
+      96.96,
+      416.64,
+      505.44,
+      428.64
+     ],
+     "text": "& Salovey, R., J. App. Polymer Sci., 34:.593-599 (1987)."
+    },
+    {
+     "bbox": [
+      132.48,
+      434.88,
+      515.04,
+      446.4
+     ],
+     "text": "X-ray scattering from the resulting polymer can also"
+    },
+    {
+     "bbox": [
+      96.0,
+      452.16,
+      515.04,
+      464.64
+     ],
+     "text": "be used to further confirm the degree of crystallinity of"
+    },
+    {
+     "bbox": [
+      96.0,
+      469.92,
+      519.84,
+      482.4
+     ],
+     "text": "the polymer, e.g. as described in Spruiell, J.E., & Clark,"
+    },
+    {
+     "bbox": [
+      96.0,
+      487.68,
+      512.64,
+      499.68
+     ],
+     "text": "E.S.,in \"Methods of Experimental Physics\", L. Marton & Cc."
+    },
+    {
+     "bbox": [
+      95.04,
+      505.92,
+      499.2,
+      517.44
+     ],
+     "text": "Marton, Eds., Vol. 16, Part B, Academic Press, New York"
+    },
+    {
+     "bbox": [
+      97.44,
+      523.68,
+      468.96,
+      535.2
+     ],
+     "text": "(1980). Swelling is generally used to characterize"
+    },
+    {
+     "bbox": [
+      95.04,
+      541.44,
+      483.36,
+      553.44
+     ],
+     "text": "crosslink distributions in polymers, the procedure is"
+    },
+    {
+     "bbox": [
+      94.56,
+      559.68,
+      521.76,
+      571.2
+     ],
+     "text": "described in Ding, Z. Y., et al., J. Polymer Sci., Polymer"
+    },
+    {
+     "bbox": [
+      94.56,
+      577.44,
+      521.28,
+      590.88
+     ],
+     "text": "Chem., 29: 1035-38 (1990). Another method for determining"
+    },
+    {
+     "bbox": [
+      94.56,
+      595.68,
+      506.4,
+      608.64
+     ],
+     "text": "the degree of crystallinity of the resulting polymer may"
+    },
+    {
+     "bbox": [
+      95.04,
+      612.96,
+      460.8,
+      626.4
+     ],
+     "text": "include FTIR (Painter, P.C. et_al., \"The Theory Of"
+    },
+    {
+     "bbox": [
+      93.6,
+      629.28,
+      513.6,
+      644.64
+     ],
+     "text": "Vibrational Spectroscopy And Its Application To Polymeric"
+    },
+    {
+     "bbox": [
+      93.6,
+      647.52,
+      513.12,
+      664.32
+     ],
+     "text": "Materials\", John Wiley and Sons, New York, U.S.A. (1982) )"
+    },
+    {
+     "bbox": [
+      93.6,
+      667.68,
+      528.0,
+      680.16
+     ],
+     "text": "and electron diffraction. FTIR assesses the depth profiles"
+    },
+    {
+     "bbox": [
+      93.6,
+      684.96,
+      489.6,
+      697.44
+     ],
+     "text": "of oxidation as well as other chemical changes such as"
+    },
+    {
+     "bbox": [
+      93.12,
+      703.2,
+      505.92,
+      714.72
+     ],
+     "text": "unsaturation (Nagy, E.V., & Li, S., \"A Fourier transform"
+    },
+    {
+     "bbox": [
+      94.08,
+      720.0,
+      482.4,
+      733.92
+     ],
+     "text": "infrared technique for the evaluation of polyethylene"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Methods for Characterizing the Polymers (Especially the\nDetermination of Their Crystallinity) .\nThe degree of crystallinity of the crosslinked polymer\nmay be determined after it has been crosslinked or molded.\nIn case the treated polymer is further irradiated, e.g., to\nsterilize the polymer before its implant into humans, the\ndegree of crystallinity may be determined after\nirradiation, since irradiation effects further\ncrystallization of the polymer.\nThe degree of crystallinity can be determined using\nmethods known in the art, e.g. by differential scanning\ncalorimetry (DSC), which is generally used to assess the\ncrystallinity and melting behavior of a polymer. Wang, X.\n& Salovey, R., J. App. Polymer Sci., 34:.593-599 (1987).\nX-ray scattering from the resulting polymer can also\nbe used to further confirm the degree of crystallinity of\nthe polymer, e.g. as described in Spruiell, J.E., & Clark,\nE.S.,in \"Methods of Experimental Physics\", L. Marton & Cc.\nMarton, Eds., Vol. 16, Part B, Academic Press, New York\n(1980). Swelling is generally used to characterize\ncrosslink distributions in polymers, the procedure is\ndescribed in Ding, Z. Y., et al., J. Polymer Sci., Polymer\nChem., 29: 1035-38 (1990). Another method for determining\nthe degree of crystallinity of the resulting polymer may\ninclude FTIR (Painter, P.C. et_al., \"The Theory Of\nVibrational Spectroscopy And Its Application To Polymeric\nMaterials\", John Wiley and Sons, New York, U.S.A. (1982) )\nand electron diffraction. FTIR assesses the depth profiles\nof oxidation as well as other chemical changes such as\nunsaturation (Nagy, E.V., & Li, S., \"A Fourier transform\ninfrared technique for the evaluation of polyethylene",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    306.24,
+    760.8,
+    318.72,
+    768.48
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      306.24,
+      760.8,
+      318.72,
+      768.48
+     ],
+     "text": "11"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "11",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    599.04,
+    867.84
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

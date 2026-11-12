@@ -1,0 +1,935 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    67.2,
+    60.96,
+    281.28,
+    132.48
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      67.2,
+      60.96,
+      280.32,
+      69.6
+     ],
+     "text": "\u2018Red Elstar\u2019 Application No. :89/011"
+    },
+    {
+     "bbox": [
+      67.2,
+      80.64,
+      280.8,
+      89.28
+     ],
+     "text": "\u2018Snow Storm\u2019 Application No. :89/012"
+    },
+    {
+     "bbox": [
+      67.2,
+      99.36,
+      281.28,
+      112.32
+     ],
+     "text": "\u2018Manark\u2019 Application No. :88/037"
+    },
+    {
+     "bbox": [
+      68.16,
+      120.48,
+      256.8,
+      132.48
+     ],
+     "text": "Provisional protection withdrawn"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Red Elstar\u2019 Application No. :89/011\n\u2018Snow Storm\u2019 Application No. :89/012\n\u2018Manark\u2019 Application No. :88/037\nProvisional protection withdrawn",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    67.68,
+    144.0,
+    281.76,
+    192.96
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      68.16,
+      144.0,
+      274.08,
+      152.64
+     ],
+     "text": "Provisional protection has been withdrawn under"
+    },
+    {
+     "bbox": [
+      68.16,
+      151.68,
+      272.64,
+      164.64
+     ],
+     "text": "$22(b) of the Plant Variety Rights Act 1987 for the"
+    },
+    {
+     "bbox": [
+      67.68,
+      164.16,
+      273.12,
+      173.28
+     ],
+     "text": "following variety(ies) which have been sold other"
+    },
+    {
+     "bbox": [
+      67.68,
+      174.24,
+      281.76,
+      182.88
+     ],
+     "text": "than for the purposes of S22(b) after the application"
+    },
+    {
+     "bbox": [
+      67.68,
+      184.32,
+      160.32,
+      192.96
+     ],
+     "text": "for PVR was accepted:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Provisional protection has been withdrawn under\n$22(b) of the Plant Variety Rights Act 1987 for the\nfollowing variety(ies) which have been sold other\nthan for the purposes of S22(b) after the application\nfor PVR was accepted:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    67.68,
+    204.0,
+    281.76,
+    262.08
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      67.68,
+      204.0,
+      242.88,
+      212.64
+     ],
+     "text": "\u2018Progrow\u2019 (Application No 88/010), Lo/ium"
+    },
+    {
+     "bbox": [
+      67.68,
+      214.08,
+      117.12,
+      221.28
+     ],
+     "text": "multiflorum"
+    },
+    {
+     "bbox": [
+      67.68,
+      223.68,
+      247.68,
+      232.32
+     ],
+     "text": "Applicant: Valley Seeds Pty Ltd, Alexandra,"
+    },
+    {
+     "bbox": [
+      67.68,
+      233.28,
+      281.76,
+      241.44
+     ],
+     "text": "Victoria. With effect from 28 February 1989 until the"
+    },
+    {
+     "bbox": [
+      67.68,
+      243.36,
+      267.84,
+      252.0
+     ],
+     "text": "examination of the application is completed and"
+    },
+    {
+     "bbox": [
+      68.16,
+      252.96,
+      177.12,
+      262.08
+     ],
+     "text": "PVR is granted or rejected."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Progrow\u2019 (Application No 88/010), Lo/ium\nmultiflorum\nApplicant: Valley Seeds Pty Ltd, Alexandra,\nVictoria. With effect from 28 February 1989 until the\nexamination of the application is completed and\nPVR is granted or rejected.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    67.68,
+    274.56,
+    250.08,
+    284.16
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      67.68,
+      274.56,
+      250.08,
+      284.16
+     ],
+     "text": "VARIATIONS TO APPLICATIONS"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "VARIATIONS TO APPLICATIONS",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    67.68,
+    297.6,
+    280.32,
+    326.88
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      67.68,
+      297.6,
+      265.44,
+      307.2
+     ],
+     "text": "The following submissions have been made for"
+    },
+    {
+     "bbox": [
+      67.68,
+      307.68,
+      280.32,
+      316.8
+     ],
+     "text": "variations to applications under subsection 19(1) Of"
+    },
+    {
+     "bbox": [
+      67.68,
+      318.24,
+      205.44,
+      326.88
+     ],
+     "text": "the Plant Variety Rights Act 1987:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The following submissions have been made for\nvariations to applications under subsection 19(1) Of\nthe Plant Variety Rights Act 1987:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    67.2,
+    337.92,
+    254.4,
+    466.08
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      67.68,
+      337.92,
+      204.0,
+      346.56
+     ],
+     "text": "Variety: \u2018Chifley\u2019 (Lactuca sativa)"
+    },
+    {
+     "bbox": [
+      67.2,
+      357.6,
+      165.6,
+      366.24
+     ],
+     "text": "Application No.: 88/007"
+    },
+    {
+     "bbox": [
+      67.68,
+      377.28,
+      221.28,
+      385.92
+     ],
+     "text": "Applicant: Arthur Yates & Co. Pty Ltd"
+    },
+    {
+     "bbox": [
+      67.68,
+      396.96,
+      225.12,
+      406.08
+     ],
+     "text": "Variation: Change name to \u2018Bulls Eye\u2019"
+    },
+    {
+     "bbox": [
+      67.2,
+      416.64,
+      234.24,
+      425.28
+     ],
+     "text": "Variety: \u2018Rubin\u2019 (Dianthus caryophyllus)"
+    },
+    {
+     "bbox": [
+      67.68,
+      436.8,
+      165.6,
+      445.44
+     ],
+     "text": "Application No. :88/022"
+    },
+    {
+     "bbox": [
+      67.2,
+      457.44,
+      254.4,
+      466.08
+     ],
+     "text": "Applicant: Bioprogress SP \u2018Selca\u2019 of Bulgaria"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Chifley\u2019 (Lactuca sativa)\nApplication No.: 88/007\nApplicant: Arthur Yates & Co. Pty Ltd\nVariation: Change name to \u2018Bulls Eye\u2019\nVariety: \u2018Rubin\u2019 (Dianthus caryophyllus)\nApplication No. :88/022\nApplicant: Bioprogress SP \u2018Selca\u2019 of Bulgaria",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    67.2,
+    476.64,
+    221.28,
+    485.28
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      67.2,
+      476.64,
+      221.28,
+      485.28
+     ],
+     "text": "Variation: Change name to \u2018Rubinen\u2019"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variation: Change name to \u2018Rubinen\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    67.2,
+    498.24,
+    146.4,
+    507.36
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      67.2,
+      498.24,
+      146.4,
+      507.36
+     ],
+     "text": "CORRIGENDA"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "CORRIGENDA",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    67.68,
+    520.8,
+    276.48,
+    568.8
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      67.68,
+      520.8,
+      251.04,
+      528.96
+     ],
+     "text": "1. Inthe fourth issue (December 1988), the"
+    },
+    {
+     "bbox": [
+      84.96,
+      530.88,
+      275.52,
+      539.52
+     ],
+     "text": "captions relating to the photograph of the pea"
+    },
+    {
+     "bbox": [
+      84.96,
+      540.48,
+      276.48,
+      549.12
+     ],
+     "text": "varieties on p21 should have read \u2018Above. Pea"
+    },
+    {
+     "bbox": [
+      84.96,
+      550.56,
+      268.8,
+      559.2
+     ],
+     "text": "varieties \u2018Maitland\u2019 (right), \u2018Dinkum\u2019 (centre)"
+    },
+    {
+     "bbox": [
+      84.96,
+      560.16,
+      166.08,
+      568.8
+     ],
+     "text": "and \u2018Buckley\u2019 (left).\u2019"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "1. Inthe fourth issue (December 1988), the\ncaptions relating to the photograph of the pea\nvarieties on p21 should have read \u2018Above. Pea\nvarieties \u2018Maitland\u2019 (right), \u2018Dinkum\u2019 (centre)\nand \u2018Buckley\u2019 (left).\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    67.68,
+    580.8,
+    282.24,
+    619.68
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      67.68,
+      580.8,
+      269.28,
+      589.92
+     ],
+     "text": "2. For the following applications the Australian"
+    },
+    {
+     "bbox": [
+      85.44,
+      588.96,
+      282.24,
+      602.4
+     ],
+     "text": "agents\u2019s name was given in the public notice of"
+    },
+    {
+     "bbox": [
+      85.44,
+      601.44,
+      259.2,
+      610.08
+     ],
+     "text": "acceptance, rather than the applicant. The"
+    },
+    {
+     "bbox": [
+      84.96,
+      610.56,
+      229.92,
+      619.68
+     ],
+     "text": "correct information is given below."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "2. For the following applications the Australian\nagents\u2019s name was given in the public notice of\nacceptance, rather than the applicant. The\ncorrect information is given below.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    67.2,
+    630.24,
+    212.16,
+    648.96
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      67.2,
+      630.24,
+      212.16,
+      639.36
+     ],
+     "text": "a) Variety: \u2018A5939\u2019 (G/ycine max)"
+    },
+    {
+     "bbox": [
+      84.48,
+      640.32,
+      179.52,
+      648.96
+     ],
+     "text": "Application No: 88/011"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a) Variety: \u2018A5939\u2019 (G/ycine max)\nApplication No: 88/011",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    84.48,
+    659.52,
+    270.72,
+    688.8
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      84.96,
+      659.52,
+      240.0,
+      669.6
+     ],
+     "text": "Applicant: Asgrow Seed Company of"
+    },
+    {
+     "bbox": [
+      85.44,
+      669.12,
+      147.84,
+      678.24
+     ],
+     "text": "Michigan, USA"
+    },
+    {
+     "bbox": [
+      84.48,
+      679.68,
+      270.72,
+      688.8
+     ],
+     "text": "Agent in Australia: Annand Robinson Pty Ltd"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Asgrow Seed Company of\nMichigan, USA\nAgent in Australia: Annand Robinson Pty Ltd",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    66.72,
+    699.36,
+    270.72,
+    748.32
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      66.72,
+      699.36,
+      151.68,
+      708.0
+     ],
+     "text": "b) Variety: \u2018A5494\u2019"
+    },
+    {
+     "bbox": [
+      84.0,
+      709.44,
+      180.48,
+      718.08
+     ],
+     "text": "Application No.:88/012"
+    },
+    {
+     "bbox": [
+      84.48,
+      719.52,
+      239.52,
+      728.64
+     ],
+     "text": "Applicant: Asgrow Seed Company of"
+    },
+    {
+     "bbox": [
+      84.96,
+      729.6,
+      147.36,
+      738.24
+     ],
+     "text": "Michigan, USA"
+    },
+    {
+     "bbox": [
+      84.0,
+      739.2,
+      270.72,
+      748.32
+     ],
+     "text": "Agent in Australia: Annand Robinson Pty Ltd"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "b) Variety: \u2018A5494\u2019\nApplication No.:88/012\nApplicant: Asgrow Seed Company of\nMichigan, USA\nAgent in Australia: Annand Robinson Pty Ltd",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    65.76,
+    759.36,
+    280.8,
+    787.2
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      65.76,
+      759.36,
+      227.04,
+      768.48
+     ],
+     "text": "c) Varieties: (Dianthus caryophyllus)"
+    },
+    {
+     "bbox": [
+      173.76,
+      769.44,
+      280.8,
+      777.12
+     ],
+     "text": "APPLICATION NO. 88/014"
+    },
+    {
+     "bbox": [
+      173.76,
+      779.52,
+      280.32,
+      787.2
+     ],
+     "text": "APPLICATION NO. 88/015"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "c) Varieties: (Dianthus caryophyllus)\nAPPLICATION NO. 88/014\nAPPLICATION NO. 88/015",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    308.64,
+    209.28,
+    315.36,
+    217.44
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      308.64,
+      209.28,
+      315.36,
+      217.44
+     ],
+     "text": "c)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "c)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    326.88,
+    60.0,
+    524.16,
+    161.28
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      417.12,
+      60.0,
+      524.16,
+      67.2
+     ],
+     "text": "APPLICATION NO. 88/016"
+    },
+    {
+     "bbox": [
+      417.12,
+      70.08,
+      523.68,
+      77.28
+     ],
+     "text": "APPLICATION NO. 88/017"
+    },
+    {
+     "bbox": [
+      417.12,
+      80.16,
+      523.68,
+      87.84
+     ],
+     "text": "APPLICATION NO. 88/018"
+    },
+    {
+     "bbox": [
+      416.64,
+      90.24,
+      523.68,
+      97.44
+     ],
+     "text": "APPLICATION NO. 88/019"
+    },
+    {
+     "bbox": [
+      416.64,
+      99.84,
+      523.68,
+      107.04
+     ],
+     "text": "APPLICATION NO. 88/020"
+    },
+    {
+     "bbox": [
+      416.64,
+      109.92,
+      522.72,
+      117.12
+     ],
+     "text": "APPLICATION NO. 88/021"
+    },
+    {
+     "bbox": [
+      416.64,
+      119.52,
+      523.2,
+      126.72
+     ],
+     "text": "APPLICATION NO. 88/022"
+    },
+    {
+     "bbox": [
+      416.64,
+      129.6,
+      523.2,
+      137.28
+     ],
+     "text": "APPLICATION NO. 88/023"
+    },
+    {
+     "bbox": [
+      416.64,
+      139.68,
+      523.68,
+      147.36
+     ],
+     "text": "APPLICATION NO. 88/024"
+    },
+    {
+     "bbox": [
+      326.88,
+      147.84,
+      523.2,
+      161.28
+     ],
+     "text": "\u2018Victoria\u2019 APPLICATION NO. 88/025"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "APPLICATION NO. 88/016\nAPPLICATION NO. 88/017\nAPPLICATION NO. 88/018\nAPPLICATION NO. 88/019\nAPPLICATION NO. 88/020\nAPPLICATION NO. 88/021\nAPPLICATION NO. 88/022\nAPPLICATION NO. 88/023\nAPPLICATION NO. 88/024\n\u2018Victoria\u2019 APPLICATION NO. 88/025",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    326.88,
+    169.92,
+    520.32,
+    198.72
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      326.88,
+      169.92,
+      520.32,
+      179.04
+     ],
+     "text": "Applicant: Bioprogress SP of Plovdiv, Bulgaria"
+    },
+    {
+     "bbox": [
+      326.88,
+      180.0,
+      518.4,
+      189.12
+     ],
+     "text": "Agent in Australia: Royena Nurseries Aust Pty"
+    },
+    {
+     "bbox": [
+      326.88,
+      190.08,
+      389.28,
+      198.72
+     ],
+     "text": "Ltd,Dingley Vic"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Bioprogress SP of Plovdiv, Bulgaria\nAgent in Australia: Royena Nurseries Aust Pty\nLtd,Dingley Vic",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    325.92,
+    209.76,
+    523.2,
+    266.88
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      326.4,
+      209.76,
+      484.8,
+      218.88
+     ],
+     "text": "Variety: \u2018Bronco\u2019 (Phaseolus vulgaris)"
+    },
+    {
+     "bbox": [
+      326.4,
+      219.84,
+      422.88,
+      228.0
+     ],
+     "text": "Application No.:88/030"
+    },
+    {
+     "bbox": [
+      326.88,
+      229.44,
+      481.92,
+      239.04
+     ],
+     "text": "Applicant: Asgrow Seed Company of"
+    },
+    {
+     "bbox": [
+      326.88,
+      239.04,
+      389.28,
+      248.16
+     ],
+     "text": "Michigan, USA"
+    },
+    {
+     "bbox": [
+      325.92,
+      249.12,
+      523.2,
+      258.24
+     ],
+     "text": "Agent in Australia: New World Seeds Pty Ltd of"
+    },
+    {
+     "bbox": [
+      326.4,
+      259.2,
+      385.44,
+      266.88
+     ],
+     "text": "Galston, NSW"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Bronco\u2019 (Phaseolus vulgaris)\nApplication No.:88/030\nApplicant: Asgrow Seed Company of\nMichigan, USA\nAgent in Australia: New World Seeds Pty Ltd of\nGalston, NSW",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    594.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

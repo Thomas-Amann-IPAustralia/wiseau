@@ -1,0 +1,1415 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    63.0,
+    52.56,
+    276.84,
+    62.28
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      63.0,
+      52.56,
+      276.84,
+      62.28
+     ],
+     "text": "\u2018Kuranga Gold Lace\u2019 Application No.:89/022"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Kuranga Gold Lace\u2019 Application No.:89/022",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    63.0,
+    72.36,
+    276.48,
+    81.36
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      63.0,
+      72.36,
+      276.48,
+      81.36
+     ],
+     "text": "\u2018Grasslands Tahora\u2019 Application No.:89/023"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Grasslands Tahora\u2019 Application No.:89/023",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    63.0,
+    92.52,
+    276.84,
+    101.16
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      63.0,
+      92.52,
+      276.84,
+      101.16
+     ],
+     "text": "\u2018Grasslands Kopu\u2019 Application No.:89/024"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Grasslands Kopu\u2019 Application No.:89/024",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    63.0,
+    112.32,
+    276.48,
+    121.32
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      63.0,
+      112.32,
+      276.48,
+      121.32
+     ],
+     "text": "\u2018A6520' Application No.:89/025"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018A6520' Application No.:89/025",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    63.36,
+    132.12,
+    277.2,
+    143.64
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      63.36,
+      132.12,
+      277.2,
+      143.64
+     ],
+     "text": "\u2018Frolic\u2019 Application No. 89/026"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Frolic\u2019 Application No. 89/026",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    63.0,
+    163.08,
+    207.36,
+    189.72
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      63.72,
+      163.08,
+      207.36,
+      173.88
+     ],
+     "text": "Provisional Protection"
+    },
+    {
+     "bbox": [
+      63.0,
+      178.92,
+      136.08,
+      189.72
+     ],
+     "text": "Withdrawn"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Provisional Protection\nWithdrawn",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    63.0,
+    202.32,
+    275.76,
+    250.92
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      63.72,
+      202.32,
+      268.92,
+      211.32
+     ],
+     "text": "Provisional protection has been withdrawn under"
+    },
+    {
+     "bbox": [
+      63.36,
+      212.4,
+      267.48,
+      221.04
+     ],
+     "text": "$22(b) of the Plant Variety Rights Act 1987 for the"
+    },
+    {
+     "bbox": [
+      63.0,
+      222.12,
+      267.84,
+      231.48
+     ],
+     "text": "following variety(ies) which have been sold other"
+    },
+    {
+     "bbox": [
+      63.0,
+      231.84,
+      275.76,
+      241.2
+     ],
+     "text": "than for purposes of S22(b) after the application for"
+    },
+    {
+     "bbox": [
+      63.72,
+      242.64,
+      141.48,
+      250.92
+     ],
+     "text": "PVR was accepted:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Provisional protection has been withdrawn under\n$22(b) of the Plant Variety Rights Act 1987 for the\nfollowing variety(ies) which have been sold other\nthan for purposes of S22(b) after the application for\nPVR was accepted:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    63.36,
+    262.08,
+    275.4,
+    331.2
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      63.36,
+      262.08,
+      240.84,
+      271.08
+     ],
+     "text": "\u2018Grasslands Koha\u2019 (Application No 88/035),"
+    },
+    {
+     "bbox": [
+      63.72,
+      271.8,
+      275.4,
+      281.16
+     ],
+     "text": "Ornithopus sativus Applicant: Grasslands Division,"
+    },
+    {
+     "bbox": [
+      63.72,
+      282.6,
+      255.96,
+      290.52
+     ],
+     "text": "DSIR of Palmerston North, NZ on behalf of Her"
+    },
+    {
+     "bbox": [
+      63.72,
+      292.32,
+      267.12,
+      301.32
+     ],
+     "text": "Majesty the Queen in Right of New Zealand. With"
+    },
+    {
+     "bbox": [
+      63.72,
+      302.4,
+      256.68,
+      309.96
+     ],
+     "text": "effect from 1/05/89 until the examination of the"
+    },
+    {
+     "bbox": [
+      63.72,
+      312.48,
+      257.04,
+      321.12
+     ],
+     "text": "application is completed and PVR is granted or"
+    },
+    {
+     "bbox": [
+      63.72,
+      322.56,
+      98.64,
+      331.2
+     ],
+     "text": "rejected."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Grasslands Koha\u2019 (Application No 88/035),\nOrnithopus sativus Applicant: Grasslands Division,\nDSIR of Palmerston North, NZ on behalf of Her\nMajesty the Queen in Right of New Zealand. With\neffect from 1/05/89 until the examination of the\napplication is completed and PVR is granted or\nrejected.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.64,
+    349.56,
+    154.8,
+    360.36
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      62.64,
+      349.56,
+      154.8,
+      360.36
+     ],
+     "text": "CORRIGENDA"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "CORRIGENDA",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    63.36,
+    373.68,
+    266.4,
+    412.2
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      63.36,
+      373.68,
+      258.12,
+      382.32
+     ],
+     "text": "1. In Vol 2 No 1 issue (March,1989) on page 11-"
+    },
+    {
+     "bbox": [
+      75.96,
+      383.76,
+      261.36,
+      392.04
+     ],
+     "text": "Flower colour for the variety \u2018Neshka\u2019 should"
+    },
+    {
+     "bbox": [
+      75.96,
+      393.84,
+      266.4,
+      402.48
+     ],
+     "text": "read \u2018pale lilac background with violet reddish"
+    },
+    {
+     "bbox": [
+      75.6,
+      403.56,
+      173.16,
+      412.2
+     ],
+     "text": "stripes and petal edges\u2019"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "1. In Vol 2 No 1 issue (March,1989) on page 11-\nFlower colour for the variety \u2018Neshka\u2019 should\nread \u2018pale lilac background with violet reddish\nstripes and petal edges\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.28,
+    423.36,
+    259.92,
+    452.16
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      62.28,
+      423.36,
+      259.92,
+      432.36
+     ],
+     "text": "2. In Vol 2 No 1 issue (March, 1989) on page 15-"
+    },
+    {
+     "bbox": [
+      75.24,
+      432.0,
+      241.2,
+      443.52
+     ],
+     "text": "The name of the applicant was recorded"
+    },
+    {
+     "bbox": [
+      75.6,
+      443.52,
+      228.96,
+      452.16
+     ],
+     "text": "incorrectly The correct information is"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "2. In Vol 2 No 1 issue (March, 1989) on page 15-\nThe name of the applicant was recorded\nincorrectly The correct information is",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    74.88,
+    463.32,
+    270.36,
+    481.68
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      75.24,
+      463.32,
+      270.36,
+      471.96
+     ],
+     "text": "\u2018Rohde Summer Navel\u2019 Application No.:89/005"
+    },
+    {
+     "bbox": [
+      74.88,
+      473.04,
+      253.08,
+      481.68
+     ],
+     "text": "Applicant:Harkhill Farm,Red Cliffs, Victoria"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Rohde Summer Navel\u2019 Application No.:89/005\nApplicant:Harkhill Farm,Red Cliffs, Victoria",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.28,
+    492.84,
+    275.4,
+    522.72
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      62.28,
+      492.84,
+      273.6,
+      501.48
+     ],
+     "text": "3. On Page 14 of PVJ Vol 2 No.1 of March, 1989 the"
+    },
+    {
+     "bbox": [
+      75.24,
+      502.56,
+      275.4,
+      511.2
+     ],
+     "text": "closing date for the lodging of objections should"
+    },
+    {
+     "bbox": [
+      75.6,
+      510.84,
+      186.84,
+      522.72
+     ],
+     "text": "read 30th September, 1989."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "3. On Page 14 of PVJ Vol 2 No.1 of March, 1989 the\nclosing date for the lodging of objections should\nread 30th September, 1989.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    63.0,
+    540.72,
+    275.4,
+    552.24
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      63.0,
+      540.72,
+      275.4,
+      552.24
+     ],
+     "text": "VARIATIONS TO APPLICATIONS"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "VARIATIONS TO APPLICATIONS",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.64,
+    565.92,
+    275.76,
+    594.72
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      62.64,
+      565.92,
+      260.28,
+      575.28
+     ],
+     "text": "The following submissions have been made for"
+    },
+    {
+     "bbox": [
+      63.0,
+      576.0,
+      275.76,
+      584.64
+     ],
+     "text": "variations to applications under subsection 19(1) of"
+    },
+    {
+     "bbox": [
+      62.64,
+      586.08,
+      200.16,
+      594.72
+     ],
+     "text": "the Plant Variety Rights Act 1987:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The following submissions have been made for\nvariations to applications under subsection 19(1) of\nthe Plant Variety Rights Act 1987:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.28,
+    605.52,
+    272.16,
+    624.24
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      62.28,
+      605.52,
+      158.4,
+      614.16
+     ],
+     "text": "Application No.:88/032"
+    },
+    {
+     "bbox": [
+      63.0,
+      615.24,
+      272.16,
+      624.24
+     ],
+     "text": "Variety: \u2018Fantail Starburst\u2019 (Lechenaultia formosa)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Application No.:88/032\nVariety: \u2018Fantail Starburst\u2019 (Lechenaultia formosa)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    62.64,
+    633.6,
+    248.4,
+    683.28
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      62.64,
+      633.6,
+      248.4,
+      645.48
+     ],
+     "text": "Applicant: NSW Department of Agriculture &"
+    },
+    {
+     "bbox": [
+      63.0,
+      644.76,
+      244.44,
+      652.32
+     ],
+     "text": "Fisheries and Ornamental Native Australian"
+    },
+    {
+     "bbox": [
+      63.0,
+      654.84,
+      168.12,
+      663.12
+     ],
+     "text": "Plants(Research) Pty Ltd.,"
+    },
+    {
+     "bbox": [
+      62.64,
+      674.64,
+      221.76,
+      683.28
+     ],
+     "text": "Variation: Change name to \u2018Starburst\u2019"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: NSW Department of Agriculture &\nFisheries and Ornamental Native Australian\nPlants(Research) Pty Ltd.,\nVariation: Change name to \u2018Starburst\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    63.36,
+    695.16,
+    272.88,
+    713.88
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      63.36,
+      695.16,
+      159.84,
+      703.8
+     ],
+     "text": "Application No.:88/034"
+    },
+    {
+     "bbox": [
+      63.72,
+      705.24,
+      272.88,
+      713.88
+     ],
+     "text": "Variety: \u2018Fantail Flamingo\u2019 (Lechenaultia formosa)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Application No.:88/034\nVariety: \u2018Fantail Flamingo\u2019 (Lechenaultia formosa)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    63.36,
+    725.04,
+    249.12,
+    753.48
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      63.36,
+      725.04,
+      249.12,
+      733.68
+     ],
+     "text": "Applicant:NSW Department of Agriculture &"
+    },
+    {
+     "bbox": [
+      64.08,
+      735.12,
+      245.16,
+      742.32
+     ],
+     "text": "Fisheries and Ornamental Native Australian"
+    },
+    {
+     "bbox": [
+      64.08,
+      744.84,
+      169.2,
+      753.48
+     ],
+     "text": "Plants(Research) Pty Ltd.,"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant:NSW Department of Agriculture &\nFisheries and Ornamental Native Australian\nPlants(Research) Pty Ltd.,",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    63.36,
+    764.28,
+    222.48,
+    773.28
+   ],
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      63.36,
+      764.28,
+      222.48,
+      773.28
+     ],
+     "text": "Variation: Change name to \u2018Flamingo\u2019"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variation: Change name to \u2018Flamingo\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    295.92,
+    51.84,
+    470.16,
+    79.56
+   ],
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      295.92,
+      51.84,
+      392.04,
+      60.84
+     ],
+     "text": "Application No.:88/033"
+    },
+    {
+     "bbox": [
+      296.28,
+      61.92,
+      470.16,
+      70.56
+     ],
+     "text": "Variety: \u2018Fantail Ultraviolet\u2019 (Lechenaultia"
+    },
+    {
+     "bbox": [
+      296.28,
+      72.0,
+      333.36,
+      79.56
+     ],
+     "text": "formosa)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Application No.:88/033\nVariety: \u2018Fantail Ultraviolet\u2019 (Lechenaultia\nformosa)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    296.28,
+    89.64,
+    481.68,
+    119.88
+   ],
+   "id": "e22",
+   "lines": [
+    {
+     "bbox": [
+      296.28,
+      89.64,
+      481.68,
+      101.88
+     ],
+     "text": "Applicant: NSW Department of Agriculture &"
+    },
+    {
+     "bbox": [
+      296.64,
+      101.52,
+      477.36,
+      108.72
+     ],
+     "text": "Fisheries and Ornamental Native Australian"
+    },
+    {
+     "bbox": [
+      296.64,
+      111.6,
+      401.76,
+      119.88
+     ],
+     "text": "Plants(Research) Pty Ltd.,"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: NSW Department of Agriculture &\nFisheries and Ornamental Native Australian\nPlants(Research) Pty Ltd.,",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    296.64,
+    131.76,
+    460.44,
+    140.76
+   ],
+   "id": "e23",
+   "lines": [
+    {
+     "bbox": [
+      296.64,
+      131.76,
+      460.44,
+      140.76
+     ],
+     "text": "Variation: Change name to \u2018Ultraviolet\u2019"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variation: Change name to \u2018Ultraviolet\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    296.28,
+    151.92,
+    399.6,
+    170.64
+   ],
+   "id": "e24",
+   "lines": [
+    {
+     "bbox": [
+      296.28,
+      151.92,
+      392.4,
+      160.56
+     ],
+     "text": "Application No.:88/003"
+    },
+    {
+     "bbox": [
+      296.64,
+      161.64,
+      399.6,
+      170.64
+     ],
+     "text": "Variety: \u2018Young at Heart\u2019"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Application No.:88/003\nVariety: \u2018Young at Heart\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    296.64,
+    181.44,
+    426.24,
+    190.08
+   ],
+   "id": "e25",
+   "lines": [
+    {
+     "bbox": [
+      296.64,
+      181.44,
+      426.24,
+      190.08
+     ],
+     "text": "Applicant: Swane Bros Pty Ltd."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Swane Bros Pty Ltd.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    296.64,
+    201.24,
+    508.68,
+    279.72
+   ],
+   "id": "e26",
+   "lines": [
+    {
+     "bbox": [
+      296.64,
+      201.24,
+      508.68,
+      209.88
+     ],
+     "text": "Variation: Add to the description... \u2018Young at Heart\u2019"
+    },
+    {
+     "bbox": [
+      297.0,
+      211.32,
+      475.2,
+      219.96
+     ],
+     "text": "under high temperatures and low humidity"
+    },
+    {
+     "bbox": [
+      296.64,
+      221.04,
+      468.36,
+      229.32
+     ],
+     "text": "conditions will show a much deeper petal"
+    },
+    {
+     "bbox": [
+      296.64,
+      230.76,
+      502.92,
+      239.04
+     ],
+     "text": "colour(RHS29B). Petal counts will also be reduced"
+    },
+    {
+     "bbox": [
+      297.0,
+      240.48,
+      498.6,
+      248.4
+     ],
+     "text": "(around 28 to 48 with a mean of 36). Leaf size will"
+    },
+    {
+     "bbox": [
+      297.36,
+      250.92,
+      504.0,
+      258.12
+     ],
+     "text": "be smaller under these extreme conditions. These"
+    },
+    {
+     "bbox": [
+      296.64,
+      260.64,
+      489.6,
+      269.64
+     ],
+     "text": "variations in the rose were observed during an"
+    },
+    {
+     "bbox": [
+      297.0,
+      271.08,
+      455.76,
+      279.72
+     ],
+     "text": "extremely hot period in October, 1988."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variation: Add to the description... \u2018Young at Heart\u2019\nunder high temperatures and low humidity\nconditions will show a much deeper petal\ncolour(RHS29B). Petal counts will also be reduced\n(around 28 to 48 with a mean of 36). Leaf size will\nbe smaller under these extreme conditions. These\nvariations in the rose were observed during an\nextremely hot period in October, 1988.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    296.28,
+    307.8,
+    383.76,
+    318.6
+   ],
+   "id": "e27",
+   "lines": [
+    {
+     "bbox": [
+      296.28,
+      307.8,
+      383.76,
+      318.6
+     ],
+     "text": "OBJECTIONS"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "OBJECTIONS",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    295.92,
+    331.92,
+    509.4,
+    370.08
+   ],
+   "id": "e28",
+   "lines": [
+    {
+     "bbox": [
+      295.92,
+      331.92,
+      506.16,
+      340.92
+     ],
+     "text": "Formal objections (S20 of the PVR Act) against any"
+    },
+    {
+     "bbox": [
+      295.92,
+      340.2,
+      504.36,
+      352.08
+     ],
+     "text": "of the applications, described under \u201cApplications"
+    },
+    {
+     "bbox": [
+      295.92,
+      351.72,
+      509.4,
+      360.36
+     ],
+     "text": "Accepted, Descriptions finalised,\u201d can be lodged by"
+    },
+    {
+     "bbox": [
+      295.92,
+      361.8,
+      354.24,
+      370.08
+     ],
+     "text": "a person who:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Formal objections (S20 of the PVR Act) against any\nof the applications, described under \u201cApplications\nAccepted, Descriptions finalised,\u201d can be lodged by\na person who:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    314.28,
+    381.24,
+    505.08,
+    410.04
+   ],
+   "id": "e29",
+   "lines": [
+    {
+     "bbox": [
+      314.28,
+      381.24,
+      505.08,
+      389.16
+     ],
+     "text": "a) considers their commercial interests would"
+    },
+    {
+     "bbox": [
+      326.52,
+      391.32,
+      470.88,
+      400.32
+     ],
+     "text": "be affected by a grant of PVR to the"
+    },
+    {
+     "bbox": [
+      325.8,
+      401.4,
+      389.52,
+      410.04
+     ],
+     "text": "applicant; AND"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a) considers their commercial interests would\nbe affected by a grant of PVR to the\napplicant; AND",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    314.28,
+    421.56,
+    504.36,
+    440.28
+   ],
+   "id": "e30",
+   "lines": [
+    {
+     "bbox": [
+      314.28,
+      421.56,
+      474.12,
+      430.2
+     ],
+     "text": "b) considers that the provisions of S26"
+    },
+    {
+     "bbox": [
+      326.16,
+      431.64,
+      504.36,
+      440.28
+     ],
+     "text": "(Appendix 3 of this Journal) cannot be met."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "b) considers that the provisions of S26\n(Appendix 3 of this Journal) cannot be met.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    294.12,
+    450.0,
+    487.8,
+    469.8
+   ],
+   "id": "e31",
+   "lines": [
+    {
+     "bbox": [
+      294.12,
+      450.0,
+      487.8,
+      461.52
+     ],
+     "text": "A fee is payable at the time of lodging a formal"
+    },
+    {
+     "bbox": [
+      295.92,
+      461.52,
+      336.24,
+      469.8
+     ],
+     "text": "objection."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "A fee is payable at the time of lodging a formal\nobjection.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    295.56,
+    480.96,
+    501.12,
+    519.12
+   ],
+   "id": "e32",
+   "lines": [
+    {
+     "bbox": [
+      295.56,
+      480.96,
+      496.44,
+      489.96
+     ],
+     "text": "Comment: Any person not falling into the above"
+    },
+    {
+     "bbox": [
+      295.92,
+      491.04,
+      499.32,
+      500.04
+     ],
+     "text": "category may make comment on the eligibility of"
+    },
+    {
+     "bbox": [
+      295.92,
+      500.76,
+      501.12,
+      509.04
+     ],
+     "text": "any of the above applications for PVR. There is no"
+    },
+    {
+     "bbox": [
+      295.92,
+      510.48,
+      357.48,
+      519.12
+     ],
+     "text": "charge for this."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comment: Any person not falling into the above\ncategory may make comment on the eligibility of\nany of the above applications for PVR. There is no\ncharge for this.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    295.2,
+    530.28,
+    502.2,
+    588.96
+   ],
+   "id": "e33",
+   "lines": [
+    {
+     "bbox": [
+      295.56,
+      530.28,
+      475.92,
+      539.28
+     ],
+     "text": "A person submitting a formal objection ora"
+    },
+    {
+     "bbox": [
+      295.56,
+      540.72,
+      491.4,
+      549.72
+     ],
+     "text": "comment must provide supporting evidence to"
+    },
+    {
+     "bbox": [
+      295.92,
+      550.8,
+      496.44,
+      559.44
+     ],
+     "text": "substantiate the claim. A copy of the submission"
+    },
+    {
+     "bbox": [
+      295.2,
+      560.88,
+      501.48,
+      569.16
+     ],
+     "text": "will also be sent to the applicant and the latter will"
+    },
+    {
+     "bbox": [
+      295.92,
+      569.16,
+      502.2,
+      581.04
+     ],
+     "text": "be asked to show why the objection should not be"
+    },
+    {
+     "bbox": [
+      295.56,
+      580.68,
+      326.16,
+      588.96
+     ],
+     "text": "upheld."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "A person submitting a formal objection ora\ncomment must provide supporting evidence to\nsubstantiate the claim. A copy of the submission\nwill also be sent to the applicant and the latter will\nbe asked to show why the objection should not be\nupheld.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    295.2,
+    600.48,
+    506.16,
+    636.84
+   ],
+   "id": "e34",
+   "lines": [
+    {
+     "bbox": [
+      295.2,
+      600.48,
+      506.16,
+      609.48
+     ],
+     "text": "All formal objections and comments relating to the"
+    },
+    {
+     "bbox": [
+      295.2,
+      610.2,
+      476.64,
+      619.2
+     ],
+     "text": "above applications must be lodged with the"
+    },
+    {
+     "bbox": [
+      295.92,
+      620.28,
+      489.6,
+      628.56
+     ],
+     "text": "Registrar by close of business on 31 December"
+    },
+    {
+     "bbox": [
+      295.92,
+      630.0,
+      316.8,
+      636.84
+     ],
+     "text": "1989."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "All formal objections and comments relating to the\nabove applications must be lodged with the\nRegistrar by close of business on 31 December\n1989.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    503.64,
+    794.52,
+    510.84,
+    800.64
+   ],
+   "id": "e35",
+   "lines": [
+    {
+     "bbox": [
+      503.64,
+      794.52,
+      510.84,
+      800.64
+     ],
+     "text": "31"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "31",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.51,
+    842.33
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

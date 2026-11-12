@@ -77,7 +77,8 @@ sys.path.insert(0, str(ROOT / "backend"))
 from parsers import serializer  # noqa: E402
 
 GOLD_DIR = HERE / "structure"
-ENGINES = ["pymupdf", "tables-tatr", "docling", "glm-ocr", "gemini-3.5-flash"]
+ENGINES = ["pymupdf", "tables-tatr", "docling", "glm-ocr", "gemini-3.5-flash",
+           "image-default", "fast-cheap-300"]  # ADR-059: Accurate (as shipped) vs Fast
 RELATIONS = ("caption_of", "continues_from", "continues_table", "footnote_for")
 # Gold types an output in Markdown can express; the rest are read as paragraphs.
 MARKDOWN_TYPES = {"heading", "table", "list", "paragraph", "code", "figure", "rule"}

@@ -1,0 +1,378 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    120.0,
+    362.4,
+    129.6,
+    369.6
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      120.0,
+      362.4,
+      129.6,
+      369.6
+     ],
+     "text": "1\u00a2."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "1\u00a2.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    238.56,
+    155.04,
+    504.0,
+    180.96
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      238.56,
+      155.04,
+      504.0,
+      163.68
+     ],
+     "text": "ALKOXYLATED FATTY ALCOHOLS AS AXILLARY"
+    },
+    {
+     "bbox": [
+      260.16,
+      172.32,
+      482.4,
+      180.96
+     ],
+     "text": "BUD INHIBITORS ON TOBACCO PLANTS"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ALKOXYLATED FATTY ALCOHOLS AS AXILLARY\nBUD INHIBITORS ON TOBACCO PLANTS",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    154.08,
+    206.88,
+    595.2,
+    688.8
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      224.64,
+      206.88,
+      566.88,
+      217.92
+     ],
+     "text": "This invention relates to the control of axillary"
+    },
+    {
+     "bbox": [
+      154.56,
+      224.16,
+      594.72,
+      236.16
+     ],
+     "text": "buds (suckers) in tobacco plants by the application of contact-"
+    },
+    {
+     "bbox": [
+      155.52,
+      241.92,
+      552.0,
+      253.44
+     ],
+     "text": "type chemical sucker control agents. In particular it is"
+    },
+    {
+     "bbox": [
+      155.04,
+      259.2,
+      580.32,
+      271.2
+     ],
+     "text": "directed to the use of alkoxylated fatty alcohols having 6-10"
+    },
+    {
+     "bbox": [
+      155.52,
+      276.96,
+      560.16,
+      288.48
+     ],
+     "text": "carbon atoms and a hydrophilic/lipophilic balance (HLB) of"
+    },
+    {
+     "bbox": [
+      155.04,
+      294.72,
+      186.72,
+      303.36
+     ],
+     "text": "8-14,"
+    },
+    {
+     "bbox": [
+      224.64,
+      312.0,
+      588.48,
+      323.52
+     ],
+     "text": "Tobacco leaf quality and yield are greatly increased"
+    },
+    {
+     "bbox": [
+      154.08,
+      328.8,
+      595.2,
+      340.8
+     ],
+     "text": "by \"topping\" tobacco plants in the mid-bud to late-bud stage of"
+    },
+    {
+     "bbox": [
+      154.56,
+      347.04,
+      552.48,
+      358.56
+     ],
+     "text": "growth and development. This is achieved by removing the"
+    },
+    {
+     "bbox": [
+      155.04,
+      364.32,
+      544.8,
+      375.84
+     ],
+     "text": "flowers and several adjacent top leaves. As soon as the"
+    },
+    {
+     "bbox": [
+      155.04,
+      381.6,
+      594.72,
+      393.12
+     ],
+     "text": "inflorescence is removed, many processes become ective. One of"
+    },
+    {
+     "bbox": [
+      155.04,
+      399.36,
+      573.6,
+      408.0
+     ],
+     "text": "these is the accumulation of nicotine and other alkaloids in"
+    },
+    {
+     "bbox": [
+      155.04,
+      416.64,
+      536.16,
+      427.68
+     ],
+     "text": "the leaves, particularly in the upper 2/3 of the plant."
+    },
+    {
+     "bbox": [
+      154.56,
+      433.92,
+      580.32,
+      445.44
+     ],
+     "text": "Topping also allows the leaves in the upper part of the plant"
+    },
+    {
+     "bbox": [
+      155.04,
+      451.68,
+      585.6,
+      462.72
+     ],
+     "text": "to continue to grow and consequently increase the total yield."
+    },
+    {
+     "bbox": [
+      224.16,
+      468.96,
+      559.2,
+      480.0
+     ],
+     "text": "Decapitation (topping) of the plant enhances the"
+    },
+    {
+     "bbox": [
+      154.56,
+      485.76,
+      566.88,
+      497.28
+     ],
+     "text": "growth of axillary buds or \"suckers\"; these must be removed"
+    },
+    {
+     "bbox": [
+      155.04,
+      503.52,
+      595.2,
+      515.04
+     ],
+     "text": "continuously or permanently in order to achieve the benefits of"
+    },
+    {
+     "bbox": [
+      155.52,
+      521.28,
+      578.88,
+      532.32
+     ],
+     "text": "topping. Removal of the suckers may be accomplished by hand,"
+    },
+    {
+     "bbox": [
+      154.08,
+      538.08,
+      580.8,
+      549.6
+     ],
+     "text": "which is a very time consuming and laborious operation, or by"
+    },
+    {
+     "bbox": [
+      155.52,
+      555.84,
+      270.72,
+      564.48
+     ],
+     "text": "chemical control."
+    },
+    {
+     "bbox": [
+      224.16,
+      573.12,
+      594.24,
+      584.64
+     ],
+     "text": "Two types of chemical agents are available: systemic"
+    },
+    {
+     "bbox": [
+      155.04,
+      590.88,
+      588.0,
+      600.96
+     ],
+     "text": "and contact. In the United States of America, it is common to"
+    },
+    {
+     "bbox": [
+      154.56,
+      607.68,
+      581.28,
+      619.2
+     ],
+     "text": "use a combination of both types of sucker control agents. An"
+    },
+    {
+     "bbox": [
+      155.52,
+      624.96,
+      587.52,
+      638.4
+     ],
+     "text": "application of a contact control agent will be followed by the"
+    },
+    {
+     "bbox": [
+      155.52,
+      642.24,
+      587.52,
+      653.76
+     ],
+     "text": "application of a systemic material such as the sorts of maleic"
+    },
+    {
+     "bbox": [
+      155.04,
+      659.04,
+      587.52,
+      671.04
+     ],
+     "text": "hydrazide, followed by another possible application of contact"
+    },
+    {
+     "bbox": [
+      156.0,
+      676.8,
+      578.88,
+      688.8
+     ],
+     "text": "desuckerant. In Canada, owing to the shorter growing seascn,"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "This invention relates to the control of axillary\nbuds (suckers) in tobacco plants by the application of contact-\ntype chemical sucker control agents. In particular it is\ndirected to the use of alkoxylated fatty alcohols having 6-10\ncarbon atoms and a hydrophilic/lipophilic balance (HLB) of\n8-14,\nTobacco leaf quality and yield are greatly increased\nby \"topping\" tobacco plants in the mid-bud to late-bud stage of\ngrowth and development. This is achieved by removing the\nflowers and several adjacent top leaves. As soon as the\ninflorescence is removed, many processes become ective. One of\nthese is the accumulation of nicotine and other alkaloids in\nthe leaves, particularly in the upper 2/3 of the plant.\nTopping also allows the leaves in the upper part of the plant\nto continue to grow and consequently increase the total yield.\nDecapitation (topping) of the plant enhances the\ngrowth of axillary buds or \"suckers\"; these must be removed\ncontinuously or permanently in order to achieve the benefits of\ntopping. Removal of the suckers may be accomplished by hand,\nwhich is a very time consuming and laborious operation, or by\nchemical control.\nTwo types of chemical agents are available: systemic\nand contact. In the United States of America, it is common to\nuse a combination of both types of sucker control agents. An\napplication of a contact control agent will be followed by the\napplication of a systemic material such as the sorts of maleic\nhydrazide, followed by another possible application of contact\ndesuckerant. In Canada, owing to the shorter growing seascn,",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    155.04,
+    711.36,
+    258.72,
+    732.48
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      155.04,
+      711.36,
+      236.16,
+      720.48
+     ],
+     "text": "Atkemix Inc."
+    },
+    {
+     "bbox": [
+      155.04,
+      723.36,
+      258.72,
+      732.48
+     ],
+     "text": "Decket No. 1812"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Atkemix Inc.\nDecket No. 1812",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    691.2,
+    1006.08
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

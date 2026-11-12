@@ -1,0 +1,506 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    2.52,
+    4.68,
+    6.48,
+    10.8
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      2.52,
+      4.68,
+      6.48,
+      10.8
+     ],
+     "text": "u"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "u",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    87.12,
+    248.04,
+    95.4,
+    255.24
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      87.12,
+      248.04,
+      95.4,
+      255.24
+     ],
+     "text": "10"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "10",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    309.6,
+    69.12,
+    327.96,
+    77.4
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      309.6,
+      69.12,
+      327.96,
+      77.4
+     ],
+     "text": "-8-"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "-8-",
+   "text_format": "plain",
+   "type": "page_number"
+  },
+  {
+   "bbox": [
+    108.0,
+    92.16,
+    519.12,
+    223.2
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      108.0,
+      92.16,
+      139.32,
+      101.16
+     ],
+     "text": "Anal."
+    },
+    {
+     "bbox": [
+      109.08,
+      107.64,
+      491.4,
+      119.52
+     ],
+     "text": "1H-NMR (250 MHz, DMSO) 6 0.20 (m,2H); 0.46 (m,2H); 0.92 (m,1H); 3.14"
+    },
+    {
+     "bbox": [
+      109.08,
+      126.36,
+      511.92,
+      137.88
+     ],
+     "text": "(d,J=7.0,2H); 3.22-4.09 (mm,7H); 3.78, 3.82 (2d,J=16.0,2H); 5.16 (d,J=5.0,1H);"
+    },
+    {
+     "bbox": [
+      109.08,
+      142.2,
+      519.12,
+      153.72
+     ],
+     "text": "5.87 (dd,Jj=13.2,J9=8.3,1H); 6.61 (s,1H); 7.23-7.33 (mm,16H); 9.90 (d,J=8.3,1H)"
+    },
+    {
+     "bbox": [
+      109.08,
+      159.84,
+      263.52,
+      171.0
+     ],
+     "text": "+ signals for NEt3 and DMF."
+    },
+    {
+     "bbox": [
+      109.08,
+      177.84,
+      477.36,
+      189.0
+     ],
+     "text": "calculated for CapH3gNgOgSe : CeHisN : CsH7NO = 1:1:2 and 0.36 % H20"
+    },
+    {
+     "bbox": [
+      165.96,
+      195.12,
+      324.72,
+      206.28
+     ],
+     "text": "C 61.94, H 6.50, N 12.50, S 6.36"
+    },
+    {
+     "bbox": [
+      109.08,
+      212.4,
+      328.32,
+      223.2
+     ],
+     "text": "found C 61.49, H 6.29, N 12.17, 5 6.69."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Anal.\n1H-NMR (250 MHz, DMSO) 6 0.20 (m,2H); 0.46 (m,2H); 0.92 (m,1H); 3.14\n(d,J=7.0,2H); 3.22-4.09 (mm,7H); 3.78, 3.82 (2d,J=16.0,2H); 5.16 (d,J=5.0,1H);\n5.87 (dd,Jj=13.2,J9=8.3,1H); 6.61 (s,1H); 7.23-7.33 (mm,16H); 9.90 (d,J=8.3,1H)\n+ signals for NEt3 and DMF.\ncalculated for CapH3gNgOgSe : CeHisN : CsH7NO = 1:1:2 and 0.36 % H20\nC 61.94, H 6.50, N 12.50, S 6.36\nfound C 61.49, H 6.29, N 12.17, 5 6.69.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    289.08,
+    245.16,
+    345.96,
+    261.0
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      289.08,
+      245.16,
+      345.96,
+      261.0
+     ],
+     "text": "Example 2"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Example 2",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    110.16,
+    274.32,
+    478.44,
+    302.76
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      110.16,
+      274.32,
+      478.44,
+      285.84
+     ],
+     "text": "a) Preparation of (Z)-(2-Aminothiazol-4-yl)-acetoxyiminoacetic acid"
+    },
+    {
+     "bbox": [
+      135.0,
+      291.6,
+      291.24,
+      302.76
+     ],
+     "text": "diethoxythiophosphoryl ester"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a) Preparation of (Z)-(2-Aminothiazol-4-yl)-acetoxyiminoacetic acid\ndiethoxythiophosphoryl ester",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    244.44,
+    322.2,
+    388.08,
+    393.48
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      328.32,
+      322.2,
+      342.36,
+      329.76
+     ],
+     "text": "OA"
+    },
+    {
+     "bbox": [
+      319.68,
+      322.92,
+      346.68,
+      336.96
+     ],
+     "text": "/ Cc"
+    },
+    {
+     "bbox": [
+      311.76,
+      338.4,
+      319.68,
+      356.4
+     ],
+     "text": "i"
+    },
+    {
+     "bbox": [
+      278.28,
+      351.0,
+      388.08,
+      372.6
+     ],
+     "text": "N Or p OEt"
+    },
+    {
+     "bbox": [
+      244.44,
+      365.4,
+      387.72,
+      381.6
+     ],
+     "text": "HN | || ORt"
+    },
+    {
+     "bbox": [
+      283.68,
+      381.24,
+      360.0,
+      393.48
+     ],
+     "text": "s e) S"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "OA\n/ Cc\ni\nN Or p OEt\nHN | || ORt\ns e) S",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    110.88,
+    415.44,
+    523.44,
+    747.0
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      136.8,
+      415.44,
+      506.16,
+      426.96
+     ],
+     "text": "To a stirred solution of 184.9 g (Z)-(2-aminothiazol-4-yl)-acetoxyimino-"
+    },
+    {
+     "bbox": [
+      110.88,
+      432.36,
+      510.12,
+      443.88
+     ],
+     "text": "acetic acid dihydrate (508.6 mmol) and 570 mg 1,4-diazabicyclo[2.2.2joctane"
+    },
+    {
+     "bbox": [
+      111.24,
+      449.28,
+      519.84,
+      460.44
+     ],
+     "text": "(DABCO) (5.09 mmol) in 1500 ml dimethylacetamide was added under argon"
+    },
+    {
+     "bbox": [
+      111.6,
+      466.2,
+      514.44,
+      477.72
+     ],
+     "text": "158 ml tributylamine (661 mmol). The yellowish solution was cooled to -20\u00b0C"
+    },
+    {
+     "bbox": [
+      111.24,
+      483.48,
+      520.2,
+      494.64
+     ],
+     "text": "and over 30 min was added dropwise 104 ml diethyl chlorothiophosphate (661"
+    },
+    {
+     "bbox": [
+      111.24,
+      500.04,
+      513.0,
+      511.56
+     ],
+     "text": "mmol). Stirring was continued at -20\u00b0C for 3.5 h. The reaction was followed"
+    },
+    {
+     "bbox": [
+      111.24,
+      516.96,
+      484.92,
+      528.12
+     ],
+     "text": "by HPLC. After 3 h, all starting material was consumed. The reaction"
+    },
+    {
+     "bbox": [
+      111.24,
+      533.88,
+      510.12,
+      545.04
+     ],
+     "text": "mixture was allowed to warm up to 0\u00b0C and over 1.0 h was added dropwise"
+    },
+    {
+     "bbox": [
+      111.96,
+      550.44,
+      521.64,
+      561.6
+     ],
+     "text": "2200 ml water. The precipitated product was filtered, washed with water and"
+    },
+    {
+     "bbox": [
+      111.96,
+      567.0,
+      516.24,
+      578.52
+     ],
+     "text": "dissolved in 800 ml dichloromethane. The aqueous layer was back-extracted"
+    },
+    {
+     "bbox": [
+      111.24,
+      583.92,
+      515.16,
+      595.44
+     ],
+     "text": "with 300 ml dichloromethane. The combined organic layers were dried over"
+    },
+    {
+     "bbox": [
+      112.32,
+      600.84,
+      491.76,
+      612.0
+     ],
+     "text": "70 g sodium sulfate and concentrated under reduced pressure until the"
+    },
+    {
+     "bbox": [
+      111.96,
+      617.76,
+      502.2,
+      628.92
+     ],
+     "text": "product started to crystallize. The residual solution was cooled to 2\u00b0C and"
+    },
+    {
+     "bbox": [
+      112.68,
+      634.32,
+      504.0,
+      645.84
+     ],
+     "text": "1200 ml n-hexane was added dropwise over 1 h. The resulting suspension"
+    },
+    {
+     "bbox": [
+      111.96,
+      651.6,
+      491.76,
+      662.76
+     ],
+     "text": "was stirred for 1 h at 2\u00b0C and then filtered. The crystalline product was"
+    },
+    {
+     "bbox": [
+      111.96,
+      668.16,
+      510.84,
+      679.68
+     ],
+     "text": "washed with n-hexane and dried to constant weight. (Z)-(2-aminothiazol-4-"
+    },
+    {
+     "bbox": [
+      111.96,
+      684.72,
+      510.84,
+      696.24
+     ],
+     "text": "yl)-acetoxyiminoacetic acid diethoxythiophosphoryl ester was obtained as a"
+    },
+    {
+     "bbox": [
+      112.32,
+      701.64,
+      523.44,
+      713.16
+     ],
+     "text": "white solid (166.9 g, yield = 86%, mp 128-130\u00b0C and was stored under argon at"
+    },
+    {
+     "bbox": [
+      112.68,
+      718.56,
+      506.16,
+      730.08
+     ],
+     "text": "-20\u00b0C. No further purification was necessary and the product was used as"
+    },
+    {
+     "bbox": [
+      112.32,
+      735.12,
+      246.24,
+      747.0
+     ],
+     "text": "isolated for the next step."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "To a stirred solution of 184.9 g (Z)-(2-aminothiazol-4-yl)-acetoxyimino-\nacetic acid dihydrate (508.6 mmol) and 570 mg 1,4-diazabicyclo[2.2.2joctane\n(DABCO) (5.09 mmol) in 1500 ml dimethylacetamide was added under argon\n158 ml tributylamine (661 mmol). The yellowish solution was cooled to -20\u00b0C\nand over 30 min was added dropwise 104 ml diethyl chlorothiophosphate (661\nmmol). Stirring was continued at -20\u00b0C for 3.5 h. The reaction was followed\nby HPLC. After 3 h, all starting material was consumed. The reaction\nmixture was allowed to warm up to 0\u00b0C and over 1.0 h was added dropwise\n2200 ml water. The precipitated product was filtered, washed with water and\ndissolved in 800 ml dichloromethane. The aqueous layer was back-extracted\nwith 300 ml dichloromethane. The combined organic layers were dried over\n70 g sodium sulfate and concentrated under reduced pressure until the\nproduct started to crystallize. The residual solution was cooled to 2\u00b0C and\n1200 ml n-hexane was added dropwise over 1 h. The resulting suspension\nwas stirred for 1 h at 2\u00b0C and then filtered. The crystalline product was\nwashed with n-hexane and dried to constant weight. (Z)-(2-aminothiazol-4-\nyl)-acetoxyiminoacetic acid diethoxythiophosphoryl ester was obtained as a\nwhite solid (166.9 g, yield = 86%, mp 128-130\u00b0C and was stored under argon at\n-20\u00b0C. No further purification was necessary and the product was used as\nisolated for the next step.",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    579.94,
+    788.86
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

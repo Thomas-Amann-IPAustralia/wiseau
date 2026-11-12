@@ -1,0 +1,1412 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    90.72,
+    50.04,
+    265.32,
+    83.88
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      91.08,
+      50.04,
+      260.28,
+      64.44
+     ],
+     "text": "PART 1 \u2014 ITEMS OF"
+    },
+    {
+     "bbox": [
+      90.72,
+      69.12,
+      265.32,
+      83.88
+     ],
+     "text": "GENERAL INTEREST"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PART 1 \u2014 ITEMS OF\nGENERAL INTEREST",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    90.36,
+    110.16,
+    258.84,
+    133.56
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      90.36,
+      110.16,
+      258.84,
+      119.52
+     ],
+     "text": "IMPLEMENTATION OF PVR \u2014"
+    },
+    {
+     "bbox": [
+      90.72,
+      123.84,
+      154.44,
+      133.56
+     ],
+     "text": "PROGRESS"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "IMPLEMENTATION OF PVR \u2014\nPROGRESS",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    90.0,
+    146.88,
+    300.24,
+    175.68
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      90.0,
+      146.88,
+      297.72,
+      155.52
+     ],
+     "text": "A total of 63 applications had been accepted by 15"
+    },
+    {
+     "bbox": [
+      90.36,
+      156.96,
+      300.24,
+      165.6
+     ],
+     "text": "May 1989. The applications are for a range of plant"
+    },
+    {
+     "bbox": [
+      90.0,
+      167.04,
+      289.44,
+      175.68
+     ],
+     "text": "species and Australian and overseas applicants."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "A total of 63 applications had been accepted by 15\nMay 1989. The applications are for a range of plant\nspecies and Australian and overseas applicants.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    90.0,
+    186.84,
+    301.68,
+    236.16
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      90.36,
+      186.84,
+      295.56,
+      195.84
+     ],
+     "text": "Four rights have been granted since the last issue"
+    },
+    {
+     "bbox": [
+      90.0,
+      196.56,
+      300.24,
+      205.2
+     ],
+     "text": "of the Journal and are listed in Part 2. They include"
+    },
+    {
+     "bbox": [
+      90.0,
+      207.0,
+      279.0,
+      216.0
+     ],
+     "text": "a schlumbergera, a rose and two grasses. It is"
+    },
+    {
+     "bbox": [
+      90.0,
+      217.08,
+      301.68,
+      226.08
+     ],
+     "text": "anticipated that several more rights will be granted"
+    },
+    {
+     "bbox": [
+      90.36,
+      227.52,
+      119.16,
+      236.16
+     ],
+     "text": "in July."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Four rights have been granted since the last issue\nof the Journal and are listed in Part 2. They include\na schlumbergera, a rose and two grasses. It is\nanticipated that several more rights will be granted\nin July.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    90.36,
+    254.88,
+    289.8,
+    264.6
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      90.36,
+      254.88,
+      289.8,
+      264.6
+     ],
+     "text": "AMENDMENTS TO THE SCHEDULE"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "AMENDMENTS TO THE SCHEDULE",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    90.36,
+    278.28,
+    296.64,
+    307.08
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      91.08,
+      278.28,
+      296.64,
+      286.92
+     ],
+     "text": "New varieties are eligible for PVR if their genus or"
+    },
+    {
+     "bbox": [
+      90.36,
+      288.0,
+      272.52,
+      297.0
+     ],
+     "text": "species is listed in the regulations under the"
+    },
+    {
+     "bbox": [
+      90.36,
+      298.08,
+      212.4,
+      307.08
+     ],
+     "text": "Plant Variety Rights Act 1987."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "New varieties are eligible for PVR if their genus or\nspecies is listed in the regulations under the\nPlant Variety Rights Act 1987.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    90.0,
+    317.88,
+    294.84,
+    346.68
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      90.0,
+      317.88,
+      281.88,
+      326.88
+     ],
+     "text": "The schedule at Appendix 1 provides advance"
+    },
+    {
+     "bbox": [
+      90.72,
+      327.96,
+      294.84,
+      336.6
+     ],
+     "text": "notice of the eligibility of plants to allow potential"
+    },
+    {
+     "bbox": [
+      90.36,
+      337.68,
+      270.36,
+      346.68
+     ],
+     "text": "applicants to plan their breeding programs."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The schedule at Appendix 1 provides advance\nnotice of the eligibility of plants to allow potential\napplicants to plan their breeding programs.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    89.64,
+    358.2,
+    304.56,
+    437.04
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      90.36,
+      358.2,
+      300.24,
+      367.2
+     ],
+     "text": "As noted in PVJ 2:1, a large number of new genera"
+    },
+    {
+     "bbox": [
+      90.36,
+      368.28,
+      294.12,
+      377.64
+     ],
+     "text": "and species will be included in the Regulations in"
+    },
+    {
+     "bbox": [
+      90.0,
+      378.36,
+      277.92,
+      387.36
+     ],
+     "text": "July 1989. From that date applications will be"
+    },
+    {
+     "bbox": [
+      90.36,
+      388.44,
+      302.4,
+      397.8
+     ],
+     "text": "accepted for the genera and species of plants listed"
+    },
+    {
+     "bbox": [
+      90.36,
+      398.52,
+      288.36,
+      407.16
+     ],
+     "text": "in Appendix 1 under the columns headed \u201cApril"
+    },
+    {
+     "bbox": [
+      90.72,
+      408.24,
+      300.6,
+      417.24
+     ],
+     "text": "1988, July 1988, January 1989 and July 1989 (plant"
+    },
+    {
+     "bbox": [
+      89.64,
+      418.32,
+      304.56,
+      427.32
+     ],
+     "text": "groups are not listed in the regulations and the latin"
+    },
+    {
+     "bbox": [
+      90.36,
+      428.4,
+      289.08,
+      437.04
+     ],
+     "text": "name takes precedence over the English name)."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "As noted in PVJ 2:1, a large number of new genera\nand species will be included in the Regulations in\nJuly 1989. From that date applications will be\naccepted for the genera and species of plants listed\nin Appendix 1 under the columns headed \u201cApril\n1988, July 1988, January 1989 and July 1989 (plant\ngroups are not listed in the regulations and the latin\nname takes precedence over the English name).",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    90.0,
+    454.68,
+    294.48,
+    465.84
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      90.0,
+      454.68,
+      294.48,
+      465.84
+     ],
+     "text": "PROPAGATION \u2014 apomictic species"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PROPAGATION \u2014 apomictic species",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    89.28,
+    477.36,
+    297.0,
+    526.68
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      89.28,
+      477.36,
+      295.56,
+      486.36
+     ],
+     "text": "The amendment to the Act to give the grantee the"
+    },
+    {
+     "bbox": [
+      89.64,
+      487.8,
+      292.68,
+      496.8
+     ],
+     "text": "exclusive right to asexually propagate, or license"
+    },
+    {
+     "bbox": [
+      89.64,
+      497.88,
+      296.28,
+      506.88
+     ],
+     "text": "others to asexually propagate, a protected variety"
+    },
+    {
+     "bbox": [
+      89.64,
+      507.6,
+      297.0,
+      516.6
+     ],
+     "text": "for the commercial production of fruit, cut flowers"
+    },
+    {
+     "bbox": [
+      89.64,
+      518.04,
+      225.72,
+      526.68
+     ],
+     "text": "or other products is progressing."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The amendment to the Act to give the grantee the\nexclusive right to asexually propagate, or license\nothers to asexually propagate, a protected variety\nfor the commercial production of fruit, cut flowers\nor other products is progressing.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    89.28,
+    537.84,
+    301.32,
+    584.64
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      89.28,
+      537.84,
+      280.44,
+      546.84
+     ],
+     "text": "The amendment will only apply to genera and"
+    },
+    {
+     "bbox": [
+      89.64,
+      547.56,
+      301.32,
+      556.92
+     ],
+     "text": "species prescribed for the purpose and the grantee"
+    },
+    {
+     "bbox": [
+      89.28,
+      558.0,
+      281.88,
+      566.64
+     ],
+     "text": "will be required to license anyone to asexually"
+    },
+    {
+     "bbox": [
+      89.64,
+      567.72,
+      278.64,
+      576.36
+     ],
+     "text": "propagate the variety if they meet reasonable"
+    },
+    {
+     "bbox": [
+      89.64,
+      577.44,
+      166.32,
+      584.64
+     ],
+     "text": "licence conditions."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The amendment will only apply to genera and\nspecies prescribed for the purpose and the grantee\nwill be required to license anyone to asexually\npropagate the variety if they meet reasonable\nlicence conditions.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    89.28,
+    596.88,
+    303.48,
+    685.08
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      89.28,
+      596.88,
+      303.48,
+      605.52
+     ],
+     "text": "Comment was sought on genera and species which"
+    },
+    {
+     "bbox": [
+      89.28,
+      606.6,
+      258.48,
+      615.24
+     ],
+     "text": "should and should not be covered by the"
+    },
+    {
+     "bbox": [
+      89.28,
+      616.68,
+      282.6,
+      625.32
+     ],
+     "text": "amendment. No specific exclusions have been"
+    },
+    {
+     "bbox": [
+      89.64,
+      626.76,
+      295.56,
+      635.76
+     ],
+     "text": "sought and all genera and species will be covered"
+    },
+    {
+     "bbox": [
+      89.64,
+      636.84,
+      290.16,
+      645.84
+     ],
+     "text": "by the provision as they become eligible for PVR"
+    },
+    {
+     "bbox": [
+      89.64,
+      646.92,
+      302.04,
+      655.56
+     ],
+     "text": "unless there are specific reasons for their exclusion"
+    },
+    {
+     "bbox": [
+      89.64,
+      657.0,
+      264.24,
+      665.64
+     ],
+     "text": "(NOTE this amendment applies to asexual"
+    },
+    {
+     "bbox": [
+      89.64,
+      666.72,
+      283.32,
+      675.72
+     ],
+     "text": "propagation and does not include propagation"
+    },
+    {
+     "bbox": [
+      89.28,
+      676.8,
+      136.08,
+      685.08
+     ],
+     "text": "from seed)."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comment was sought on genera and species which\nshould and should not be covered by the\namendment. No specific exclusions have been\nsought and all genera and species will be covered\nby the provision as they become eligible for PVR\nunless there are specific reasons for their exclusion\n(NOTE this amendment applies to asexual\npropagation and does not include propagation\nfrom seed).",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    88.92,
+    696.96,
+    303.84,
+    774.72
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      89.28,
+      696.96,
+      293.04,
+      705.6
+     ],
+     "text": "Some consideration is being given to the need to"
+    },
+    {
+     "bbox": [
+      89.28,
+      706.32,
+      293.4,
+      715.32
+     ],
+     "text": "exclude apomictic species from the provisions of"
+    },
+    {
+     "bbox": [
+      89.28,
+      716.4,
+      292.68,
+      725.04
+     ],
+     "text": "the amendment. These are generally reproduced"
+    },
+    {
+     "bbox": [
+      89.28,
+      725.76,
+      303.84,
+      734.4
+     ],
+     "text": "from seed but without fertilisation (ie asexually). As"
+    },
+    {
+     "bbox": [
+      89.28,
+      736.2,
+      262.8,
+      745.2
+     ],
+     "text": "some grass species reproduce in this way"
+    },
+    {
+     "bbox": [
+      89.28,
+      745.92,
+      284.04,
+      754.92
+     ],
+     "text": "comment is sought (by 30 September 1989) on"
+    },
+    {
+     "bbox": [
+      88.92,
+      756.0,
+      289.44,
+      764.64
+     ],
+     "text": "whether or not such species should be excluded"
+    },
+    {
+     "bbox": [
+      89.28,
+      766.08,
+      252.0,
+      774.72
+     ],
+     "text": "from the provisions of the amendment."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Some consideration is being given to the need to\nexclude apomictic species from the provisions of\nthe amendment. These are generally reproduced\nfrom seed but without fertilisation (ie asexually). As\nsome grass species reproduce in this way\ncomment is sought (by 30 September 1989) on\nwhether or not such species should be excluded\nfrom the provisions of the amendment.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    324.72,
+    50.76,
+    529.2,
+    79.56
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      325.08,
+      50.76,
+      529.2,
+      60.12
+     ],
+     "text": "Further information or clarification relating to the"
+    },
+    {
+     "bbox": [
+      324.72,
+      61.2,
+      527.76,
+      69.48
+     ],
+     "text": "proposed amendment may be obtained from the"
+    },
+    {
+     "bbox": [
+      324.72,
+      70.92,
+      426.24,
+      79.56
+     ],
+     "text": "Registrar on 062 716472,"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Further information or clarification relating to the\nproposed amendment may be obtained from the\nRegistrar on 062 716472,",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    324.36,
+    103.68,
+    534.24,
+    140.76
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      324.36,
+      103.68,
+      534.24,
+      113.04
+     ],
+     "text": "COMPARATIVE GROWING TRIALS \u2014"
+    },
+    {
+     "bbox": [
+      324.72,
+      117.72,
+      476.28,
+      127.08
+     ],
+     "text": "inclusion of varieties under"
+    },
+    {
+     "bbox": [
+      324.36,
+      131.76,
+      394.56,
+      140.76
+     ],
+     "text": "examination"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "COMPARATIVE GROWING TRIALS \u2014\ninclusion of varieties under\nexamination",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    324.0,
+    154.08,
+    528.12,
+    202.32
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      325.08,
+      154.08,
+      528.12,
+      163.08
+     ],
+     "text": "For a new variety to be eligible for PVR it must be"
+    },
+    {
+     "bbox": [
+      324.36,
+      163.8,
+      514.08,
+      171.72
+     ],
+     "text": "different from other known varieties. The PVR"
+    },
+    {
+     "bbox": [
+      324.72,
+      173.88,
+      514.8,
+      182.52
+     ],
+     "text": "Office requires applicants to demonstrate this"
+    },
+    {
+     "bbox": [
+      324.36,
+      183.96,
+      526.32,
+      192.6
+     ],
+     "text": "distinctness by growing the new variety with the"
+    },
+    {
+     "bbox": [
+      324.0,
+      193.68,
+      520.56,
+      202.32
+     ],
+     "text": "closest available varieties in comparative trials."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "For a new variety to be eligible for PVR it must be\ndifferent from other known varieties. The PVR\nOffice requires applicants to demonstrate this\ndistinctness by growing the new variety with the\nclosest available varieties in comparative trials.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    322.2,
+    215.28,
+    530.64,
+    254.16
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      322.56,
+      215.28,
+      520.56,
+      223.56
+     ],
+     "text": "Potential applicants should ensure that they are"
+    },
+    {
+     "bbox": [
+      322.56,
+      225.36,
+      500.04,
+      234.0
+     ],
+     "text": "aware of any new varieties currently under"
+    },
+    {
+     "bbox": [
+      322.56,
+      235.44,
+      530.64,
+      244.08
+     ],
+     "text": "examination by the PVR Office, as these may need"
+    },
+    {
+     "bbox": [
+      322.2,
+      245.52,
+      486.0,
+      254.16
+     ],
+     "text": "to be included in the comparative trials."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Potential applicants should ensure that they are\naware of any new varieties currently under\nexamination by the PVR Office, as these may need\nto be included in the comparative trials.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    322.2,
+    265.32,
+    527.4,
+    313.56
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      322.2,
+      265.32,
+      509.4,
+      274.32
+     ],
+     "text": "Applicants should also note that they may be"
+    },
+    {
+     "bbox": [
+      322.2,
+      275.04,
+      527.4,
+      283.68
+     ],
+     "text": "required to give material of new varieties to other"
+    },
+    {
+     "bbox": [
+      322.2,
+      285.12,
+      517.32,
+      294.12
+     ],
+     "text": "applicants for comparative trials. In most cases"
+    },
+    {
+     "bbox": [
+      322.2,
+      295.2,
+      516.24,
+      303.84
+     ],
+     "text": "such material would be covered by provisional"
+    },
+    {
+     "bbox": [
+      322.2,
+      305.28,
+      366.84,
+      313.56
+     ],
+     "text": "protection."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicants should also note that they may be\nrequired to give material of new varieties to other\napplicants for comparative trials. In most cases\nsuch material would be covered by provisional\nprotection.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    321.12,
+    333.72,
+    496.8,
+    357.48
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      321.12,
+      333.72,
+      496.8,
+      343.08
+     ],
+     "text": "COMPARATIVE TRIALS \u2014 Fruit"
+    },
+    {
+     "bbox": [
+      321.12,
+      348.12,
+      371.52,
+      357.48
+     ],
+     "text": "Varieties"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "COMPARATIVE TRIALS \u2014 Fruit\nVarieties",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    321.84,
+    371.88,
+    532.44,
+    449.28
+   ],
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      322.2,
+      371.88,
+      527.04,
+      380.88
+     ],
+     "text": "Some applicants have sought advice on methods"
+    },
+    {
+     "bbox": [
+      322.2,
+      381.6,
+      532.44,
+      390.6
+     ],
+     "text": "to reduce the long lead time for trials on fruit trees."
+    },
+    {
+     "bbox": [
+      322.2,
+      391.68,
+      516.96,
+      400.68
+     ],
+     "text": "Experience has shown that this can be reduced"
+    },
+    {
+     "bbox": [
+      322.2,
+      401.76,
+      518.04,
+      410.4
+     ],
+     "text": "considerably by grafting the new varieties onto"
+    },
+    {
+     "bbox": [
+      322.56,
+      411.48,
+      526.32,
+      419.4
+     ],
+     "text": "mature rootstocks (in such cases all trial varieties"
+    },
+    {
+     "bbox": [
+      321.84,
+      421.2,
+      529.56,
+      430.56
+     ],
+     "text": "should be on the same age stocks) or onto mature"
+    },
+    {
+     "bbox": [
+      322.2,
+      431.28,
+      520.92,
+      439.92
+     ],
+     "text": "trees (several varieties can be grafted to the one"
+    },
+    {
+     "bbox": [
+      322.2,
+      441.72,
+      342.72,
+      449.28
+     ],
+     "text": "tree)."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Some applicants have sought advice on methods\nto reduce the long lead time for trials on fruit trees.\nExperience has shown that this can be reduced\nconsiderably by grafting the new varieties onto\nmature rootstocks (in such cases all trial varieties\nshould be on the same age stocks) or onto mature\ntrees (several varieties can be grafted to the one\ntree).",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    321.84,
+    460.8,
+    527.76,
+    509.76
+   ],
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      322.2,
+      460.8,
+      509.76,
+      469.8
+     ],
+     "text": "If mature fruit characteristics are not of prime"
+    },
+    {
+     "bbox": [
+      322.2,
+      470.88,
+      517.32,
+      479.88
+     ],
+     "text": "importance, measurements may be taken at an"
+    },
+    {
+     "bbox": [
+      321.84,
+      480.96,
+      527.76,
+      489.96
+     ],
+     "text": "earlier stage. In addition laboratory assays can be"
+    },
+    {
+     "bbox": [
+      322.2,
+      491.4,
+      524.16,
+      500.04
+     ],
+     "text": "used to demonstrate differences, although some"
+    },
+    {
+     "bbox": [
+      322.2,
+      501.48,
+      448.92,
+      509.76
+     ],
+     "text": "field data will also be required."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "If mature fruit characteristics are not of prime\nimportance, measurements may be taken at an\nearlier stage. In addition laboratory assays can be\nused to demonstrate differences, although some\nfield data will also be required.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    322.2,
+    531.0,
+    532.08,
+    555.12
+   ],
+   "id": "e22",
+   "lines": [
+    {
+     "bbox": [
+      322.2,
+      531.0,
+      532.08,
+      540.72
+     ],
+     "text": "COMPARATIVE GROWING TRIALS \u2014"
+    },
+    {
+     "bbox": [
+      322.2,
+      545.76,
+      437.76,
+      555.12
+     ],
+     "text": "overseas test results"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "COMPARATIVE GROWING TRIALS \u2014\noverseas test results",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    321.84,
+    568.44,
+    527.4,
+    596.16
+   ],
+   "id": "e23",
+   "lines": [
+    {
+     "bbox": [
+      321.84,
+      568.44,
+      527.4,
+      577.08
+     ],
+     "text": "Applicants who are submitting overseas test data"
+    },
+    {
+     "bbox": [
+      322.2,
+      578.16,
+      514.08,
+      586.44
+     ],
+     "text": "should include in their trials comparisons with"
+    },
+    {
+     "bbox": [
+      321.84,
+      587.88,
+      527.04,
+      596.16
+     ],
+     "text": "similar varieties commonly available in Australia."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicants who are submitting overseas test data\nshould include in their trials comparisons with\nsimilar varieties commonly available in Australia.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    321.48,
+    607.32,
+    518.4,
+    646.56
+   ],
+   "id": "e24",
+   "lines": [
+    {
+     "bbox": [
+      321.84,
+      607.32,
+      500.04,
+      615.96
+     ],
+     "text": "Full descriptions in the Journal will only be"
+    },
+    {
+     "bbox": [
+      322.2,
+      617.04,
+      518.4,
+      626.04
+     ],
+     "text": "published if such comparative data is available."
+    },
+    {
+     "bbox": [
+      321.48,
+      627.12,
+      498.96,
+      636.48
+     ],
+     "text": "Otherwise publication will be delayed until"
+    },
+    {
+     "bbox": [
+      321.48,
+      637.56,
+      446.04,
+      646.56
+     ],
+     "text": "Australian trials are complete."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Full descriptions in the Journal will only be\npublished if such comparative data is available.\nOtherwise publication will be delayed until\nAustralian trials are complete.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    321.48,
+    657.36,
+    533.16,
+    694.8
+   ],
+   "id": "e25",
+   "lines": [
+    {
+     "bbox": [
+      321.84,
+      657.36,
+      533.16,
+      666.36
+     ],
+     "text": "If the applicant is claiming equivalence of overseas"
+    },
+    {
+     "bbox": [
+      321.48,
+      667.44,
+      506.16,
+      676.08
+     ],
+     "text": "tests under S23, Australian trials may still be"
+    },
+    {
+     "bbox": [
+      321.84,
+      677.16,
+      523.8,
+      686.52
+     ],
+     "text": "required if the necessary comparative data is not"
+    },
+    {
+     "bbox": [
+      321.48,
+      687.6,
+      360.72,
+      694.8
+     ],
+     "text": "available."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "If the applicant is claiming equivalence of overseas\ntests under S23, Australian trials may still be\nrequired if the necessary comparative data is not\navailable.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    321.12,
+    717.84,
+    535.68,
+    743.4
+   ],
+   "id": "e26",
+   "lines": [
+    {
+     "bbox": [
+      321.84,
+      717.84,
+      535.68,
+      727.92
+     ],
+     "text": "PROVISIONAL PROTECTION \u2014 sale of"
+    },
+    {
+     "bbox": [
+      321.12,
+      732.6,
+      381.6,
+      743.4
+     ],
+     "text": "the variety"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PROVISIONAL PROTECTION \u2014 sale of\nthe variety",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    321.48,
+    754.92,
+    527.04,
+    774.0
+   ],
+   "id": "e27",
+   "lines": [
+    {
+     "bbox": [
+      321.48,
+      754.92,
+      524.52,
+      764.28
+     ],
+     "text": "In previous issues of the Journal the provision of"
+    },
+    {
+     "bbox": [
+      321.48,
+      764.64,
+      527.04,
+      774.0
+     ],
+     "text": "the Act (S14) preventing sale of the variety before"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "In previous issues of the Journal the provision of\nthe Act (S14) preventing sale of the variety before",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    596.95,
+    844.01
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

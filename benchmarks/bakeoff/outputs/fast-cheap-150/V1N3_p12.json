@@ -1,0 +1,555 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    80.16,
+    47.52,
+    208.32,
+    76.32
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      80.16,
+      47.52,
+      126.24,
+      58.56
+     ],
+     "text": "Setaria"
+    },
+    {
+     "bbox": [
+      81.12,
+      62.4,
+      208.32,
+      76.32
+     ],
+     "text": "(Setaria sphacelata)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Setaria\n(Setaria sphacelata)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    80.16,
+    83.04,
+    252.0,
+    91.68
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      80.16,
+      83.04,
+      252.0,
+      91.68
+     ],
+     "text": "Variety: \u2018Splenda\u2019 Application No: 88/009"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Splenda\u2019 Application No: 88/009",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    79.68,
+    95.52,
+    258.72,
+    122.88
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      80.16,
+      95.52,
+      258.72,
+      104.64
+     ],
+     "text": "Applicant: J B Hacker of CSIRO, Di in of"
+    },
+    {
+     "bbox": [
+      79.68,
+      105.6,
+      247.68,
+      114.24
+     ],
+     "text": "Tropical Crops and Pastures, of St Lucia,"
+    },
+    {
+     "bbox": [
+      80.16,
+      115.2,
+      132.0,
+      122.88
+     ],
+     "text": "Queensland."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: J B Hacker of CSIRO, Di in of\nTropical Crops and Pastures, of St Lucia,\nQueensland.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    79.2,
+    131.52,
+    286.56,
+    183.84
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      79.68,
+      131.52,
+      120.96,
+      140.16
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      79.68,
+      144.96,
+      257.76,
+      153.12
+     ],
+     "text": "This variety is distinct from all other known"
+    },
+    {
+     "bbox": [
+      79.68,
+      155.04,
+      278.4,
+      163.68
+     ],
+     "text": "varieties in having the following combination of"
+    },
+    {
+     "bbox": [
+      79.2,
+      165.12,
+      286.56,
+      173.76
+     ],
+     "text": "characters: a robust growth habit, a late flowering"
+    },
+    {
+     "bbox": [
+      79.68,
+      175.2,
+      285.6,
+      183.84
+     ],
+     "text": "period, broad leaves and stems with many nodes."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\nThis variety is distinct from all other known\nvarieties in having the following combination of\ncharacters: a robust growth habit, a late flowering\nperiod, broad leaves and stems with many nodes.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    79.2,
+    192.0,
+    288.96,
+    233.76
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      79.2,
+      192.0,
+      204.96,
+      200.64
+     ],
+     "text": "Varieties used for comparison"
+    },
+    {
+     "bbox": [
+      79.68,
+      204.96,
+      264.0,
+      214.08
+     ],
+     "text": "\u2018Kazungula\u2019, \u2018Nandi\u2019 and \u2018Narok\u2019. The variety"
+    },
+    {
+     "bbox": [
+      79.2,
+      214.56,
+      288.96,
+      223.68
+     ],
+     "text": "\u2018Solander\u2019 is also distinguished but not in the main"
+    },
+    {
+     "bbox": [
+      79.2,
+      225.12,
+      138.72,
+      233.76
+     ],
+     "text": "growing trials."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comparison\n\u2018Kazungula\u2019, \u2018Nandi\u2019 and \u2018Narok\u2019. The variety\n\u2018Solander\u2019 is also distinguished but not in the main\ngrowing trials.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    78.24,
+    241.44,
+    285.6,
+    362.88
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      78.72,
+      241.44,
+      197.76,
+      250.08
+     ],
+     "text": "Comparative Growing Trials"
+    },
+    {
+     "bbox": [
+      78.72,
+      254.4,
+      283.2,
+      263.04
+     ],
+     "text": "Characteristics described and comparisons made"
+    },
+    {
+     "bbox": [
+      78.72,
+      264.0,
+      278.4,
+      273.12
+     ],
+     "text": "are from spaced plant trials conducted at Lawes,"
+    },
+    {
+     "bbox": [
+      78.72,
+      274.08,
+      285.6,
+      281.76
+     ],
+     "text": "South-eastern Queensland in 1981. There were 10"
+    },
+    {
+     "bbox": [
+      79.2,
+      284.16,
+      273.12,
+      292.8
+     ],
+     "text": "replicate plots of each variety and 12 plants per"
+    },
+    {
+     "bbox": [
+      79.2,
+      294.24,
+      233.76,
+      302.88
+     ],
+     "text": "replicate. Further comparisons of leaf"
+    },
+    {
+     "bbox": [
+      78.24,
+      304.32,
+      270.24,
+      313.44
+     ],
+     "text": "characteristics have been made from a spaced"
+    },
+    {
+     "bbox": [
+      78.72,
+      314.4,
+      261.12,
+      323.04
+     ],
+     "text": "plant trial at Samford, near Brisbane, South-"
+    },
+    {
+     "bbox": [
+      78.24,
+      324.48,
+      278.4,
+      333.6
+     ],
+     "text": "eastern Queensland and from a seed production"
+    },
+    {
+     "bbox": [
+      78.24,
+      334.56,
+      273.6,
+      341.76
+     ],
+     "text": "stand at Murwillumbah in Northern New South"
+    },
+    {
+     "bbox": [
+      78.24,
+      344.64,
+      284.16,
+      353.28
+     ],
+     "text": "Wales in 1988, from which there were 50 plants of"
+    },
+    {
+     "bbox": [
+      78.24,
+      354.24,
+      209.76,
+      362.88
+     ],
+     "text": "each variety randomly selected."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials\nCharacteristics described and comparisons made\nare from spaced plant trials conducted at Lawes,\nSouth-eastern Queensland in 1981. There were 10\nreplicate plots of each variety and 12 plants per\nreplicate. Further comparisons of leaf\ncharacteristics have been made from a spaced\nplant trial at Samford, near Brisbane, South-\neastern Queensland and from a seed production\nstand at Murwillumbah in Northern New South\nWales in 1988, from which there were 50 plants of\neach variety randomly selected.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    78.24,
+    371.04,
+    84.96,
+    377.76
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      78.24,
+      371.04,
+      84.96,
+      377.76
+     ],
+     "text": "te"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "te",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    78.24,
+    383.52,
+    292.32,
+    462.24
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      78.24,
+      383.52,
+      266.88,
+      392.16
+     ],
+     "text": "This variety arises from controlled pollination"
+    },
+    {
+     "bbox": [
+      78.72,
+      393.6,
+      286.56,
+      402.24
+     ],
+     "text": "between the botanical varieties var. sp/endida and"
+    },
+    {
+     "bbox": [
+      78.24,
+      403.2,
+      260.64,
+      411.84
+     ],
+     "text": "var. sericea followed by selection in random"
+    },
+    {
+     "bbox": [
+      78.24,
+      413.28,
+      292.32,
+      422.4
+     ],
+     "text": "crossing F2 and F; generations for conformity to the"
+    },
+    {
+     "bbox": [
+      78.24,
+      423.36,
+      276.0,
+      432.0
+     ],
+     "text": "var. splendida phenotype and for maximal seed"
+    },
+    {
+     "bbox": [
+      78.72,
+      433.44,
+      275.52,
+      442.08
+     ],
+     "text": "production. Final selections were subjected to 2"
+    },
+    {
+     "bbox": [
+      78.24,
+      443.52,
+      291.36,
+      452.64
+     ],
+     "text": "further generations seed production to improve the"
+    },
+    {
+     "bbox": [
+      78.24,
+      453.6,
+      186.24,
+      462.24
+     ],
+     "text": "stability of the population."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "This variety arises from controlled pollination\nbetween the botanical varieties var. sp/endida and\nvar. sericea followed by selection in random\ncrossing F2 and F; generations for conformity to the\nvar. splendida phenotype and for maximal seed\nproduction. Final selections were subjected to 2\nfurther generations seed production to improve the\nstability of the population.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    311.04,
+    389.28,
+    483.84,
+    420.48
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      313.44,
+      389.28,
+      483.84,
+      398.4
+     ],
+     "text": "Vigorous aerial tillering at culm nodes of"
+    },
+    {
+     "bbox": [
+      311.52,
+      400.32,
+      459.84,
+      408.96
+     ],
+     "text": "\u2018Splenda\u2019 following a seed harvest."
+    },
+    {
+     "bbox": [
+      311.04,
+      411.84,
+      433.92,
+      420.48
+     ],
+     "text": "(Photo supplied by applicant)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Vigorous aerial tillering at culm nodes of\n\u2018Splenda\u2019 following a seed harvest.\n(Photo supplied by applicant)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    312.96,
+    433.44,
+    511.68,
+    462.24
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      312.96,
+      433.44,
+      511.68,
+      442.08
+     ],
+     "text": "\u2018Splenda\u2019 experimental seed production area at"
+    },
+    {
+     "bbox": [
+      312.96,
+      443.52,
+      507.36,
+      452.16
+     ],
+     "text": "Lawes showing broad leaves and robust habit."
+    },
+    {
+     "bbox": [
+      313.44,
+      453.6,
+      434.4,
+      462.24
+     ],
+     "text": "(Photo supplied by applicant)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Splenda\u2019 experimental seed production area at\nLawes showing broad leaves and robust habit.\n(Photo supplied by applicant)",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    596.88,
+    842.4
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

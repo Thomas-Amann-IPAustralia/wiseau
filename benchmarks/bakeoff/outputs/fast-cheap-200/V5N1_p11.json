@@ -1,0 +1,1186 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    43.56,
+    59.76,
+    279.36,
+    113.76
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      43.92,
+      59.76,
+      279.36,
+      68.4
+     ],
+     "text": "of type, resistance to crown rust (Puccinia coronata) and"
+    },
+    {
+     "bbox": [
+      43.92,
+      70.92,
+      143.28,
+      79.2
+     ],
+     "text": "autumn and winter vigour."
+    },
+    {
+     "bbox": [
+      43.92,
+      84.6,
+      278.64,
+      93.96
+     ],
+     "text": "The parents are maintained by the applicant as vegetatively"
+    },
+    {
+     "bbox": [
+      43.92,
+      96.12,
+      279.36,
+      104.4
+     ],
+     "text": "propagated clones at Mt. Pleasant Laboratories, Launceston"
+    },
+    {
+     "bbox": [
+      43.56,
+      107.28,
+      81.36,
+      113.76
+     ],
+     "text": "Tasmania."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "of type, resistance to crown rust (Puccinia coronata) and\nautumn and winter vigour.\nThe parents are maintained by the applicant as vegetatively\npropagated clones at Mt. Pleasant Laboratories, Launceston\nTasmania.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    43.56,
+    124.92,
+    178.56,
+    133.92
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      43.56,
+      124.92,
+      178.56,
+      133.92
+     ],
+     "text": "Varieties used for comparison"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comparison",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    43.56,
+    138.96,
+    279.36,
+    169.2
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      43.92,
+      138.96,
+      279.0,
+      147.96
+     ],
+     "text": "\u2018Ellett\u2019, \u2018Grasslands Nui\u2019, \u2018Yatsyn 1\u2019, \u2018Martlet\u2019, \u2018Tasdale\u2019,"
+    },
+    {
+     "bbox": [
+      43.92,
+      150.12,
+      279.36,
+      159.12
+     ],
+     "text": "\u2018Droughtmaster\u2019, \u2018Brumby\u2019, \u2018Roper\u2019, \u2018Victorian\u2019, \u2018Kangaroo"
+    },
+    {
+     "bbox": [
+      43.56,
+      160.92,
+      70.92,
+      169.2
+     ],
+     "text": "Valley\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Ellett\u2019, \u2018Grasslands Nui\u2019, \u2018Yatsyn 1\u2019, \u2018Martlet\u2019, \u2018Tasdale\u2019,\n\u2018Droughtmaster\u2019, \u2018Brumby\u2019, \u2018Roper\u2019, \u2018Victorian\u2019, \u2018Kangaroo\nValley\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    42.84,
+    178.2,
+    255.6,
+    424.08
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      43.56,
+      178.2,
+      159.84,
+      187.56
+     ],
+     "text": "Comparative growing trial"
+    },
+    {
+     "bbox": [
+      43.56,
+      192.6,
+      254.88,
+      201.24
+     ],
+     "text": "All characteristics described are from a comparative"
+    },
+    {
+     "bbox": [
+      43.56,
+      203.76,
+      255.24,
+      212.4
+     ],
+     "text": "growing trial conducted at Cressy Research Station, near"
+    },
+    {
+     "bbox": [
+      43.2,
+      214.56,
+      254.88,
+      223.2
+     ],
+     "text": "Launceston, Tasmania, in 1990 and 1991. 100 spaced"
+    },
+    {
+     "bbox": [
+      43.56,
+      225.36,
+      254.88,
+      234.36
+     ],
+     "text": "plants of each variety were planted in a randomised com-"
+    },
+    {
+     "bbox": [
+      43.2,
+      236.52,
+      254.88,
+      245.52
+     ],
+     "text": "plete block design with 10 blocks. Each plot contained"
+    },
+    {
+     "bbox": [
+      44.64,
+      247.68,
+      254.88,
+      256.68
+     ],
+     "text": "10 plants (2 rows x 5 plants) of a particular variety with"
+    },
+    {
+     "bbox": [
+      43.2,
+      257.4,
+      254.88,
+      269.28
+     ],
+     "text": "a between plant spacing of 60cm. A similar trial was also"
+    },
+    {
+     "bbox": [
+      43.56,
+      270.0,
+      254.52,
+      279.0
+     ],
+     "text": "planted in 1990 at Cressy Research Station which"
+    },
+    {
+     "bbox": [
+      43.56,
+      281.16,
+      236.16,
+      289.8
+     ],
+     "text": "included only the varieties \u2018Jackaroo\u2019 and \u2018Roper\u2019."
+    },
+    {
+     "bbox": [
+      43.56,
+      294.84,
+      254.88,
+      303.84
+     ],
+     "text": "In addition to evidence of distinctness and stability, the"
+    },
+    {
+     "bbox": [
+      43.2,
+      306.0,
+      254.52,
+      314.64
+     ],
+     "text": "applicant has submitted photographic prints of the"
+    },
+    {
+     "bbox": [
+      43.2,
+      316.44,
+      255.6,
+      325.08
+     ],
+     "text": "results of SDS-polyacrylamide gel electrophoresis of"
+    },
+    {
+     "bbox": [
+      43.2,
+      327.6,
+      254.52,
+      335.88
+     ],
+     "text": "extracted seed protcins. These demonstrate a difference"
+    },
+    {
+     "bbox": [
+      43.56,
+      338.4,
+      254.52,
+      347.04
+     ],
+     "text": "in banding pattern between the varieties analysed and"
+    },
+    {
+     "bbox": [
+      42.84,
+      349.2,
+      254.52,
+      357.84
+     ],
+     "text": "consistency between the two samples of \u2018Jackaroo\u2019. The"
+    },
+    {
+     "bbox": [
+      42.84,
+      360.0,
+      254.16,
+      368.64
+     ],
+     "text": "analytical method used is essentially as described in"
+    },
+    {
+     "bbox": [
+      42.84,
+      371.16,
+      254.52,
+      379.08
+     ],
+     "text": "Gardiner, SE and Forde MB (1987), Seed Science and"
+    },
+    {
+     "bbox": [
+      42.84,
+      382.32,
+      254.52,
+      390.96
+     ],
+     "text": "Technology /5, 663-674, modified by the use of the"
+    },
+    {
+     "bbox": [
+      42.84,
+      393.48,
+      254.16,
+      402.12
+     ],
+     "text": "extraction medium described by Smith, DB and Payne,"
+    },
+    {
+     "bbox": [
+      43.2,
+      404.28,
+      254.52,
+      412.92
+     ],
+     "text": "PI (1984), J. natn. Inst. agric. Bot. /6,487-498. The"
+    },
+    {
+     "bbox": [
+      42.84,
+      415.44,
+      254.52,
+      424.08
+     ],
+     "text": "method is fully described in \u2018Identification of cultivars"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative growing trial\nAll characteristics described are from a comparative\ngrowing trial conducted at Cressy Research Station, near\nLaunceston, Tasmania, in 1990 and 1991. 100 spaced\nplants of each variety were planted in a randomised com-\nplete block design with 10 blocks. Each plot contained\n10 plants (2 rows x 5 plants) of a particular variety with\na between plant spacing of 60cm. A similar trial was also\nplanted in 1990 at Cressy Research Station which\nincluded only the varieties \u2018Jackaroo\u2019 and \u2018Roper\u2019.\nIn addition to evidence of distinctness and stability, the\napplicant has submitted photographic prints of the\nresults of SDS-polyacrylamide gel electrophoresis of\nextracted seed protcins. These demonstrate a difference\nin banding pattern between the varieties analysed and\nconsistency between the two samples of \u2018Jackaroo\u2019. The\nanalytical method used is essentially as described in\nGardiner, SE and Forde MB (1987), Seed Science and\nTechnology /5, 663-674, modified by the use of the\nextraction medium described by Smith, DB and Payne,\nPI (1984), J. natn. Inst. agric. Bot. /6,487-498. The\nmethod is fully described in \u2018Identification of cultivars",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    261.0,
+    459.36,
+    272.88,
+    466.2
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      261.0,
+      459.36,
+      272.88,
+      466.2
+     ],
+     "text": "les"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "les",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    47.52,
+    459.36,
+    252.0,
+    468.72
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      47.52,
+      459.36,
+      252.0,
+      468.72
+     ],
+     "text": "Table of Comparison of Perennial Ryegrass Vari"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Perennial Ryegrass Vari",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    43.2,
+    473.76,
+    157.68,
+    481.68
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      43.2,
+      473.76,
+      157.68,
+      481.68
+     ],
+     "text": "(* = variety used for comparison)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(* = variety used for comparison)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    307.08,
+    60.48,
+    543.24,
+    172.08
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      307.44,
+      60.48,
+      543.24,
+      69.48
+     ],
+     "text": "of grasses and forage legumes by SDS-PAGE of seed proteins\u2019,"
+    },
+    {
+     "bbox": [
+      307.44,
+      71.28,
+      542.88,
+      78.48
+     ],
+     "text": "Gardiner SE and Forde MB, in \u2018Modern Methods of Plant"
+    },
+    {
+     "bbox": [
+      307.44,
+      82.44,
+      542.88,
+      91.08
+     ],
+     "text": "Analysis\u2019, /4 (In press) eds. Linskens, H-F and Jackson, JF,"
+    },
+    {
+     "bbox": [
+      307.44,
+      93.6,
+      340.92,
+      102.24
+     ],
+     "text": "Springer."
+    },
+    {
+     "bbox": [
+      307.44,
+      108.36,
+      542.88,
+      117.0
+     ],
+     "text": "Seed protein analysis performed by Dr SE Gardiner of DSIR"
+    },
+    {
+     "bbox": [
+      307.8,
+      119.52,
+      494.28,
+      127.08
+     ],
+     "text": "Fruit and Trees, Palmerston North, New Zealand."
+    },
+    {
+     "bbox": [
+      307.08,
+      137.52,
+      354.24,
+      146.52
+     ],
+     "text": "Agronomy"
+    },
+    {
+     "bbox": [
+      307.8,
+      152.28,
+      542.52,
+      161.28
+     ],
+     "text": "\u2018Jackaroo\u2019 is best suited to high fertility soils in medium to high"
+    },
+    {
+     "bbox": [
+      307.08,
+      163.08,
+      533.52,
+      172.08
+     ],
+     "text": "rainfall (>600mm annual rainfall) humid temperate regions."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "of grasses and forage legumes by SDS-PAGE of seed proteins\u2019,\nGardiner SE and Forde MB, in \u2018Modern Methods of Plant\nAnalysis\u2019, /4 (In press) eds. Linskens, H-F and Jackson, JF,\nSpringer.\nSeed protein analysis performed by Dr SE Gardiner of DSIR\nFruit and Trees, Palmerston North, New Zealand.\nAgronomy\n\u2018Jackaroo\u2019 is best suited to high fertility soils in medium to high\nrainfall (>600mm annual rainfall) humid temperate regions.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    505.44,
+    187.92,
+    536.76,
+    193.68
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      505.44,
+      187.92,
+      536.76,
+      193.68
+     ],
+     "text": "Jackaroo"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Jackaroo",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    505.44,
+    205.92,
+    531.72,
+    211.68
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      505.44,
+      205.92,
+      531.72,
+      211.68
+     ],
+     "text": "Tasdale"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Tasdale",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    390.96,
+    203.4,
+    395.64,
+    217.44
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      390.96,
+      203.4,
+      395.64,
+      217.44
+     ],
+     "text": "cae"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "cae",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    505.44,
+    223.92,
+    528.84,
+    230.04
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      505.44,
+      223.92,
+      528.84,
+      230.04
+     ],
+     "text": "Martlet"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Martlet",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    505.08,
+    242.28,
+    558.72,
+    248.4
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      505.08,
+      242.28,
+      558.72,
+      248.4
+     ],
+     "text": "Tasmanian No 1"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Tasmanian No 1",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    386.64,
+    239.4,
+    395.28,
+    255.24
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      386.64,
+      239.4,
+      390.6,
+      255.24
+     ],
+     "text": "\u2014"
+    },
+    {
+     "bbox": [
+      390.96,
+      239.76,
+      395.28,
+      254.52
+     ],
+     "text": "note"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2014\nnote",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    505.08,
+    261.0,
+    536.4,
+    266.76
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      505.08,
+      261.0,
+      536.4,
+      266.76
+     ],
+     "text": "Jackaroo"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Jackaroo",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    344.52,
+    222.84,
+    355.32,
+    273.96
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      344.52,
+      222.84,
+      355.32,
+      273.96
+     ],
+     "text": "= ee SE"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "= ee SE",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    505.08,
+    279.36,
+    557.28,
+    303.48
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      505.44,
+      279.36,
+      520.2,
+      285.48
+     ],
+     "text": "Ellet"
+    },
+    {
+     "bbox": [
+      505.08,
+      297.36,
+      557.28,
+      303.48
+     ],
+     "text": "Grasslands Nui"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Ellet\nGrasslands Nui",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    505.08,
+    315.36,
+    532.8,
+    322.92
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      505.08,
+      315.36,
+      532.8,
+      322.92
+     ],
+     "text": "Yatsyn 1"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Yatsyn 1",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    505.08,
+    328.32,
+    545.04,
+    344.52
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      505.08,
+      328.32,
+      539.64,
+      334.44
+     ],
+     "text": "Grassland"
+    },
+    {
+     "bbox": [
+      505.08,
+      338.4,
+      545.04,
+      344.52
+     ],
+     "text": "Greenstone"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Grassland\nGreenstone",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    505.08,
+    354.6,
+    531.72,
+    380.52
+   ],
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      505.44,
+      354.6,
+      525.6,
+      362.16
+     ],
+     "text": "Roper"
+    },
+    {
+     "bbox": [
+      505.08,
+      372.6,
+      531.72,
+      380.52
+     ],
+     "text": "Brumby"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Roper\nBrumby",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    505.08,
+    390.96,
+    556.56,
+    398.88
+   ],
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      505.08,
+      390.96,
+      556.56,
+      398.88
+     ],
+     "text": "Droughtmaster"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Droughtmaster",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    266.04,
+    399.96,
+    529.2,
+    425.16
+   ],
+   "id": "e22",
+   "lines": [
+    {
+     "bbox": [
+      449.28,
+      399.96,
+      475.92,
+      405.0
+     ],
+     "text": "eas"
+    },
+    {
+     "bbox": [
+      266.4,
+      407.52,
+      529.2,
+      415.44
+     ],
+     "text": "SDS polyacrylamide gel electrophoresis of seed protein of ryegrass"
+    },
+    {
+     "bbox": [
+      266.04,
+      417.6,
+      468.36,
+      425.16
+     ],
+     "text": "varieties. (Photograph supplied by DSIR Fruit and Trees)."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "eas\nSDS polyacrylamide gel electrophoresis of seed protein of ryegrass\nvarieties. (Photograph supplied by DSIR Fruit and Trees).",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    42.48,
+    488.16,
+    524.16,
+    800.28
+   ],
+   "id": "e23",
+   "lines": [
+    {
+     "bbox": [
+      109.08,
+      488.16,
+      524.16,
+      499.32
+     ],
+     "text": "\u2018Jackaroo\u2019 \u201cEllet\u2019 \u201cGrasslands *\u2018Yatsyn1\u2019 = *\u2018Martlet\u2019 \u201cTasdale\u2019 *Drought- \u201cBrumby\u201d"
+    },
+    {
+     "bbox": [
+      230.04,
+      498.24,
+      465.48,
+      509.4
+     ],
+     "text": "Nui\u2019 master\u2019"
+    },
+    {
+     "bbox": [
+      42.84,
+      515.52,
+      284.76,
+      523.8
+     ],
+     "text": "MATURITY (no. of days from Oct 1 until 3 head tips visible per plant)"
+    },
+    {
+     "bbox": [
+      42.84,
+      525.96,
+      500.76,
+      532.08
+     ],
+     "text": "mean 30.7 30.8 33.3 34.6 34.4 30.0 35.3 28.1"
+    },
+    {
+     "bbox": [
+      42.48,
+      536.04,
+      497.52,
+      542.16
+     ],
+     "text": "std dev 44 48 5.3 6.8 5.2 5.3 7.1 3.6"
+    },
+    {
+     "bbox": [
+      42.84,
+      552.24,
+      119.52,
+      558.36
+     ],
+     "text": "FLAG LEAF LENGTH"
+    },
+    {
+     "bbox": [
+      42.48,
+      562.32,
+      514.8,
+      568.44
+     ],
+     "text": "mean 18.0cm 19.1.cm 19.7 cm 18.3. cm 19.1 cm 17.8.cm 19.0 cm 16.5 cm"
+    },
+    {
+     "bbox": [
+      42.84,
+      570.6,
+      517.68,
+      581.4
+     ],
+     "text": "range 11.0-23.5 12.5-28.0 13.5-29.0 11.0-27.5 10.0-27.5 10.0-28.0 10.5-28.0 8.5-30.0"
+    },
+    {
+     "bbox": [
+      42.48,
+      581.76,
+      497.52,
+      587.88
+     ],
+     "text": "std dev 2.9 3.3 3.2 3.4 3.3 3.7 3.3 44"
+    },
+    {
+     "bbox": [
+      42.84,
+      597.6,
+      113.4,
+      603.72
+     ],
+     "text": "FLAG LEAF WIDTH"
+    },
+    {
+     "bbox": [
+      42.48,
+      607.32,
+      513.0,
+      613.8
+     ],
+     "text": "mean 7.6mm 8.0mm 8.6mm 8.3mm 7.7mm 8.1mm 7.6mm 7.3mm"
+    },
+    {
+     "bbox": [
+      42.84,
+      617.4,
+      502.2,
+      624.96
+     ],
+     "text": "range 6-11 3411 5-11 5-11 6-11 510 6-11 4-1"
+    },
+    {
+     "bbox": [
+      42.84,
+      627.12,
+      497.16,
+      633.24
+     ],
+     "text": "std dev 1.0 1.2 V1 1.4 1.0 11 11 1.4"
+    },
+    {
+     "bbox": [
+      42.84,
+      642.96,
+      141.12,
+      649.08
+     ],
+     "text": "SPIKELET NO. PER SPIKE"
+    },
+    {
+     "bbox": [
+      42.84,
+      652.68,
+      501.84,
+      659.16
+     ],
+     "text": "mean 19.2 20.3 19.7 19.3 20.5 19.4 217 18.8"
+    },
+    {
+     "bbox": [
+      42.84,
+      662.76,
+      508.68,
+      670.68
+     ],
+     "text": "range 13-26 14-27 13-27 14-27 15-28 14-27 14-29 10-28"
+    },
+    {
+     "bbox": [
+      42.48,
+      672.48,
+      501.84,
+      679.32
+     ],
+     "text": "std dev 2.65 2.90 2.83 2.61 2.95 3.06 3.12 3.53"
+    },
+    {
+     "bbox": [
+      42.48,
+      689.04,
+      114.84,
+      695.16
+     ],
+     "text": "SPIKELET LENGTH"
+    },
+    {
+     "bbox": [
+      42.84,
+      698.76,
+      517.32,
+      705.24
+     ],
+     "text": "mean 14.3 mm 15.4 mm 16.0 mm 15.1 mm 14.9mm 15.3mm 14.4mm 13.5mm"
+    },
+    {
+     "bbox": [
+      42.84,
+      707.4,
+      504.0,
+      718.2
+     ],
+     "text": "range 10-19 10-20 10-22 10-20 11-19 10-20 10-19 8-20"
+    },
+    {
+     "bbox": [
+      42.48,
+      718.56,
+      497.52,
+      725.04
+     ],
+     "text": "std dev 3.3 3.5 41 3.7 2.9 3.7 3.3 3.3"
+    },
+    {
+     "bbox": [
+      42.48,
+      734.76,
+      128.52,
+      740.52
+     ],
+     "text": "SEEDS PER SPIKELET"
+    },
+    {
+     "bbox": [
+      42.84,
+      744.12,
+      497.52,
+      750.24
+     ],
+     "text": "mean 8.9 9.5 10.1 9.4 9.2 9.8 8.7 8.0"
+    },
+    {
+     "bbox": [
+      42.84,
+      752.76,
+      504.0,
+      763.2
+     ],
+     "text": "range 5-13 6-13 5-15 6-14 6-13 6-13 5-11 4-12"
+    },
+    {
+     "bbox": [
+      42.48,
+      763.56,
+      497.52,
+      770.04
+     ],
+     "text": "std dev 1.8 1.6 1.7 1.6 1.7 1.9 1.3 1.9"
+    },
+    {
+     "bbox": [
+      43.2,
+      792.36,
+      54.0,
+      800.28
+     ],
+     "text": "10"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Jackaroo\u2019 \u201cEllet\u2019 \u201cGrasslands *\u2018Yatsyn1\u2019 = *\u2018Martlet\u2019 \u201cTasdale\u2019 *Drought- \u201cBrumby\u201d\nNui\u2019 master\u2019\nMATURITY (no. of days from Oct 1 until 3 head tips visible per plant)\nmean 30.7 30.8 33.3 34.6 34.4 30.0 35.3 28.1\nstd dev 44 48 5.3 6.8 5.2 5.3 7.1 3.6\nFLAG LEAF LENGTH\nmean 18.0cm 19.1.cm 19.7 cm 18.3. cm 19.1 cm 17.8.cm 19.0 cm 16.5 cm\nrange 11.0-23.5 12.5-28.0 13.5-29.0 11.0-27.5 10.0-27.5 10.0-28.0 10.5-28.0 8.5-30.0\nstd dev 2.9 3.3 3.2 3.4 3.3 3.7 3.3 44\nFLAG LEAF WIDTH\nmean 7.6mm 8.0mm 8.6mm 8.3mm 7.7mm 8.1mm 7.6mm 7.3mm\nrange 6-11 3411 5-11 5-11 6-11 510 6-11 4-1\nstd dev 1.0 1.2 V1 1.4 1.0 11 11 1.4\nSPIKELET NO. PER SPIKE\nmean 19.2 20.3 19.7 19.3 20.5 19.4 217 18.8\nrange 13-26 14-27 13-27 14-27 15-28 14-27 14-29 10-28\nstd dev 2.65 2.90 2.83 2.61 2.95 3.06 3.12 3.53\nSPIKELET LENGTH\nmean 14.3 mm 15.4 mm 16.0 mm 15.1 mm 14.9mm 15.3mm 14.4mm 13.5mm\nrange 10-19 10-20 10-22 10-20 11-19 10-20 10-19 8-20\nstd dev 3.3 3.5 41 3.7 2.9 3.7 3.3 3.3\nSEEDS PER SPIKELET\nmean 8.9 9.5 10.1 9.4 9.2 9.8 8.7 8.0\nrange 5-13 6-13 5-15 6-14 6-13 6-13 5-11 4-12\nstd dev 1.8 1.6 1.7 1.6 1.7 1.9 1.3 1.9\n10",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

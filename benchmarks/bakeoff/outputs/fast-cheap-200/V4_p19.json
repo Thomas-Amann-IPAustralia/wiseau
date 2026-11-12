@@ -1,0 +1,1107 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    56.16,
+    41.76,
+    561.24,
+    470.52
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      317.16,
+      41.76,
+      561.24,
+      50.04
+     ],
+     "text": "= \u2014 iene"
+    },
+    {
+     "bbox": [
+      56.52,
+      66.6,
+      344.16,
+      78.12
+     ],
+     "text": "Table of Comparison of Geraldton Wax Flower Varieties"
+    },
+    {
+     "bbox": [
+      56.16,
+      81.0,
+      196.2,
+      89.64
+     ],
+     "text": "(* = varieties used for comparison)"
+    },
+    {
+     "bbox": [
+      134.28,
+      102.96,
+      525.24,
+      114.12
+     ],
+     "text": "\u2018Pearl Buttons\u2019 \u201cWhite Spring\u2019 \u2018Pristine\u2019 Triumphant\u2019 *'Mullering Brook\u2019"
+    },
+    {
+     "bbox": [
+      56.52,
+      121.32,
+      481.68,
+      132.12
+     ],
+     "text": "STEM THICKNESS measured 30 cm from apex of branch ;"
+    },
+    {
+     "bbox": [
+      56.16,
+      130.68,
+      495.0,
+      138.24
+     ],
+     "text": "mean 0.4? cm 9.27 cm 0.60 cm 0.39 cm 04t cm"
+    },
+    {
+     "bbox": [
+      56.52,
+      139.32,
+      509.04,
+      151.56
+     ],
+     "text": "range 0.39 \u2014 0.60 020 \u20140.33 046\u2014C.72 027 \u20140.50 0.35 \u2014 0.46"
+    },
+    {
+     "bbox": [
+      56.16,
+      150.84,
+      482.76,
+      158.4
+     ],
+     "text": "std deviation 006 004 0.08 0.07 0.04"
+    },
+    {
+     "bbox": [
+      56.88,
+      165.24,
+      150.12,
+      172.08
+     ],
+     "text": "LENGTH OF MATURE LEAVES"
+    },
+    {
+     "bbox": [
+      56.52,
+      173.88,
+      495.0,
+      185.76
+     ],
+     "text": "mean 179m 214\u00a2> 173 em Z204en 84cm"
+    },
+    {
+     "bbox": [
+      56.52,
+      183.24,
+      509.04,
+      195.12
+     ],
+     "text": "range 158-214 1.81 \u2014 2.46 743 \u2014 2.20 \u201c40 \u2014 2.52 1.31 \u2014 2.46"
+    },
+    {
+     "bbox": [
+      56.16,
+      195.12,
+      483.12,
+      202.32
+     ],
+     "text": "std deviation 0.15 0.18 G.i9 0.24 9.33"
+    },
+    {
+     "bbox": [
+      56.16,
+      209.52,
+      146.52,
+      216.36
+     ],
+     "text": "WIDTH OF MATURE LEAVES"
+    },
+    {
+     "bbox": [
+      56.52,
+      218.88,
+      497.52,
+      226.08
+     ],
+     "text": "mean 120mm 110mm 1.24 mm 0.96 mm 1.3mm"
+    },
+    {
+     "bbox": [
+      56.16,
+      227.52,
+      509.4,
+      239.4
+     ],
+     "text": "range 1.10 ~\u2014 1.30 \u20ac.90 \u2014 1.20 0.90 \u2014 1.60 0.80 \u2014 1 20 1.00 \u2014 130"
+    },
+    {
+     "bbox": [
+      56.16,
+      237.24,
+      483.48,
+      249.12
+     ],
+     "text": "ste dev ation 0.10 0.19 0.18 0.11 0.08"
+    },
+    {
+     "bbox": [
+      56.52,
+      252.72,
+      112.32,
+      259.56
+     ],
+     "text": "PEDICEL LENGTH"
+    },
+    {
+     "bbox": [
+      56.52,
+      261.0,
+      495.0,
+      272.52
+     ],
+     "text": "mean 108 cm 0.81 cm 0.78\u00a2m 0.60 cm 0.72 cm"
+    },
+    {
+     "bbox": [
+      56.16,
+      270.36,
+      509.4,
+      282.6
+     ],
+     "text": "range 0.54 \u2014 1.55 0.59 \u2014 1.10 0.46 \u2014 1.13 0.27 \u20140 94 940-110"
+    },
+    {
+     "bbox": [
+      56.16,
+      281.88,
+      483.12,
+      289.08
+     ],
+     "text": "std deviation 0.34 0.17 0.19 0.17 018"
+    },
+    {
+     "bbox": [
+      56.52,
+      295.92,
+      220.68,
+      304.2
+     ],
+     "text": "FLORAL TUBE COLOUR \u2014 top region, below sepals"
+    },
+    {
+     "bbox": [
+      134.28,
+      306.0,
+      486.36,
+      314.64
+     ],
+     "text": "yellow-green yellow-green green & yellow-green yellow-green green"
+    },
+    {
+     "bbox": [
+      56.52,
+      315.72,
+      486.36,
+      322.92
+     ],
+     "text": "RHS No 145A & 146C 144A 143A, 144A & 146A 144A 143A"
+    },
+    {
+     "bbox": [
+      56.52,
+      329.76,
+      262.08,
+      337.68
+     ],
+     "text": "FLORAL TUBE COLOUR \u2014 middle sect on newly-opened flowers"
+    },
+    {
+     "bbox": [
+      56.52,
+      338.4,
+      514.8,
+      349.92
+     ],
+     "text": "colour yellow-green yellow-green green-yellow. yel'ow & \u2014 yellow-areen greyed-orange"
+    },
+    {
+     "bbox": [
+      301.32,
+      350.28,
+      347.04,
+      358.2
+     ],
+     "text": "greyed orange"
+    },
+    {
+     "bbox": [
+      56.88,
+      358.2,
+      513.36,
+      370.44
+     ],
+     "text": "RHS No. 153A.B.C 161B & 1520 1A, 2A& 166C-8 15CA & 184A 166B & 164A"
+    },
+    {
+     "bbox": [
+      56.16,
+      369.72,
+      91.44,
+      376.56
+     ],
+     "text": "old towers"
+    },
+    {
+     "bbox": [
+      56.52,
+      379.8,
+      514.8,
+      388.44
+     ],
+     "text": "colour yellow-green yellow-green yeliow & greyed orange yellow-green greyed-orange"
+    },
+    {
+     "bbox": [
+      56.52,
+      387.72,
+      535.68,
+      400.32
+     ],
+     "text": "RHS No. 153A,.B,C 1518 & 152D 3A, 1624 & 164A 150A 166C. 176A & 1754"
+    },
+    {
+     "bbox": [
+      56.52,
+      403.2,
+      254.88,
+      411.48
+     ],
+     "text": "FLORAL TUBE COLOUR \u2014 cup/nectary newly-opened flowers"
+    },
+    {
+     "bbox": [
+      56.16,
+      412.2,
+      513.36,
+      423.72
+     ],
+     "text": "colour yellow - orange greyed-orange yellow-crange"
+    },
+    {
+     "bbox": [
+      56.52,
+      421.92,
+      481.68,
+      433.8
+     ],
+     "text": "RHS No. 26 3A4A.5A.BA, 70.88 28C & 295A 163A & 1648 i5A"
+    },
+    {
+     "bbox": [
+      56.16,
+      432.72,
+      91.08,
+      439.56
+     ],
+     "text": "old flowers"
+    },
+    {
+     "bbox": [
+      56.16,
+      442.44,
+      512.64,
+      452.16
+     ],
+     "text": "colour greyed-red & greyed yellow-green red-purple greyed-purple & red greyed-purcle"
+    },
+    {
+     "bbox": [
+      133.56,
+      453.6,
+      404.64,
+      461.52
+     ],
+     "text": "orange purple"
+    },
+    {
+     "bbox": [
+      56.52,
+      462.6,
+      519.48,
+      470.52
+     ],
+     "text": "RHS No 1818 & 171A-B 150B, 151A-B & 153-8 S9A-8-C.64A-B,&718 59A.60A,1844-B & 186A187B & 1834-8"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "= \u2014 iene\nTable of Comparison of Geraldton Wax Flower Varieties\n(* = varieties used for comparison)\n\u2018Pearl Buttons\u2019 \u201cWhite Spring\u2019 \u2018Pristine\u2019 Triumphant\u2019 *'Mullering Brook\u2019\nSTEM THICKNESS measured 30 cm from apex of branch ;\nmean 0.4? cm 9.27 cm 0.60 cm 0.39 cm 04t cm\nrange 0.39 \u2014 0.60 020 \u20140.33 046\u2014C.72 027 \u20140.50 0.35 \u2014 0.46\nstd deviation 006 004 0.08 0.07 0.04\nLENGTH OF MATURE LEAVES\nmean 179m 214\u00a2> 173 em Z204en 84cm\nrange 158-214 1.81 \u2014 2.46 743 \u2014 2.20 \u201c40 \u2014 2.52 1.31 \u2014 2.46\nstd deviation 0.15 0.18 G.i9 0.24 9.33\nWIDTH OF MATURE LEAVES\nmean 120mm 110mm 1.24 mm 0.96 mm 1.3mm\nrange 1.10 ~\u2014 1.30 \u20ac.90 \u2014 1.20 0.90 \u2014 1.60 0.80 \u2014 1 20 1.00 \u2014 130\nste dev ation 0.10 0.19 0.18 0.11 0.08\nPEDICEL LENGTH\nmean 108 cm 0.81 cm 0.78\u00a2m 0.60 cm 0.72 cm\nrange 0.54 \u2014 1.55 0.59 \u2014 1.10 0.46 \u2014 1.13 0.27 \u20140 94 940-110\nstd deviation 0.34 0.17 0.19 0.17 018\nFLORAL TUBE COLOUR \u2014 top region, below sepals\nyellow-green yellow-green green & yellow-green yellow-green green\nRHS No 145A & 146C 144A 143A, 144A & 146A 144A 143A\nFLORAL TUBE COLOUR \u2014 middle sect on newly-opened flowers\ncolour yellow-green yellow-green green-yellow. yel'ow & \u2014 yellow-areen greyed-orange\ngreyed orange\nRHS No. 153A.B.C 161B & 1520 1A, 2A& 166C-8 15CA & 184A 166B & 164A\nold towers\ncolour yellow-green yellow-green yeliow & greyed orange yellow-green greyed-orange\nRHS No. 153A,.B,C 1518 & 152D 3A, 1624 & 164A 150A 166C. 176A & 1754\nFLORAL TUBE COLOUR \u2014 cup/nectary newly-opened flowers\ncolour yellow - orange greyed-orange yellow-crange\nRHS No. 26 3A4A.5A.BA, 70.88 28C & 295A 163A & 1648 i5A\nold flowers\ncolour greyed-red & greyed yellow-green red-purple greyed-purple & red greyed-purcle\norange purple\nRHS No 1818 & 171A-B 150B, 151A-B & 153-8 S9A-8-C.64A-B,&718 59A.60A,1844-B & 186A187B & 1834-8",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    56.16,
+    476.64,
+    158.76,
+    483.84
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      56.16,
+      476.64,
+      158.76,
+      483.84
+     ],
+     "text": "COLOUR OF IMMATURE STEMS"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "COLOUR OF IMMATURE STEMS",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    56.16,
+    487.08,
+    288.72,
+    523.44
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      56.16,
+      487.08,
+      288.72,
+      495.72
+     ],
+     "text": "colour yellow-green yellow-green & creyed"
+    },
+    {
+     "bbox": [
+      217.44,
+      498.96,
+      239.4,
+      505.44
+     ],
+     "text": "orange"
+    },
+    {
+     "bbox": [
+      56.16,
+      505.44,
+      282.96,
+      516.96
+     ],
+     "text": "RHS No 153A & 151A 151A,153A.165B &"
+    },
+    {
+     "bbox": [
+      218.52,
+      516.96,
+      243.0,
+      523.44
+     ],
+     "text": "166C-D"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "colour yellow-green yellow-green & creyed\norange\nRHS No 153A & 151A 151A,153A.165B &\n166C-D",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    300.96,
+    487.8,
+    509.04,
+    514.44
+   ],
+   "confidence": null,
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      300.96,
+      487.8,
+      371.16,
+      496.08
+     ],
+     "text": "grey-orange & yellow-"
+    },
+    {
+     "bbox": [
+      300.96,
+      499.32,
+      318.96,
+      505.44
+     ],
+     "text": "green"
+    },
+    {
+     "bbox": [
+      302.04,
+      507.24,
+      358.2,
+      514.44
+     ],
+     "text": "144A 164A.1658"
+    },
+    {
+     "bbox": [
+      384.84,
+      487.8,
+      455.04,
+      496.44
+     ],
+     "text": "grey-orance & yellow-"
+    },
+    {
+     "bbox": [
+      468.36,
+      488.16,
+      509.04,
+      496.44
+     ],
+     "text": "yellow-green"
+    },
+    {
+     "bbox": [
+      469.08,
+      508.32,
+      486.0,
+      514.44
+     ],
+     "text": "144A"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       300.96,
+       487.8,
+       371.16,
+       496.08
+      ],
+      "text": "grey-orange & yellow-"
+     },
+     {
+      "bbox": [
+       384.84,
+       487.8,
+       455.04,
+       496.44
+      ],
+      "text": "grey-orance & yellow-"
+     },
+     {
+      "bbox": [
+       468.36,
+       488.16,
+       509.04,
+       496.44
+      ],
+      "text": "yellow-green"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       300.96,
+       499.32,
+       318.96,
+       505.44
+      ],
+      "text": "green"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       302.04,
+       507.24,
+       358.2,
+       514.44
+      ],
+      "text": "144A 164A.1658"
+     },
+     {
+      "bbox": [
+       469.08,
+       508.32,
+       486.0,
+       514.44
+      ],
+      "text": "144A"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "grey-orange & yellow- grey-orance & yellow- yellow-green\ngreen\n144A 164A.1658 144A",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    384.84,
+    499.32,
+    444.24,
+    524.16
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      384.84,
+      499.32,
+      402.48,
+      505.8
+     ],
+     "text": "green"
+    },
+    {
+     "bbox": [
+      385.56,
+      506.16,
+      444.24,
+      518.04
+     ],
+     "text": "164A, 166C.165B,"
+    },
+    {
+     "bbox": [
+      385.56,
+      517.32,
+      437.04,
+      524.16
+     ],
+     "text": "153A-8 & 152D"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "green\n164A, 166C.165B,\n153A-8 & 152D",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    54.36,
+    550.08,
+    190.44,
+    576.36
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      55.44,
+      550.08,
+      112.32,
+      560.88
+     ],
+     "text": "POTATO"
+    },
+    {
+     "bbox": [
+      54.36,
+      564.48,
+      190.44,
+      576.36
+     ],
+     "text": "(Solanum tuberosum)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "POTATO\n(Solanum tuberosum)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    54.72,
+    587.16,
+    70.2,
+    601.56
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      54.72,
+      587.16,
+      70.2,
+      601.56
+     ],
+     "text": "LO"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "LO",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    54.72,
+    608.76,
+    266.4,
+    637.56
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      55.08,
+      608.76,
+      228.24,
+      617.04
+     ],
+     "text": "Variety: \u2018Wilwash\u2019 Application No. 91/044"
+    },
+    {
+     "bbox": [
+      54.72,
+      618.84,
+      195.84,
+      627.12
+     ],
+     "text": "Application received: 17 April 1991"
+    },
+    {
+     "bbox": [
+      54.72,
+      628.56,
+      266.4,
+      637.56
+     ],
+     "text": "Applicant: Daratech Pty Ltd, of Melbourne, Victoria."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Wilwash\u2019 Application No. 91/044\nApplication received: 17 April 1991\nApplicant: Daratech Pty Ltd, of Melbourne, Victoria.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    54.36,
+    652.68,
+    288.0,
+    729.0
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      55.08,
+      652.68,
+      96.12,
+      660.96
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      55.08,
+      662.04,
+      277.92,
+      671.04
+     ],
+     "text": "\u2018Wilwash\u2019 is a smooth-skinned round potato with white"
+    },
+    {
+     "bbox": [
+      54.72,
+      672.12,
+      288.0,
+      679.68
+     ],
+     "text": "flesh and white skin. It has few flowers with white corolla"
+    },
+    {
+     "bbox": [
+      54.72,
+      681.84,
+      277.92,
+      690.12
+     ],
+     "text": "and the lightsprout base anthocyanin is blue-violet. It is"
+    },
+    {
+     "bbox": [
+      54.36,
+      691.56,
+      266.4,
+      700.2
+     ],
+     "text": "distinct from known varieties in having the following"
+    },
+    {
+     "bbox": [
+      54.36,
+      701.28,
+      276.84,
+      708.48
+     ],
+     "text": "combination of characters: leaflets absent or few in the"
+    },
+    {
+     "bbox": [
+      54.36,
+      711.0,
+      279.72,
+      719.64
+     ],
+     "text": "axils of the inflorescence, short flowering period, eartier"
+    },
+    {
+     "bbox": [
+      54.72,
+      721.08,
+      112.32,
+      729.0
+     ],
+     "text": "plant maturity."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\n\u2018Wilwash\u2019 is a smooth-skinned round potato with white\nflesh and white skin. It has few flowers with white corolla\nand the lightsprout base anthocyanin is blue-violet. It is\ndistinct from known varieties in having the following\ncombination of characters: leaflets absent or few in the\naxils of the inflorescence, short flowering period, eartier\nplant maturity.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    54.36,
+    744.48,
+    269.28,
+    772.92
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      54.36,
+      744.48,
+      179.28,
+      753.48
+     ],
+     "text": "Varieties used for comparison"
+    },
+    {
+     "bbox": [
+      54.36,
+      754.56,
+      269.28,
+      763.56
+     ],
+     "text": "\"Coliban\u2019 being the closest known variety, an industry"
+    },
+    {
+     "bbox": [
+      54.72,
+      765.0,
+      246.6,
+      772.92
+     ],
+     "text": "standard variety and one of the parent varieties."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comparison\n\"Coliban\u2019 being the closest known variety, an industry\nstandard variety and one of the parent varieties.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    320.4,
+    549.72,
+    557.28,
+    647.64
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      321.12,
+      549.72,
+      439.56,
+      558.72
+     ],
+     "text": "Comparative Growing Trials"
+    },
+    {
+     "bbox": [
+      320.76,
+      559.8,
+      549.72,
+      568.8
+     ],
+     "text": "All characteristics described below are from comparative"
+    },
+    {
+     "bbox": [
+      321.12,
+      569.88,
+      547.92,
+      578.52
+     ],
+     "text": "growing trials conducted at the Potato Research Station,"
+    },
+    {
+     "bbox": [
+      320.4,
+      578.16,
+      529.2,
+      590.4
+     ],
+     "text": "Toolangi in Victoria in 1989/90 and 1990/91. Two"
+    },
+    {
+     "bbox": [
+      321.12,
+      590.04,
+      520.56,
+      598.68
+     ],
+     "text": "hundred plants were grown in three replicates on"
+    },
+    {
+     "bbox": [
+      320.76,
+      599.76,
+      516.96,
+      607.32
+     ],
+     "text": "kraznozem soil fertilised with Pivot 800 at 2t/ha."
+    },
+    {
+     "bbox": [
+      321.12,
+      609.48,
+      523.44,
+      618.12
+     ],
+     "text": "Measurements are from 20 specimens selected at"
+    },
+    {
+     "bbox": [
+      321.12,
+      619.92,
+      557.28,
+      628.56
+     ],
+     "text": "random. Plants were irrigated as required and prophylactic"
+    },
+    {
+     "bbox": [
+      320.76,
+      629.64,
+      533.16,
+      638.64
+     ],
+     "text": "sprays were applied four times for fungal diseases of"
+    },
+    {
+     "bbox": [
+      320.76,
+      639.36,
+      348.84,
+      647.64
+     ],
+     "text": "foliage."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials\nAll characteristics described below are from comparative\ngrowing trials conducted at the Potato Research Station,\nToolangi in Victoria in 1989/90 and 1990/91. Two\nhundred plants were grown in three replicates on\nkraznozem soil fertilised with Pivot 800 at 2t/ha.\nMeasurements are from 20 specimens selected at\nrandom. Plants were irrigated as required and prophylactic\nsprays were applied four times for fungal diseases of\nfoliage.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    320.04,
+    663.12,
+    554.04,
+    730.8
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      320.76,
+      663.12,
+      345.96,
+      671.4
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      320.4,
+      673.2,
+      541.44,
+      681.84
+     ],
+     "text": "This variety arose from the controlled pollination of the"
+    },
+    {
+     "bbox": [
+      320.4,
+      682.92,
+      543.24,
+      691.56
+     ],
+     "text": "variety \u2018Norgleam\u2019 by the pollen parent \u2018Coliban\u2019. It was"
+    },
+    {
+     "bbox": [
+      320.04,
+      692.64,
+      554.04,
+      700.92
+     ],
+     "text": "bred by Dr Roger Kirkham of Healesville, Victoria between"
+    },
+    {
+     "bbox": [
+      321.12,
+      702.0,
+      543.96,
+      711.0
+     ],
+     "text": "1980 and 1991. \u2018Wilwash\u2019 was selected for its superior"
+    },
+    {
+     "bbox": [
+      320.4,
+      712.08,
+      553.68,
+      721.08
+     ],
+     "text": "yield, smooth white-skinned tubers of uniform size, shape"
+    },
+    {
+     "bbox": [
+      320.4,
+      722.16,
+      534.96,
+      730.8
+     ],
+     "text": "and cooking qualities from 20,000 field grown plants."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\nThis variety arose from the controlled pollination of the\nvariety \u2018Norgleam\u2019 by the pollen parent \u2018Coliban\u2019. It was\nbred by Dr Roger Kirkham of Healesville, Victoria between\n1980 and 1991. \u2018Wilwash\u2019 was selected for its superior\nyield, smooth white-skinned tubers of uniform size, shape\nand cooking qualities from 20,000 field grown plants.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    320.04,
+    745.56,
+    546.12,
+    774.0
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      320.76,
+      745.56,
+      477.0,
+      754.2
+     ],
+     "text": "Morphology \u2014 see comparison tables."
+    },
+    {
+     "bbox": [
+      320.4,
+      755.64,
+      546.12,
+      764.64
+     ],
+     "text": "\u2018Wilwash\u2019 is an upright and vigorous plant with medium"
+    },
+    {
+     "bbox": [
+      320.04,
+      765.36,
+      538.92,
+      774.0
+     ],
+     "text": "foliage cover. Stem anthocyanin colouration is weaker"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 see comparison tables.\n\u2018Wilwash\u2019 is an upright and vigorous plant with medium\nfoliage cover. Stem anthocyanin colouration is weaker",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    546.12,
+    798.84,
+    557.64,
+    807.84
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      546.12,
+      798.84,
+      557.64,
+      807.84
+     ],
+     "text": "17"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "17",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

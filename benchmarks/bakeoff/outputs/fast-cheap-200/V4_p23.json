@@ -1,0 +1,1115 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    53.64,
+    61.2,
+    288.72,
+    81.0
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      53.64,
+      61.2,
+      288.72,
+      69.48
+     ],
+     "text": "characteristics are based on 20 measurements from these"
+    },
+    {
+     "bbox": [
+      53.64,
+      72.36,
+      136.08,
+      81.0
+     ],
+     "text": "plants, aged 2 years."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "characteristics are based on 20 measurements from these\nplants, aged 2 years.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    53.64,
+    96.48,
+    290.88,
+    154.8
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      54.0,
+      96.48,
+      79.2,
+      104.76
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      53.64,
+      104.76,
+      282.24,
+      113.4
+     ],
+     "text": "The breeder is W. Kordes Sohne Rosenschulen GmbH of"
+    },
+    {
+     "bbox": [
+      53.64,
+      115.2,
+      257.04,
+      124.56
+     ],
+     "text": "West Germany. \u2018Coco\u2019 (Korferse) originated from a"
+    },
+    {
+     "bbox": [
+      54.0,
+      125.28,
+      265.68,
+      134.64
+     ],
+     "text": "controlled pollination of a seedling x Flamingo, by an"
+    },
+    {
+     "bbox": [
+      54.72,
+      135.36,
+      290.88,
+      144.72
+     ],
+     "text": "unnamed seedling. \u2018Coco\u2019 (Korferse) has been protected by"
+    },
+    {
+     "bbox": [
+      54.72,
+      145.44,
+      256.68,
+      154.8
+     ],
+     "text": "Plant Variety Rights in West Germany since 1989."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\nThe breeder is W. Kordes Sohne Rosenschulen GmbH of\nWest Germany. \u2018Coco\u2019 (Korferse) originated from a\ncontrolled pollination of a seedling x Flamingo, by an\nunnamed seedling. \u2018Coco\u2019 (Korferse) has been protected by\nPlant Variety Rights in West Germany since 1989.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    54.72,
+    172.44,
+    250.92,
+    195.12
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      54.72,
+      172.44,
+      250.92,
+      183.6
+     ],
+     "text": "Table of Comparison of Rose Varieties"
+    },
+    {
+     "bbox": [
+      54.72,
+      186.48,
+      194.76,
+      195.12
+     ],
+     "text": "(* = varieties used for comparison)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Rose Varieties\n(* = varieties used for comparison)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    54.36,
+    214.2,
+    266.4,
+    766.08
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      114.48,
+      214.2,
+      266.4,
+      226.08
+     ],
+     "text": "\u2018Korferse\u2019 *'Kardinal\u2019 * Toscana\u2019"
+    },
+    {
+     "bbox": [
+      113.76,
+      225.72,
+      136.8,
+      233.64
+     ],
+     "text": "(\u2018Coco\u2019)"
+    },
+    {
+     "bbox": [
+      55.08,
+      242.64,
+      113.04,
+      249.48
+     ],
+     "text": "FLOWER COLOUR"
+    },
+    {
+     "bbox": [
+      55.08,
+      252.72,
+      263.88,
+      259.56
+     ],
+     "text": "GROUP medium red medium red red blend"
+    },
+    {
+     "bbox": [
+      55.44,
+      267.12,
+      119.16,
+      273.96
+     ],
+     "text": "FLOWER DIAMETER"
+    },
+    {
+     "bbox": [
+      55.08,
+      276.48,
+      260.64,
+      284.04
+     ],
+     "text": "mean 73.0mm 76.0mm 79.0mm"
+    },
+    {
+     "bbox": [
+      55.44,
+      286.56,
+      254.16,
+      295.56
+     ],
+     "text": "range 52-95 73-82 75-85"
+    },
+    {
+     "bbox": [
+      55.08,
+      295.2,
+      244.08,
+      306.72
+     ],
+     "text": "std. deviation 10.6 3.0 3.5"
+    },
+    {
+     "bbox": [
+      55.44,
+      310.68,
+      109.44,
+      317.16
+     ],
+     "text": "PETAL COLOURS"
+    },
+    {
+     "bbox": [
+      55.08,
+      320.76,
+      81.36,
+      327.24
+     ],
+     "text": "midzone"
+    },
+    {
+     "bbox": [
+      55.08,
+      328.68,
+      247.32,
+      340.2
+     ],
+     "text": "outside RHS 45D 458 46A"
+    },
+    {
+     "bbox": [
+      55.08,
+      340.2,
+      81.36,
+      346.68
+     ],
+     "text": "midzone"
+    },
+    {
+     "bbox": [
+      55.08,
+      349.56,
+      247.32,
+      356.4
+     ],
+     "text": "inside RHS 44C 45C 434"
+    },
+    {
+     "bbox": [
+      55.08,
+      361.8,
+      76.68,
+      368.28
+     ],
+     "text": "margin"
+    },
+    {
+     "bbox": [
+      54.72,
+      369.36,
+      247.32,
+      376.2
+     ],
+     "text": "outside RHS 45D 458 47A"
+    },
+    {
+     "bbox": [
+      55.08,
+      381.6,
+      76.68,
+      388.08
+     ],
+     "text": "margin"
+    },
+    {
+     "bbox": [
+      55.08,
+      389.52,
+      247.32,
+      396.36
+     ],
+     "text": "inside RHS 44B 45C 43A"
+    },
+    {
+     "bbox": [
+      55.08,
+      399.96,
+      86.76,
+      407.88
+     ],
+     "text": "basal spot"
+    },
+    {
+     "bbox": [
+      55.08,
+      409.32,
+      251.64,
+      416.52
+     ],
+     "text": "outside RHS \u2014 160A 155A"
+    },
+    {
+     "bbox": [
+      55.08,
+      420.12,
+      87.12,
+      428.04
+     ],
+     "text": "basal spot"
+    },
+    {
+     "bbox": [
+      55.08,
+      429.48,
+      251.64,
+      436.32
+     ],
+     "text": "inside RHS 45D 160A 155A"
+    },
+    {
+     "bbox": [
+      55.44,
+      443.16,
+      253.8,
+      450.36
+     ],
+     "text": "PETAL NUMBERS 26-50 26-50 13-25"
+    },
+    {
+     "bbox": [
+      55.08,
+      451.8,
+      247.32,
+      463.32
+     ],
+     "text": "\u2014REFLEXING = medium medium mild"
+    },
+    {
+     "bbox": [
+      55.08,
+      466.92,
+      82.44,
+      473.76
+     ],
+     "text": "STAMEN"
+    },
+    {
+     "bbox": [
+      55.08,
+      475.56,
+      243.72,
+      486.36
+     ],
+     "text": "FILAMENT red pink red"
+    },
+    {
+     "bbox": [
+      55.08,
+      490.68,
+      243.72,
+      497.16
+     ],
+     "text": "STYLE COLOUR red red red"
+    },
+    {
+     "bbox": [
+      55.08,
+      504.36,
+      121.32,
+      511.2
+     ],
+     "text": "STIGMAS...ANTHERS"
+    },
+    {
+     "bbox": [
+      114.84,
+      514.44,
+      252.72,
+      520.92
+     ],
+     "text": "above below above"
+    },
+    {
+     "bbox": [
+      54.72,
+      528.12,
+      146.16,
+      534.96
+     ],
+     "text": "TERMINAL LEAFLET LENGTH"
+    },
+    {
+     "bbox": [
+      54.72,
+      537.84,
+      254.52,
+      545.04
+     ],
+     "text": "mean 35mm 36mm 53mm"
+    },
+    {
+     "bbox": [
+      55.08,
+      547.92,
+      254.52,
+      556.92
+     ],
+     "text": "range 28-46 30-40 47-60"
+    },
+    {
+     "bbox": [
+      54.72,
+      558.36,
+      244.08,
+      565.2
+     ],
+     "text": "std deviation 43 3.6 3.8"
+    },
+    {
+     "bbox": [
+      54.36,
+      572.4,
+      142.56,
+      579.24
+     ],
+     "text": "TERMINAL LEAFLET WIDTH"
+    },
+    {
+     "bbox": [
+      55.08,
+      582.12,
+      254.16,
+      589.32
+     ],
+     "text": "mean 21mm 30mm 33mm"
+    },
+    {
+     "bbox": [
+      55.08,
+      592.2,
+      254.16,
+      600.84
+     ],
+     "text": "range 16-30 27-31 30-35"
+    },
+    {
+     "bbox": [
+      54.72,
+      601.92,
+      244.08,
+      608.76
+     ],
+     "text": "std deviation 3.9 0.2 0.2"
+    },
+    {
+     "bbox": [
+      54.72,
+      615.24,
+      154.08,
+      622.08
+     ],
+     "text": "TERMINAL PETIOLULE LENGTH"
+    },
+    {
+     "bbox": [
+      55.08,
+      624.96,
+      260.64,
+      632.16
+     ],
+     "text": "mean 8.25mm 14.5mm 14.0mm"
+    },
+    {
+     "bbox": [
+      54.72,
+      635.04,
+      253.8,
+      643.68
+     ],
+     "text": "range 5-14 12-17 10-16"
+    },
+    {
+     "bbox": [
+      54.72,
+      644.76,
+      243.72,
+      651.6
+     ],
+     "text": "std deviation 2.3 1.6 3.2"
+    },
+    {
+     "bbox": [
+      54.72,
+      658.8,
+      106.56,
+      665.64
+     ],
+     "text": "THORN PROFILE"
+    },
+    {
+     "bbox": [
+      54.36,
+      669.24,
+      259.92,
+      675.72
+     ],
+     "text": "above concave concave concave"
+    },
+    {
+     "bbox": [
+      55.08,
+      678.96,
+      266.04,
+      685.8
+     ],
+     "text": "below v-concave v-concave v-concave"
+    },
+    {
+     "bbox": [
+      54.36,
+      693.0,
+      105.48,
+      699.48
+     ],
+     "text": "THORN LENGTH"
+    },
+    {
+     "bbox": [
+      54.72,
+      701.64,
+      256.32,
+      712.8
+     ],
+     "text": "mean 6.7mm 6.6mm 6.5mm"
+    },
+    {
+     "bbox": [
+      55.08,
+      712.44,
+      244.44,
+      721.08
+     ],
+     "text": "range 4-10 5-9 4-9"
+    },
+    {
+     "bbox": [
+      54.72,
+      722.52,
+      243.72,
+      729.36
+     ],
+     "text": "std deviation 1.9 1.3 1.2"
+    },
+    {
+     "bbox": [
+      55.08,
+      736.56,
+      82.44,
+      743.04
+     ],
+     "text": "PEDICEL"
+    },
+    {
+     "bbox": [
+      54.36,
+      745.92,
+      86.4,
+      752.76
+     ],
+     "text": "THORNS/"
+    },
+    {
+     "bbox": [
+      55.08,
+      754.56,
+      254.88,
+      766.08
+     ],
+     "text": "PRICKLES absent few absent"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Korferse\u2019 *'Kardinal\u2019 * Toscana\u2019\n(\u2018Coco\u2019)\nFLOWER COLOUR\nGROUP medium red medium red red blend\nFLOWER DIAMETER\nmean 73.0mm 76.0mm 79.0mm\nrange 52-95 73-82 75-85\nstd. deviation 10.6 3.0 3.5\nPETAL COLOURS\nmidzone\noutside RHS 45D 458 46A\nmidzone\ninside RHS 44C 45C 434\nmargin\noutside RHS 45D 458 47A\nmargin\ninside RHS 44B 45C 43A\nbasal spot\noutside RHS \u2014 160A 155A\nbasal spot\ninside RHS 45D 160A 155A\nPETAL NUMBERS 26-50 26-50 13-25\n\u2014REFLEXING = medium medium mild\nSTAMEN\nFILAMENT red pink red\nSTYLE COLOUR red red red\nSTIGMAS...ANTHERS\nabove below above\nTERMINAL LEAFLET LENGTH\nmean 35mm 36mm 53mm\nrange 28-46 30-40 47-60\nstd deviation 43 3.6 3.8\nTERMINAL LEAFLET WIDTH\nmean 21mm 30mm 33mm\nrange 16-30 27-31 30-35\nstd deviation 3.9 0.2 0.2\nTERMINAL PETIOLULE LENGTH\nmean 8.25mm 14.5mm 14.0mm\nrange 5-14 12-17 10-16\nstd deviation 2.3 1.6 3.2\nTHORN PROFILE\nabove concave concave concave\nbelow v-concave v-concave v-concave\nTHORN LENGTH\nmean 6.7mm 6.6mm 6.5mm\nrange 4-10 5-9 4-9\nstd deviation 1.9 1.3 1.2\nPEDICEL\nTHORNS/\nPRICKLES absent few absent",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    319.68,
+    60.12,
+    555.84,
+    138.96
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      320.04,
+      60.12,
+      474.84,
+      68.76
+     ],
+     "text": "Morphology \u2014 see comparison tables"
+    },
+    {
+     "bbox": [
+      320.4,
+      69.84,
+      531.36,
+      78.48
+     ],
+     "text": "\u2018Coco\u2019 (Korferse) is a medium red glasshouse rose of"
+    },
+    {
+     "bbox": [
+      320.4,
+      79.92,
+      535.68,
+      89.28
+     ],
+     "text": "upright to bushy habit with flowers approximately the"
+    },
+    {
+     "bbox": [
+      320.04,
+      90.0,
+      522.72,
+      97.56
+     ],
+     "text": "same size as \u2018Kardinal\u2019 and \u2018Toscana\u2019. Flowers are"
+    },
+    {
+     "bbox": [
+      319.68,
+      100.08,
+      525.96,
+      108.72
+     ],
+     "text": "flattened convex in profile. Sepals have a moderate"
+    },
+    {
+     "bbox": [
+      320.4,
+      109.8,
+      553.68,
+      117.36
+     ],
+     "text": "number of extensions. Seed vessels are small and funnel-"
+    },
+    {
+     "bbox": [
+      320.4,
+      119.88,
+      555.84,
+      129.24
+     ],
+     "text": "shaped. Fragrance is absent. Foliage is medium-green and"
+    },
+    {
+     "bbox": [
+      320.4,
+      130.68,
+      442.08,
+      138.96
+     ],
+     "text": "leaf upper surfaces are glossy."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 see comparison tables\n\u2018Coco\u2019 (Korferse) is a medium red glasshouse rose of\nupright to bushy habit with flowers approximately the\nsame size as \u2018Kardinal\u2019 and \u2018Toscana\u2019. Flowers are\nflattened convex in profile. Sepals have a moderate\nnumber of extensions. Seed vessels are small and funnel-\nshaped. Fragrance is absent. Foliage is medium-green and\nleaf upper surfaces are glossy.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    320.4,
+    154.44,
+    552.6,
+    220.68
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      320.76,
+      154.44,
+      536.04,
+      162.72
+     ],
+     "text": "\u2018Coco\u2019 (Korferse) has purple anthocyanin in the young"
+    },
+    {
+     "bbox": [
+      320.4,
+      163.8,
+      552.6,
+      172.08
+     ],
+     "text": "shoots whereas \u2018Toscana\u2019 has none. \u2018Coco\u2019 (Korferse) has"
+    },
+    {
+     "bbox": [
+      320.76,
+      174.24,
+      531.72,
+      182.88
+     ],
+     "text": "No prickles on the pedicel while \u2018Kardinal\u2019 has some."
+    },
+    {
+     "bbox": [
+      320.76,
+      183.96,
+      545.04,
+      192.24
+     ],
+     "text": "\u2018Coco\u2019 (Korferse) has no basal spot on the outside of the"
+    },
+    {
+     "bbox": [
+      320.4,
+      193.68,
+      537.84,
+      202.32
+     ],
+     "text": "petals unlike \u2018Kardinal\u2019 and \u2018Toscana\u2019. The petiolule in"
+    },
+    {
+     "bbox": [
+      320.76,
+      203.76,
+      549.72,
+      212.04
+     ],
+     "text": "\u2018Coco\u2019 (Korferse) is shorter than those of either \u2018Kardinal\u2019"
+    },
+    {
+     "bbox": [
+      320.76,
+      213.84,
+      370.8,
+      220.68
+     ],
+     "text": "or \u2018Toscana\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Coco\u2019 (Korferse) has purple anthocyanin in the young\nshoots whereas \u2018Toscana\u2019 has none. \u2018Coco\u2019 (Korferse) has\nNo prickles on the pedicel while \u2018Kardinal\u2019 has some.\n\u2018Coco\u2019 (Korferse) has no basal spot on the outside of the\npetals unlike \u2018Kardinal\u2019 and \u2018Toscana\u2019. The petiolule in\n\u2018Coco\u2019 (Korferse) is shorter than those of either \u2018Kardinal\u2019\nor \u2018Toscana\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    320.76,
+    239.04,
+    404.64,
+    250.56
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      320.76,
+      239.04,
+      404.64,
+      250.56
+     ],
+     "text": "OBJECTIONS"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "OBJECTIONS",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    320.76,
+    267.48,
+    555.48,
+    306.0
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      321.12,
+      267.48,
+      555.48,
+      276.48
+     ],
+     "text": "Formal objections (S20 of the PVR Act) against any of the"
+    },
+    {
+     "bbox": [
+      320.76,
+      277.92,
+      524.16,
+      286.2
+     ],
+     "text": "above applications can be lodged by a person who:"
+    },
+    {
+     "bbox": [
+      329.76,
+      287.64,
+      525.6,
+      295.56
+     ],
+     "text": "a) considers their commercial interests would be"
+    },
+    {
+     "bbox": [
+      339.48,
+      297.36,
+      534.96,
+      306.0
+     ],
+     "text": "affected by a grant of PVR to the applicant; AND"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Formal objections (S20 of the PVR Act) against any of the\nabove applications can be lodged by a person who:\na) considers their commercial interests would be\naffected by a grant of PVR to the applicant; AND",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    330.12,
+    321.12,
+    546.84,
+    329.4
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      330.12,
+      321.12,
+      546.84,
+      329.4
+     ],
+     "text": "b) considers that the provisions of $26 cannot be met."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "b) considers that the provisions of $26 cannot be met.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    319.32,
+    343.44,
+    556.92,
+    381.24
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      319.32,
+      343.44,
+      542.16,
+      355.32
+     ],
+     "text": "A fee of $200 is payable at the time of lodging a formal"
+    },
+    {
+     "bbox": [
+      321.12,
+      354.6,
+      556.92,
+      363.24
+     ],
+     "text": "objection and $70/hour will be charged if the examination"
+    },
+    {
+     "bbox": [
+      321.12,
+      364.68,
+      531.72,
+      372.96
+     ],
+     "text": "of the objection by the PVR Office takes more than 2"
+    },
+    {
+     "bbox": [
+      321.12,
+      374.76,
+      345.6,
+      381.24
+     ],
+     "text": "hours."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "A fee of $200 is payable at the time of lodging a formal\nobjection and $70/hour will be charged if the examination\nof the objection by the PVR Office takes more than 2\nhours.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    321.12,
+    398.52,
+    553.68,
+    427.32
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      321.12,
+      398.52,
+      553.68,
+      407.16
+     ],
+     "text": "Comment: Any person not falling into the above category"
+    },
+    {
+     "bbox": [
+      321.48,
+      408.6,
+      547.56,
+      417.24
+     ],
+     "text": "may make comment on the eligibility of any of the above"
+    },
+    {
+     "bbox": [
+      321.12,
+      418.68,
+      514.8,
+      427.32
+     ],
+     "text": "applications for PVR. There is no charge for this."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comment: Any person not falling into the above category\nmay make comment on the eligibility of any of the above\napplications for PVR. There is no charge for this.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    321.12,
+    442.8,
+    558.72,
+    490.32
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      321.12,
+      442.8,
+      558.72,
+      451.08
+     ],
+     "text": "A person submitting a formal objection or a comment must"
+    },
+    {
+     "bbox": [
+      321.12,
+      452.88,
+      547.2,
+      461.16
+     ],
+     "text": "provide supporting evidence to substantiate the claim. A"
+    },
+    {
+     "bbox": [
+      321.12,
+      462.24,
+      546.12,
+      470.88
+     ],
+     "text": "copy of the submission will also be sent to the applicant"
+    },
+    {
+     "bbox": [
+      321.12,
+      472.32,
+      538.2,
+      480.6
+     ],
+     "text": "and the latter will be asked to show why the objection"
+    },
+    {
+     "bbox": [
+      321.12,
+      482.04,
+      407.52,
+      490.32
+     ],
+     "text": "should not be upheld."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "A person submitting a formal objection or a comment must\nprovide supporting evidence to substantiate the claim. A\ncopy of the submission will also be sent to the applicant\nand the latter will be asked to show why the objection\nshould not be upheld.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    320.76,
+    505.8,
+    553.32,
+    532.8
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      320.76,
+      505.8,
+      551.52,
+      514.44
+     ],
+     "text": "All formal objections and comments relating to the above"
+    },
+    {
+     "bbox": [
+      321.12,
+      515.88,
+      553.32,
+      524.16
+     ],
+     "text": "applications must be lodged with the Registrar by close of"
+    },
+    {
+     "bbox": [
+      321.48,
+      525.6,
+      463.32,
+      532.8
+     ],
+     "text": "business on 31 December 1991._"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "All formal objections and comments relating to the above\napplications must be lodged with the Registrar by close of\nbusiness on 31 December 1991._",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    338.76,
+    791.64,
+    556.56,
+    800.28
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      338.76,
+      791.64,
+      556.56,
+      800.28
+     ],
+     "text": "\u2014 21"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "\u2014 21",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

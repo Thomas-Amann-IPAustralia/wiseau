@@ -1,0 +1,1382 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    52.2,
+    60.84,
+    205.92,
+    79.92
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      52.92,
+      60.84,
+      205.92,
+      69.48
+     ],
+     "text": "\u2018Saint Pierre\u2019 Application No. 91/030"
+    },
+    {
+     "bbox": [
+      52.2,
+      70.92,
+      193.32,
+      79.92
+     ],
+     "text": "Application received: 10 April 1991"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Saint Pierre\u2019 Application No. 91/030\nApplication received: 10 April 1991",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    52.2,
+    105.12,
+    163.44,
+    131.4
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      52.92,
+      105.12,
+      160.56,
+      115.56
+     ],
+     "text": "CALLERY PEAR"
+    },
+    {
+     "bbox": [
+      52.2,
+      118.8,
+      163.44,
+      131.4
+     ],
+     "text": "(Pyrus calleryana)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "CALLERY PEAR\n(Pyrus calleryana)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    52.92,
+    146.16,
+    289.08,
+    184.68
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      52.92,
+      146.16,
+      289.08,
+      155.16
+     ],
+     "text": "Applicant: Luminis Pty Ltd of University of Adelaide South"
+    },
+    {
+     "bbox": [
+      52.92,
+      156.6,
+      89.28,
+      163.08
+     ],
+     "text": "Australia"
+    },
+    {
+     "bbox": [
+      53.64,
+      165.96,
+      200.16,
+      174.6
+     ],
+     "text": "\u2018Claremont\u2019 Application No. 91/031"
+    },
+    {
+     "bbox": [
+      52.92,
+      176.04,
+      194.04,
+      184.68
+     ],
+     "text": "Application received: 12 April 1991"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Luminis Pty Ltd of University of Adelaide South\nAustralia\n\u2018Claremont\u2019 Application No. 91/031\nApplication received: 12 April 1991",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    52.56,
+    210.24,
+    257.76,
+    237.24
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      53.64,
+      210.24,
+      141.48,
+      220.68
+     ],
+     "text": "DISC MEDIC"
+    },
+    {
+     "bbox": [
+      52.56,
+      224.28,
+      257.76,
+      237.24
+     ],
+     "text": "(Medicago tornata var spinulosa)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "DISC MEDIC\n(Medicago tornata var spinulosa)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    52.2,
+    253.44,
+    284.4,
+    290.88
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      52.56,
+      253.44,
+      284.4,
+      261.72
+     ],
+     "text": "Applicant: Minister of Agriculture for the state of South"
+    },
+    {
+     "bbox": [
+      52.56,
+      263.16,
+      203.76,
+      270.0
+     ],
+     "text": "Australia of Adelaide South Australia"
+    },
+    {
+     "bbox": [
+      52.92,
+      272.88,
+      180.36,
+      281.16
+     ],
+     "text": "\u2018Rivoli\u2019 Application No. 91/046"
+    },
+    {
+     "bbox": [
+      52.2,
+      282.6,
+      193.68,
+      290.88
+     ],
+     "text": "Application received: 19 April 1991"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Minister of Agriculture for the state of South\nAustralia of Adelaide South Australia\n\u2018Rivoli\u2019 Application No. 91/046\nApplication received: 19 April 1991",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    52.92,
+    316.08,
+    141.48,
+    342.72
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      54.0,
+      316.08,
+      92.88,
+      326.88
+     ],
+     "text": "ROSE"
+    },
+    {
+     "bbox": [
+      52.92,
+      330.48,
+      141.48,
+      342.72
+     ],
+     "text": "(Rosa hybrida)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ROSE\n(Rosa hybrida)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.84,
+    359.28,
+    270.36,
+    416.88
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      52.2,
+      359.28,
+      255.24,
+      367.56
+     ],
+     "text": "Applicant: SNC Meilland et Cie of Antibes France"
+    },
+    {
+     "bbox": [
+      51.84,
+      369.0,
+      270.36,
+      378.0
+     ],
+     "text": "Australian Agent: K Syrus of Ross Roses of Willunga"
+    },
+    {
+     "bbox": [
+      52.2,
+      379.08,
+      114.84,
+      385.92
+     ],
+     "text": "South Australia"
+    },
+    {
+     "bbox": [
+      52.56,
+      388.8,
+      258.84,
+      397.44
+     ],
+     "text": "\u2018Meineble\u2019 Commercial synonym: \u2018Red Meidilande\u2019"
+    },
+    {
+     "bbox": [
+      51.84,
+      398.88,
+      147.6,
+      406.8
+     ],
+     "text": "Application No. 91/049"
+    },
+    {
+     "bbox": [
+      51.84,
+      408.6,
+      192.96,
+      416.88
+     ],
+     "text": "Application received: 24 April 1991"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: SNC Meilland et Cie of Antibes France\nAustralian Agent: K Syrus of Ross Roses of Willunga\nSouth Australia\n\u2018Meineble\u2019 Commercial synonym: \u2018Red Meidilande\u2019\nApplication No. 91/049\nApplication received: 24 April 1991",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.48,
+    441.72,
+    212.04,
+    468.36
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      52.92,
+      441.72,
+      147.24,
+      452.52
+     ],
+     "text": "EUCALYPTUS"
+    },
+    {
+     "bbox": [
+      51.48,
+      455.76,
+      212.04,
+      468.36
+     ],
+     "text": "(Eucalyptus erythronema)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "EUCALYPTUS\n(Eucalyptus erythronema)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.48,
+    486.0,
+    277.92,
+    524.52
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      51.48,
+      486.0,
+      277.92,
+      494.64
+     ],
+     "text": "Applicant: Luminis Pty Ltd University of Adelaide South"
+    },
+    {
+     "bbox": [
+      51.48,
+      496.44,
+      87.84,
+      502.92
+     ],
+     "text": "Australia"
+    },
+    {
+     "bbox": [
+      52.2,
+      506.16,
+      210.96,
+      514.44
+     ],
+     "text": "\u2018Urrbrae Gem\u2019 Application No. 91/050"
+    },
+    {
+     "bbox": [
+      51.48,
+      515.88,
+      192.6,
+      524.52
+     ],
+     "text": "Application received: 26 April 1991"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: Luminis Pty Ltd University of Adelaide South\nAustralia\n\u2018Urrbrae Gem\u2019 Application No. 91/050\nApplication received: 26 April 1991",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.12,
+    549.36,
+    140.04,
+    575.64
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      52.2,
+      549.36,
+      91.44,
+      559.8
+     ],
+     "text": "ROSE"
+    },
+    {
+     "bbox": [
+      51.12,
+      563.4,
+      140.04,
+      575.64
+     ],
+     "text": "(Rosa hybrida)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ROSE\n(Rosa hybrida)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    50.4,
+    592.92,
+    283.68,
+    660.96
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      50.76,
+      592.92,
+      269.64,
+      600.84
+     ],
+     "text": "Applicant: W Kordes Sohne, Rosenschulen GmbH of"
+    },
+    {
+     "bbox": [
+      51.12,
+      602.28,
+      88.2,
+      610.56
+     ],
+     "text": "Germany"
+    },
+    {
+     "bbox": [
+      50.4,
+      612.36,
+      276.12,
+      621.36
+     ],
+     "text": "Australian Agent: Roy H Rumsey Pty Ltd of Dural New"
+    },
+    {
+     "bbox": [
+      51.12,
+      622.44,
+      102.24,
+      629.64
+     ],
+     "text": "South Wales"
+    },
+    {
+     "bbox": [
+      51.12,
+      632.52,
+      283.68,
+      641.16
+     ],
+     "text": "\u2018Korsorb\u2019 Commercial synonym: \u2018Cubana\u2019 Application No."
+    },
+    {
+     "bbox": [
+      51.12,
+      642.6,
+      82.08,
+      649.44
+     ],
+     "text": "91/052"
+    },
+    {
+     "bbox": [
+      50.4,
+      652.68,
+      183.96,
+      660.96
+     ],
+     "text": "Application received: 3 May 1991"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: W Kordes Sohne, Rosenschulen GmbH of\nGermany\nAustralian Agent: Roy H Rumsey Pty Ltd of Dural New\nSouth Wales\n\u2018Korsorb\u2019 Commercial synonym: \u2018Cubana\u2019 Application No.\n91/052\nApplication received: 3 May 1991",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    50.04,
+    685.44,
+    170.28,
+    711.36
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      50.4,
+      685.44,
+      101.88,
+      695.88
+     ],
+     "text": "WHEAT"
+    },
+    {
+     "bbox": [
+      50.04,
+      699.12,
+      170.28,
+      711.36
+     ],
+     "text": "(Triticum aestivum)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "WHEAT\n(Triticum aestivum)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    49.68,
+    728.28,
+    284.76,
+    766.44
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      50.04,
+      728.28,
+      284.76,
+      736.92
+     ],
+     "text": "Applicant: CSIRO Division of Plant Industry of Canberra,"
+    },
+    {
+     "bbox": [
+      49.68,
+      738.36,
+      158.76,
+      746.64
+     ],
+     "text": "Australian Capital Territory"
+    },
+    {
+     "bbox": [
+      50.4,
+      748.08,
+      186.48,
+      756.36
+     ],
+     "text": "\u2018Lawson\u2019 Application No. 91/053"
+    },
+    {
+     "bbox": [
+      49.68,
+      758.16,
+      183.6,
+      766.44
+     ],
+     "text": "Application received: 3 May 1991"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applicant: CSIRO Division of Plant Industry of Canberra,\nAustralian Capital Territory\n\u2018Lawson\u2019 Application No. 91/053\nApplication received: 3 May 1991",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    318.6,
+    60.84,
+    445.68,
+    68.04
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      318.6,
+      60.84,
+      445.68,
+      68.04
+     ],
+     "text": "PROVISIONAL PROTECTION"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PROVISIONAL PROTECTION",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    318.96,
+    88.56,
+    547.56,
+    115.56
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      318.96,
+      88.56,
+      547.56,
+      97.2
+     ],
+     "text": "The following varieties have provisional protection under"
+    },
+    {
+     "bbox": [
+      318.96,
+      98.28,
+      539.28,
+      107.28
+     ],
+     "text": "$22 of the Plant Variety Rights Act 1987 since the last"
+    },
+    {
+     "bbox": [
+      319.32,
+      108.36,
+      400.68,
+      115.56
+     ],
+     "text": "issue of the Journal:"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The following varieties have provisional protection under\n$22 of the Plant Variety Rights Act 1987 since the last\nissue of the Journal:",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    319.32,
+    130.32,
+    557.28,
+    161.28
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      319.32,
+      130.32,
+      556.92,
+      141.84
+     ],
+     "text": "\u2018Empress\u2019 Application No. 90/083"
+    },
+    {
+     "bbox": [
+      319.32,
+      141.48,
+      556.92,
+      150.48
+     ],
+     "text": "\u2018Southern Star\u2019 Application No. 90/095"
+    },
+    {
+     "bbox": [
+      319.32,
+      150.12,
+      557.28,
+      161.28
+     ],
+     "text": "\u2018Natsuyutaka\u2019 Application No. 91/018"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Empress\u2019 Application No. 90/083\n\u2018Southern Star\u2019 Application No. 90/095\n\u2018Natsuyutaka\u2019 Application No. 91/018",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    319.32,
+    161.64,
+    557.64,
+    180.72
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      319.68,
+      161.64,
+      557.28,
+      170.28
+     ],
+     "text": "\u2018Oxley\u2019 Application No. 91/019"
+    },
+    {
+     "bbox": [
+      319.32,
+      171.72,
+      557.64,
+      180.72
+     ],
+     "text": "\u2018Waite Orange\u2019 Application No. 91/020"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Oxley\u2019 Application No. 91/019\n\u2018Waite Orange\u2019 Application No. 91/020",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    319.32,
+    180.36,
+    556.92,
+    219.96
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      319.32,
+      180.36,
+      555.84,
+      191.52
+     ],
+     "text": "\u2018Ausbord\u2019 Application No. 91/021"
+    },
+    {
+     "bbox": [
+      327.96,
+      191.88,
+      398.52,
+      200.16
+     ],
+     "text": "(\u2018Gertrude Jekyll\u2019)"
+    },
+    {
+     "bbox": [
+      319.32,
+      200.52,
+      556.92,
+      211.68
+     ],
+     "text": "\u2018Auswhite\u2019 Application No. 91/022"
+    },
+    {
+     "bbox": [
+      327.6,
+      212.04,
+      360.0,
+      219.96
+     ],
+     "text": "(\u2018Swan\u2019)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Ausbord\u2019 Application No. 91/021\n(\u2018Gertrude Jekyll\u2019)\n\u2018Auswhite\u2019 Application No. 91/022\n(\u2018Swan\u2019)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    319.32,
+    221.76,
+    557.28,
+    240.48
+   ],
+   "confidence": null,
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      319.32,
+      221.76,
+      396.0,
+      228.96
+     ],
+     "text": "\u2018Sunkissed Waters\u2019"
+    },
+    {
+     "bbox": [
+      319.32,
+      232.2,
+      382.32,
+      240.12
+     ],
+     "text": "\u2018Paper Cascade\u2019"
+    },
+    {
+     "bbox": [
+      461.16,
+      222.48,
+      556.92,
+      230.76
+     ],
+     "text": "Application No. 91/023"
+    },
+    {
+     "bbox": [
+      461.52,
+      232.56,
+      557.28,
+      240.48
+     ],
+     "text": "Application No. 91/024"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       319.32,
+       221.76,
+       396.0,
+       228.96
+      ],
+      "text": "\u2018Sunkissed Waters\u2019"
+     },
+     {
+      "bbox": [
+       461.16,
+       222.48,
+       556.92,
+       230.76
+      ],
+      "text": "Application No. 91/023"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       319.32,
+       232.2,
+       382.32,
+       240.12
+      ],
+      "text": "\u2018Paper Cascade\u2019"
+     },
+     {
+      "bbox": [
+       461.52,
+       232.56,
+       557.28,
+       240.48
+      ],
+      "text": "Application No. 91/024"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "\u2018Sunkissed Waters\u2019 Application No. 91/023\n\u2018Paper Cascade\u2019 Application No. 91/024",
+   "text_format": "plain",
+   "type": "table"
+  },
+  {
+   "bbox": [
+    318.96,
+    240.12,
+    556.92,
+    271.8
+   ],
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      319.32,
+      240.12,
+      556.92,
+      251.64
+     ],
+     "text": "\u2018Pandora\u2019 Application No. 91/025"
+    },
+    {
+     "bbox": [
+      318.96,
+      251.64,
+      556.92,
+      260.64
+     ],
+     "text": "\u201cSnow Diamond\u2019 Application No. 91/026"
+    },
+    {
+     "bbox": [
+      319.32,
+      260.28,
+      556.92,
+      271.8
+     ],
+     "text": "\u2018Embassy\u2019 Application No. 91/027"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Pandora\u2019 Application No. 91/025\n\u201cSnow Diamond\u2019 Application No. 91/026\n\u2018Embassy\u2019 Application No. 91/027",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    318.96,
+    270.0,
+    556.92,
+    359.64
+   ],
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      319.32,
+      270.0,
+      556.92,
+      281.52
+     ],
+     "text": "\u2018Emille\u2019 Application No. 91/028"
+    },
+    {
+     "bbox": [
+      318.96,
+      281.52,
+      556.92,
+      290.16
+     ],
+     "text": "\u2018Beltaard\u2019 Application No. 91/029"
+    },
+    {
+     "bbox": [
+      318.96,
+      291.24,
+      556.92,
+      299.88
+     ],
+     "text": "\u2018Saint Pierre\u2019 Application No. 91/030"
+    },
+    {
+     "bbox": [
+      318.96,
+      299.52,
+      555.48,
+      311.04
+     ],
+     "text": "\u2018Claremont\u2019 Application No. 91/031"
+    },
+    {
+     "bbox": [
+      318.96,
+      310.68,
+      554.4,
+      320.04
+     ],
+     "text": "\u2018Summer fragrance\u2019 Application No. 91/038"
+    },
+    {
+     "bbox": [
+      327.24,
+      320.76,
+      389.88,
+      329.4
+     ],
+     "text": "(\u2018Tanfudermos\u2019)"
+    },
+    {
+     "bbox": [
+      318.96,
+      330.84,
+      370.08,
+      338.04
+     ],
+     "text": "\u2018Quaker star\u2019"
+    },
+    {
+     "bbox": [
+      327.24,
+      340.92,
+      381.96,
+      349.56
+     ],
+     "text": "(\u2018Dicperhaps\u2019)"
+    },
+    {
+     "bbox": [
+      318.96,
+      351.0,
+      396.36,
+      359.64
+     ],
+     "text": "\u2018Golden Friendship\u2019"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Emille\u2019 Application No. 91/028\n\u2018Beltaard\u2019 Application No. 91/029\n\u2018Saint Pierre\u2019 Application No. 91/030\n\u2018Claremont\u2019 Application No. 91/031\n\u2018Summer fragrance\u2019 Application No. 91/038\n(\u2018Tanfudermos\u2019)\n\u2018Quaker star\u2019\n(\u2018Dicperhaps\u2019)\n\u2018Golden Friendship\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    460.8,
+    331.92,
+    556.56,
+    340.2
+   ],
+   "id": "e22",
+   "lines": [
+    {
+     "bbox": [
+      460.8,
+      331.92,
+      556.56,
+      340.2
+     ],
+     "text": "Application No. 91/039"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Application No. 91/039",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    460.8,
+    352.08,
+    556.92,
+    360.36
+   ],
+   "id": "e23",
+   "lines": [
+    {
+     "bbox": [
+      460.8,
+      352.08,
+      556.92,
+      360.36
+     ],
+     "text": "Application No. 91/040"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Application No. 91/040",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    316.8,
+    361.08,
+    556.56,
+    468.0
+   ],
+   "id": "e24",
+   "lines": [
+    {
+     "bbox": [
+      327.24,
+      361.08,
+      377.28,
+      369.72
+     ],
+     "text": "(\u2018Hartellody\u2019)"
+    },
+    {
+     "bbox": [
+      318.6,
+      371.16,
+      554.76,
+      380.16
+     ],
+     "text": "\u2018Pearl Buttons\u2019 Application No. 91/041"
+    },
+    {
+     "bbox": [
+      318.6,
+      379.44,
+      556.2,
+      390.6
+     ],
+     "text": "\u2018Pristine\u2019 Application No. 91/042"
+    },
+    {
+     "bbox": [
+      317.16,
+      389.52,
+      556.2,
+      401.04
+     ],
+     "text": "\u2018Triumphant\u2019 Application No. 91/043"
+    },
+    {
+     "bbox": [
+      316.8,
+      399.24,
+      556.56,
+      410.4
+     ],
+     "text": "\u2018Wilwash\u2019 Application No. 91/044"
+    },
+    {
+     "bbox": [
+      318.6,
+      408.96,
+      556.2,
+      420.12
+     ],
+     "text": "\u2018Rivoli\u2019 Application No. 91/046"
+    },
+    {
+     "bbox": [
+      318.6,
+      420.12,
+      556.2,
+      429.48
+     ],
+     "text": "\u2018Only Love\u2019 Application No. 91/047"
+    },
+    {
+     "bbox": [
+      326.52,
+      430.2,
+      366.84,
+      438.48
+     ],
+     "text": "(Interonly)"
+    },
+    {
+     "bbox": [
+      318.6,
+      438.48,
+      556.2,
+      449.64
+     ],
+     "text": "\u2018Cecilia\u2019 Application No. 91/048"
+    },
+    {
+     "bbox": [
+      318.24,
+      450.0,
+      555.84,
+      459.0
+     ],
+     "text": "\u2018Red Meidiland\u2019 Application No. 91/049"
+    },
+    {
+     "bbox": [
+      326.52,
+      459.72,
+      368.64,
+      468.0
+     ],
+     "text": "(Meineble)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(\u2018Hartellody\u2019)\n\u2018Pearl Buttons\u2019 Application No. 91/041\n\u2018Pristine\u2019 Application No. 91/042\n\u2018Triumphant\u2019 Application No. 91/043\n\u2018Wilwash\u2019 Application No. 91/044\n\u2018Rivoli\u2019 Application No. 91/046\n\u2018Only Love\u2019 Application No. 91/047\n(Interonly)\n\u2018Cecilia\u2019 Application No. 91/048\n\u2018Red Meidiland\u2019 Application No. 91/049\n(Meineble)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    317.88,
+    469.8,
+    556.2,
+    509.4
+   ],
+   "confidence": null,
+   "id": "e25",
+   "lines": [
+    {
+     "bbox": [
+      318.24,
+      469.8,
+      374.76,
+      476.64
+     ],
+     "text": "\u2018Urrbrae Gem\u2019"
+    },
+    {
+     "bbox": [
+      317.88,
+      479.88,
+      383.4,
+      488.16
+     ],
+     "text": "\u201cCoco\u2019 (Korferse)"
+    },
+    {
+     "bbox": [
+      317.88,
+      489.96,
+      391.32,
+      498.24
+     ],
+     "text": "\u2018Cubana\u2019 (Korsorb)"
+    },
+    {
+     "bbox": [
+      317.88,
+      500.04,
+      353.16,
+      506.88
+     ],
+     "text": "\u2018Lawson\u2019"
+    },
+    {
+     "bbox": [
+      460.08,
+      470.52,
+      556.2,
+      479.16
+     ],
+     "text": "Application No. 91/050"
+    },
+    {
+     "bbox": [
+      460.08,
+      480.96,
+      554.4,
+      489.24
+     ],
+     "text": "Application No. 91/051"
+    },
+    {
+     "bbox": [
+      460.08,
+      491.04,
+      555.84,
+      499.32
+     ],
+     "text": "Application No. 91/052"
+    },
+    {
+     "bbox": [
+      460.08,
+      501.12,
+      555.48,
+      509.4
+     ],
+     "text": "Application No. 91/053"
+    }
+   ],
+   "page": 1,
+   "rows": [
+    [
+     {
+      "bbox": [
+       318.24,
+       469.8,
+       374.76,
+       476.64
+      ],
+      "text": "\u2018Urrbrae Gem\u2019"
+     },
+     {
+      "bbox": [
+       460.08,
+       470.52,
+       556.2,
+       479.16
+      ],
+      "text": "Application No. 91/050"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       317.88,
+       479.88,
+       383.4,
+       488.16
+      ],
+      "text": "\u201cCoco\u2019 (Korferse)"
+     },
+     {
+      "bbox": [
+       460.08,
+       480.96,
+       554.4,
+       489.24
+      ],
+      "text": "Application No. 91/051"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       317.88,
+       489.96,
+       391.32,
+       498.24
+      ],
+      "text": "\u2018Cubana\u2019 (Korsorb)"
+     },
+     {
+      "bbox": [
+       460.08,
+       491.04,
+       555.84,
+       499.32
+      ],
+      "text": "Application No. 91/052"
+     }
+    ],
+    [
+     {
+      "bbox": [
+       317.88,
+       500.04,
+       353.16,
+       506.88
+      ],
+      "text": "\u2018Lawson\u2019"
+     },
+     {
+      "bbox": [
+       460.08,
+       501.12,
+       555.48,
+       509.4
+      ],
+      "text": "Application No. 91/053"
+     }
+    ]
+   ],
+   "signal": "tesseract-row-stitch",
+   "source": "tesseract-psm3",
+   "text": "\u2018Urrbrae Gem\u2019 Application No. 91/050\n\u201cCoco\u2019 (Korferse) Application No. 91/051\n\u2018Cubana\u2019 (Korsorb) Application No. 91/052\n\u2018Lawson\u2019 Application No. 91/053",
+   "text_format": "plain",
+   "type": "table"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

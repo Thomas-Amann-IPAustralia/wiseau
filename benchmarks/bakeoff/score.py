@@ -57,6 +57,8 @@ from regions import (GROUPS_B, GROUPS_C, GROUPS_D, GROUPS_E, GROUPS_F, GROUPS_L,
 ENGINES = ["pymupdf", "no-borders", "trust-layer", "hidden-layer", "forced-ocr", "tesseract-layout", "tesseract-adr037", "tesseract-adr035", "tesseract-unordered", "tesseract-psm3", "docling", "glm-ocr", "gemini-3.5-flash",
            "vote-pymupdf", "vote-docling", "vote-glm-ocr", "consensus-order", "consensus-words",
            "router-rule", "oracle-best-single",
+           # the fast engine (ADR-059) against the image's default path, 2026-11-12
+           "image-default", "fast-cheap-300", "fast-cheap-200", "fast-cheap-150", "fast-none-300",
            # roadmap 14 item 1.2 (preprocess.py) and 1.3 (ml_engines.py), 2026-11-09
            "pre-ident", "pre-deskew", "pre-norm", "pre-sauvola", "pre-denoise",
            "rec-tesseract", "rec-PP-OCRv6_small_rec", "rec-en_PP-OCRv5_mobile_rec",

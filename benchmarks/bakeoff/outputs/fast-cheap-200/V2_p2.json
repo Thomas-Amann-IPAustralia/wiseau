@@ -1,0 +1,664 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    86.04,
+    56.16,
+    183.6,
+    69.84
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      86.04,
+      56.16,
+      183.6,
+      69.84
+     ],
+     "text": "CONTENTS"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "CONTENTS",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    86.04,
+    98.28,
+    538.92,
+    135.0
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      507.6,
+      98.28,
+      538.92,
+      107.28
+     ],
+     "text": "PAGE"
+    },
+    {
+     "bbox": [
+      86.04,
+      111.96,
+      537.12,
+      121.32
+     ],
+     "text": "REGISTRAR\u2019S REMARKS 1"
+    },
+    {
+     "bbox": [
+      86.4,
+      125.64,
+      538.2,
+      135.0
+     ],
+     "text": "PART 1\u2014 ITEMS OF GENERAL INTEREST 2"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PAGE\nREGISTRAR\u2019S REMARKS 1\nPART 1\u2014 ITEMS OF GENERAL INTEREST 2",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    85.68,
+    151.56,
+    406.08,
+    272.52
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      86.4,
+      151.56,
+      320.4,
+      161.28
+     ],
+     "text": "IMPLEMENTATION OF PVR \u2014 PROGRESS"
+    },
+    {
+     "bbox": [
+      85.68,
+      165.96,
+      284.4,
+      175.32
+     ],
+     "text": "AMENDMENTS TO THE SCHEDULE"
+    },
+    {
+     "bbox": [
+      86.04,
+      180.0,
+      172.08,
+      189.36
+     ],
+     "text": "PROPAGATION"
+    },
+    {
+     "bbox": [
+      86.04,
+      194.04,
+      406.08,
+      205.56
+     ],
+     "text": "PERFORMANCE EVALUATION \u2014 Sale prior to application"
+    },
+    {
+     "bbox": [
+      86.04,
+      207.72,
+      282.24,
+      219.24
+     ],
+     "text": "PVR TESTING \u2014 Register of Names"
+    },
+    {
+     "bbox": [
+      86.04,
+      221.76,
+      118.44,
+      231.12
+     ],
+     "text": "UPOV"
+    },
+    {
+     "bbox": [
+      97.56,
+      235.44,
+      181.44,
+      246.96
+     ],
+     "text": "a) Membership"
+    },
+    {
+     "bbox": [
+      97.92,
+      247.68,
+      260.64,
+      262.44
+     ],
+     "text": "b) Revision of the Convention"
+    },
+    {
+     "bbox": [
+      85.68,
+      263.16,
+      362.16,
+      272.52
+     ],
+     "text": "PARTICIPATION BY INDUSTRY ORGANISATIONS"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "IMPLEMENTATION OF PVR \u2014 PROGRESS\nAMENDMENTS TO THE SCHEDULE\nPROPAGATION\nPERFORMANCE EVALUATION \u2014 Sale prior to application\nPVR TESTING \u2014 Register of Names\nUPOV\na) Membership\nb) Revision of the Convention\nPARTICIPATION BY INDUSTRY ORGANISATIONS",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    84.96,
+    289.08,
+    538.2,
+    396.36
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      85.68,
+      289.08,
+      318.96,
+      298.44
+     ],
+     "text": "PART 2 \u2014 MATTERS FOR PUBLIC NOTICE"
+    },
+    {
+     "bbox": [
+      85.68,
+      303.12,
+      168.84,
+      312.48
+     ],
+     "text": "PVR GRANTED"
+    },
+    {
+     "bbox": [
+      84.96,
+      317.16,
+      236.52,
+      326.88
+     ],
+     "text": "APPLICATIONS ACCEPTED"
+    },
+    {
+     "bbox": [
+      85.68,
+      331.56,
+      216.72,
+      343.08
+     ],
+     "text": "a) descriptions finalised"
+    },
+    {
+     "bbox": [
+      85.68,
+      344.16,
+      538.2,
+      358.2
+     ],
+     "text": "b) descriptions to be finalised 14"
+    },
+    {
+     "bbox": [
+      85.32,
+      359.28,
+      538.2,
+      368.64
+     ],
+     "text": "PROVISIONAL PROTECTION 14"
+    },
+    {
+     "bbox": [
+      84.96,
+      372.96,
+      538.2,
+      382.32
+     ],
+     "text": "VARIATIONS TO APPLICATIONS 15"
+    },
+    {
+     "bbox": [
+      85.32,
+      386.64,
+      537.84,
+      396.36
+     ],
+     "text": "CORRIGENDA 15"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PART 2 \u2014 MATTERS FOR PUBLIC NOTICE\nPVR GRANTED\nAPPLICATIONS ACCEPTED\na) descriptions finalised\nb) descriptions to be finalised 14\nPROVISIONAL PROTECTION 14\nVARIATIONS TO APPLICATIONS 15\nCORRIGENDA 15",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    530.64,
+    150.84,
+    541.08,
+    340.2
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      530.64,
+      150.84,
+      541.08,
+      340.2
+     ],
+     "text": "AAALH WNHMMNMNMDND ND Pl"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "AAALH WNHMMNMNMDND ND Pl",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    84.6,
+    424.08,
+    505.08,
+    433.8
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      84.6,
+      424.08,
+      505.08,
+      433.8
+     ],
+     "text": "APPENDIX 1 \u2014 PROPOSED SCHEDULE FOR INCLUDING GENERA/SPECIES"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "APPENDIX 1 \u2014 PROPOSED SCHEDULE FOR INCLUDING GENERA/SPECIES",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    84.6,
+    436.68,
+    537.84,
+    489.96
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      174.24,
+      436.68,
+      537.48,
+      452.16
+     ],
+     "text": "IN THE PLANT VARIETY RIGHTS REGULATIONS 16"
+    },
+    {
+     "bbox": [
+      84.6,
+      450.72,
+      537.48,
+      466.2
+     ],
+     "text": "APPENDIX 2 \u2014 SECTIONS 16 and 17 OF THE PVR ACT 17"
+    },
+    {
+     "bbox": [
+      84.6,
+      466.2,
+      537.84,
+      475.92
+     ],
+     "text": "APPENDIX 3 \u2014 SECTION 26 OF THE PVR ACT 18"
+    },
+    {
+     "bbox": [
+      84.6,
+      480.24,
+      537.48,
+      489.96
+     ],
+     "text": "APPENDIX 4 \u2014 FEES 19"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "IN THE PLANT VARIETY RIGHTS REGULATIONS 16\nAPPENDIX 2 \u2014 SECTIONS 16 and 17 OF THE PVR ACT 17\nAPPENDIX 3 \u2014 SECTION 26 OF THE PVR ACT 18\nAPPENDIX 4 \u2014 FEES 19",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    84.6,
+    493.92,
+    537.48,
+    504.36
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      84.6,
+      493.92,
+      537.48,
+      504.36
+     ],
+     "text": "APPENDIX 5 \u2014 PLANT VARIETY RIGHTS ADVISORY COMMITTEE (PVRAC) 19"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "APPENDIX 5 \u2014 PLANT VARIETY RIGHTS ADVISORY COMMITTEE (PVRAC) 19",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    86.4,
+    556.56,
+    149.76,
+    564.84
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      86.4,
+      556.56,
+      149.76,
+      564.84
+     ],
+     "text": "Subscription \u2014"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Subscription \u2014",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    86.4,
+    576.0,
+    225.72,
+    604.44
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      86.4,
+      576.0,
+      206.64,
+      583.56
+     ],
+     "text": "Available from the Australian"
+    },
+    {
+     "bbox": [
+      86.76,
+      586.08,
+      219.6,
+      594.72
+     ],
+     "text": "Government Publishing Service,"
+    },
+    {
+     "bbox": [
+      86.76,
+      596.16,
+      225.72,
+      604.44
+     ],
+     "text": "GPO Box 84, Canberra, ACT, 2601."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Available from the Australian\nGovernment Publishing Service,\nGPO Box 84, Canberra, ACT, 2601.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    86.76,
+    616.32,
+    153.36,
+    623.52
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      86.76,
+      616.32,
+      153.36,
+      623.52
+     ],
+     "text": "ISSN 1030-9748"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ISSN 1030-9748",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    85.68,
+    642.24,
+    226.08,
+    750.24
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      86.04,
+      642.24,
+      226.08,
+      650.88
+     ],
+     "text": "This work is copyright. Apart from"
+    },
+    {
+     "bbox": [
+      86.4,
+      652.32,
+      213.84,
+      660.6
+     ],
+     "text": "any use as permitted under the"
+    },
+    {
+     "bbox": [
+      86.76,
+      660.6,
+      218.52,
+      672.84
+     ],
+     "text": "Copyright Act 1968, no part may"
+    },
+    {
+     "bbox": [
+      86.4,
+      672.12,
+      210.6,
+      680.4
+     ],
+     "text": "be reproduced by any process"
+    },
+    {
+     "bbox": [
+      86.04,
+      681.84,
+      219.6,
+      690.48
+     ],
+     "text": "without written permission from"
+    },
+    {
+     "bbox": [
+      86.04,
+      691.56,
+      198.72,
+      700.2
+     ],
+     "text": "the Director Publishing and"
+    },
+    {
+     "bbox": [
+      86.4,
+      701.64,
+      225.36,
+      710.28
+     ],
+     "text": "Marketing AGPS. Inquiries should"
+    },
+    {
+     "bbox": [
+      86.04,
+      711.72,
+      225.72,
+      720.36
+     ],
+     "text": "be directed to the Manager, AGPS"
+    },
+    {
+     "bbox": [
+      86.04,
+      721.8,
+      210.6,
+      730.08
+     ],
+     "text": "Press, Australian Government"
+    },
+    {
+     "bbox": [
+      86.04,
+      731.88,
+      225.72,
+      740.88
+     ],
+     "text": "Publishing Service, G.P.O. Box 84,"
+    },
+    {
+     "bbox": [
+      85.68,
+      741.96,
+      177.48,
+      750.24
+     ],
+     "text": "Canberra, A.C.T, 260%."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "This work is copyright. Apart from\nany use as permitted under the\nCopyright Act 1968, no part may\nbe reproduced by any process\nwithout written permission from\nthe Director Publishing and\nMarketing AGPS. Inquiries should\nbe directed to the Manager, AGPS\nPress, Australian Government\nPublishing Service, G.P.O. Box 84,\nCanberra, A.C.T, 260%.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    84.6,
+    768.24,
+    228.96,
+    785.16
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      84.6,
+      768.24,
+      228.96,
+      776.88
+     ],
+     "text": "Typeset and Printed in Australia by CPP"
+    },
+    {
+     "bbox": [
+      84.6,
+      777.6,
+      227.16,
+      785.16
+     ],
+     "text": "Communications Ltd., Fyshwick, A.C.T."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Typeset and Printed in Australia by CPP\nCommunications Ltd., Fyshwick, A.C.T.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    0.0,
+    827.28,
+    254.88,
+    842.04
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      0.0,
+      827.28,
+      254.88,
+      842.04
+     ],
+     "text": "ee"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ee",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

@@ -1,0 +1,1043 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    48.6,
+    55.08,
+    286.56,
+    352.08
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      49.32,
+      55.08,
+      277.56,
+      63.36
+     ],
+     "text": "In addition to morphological data from growing trials, the"
+    },
+    {
+     "bbox": [
+      49.32,
+      65.16,
+      244.8,
+      73.8
+     ],
+     "text": "applicant has submitted evidence of the variety's"
+    },
+    {
+     "bbox": [
+      49.32,
+      74.88,
+      276.84,
+      83.52
+     ],
+     "text": "resistance to nine pests and diseases. \u2018Prime\u2019 was found"
+    },
+    {
+     "bbox": [
+      49.32,
+      84.6,
+      284.76,
+      92.52
+     ],
+     "text": "to be more resistant to Coffetotrichum trifolii (anthracnose)"
+    },
+    {
+     "bbox": [
+      49.32,
+      94.68,
+      259.92,
+      102.96
+     ],
+     "text": "than \u2018WL 318\u2019 according to the method of Ostazeski,"
+    },
+    {
+     "bbox": [
+      49.32,
+      104.4,
+      282.96,
+      112.32
+     ],
+     "text": "Barnes and Hanson described in Crop Science 9: 351-354"
+    },
+    {
+     "bbox": [
+      49.68,
+      114.12,
+      275.76,
+      122.04
+     ],
+     "text": "\u2018Prime\u2019 is more resistant to Corynebacterium insidiosum"
+    },
+    {
+     "bbox": [
+      48.6,
+      124.2,
+      255.24,
+      132.48
+     ],
+     "text": "{bacterial wilt) than \u2018WL Southern Special\u2019 and tess"
+    },
+    {
+     "bbox": [
+      49.32,
+      133.92,
+      279.36,
+      142.2
+     ],
+     "text": "resistant than \u2018WL 318\u00b0 according to the method of Elling"
+    },
+    {
+     "bbox": [
+      48.96,
+      144.0,
+      272.16,
+      152.28
+     ],
+     "text": "and Frosheiser described in Agronomy Journal 52:241-"
+    },
+    {
+     "bbox": [
+      48.96,
+      153.72,
+      254.16,
+      162.36
+     ],
+     "text": "242. \u2019Prime\u2019 has approximately the same degree of"
+    },
+    {
+     "bbox": [
+      49.32,
+      164.16,
+      280.8,
+      172.08
+     ],
+     "text": "resistance to Fusarium oxysporum (Fusarium wilt) as \u2018WL"
+    },
+    {
+     "bbox": [
+      49.32,
+      174.24,
+      260.64,
+      182.16
+     ],
+     "text": "318\u00b0 and less resistance than 'WL Southern Special\u2019"
+    },
+    {
+     "bbox": [
+      48.96,
+      184.32,
+      250.2,
+      192.96
+     ],
+     "text": "according to the method of Frosheiser and Barnes"
+    },
+    {
+     "bbox": [
+      48.96,
+      194.04,
+      278.28,
+      202.68
+     ],
+     "text": "described in Phytopathology 68:943-946. \u2018Prime\u2019 is more"
+    },
+    {
+     "bbox": [
+      49.32,
+      204.12,
+      280.8,
+      212.04
+     ],
+     "text": "resistant to Vertiefiium albo-atrum (Verticillium wilt) than"
+    },
+    {
+     "bbox": [
+      49.68,
+      214.2,
+      282.24,
+      222.48
+     ],
+     "text": "\"WL 318\u2019 according to the method of Peaden described on"
+    },
+    {
+     "bbox": [
+      49.32,
+      223.92,
+      277.92,
+      232.92
+     ],
+     "text": "p. 26 of USDA-ARS Mise. Pub. #1434, 1984. \u2018Prime\u2019 has"
+    },
+    {
+     "bbox": [
+      49.32,
+      234.0,
+      239.4,
+      242.64
+     ],
+     "text": "approximately the same degree of resistance to"
+    },
+    {
+     "bbox": [
+      48.96,
+      244.08,
+      286.56,
+      252.36
+     ],
+     "text": "Phythophthora megasperma (Phytophthora root rot) as \u201cWL"
+    },
+    {
+     "bbox": [
+      49.32,
+      253.8,
+      260.64,
+      262.08
+     ],
+     "text": "Southern Special\u2019 and less resistance than \u2018WL 318"
+    },
+    {
+     "bbox": [
+      49.32,
+      263.88,
+      250.56,
+      272.16
+     ],
+     "text": "according to the method of Frosheiser and Barnes"
+    },
+    {
+     "bbox": [
+      49.32,
+      273.24,
+      270.36,
+      281.88
+     ],
+     "text": "described in Crop Scfence 13:735-738. \u2018Prime\u2019 is more"
+    },
+    {
+     "bbox": [
+      49.68,
+      283.32,
+      284.4,
+      291.6
+     ],
+     "text": "resistant to Ditylenchus dipsaci (stem nematode) than \u2018WL"
+    },
+    {
+     "bbox": [
+      49.32,
+      293.04,
+      285.84,
+      301.68
+     ],
+     "text": "318\u2019 and slightly less resistant than \u2018WL Southern Special\u2019"
+    },
+    {
+     "bbox": [
+      49.32,
+      303.12,
+      261.36,
+      311.76
+     ],
+     "text": "according to the method of Eljin, Evans and Faulkner"
+    },
+    {
+     "bbox": [
+      49.32,
+      313.2,
+      272.52,
+      321.84
+     ],
+     "text": "described in Crop Science 15: 275-276. Prime\u2019 is more"
+    },
+    {
+     "bbox": [
+      49.32,
+      321.84,
+      281.52,
+      333.36
+     ],
+     "text": "resistant to Acyrthosiphon kondo/ (blue alfalfa aphid) than"
+    },
+    {
+     "bbox": [
+      49.32,
+      333.72,
+      259.56,
+      342.0
+     ],
+     "text": "\"WL 318\u00b0 and has approximately the same degree of"
+    },
+    {
+     "bbox": [
+      49.32,
+      343.8,
+      262.44,
+      352.08
+     ],
+     "text": "resistance as \u2018WL Southern Special\u2019 according to the"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "In addition to morphological data from growing trials, the\napplicant has submitted evidence of the variety's\nresistance to nine pests and diseases. \u2018Prime\u2019 was found\nto be more resistant to Coffetotrichum trifolii (anthracnose)\nthan \u2018WL 318\u2019 according to the method of Ostazeski,\nBarnes and Hanson described in Crop Science 9: 351-354\n\u2018Prime\u2019 is more resistant to Corynebacterium insidiosum\n{bacterial wilt) than \u2018WL Southern Special\u2019 and tess\nresistant than \u2018WL 318\u00b0 according to the method of Elling\nand Frosheiser described in Agronomy Journal 52:241-\n242. \u2019Prime\u2019 has approximately the same degree of\nresistance to Fusarium oxysporum (Fusarium wilt) as \u2018WL\n318\u00b0 and less resistance than 'WL Southern Special\u2019\naccording to the method of Frosheiser and Barnes\ndescribed in Phytopathology 68:943-946. \u2018Prime\u2019 is more\nresistant to Vertiefiium albo-atrum (Verticillium wilt) than\n\"WL 318\u2019 according to the method of Peaden described on\np. 26 of USDA-ARS Mise. Pub. #1434, 1984. \u2018Prime\u2019 has\napproximately the same degree of resistance to\nPhythophthora megasperma (Phytophthora root rot) as \u201cWL\nSouthern Special\u2019 and less resistance than \u2018WL 318\naccording to the method of Frosheiser and Barnes\ndescribed in Crop Scfence 13:735-738. \u2018Prime\u2019 is more\nresistant to Ditylenchus dipsaci (stem nematode) than \u2018WL\n318\u2019 and slightly less resistant than \u2018WL Southern Special\u2019\naccording to the method of Eljin, Evans and Faulkner\ndescribed in Crop Science 15: 275-276. Prime\u2019 is more\nresistant to Acyrthosiphon kondo/ (blue alfalfa aphid) than\n\"WL 318\u00b0 and has approximately the same degree of\nresistance as \u2018WL Southern Special\u2019 according to the",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    48.6,
+    741.6,
+    272.52,
+    780.48
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      49.32,
+      741.6,
+      272.52,
+      750.24
+     ],
+     "text": "\u2018Prime\u2019 specimens at the centre of a plot illustrating the"
+    },
+    {
+     "bbox": [
+      48.96,
+      751.32,
+      257.76,
+      758.88
+     ],
+     "text": "fine stems and the retention of leaves to the base, a"
+    },
+    {
+     "bbox": [
+      48.96,
+      761.76,
+      257.4,
+      770.04
+     ],
+     "text": "result of good foliar disease resistance. (Photograph"
+    },
+    {
+     "bbox": [
+      48.6,
+      771.12,
+      135.36,
+      780.48
+     ],
+     "text": "supplied by applicant)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Prime\u2019 specimens at the centre of a plot illustrating the\nfine stems and the retention of leaves to the base, a\nresult of good foliar disease resistance. (Photograph\nsupplied by applicant)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.92,
+    52.56,
+    542.88,
+    161.28
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      305.64,
+      52.56,
+      542.88,
+      64.44
+     ],
+     "text": "method of Nielson and Lehman described in the Journal of"
+    },
+    {
+     "bbox": [
+      304.92,
+      64.44,
+      541.44,
+      72.72
+     ],
+     "text": "Entomofogy 70:13-14. \u2018Prime\u2019 has approximately the same"
+    },
+    {
+     "bbox": [
+      304.92,
+      74.52,
+      542.52,
+      82.44
+     ],
+     "text": "degree of resistance to Acrythosiphon pisum (pea aphid) as"
+    },
+    {
+     "bbox": [
+      305.64,
+      83.88,
+      537.84,
+      92.16
+     ],
+     "text": "\u2018WL 318\u2019 and is less resistant than \u2018WL Southern Special\u2019"
+    },
+    {
+     "bbox": [
+      305.28,
+      93.96,
+      538.56,
+      102.24
+     ],
+     "text": "according to the method of Ortman, Sorensen and Pointer"
+    },
+    {
+     "bbox": [
+      305.28,
+      103.68,
+      538.92,
+      111.96
+     ],
+     "text": "described in the Journal of Economie Entomology 53:881-"
+    },
+    {
+     "bbox": [
+      305.28,
+      113.4,
+      523.8,
+      121.68
+     ],
+     "text": "887. \u2018Prime\u2019 is more resistant 1o Ther/oaphis maculata"
+    },
+    {
+     "bbox": [
+      305.28,
+      123.48,
+      507.96,
+      131.76
+     ],
+     "text": "(spotted alfalfa aphid} than both \u2018WL 318\u00b0 and \u2018WL"
+    },
+    {
+     "bbox": [
+      305.28,
+      133.2,
+      522.0,
+      141.48
+     ],
+     "text": "Southern Special\u2019 according to the method of Nielson,"
+    },
+    {
+     "bbox": [
+      305.28,
+      142.92,
+      539.64,
+      150.12
+     ],
+     "text": "Schonhorst and Don described in the Journal of Economic"
+    },
+    {
+     "bbox": [
+      304.92,
+      153.36,
+      405.0,
+      161.28
+     ],
+     "text": "Entomology 64:506-510."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "method of Nielson and Lehman described in the Journal of\nEntomofogy 70:13-14. \u2018Prime\u2019 has approximately the same\ndegree of resistance to Acrythosiphon pisum (pea aphid) as\n\u2018WL 318\u2019 and is less resistant than \u2018WL Southern Special\u2019\naccording to the method of Ortman, Sorensen and Pointer\ndescribed in the Journal of Economie Entomology 53:881-\n887. \u2018Prime\u2019 is more resistant 1o Ther/oaphis maculata\n(spotted alfalfa aphid} than both \u2018WL 318\u00b0 and \u2018WL\nSouthern Special\u2019 according to the method of Nielson,\nSchonhorst and Don described in the Journal of Economic\nEntomology 64:506-510.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    305.28,
+    169.56,
+    496.8,
+    187.92
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      305.28,
+      169.56,
+      349.2,
+      177.48
+     ],
+     "text": "Agronomy"
+    },
+    {
+     "bbox": [
+      305.64,
+      179.64,
+      496.8,
+      187.92
+     ],
+     "text": "\u2018Prime\u2019 1s suited to most lucerne growing areas."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Agronomy\n\u2018Prime\u2019 1s suited to most lucerne growing areas.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    305.28,
+    197.64,
+    516.24,
+    219.96
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      305.64,
+      197.64,
+      516.24,
+      208.8
+     ],
+     "text": "Table of Comparison of Lucerne Varieties"
+    },
+    {
+     "bbox": [
+      305.28,
+      211.68,
+      444.24,
+      219.96
+     ],
+     "text": "(* = varieties used for comparison)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Lucerne Varieties\n(* = varieties used for comparison)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    305.28,
+    239.76,
+    536.04,
+    458.64
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      365.04,
+      239.76,
+      517.32,
+      251.28
+     ],
+     "text": "\u2018Prime\u2019 \u201cWL Southern = *'WL 318\""
+    },
+    {
+     "bbox": [
+      424.8,
+      251.64,
+      450.0,
+      259.56
+     ],
+     "text": "Special\u2019"
+    },
+    {
+     "bbox": [
+      305.28,
+      263.52,
+      426.96,
+      275.04
+     ],
+     "text": "GROWTH HABIT {1 erect, 9 prostrate}"
+    },
+    {
+     "bbox": [
+      305.28,
+      273.24,
+      488.16,
+      285.12
+     ],
+     "text": "habit 3 2 4"
+    },
+    {
+     "bbox": [
+      305.64,
+      288.72,
+      353.52,
+      295.2
+     ],
+     "text": "PLANT HEIGHT"
+    },
+    {
+     "bbox": [
+      305.64,
+      297.36,
+      503.28,
+      308.52
+     ],
+     "text": "mean 22cm 34cm 25cm"
+    },
+    {
+     "bbox": [
+      305.64,
+      308.88,
+      501.84,
+      317.16
+     ],
+     "text": "range 11-29 25-41 19-31"
+    },
+    {
+     "bbox": [
+      305.28,
+      318.96,
+      494.28,
+      326.16
+     ],
+     "text": "sid deviation 1.8 21 19"
+    },
+    {
+     "bbox": [
+      305.28,
+      333.36,
+      371.88,
+      340.2
+     ],
+     "text": "STOLON THICKNESS"
+    },
+    {
+     "bbox": [
+      305.28,
+      343.44,
+      507.96,
+      350.28
+     ],
+     "text": "mean 1.9mm 2.9mm 2.1mm"
+    },
+    {
+     "bbox": [
+      305.28,
+      353.52,
+      506.88,
+      361.8
+     ],
+     "text": "range 1.7-2.2 2.2-3.4 1.8-2.3"
+    },
+    {
+     "bbox": [
+      305.28,
+      363.6,
+      493.92,
+      370.44
+     ],
+     "text": "std deviation 0.2 03 0.2"
+    },
+    {
+     "bbox": [
+      305.28,
+      377.28,
+      404.28,
+      385.56
+     ],
+     "text": "LEAF COLOUR (1 light, 5 dark)"
+    },
+    {
+     "bbox": [
+      365.04,
+      387.0,
+      487.8,
+      393.48
+     ],
+     "text": "5 2 3"
+    },
+    {
+     "bbox": [
+      305.64,
+      400.68,
+      363.24,
+      407.16
+     ],
+     "text": "FLOWER COLOUR"
+    },
+    {
+     "bbox": [
+      365.04,
+      410.76,
+      523.44,
+      419.04
+     ],
+     "text": "dark purple dark purple (28%) purpie {80%}"
+    },
+    {
+     "bbox": [
+      365.04,
+      419.04,
+      526.68,
+      430.2
+     ],
+     "text": "to purple (95%) \u2014 purple to light blue and blue"
+    },
+    {
+     "bbox": [
+      364.68,
+      429.12,
+      536.04,
+      440.28
+     ],
+     "text": "variegated (5%) \u2014 purple (70%) variegated (19%)"
+    },
+    {
+     "bbox": [
+      424.44,
+      440.28,
+      516.96,
+      448.92
+     ],
+     "text": "green (1%} white (190)"
+    },
+    {
+     "bbox": [
+      424.44,
+      450.72,
+      457.56,
+      458.64
+     ],
+     "text": "white (1%)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Prime\u2019 \u201cWL Southern = *'WL 318\"\nSpecial\u2019\nGROWTH HABIT {1 erect, 9 prostrate}\nhabit 3 2 4\nPLANT HEIGHT\nmean 22cm 34cm 25cm\nrange 11-29 25-41 19-31\nsid deviation 1.8 21 19\nSTOLON THICKNESS\nmean 1.9mm 2.9mm 2.1mm\nrange 1.7-2.2 2.2-3.4 1.8-2.3\nstd deviation 0.2 03 0.2\nLEAF COLOUR (1 light, 5 dark)\n5 2 3\nFLOWER COLOUR\ndark purple dark purple (28%) purpie {80%}\nto purple (95%) \u2014 purple to light blue and blue\nvariegated (5%) \u2014 purple (70%) variegated (19%)\ngreen (1%} white (190)\nwhite (1%)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    305.64,
+    464.76,
+    491.04,
+    483.12
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      305.64,
+      464.76,
+      464.76,
+      473.4
+     ],
+     "text": "Colletotrichum RESISTANCE (percentage resistant)"
+    },
+    {
+     "bbox": [
+      305.64,
+      474.48,
+      491.04,
+      483.12
+     ],
+     "text": "PERCENTAGE 39 not supplied 21"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Colletotrichum RESISTANCE (percentage resistant)\nPERCENTAGE 39 not supplied 21",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    305.28,
+    488.52,
+    472.68,
+    497.16
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      305.28,
+      488.52,
+      472.68,
+      497.16
+     ],
+     "text": "Corynebacterium RESISTANCE (percentage resistant)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Corynebacterium RESISTANCE (percentage resistant)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    305.28,
+    498.6,
+    492.12,
+    529.2
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      305.64,
+      498.6,
+      492.12,
+      505.44
+     ],
+     "text": "PERCENTAGE 26 16 36"
+    },
+    {
+     "bbox": [
+      305.28,
+      512.28,
+      448.56,
+      520.92
+     ],
+     "text": "Fusarium RESISTANCE (percentage resistant}"
+    },
+    {
+     "bbox": [
+      305.64,
+      522.0,
+      492.12,
+      529.2
+     ],
+     "text": "PERCENTAGE 60 75 62"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PERCENTAGE 26 16 36\nFusarium RESISTANCE (percentage resistant}\nPERCENTAGE 60 75 62",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    305.28,
+    535.68,
+    492.12,
+    553.68
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      306.0,
+      535.68,
+      454.68,
+      544.32
+     ],
+     "text": "Verticillium RESISTANCE (percentage resistant)"
+    },
+    {
+     "bbox": [
+      305.28,
+      545.76,
+      492.12,
+      553.68
+     ],
+     "text": "PERCENTAGE 24 not supplied 16"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Verticillium RESISTANCE (percentage resistant)\nPERCENTAGE 24 not supplied 16",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.92,
+    559.44,
+    461.16,
+    568.08
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      304.92,
+      559.44,
+      461.16,
+      568.08
+     ],
+     "text": "Phytophthora RESISTANCE (percentage resistant)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Phytophthora RESISTANCE (percentage resistant)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    304.92,
+    569.16,
+    525.6,
+    671.76
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      305.28,
+      569.16,
+      492.48,
+      576.36
+     ],
+     "text": "PERCENTAGE 17 16 36"
+    },
+    {
+     "bbox": [
+      305.28,
+      583.2,
+      456.12,
+      591.84
+     ],
+     "text": "Ditylenchus RESISTANCE (percentage resistant)"
+    },
+    {
+     "bbox": [
+      305.64,
+      593.28,
+      491.4,
+      600.12
+     ],
+     "text": "PERCENTAGE 22 24 21"
+    },
+    {
+     "bbox": [
+      304.92,
+      606.96,
+      486.72,
+      615.6
+     ],
+     "text": "Acyrthosiphon kondoi RESISTANCE (percentage resistant)"
+    },
+    {
+     "bbox": [
+      305.28,
+      617.04,
+      492.12,
+      623.88
+     ],
+     "text": "PERCENTAGE 27 28 16"
+    },
+    {
+     "bbox": [
+      304.92,
+      631.08,
+      485.28,
+      639.72
+     ],
+     "text": "Acyrthosiphon pisum RESISTANCE (percentage resistant}"
+    },
+    {
+     "bbox": [
+      305.64,
+      640.8,
+      492.12,
+      648.0
+     ],
+     "text": "PERCENTAGE 32 44 34"
+    },
+    {
+     "bbox": [
+      306.0,
+      654.84,
+      525.6,
+      663.48
+     ],
+     "text": "Therioaphis RESISTANCE {Average Severity Index, 1 resistant, 5 dead)"
+    },
+    {
+     "bbox": [
+      305.28,
+      664.56,
+      493.92,
+      671.76
+     ],
+     "text": "INDEX 2.3 20 2.2"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PERCENTAGE 17 16 36\nDitylenchus RESISTANCE (percentage resistant)\nPERCENTAGE 22 24 21\nAcyrthosiphon kondoi RESISTANCE (percentage resistant)\nPERCENTAGE 27 28 16\nAcyrthosiphon pisum RESISTANCE (percentage resistant}\nPERCENTAGE 32 44 34\nTherioaphis RESISTANCE {Average Severity Index, 1 resistant, 5 dead)\nINDEX 2.3 20 2.2",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    531.0,
+    794.52,
+    543.6,
+    803.16
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      531.0,
+      794.52,
+      543.6,
+      803.16
+     ],
+     "text": "19"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "19",
+   "text_format": "plain",
+   "type": "page_number"
+  },
+  {
+   "bbox": [
+    0.0,
+    828.72,
+    594.36,
+    841.68
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      0.0,
+      828.72,
+      594.36,
+      841.68
+     ],
+     "text": "a"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

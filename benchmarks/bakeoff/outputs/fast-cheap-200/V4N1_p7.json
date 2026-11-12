@@ -1,0 +1,1252 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    44.64,
+    53.28,
+    117.72,
+    66.24
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      44.64,
+      53.28,
+      117.72,
+      66.24
+     ],
+     "text": "Applications"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applications",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    43.92,
+    83.52,
+    275.4,
+    113.76
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      43.92,
+      83.52,
+      273.6,
+      93.24
+     ],
+     "text": "Applications for PVR on the varieties described and listed"
+    },
+    {
+     "bbox": [
+      44.64,
+      93.6,
+      275.4,
+      102.6
+     ],
+     "text": "below have been accepted under $18 of the Plant Variety"
+    },
+    {
+     "bbox": [
+      44.28,
+      104.76,
+      109.08,
+      113.76
+     ],
+     "text": "Rights Act 1987"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Applications for PVR on the varieties described and listed\nbelow have been accepted under $18 of the Plant Variety\nRights Act 1987",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    44.64,
+    140.04,
+    198.36,
+    153.36
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      44.64,
+      140.04,
+      198.36,
+      153.36
+     ],
+     "text": "a) Descriptions Finalised"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a) Descriptions Finalised",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    45.36,
+    160.2,
+    174.6,
+    186.12
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      46.08,
+      160.2,
+      154.8,
+      170.64
+     ],
+     "text": "LECHENAULTIA"
+    },
+    {
+     "bbox": [
+      45.36,
+      173.88,
+      174.6,
+      186.12
+     ],
+     "text": "(Lechenaultia biloba)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "LECHENAULTIA\n(Lechenaultia biloba)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    45.36,
+    226.08,
+    60.48,
+    240.48
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      45.36,
+      226.08,
+      60.48,
+      240.48
+     ],
+     "text": "4"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "4",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    44.64,
+    246.96,
+    237.24,
+    285.48
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      45.72,
+      246.96,
+      237.24,
+      256.32
+     ],
+     "text": "Variety: \u2018Autumn Blue\u2019 Application No. 89/028"
+    },
+    {
+     "bbox": [
+      44.64,
+      257.4,
+      159.12,
+      266.4
+     ],
+     "text": "Accepted: 6 November 1990"
+    },
+    {
+     "bbox": [
+      44.64,
+      267.12,
+      191.52,
+      276.12
+     ],
+     "text": "Applicant: George Lullfitz, of Luilfitz"
+    },
+    {
+     "bbox": [
+      45.36,
+      276.84,
+      203.76,
+      285.48
+     ],
+     "text": "Nursery, Wanneroo, Western Australia."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Autumn Blue\u2019 Application No. 89/028\nAccepted: 6 November 1990\nApplicant: George Lullfitz, of Luilfitz\nNursery, Wanneroo, Western Australia.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    44.64,
+    293.4,
+    280.8,
+    331.2
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      45.72,
+      293.4,
+      86.4,
+      301.68
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      44.64,
+      302.04,
+      280.8,
+      311.04
+     ],
+     "text": "This variety is distinct from all other varieties in having the"
+    },
+    {
+     "bbox": [
+      45.36,
+      312.12,
+      275.76,
+      321.48
+     ],
+     "text": "following combination of characters: a 9 month flowering"
+    },
+    {
+     "bbox": [
+      45.36,
+      321.84,
+      277.92,
+      331.2
+     ],
+     "text": "period; a compact, erect growth habit; small, blue flowers."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\nThis variety is distinct from all other varieties in having the\nfollowing combination of characters: a 9 month flowering\nperiod; a compact, erect growth habit; small, blue flowers.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    44.64,
+    338.04,
+    258.12,
+    365.4
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      45.0,
+      338.04,
+      169.92,
+      346.32
+     ],
+     "text": "Varieties used for comparison"
+    },
+    {
+     "bbox": [
+      44.64,
+      347.4,
+      258.12,
+      355.68
+     ],
+     "text": "A blue form of Lechenaultia biloba, and Lechenauttia"
+    },
+    {
+     "bbox": [
+      44.64,
+      358.56,
+      126.36,
+      365.4
+     ],
+     "text": "biloba \u2018White Flash\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comparison\nA blue form of Lechenaultia biloba, and Lechenauttia\nbiloba \u2018White Flash\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    45.0,
+    374.4,
+    282.24,
+    537.84
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      45.36,
+      374.4,
+      163.44,
+      383.04
+     ],
+     "text": "Comparative Growing Trials"
+    },
+    {
+     "bbox": [
+      45.0,
+      383.76,
+      265.68,
+      391.68
+     ],
+     "text": "All characteristics described for \u2018Autumn Blue\u2019 and the"
+    },
+    {
+     "bbox": [
+      45.36,
+      393.84,
+      266.4,
+      402.48
+     ],
+     "text": "blue form of \u00a3. biloba are from 20 potted plants of each"
+    },
+    {
+     "bbox": [
+      45.0,
+      404.28,
+      280.08,
+      413.28
+     ],
+     "text": "variety grown at Wanneroo, Western Australia. The plants"
+    },
+    {
+     "bbox": [
+      45.0,
+      414.0,
+      258.84,
+      423.0
+     ],
+     "text": "were grown in 140 mm plastic pots in a mix of jarrah"
+    },
+    {
+     "bbox": [
+      45.36,
+      423.72,
+      260.64,
+      432.72
+     ],
+     "text": "sawdust, medium grade pine bark, and washed white"
+    },
+    {
+     "bbox": [
+      45.72,
+      433.8,
+      267.48,
+      441.36
+     ],
+     "text": "sand. The characteristics of \u2018White Flash\u2019 are described"
+    },
+    {
+     "bbox": [
+      45.72,
+      443.52,
+      268.56,
+      452.52
+     ],
+     "text": "from specimens growing in the same soil mix in similar"
+    },
+    {
+     "bbox": [
+      45.72,
+      453.24,
+      282.24,
+      462.24
+     ],
+     "text": "conditions at Kings Park, Perth. Measurements were taken"
+    },
+    {
+     "bbox": [
+      46.08,
+      462.96,
+      267.48,
+      471.96
+     ],
+     "text": "in August 1990 from 20 specimens of each variety, the"
+    },
+    {
+     "bbox": [
+      45.72,
+      473.4,
+      164.16,
+      482.04
+     ],
+     "text": "plants being aged 12 months."
+    },
+    {
+     "bbox": [
+      46.08,
+      489.6,
+      70.92,
+      498.24
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      45.0,
+      498.6,
+      266.04,
+      507.96
+     ],
+     "text": "The variety arose as a chance seedling of Lechenaultia"
+    },
+    {
+     "bbox": [
+      45.36,
+      509.4,
+      261.72,
+      517.68
+     ],
+     "text": "biloba found on the applicant\u2019s property at Wanneroo,"
+    },
+    {
+     "bbox": [
+      45.72,
+      519.12,
+      272.52,
+      527.76
+     ],
+     "text": "Western Australia. Selection was on the basis of growth"
+    },
+    {
+     "bbox": [
+      46.08,
+      529.2,
+      256.32,
+      537.84
+     ],
+     "text": "habit and duration of flowering. Subsequent asexual"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials\nAll characteristics described for \u2018Autumn Blue\u2019 and the\nblue form of \u00a3. biloba are from 20 potted plants of each\nvariety grown at Wanneroo, Western Australia. The plants\nwere grown in 140 mm plastic pots in a mix of jarrah\nsawdust, medium grade pine bark, and washed white\nsand. The characteristics of \u2018White Flash\u2019 are described\nfrom specimens growing in the same soil mix in similar\nconditions at Kings Park, Perth. Measurements were taken\nin August 1990 from 20 specimens of each variety, the\nplants being aged 12 months.\nOrigin\nThe variety arose as a chance seedling of Lechenaultia\nbiloba found on the applicant\u2019s property at Wanneroo,\nWestern Australia. Selection was on the basis of growth\nhabit and duration of flowering. Subsequent asexual",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    66.6,
+    660.96,
+    118.44,
+    671.04
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      69.48,
+      660.96,
+      118.44,
+      669.96
+     ],
+     "text": "TT"
+    },
+    {
+     "bbox": [
+      66.6,
+      668.52,
+      78.84,
+      671.04
+     ],
+     "text": "ee"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "TT\nee",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    66.6,
+    672.12,
+    119.52,
+    675.36
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      66.6,
+      672.12,
+      119.52,
+      675.36
+     ],
+     "text": "es om"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "es om",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    79.56,
+    698.76,
+    283.68,
+    720.36
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      111.96,
+      698.76,
+      281.88,
+      710.28
+     ],
+     "text": "ee ee a ee ,"
+    },
+    {
+     "bbox": [
+      109.44,
+      702.72,
+      283.68,
+      714.24
+     ],
+     "text": "Sie} oir | obee oe | eSre | ober | oeibe | coke aise | oer + cm"
+    },
+    {
+     "bbox": [
+      79.56,
+      708.84,
+      279.36,
+      720.36
+     ],
+     "text": "Minvwttantaral vekcat gt omiten tlie tae glvttTenslanaotas vedinndendtan en"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ee ee a ee ,\nSie} oir | obee oe | eSre | ober | oeibe | coke aise | oer + cm\nMinvwttantaral vekcat gt omiten tlie tae glvttTenslanaotas vedinndendtan en",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    45.0,
+    732.6,
+    253.08,
+    759.96
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      45.36,
+      732.6,
+      253.08,
+      740.52
+     ],
+     "text": "From left to right; flowers of \u2018White Flash\u2019, \u2018Autumn"
+    },
+    {
+     "bbox": [
+      45.36,
+      742.32,
+      247.32,
+      750.96
+     ],
+     "text": "Biue\u2019, \u00a3. bi/oba blue form. (Photograph supplied by"
+    },
+    {
+     "bbox": [
+      45.0,
+      752.04,
+      83.52,
+      759.96
+     ],
+     "text": "applicant}"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "From left to right; flowers of \u2018White Flash\u2019, \u2018Autumn\nBiue\u2019, \u00a3. bi/oba blue form. (Photograph supplied by\napplicant}",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    300.24,
+    51.48,
+    513.0,
+    68.76
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      300.24,
+      51.48,
+      513.0,
+      60.12
+     ],
+     "text": "propagation over 4 years formed the variety \u2018Autumn"
+    },
+    {
+     "bbox": [
+      300.6,
+      62.28,
+      322.2,
+      68.76
+     ],
+     "text": "Blue\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "propagation over 4 years formed the variety \u2018Autumn\nBlue\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    300.6,
+    78.12,
+    537.48,
+    234.36
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      300.6,
+      78.12,
+      456.84,
+      86.4
+     ],
+     "text": "Morphology \u2014 see comparison tables."
+    },
+    {
+     "bbox": [
+      300.96,
+      87.84,
+      519.12,
+      96.48
+     ],
+     "text": "\u2018Autumn Blue\u2019 is a compact, upright, herbaceous plant"
+    },
+    {
+     "bbox": [
+      300.6,
+      97.92,
+      507.6,
+      106.92
+     ],
+     "text": "which flowers during autumn, winter and spring. In"
+    },
+    {
+     "bbox": [
+      300.6,
+      108.0,
+      516.96,
+      116.64
+     ],
+     "text": "comparison, the blue form of Lechenaultia biloba, and"
+    },
+    {
+     "bbox": [
+      301.32,
+      118.08,
+      532.08,
+      126.72
+     ],
+     "text": "\u2018White Flash\u2019, flower only in spring. \u2018Autumn Blue\u2019 leaves"
+    },
+    {
+     "bbox": [
+      300.96,
+      127.8,
+      527.04,
+      136.44
+     ],
+     "text": "are the same width as the comparative varieties, but are"
+    },
+    {
+     "bbox": [
+      300.96,
+      137.88,
+      533.16,
+      145.08
+     ],
+     "text": "shorter than those of \u2018White Flash\u2019. \u2018Autumn Blue\u2019 has an"
+    },
+    {
+     "bbox": [
+      300.96,
+      147.6,
+      530.28,
+      156.6
+     ],
+     "text": "upright growth habit in contrast to the semi-erect growth"
+    },
+    {
+     "bbox": [
+      300.96,
+      157.32,
+      530.28,
+      165.96
+     ],
+     "text": "habit of the comparative varieties. \u2018Autumn Blue\u2019 flowers"
+    },
+    {
+     "bbox": [
+      300.6,
+      167.04,
+      535.32,
+      175.32
+     ],
+     "text": "are narrower in diameter and shorter in height and corolla"
+    },
+    {
+     "bbox": [
+      300.96,
+      177.12,
+      529.2,
+      185.76
+     ],
+     "text": "length than the comparative varieties. The newly opened"
+    },
+    {
+     "bbox": [
+      300.6,
+      187.2,
+      521.28,
+      195.48
+     ],
+     "text": "flowers of \u2018Autumn Blue\u2019 are slightly darker violet-blue"
+    },
+    {
+     "bbox": [
+      300.96,
+      196.92,
+      519.12,
+      205.56
+     ],
+     "text": "than the comparative varieties, and when fully opened"
+    },
+    {
+     "bbox": [
+      300.6,
+      207.0,
+      513.72,
+      215.64
+     ],
+     "text": "they are blue. The aged flowers of \u2018Autumn Blue\u2019 are"
+    },
+    {
+     "bbox": [
+      300.6,
+      216.72,
+      537.48,
+      224.64
+     ],
+     "text": "violet-blue, whereas those of the blue form of \u00a3. bifeba and"
+    },
+    {
+     "bbox": [
+      301.32,
+      227.52,
+      390.24,
+      234.36
+     ],
+     "text": "\u2018White Flash\u2019 are blue."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 see comparison tables.\n\u2018Autumn Blue\u2019 is a compact, upright, herbaceous plant\nwhich flowers during autumn, winter and spring. In\ncomparison, the blue form of Lechenaultia biloba, and\n\u2018White Flash\u2019, flower only in spring. \u2018Autumn Blue\u2019 leaves\nare the same width as the comparative varieties, but are\nshorter than those of \u2018White Flash\u2019. \u2018Autumn Blue\u2019 has an\nupright growth habit in contrast to the semi-erect growth\nhabit of the comparative varieties. \u2018Autumn Blue\u2019 flowers\nare narrower in diameter and shorter in height and corolla\nlength than the comparative varieties. The newly opened\nflowers of \u2018Autumn Blue\u2019 are slightly darker violet-blue\nthan the comparative varieties, and when fully opened\nthey are blue. The aged flowers of \u2018Autumn Blue\u2019 are\nviolet-blue, whereas those of the blue form of \u00a3. bifeba and\n\u2018White Flash\u2019 are blue.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    300.96,
+    245.16,
+    523.44,
+    279.72
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      301.32,
+      245.16,
+      523.44,
+      256.68
+     ],
+     "text": "Table of Comparison of Lechenaultia biloba"
+    },
+    {
+     "bbox": [
+      301.68,
+      257.76,
+      343.8,
+      266.04
+     ],
+     "text": "Varieties"
+    },
+    {
+     "bbox": [
+      300.96,
+      271.08,
+      440.64,
+      279.72
+     ],
+     "text": "(* = varieties used for comparison)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Lechenaultia biloba\nVarieties\n(* = varieties used for comparison)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    300.96,
+    300.6,
+    534.24,
+    752.4
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      361.08,
+      300.6,
+      522.0,
+      307.44
+     ],
+     "text": "\u2018Autumn Blue\u2019 * \u2018L. biloba\u2019 * \u2018White Flash\u2019"
+    },
+    {
+     "bbox": [
+      420.48,
+      310.68,
+      451.08,
+      317.16
+     ],
+     "text": "blue form"
+    },
+    {
+     "bbox": [
+      301.32,
+      327.24,
+      498.6,
+      335.88
+     ],
+     "text": "FLOWERING autumn spring spring"
+    },
+    {
+     "bbox": [
+      300.96,
+      337.32,
+      380.16,
+      344.16
+     ],
+     "text": "SEASON winter"
+    },
+    {
+     "bbox": [
+      360.36,
+      347.4,
+      379.8,
+      356.04
+     ],
+     "text": "spring"
+    },
+    {
+     "bbox": [
+      300.96,
+      360.0,
+      512.64,
+      371.52
+     ],
+     "text": "GROWTH HABIT erect semi-erect semi-erect"
+    },
+    {
+     "bbox": [
+      300.96,
+      371.52,
+      483.48,
+      380.16
+     ],
+     "text": "ranking1\u20149 1 5 5"
+    },
+    {
+     "bbox": [
+      301.32,
+      385.56,
+      352.8,
+      392.4
+     ],
+     "text": "FLOWER WIDTH"
+    },
+    {
+     "bbox": [
+      301.32,
+      395.64,
+      507.24,
+      402.48
+     ],
+     "text": "mean 25.2 mm 29.2 mm 2B.4 mm"
+    },
+    {
+     "bbox": [
+      301.32,
+      405.36,
+      506.88,
+      414.0
+     ],
+     "text": "range 24 \u2014 28 25 \u2014 35 25 \u2014 30"
+    },
+    {
+     "bbox": [
+      300.96,
+      415.44,
+      489.6,
+      422.28
+     ],
+     "text": "std. deviation 08 24 1.6"
+    },
+    {
+     "bbox": [
+      301.32,
+      429.12,
+      356.04,
+      436.32
+     ],
+     "text": "FLOWER HEIGHT"
+    },
+    {
+     "bbox": [
+      301.32,
+      438.12,
+      507.6,
+      449.28
+     ],
+     "text": "mean 25.2 mm 27.6 mm 28.0 mm"
+    },
+    {
+     "bbox": [
+      301.32,
+      448.92,
+      507.24,
+      457.56
+     ],
+     "text": "range 22 \u2014 30 22 \u2014 36 24-30"
+    },
+    {
+     "bbox": [
+      301.32,
+      459.0,
+      489.6,
+      465.84
+     ],
+     "text": "std. deviation 19 3.8 23"
+    },
+    {
+     "bbox": [
+      301.32,
+      472.68,
+      333.0,
+      479.52
+     ],
+     "text": "COROLLA"
+    },
+    {
+     "bbox": [
+      301.68,
+      482.04,
+      327.24,
+      488.88
+     ],
+     "text": "LENGTH"
+    },
+    {
+     "bbox": [
+      301.68,
+      492.48,
+      503.64,
+      499.32
+     ],
+     "text": "mean 7.8mm 9.8mm 8.4mm"
+    },
+    {
+     "bbox": [
+      301.68,
+      502.56,
+      502.92,
+      510.84
+     ],
+     "text": "range 6-10 8-10 5\u201410"
+    },
+    {
+     "bbox": [
+      301.32,
+      512.64,
+      489.96,
+      519.84
+     ],
+     "text": "std. deviation 14 06 13"
+    },
+    {
+     "bbox": [
+      301.68,
+      526.68,
+      352.8,
+      533.88
+     ],
+     "text": "OVARY LENGTH"
+    },
+    {
+     "bbox": [
+      301.68,
+      536.76,
+      507.96,
+      543.6
+     ],
+     "text": "mean 174mm 17.9mm 18.3 mm"
+    },
+    {
+     "bbox": [
+      301.68,
+      546.84,
+      507.24,
+      555.12
+     ],
+     "text": "range 15 ~ 20 15\u201420 15\u201420"
+    },
+    {
+     "bbox": [
+      301.32,
+      556.56,
+      489.96,
+      563.4
+     ],
+     "text": "std. deviation 19 37 1.6"
+    },
+    {
+     "bbox": [
+      301.68,
+      570.24,
+      349.56,
+      577.08
+     ],
+     "text": "FLOWER WING"
+    },
+    {
+     "bbox": [
+      301.32,
+      580.32,
+      322.92,
+      586.8
+     ],
+     "text": "WIDTH"
+    },
+    {
+     "bbox": [
+      301.68,
+      590.04,
+      503.64,
+      596.88
+     ],
+     "text": "mean 5.8mm 93mm 5.6mm"
+    },
+    {
+     "bbox": [
+      301.68,
+      599.76,
+      498.6,
+      608.04
+     ],
+     "text": "range 4-7 8\u201412 5-7"
+    },
+    {
+     "bbox": [
+      301.32,
+      609.84,
+      489.96,
+      616.32
+     ],
+     "text": "std. deviation 07 1.0 0.6"
+    },
+    {
+     "bbox": [
+      301.68,
+      619.56,
+      345.6,
+      626.04
+     ],
+     "text": "UPPER PETAL"
+    },
+    {
+     "bbox": [
+      301.32,
+      628.2,
+      505.44,
+      639.72
+     ],
+     "text": "WING small large medium"
+    },
+    {
+     "bbox": [
+      301.68,
+      639.0,
+      483.84,
+      647.28
+     ],
+     "text": "ranking? \u2014-9 3 9 6"
+    },
+    {
+     "bbox": [
+      301.68,
+      653.04,
+      528.84,
+      659.88
+     ],
+     "text": "PETAL COLOURS blue blue blue with white"
+    },
+    {
+     "bbox": [
+      301.68,
+      662.76,
+      325.44,
+      669.6
+     ],
+     "text": "RHS No"
+    },
+    {
+     "bbox": [
+      301.68,
+      672.84,
+      510.84,
+      681.12
+     ],
+     "text": "just open outer 95A outer 95C outer 958"
+    },
+    {
+     "bbox": [
+      361.08,
+      683.28,
+      519.48,
+      690.12
+     ],
+     "text": "centre white centre white centre white"
+    },
+    {
+     "bbox": [
+      301.68,
+      693.0,
+      534.24,
+      700.92
+     ],
+     "text": "fully open outer 104A outer 1048 whole 100A with"
+    },
+    {
+     "bbox": [
+      361.08,
+      703.08,
+      514.8,
+      709.92
+     ],
+     "text": "centre white centre white white flash"
+    },
+    {
+     "bbox": [
+      301.68,
+      712.8,
+      518.76,
+      720.72
+     ],
+     "text": "aged outer 954 whole 101A whale 100A."
+    },
+    {
+     "bbox": [
+      361.08,
+      722.52,
+      399.96,
+      729.36
+     ],
+     "text": "centre white"
+    },
+    {
+     "bbox": [
+      301.32,
+      734.4,
+      497.52,
+      745.92
+     ],
+     "text": "COROLLA TUBE \u2014 orange-while orange-white white"
+    },
+    {
+     "bbox": [
+      301.68,
+      745.56,
+      497.16,
+      752.4
+     ],
+     "text": "RHS No. 158A 1588 155D"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Autumn Blue\u2019 * \u2018L. biloba\u2019 * \u2018White Flash\u2019\nblue form\nFLOWERING autumn spring spring\nSEASON winter\nspring\nGROWTH HABIT erect semi-erect semi-erect\nranking1\u20149 1 5 5\nFLOWER WIDTH\nmean 25.2 mm 29.2 mm 2B.4 mm\nrange 24 \u2014 28 25 \u2014 35 25 \u2014 30\nstd. deviation 08 24 1.6\nFLOWER HEIGHT\nmean 25.2 mm 27.6 mm 28.0 mm\nrange 22 \u2014 30 22 \u2014 36 24-30\nstd. deviation 19 3.8 23\nCOROLLA\nLENGTH\nmean 7.8mm 9.8mm 8.4mm\nrange 6-10 8-10 5\u201410\nstd. deviation 14 06 13\nOVARY LENGTH\nmean 174mm 17.9mm 18.3 mm\nrange 15 ~ 20 15\u201420 15\u201420\nstd. deviation 19 37 1.6\nFLOWER WING\nWIDTH\nmean 5.8mm 93mm 5.6mm\nrange 4-7 8\u201412 5-7\nstd. deviation 07 1.0 0.6\nUPPER PETAL\nWING small large medium\nranking? \u2014-9 3 9 6\nPETAL COLOURS blue blue blue with white\nRHS No\njust open outer 95A outer 95C outer 958\ncentre white centre white centre white\nfully open outer 104A outer 1048 whole 100A with\ncentre white centre white white flash\naged outer 954 whole 101A whale 100A.\ncentre white\nCOROLLA TUBE \u2014 orange-while orange-white white\nRHS No. 158A 1588 155D",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

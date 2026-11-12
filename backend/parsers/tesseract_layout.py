@@ -40,6 +40,8 @@ import io
 import os
 import re
 import subprocess
+import tempfile
+import time
 from statistics import median
 from typing import NamedTuple, Optional, Sequence
 
@@ -301,13 +303,59 @@ def read_page_tsv(page: pymupdf.Page, *, dpi: int, language: str) -> Optional[st
 
 def tsv_from_png(png: bytes, *, language: str) -> Optional[str]:
     """Tesseract's psm 3 TSV for a page image; ``None`` if Tesseract fails (no MuPDF call)."""
-    try:
-        done = subprocess.run([TESSERACT_CMD, "stdin", "stdout", "--psm", "3", "-l", language, "tsv"],
-                              input=png, capture_output=True, timeout=TIMEOUT_S, check=True,
-                              env={**os.environ, **TESSERACT_ENV})
-    except (OSError, subprocess.SubprocessError):
-        return None
-    return done.stdout.decode("utf-8", errors="replace")
+    return start_tsv(png, language=language).result()
+
+
+class TesseractRun:
+    """A psm 3 run already started; `result()` waits for it (ADR-059).
+
+    The image goes in, and the TSV comes out, through files rather than pipes, so
+    once the process is launched it needs nothing from this one. MuPDF's OCR holds
+    Python's GIL for its whole run (seconds), so a worker thread that still had to
+    launch Tesseract, or feed its stdin, waited until the guard was done: the two
+    ran one after the other. Launched first, Tesseract runs on its own core while
+    the guard reads. The command, the image bytes and so the TSV are unchanged.
+    """
+
+    def __init__(self, png: bytes, *, language: str) -> None:
+        self._dir = tempfile.TemporaryDirectory(prefix="wiseau-psm3-")
+        self._started = time.monotonic()
+        self._out = os.path.join(self._dir.name, "page.tsv")
+        image = os.path.join(self._dir.name, "page.png")
+        with open(image, "wb") as handle:
+            handle.write(png)
+        try:
+            self._proc = subprocess.Popen(
+                [TESSERACT_CMD, image, os.path.join(self._dir.name, "page"), "--psm", "3", "-l", language, "tsv"],
+                stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                env={**os.environ, **TESSERACT_ENV})
+        except OSError:
+            self._proc = None
+
+    def result(self) -> Optional[str]:
+        try:
+            if self._proc is None:
+                return None
+            try:
+                code = self._proc.wait(timeout=max(0.0, TIMEOUT_S - (time.monotonic() - self._started)))
+            except subprocess.TimeoutExpired:
+                self._proc.kill()
+                self._proc.wait()
+                return None
+            if code != 0:
+                return None
+            try:
+                with open(self._out, "rb") as handle:
+                    return handle.read().decode("utf-8", errors="replace")
+            except OSError:
+                return None
+        finally:
+            self._dir.cleanup()
+
+
+def start_tsv(png: bytes, *, language: str) -> TesseractRun:
+    """Launch Tesseract psm 3 on a page image now; its TSV comes from `.result()`."""
+    return TesseractRun(png, language=language)
 
 
 def blocks_from_tsv(tsv: str, *, dpi: int, mask: Optional[photo_regions.PhotoMask] = None) -> list[Block]:

@@ -1,0 +1,949 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    52.56,
+    63.0,
+    291.24,
+    221.04
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      52.56,
+      63.0,
+      289.08,
+      71.64
+     ],
+     "text": "surface of \u2018Golden Friendship\u2019 (Hartellody) leaves is glossy,"
+    },
+    {
+     "bbox": [
+      52.56,
+      72.72,
+      258.48,
+      82.08
+     ],
+     "text": "whereas \u2018Sun King\u2019 and \u2018Pierre B\u2019 have dull leaves."
+    },
+    {
+     "bbox": [
+      53.28,
+      82.44,
+      290.16,
+      91.8
+     ],
+     "text": "\u2018Golden Friendship\u2019 (Hartellody) has weak sepal extensions"
+    },
+    {
+     "bbox": [
+      52.92,
+      91.8,
+      285.12,
+      100.44
+     ],
+     "text": "while those of \u2018Pierre B\u2019 are moderate. The seed vessel of"
+    },
+    {
+     "bbox": [
+      53.28,
+      101.88,
+      264.6,
+      111.24
+     ],
+     "text": "\u201cGolden Friendship\u2019 (Hartellody) is larger than that of"
+    },
+    {
+     "bbox": [
+      53.28,
+      111.96,
+      267.84,
+      120.96
+     ],
+     "text": "\u201cPierre B\u2019. \u2018Golden Friendship\u2019 (Hartelody) has yellow"
+    },
+    {
+     "bbox": [
+      53.28,
+      121.68,
+      280.8,
+      130.32
+     ],
+     "text": "stamen filaments, while those of \u2018Sun King\u2019 are red, and"
+    },
+    {
+     "bbox": [
+      52.92,
+      131.76,
+      264.96,
+      140.76
+     ],
+     "text": "those of \u2018Pierre B\u2019 are orange. In \u2018Golden Friendship\u2019"
+    },
+    {
+     "bbox": [
+      52.92,
+      141.84,
+      277.92,
+      151.2
+     ],
+     "text": "(Hartellody) the stigma is above the anthers, whereas in"
+    },
+    {
+     "bbox": [
+      53.64,
+      151.92,
+      291.24,
+      161.64
+     ],
+     "text": "\u2018Sun King\u2019 and \u2018Pierre B\u2019 it is below the anthers. The petals"
+    },
+    {
+     "bbox": [
+      53.28,
+      162.0,
+      270.0,
+      171.0
+     ],
+     "text": "of \u2018Golden Friendship\u2019 (Hartellody) have no basal spot,"
+    },
+    {
+     "bbox": [
+      52.92,
+      171.72,
+      281.16,
+      181.08
+     ],
+     "text": "whereas there is a basal spot on the petals of \u2018Sun King\u2019"
+    },
+    {
+     "bbox": [
+      53.64,
+      182.16,
+      281.88,
+      190.8
+     ],
+     "text": "and \u2018Pierre B\u2019. \u2018Golden Friendship\u2019 (Hartellody) petals are"
+    },
+    {
+     "bbox": [
+      54.0,
+      192.24,
+      252.0,
+      200.16
+     ],
+     "text": "reflexed while those of \u2018Pierre B\u2019 are not. \u2018Golden"
+    },
+    {
+     "bbox": [
+      54.0,
+      201.6,
+      284.4,
+      210.96
+     ],
+     "text": "Friendship\u2019 (Hartellody) flowers in mid season; \u2018Sun King\u2019"
+    },
+    {
+     "bbox": [
+      53.64,
+      212.04,
+      173.16,
+      221.04
+     ],
+     "text": "and \u2018Pierre B\u2019 in early season."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "surface of \u2018Golden Friendship\u2019 (Hartellody) leaves is glossy,\nwhereas \u2018Sun King\u2019 and \u2018Pierre B\u2019 have dull leaves.\n\u2018Golden Friendship\u2019 (Hartellody) has weak sepal extensions\nwhile those of \u2018Pierre B\u2019 are moderate. The seed vessel of\n\u201cGolden Friendship\u2019 (Hartellody) is larger than that of\n\u201cPierre B\u2019. \u2018Golden Friendship\u2019 (Hartelody) has yellow\nstamen filaments, while those of \u2018Sun King\u2019 are red, and\nthose of \u2018Pierre B\u2019 are orange. In \u2018Golden Friendship\u2019\n(Hartellody) the stigma is above the anthers, whereas in\n\u2018Sun King\u2019 and \u2018Pierre B\u2019 it is below the anthers. The petals\nof \u2018Golden Friendship\u2019 (Hartellody) have no basal spot,\nwhereas there is a basal spot on the petals of \u2018Sun King\u2019\nand \u2018Pierre B\u2019. \u2018Golden Friendship\u2019 (Hartellody) petals are\nreflexed while those of \u2018Pierre B\u2019 are not. \u2018Golden\nFriendship\u2019 (Hartellody) flowers in mid season; \u2018Sun King\u2019\nand \u2018Pierre B\u2019 in early season.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    54.0,
+    243.72,
+    250.2,
+    266.4
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      54.0,
+      243.72,
+      250.2,
+      254.88
+     ],
+     "text": "Table of Comparison of Rose Varieties"
+    },
+    {
+     "bbox": [
+      54.0,
+      257.4,
+      194.04,
+      266.4
+     ],
+     "text": "(* = varieties used for comparison)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Table of Comparison of Rose Varieties\n(* = varieties used for comparison)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    53.64,
+    287.64,
+    277.92,
+    508.32
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      113.76,
+      287.64,
+      137.16,
+      294.48
+     ],
+     "text": "\u2018Golden"
+    },
+    {
+     "bbox": [
+      113.76,
+      296.28,
+      266.76,
+      307.8
+     ],
+     "text": "Friendship\u2019 *'Sun King\u2019 * Pierre B\u2019"
+    },
+    {
+     "bbox": [
+      113.04,
+      307.8,
+      152.64,
+      315.72
+     ],
+     "text": "(\u2018Hartellody\u2019}"
+    },
+    {
+     "bbox": [
+      54.0,
+      323.28,
+      277.2,
+      334.44
+     ],
+     "text": "BLOOM COLOUR yellow orange \u2014-yellaworange \u2014_\u2014yellow orenge"
+    },
+    {
+     "bbox": [
+      54.36,
+      334.44,
+      248.4,
+      341.28
+     ],
+     "text": "RHS 14D i4B 22C"
+    },
+    {
+     "bbox": [
+      54.36,
+      348.48,
+      155.16,
+      356.76
+     ],
+     "text": "LEAF GLOSSINESS (upper side}"
+    },
+    {
+     "bbox": [
+      114.12,
+      357.12,
+      244.44,
+      368.28
+     ],
+     "text": "giossy dull dul"
+    },
+    {
+     "bbox": [
+      54.36,
+      372.24,
+      74.88,
+      379.08
+     ],
+     "text": "SEPAL"
+    },
+    {
+     "bbox": [
+      54.0,
+      381.96,
+      263.52,
+      388.8
+     ],
+     "text": "EXTENSIONS weak weak moderate"
+    },
+    {
+     "bbox": [
+      54.36,
+      395.64,
+      166.68,
+      402.84
+     ],
+     "text": "STIGMA IN RELATION TO ANTHERS"
+    },
+    {
+     "bbox": [
+      114.12,
+      405.72,
+      252.36,
+      412.2
+     ],
+     "text": "above below below"
+    },
+    {
+     "bbox": [
+      54.36,
+      419.76,
+      81.72,
+      426.6
+     ],
+     "text": "STAMEN"
+    },
+    {
+     "bbox": [
+      54.0,
+      429.84,
+      255.24,
+      438.12
+     ],
+     "text": "COLOUR yellow ted orange"
+    },
+    {
+     "bbox": [
+      54.0,
+      443.88,
+      93.6,
+      450.72
+     ],
+     "text": "FLOWERING"
+    },
+    {
+     "bbox": [
+      53.64,
+      453.96,
+      272.52,
+      461.88
+     ],
+     "text": "TIME mid season early season early season"
+    },
+    {
+     "bbox": [
+      54.36,
+      468.0,
+      97.92,
+      474.84
+     ],
+     "text": "PETAL BASAL"
+    },
+    {
+     "bbox": [
+      54.0,
+      476.28,
+      277.92,
+      487.44
+     ],
+     "text": "SPOT absent present outside present inside"
+    },
+    {
+     "bbox": [
+      54.0,
+      491.4,
+      140.4,
+      498.6
+     ],
+     "text": "NUMBER OF TRUE PETALS"
+    },
+    {
+     "bbox": [
+      114.12,
+      501.48,
+      241.56,
+      508.32
+     ],
+     "text": "28 42 22"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Golden\nFriendship\u2019 *'Sun King\u2019 * Pierre B\u2019\n(\u2018Hartellody\u2019}\nBLOOM COLOUR yellow orange \u2014-yellaworange \u2014_\u2014yellow orenge\nRHS 14D i4B 22C\nLEAF GLOSSINESS (upper side}\ngiossy dull dul\nSEPAL\nEXTENSIONS weak weak moderate\nSTIGMA IN RELATION TO ANTHERS\nabove below below\nSTAMEN\nCOLOUR yellow ted orange\nFLOWERING\nTIME mid season early season early season\nPETAL BASAL\nSPOT absent present outside present inside\nNUMBER OF TRUE PETALS\n28 42 22",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    53.28,
+    585.0,
+    246.96,
+    611.64
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      54.0,
+      585.0,
+      246.96,
+      596.16
+     ],
+     "text": "GERALDTON WAX FLOWER"
+    },
+    {
+     "bbox": [
+      53.28,
+      599.04,
+      227.52,
+      611.64
+     ],
+     "text": "(Chamelaucium uncinatum)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "GERALDTON WAX FLOWER\n(Chamelaucium uncinatum)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    52.92,
+    642.6,
+    289.44,
+    769.68
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      53.64,
+      642.6,
+      172.08,
+      650.88
+     ],
+     "text": "Comparative Growing Trials"
+    },
+    {
+     "bbox": [
+      53.28,
+      652.32,
+      282.24,
+      660.6
+     ],
+     "text": "Ail characteristics described below are from comparative"
+    },
+    {
+     "bbox": [
+      53.28,
+      662.04,
+      286.92,
+      670.32
+     ],
+     "text": "growing trials conducted at Muchea in Western Australia."
+    },
+    {
+     "bbox": [
+      54.0,
+      671.76,
+      289.44,
+      680.4
+     ],
+     "text": "Plants were propagated from cuttings planted out in mid\u2014"
+    },
+    {
+     "bbox": [
+      54.0,
+      681.48,
+      282.24,
+      689.76
+     ],
+     "text": "1988 at 1 metre intervals in rows 1 metre apart in sandy"
+    },
+    {
+     "bbox": [
+      53.28,
+      691.56,
+      251.64,
+      699.84
+     ],
+     "text": "soil. Water and fertilizer were applied with trickle"
+    },
+    {
+     "bbox": [
+      53.64,
+      701.28,
+      282.96,
+      709.92
+     ],
+     "text": "irrigation. Insecticides and herbicides were applied when"
+    },
+    {
+     "bbox": [
+      53.28,
+      711.36,
+      263.16,
+      719.64
+     ],
+     "text": "considered necessary. Piants were pruned annually."
+    },
+    {
+     "bbox": [
+      53.64,
+      721.08,
+      285.48,
+      729.72
+     ],
+     "text": "Measurements were made from between five and twenty"
+    },
+    {
+     "bbox": [
+      53.28,
+      731.16,
+      269.64,
+      739.8
+     ],
+     "text": "samples taken at random. Sampling took place during"
+    },
+    {
+     "bbox": [
+      52.92,
+      741.24,
+      266.76,
+      749.88
+     ],
+     "text": "flowering in September for \u2018Elegance\u2019 and \u2018Mullering"
+    },
+    {
+     "bbox": [
+      53.64,
+      751.32,
+      275.04,
+      759.6
+     ],
+     "text": "Brook\u2019, and during flowering in November for \u2018Pristine\u2019,"
+    },
+    {
+     "bbox": [
+      54.0,
+      761.04,
+      249.12,
+      769.68
+     ],
+     "text": "\u2018Triumphant\u2019, \u2018Pear! Buttons\u2019 and \u2018White Spring\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials\nAil characteristics described below are from comparative\ngrowing trials conducted at Muchea in Western Australia.\nPlants were propagated from cuttings planted out in mid\u2014\n1988 at 1 metre intervals in rows 1 metre apart in sandy\nsoil. Water and fertilizer were applied with trickle\nirrigation. Insecticides and herbicides were applied when\nconsidered necessary. Piants were pruned annually.\nMeasurements were made from between five and twenty\nsamples taken at random. Sampling took place during\nflowering in September for \u2018Elegance\u2019 and \u2018Mullering\nBrook\u2019, and during flowering in November for \u2018Pristine\u2019,\n\u2018Triumphant\u2019, \u2018Pear! Buttons\u2019 and \u2018White Spring\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    318.6,
+    61.92,
+    554.4,
+    131.76
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      318.6,
+      61.92,
+      333.36,
+      65.16
+     ],
+     "text": "\u2014"
+    },
+    {
+     "bbox": [
+      318.6,
+      62.64,
+      333.72,
+      77.04
+     ],
+     "text": "|"
+    },
+    {
+     "bbox": [
+      319.32,
+      84.6,
+      414.72,
+      93.6
+     ],
+     "text": "Variety: \u2018Pearl Buttons\u2019"
+    },
+    {
+     "bbox": [
+      319.32,
+      94.68,
+      413.28,
+      103.68
+     ],
+     "text": "Application No. 91/041"
+    },
+    {
+     "bbox": [
+      318.96,
+      104.04,
+      460.44,
+      113.4
+     ],
+     "text": "Application received: 17 April 1991"
+    },
+    {
+     "bbox": [
+      319.32,
+      113.4,
+      554.4,
+      123.48
+     ],
+     "text": "Applicant: Australian Wax Farms, of West Perth, Western"
+    },
+    {
+     "bbox": [
+      319.68,
+      124.92,
+      357.84,
+      131.76
+     ],
+     "text": "Australia."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2014\n|\nVariety: \u2018Pearl Buttons\u2019\nApplication No. 91/041\nApplication received: 17 April 1991\nApplicant: Australian Wax Farms, of West Perth, Western\nAustralia.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    320.04,
+    324.36,
+    517.32,
+    333.0
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      320.04,
+      324.36,
+      517.32,
+      333.0
+     ],
+     "text": "\u2018Pearl Buttons (Photograph supplied by applicant)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Pearl Buttons (Photograph supplied by applicant)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    319.32,
+    353.52,
+    555.84,
+    421.56
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      319.68,
+      353.52,
+      360.72,
+      361.8
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      320.04,
+      363.24,
+      512.64,
+      371.88
+     ],
+     "text": "\u2018Pearl Buttons\u2019 is a late flowering white petalled"
+    },
+    {
+     "bbox": [
+      319.32,
+      372.96,
+      555.84,
+      381.24
+     ],
+     "text": "waxflower. It is distinct from known varieties in having the"
+    },
+    {
+     "bbox": [
+      319.32,
+      383.04,
+      519.12,
+      391.68
+     ],
+     "text": "following combination of characters: A November"
+    },
+    {
+     "bbox": [
+      319.68,
+      392.76,
+      555.84,
+      401.4
+     ],
+     "text": "flowering season; thick stems; short leaves; dense, axillary"
+    },
+    {
+     "bbox": [
+      320.04,
+      402.84,
+      533.52,
+      411.48
+     ],
+     "text": "flowering clusters; narrow floral tubes; short, narrow"
+    },
+    {
+     "bbox": [
+      320.04,
+      412.92,
+      448.92,
+      421.56
+     ],
+     "text": "leaves; long styles; white petals."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\n\u2018Pearl Buttons\u2019 is a late flowering white petalled\nwaxflower. It is distinct from known varieties in having the\nfollowing combination of characters: A November\nflowering season; thick stems; short leaves; dense, axillary\nflowering clusters; narrow floral tubes; short, narrow\nleaves; long styles; white petals.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    320.04,
+    437.4,
+    509.4,
+    455.76
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      320.04,
+      437.4,
+      448.56,
+      445.68
+     ],
+     "text": "Varieties Used for Comparison"
+    },
+    {
+     "bbox": [
+      320.04,
+      447.12,
+      509.4,
+      455.76
+     ],
+     "text": "\u2018White Spring\u2019 being the closest known variety."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties Used for Comparison\n\u2018White Spring\u2019 being the closest known variety.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    319.68,
+    471.6,
+    557.28,
+    529.2
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      320.04,
+      471.6,
+      345.24,
+      479.52
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      319.68,
+      481.32,
+      557.28,
+      489.6
+     ],
+     "text": "This variety was selected from seedlings of open pollinated"
+    },
+    {
+     "bbox": [
+      320.04,
+      491.4,
+      547.92,
+      499.68
+     ],
+     "text": "plants on the basis of growth form, lateness of flowering"
+    },
+    {
+     "bbox": [
+      319.68,
+      501.12,
+      555.48,
+      509.4
+     ],
+     "text": "and flower characteristics. The seedling was subsequently"
+    },
+    {
+     "bbox": [
+      320.04,
+      511.2,
+      531.0,
+      519.48
+     ],
+     "text": "propagated asexually through several generations at"
+    },
+    {
+     "bbox": [
+      320.04,
+      520.92,
+      518.04,
+      529.2
+     ],
+     "text": "Muchea, W.A. to form the variety \u2018Pear! Buttons\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\nThis variety was selected from seedlings of open pollinated\nplants on the basis of growth form, lateness of flowering\nand flower characteristics. The seedling was subsequently\npropagated asexually through several generations at\nMuchea, W.A. to form the variety \u2018Pear! Buttons\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    320.04,
+    544.32,
+    554.76,
+    632.52
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      320.4,
+      544.32,
+      477.0,
+      552.6
+     ],
+     "text": "Morphology \u2014 see comparison tables."
+    },
+    {
+     "bbox": [
+      320.4,
+      554.04,
+      538.2,
+      563.04
+     ],
+     "text": "\u2018Pear| Buttons\u2019 is of medium height. The plants have a"
+    },
+    {
+     "bbox": [
+      320.04,
+      564.12,
+      527.76,
+      572.4
+     ],
+     "text": "higher density of foliage and flowers, thicker stems,"
+    },
+    {
+     "bbox": [
+      320.04,
+      574.2,
+      544.32,
+      582.84
+     ],
+     "text": "shorter arching linear leaves and longer pedicel lengths"
+    },
+    {
+     "bbox": [
+      320.04,
+      584.28,
+      554.04,
+      592.92
+     ],
+     "text": "than \u2018White Spring\u2019. The floral tubes of \u2018Pearl Buttons\u2019 are"
+    },
+    {
+     "bbox": [
+      320.04,
+      594.36,
+      531.0,
+      602.64
+     ],
+     "text": "red-orange in older flowers whereas those of \u2018White"
+    },
+    {
+     "bbox": [
+      320.04,
+      604.08,
+      554.76,
+      612.72
+     ],
+     "text": "Spring\u2019 are yellow\u2014 green. The style plus stigma length is"
+    },
+    {
+     "bbox": [
+      320.04,
+      614.16,
+      540.0,
+      622.8
+     ],
+     "text": "greater in \u2018Pearl Buttons\u2019 than in \u2018White Spring\u2019. \u2018Pear!"
+    },
+    {
+     "bbox": [
+      320.04,
+      623.88,
+      518.76,
+      632.52
+     ],
+     "text": "Buttons\u2019 has smaller flowers than \u2018White Spring\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 see comparison tables.\n\u2018Pear| Buttons\u2019 is of medium height. The plants have a\nhigher density of foliage and flowers, thicker stems,\nshorter arching linear leaves and longer pedicel lengths\nthan \u2018White Spring\u2019. The floral tubes of \u2018Pearl Buttons\u2019 are\nred-orange in older flowers whereas those of \u2018White\nSpring\u2019 are yellow\u2014 green. The style plus stigma length is\ngreater in \u2018Pearl Buttons\u2019 than in \u2018White Spring\u2019. \u2018Pear!\nButtons\u2019 has smaller flowers than \u2018White Spring\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

@@ -1,0 +1,1144 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    51.84,
+    53.28,
+    140.16,
+    79.68
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      52.8,
+      53.28,
+      91.68,
+      63.84
+     ],
+     "text": "ROSE"
+    },
+    {
+     "bbox": [
+      51.84,
+      67.2,
+      140.16,
+      79.68
+     ],
+     "text": "{Rosa hybrida)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ROSE\n{Rosa hybrida)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    50.88,
+    112.32,
+    286.08,
+    209.28
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      51.84,
+      112.32,
+      166.08,
+      120.48
+     ],
+     "text": "Comparative growing trials"
+    },
+    {
+     "bbox": [
+      50.88,
+      121.92,
+      258.72,
+      130.56
+     ],
+     "text": "All characteristics and comparisons below are from"
+    },
+    {
+     "bbox": [
+      51.36,
+      132.0,
+      281.28,
+      140.64
+     ],
+     "text": "comparative growing trials conducted at the University of"
+    },
+    {
+     "bbox": [
+      50.88,
+      141.6,
+      263.04,
+      150.24
+     ],
+     "text": "Western Sydney, Hawkesbury, Richmond, N.S.W., in"
+    },
+    {
+     "bbox": [
+      51.36,
+      152.16,
+      269.76,
+      160.8
+     ],
+     "text": "October to December, 1990. Two year old plants were"
+    },
+    {
+     "bbox": [
+      51.36,
+      162.24,
+      283.2,
+      170.88
+     ],
+     "text": "grown on their own rootstock, potted in growing medium,"
+    },
+    {
+     "bbox": [
+      51.36,
+      172.32,
+      250.08,
+      180.96
+     ],
+     "text": "spaced 30 cm apart in a polytunnel fertilized with"
+    },
+    {
+     "bbox": [
+      51.84,
+      182.4,
+      286.08,
+      189.6
+     ],
+     "text": "\u201cNutricote\u201d fertilizer. Measurements and observations are"
+    },
+    {
+     "bbox": [
+      51.84,
+      192.48,
+      260.16,
+      200.64
+     ],
+     "text": "based on 20 random selections from these plants in"
+    },
+    {
+     "bbox": [
+      51.36,
+      202.08,
+      168.0,
+      209.28
+     ],
+     "text": "October and December 1990."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative growing trials\nAll characteristics and comparisons below are from\ncomparative growing trials conducted at the University of\nWestern Sydney, Hawkesbury, Richmond, N.S.W., in\nOctober to December, 1990. Two year old plants were\ngrown on their own rootstock, potted in growing medium,\nspaced 30 cm apart in a polytunnel fertilized with\n\u201cNutricote\u201d fertilizer. Measurements and observations are\nbased on 20 random selections from these plants in\nOctober and December 1990.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    50.88,
+    230.4,
+    257.28,
+    317.28
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      64.8,
+      230.4,
+      66.24,
+      242.4
+     ],
+     "text": "}"
+    },
+    {
+     "bbox": [
+      50.88,
+      248.16,
+      254.4,
+      256.8
+     ],
+     "text": "Variety: \u2018Interlien\u2019 (commercial synonym \u2018Evelien\u2019)"
+    },
+    {
+     "bbox": [
+      50.88,
+      258.24,
+      144.96,
+      266.4
+     ],
+     "text": "Application No: 91/011"
+    },
+    {
+     "bbox": [
+      51.36,
+      267.84,
+      183.84,
+      276.48
+     ],
+     "text": "Date accepted: 24 January, 1991"
+    },
+    {
+     "bbox": [
+      50.88,
+      277.92,
+      192.0,
+      286.56
+     ],
+     "text": "Applicant: G.P, Usink, of Interplant"
+    },
+    {
+     "bbox": [
+      51.84,
+      286.56,
+      161.76,
+      299.52
+     ],
+     "text": "B.V., Leersum. Netherlands"
+    },
+    {
+     "bbox": [
+      50.88,
+      298.56,
+      257.28,
+      306.72
+     ],
+     "text": "Australian Agent: Kenneth A. Langton, of Langton"
+    },
+    {
+     "bbox": [
+      51.84,
+      308.64,
+      191.04,
+      317.28
+     ],
+     "text": "Roses, Mudgee. New South Wales"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "}\nVariety: \u2018Interlien\u2019 (commercial synonym \u2018Evelien\u2019)\nApplication No: 91/011\nDate accepted: 24 January, 1991\nApplicant: G.P, Usink, of Interplant\nB.V., Leersum. Netherlands\nAustralian Agent: Kenneth A. Langton, of Langton\nRoses, Mudgee. New South Wales",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    50.88,
+    324.96,
+    284.16,
+    401.28
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      51.84,
+      324.96,
+      92.16,
+      333.12
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      50.88,
+      334.56,
+      271.68,
+      343.2
+     ],
+     "text": "This variety is distinct from all other known varieties in"
+    },
+    {
+     "bbox": [
+      51.84,
+      344.64,
+      270.72,
+      353.28
+     ],
+     "text": "having the following combination of characters: a light"
+    },
+    {
+     "bbox": [
+      50.88,
+      354.72,
+      273.12,
+      362.88
+     ],
+     "text": "pink glasshouse rose with bud pointed in profile; stems"
+    },
+    {
+     "bbox": [
+      50.88,
+      364.8,
+      284.16,
+      372.48
+     ],
+     "text": "with medium-sized thorns from base to pedicel; no thorns"
+    },
+    {
+     "bbox": [
+      51.36,
+      374.4,
+      260.64,
+      383.04
+     ],
+     "text": "or prickles on pedicel; foliage with very glossy upper"
+    },
+    {
+     "bbox": [
+      51.36,
+      384.0,
+      276.0,
+      391.2
+     ],
+     "text": "surfaces and medium-sized terminal leaflets rounded at"
+    },
+    {
+     "bbox": [
+      51.36,
+      394.56,
+      86.88,
+      401.28
+     ],
+     "text": "the base."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\nThis variety is distinct from all other known varieties in\nhaving the following combination of characters: a light\npink glasshouse rose with bud pointed in profile; stems\nwith medium-sized thorns from base to pedicel; no thorns\nor prickles on pedicel; foliage with very glossy upper\nsurfaces and medium-sized terminal leaflets rounded at\nthe base.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.36,
+    409.92,
+    288.96,
+    504.96
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      51.36,
+      409.92,
+      176.64,
+      418.56
+     ],
+     "text": "Varieties used for comparison"
+    },
+    {
+     "bbox": [
+      51.84,
+      420.0,
+      277.44,
+      428.64
+     ],
+     "text": "\u2018Pink Delight\u2019 which is the closest known to \u2018Interlien\u2019 in"
+    },
+    {
+     "bbox": [
+      51.36,
+      430.08,
+      286.56,
+      438.24
+     ],
+     "text": "flower colour, and \u2018Bluesette\u2019 which is a commonly known"
+    },
+    {
+     "bbox": [
+      51.36,
+      440.16,
+      238.56,
+      448.32
+     ],
+     "text": "standard variety of miniature rose in Australia."
+    },
+    {
+     "bbox": [
+      51.36,
+      456.48,
+      76.32,
+      465.12
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      51.36,
+      466.08,
+      276.0,
+      473.28
+     ],
+     "text": "The breeder is G.P. llsink in Netherlands. \u2018Interlien\u2019 was"
+    },
+    {
+     "bbox": [
+      51.36,
+      476.16,
+      288.96,
+      484.8
+     ],
+     "text": "selected from the progeny of a controlled pollination of two"
+    },
+    {
+     "bbox": [
+      51.84,
+      486.24,
+      288.0,
+      494.88
+     ],
+     "text": "unnamed seedlings. \u2018Interlien\u2019 has been protected by Plant"
+    },
+    {
+     "bbox": [
+      51.36,
+      496.32,
+      205.44,
+      504.96
+     ],
+     "text": "Variety Rights in Germany since 1987."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comparison\n\u2018Pink Delight\u2019 which is the closest known to \u2018Interlien\u2019 in\nflower colour, and \u2018Bluesette\u2019 which is a commonly known\nstandard variety of miniature rose in Australia.\nOrigin\nThe breeder is G.P. llsink in Netherlands. \u2018Interlien\u2019 was\nselected from the progeny of a controlled pollination of two\nunnamed seedlings. \u2018Interlien\u2019 has been protected by Plant\nVariety Rights in Germany since 1987.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    51.36,
+    512.16,
+    287.52,
+    589.44
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      51.84,
+      512.16,
+      206.88,
+      520.32
+     ],
+     "text": "Morphology \u2014 see comparison tables."
+    },
+    {
+     "bbox": [
+      51.84,
+      521.76,
+      287.52,
+      529.92
+     ],
+     "text": "\u2018Interlien\u2019 is a light pink spray rose, grown on its own roots"
+    },
+    {
+     "bbox": [
+      51.36,
+      531.36,
+      284.64,
+      540.0
+     ],
+     "text": "with heads bigger than either \u2018Pink Delight\u2019 or \u2018Bluesette\u2019."
+    },
+    {
+     "bbox": [
+      51.84,
+      540.96,
+      283.2,
+      549.6
+     ],
+     "text": "\u2018Interlien\u2019 has less petals than \u2018Pink Delight\u2019 and a similar"
+    },
+    {
+     "bbox": [
+      51.84,
+      551.04,
+      241.92,
+      559.2
+     ],
+     "text": "number of petals to \u2018Bluesette\u2019 but has no petal"
+    },
+    {
+     "bbox": [
+      51.84,
+      561.12,
+      276.96,
+      569.76
+     ],
+     "text": "undulation. \u2018Interlien\u2019s\u2019 growth habit is rated as upright-"
+    },
+    {
+     "bbox": [
+      51.36,
+      571.2,
+      267.36,
+      579.84
+     ],
+     "text": "bushy whereas \u2018Pink Delight\u2019 and \u2018Bluesette\u2019 are both"
+    },
+    {
+     "bbox": [
+      51.84,
+      581.28,
+      276.48,
+      589.44
+     ],
+     "text": "rated as bushy. Foliage is uniformly medium-green with"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 see comparison tables.\n\u2018Interlien\u2019 is a light pink spray rose, grown on its own roots\nwith heads bigger than either \u2018Pink Delight\u2019 or \u2018Bluesette\u2019.\n\u2018Interlien\u2019 has less petals than \u2018Pink Delight\u2019 and a similar\nnumber of petals to \u2018Bluesette\u2019 but has no petal\nundulation. \u2018Interlien\u2019s\u2019 growth habit is rated as upright-\nbushy whereas \u2018Pink Delight\u2019 and \u2018Bluesette\u2019 are both\nrated as bushy. Foliage is uniformly medium-green with",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    52.32,
+    750.72,
+    276.0,
+    769.92
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      52.32,
+      750.72,
+      276.0,
+      759.84
+     ],
+     "text": "Rose \u2018Interlien\u2019 (centre) between \u2018Pink Delight\u2019 (left) and"
+    },
+    {
+     "bbox": [
+      52.32,
+      761.28,
+      235.2,
+      769.92
+     ],
+     "text": "\u2018Bluesette\u2019 (Photograph supplied by applicant)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Rose \u2018Interlien\u2019 (centre) between \u2018Pink Delight\u2019 (left) and\n\u2018Bluesette\u2019 (Photograph supplied by applicant)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    308.64,
+    54.72,
+    534.24,
+    90.72
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      308.64,
+      54.72,
+      534.24,
+      62.88
+     ],
+     "text": "very glossy upper sides and thorns present on the lower"
+    },
+    {
+     "bbox": [
+      309.12,
+      64.32,
+      526.08,
+      71.52
+     ],
+     "text": "midrib. The terminal leaflet has a rounded base and is"
+    },
+    {
+     "bbox": [
+      308.64,
+      74.4,
+      531.36,
+      82.56
+     ],
+     "text": "concave in cross-section. Fragrance is rated weak in all"
+    },
+    {
+     "bbox": [
+      308.64,
+      84.0,
+      366.24,
+      90.72
+     ],
+     "text": "three varieties."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "very glossy upper sides and thorns present on the lower\nmidrib. The terminal leaflet has a rounded base and is\nconcave in cross-section. Fragrance is rated weak in all\nthree varieties.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    308.16,
+    129.12,
+    540.48,
+    198.24
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      308.16,
+      129.12,
+      527.52,
+      137.76
+     ],
+     "text": "Variety: \u2018Interprince\u2019 (commercial synonym \u2018Princess\u2019)"
+    },
+    {
+     "bbox": [
+      308.16,
+      139.2,
+      403.68,
+      147.84
+     ],
+     "text": "Application No: 91/012"
+    },
+    {
+     "bbox": [
+      308.64,
+      149.28,
+      440.64,
+      157.92
+     ],
+     "text": "Date accepted: 24 January, 1991"
+    },
+    {
+     "bbox": [
+      308.16,
+      159.84,
+      465.6,
+      168.0
+     ],
+     "text": "Applicant: G.P. Ilsink, of Interplant B.V."
+    },
+    {
+     "bbox": [
+      308.64,
+      169.44,
+      397.44,
+      177.12
+     ],
+     "text": "Leersum, Netherlands"
+    },
+    {
+     "bbox": [
+      308.16,
+      179.52,
+      540.48,
+      188.16
+     ],
+     "text": "Australian Agent: Kenneth A. Langton of Langton Roses,"
+    },
+    {
+     "bbox": [
+      308.64,
+      189.6,
+      373.44,
+      198.24
+     ],
+     "text": "Mudgee, N.S.W."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Interprince\u2019 (commercial synonym \u2018Princess\u2019)\nApplication No: 91/012\nDate accepted: 24 January, 1991\nApplicant: G.P. Ilsink, of Interplant B.V.\nLeersum, Netherlands\nAustralian Agent: Kenneth A. Langton of Langton Roses,\nMudgee, N.S.W.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    308.16,
+    205.44,
+    528.96,
+    281.76
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      308.64,
+      205.44,
+      349.44,
+      213.6
+     ],
+     "text": "Diagnosis"
+    },
+    {
+     "bbox": [
+      308.16,
+      215.52,
+      528.96,
+      223.68
+     ],
+     "text": "This variety is distinct from all other known varieties in"
+    },
+    {
+     "bbox": [
+      308.64,
+      225.12,
+      507.36,
+      234.24
+     ],
+     "text": "having the following combination of characters: a"
+    },
+    {
+     "bbox": [
+      308.64,
+      235.2,
+      523.68,
+      243.36
+     ],
+     "text": "multiheaded white glasshouse rose of upright growth"
+    },
+    {
+     "bbox": [
+      308.64,
+      243.36,
+      525.12,
+      255.36
+     ],
+     "text": "habit; sparse concave thorns mostly close to the base;"
+    },
+    {
+     "bbox": [
+      308.64,
+      255.36,
+      525.6,
+      263.04
+     ],
+     "text": "pointed bud shape; stigma above anthers; foliage light"
+    },
+    {
+     "bbox": [
+      308.16,
+      264.96,
+      517.44,
+      273.12
+     ],
+     "text": "green with dull upper side of leaves; terminal leaflet"
+    },
+    {
+     "bbox": [
+      308.64,
+      275.04,
+      508.32,
+      281.76
+     ],
+     "text": "rounded at the base and thorns on back of leaves."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Diagnosis\nThis variety is distinct from all other known varieties in\nhaving the following combination of characters: a\nmultiheaded white glasshouse rose of upright growth\nhabit; sparse concave thorns mostly close to the base;\npointed bud shape; stigma above anthers; foliage light\ngreen with dull upper side of leaves; terminal leaflet\nrounded at the base and thorns on back of leaves.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    308.16,
+    290.88,
+    529.44,
+    317.76
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      308.16,
+      290.88,
+      432.96,
+      299.04
+     ],
+     "text": "Varieties used for comparison"
+    },
+    {
+     "bbox": [
+      308.64,
+      300.96,
+      529.44,
+      309.12
+     ],
+     "text": "\u2018Pink Delight\u2019 the seed parent, and \u2018Bluesette\u2019 a similar"
+    },
+    {
+     "bbox": [
+      308.16,
+      311.52,
+      487.68,
+      317.76
+     ],
+     "text": "sized well known miniature rose in Australia"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Varieties used for comparison\n\u2018Pink Delight\u2019 the seed parent, and \u2018Bluesette\u2019 a similar\nsized well known miniature rose in Australia",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    308.16,
+    327.36,
+    530.4,
+    375.36
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      308.16,
+      327.36,
+      333.6,
+      335.52
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      308.64,
+      337.44,
+      522.72,
+      345.6
+     ],
+     "text": "\u2018Interprince\u2019 arose from controlled pollination of \u2018Pink"
+    },
+    {
+     "bbox": [
+      308.64,
+      347.52,
+      530.4,
+      355.68
+     ],
+     "text": "Delight\u2019 by an unnamed seedling. The breeder was G.P."
+    },
+    {
+     "bbox": [
+      308.64,
+      357.6,
+      519.84,
+      365.28
+     ],
+     "text": "Ilsink in Netherlands. Plant Variety Rights have been"
+    },
+    {
+     "bbox": [
+      308.16,
+      367.2,
+      450.24,
+      375.36
+     ],
+     "text": "granted in the Netherlands in 1989."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\n\u2018Interprince\u2019 arose from controlled pollination of \u2018Pink\nDelight\u2019 by an unnamed seedling. The breeder was G.P.\nIlsink in Netherlands. Plant Variety Rights have been\ngranted in the Netherlands in 1989.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    307.68,
+    382.56,
+    541.92,
+    480.48
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      308.64,
+      382.56,
+      463.2,
+      391.2
+     ],
+     "text": "Morphology \u2014 see comparison tables"
+    },
+    {
+     "bbox": [
+      308.64,
+      392.16,
+      537.6,
+      400.8
+     ],
+     "text": "\u2018Interprince\u2019 is a white spray rose grown on its own roots"
+    },
+    {
+     "bbox": [
+      308.16,
+      402.24,
+      529.92,
+      410.88
+     ],
+     "text": "and of upright habit. Shoots show red anthocyanin and"
+    },
+    {
+     "bbox": [
+      308.16,
+      412.32,
+      537.6,
+      420.48
+     ],
+     "text": "buds are pointed. Flowers are flat in profile with up to 50"
+    },
+    {
+     "bbox": [
+      307.68,
+      422.4,
+      529.92,
+      430.56
+     ],
+     "text": "small petals with mild reflexing, and have no fragrance."
+    },
+    {
+     "bbox": [
+      308.16,
+      432.0,
+      529.92,
+      440.64
+     ],
+     "text": "Stamen filaments are yellow, style colour is green with"
+    },
+    {
+     "bbox": [
+      307.68,
+      442.56,
+      535.2,
+      450.72
+     ],
+     "text": "stigma above level of anthers. Foliage is light green with"
+    },
+    {
+     "bbox": [
+      307.68,
+      452.64,
+      541.92,
+      460.8
+     ],
+     "text": "terminal leaflets rounded at the base, unlike \u2018Pink Delight\u2019"
+    },
+    {
+     "bbox": [
+      308.16,
+      462.72,
+      536.64,
+      469.44
+     ],
+     "text": "and \u2018Bluesette\u2019 whose terminal leaflets are obtuse at the"
+    },
+    {
+     "bbox": [
+      308.16,
+      472.32,
+      496.8,
+      480.48
+     ],
+     "text": "base. Sepal extensions are weak, often absent."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 see comparison tables\n\u2018Interprince\u2019 is a white spray rose grown on its own roots\nand of upright habit. Shoots show red anthocyanin and\nbuds are pointed. Flowers are flat in profile with up to 50\nsmall petals with mild reflexing, and have no fragrance.\nStamen filaments are yellow, style colour is green with\nstigma above level of anthers. Foliage is light green with\nterminal leaflets rounded at the base, unlike \u2018Pink Delight\u2019\nand \u2018Bluesette\u2019 whose terminal leaflets are obtuse at the\nbase. Sepal extensions are weak, often absent.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    307.68,
+    641.28,
+    525.12,
+    662.4
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      308.16,
+      641.28,
+      525.12,
+      649.92
+     ],
+     "text": "Rose \u2018Interprince\u2019 (centre) between \u2018Pink Delight\u2019 (left)"
+    },
+    {
+     "bbox": [
+      307.68,
+      646.08,
+      508.8,
+      662.4
+     ],
+     "text": "and \u2018Bluesette\u2019 Photograph supplied by applicant)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Rose \u2018Interprince\u2019 (centre) between \u2018Pink Delight\u2019 (left)\nand \u2018Bluesette\u2019 Photograph supplied by applicant)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    306.24,
+    691.2,
+    312.0,
+    708.0
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      306.24,
+      691.2,
+      312.0,
+      708.0
+     ],
+     "text": "["
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "[",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    308.16,
+    713.28,
+    543.36,
+    781.92
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      308.16,
+      713.28,
+      506.88,
+      721.44
+     ],
+     "text": "Variety: \u2018Intermotto\u2019 (commercial synonym \u2018Joy\u2019)"
+    },
+    {
+     "bbox": [
+      308.16,
+      723.36,
+      403.68,
+      732.0
+     ],
+     "text": "Application No: 91/013"
+    },
+    {
+     "bbox": [
+      308.64,
+      733.44,
+      440.64,
+      741.6
+     ],
+     "text": "Date accepted: 24 January, 1991"
+    },
+    {
+     "bbox": [
+      308.16,
+      743.52,
+      500.16,
+      752.16
+     ],
+     "text": "Applicant: G.P. Ilsink, Interplant B.V., Leersum,"
+    },
+    {
+     "bbox": [
+      308.64,
+      753.6,
+      359.04,
+      760.32
+     ],
+     "text": "Netherlands."
+    },
+    {
+     "bbox": [
+      308.16,
+      763.2,
+      543.36,
+      771.84
+     ],
+     "text": "Austratian Agent: Kenneth A. Langton, of Langton Roses,"
+    },
+    {
+     "bbox": [
+      308.64,
+      773.28,
+      373.44,
+      781.92
+     ],
+     "text": "Mudgee, N.S.W."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Intermotto\u2019 (commercial synonym \u2018Joy\u2019)\nApplication No: 91/013\nDate accepted: 24 January, 1991\nApplicant: G.P. Ilsink, Interplant B.V., Leersum,\nNetherlands.\nAustratian Agent: Kenneth A. Langton, of Langton Roses,\nMudgee, N.S.W.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    52.32,
+    794.88,
+    92.16,
+    803.52
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      52.32,
+      794.88,
+      92.16,
+      803.52
+     ],
+     "text": "o\u2014"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "o\u2014",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

@@ -1,0 +1,1407 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    64.08,
+    59.4,
+    283.32,
+    66.6
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      64.08,
+      59.4,
+      283.32,
+      66.6
+     ],
+     "text": "TABLE OF COMPARISON OF HYDRANGEA VARIETIES\u2014Continued"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "TABLE OF COMPARISON OF HYDRANGEA VARIETIES\u2014Continued",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    142.2,
+    75.24,
+    260.28,
+    82.08
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      142.2,
+      75.24,
+      260.28,
+      82.08
+     ],
+     "text": "\u201cLK49\u2019 \u201cKirsten\u2019"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u201cLK49\u2019 \u201cKirsten\u2019",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    64.8,
+    91.44,
+    276.48,
+    109.8
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      64.8,
+      91.44,
+      254.52,
+      99.0
+     ],
+     "text": "INFLORESCENCE: FLOWERS WITH SMALL CALYX"
+    },
+    {
+     "bbox": [
+      142.56,
+      102.24,
+      276.48,
+      109.8
+     ],
+     "text": "inconspicuous inconspicuous"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "INFLORESCENCE: FLOWERS WITH SMALL CALYX\ninconspicuous inconspicuous",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    64.8,
+    121.32,
+    170.28,
+    128.16
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      64.8,
+      121.32,
+      170.28,
+      128.16
+     ],
+     "text": "INFLORESCENCE: COLOUR"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "INFLORESCENCE: COLOUR",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    142.92,
+    130.68,
+    261.0,
+    158.04
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      142.92,
+      130.68,
+      254.52,
+      137.52
+     ],
+     "text": "red blue/red"
+    },
+    {
+     "bbox": [
+      142.92,
+      140.4,
+      261.0,
+      147.24
+     ],
+     "text": "RHS 59B-60B RHS 63A,"
+    },
+    {
+     "bbox": [
+      226.44,
+      150.48,
+      247.68,
+      158.04
+     ],
+     "text": "fading"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "red blue/red\nRHS 59B-60B RHS 63A,\nfading",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    63.0,
+    163.8,
+    294.48,
+    185.76
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      63.0,
+      163.8,
+      204.12,
+      179.28
+     ],
+     "text": "LARGE CALYX: NUMBER OF SEPALS"
+    },
+    {
+     "bbox": [
+      142.92,
+      178.92,
+      294.48,
+      185.76
+     ],
+     "text": "3&4 4 & 5, sometimes 3"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "LARGE CALYX: NUMBER OF SEPALS\n3&4 4 & 5, sometimes 3",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    65.16,
+    197.64,
+    276.12,
+    227.52
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      65.16,
+      197.64,
+      276.12,
+      204.84
+     ],
+     "text": "LARGE CALYX: DEGREE OF OVERLAPPING OF SEPALS"
+    },
+    {
+     "bbox": [
+      142.92,
+      205.92,
+      264.96,
+      217.44
+     ],
+     "text": "sometimes sometimes"
+    },
+    {
+     "bbox": [
+      142.92,
+      216.0,
+      253.08,
+      227.52
+     ],
+     "text": "present present"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "LARGE CALYX: DEGREE OF OVERLAPPING OF SEPALS\nsometimes sometimes\npresent present",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    65.52,
+    236.52,
+    258.84,
+    243.72
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      65.52,
+      236.52,
+      258.84,
+      243.72
+     ],
+     "text": "LARGE CALYX: INCISIONS ON MARGIN OF SEPALS"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "LARGE CALYX: INCISIONS ON MARGIN OF SEPALS",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    65.52,
+    246.6,
+    271.44,
+    349.92
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      143.28,
+      246.6,
+      271.44,
+      253.44
+     ],
+     "text": "absent on all absent on all"
+    },
+    {
+     "bbox": [
+      143.28,
+      255.96,
+      249.48,
+      266.04
+     ],
+     "text": "sepals sepals"
+    },
+    {
+     "bbox": [
+      65.52,
+      341.28,
+      166.32,
+      349.92
+     ],
+     "text": "CHRYSANTHEMUM"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "absent on all absent on all\nsepals sepals\nCHRYSANTHEMUM",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    66.24,
+    354.24,
+    199.44,
+    365.04
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      66.24,
+      354.24,
+      199.44,
+      365.04
+     ],
+     "text": "Chrysanthemum frutescens"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Chrysanthemum frutescens",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    65.16,
+    372.24,
+    300.96,
+    504.72
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      65.52,
+      372.24,
+      190.8,
+      381.6
+     ],
+     "text": "Comparative Growing Trials"
+    },
+    {
+     "bbox": [
+      65.52,
+      387.0,
+      300.6,
+      395.64
+     ],
+     "text": "All characteristics and comparisons in the description and table"
+    },
+    {
+     "bbox": [
+      65.52,
+      397.8,
+      300.24,
+      406.8
+     ],
+     "text": "are from comparative growing trials conducted at Emerald in"
+    },
+    {
+     "bbox": [
+      65.52,
+      408.96,
+      300.6,
+      417.6
+     ],
+     "text": "Victoria between September 1991 and April 1992. Growing"
+    },
+    {
+     "bbox": [
+      65.52,
+      419.76,
+      300.24,
+      428.4
+     ],
+     "text": "conditions were the same as would be used in commercial pro-"
+    },
+    {
+     "bbox": [
+      65.16,
+      430.92,
+      300.6,
+      439.56
+     ],
+     "text": "duction. The plants of the hybrid variety \u201cUlyssis\u2019 were grown"
+    },
+    {
+     "bbox": [
+      65.88,
+      441.72,
+      300.6,
+      450.36
+     ],
+     "text": "in 200 mm containers in typical pine bark based potting"
+    },
+    {
+     "bbox": [
+      65.52,
+      452.52,
+      300.6,
+      459.36
+     ],
+     "text": "medium enriched with time release fertiliser. \u201cCream Star\u201d was"
+    },
+    {
+     "bbox": [
+      65.52,
+      463.32,
+      300.6,
+      471.96
+     ],
+     "text": "grown in 150 mm containers in the same potting medium. The"
+    },
+    {
+     "bbox": [
+      65.88,
+      474.12,
+      300.24,
+      482.76
+     ],
+     "text": "new and existing varieties were grown together in full sun."
+    },
+    {
+     "bbox": [
+      65.52,
+      484.92,
+      300.96,
+      493.56
+     ],
+     "text": "Measurements are from 10 speciments selected at random 6"
+    },
+    {
+     "bbox": [
+      65.52,
+      496.08,
+      151.2,
+      504.72
+     ],
+     "text": "months after repotting."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparative Growing Trials\nAll characteristics and comparisons in the description and table\nare from comparative growing trials conducted at Emerald in\nVictoria between September 1991 and April 1992. Growing\nconditions were the same as would be used in commercial pro-\nduction. The plants of the hybrid variety \u201cUlyssis\u2019 were grown\nin 200 mm containers in typical pine bark based potting\nmedium enriched with time release fertiliser. \u201cCream Star\u201d was\ngrown in 150 mm containers in the same potting medium. The\nnew and existing varieties were grown together in full sun.\nMeasurements are from 10 speciments selected at random 6\nmonths after repotting.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    65.16,
+    537.48,
+    292.32,
+    609.84
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      65.52,
+      537.48,
+      292.32,
+      546.12
+     ],
+     "text": "Variety: *Uly: sommercial synonym: \u201cButterfly\u201d. See fig"
+    },
+    {
+     "bbox": [
+      65.16,
+      548.64,
+      137.16,
+      555.12
+     ],
+     "text": "9 in colour section."
+    },
+    {
+     "bbox": [
+      65.52,
+      559.44,
+      154.44,
+      568.08
+     ],
+     "text": "Application No, 92/055"
+    },
+    {
+     "bbox": [
+      65.52,
+      570.24,
+      199.08,
+      578.88
+     ],
+     "text": "Application Received: 8 May 1992"
+    },
+    {
+     "bbox": [
+      65.52,
+      581.04,
+      280.8,
+      589.68
+     ],
+     "text": "Applicant: Markus Schmulling, of Billerbeck. Germany"
+    },
+    {
+     "bbox": [
+      65.52,
+      591.84,
+      275.4,
+      600.48
+     ],
+     "text": "Australian Agent: RW Rother of Outeniqua Nursery."
+    },
+    {
+     "bbox": [
+      65.52,
+      603.0,
+      131.76,
+      609.84
+     ],
+     "text": "Emerald, Victoria"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: *Uly: sommercial synonym: \u201cButterfly\u201d. See fig\n9 in colour section.\nApplication No, 92/055\nApplication Received: 8 May 1992\nApplicant: Markus Schmulling, of Billerbeck. Germany\nAustralian Agent: RW Rother of Outeniqua Nursery.\nEmerald, Victoria",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    65.52,
+    621.72,
+    264.96,
+    630.72
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      65.52,
+      621.72,
+      264.96,
+      630.72
+     ],
+     "text": "Description\u2014see comparison tables and fig. 9."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Description\u2014see comparison tables and fig. 9.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    64.8,
+    635.76,
+    300.6,
+    675.72
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      65.88,
+      635.76,
+      300.6,
+      644.76
+     ],
+     "text": "\u201cUlyssis\u2019 is a compact, small to medium sized plant with light"
+    },
+    {
+     "bbox": [
+      65.16,
+      646.92,
+      300.24,
+      655.56
+     ],
+     "text": "green leaves and a profusion of yellow flowers. The influores-"
+    },
+    {
+     "bbox": [
+      64.8,
+      657.72,
+      300.24,
+      666.72
+     ],
+     "text": "cences are larger than those of \u201cCalifornia Gold\u201d and are dis-"
+    },
+    {
+     "bbox": [
+      65.16,
+      668.88,
+      272.88,
+      675.72
+     ],
+     "text": "tinct from the cream-coloured flowers of \u2018Cream Star\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u201cUlyssis\u2019 is a compact, small to medium sized plant with light\ngreen leaves and a profusion of yellow flowers. The influores-\ncences are larger than those of \u201cCalifornia Gold\u201d and are dis-\ntinct from the cream-coloured flowers of \u2018Cream Star\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    64.8,
+    685.44,
+    300.6,
+    768.6
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      65.88,
+      685.44,
+      300.24,
+      694.8
+     ],
+     "text": "\u2018Ulyssis\u2019 has medium leaf serration, while this is fine in"
+    },
+    {
+     "bbox": [
+      65.88,
+      696.6,
+      300.24,
+      705.24
+     ],
+     "text": "\u2018California Gold*. The long axes of ray florets are straight in"
+    },
+    {
+     "bbox": [
+      65.88,
+      707.76,
+      300.6,
+      716.4
+     ],
+     "text": "\u2018Ulyssis\u2019 and reflexing in \u2018California Gold\u2019. \u201cUlyssis\u201d has"
+    },
+    {
+     "bbox": [
+      65.16,
+      718.56,
+      299.88,
+      727.2
+     ],
+     "text": "shorter peduncles than either of the two comparative varieties."
+    },
+    {
+     "bbox": [
+      64.8,
+      729.36,
+      300.24,
+      737.64
+     ],
+     "text": "The faded flowers of *Ulyssis\u2019 are lighter coloured than are"
+    },
+    {
+     "bbox": [
+      64.8,
+      740.16,
+      300.24,
+      747.0
+     ],
+     "text": "those of \u2018California Gold\u2019. Disc colour before anther dehis-"
+    },
+    {
+     "bbox": [
+      64.8,
+      750.6,
+      299.88,
+      759.24
+     ],
+     "text": "cence corresponds to RHS 14A in \u2018Ulyssis\u2019 and \u201cCream Star*"
+    },
+    {
+     "bbox": [
+      64.8,
+      761.76,
+      207.36,
+      768.6
+     ],
+     "text": "and to RHS 17A in \u2018California Gold\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Ulyssis\u2019 has medium leaf serration, while this is fine in\n\u2018California Gold*. The long axes of ray florets are straight in\n\u2018Ulyssis\u2019 and reflexing in \u2018California Gold\u2019. \u201cUlyssis\u201d has\nshorter peduncles than either of the two comparative varieties.\nThe faded flowers of *Ulyssis\u2019 are lighter coloured than are\nthose of \u2018California Gold\u2019. Disc colour before anther dehis-\ncence corresponds to RHS 14A in \u2018Ulyssis\u2019 and \u201cCream Star*\nand to RHS 17A in \u2018California Gold\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    327.24,
+    58.68,
+    563.04,
+    117.36
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      327.24,
+      58.68,
+      354.24,
+      67.68
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      327.24,
+      73.44,
+      562.32,
+      82.8
+     ],
+     "text": "The breeder was Markus Schmulling of Schmulling Nurseries"
+    },
+    {
+     "bbox": [
+      327.96,
+      84.6,
+      563.04,
+      94.68
+     ],
+     "text": "in Billerbeck, Germany. \u2018Ulyssis\u2019 was selected as a sport of"
+    },
+    {
+     "bbox": [
+      328.32,
+      96.12,
+      562.32,
+      105.48
+     ],
+     "text": "\u2018Schone von Nizza\u2019 and propagated vegetatively for several"
+    },
+    {
+     "bbox": [
+      327.6,
+      108.0,
+      450.36,
+      117.36
+     ],
+     "text": "generations to establish stability."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\nThe breeder was Markus Schmulling of Schmulling Nurseries\nin Billerbeck, Germany. \u2018Ulyssis\u2019 was selected as a sport of\n\u2018Schone von Nizza\u2019 and propagated vegetatively for several\ngenerations to establish stability.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    327.6,
+    131.4,
+    562.68,
+    186.84
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      327.6,
+      131.4,
+      380.88,
+      140.04
+     ],
+     "text": "Comparator"
+    },
+    {
+     "bbox": [
+      328.32,
+      146.88,
+      562.68,
+      155.88
+     ],
+     "text": "*California Gold\u2019, a marguerite daisy introduced from Europe"
+    },
+    {
+     "bbox": [
+      327.6,
+      157.32,
+      562.68,
+      167.04
+     ],
+     "text": "by Outeniqua Nurseries is used for comparison, being the clos-"
+    },
+    {
+     "bbox": [
+      327.6,
+      168.48,
+      562.68,
+      177.12
+     ],
+     "text": "est in flower colour and size and commonly available in"
+    },
+    {
+     "bbox": [
+      327.96,
+      180.36,
+      363.96,
+      186.84
+     ],
+     "text": "Australia."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparator\n*California Gold\u2019, a marguerite daisy introduced from Europe\nby Outeniqua Nurseries is used for comparison, being the clos-\nest in flower colour and size and commonly available in\nAustralia.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    328.32,
+    226.44,
+    543.96,
+    299.88
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      328.68,
+      226.44,
+      531.36,
+      235.44
+     ],
+     "text": "Variety: \u2018Cream Star\u2019 commercial synonym: \u2018Cream"
+    },
+    {
+     "bbox": [
+      328.68,
+      237.96,
+      478.08,
+      246.6
+     ],
+     "text": "Butterfly\u2019. See fig. 10 in colour section."
+    },
+    {
+     "bbox": [
+      328.32,
+      249.12,
+      417.6,
+      257.76
+     ],
+     "text": "Application No, 92/056"
+    },
+    {
+     "bbox": [
+      328.68,
+      259.92,
+      461.88,
+      268.92
+     ],
+     "text": "Application Received: 8 May 1992"
+    },
+    {
+     "bbox": [
+      328.68,
+      271.08,
+      543.96,
+      279.72
+     ],
+     "text": "Applicant: Markus Schmulling, of Billerbeck, Germany"
+    },
+    {
+     "bbox": [
+      328.68,
+      281.88,
+      538.2,
+      290.52
+     ],
+     "text": "Australian Agent: RW Rother of Outeniqua Nursery,"
+    },
+    {
+     "bbox": [
+      328.68,
+      293.04,
+      394.92,
+      299.88
+     ],
+     "text": "Emerald, Victoria"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Variety: \u2018Cream Star\u2019 commercial synonym: \u2018Cream\nButterfly\u2019. See fig. 10 in colour section.\nApplication No, 92/056\nApplication Received: 8 May 1992\nApplicant: Markus Schmulling, of Billerbeck, Germany\nAustralian Agent: RW Rother of Outeniqua Nursery,\nEmerald, Victoria",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    328.68,
+    315.0,
+    533.16,
+    324.0
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      328.68,
+      315.0,
+      533.16,
+      324.0
+     ],
+     "text": "Description\u2014see comparison tables and fig. 10."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Description\u2014see comparison tables and fig. 10.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    328.32,
+    331.2,
+    563.4,
+    351.0
+   ],
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      329.04,
+      331.2,
+      563.4,
+      340.2
+     ],
+     "text": "\u201cCream Star\u2019 is a compact small to medium size plant with light"
+    },
+    {
+     "bbox": [
+      328.32,
+      342.36,
+      538.2,
+      351.0
+     ],
+     "text": "green leaves and a profusion of cream to white flowers."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u201cCream Star\u2019 is a compact small to medium size plant with light\ngreen leaves and a profusion of cream to white flowers.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    328.32,
+    359.28,
+    564.12,
+    421.56
+   ],
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      329.04,
+      359.28,
+      563.4,
+      366.12
+     ],
+     "text": "\u201cCream Star\u2019 differs in its flower colours from \u2018California"
+    },
+    {
+     "bbox": [
+      328.32,
+      370.44,
+      563.76,
+      379.08
+     ],
+     "text": "Gold\u2019 and \u201cUlyssis*, both of which are yellow-flowered. The"
+    },
+    {
+     "bbox": [
+      329.04,
+      381.6,
+      564.12,
+      390.24
+     ],
+     "text": "long axes of ray florets are straight in contrast to those of"
+    },
+    {
+     "bbox": [
+      329.04,
+      392.4,
+      563.76,
+      401.4
+     ],
+     "text": "\u201cCalifornia Gold\u2019 which are reflexing. \u201cCream Star\u2019 has longer"
+    },
+    {
+     "bbox": [
+      328.68,
+      403.56,
+      563.4,
+      412.2
+     ],
+     "text": "peduncles than \u201cUlyssis\u2019. \u201cCream Star has medium leaf serra-"
+    },
+    {
+     "bbox": [
+      328.68,
+      414.72,
+      502.92,
+      421.56
+     ],
+     "text": "tions while these are fine in \u2018California Gold\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u201cCream Star\u2019 differs in its flower colours from \u2018California\nGold\u2019 and \u201cUlyssis*, both of which are yellow-flowered. The\nlong axes of ray florets are straight in contrast to those of\n\u201cCalifornia Gold\u2019 which are reflexing. \u201cCream Star\u2019 has longer\npeduncles than \u201cUlyssis\u2019. \u201cCream Star has medium leaf serra-\ntions while these are fine in \u2018California Gold\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    328.32,
+    437.04,
+    563.4,
+    494.28
+   ],
+   "id": "e22",
+   "lines": [
+    {
+     "bbox": [
+      328.68,
+      437.04,
+      355.68,
+      446.4
+     ],
+     "text": "Origin"
+    },
+    {
+     "bbox": [
+      328.32,
+      453.24,
+      563.4,
+      461.88
+     ],
+     "text": "The breeder was Markus Schmulling of Schmulling Nurseries"
+    },
+    {
+     "bbox": [
+      328.68,
+      464.4,
+      563.4,
+      472.68
+     ],
+     "text": "in Billerbeck, Germany. \u201cCream Star\u2019 was selected as a sport"
+    },
+    {
+     "bbox": [
+      328.68,
+      475.2,
+      563.4,
+      483.48
+     ],
+     "text": "of \u201cButterfly\u201d and propagated vegetatively for several gcnera-"
+    },
+    {
+     "bbox": [
+      328.68,
+      486.0,
+      425.88,
+      494.28
+     ],
+     "text": "tions to establish stability."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Origin\nThe breeder was Markus Schmulling of Schmulling Nurseries\nin Billerbeck, Germany. \u201cCream Star\u2019 was selected as a sport\nof \u201cButterfly\u201d and propagated vegetatively for several gcnera-\ntions to establish stability.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    328.68,
+    508.68,
+    386.64,
+    517.32
+   ],
+   "id": "e23",
+   "lines": [
+    {
+     "bbox": [
+      328.68,
+      508.68,
+      386.64,
+      517.32
+     ],
+     "text": "Comparators"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Comparators",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    328.32,
+    525.24,
+    563.76,
+    566.64
+   ],
+   "id": "e24",
+   "lines": [
+    {
+     "bbox": [
+      329.4,
+      525.24,
+      563.76,
+      533.88
+     ],
+     "text": "\u201cUlyssis\u2019. a Schmulling cultivar and the parent plant, and"
+    },
+    {
+     "bbox": [
+      329.04,
+      536.04,
+      563.4,
+      544.68
+     ],
+     "text": "California Gold\u2019. a hybrid marguerite introduced to Australia"
+    },
+    {
+     "bbox": [
+      328.68,
+      547.56,
+      563.4,
+      555.84
+     ],
+     "text": "by R Rother of Outeniqua Nurseries, Emerald. The latter is"
+    },
+    {
+     "bbox": [
+      328.32,
+      558.36,
+      453.6,
+      566.64
+     ],
+     "text": "commonly available in Australia."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u201cUlyssis\u2019. a Schmulling cultivar and the parent plant, and\nCalifornia Gold\u2019. a hybrid marguerite introduced to Australia\nby R Rother of Outeniqua Nurseries, Emerald. The latter is\ncommonly available in Australia.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    329.04,
+    577.44,
+    505.08,
+    585.36
+   ],
+   "id": "e25",
+   "lines": [
+    {
+     "bbox": [
+      329.04,
+      577.44,
+      505.08,
+      585.36
+     ],
+     "text": "Descriptions prepared by Roy Rother and PVRO."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Descriptions prepared by Roy Rother and PVRO.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    343.08,
+    609.12,
+    545.4,
+    617.4
+   ],
+   "id": "e26",
+   "lines": [
+    {
+     "bbox": [
+      343.08,
+      609.12,
+      545.4,
+      617.4
+     ],
+     "text": "ble of Comparison of Chrysanthemum Varieties"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "ble of Comparison of Chrysanthemum Varieties",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    328.68,
+    623.52,
+    389.16,
+    631.08
+   ],
+   "id": "e27",
+   "lines": [
+    {
+     "bbox": [
+      328.68,
+      623.52,
+      389.16,
+      631.08
+     ],
+     "text": "(\u201d = comparators)"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "(\u201d = comparators)",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    453.96,
+    640.44,
+    560.16,
+    646.56
+   ],
+   "id": "e28",
+   "lines": [
+    {
+     "bbox": [
+      453.96,
+      640.44,
+      560.16,
+      646.56
+     ],
+     "text": "\u201cCream Star\u2019 *\u2018Californian"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u201cCream Star\u2019 *\u2018Californian",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    327.96,
+    640.44,
+    541.44,
+    769.32
+   ],
+   "id": "e29",
+   "lines": [
+    {
+     "bbox": [
+      394.56,
+      640.44,
+      425.88,
+      648.0
+     ],
+     "text": "\u2018Ulyssis\u2019"
+    },
+    {
+     "bbox": [
+      514.08,
+      651.24,
+      533.52,
+      657.36
+     ],
+     "text": "Gold\u2019"
+    },
+    {
+     "bbox": [
+      328.32,
+      667.08,
+      385.56,
+      673.2
+     ],
+     "text": "PLANT HEIGHT"
+    },
+    {
+     "bbox": [
+      394.56,
+      677.52,
+      541.44,
+      683.64
+     ],
+     "text": "medium medium medium"
+    },
+    {
+     "bbox": [
+      328.32,
+      696.24,
+      413.64,
+      702.36
+     ],
+     "text": "SHAPE OF LEAF BASE"
+    },
+    {
+     "bbox": [
+      393.84,
+      704.52,
+      532.8,
+      715.68
+     ],
+     "text": "acute acute acute"
+    },
+    {
+     "bbox": [
+      328.32,
+      724.68,
+      383.76,
+      731.16
+     ],
+     "text": "LEAF COLOUR"
+    },
+    {
+     "bbox": [
+      394.2,
+      736.2,
+      533.52,
+      742.32
+     ],
+     "text": "green green green"
+    },
+    {
+     "bbox": [
+      327.96,
+      753.12,
+      395.28,
+      759.24
+     ],
+     "text": "LEAF SERRATION"
+    },
+    {
+     "bbox": [
+      394.2,
+      763.2,
+      525.96,
+      769.32
+     ],
+     "text": "medium medium fine"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Ulyssis\u2019\nGold\u2019\nPLANT HEIGHT\nmedium medium medium\nSHAPE OF LEAF BASE\nacute acute acute\nLEAF COLOUR\ngreen green green\nLEAF SERRATION\nmedium medium fine",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    552.6,
+    791.28,
+    563.04,
+    799.2
+   ],
+   "id": "e30",
+   "lines": [
+    {
+     "bbox": [
+      552.6,
+      791.28,
+      563.04,
+      799.2
+     ],
+     "text": "15"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "15",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

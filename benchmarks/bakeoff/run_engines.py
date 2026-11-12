@@ -304,7 +304,10 @@ def glm_engine(url: str):
 
 
 def main() -> None:
-    engine = sys.argv[1]
+    # `ENGINE@LABEL` runs ENGINE but writes to outputs/ENGINE@LABEL, so a run under
+    # other conditions (e.g. `taskset -c 0 ... image-default@1cpu`) keeps its own files.
+    name = sys.argv[1]
+    engine = name.split("@")[0]
     wants_key = False   # ml_engines' engines also take the page key
     if engine == "pymupdf":
         run = pymupdf_engine()
@@ -355,7 +358,7 @@ def main() -> None:
         run, wants_key = ml_engines.ppstructure_engine(), True
     else:
         raise SystemExit(f"unknown engine {engine}")
-    out = HERE / "outputs" / engine
+    out = HERE / "outputs" / name
     out.mkdir(parents=True, exist_ok=True)
     timings_file = out / "timings.json"
     runs_file = out / "runs.json"

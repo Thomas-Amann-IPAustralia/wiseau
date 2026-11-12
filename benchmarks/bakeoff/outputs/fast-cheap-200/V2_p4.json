@@ -1,0 +1,1543 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    81.0,
+    57.96,
+    255.6,
+    90.72
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      81.36,
+      57.96,
+      250.2,
+      71.64
+     ],
+     "text": "PART 1\u2014 ITEMS OF"
+    },
+    {
+     "bbox": [
+      81.0,
+      76.68,
+      255.6,
+      90.72
+     ],
+     "text": "GENERAL INTEREST"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PART 1\u2014 ITEMS OF\nGENERAL INTEREST",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    80.64,
+    100.08,
+    249.12,
+    123.48
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      80.64,
+      100.08,
+      249.12,
+      109.8
+     ],
+     "text": "IMPLEMENTATION OF PVR \u2014"
+    },
+    {
+     "bbox": [
+      80.64,
+      114.12,
+      144.72,
+      123.48
+     ],
+     "text": "PROGRESS"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "IMPLEMENTATION OF PVR \u2014\nPROGRESS",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    80.28,
+    137.16,
+    289.08,
+    165.96
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      80.28,
+      137.16,
+      287.64,
+      145.8
+     ],
+     "text": "A total of 49 applications had been accepted by 14"
+    },
+    {
+     "bbox": [
+      81.0,
+      146.88,
+      289.08,
+      156.24
+     ],
+     "text": "February 1989 and applicants have given notice of"
+    },
+    {
+     "bbox": [
+      80.64,
+      157.32,
+      202.32,
+      165.96
+     ],
+     "text": "several others in preparation."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "A total of 49 applications had been accepted by 14\nFebruary 1989 and applicants have given notice of\nseveral others in preparation.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    80.28,
+    177.12,
+    291.24,
+    214.56
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      80.28,
+      177.12,
+      291.24,
+      185.76
+     ],
+     "text": "As noted in the Registrar's Remarks, the first rights"
+    },
+    {
+     "bbox": [
+      81.0,
+      187.2,
+      279.0,
+      195.84
+     ],
+     "text": "have been granted for two Macadamia varieties"
+    },
+    {
+     "bbox": [
+      80.64,
+      196.92,
+      256.32,
+      205.56
+     ],
+     "text": "developed by Hidden Valley Plantations at"
+    },
+    {
+     "bbox": [
+      81.0,
+      207.0,
+      174.6,
+      214.56
+     ],
+     "text": "Beerwah, Queensland."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "As noted in the Registrar's Remarks, the first rights\nhave been granted for two Macadamia varieties\ndeveloped by Hidden Valley Plantations at\nBeerwah, Queensland.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    80.64,
+    228.24,
+    279.36,
+    237.6
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      80.64,
+      228.24,
+      279.36,
+      237.6
+     ],
+     "text": "AMENDMENTS TO THE SCHEDULE"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "AMENDMENTS TO THE SCHEDULE",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    81.0,
+    251.64,
+    286.56,
+    280.8
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      81.36,
+      251.64,
+      286.56,
+      260.64
+     ],
+     "text": "New varieties are eligible for PVR if their genus or"
+    },
+    {
+     "bbox": [
+      81.0,
+      261.36,
+      286.2,
+      270.72
+     ],
+     "text": "species is listed in the regulations under the Plant"
+    },
+    {
+     "bbox": [
+      82.08,
+      271.8,
+      178.92,
+      280.8
+     ],
+     "text": "Variety Rights Act 1987."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "New varieties are eligible for PVR if their genus or\nspecies is listed in the regulations under the Plant\nVariety Rights Act 1987.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    80.64,
+    291.96,
+    295.2,
+    410.4
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      80.64,
+      291.96,
+      271.8,
+      300.6
+     ],
+     "text": "The schedule at Appendix 1 provides advance"
+    },
+    {
+     "bbox": [
+      81.36,
+      301.68,
+      285.12,
+      311.04
+     ],
+     "text": "notice of the eligibility of plants to allow potential"
+    },
+    {
+     "bbox": [
+      81.0,
+      312.12,
+      261.0,
+      320.76
+     ],
+     "text": "applicants to plan their breeding programs."
+    },
+    {
+     "bbox": [
+      80.64,
+      321.84,
+      270.0,
+      330.84
+     ],
+     "text": "As no dissenting comments were received on"
+    },
+    {
+     "bbox": [
+      80.64,
+      331.56,
+      269.64,
+      340.56
+     ],
+     "text": "amendments to the schedule proposed in the"
+    },
+    {
+     "bbox": [
+      81.0,
+      341.28,
+      295.2,
+      349.56
+     ],
+     "text": "December 1988 issue, the PVR Advisory Committee"
+    },
+    {
+     "bbox": [
+      81.0,
+      351.0,
+      289.08,
+      358.92
+     ],
+     "text": "has recommended to the Minister that ali fruit and"
+    },
+    {
+     "bbox": [
+      80.64,
+      361.08,
+      278.64,
+      370.44
+     ],
+     "text": "vegetables (including Carpobrotus) be included"
+    },
+    {
+     "bbox": [
+      81.0,
+      370.8,
+      284.76,
+      379.8
+     ],
+     "text": "from 1 July 1989. From that date applications will"
+    },
+    {
+     "bbox": [
+      81.0,
+      380.88,
+      280.8,
+      390.24
+     ],
+     "text": "be accepted for the genera and species of plants"
+    },
+    {
+     "bbox": [
+      81.36,
+      390.96,
+      276.48,
+      399.96
+     ],
+     "text": "listed in Appendix 1 under the columns headed"
+    },
+    {
+     "bbox": [
+      80.64,
+      401.04,
+      289.44,
+      410.4
+     ],
+     "text": "April 1988, July 1988, January 1989 and July 1989."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The schedule at Appendix 1 provides advance\nnotice of the eligibility of plants to allow potential\napplicants to plan their breeding programs.\nAs no dissenting comments were received on\namendments to the schedule proposed in the\nDecember 1988 issue, the PVR Advisory Committee\nhas recommended to the Minister that ali fruit and\nvegetables (including Carpobrotus) be included\nfrom 1 July 1989. From that date applications will\nbe accepted for the genera and species of plants\nlisted in Appendix 1 under the columns headed\nApril 1988, July 1988, January 1989 and July 1989.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    80.28,
+    420.12,
+    293.76,
+    498.24
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      80.64,
+      420.12,
+      293.76,
+      429.12
+     ],
+     "text": "The latin names will be used in the regulations. The"
+    },
+    {
+     "bbox": [
+      81.0,
+      430.2,
+      290.52,
+      439.56
+     ],
+     "text": "plant groups have been included in Appendix 1 for"
+    },
+    {
+     "bbox": [
+      80.28,
+      440.28,
+      287.28,
+      449.28
+     ],
+     "text": "convenience. In the case of fruit, vegetables, nuts,"
+    },
+    {
+     "bbox": [
+      80.64,
+      450.36,
+      285.84,
+      459.36
+     ],
+     "text": "oilseeds, pasture and grain legumes and herbage"
+    },
+    {
+     "bbox": [
+      80.64,
+      460.08,
+      287.28,
+      469.08
+     ],
+     "text": "and turf grasses, which all become eligible in July"
+    },
+    {
+     "bbox": [
+      81.0,
+      470.16,
+      275.4,
+      479.16
+     ],
+     "text": "1989, a comprehensive list of genera (available"
+    },
+    {
+     "bbox": [
+      80.64,
+      479.52,
+      258.12,
+      487.8
+     ],
+     "text": "from the PVR Office) will be included in the"
+    },
+    {
+     "bbox": [
+      81.0,
+      489.6,
+      129.6,
+      498.24
+     ],
+     "text": "regulations."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The latin names will be used in the regulations. The\nplant groups have been included in Appendix 1 for\nconvenience. In the case of fruit, vegetables, nuts,\noilseeds, pasture and grain legumes and herbage\nand turf grasses, which all become eligible in July\n1989, a comprehensive list of genera (available\nfrom the PVR Office) will be included in the\nregulations.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    80.64,
+    511.2,
+    167.04,
+    520.92
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      80.64,
+      511.2,
+      167.04,
+      520.92
+     ],
+     "text": "PROPAGATION"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PROPAGATION",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    79.92,
+    534.24,
+    294.12,
+    612.72
+   ],
+   "id": "e10",
+   "lines": [
+    {
+     "bbox": [
+      80.28,
+      534.24,
+      246.6,
+      541.8
+     ],
+     "text": "The December 1988 issue of the Journal"
+    },
+    {
+     "bbox": [
+      80.28,
+      544.32,
+      291.96,
+      551.52
+     ],
+     "text": "summarised the submissions received on the need"
+    },
+    {
+     "bbox": [
+      80.28,
+      554.4,
+      294.12,
+      563.4
+     ],
+     "text": "to amend the PVR Act in relation to the propagation"
+    },
+    {
+     "bbox": [
+      80.28,
+      564.48,
+      292.68,
+      573.48
+     ],
+     "text": "of protected varieties. The outcome was a proposal"
+    },
+    {
+     "bbox": [
+      80.28,
+      574.56,
+      287.64,
+      583.56
+     ],
+     "text": "to amend the Act to give the grantee the exclusive"
+    },
+    {
+     "bbox": [
+      80.28,
+      584.28,
+      281.16,
+      593.64
+     ],
+     "text": "right to asexually propagate, or license others to"
+    },
+    {
+     "bbox": [
+      79.92,
+      594.36,
+      294.12,
+      602.64
+     ],
+     "text": "asexually propagate, the variety for the commercial"
+    },
+    {
+     "bbox": [
+      79.92,
+      604.08,
+      282.96,
+      612.72
+     ],
+     "text": "production of fruit, cut flowers or other products."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The December 1988 issue of the Journal\nsummarised the submissions received on the need\nto amend the PVR Act in relation to the propagation\nof protected varieties. The outcome was a proposal\nto amend the Act to give the grantee the exclusive\nright to asexually propagate, or license others to\nasexually propagate, the variety for the commercial\nproduction of fruit, cut flowers or other products.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    79.56,
+    623.52,
+    291.24,
+    669.96
+   ],
+   "id": "e11",
+   "lines": [
+    {
+     "bbox": [
+      79.56,
+      623.52,
+      270.36,
+      632.52
+     ],
+     "text": "The amendment will only apply to genera and"
+    },
+    {
+     "bbox": [
+      79.92,
+      633.24,
+      291.24,
+      642.24
+     ],
+     "text": "species prescribed for the purpose and the grantee"
+    },
+    {
+     "bbox": [
+      79.56,
+      643.32,
+      271.44,
+      651.96
+     ],
+     "text": "will be required to license anyone to asexually"
+    },
+    {
+     "bbox": [
+      79.92,
+      653.04,
+      268.56,
+      661.68
+     ],
+     "text": "propagate the variety if they meet reasonable"
+    },
+    {
+     "bbox": [
+      79.92,
+      662.76,
+      156.96,
+      669.96
+     ],
+     "text": "licence conditions."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The amendment will only apply to genera and\nspecies prescribed for the purpose and the grantee\nwill be required to license anyone to asexually\npropagate the variety if they meet reasonable\nlicence conditions.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    79.56,
+    684.36,
+    177.84,
+    694.08
+   ],
+   "id": "e12",
+   "lines": [
+    {
+     "bbox": [
+      79.56,
+      684.36,
+      177.84,
+      694.08
+     ],
+     "text": "Call for Comment"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Call for Comment",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    79.2,
+    707.76,
+    289.44,
+    785.16
+   ],
+   "id": "e13",
+   "lines": [
+    {
+     "bbox": [
+      79.2,
+      707.76,
+      289.44,
+      716.76
+     ],
+     "text": "The PVR Advisory Committee sought comment on"
+    },
+    {
+     "bbox": [
+      79.56,
+      717.84,
+      282.6,
+      726.12
+     ],
+     "text": "genera and species which should and should not"
+    },
+    {
+     "bbox": [
+      79.92,
+      727.56,
+      271.44,
+      736.56
+     ],
+     "text": "be covered by the amendment. All genera and"
+    },
+    {
+     "bbox": [
+      79.56,
+      737.64,
+      286.92,
+      746.64
+     ],
+     "text": "species will be prescribed as they become eligible"
+    },
+    {
+     "bbox": [
+      79.56,
+      747.36,
+      283.68,
+      756.36
+     ],
+     "text": "for PVR unless there are specific reasons for their"
+    },
+    {
+     "bbox": [
+      79.2,
+      757.08,
+      268.56,
+      766.08
+     ],
+     "text": "exclusion (NOTE: This amendment applies to"
+    },
+    {
+     "bbox": [
+      79.2,
+      767.16,
+      254.16,
+      775.44
+     ],
+     "text": "asexual propagation and does not include"
+    },
+    {
+     "bbox": [
+      79.56,
+      776.88,
+      180.0,
+      785.16
+     ],
+     "text": "propagation from seed)."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The PVR Advisory Committee sought comment on\ngenera and species which should and should not\nbe covered by the amendment. All genera and\nspecies will be prescribed as they become eligible\nfor PVR unless there are specific reasons for their\nexclusion (NOTE: This amendment applies to\nasexual propagation and does not include\npropagation from seed).",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    320.04,
+    58.32,
+    532.44,
+    114.48
+   ],
+   "id": "e14",
+   "lines": [
+    {
+     "bbox": [
+      320.4,
+      58.32,
+      532.44,
+      67.32
+     ],
+     "text": "The period for nominating genera or species which"
+    },
+    {
+     "bbox": [
+      320.4,
+      68.04,
+      511.56,
+      76.68
+     ],
+     "text": "should be excluded from the provisions of the"
+    },
+    {
+     "bbox": [
+      320.4,
+      77.76,
+      520.92,
+      86.76
+     ],
+     "text": "amendment has been extended to 30 April 1989."
+    },
+    {
+     "bbox": [
+      320.76,
+      87.84,
+      524.16,
+      96.84
+     ],
+     "text": "Submissions should contain supportive data and"
+    },
+    {
+     "bbox": [
+      320.04,
+      97.92,
+      506.88,
+      105.12
+     ],
+     "text": "should also address the benefits and costs to"
+    },
+    {
+     "bbox": [
+      320.04,
+      109.8,
+      368.64,
+      114.48
+     ],
+     "text": "consumers."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The period for nominating genera or species which\nshould be excluded from the provisions of the\namendment has been extended to 30 April 1989.\nSubmissions should contain supportive data and\nshould also address the benefits and costs to\nconsumers.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    317.88,
+    120.96,
+    524.52,
+    132.12
+   ],
+   "id": "e15",
+   "lines": [
+    {
+     "bbox": [
+      317.88,
+      120.96,
+      524.52,
+      132.12
+     ],
+     "text": "\u2018Further information or clarification relating to the"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Further information or clarification relating to the",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    320.04,
+    132.84,
+    522.72,
+    151.92
+   ],
+   "id": "e16",
+   "lines": [
+    {
+     "bbox": [
+      320.04,
+      132.84,
+      522.72,
+      141.48
+     ],
+     "text": "proposed amendment may be obtained from the"
+    },
+    {
+     "bbox": [
+      320.04,
+      142.92,
+      430.2,
+      151.92
+     ],
+     "text": "Registrar on (062) 71 6472."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "proposed amendment may be obtained from the\nRegistrar on (062) 71 6472.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    320.04,
+    164.88,
+    532.8,
+    190.08
+   ],
+   "id": "e17",
+   "lines": [
+    {
+     "bbox": [
+      320.04,
+      164.88,
+      532.8,
+      174.24
+     ],
+     "text": "PERFORMANCE EVALUATION \u2014 Sale"
+    },
+    {
+     "bbox": [
+      320.04,
+      178.92,
+      426.24,
+      190.08
+     ],
+     "text": "prior to application"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PERFORMANCE EVALUATION \u2014 Sale\nprior to application",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    319.32,
+    201.6,
+    531.0,
+    229.68
+   ],
+   "id": "e18",
+   "lines": [
+    {
+     "bbox": [
+      319.68,
+      201.6,
+      531.0,
+      210.24
+     ],
+     "text": "The December 1988 issue dealt with the provisions"
+    },
+    {
+     "bbox": [
+      319.68,
+      211.32,
+      524.16,
+      220.32
+     ],
+     "text": "of Section 14 of the PVR Act relating to sale of the"
+    },
+    {
+     "bbox": [
+      319.32,
+      221.04,
+      431.64,
+      229.68
+     ],
+     "text": "variety prior to application."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The December 1988 issue dealt with the provisions\nof Section 14 of the PVR Act relating to sale of the\nvariety prior to application.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    319.68,
+    237.6,
+    528.84,
+    276.84
+   ],
+   "id": "e19",
+   "lines": [
+    {
+     "bbox": [
+      319.68,
+      237.6,
+      517.68,
+      246.6
+     ],
+     "text": "The PVR Act specifies that plant or reproductive"
+    },
+    {
+     "bbox": [
+      320.04,
+      247.68,
+      527.04,
+      256.32
+     ],
+     "text": "material of the variety cannot have been sold with"
+    },
+    {
+     "bbox": [
+      320.04,
+      257.76,
+      528.84,
+      266.04
+     ],
+     "text": "the consent of the breeder, in Australia, before the"
+    },
+    {
+     "bbox": [
+      320.04,
+      267.48,
+      467.28,
+      276.84
+     ],
+     "text": "PVR application is made (PVJ 3 p4)."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The PVR Act specifies that plant or reproductive\nmaterial of the variety cannot have been sold with\nthe consent of the breeder, in Australia, before the\nPVR application is made (PVJ 3 p4).",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    320.4,
+    284.4,
+    530.64,
+    343.44
+   ],
+   "id": "e20",
+   "lines": [
+    {
+     "bbox": [
+      321.12,
+      284.4,
+      509.76,
+      292.32
+     ],
+     "text": "Further clarification has been obtained on the"
+    },
+    {
+     "bbox": [
+      320.76,
+      294.48,
+      528.12,
+      303.12
+     ],
+     "text": "definition of \u201creproductive material\u201d in relation to"
+    },
+    {
+     "bbox": [
+      320.76,
+      304.2,
+      508.32,
+      313.2
+     ],
+     "text": "seed from a protected variety which does not"
+    },
+    {
+     "bbox": [
+      321.12,
+      314.28,
+      523.08,
+      323.28
+     ],
+     "text": "produce plants of that variety. In future, seed will"
+    },
+    {
+     "bbox": [
+      321.12,
+      322.92,
+      524.88,
+      335.52
+     ],
+     "text": "not be considered as reproductive material of the"
+    },
+    {
+     "bbox": [
+      320.4,
+      334.08,
+      530.64,
+      343.44
+     ],
+     "text": "variety if it cannot reproduce the protected variety."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Further clarification has been obtained on the\ndefinition of \u201creproductive material\u201d in relation to\nseed from a protected variety which does not\nproduce plants of that variety. In future, seed will\nnot be considered as reproductive material of the\nvariety if it cannot reproduce the protected variety.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    320.4,
+    355.68,
+    518.76,
+    367.56
+   ],
+   "id": "e21",
+   "lines": [
+    {
+     "bbox": [
+      320.4,
+      355.68,
+      518.76,
+      367.56
+     ],
+     "text": "PVR TESTING \u2014 Register of Names"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "PVR TESTING \u2014 Register of Names",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    320.04,
+    378.36,
+    529.56,
+    437.4
+   ],
+   "id": "e22",
+   "lines": [
+    {
+     "bbox": [
+      320.04,
+      378.36,
+      506.16,
+      387.72
+     ],
+     "text": "The Plant Variety Rights Office is compiling a"
+    },
+    {
+     "bbox": [
+      320.4,
+      388.44,
+      527.4,
+      397.44
+     ],
+     "text": "register of names of organisations who undertake"
+    },
+    {
+     "bbox": [
+      320.4,
+      398.52,
+      527.76,
+      407.88
+     ],
+     "text": "PVR testing for other people. This list will be given"
+    },
+    {
+     "bbox": [
+      320.04,
+      408.96,
+      509.4,
+      417.96
+     ],
+     "text": "to anyone who asks and no preference will be"
+    },
+    {
+     "bbox": [
+      320.04,
+      417.24,
+      529.56,
+      429.84
+     ],
+     "text": "given to any organisation. If the list is not too large"
+    },
+    {
+     "bbox": [
+      320.04,
+      428.76,
+      461.52,
+      437.4
+     ],
+     "text": "it will be published in this Journal."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "The Plant Variety Rights Office is compiling a\nregister of names of organisations who undertake\nPVR testing for other people. This list will be given\nto anyone who asks and no preference will be\ngiven to any organisation. If the list is not too large\nit will be published in this Journal.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    319.32,
+    445.68,
+    524.52,
+    464.4
+   ],
+   "id": "e23",
+   "lines": [
+    {
+     "bbox": [
+      319.32,
+      445.68,
+      520.92,
+      454.68
+     ],
+     "text": "Organisations interested in being on the register"
+    },
+    {
+     "bbox": [
+      319.32,
+      455.76,
+      524.52,
+      464.4
+     ],
+     "text": "should write to the Registrar before 30 April 1989."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Organisations interested in being on the register\nshould write to the Registrar before 30 April 1989.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    320.04,
+    478.8,
+    353.52,
+    488.16
+   ],
+   "id": "e24",
+   "lines": [
+    {
+     "bbox": [
+      320.04,
+      478.8,
+      353.52,
+      488.16
+     ],
+     "text": "UPOV"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "UPOV",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    319.32,
+    501.84,
+    506.52,
+    539.28
+   ],
+   "id": "e25",
+   "lines": [
+    {
+     "bbox": [
+      319.68,
+      501.84,
+      382.68,
+      510.12
+     ],
+     "text": "a) Membership"
+    },
+    {
+     "bbox": [
+      319.32,
+      510.12,
+      486.72,
+      522.0
+     ],
+     "text": "Australia has now become a party to the"
+    },
+    {
+     "bbox": [
+      319.68,
+      519.84,
+      506.52,
+      531.72
+     ],
+     "text": "Convention of the International Union for the"
+    },
+    {
+     "bbox": [
+      320.04,
+      531.0,
+      492.12,
+      539.28
+     ],
+     "text": "Protection of New Plant Varieties (UPOV)."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "a) Membership\nAustralia has now become a party to the\nConvention of the International Union for the\nProtection of New Plant Varieties (UPOV).",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    318.6,
+    548.28,
+    528.12,
+    644.04
+   ],
+   "id": "e26",
+   "lines": [
+    {
+     "bbox": [
+      319.32,
+      548.28,
+      503.28,
+      556.56
+     ],
+     "text": "This will enable Australian breeders, with 12"
+    },
+    {
+     "bbox": [
+      319.68,
+      558.36,
+      523.08,
+      567.36
+     ],
+     "text": "month\u2019s priority from the date of lodging the first"
+    },
+    {
+     "bbox": [
+      319.32,
+      568.44,
+      513.0,
+      577.44
+     ],
+     "text": "application, to apply for rights on the variety in"
+    },
+    {
+     "bbox": [
+      319.32,
+      578.16,
+      528.12,
+      587.16
+     ],
+     "text": "other UPOV countries (Belgium, Denmark, France,"
+    },
+    {
+     "bbox": [
+      319.32,
+      588.24,
+      517.68,
+      596.88
+     ],
+     "text": "Federal Republic of Germany, Hungary, Ireland,"
+    },
+    {
+     "bbox": [
+      319.32,
+      597.96,
+      528.12,
+      606.6
+     ],
+     "text": "Israel, Italy, Japan, the Netherlands, New Zealand,"
+    },
+    {
+     "bbox": [
+      318.96,
+      607.68,
+      525.24,
+      616.32
+     ],
+     "text": "Sweden, South Africa, Spain, Switzerland, United"
+    },
+    {
+     "bbox": [
+      319.32,
+      617.4,
+      510.48,
+      626.04
+     ],
+     "text": "Kingdom, United States). Breeders from other"
+    },
+    {
+     "bbox": [
+      319.32,
+      627.12,
+      507.24,
+      635.76
+     ],
+     "text": "UPOV countries will have the same priority in"
+    },
+    {
+     "bbox": [
+      318.6,
+      637.2,
+      358.2,
+      644.04
+     ],
+     "text": "Australia."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "This will enable Australian breeders, with 12\nmonth\u2019s priority from the date of lodging the first\napplication, to apply for rights on the variety in\nother UPOV countries (Belgium, Denmark, France,\nFederal Republic of Germany, Hungary, Ireland,\nIsrael, Italy, Japan, the Netherlands, New Zealand,\nSweden, South Africa, Spain, Switzerland, United\nKingdom, United States). Breeders from other\nUPOV countries will have the same priority in\nAustralia.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    318.24,
+    653.04,
+    532.44,
+    701.64
+   ],
+   "id": "e27",
+   "lines": [
+    {
+     "bbox": [
+      318.6,
+      653.04,
+      442.08,
+      660.96
+     ],
+     "text": "b} Revision of the Convention"
+    },
+    {
+     "bbox": [
+      318.6,
+      662.76,
+      532.44,
+      672.12
+     ],
+     "text": "UPOV is now proposing to revise the Convention to"
+    },
+    {
+     "bbox": [
+      318.6,
+      673.2,
+      530.28,
+      681.48
+     ],
+     "text": "better meet the needs of breeders and to recognise"
+    },
+    {
+     "bbox": [
+      318.24,
+      682.92,
+      501.84,
+      691.92
+     ],
+     "text": "the increasing role of biotechnology in plant"
+    },
+    {
+     "bbox": [
+      318.6,
+      693.0,
+      357.84,
+      701.64
+     ],
+     "text": "breeding."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "b} Revision of the Convention\nUPOV is now proposing to revise the Convention to\nbetter meet the needs of breeders and to recognise\nthe increasing role of biotechnology in plant\nbreeding.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    318.24,
+    710.28,
+    529.92,
+    739.08
+   ],
+   "id": "e28",
+   "lines": [
+    {
+     "bbox": [
+      318.24,
+      710.28,
+      511.2,
+      719.28
+     ],
+     "text": "As a party to the existing Convention Australia"
+    },
+    {
+     "bbox": [
+      318.24,
+      720.0,
+      490.68,
+      729.0
+     ],
+     "text": "would have the choice of signing the new"
+    },
+    {
+     "bbox": [
+      318.6,
+      730.08,
+      529.92,
+      739.08
+     ],
+     "text": "Convention or staying with the existing provisions."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "As a party to the existing Convention Australia\nwould have the choice of signing the new\nConvention or staying with the existing provisions.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    317.88,
+    747.72,
+    531.0,
+    784.44
+   ],
+   "id": "e29",
+   "lines": [
+    {
+     "bbox": [
+      318.6,
+      747.72,
+      522.0,
+      756.36
+     ],
+     "text": "If you are interested in further information on the"
+    },
+    {
+     "bbox": [
+      318.6,
+      757.8,
+      526.32,
+      766.44
+     ],
+     "text": "proposed changes as it becomes available, please"
+    },
+    {
+     "bbox": [
+      317.88,
+      767.52,
+      531.0,
+      776.16
+     ],
+     "text": "write to the Registrar or contact Miriam Nauenburg"
+    },
+    {
+     "bbox": [
+      318.24,
+      776.88,
+      388.44,
+      784.44
+     ],
+     "text": "on (062) 72 3725."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "If you are interested in further information on the\nproposed changes as it becomes available, please\nwrite to the Registrar or contact Miriam Nauenburg\non (062) 72 3725.",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    595.0,
+    841.7
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}

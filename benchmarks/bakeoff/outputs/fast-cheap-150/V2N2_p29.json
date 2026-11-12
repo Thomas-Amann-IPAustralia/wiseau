@@ -1,0 +1,835 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    60.48,
+    51.36,
+    265.44,
+    100.32
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      60.96,
+      51.36,
+      258.72,
+      61.44
+     ],
+     "text": "by Plant Variety Rights in France since 1984. It is"
+    },
+    {
+     "bbox": [
+      60.48,
+      61.44,
+      265.44,
+      71.52
+     ],
+     "text": "also protected in Belgium, Denmark, Japan, West"
+    },
+    {
+     "bbox": [
+      60.48,
+      71.52,
+      251.04,
+      80.64
+     ],
+     "text": "Germany, South Africa, Switzerland and USA."
+    },
+    {
+     "bbox": [
+      60.96,
+      81.12,
+      263.52,
+      90.72
+     ],
+     "text": "Plant Variety Rights have also been applied for in"
+    },
+    {
+     "bbox": [
+      60.96,
+      91.2,
+      202.56,
+      100.32
+     ],
+     "text": "Israel, Spain and United Kingdom."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "by Plant Variety Rights in France since 1984. It is\nalso protected in Belgium, Denmark, Japan, West\nGermany, South Africa, Switzerland and USA.\nPlant Variety Rights have also been applied for in\nIsrael, Spain and United Kingdom.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    60.48,
+    110.4,
+    249.12,
+    138.72
+   ],
+   "id": "e2",
+   "lines": [
+    {
+     "bbox": [
+      60.96,
+      110.4,
+      248.16,
+      120.0
+     ],
+     "text": "\u2018Meipinjid\u2019 was a selected sport of the variety"
+    },
+    {
+     "bbox": [
+      60.96,
+      120.48,
+      249.12,
+      130.08
+     ],
+     "text": "\u2018Meijidiro\u2019, differing from \u2018Meijidiro\u2019 in flower"
+    },
+    {
+     "bbox": [
+      60.48,
+      131.52,
+      89.28,
+      138.72
+     ],
+     "text": "colour."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Meipinjid\u2019 was a selected sport of the variety\n\u2018Meijidiro\u2019, differing from \u2018Meijidiro\u2019 in flower\ncolour.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    60.96,
+    151.2,
+    259.2,
+    180.0
+   ],
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      60.96,
+      151.2,
+      222.72,
+      160.32
+     ],
+     "text": "Morphology \u2014 See comparison tables."
+    },
+    {
+     "bbox": [
+      60.96,
+      160.8,
+      259.2,
+      168.96
+     ],
+     "text": "Characteristics observed but not included in the"
+    },
+    {
+     "bbox": [
+      60.96,
+      171.36,
+      208.8,
+      180.0
+     ],
+     "text": "table for comparison are as follows."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Morphology \u2014 See comparison tables.\nCharacteristics observed but not included in the\ntable for comparison are as follows.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    60.48,
+    190.56,
+    272.16,
+    249.12
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      60.96,
+      190.56,
+      269.76,
+      200.16
+     ],
+     "text": "Flowering occurs almost continuously throughout"
+    },
+    {
+     "bbox": [
+      60.48,
+      200.64,
+      245.76,
+      209.76
+     ],
+     "text": "the year; bud shape is ovate; petals are pink,"
+    },
+    {
+     "bbox": [
+      61.44,
+      210.72,
+      272.16,
+      219.84
+     ],
+     "text": "reflexing and broad ovate with a pale green-yellow"
+    },
+    {
+     "bbox": [
+      61.44,
+      220.32,
+      244.32,
+      229.44
+     ],
+     "text": "basal spot size extending about 30% of petal"
+    },
+    {
+     "bbox": [
+      61.44,
+      230.4,
+      256.8,
+      239.52
+     ],
+     "text": "length); filaments are yellow, styles are yellow-"
+    },
+    {
+     "bbox": [
+      60.96,
+      240.0,
+      246.24,
+      249.12
+     ],
+     "text": "green; stigma are above the level of anthers;"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Flowering occurs almost continuously throughout\nthe year; bud shape is ovate; petals are pink,\nreflexing and broad ovate with a pale green-yellow\nbasal spot size extending about 30% of petal\nlength); filaments are yellow, styles are yellow-\ngreen; stigma are above the level of anthers;",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    292.8,
+    50.88,
+    504.96,
+    98.88
+   ],
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      292.8,
+      50.88,
+      484.32,
+      59.52
+     ],
+     "text": "pedicel is smooth, without prickles; leaves are"
+    },
+    {
+     "bbox": [
+      292.8,
+      60.48,
+      504.96,
+      69.6
+     ],
+     "text": "small, medium green, not glossy; thorns are mildly"
+    },
+    {
+     "bbox": [
+      293.28,
+      71.04,
+      477.6,
+      79.68
+     ],
+     "text": "red, with profile concave above and strongly"
+    },
+    {
+     "bbox": [
+      292.8,
+      80.64,
+      484.8,
+      89.28
+     ],
+     "text": "concave below; and young shoots are without"
+    },
+    {
+     "bbox": [
+      292.8,
+      90.24,
+      346.08,
+      98.88
+     ],
+     "text": "anthocyanin."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "pedicel is smooth, without prickles; leaves are\nsmall, medium green, not glossy; thorns are mildly\nred, with profile concave above and strongly\nconcave below; and young shoots are without\nanthocyanin.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    290.88,
+    109.92,
+    506.4,
+    248.16
+   ],
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      292.8,
+      109.92,
+      499.68,
+      118.56
+     ],
+     "text": "\u2018Meipinjid\u2019 is a dwarf growing plant usually below"
+    },
+    {
+     "bbox": [
+      290.88,
+      118.08,
+      489.12,
+      131.04
+     ],
+     "text": "60 cm in height and has a more spreading habit"
+    },
+    {
+     "bbox": [
+      292.8,
+      130.08,
+      474.72,
+      137.28
+     ],
+     "text": "than \u2018Carol Jean\u2019 or \u2018Watercolour\u2019. Terminal"
+    },
+    {
+     "bbox": [
+      292.8,
+      140.16,
+      492.48,
+      148.8
+     ],
+     "text": "leaflets of \u2018Meipinjid\u2019 are rounder in outline than"
+    },
+    {
+     "bbox": [
+      292.8,
+      150.24,
+      491.52,
+      158.88
+     ],
+     "text": "those of \u2018Watercolour\u2019. The thorns of \u2018Meipinjid\u2019"
+    },
+    {
+     "bbox": [
+      292.8,
+      160.32,
+      490.56,
+      168.96
+     ],
+     "text": "are more concave above in profile than those of"
+    },
+    {
+     "bbox": [
+      292.8,
+      170.4,
+      449.76,
+      177.6
+     ],
+     "text": "\u2018Carol Jean\u2019 and more numerous than"
+    },
+    {
+     "bbox": [
+      292.8,
+      180.48,
+      506.4,
+      189.12
+     ],
+     "text": "\u2018Watercolour\u2019. The flowers of \u2018Meipinjid\u2019 are double"
+    },
+    {
+     "bbox": [
+      293.28,
+      190.08,
+      494.4,
+      198.72
+     ],
+     "text": "(more than 50 petals) while those of \u2018Carol Jean\u2019"
+    },
+    {
+     "bbox": [
+      292.8,
+      200.16,
+      491.52,
+      208.32
+     ],
+     "text": "and \u2018Watercolour\u2019 are semi-double (less than 25"
+    },
+    {
+     "bbox": [
+      292.8,
+      210.24,
+      500.64,
+      218.88
+     ],
+     "text": "petals). Flower diameter of \u2018Meipinjid\u2019 is similar to"
+    },
+    {
+     "bbox": [
+      292.8,
+      217.92,
+      465.6,
+      231.36
+     ],
+     "text": "\u2018Watercolour\u2019 but wider than \u2018Carol Jean\u2019."
+    },
+    {
+     "bbox": [
+      293.28,
+      229.92,
+      498.24,
+      238.56
+     ],
+     "text": "\u2018Meipinjid\u2019 lacks the small white pointed tip of the"
+    },
+    {
+     "bbox": [
+      293.28,
+      239.52,
+      410.4,
+      248.16
+     ],
+     "text": "petal present in \u2018Carol Jean\u2019."
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u2018Meipinjid\u2019 is a dwarf growing plant usually below\n60 cm in height and has a more spreading habit\nthan \u2018Carol Jean\u2019 or \u2018Watercolour\u2019. Terminal\nleaflets of \u2018Meipinjid\u2019 are rounder in outline than\nthose of \u2018Watercolour\u2019. The thorns of \u2018Meipinjid\u2019\nare more concave above in profile than those of\n\u2018Carol Jean\u2019 and more numerous than\n\u2018Watercolour\u2019. The flowers of \u2018Meipinjid\u2019 are double\n(more than 50 petals) while those of \u2018Carol Jean\u2019\nand \u2018Watercolour\u2019 are semi-double (less than 25\npetals). Flower diameter of \u2018Meipinjid\u2019 is similar to\n\u2018Watercolour\u2019 but wider than \u2018Carol Jean\u2019.\n\u2018Meipinjid\u2019 lacks the small white pointed tip of the\npetal present in \u2018Carol Jean\u2019.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    61.44,
+    261.12,
+    335.04,
+    271.68
+   ],
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      61.44,
+      261.12,
+      335.04,
+      271.68
+     ],
+     "text": "TABLE OF COMPARISON WITH ROSE VARIETIES"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "TABLE OF COMPARISON WITH ROSE VARIETIES",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    60.96,
+    284.16,
+    463.2,
+    773.76
+   ],
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      62.4,
+      284.16,
+      463.2,
+      299.52
+     ],
+     "text": "Flower Characters \u2018Meipinjid\u2019 \u2018Carol Jean\u2019 \u2018Watercolour\u2019"
+    },
+    {
+     "bbox": [
+      62.4,
+      306.72,
+      447.36,
+      314.88
+     ],
+     "text": "FLOWER COLOUR GROUP Medium pink medium pink light pink"
+    },
+    {
+     "bbox": [
+      62.4,
+      324.96,
+      164.16,
+      331.68
+     ],
+     "text": "PETAL COLOUR CHARTING"
+    },
+    {
+     "bbox": [
+      62.4,
+      334.08,
+      426.72,
+      340.8
+     ],
+     "text": "MIDZONE OUTSIDE RHS 57D 62A 68C"
+    },
+    {
+     "bbox": [
+      62.4,
+      338.4,
+      427.68,
+      353.76
+     ],
+     "text": "MIDZONE INSIDE RHS. 66C 64D 65A"
+    },
+    {
+     "bbox": [
+      61.92,
+      347.04,
+      427.68,
+      362.4
+     ],
+     "text": "MARGIN INSIDE RHS. 66C 64D 65A"
+    },
+    {
+     "bbox": [
+      61.92,
+      369.12,
+      172.32,
+      375.84
+     ],
+     "text": "PETAL BASAL SPOT COLOUR"
+    },
+    {
+     "bbox": [
+      61.92,
+      373.92,
+      431.04,
+      389.28
+     ],
+     "text": "OUTSIDE RHS. 1490 155A 155C"
+    },
+    {
+     "bbox": [
+      62.4,
+      382.56,
+      431.52,
+      397.92
+     ],
+     "text": "INSIDE RHS. 1490 155A 155C"
+    },
+    {
+     "bbox": [
+      61.92,
+      400.32,
+      458.4,
+      416.16
+     ],
+     "text": "FLOWER TYPE double semi-double semi double"
+    },
+    {
+     "bbox": [
+      61.92,
+      418.08,
+      434.88,
+      433.44
+     ],
+     "text": "NUMBER OF PETALS >50 13-25 13-25"
+    },
+    {
+     "bbox": [
+      62.4,
+      441.12,
+      448.8,
+      447.84
+     ],
+     "text": "FLOWER DIAMETER mean 46.45 mm 35.85 mm 46.40 mm"
+    },
+    {
+     "bbox": [
+      177.6,
+      445.44,
+      434.88,
+      460.8
+     ],
+     "text": "range 38-50 32-38 40-52"
+    },
+    {
+     "bbox": [
+      150.72,
+      458.88,
+      428.16,
+      465.6
+     ],
+     "text": "std deviation 3.36 2.35 3.48"
+    },
+    {
+     "bbox": [
+      61.92,
+      472.32,
+      445.44,
+      487.68
+     ],
+     "text": "FLOWER SHAPE IN PROFILE convex flattened flattened"
+    },
+    {
+     "bbox": [
+      318.24,
+      487.68,
+      439.68,
+      492.0
+     ],
+     "text": "convex convex"
+    },
+    {
+     "bbox": [
+      61.92,
+      503.52,
+      434.4,
+      509.76
+     ],
+     "text": "PETAL SHAPE broad broad broad"
+    },
+    {
+     "bbox": [
+      222.72,
+      512.16,
+      443.52,
+      519.84
+     ],
+     "text": "obovate obovate elliptical"
+    },
+    {
+     "bbox": [
+      61.92,
+      529.92,
+      449.28,
+      536.16
+     ],
+     "text": "PETAL SIZE mean 24.85 mm 17.0mm 23.05 mm"
+    },
+    {
+     "bbox": [
+      177.6,
+      534.24,
+      434.88,
+      549.6
+     ],
+     "text": "range 20-27 15-18 20-25"
+    },
+    {
+     "bbox": [
+      150.72,
+      547.68,
+      428.64,
+      553.92
+     ],
+     "text": "std deviation 2.20 117 1.14"
+    },
+    {
+     "bbox": [
+      61.92,
+      565.92,
+      443.52,
+      573.6
+     ],
+     "text": "FLOWERING DURATION long medium medium"
+    },
+    {
+     "bbox": [
+      61.92,
+      584.16,
+      449.28,
+      590.4
+     ],
+     "text": "SEPAL LENGTH mean 26.55 mm 12.40 mm 17.10 mm"
+    },
+    {
+     "bbox": [
+      61.92,
+      588.48,
+      434.88,
+      603.84
+     ],
+     "text": "(excl.extensions) range 25-29 12-14 16-19"
+    },
+    {
+     "bbox": [
+      150.72,
+      601.92,
+      428.16,
+      608.16
+     ],
+     "text": "std deviation 1.43 0.60 0.79"
+    },
+    {
+     "bbox": [
+      61.44,
+      614.88,
+      437.76,
+      630.24
+     ],
+     "text": "SEPAL EXTENSIONS absent weak absent"
+    },
+    {
+     "bbox": [
+      61.44,
+      637.44,
+      435.36,
+      645.6
+     ],
+     "text": "PLANT GROWTH HABIT spreading bushy bushy"
+    },
+    {
+     "bbox": [
+      60.96,
+      655.2,
+      448.8,
+      661.92
+     ],
+     "text": "TERMINAL LEAFLET Mean 34.80 mm 31.20mm 32.40 mm"
+    },
+    {
+     "bbox": [
+      61.44,
+      659.52,
+      434.4,
+      674.88
+     ],
+     "text": "LENGTH Range 27-40 25-38 24-42"
+    },
+    {
+     "bbox": [
+      149.28,
+      672.96,
+      428.16,
+      679.2
+     ],
+     "text": "Std deviation 4.06 3.52 5.82"
+    },
+    {
+     "bbox": [
+      61.44,
+      690.72,
+      444.0,
+      696.96
+     ],
+     "text": "TERMINAL LEAFLET Mean 22.45 mm 18.60 mm 18.9 mm"
+    },
+    {
+     "bbox": [
+      60.96,
+      695.04,
+      434.88,
+      710.88
+     ],
+     "text": "WIDTH Range 18-26 14-24 14-25"
+    },
+    {
+     "bbox": [
+      148.8,
+      708.48,
+      428.16,
+      715.2
+     ],
+     "text": "Std deviation 2n 2.38 3.26"
+    },
+    {
+     "bbox": [
+      60.96,
+      726.72,
+      438.24,
+      733.44
+     ],
+     "text": "TERMINAL LEAFLET BASE rounded rounded obtuse"
+    },
+    {
+     "bbox": [
+      60.96,
+      744.48,
+      426.24,
+      752.16
+     ],
+     "text": "NO. THORNS many many few"
+    },
+    {
+     "bbox": [
+      60.96,
+      758.4,
+      443.52,
+      773.76
+     ],
+     "text": "THORN PROFILE (above) concave deep concave concave"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "Flower Characters \u2018Meipinjid\u2019 \u2018Carol Jean\u2019 \u2018Watercolour\u2019\nFLOWER COLOUR GROUP Medium pink medium pink light pink\nPETAL COLOUR CHARTING\nMIDZONE OUTSIDE RHS 57D 62A 68C\nMIDZONE INSIDE RHS. 66C 64D 65A\nMARGIN INSIDE RHS. 66C 64D 65A\nPETAL BASAL SPOT COLOUR\nOUTSIDE RHS. 1490 155A 155C\nINSIDE RHS. 1490 155A 155C\nFLOWER TYPE double semi-double semi double\nNUMBER OF PETALS >50 13-25 13-25\nFLOWER DIAMETER mean 46.45 mm 35.85 mm 46.40 mm\nrange 38-50 32-38 40-52\nstd deviation 3.36 2.35 3.48\nFLOWER SHAPE IN PROFILE convex flattened flattened\nconvex convex\nPETAL SHAPE broad broad broad\nobovate obovate elliptical\nPETAL SIZE mean 24.85 mm 17.0mm 23.05 mm\nrange 20-27 15-18 20-25\nstd deviation 2.20 117 1.14\nFLOWERING DURATION long medium medium\nSEPAL LENGTH mean 26.55 mm 12.40 mm 17.10 mm\n(excl.extensions) range 25-29 12-14 16-19\nstd deviation 1.43 0.60 0.79\nSEPAL EXTENSIONS absent weak absent\nPLANT GROWTH HABIT spreading bushy bushy\nTERMINAL LEAFLET Mean 34.80 mm 31.20mm 32.40 mm\nLENGTH Range 27-40 25-38 24-42\nStd deviation 4.06 3.52 5.82\nTERMINAL LEAFLET Mean 22.45 mm 18.60 mm 18.9 mm\nWIDTH Range 18-26 14-24 14-25\nStd deviation 2n 2.38 3.26\nTERMINAL LEAFLET BASE rounded rounded obtuse\nNO. THORNS many many few\nTHORN PROFILE (above) concave deep concave concave",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    500.16,
+    792.96,
+    508.32,
+    798.72
+   ],
+   "id": "e9",
+   "lines": [
+    {
+     "bbox": [
+      500.16,
+      792.96,
+      508.32,
+      798.72
+     ],
+     "text": "25"
+    }
+   ],
+   "page": 1,
+   "role_signal": "furniture-number",
+   "source": "tesseract-psm3",
+   "text": "25",
+   "text_format": "plain",
+   "type": "page_number"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    594.3,
+    841.6
+   ],
+   "source": "tesseract-fast"
+  }
+ ],
+ "relations": [
+  {
+   "signal": "continuation-column",
+   "source": "e5",
+   "target": "e4",
+   "type": "continues_from"
+  }
+ ],
+ "schema": "0.1"
+}
