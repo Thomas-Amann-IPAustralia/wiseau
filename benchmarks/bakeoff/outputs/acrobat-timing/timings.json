@@ -1,4 +1,13 @@
 {
+  "accurate-V2N2": {
+    "chars": 99089,
+    "cpu_s": 438.2,
+    "cpus": 4,
+    "pages": 40,
+    "peak_rss_mb": 2331,
+    "s_per_page": 7.42,
+    "wall_s": 296.8
+  },
   "accurate-V5N1": {
     "chars": 99270,
     "cpu_s": 383.3,
