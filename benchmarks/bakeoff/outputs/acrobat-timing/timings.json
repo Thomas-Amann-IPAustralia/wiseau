@@ -17,6 +17,15 @@
     "s_per_page": 7.81,
     "wall_s": 210.8
   },
+  "accurate-V6N1": {
+    "chars": 116147,
+    "cpu_s": 490.6,
+    "cpus": 4,
+    "pages": 40,
+    "peak_rss_mb": 2432,
+    "s_per_page": 8.3,
+    "wall_s": 331.8
+  },
   "fast-V5N1": {
     "chars": 92118,
     "cpu_s": 163.7,
