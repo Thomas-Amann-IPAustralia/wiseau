@@ -304,7 +304,7 @@ def test_a_rate_limited_request_is_attributed_to_its_route(client, fresh_metrics
 def test_ping_advertises_the_selectable_engines(client):
     body = client.get("/ping").json()
     # The UI offers the choice from this list rather than hard-coding it.
-    assert body["engines"] == ["docling", "glm-ocr", "pymupdf"]
+    assert body["engines"] == ["docling", "fast", "glm-ocr", "pymupdf"]
 
 
 def test_ping_lists_only_the_engines_this_deployment_can_run(client, monkeypatch):
@@ -312,13 +312,13 @@ def test_ping_lists_only_the_engines_this_deployment_can_run(client, monkeypatch
     # back, so a UI must not offer it (ADR-034).
     monkeypatch.delenv("WISEAU_DOCLING_BASE", raising=False)
     monkeypatch.delenv("WISEAU_GLM_OCR_BASE", raising=False)
-    assert client.get("/ping").json()["available_engines"] == ["pymupdf"]
+    assert client.get("/ping").json()["available_engines"] == ["fast", "pymupdf"]
 
     monkeypatch.setenv("WISEAU_GLM_OCR_BASE", "http://glm-ocr.internal")
-    assert client.get("/ping").json()["available_engines"] == ["glm-ocr", "pymupdf"]
+    assert client.get("/ping").json()["available_engines"] == ["fast", "glm-ocr", "pymupdf"]
 
     monkeypatch.setenv("WISEAU_DOCLING_BASE", "http://docling.internal")
-    assert client.get("/ping").json()["available_engines"] == ["docling", "glm-ocr", "pymupdf"]
+    assert client.get("/ping").json()["available_engines"] == ["docling", "fast", "glm-ocr", "pymupdf"]
 
 
 def test_ping_reports_the_default_engine(client, monkeypatch):
@@ -332,6 +332,9 @@ def test_ping_reports_the_default_engine(client, monkeypatch):
 
     monkeypatch.setenv("WISEAU_PDF_ENGINE", "glm-ocr")
     assert client.get("/ping").json()["default_engine"] == "glm-ocr"
+
+    monkeypatch.setenv("WISEAU_PDF_ENGINE", "fast")
+    assert client.get("/ping").json()["default_engine"] == "fast"
 
 
 def test_an_upload_can_name_its_engine(client, monkeypatch):

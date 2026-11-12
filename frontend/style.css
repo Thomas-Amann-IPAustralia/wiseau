@@ -635,6 +635,7 @@ input[type="url"]:focus, .dialog__input:focus {
 .engine__meter i:nth-child(1) { height: 5px; }
 .engine__meter i:nth-child(2) { height: 8px; }
 .engine__meter i:nth-child(3) { height: 11px; }
+.engine__meter--mid i:nth-child(3) { background: var(--border-strong); }
 .engine__meter--slow i { background: var(--warn); }
 .engine__meter--slow i:nth-child(n + 2) { background: var(--border-strong); }
 

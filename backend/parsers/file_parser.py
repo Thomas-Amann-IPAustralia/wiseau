@@ -74,7 +74,7 @@ from observability import metrics
 from . import docling_client, figures, glm_ocr_client, progress, recover, serializer, text_layer
 from . import document as ir
 from .cleaner import clean_markdown
-from .ocr import get_engine, text_elements
+from .ocr import get_engine, get_fast_engine, text_elements
 
 logger = logging.getLogger(__name__)
 
@@ -89,7 +89,12 @@ SUPPORTED_EXTENSIONS = {".pdf", ".docx"} | IMAGE_EXTENSIONS
 # means "this deployment's default", i.e. whatever `WISEAU_PDF_ENGINE` says.
 # `glm-ocr` is the third engine (ADR-034): opt-in, remote, with the same
 # automatic fallback docling has.
-REQUESTABLE_ENGINES = frozenset({"docling", "glm-ocr", "pymupdf"})
+REQUESTABLE_ENGINES = frozenset({"docling", "fast", "glm-ocr", "pymupdf"})
+
+# The local engines. `pymupdf` is the default path; `fast` (ADR-059) is the same
+# text-layer and DOCX reading with a lighter OCR stage for scans: Tesseract psm 3
+# alone, no layout or table model, a cheap guard, and its own DPI.
+FAST_ENGINE = "fast"
 
 # The engines that run as a separate service and therefore need a fallback.
 # Each entry: (client module, the base error class that triggers the fallback).
@@ -102,6 +107,10 @@ _REMOTE_ENGINES = {
 # accuracy sweet spot; a fixed constant (overridable via env) so the same page
 # always renders to the same image and thus the same recognized text.
 DEFAULT_OCR_DPI = 300
+
+# The fast engine's resolution (ADR-059), set from its benchmark; `WISEAU_FAST_OCR_DPI`
+# overrides it. Fixed per deployment, for the same reason as DEFAULT_OCR_DPI.
+DEFAULT_FAST_OCR_DPI = 300
 
 # OCR recognition language. Tesseract ISO 639-2/T code(s); "+"-join for multiple
 # (e.g. "eng+deu"). The matching data must be installed for the chosen engine.
@@ -124,6 +133,20 @@ def _ocr_dpi() -> int:
         return int(os.environ.get("WISEAU_OCR_DPI", str(DEFAULT_OCR_DPI)))
     except ValueError:
         return DEFAULT_OCR_DPI
+
+
+def _fast_ocr_dpi() -> int:
+    try:
+        return int(os.environ.get("WISEAU_FAST_OCR_DPI", str(DEFAULT_FAST_OCR_DPI)))
+    except ValueError:
+        return DEFAULT_FAST_OCR_DPI
+
+
+def _ocr_setup(fast: bool):
+    """The OCR engine and DPI for a conversion: the fast engine's (ADR-059) or the default's."""
+    if fast:
+        return get_fast_engine(), _fast_ocr_dpi()
+    return _engine(), _ocr_dpi()
 
 
 def _ocr_lang() -> str:
@@ -239,14 +262,15 @@ def _add_ocr_page(out: ir.Document, engine, page: pymupdf.Page, *, dpi: int, lan
     out.add_page(_page_info(page, ir.OCR, engine.name), _ocr_elements(engine, page, dpi=dpi, language=language))
 
 
-def pdf_to_document(data: bytes) -> ir.Document:
+def pdf_to_document(data: bytes, *, fast: bool = False) -> ir.Document:
     """Convert PDF bytes to the document IR, OCR-ing scanned pages as configured.
 
     Records its own engine attribution, because only this function knows whether
     the text came off the page's own layer (`pymupdf`) or out of the OCR engine
     (`ocr`) — a scanned PDF billed to `pymupdf` would hide OCR entirely from
     `GET /metrics`. A document with *any* OCR'd page counts as `ocr`, so one
-    conversion is still attributed to exactly one engine.
+    conversion is still attributed to exactly one engine. ``fast`` reads scanned
+    pages with the fast engine (ADR-059); text-layer pages are read the same way.
     """
     out = ir.Document()
     doc = pymupdf.open(stream=data, filetype="pdf")
@@ -269,8 +293,8 @@ def pdf_to_document(data: bytes) -> ir.Document:
             return out
 
         metrics.record_engine("ocr")
-        engine = _engine()
-        dpi, lang = _ocr_dpi(), _ocr_lang()
+        engine, dpi = _ocr_setup(fast)
+        lang = _ocr_lang()
 
         # Every page is OCR'd, or mixed: native Markdown for text pages (each
         # converted on its own, as before), OCR for scanned pages, in page order.
@@ -295,7 +319,7 @@ def pdf_to_markdown(data: bytes) -> str:
     return serializer.to_markdown(pdf_to_document(data))
 
 
-def image_to_document(data: bytes, ext: str) -> ir.Document:
+def image_to_document(data: bytes, ext: str, *, fast: bool = False) -> ir.Document:
     """OCR a standalone image (PNG/JPEG/TIFF/...) into the document IR."""
     if _ocr_mode() == "off":
         raise ValueError("OCR is disabled (WISEAU_OCR_MODE=off); cannot read image files.")
@@ -310,8 +334,8 @@ def image_to_document(data: bytes, ext: str) -> ir.Document:
     out = ir.Document()
     doc = pymupdf.open(stream=pdf_bytes, filetype="pdf")
     try:
-        engine = _engine()
-        dpi, lang = _ocr_dpi(), _ocr_lang()
+        engine, dpi = _ocr_setup(fast)
+        lang = _ocr_lang()
         pages = doc.page_count
         progress.report("stage", stage="ocr", pages=pages, ocr_pages=pages)
         for page in doc:
@@ -361,7 +385,8 @@ def _markdown_document(markdown: str, source: str) -> ir.Document:
 
 
 def _pdf_engine() -> str:
-    """Preferred document engine: 'pymupdf' (default; ADR-027), 'docling', or 'glm-ocr'.
+    """Preferred document engine: 'pymupdf' (default; ADR-027), 'fast' (ADR-059),
+    'docling', or 'glm-ocr'.
 
     The default is the fast local parser: it answers in about a second and is
     deterministic, which is the right trade for the common document. docling's
@@ -376,13 +401,14 @@ def default_engine() -> str:
 
     Reported by `GET /ping` so a client can label its "Auto" option and size its
     progress estimate without hard-coding a default that a deployment may have
-    changed. Anything other than a remote engine's name (`docling`, `glm-ocr`) in
+    changed. Anything other than a remote engine's name (`docling`, `glm-ocr`) or
+    `fast` (ADR-059) in
     `WISEAU_PDF_ENGINE` runs the local parser, so that is what an unrecognized
     value reports too — the answer describes what will actually happen, not what
     was typed.
     """
     selected = _pdf_engine()
-    return selected if selected in _REMOTE_ENGINES else "pymupdf"
+    return selected if selected in _REMOTE_ENGINES or selected == FAST_ENGINE else "pymupdf"
 
 
 def available_engines() -> list[str]:
@@ -394,7 +420,7 @@ def available_engines() -> list[str]:
     publishes this list so a UI can show only the engines this deployment has.
     The local parser is always available.
     """
-    return sorted(["pymupdf", *(name for name, (client, _) in _REMOTE_ENGINES.items() if client.is_configured())])
+    return sorted(["pymupdf", FAST_ENGINE, *(name for name, (client, _) in _REMOTE_ENGINES.items() if client.is_configured())])
 
 
 def resolve_engine(requested: str | None) -> str | None:
@@ -424,18 +450,19 @@ def resolve_engine(requested: str | None) -> str | None:
     return value
 
 
-def _fallback_document(data: bytes, ext: str) -> ir.Document:
+def _fallback_document(data: bytes, ext: str, *, fast: bool = False) -> ir.Document:
     """Deterministic extraction by extension — the always-available fallback.
 
     Each parser records the engine that actually served the conversion; a scanned
     PDF and a born-digital one both arrive here but are attributed differently.
+    ``fast`` selects the fast engine's OCR (ADR-059); DOCX has no OCR to lighten.
     """
     if ext == ".pdf":
-        return pdf_to_document(data)
+        return pdf_to_document(data, fast=fast)
     if ext == ".docx":
         return _markdown_document(docx_to_markdown(data), "mammoth")
     # Only reachable for image extensions; other types are rejected upstream.
-    return image_to_document(data, ext)
+    return image_to_document(data, ext, fast=fast)
 
 
 def _extract_document(data: bytes, filename: str, ext: str, engine: str | None = None) -> ir.Document:
@@ -459,7 +486,7 @@ def _extract_document(data: bytes, filename: str, ext: str, engine: str | None =
             metrics.record_remote_skipped(name, "engine_not_selected")
     remote = _REMOTE_ENGINES.get(selected)
     if remote is None:
-        return _fallback_document(data, ext)
+        return _fallback_document(data, ext, fast=selected == FAST_ENGINE)
     client, error_type = remote
     if not client.is_configured():
         metrics.record_remote_skipped(selected, "not_configured")
@@ -655,7 +682,7 @@ def file_to_markdown(data: bytes, filename: str, engine: str | None = None, *,
     Args:
         data: The document bytes.
         filename: Original filename; its extension selects the parser.
-        engine: Optional per-request engine override (`"docling"`/`"glm-ocr"`/`"pymupdf"`);
+        engine: Optional per-request engine override (`"docling"`/`"glm-ocr"`/`"pymupdf"`/`"fast"`);
             `None` uses this deployment's default. Validate caller input with
             `resolve_engine` first.
         reader: Reader mode (ADR-055): leave page furniture out and write a

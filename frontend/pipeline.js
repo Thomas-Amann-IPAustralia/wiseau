@@ -118,6 +118,14 @@
       detail:
         "Each page is rendered at 300 DPI and Tesseract reads the words, keeping columns in reading order and stitching table rows back together. This is the slow part of a scan: many seconds a page.",
     },
+    ocrFast: {
+      title: "OCR",
+      sub: "Tesseract only · FAST_DPI DPI",
+      icon: "ocr",
+      weight: 4,
+      detail:
+        "The fast engine: each page is rendered at FAST_DPI DPI and Tesseract reads it with its own layout analysis, keeping columns in order and stitching table rows. No layout or table model runs, so headings keep no level and tables stay rows of text. A quick word count guards against a column Tesseract dropped; only a page that fails it is read a second time.",
+    },
     layout: {
       title: "Layout & tables",
       sub: "region + table models",
@@ -133,7 +141,7 @@
       weight: 10,
       fallback: "falls back to PyMuPDF",
       detail:
-        "docling runs ML layout, table and OCR models in a separate service — the most faithful reading of complex, multi-column and scanned documents, at tens of seconds to minutes. If it is cold, busy or unavailable, the fast parser takes over automatically and you still get a result.",
+        "docling runs ML layout, table and OCR models in a separate service, at tens of seconds to minutes a document. It is experimental here: on our test pages it misread more words than the accurate engine. If it is cold, busy or unavailable, the local parser takes over automatically and you still get a result.",
     },
     glm: {
       title: "GLM-OCR",
@@ -142,7 +150,7 @@
       weight: 10,
       fallback: "falls back to PyMuPDF",
       detail:
-        "A vision-language model transcribes every region of every scanned page — very accurate and very slow on CPU. Born-digital pages skip it. Falls back to the fast parser if unavailable.",
+        "A vision-language model transcribes every region of every scanned page — very accurate and very slow on CPU. Born-digital pages skip it. Falls back to the local parser if unavailable.",
     },
     mammoth: {
       title: "Word styles",
@@ -210,7 +218,7 @@
    *   source:   "url" | "file"
    *   url:      the URL typed (for "url")
    *   files:    [{ name, type: "pdf"|"docx"|"image"|"other", probe? }]
-   *   engine:   the engine that will run ("pymupdf" | "docling" | "glm-ocr")
+   *   engine:   the engine that will run ("pymupdf" | "fast" | "docling" | "glm-ocr")
    *   chapters, reader: the two options (booleans)
    */
   function buildRoute(context) {
@@ -300,10 +308,15 @@
       return;
     }
 
+    // The fast engine (ADR-059) reads a scan with Tesseract alone: no layout or table models.
+    const fast = engine === "fast";
+    const ocr = fast ? stage("ocrFast") : stage("ocr");
     if (file.type === "image") {
-      stages.push(stage("ocr", { sub: "Tesseract" }), stage("layout"));
+      stages.push(fast ? ocr : stage("ocr", { sub: "Tesseract" }));
+      if (!fast) stages.push(stage("layout"));
     } else if (probe && probe.kind === "scan") {
-      stages.push(stage("inspect"), stage("ocr"), stage("layout"));
+      stages.push(stage("inspect"), ocr);
+      if (!fast) stages.push(stage("layout"));
     } else if (probe && probe.kind === "text") {
       stages.push(stage("inspect"), stage("textLayer"));
     } else {
@@ -379,7 +392,9 @@
       view.nodes.push(node);
     });
     if (view.summary) {
-      const engineName = { pymupdf: "Fast engine", docling: "docling", "glm-ocr": "GLM-OCR" }[route.engine] || route.engine;
+      const engineName =
+        { fast: "Fast engine", pymupdf: "Accurate engine", docling: "docling", "glm-ocr": "GLM-OCR" }[route.engine] ||
+        route.engine;
       const parts = [route.label];
       if (route.label !== "Web page") parts.push(engineName);
       view.summary.textContent = parts.concat(route.notes).join(" · ");

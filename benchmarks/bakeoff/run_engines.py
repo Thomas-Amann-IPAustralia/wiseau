@@ -19,6 +19,8 @@ side by side: concurrent runs on a small box inflate every timing (post-mortem
   python benchmarks/bakeoff/run_engines.py no-borders     # default path before scanner-band cleanup
   python benchmarks/bakeoff/run_engines.py tables-tatr    # default path + Table Transformer tables (ADR-046)
   python benchmarks/bakeoff/run_engines.py layout-ppdl    # the image's path: tables + PP-DocLayoutV3 layout regions (ADR-048)
+  python benchmarks/bakeoff/run_engines.py image-default  # the image's default path exactly: tables + layout + structure passes
+  python benchmarks/bakeoff/run_engines.py fast-GUARD-DPI # the fast engine (ADR-059); GUARD cheap (shipped), none or full
   python benchmarks/bakeoff/run_engines.py pre-VARIANT    # default path on preprocessed pixels (preprocess.py;
                                                           #   ident, deskew, norm, sauvola, denoise; roadmap 1.2)
   python benchmarks/bakeoff/run_engines.py rec-MODEL      # psm 3 layout, lines re-read by MODEL (ml_engines.py;
@@ -114,6 +116,42 @@ def layout_ppdl_engine():
     os.environ["WISEAU_TABLES"] = "tatr"
     os.environ["WISEAU_LAYOUT"] = "ppdl"
     return pymupdf_engine()
+
+
+def image_default_engine():
+    """The Docker image's default path exactly: tables, layout regions and every
+    structure pass on (ADR-048/055). The baseline the fast engine (ADR-059) is
+    timed and scored against."""
+    import os
+
+    os.environ.update(WISEAU_TABLES="tatr", WISEAU_LAYOUT="ppdl", WISEAU_STRUCTURE="all",
+                      WISEAU_TABLE_THREADS="1", WISEAU_LAYOUT_THREADS="1")
+    return pymupdf_engine()
+
+
+def fast_engine(spec: str):
+    """The fast engine (ADR-059), as the image runs it (structure passes on).
+
+    ``spec`` is ``GUARD-DPI``: GUARD is ``cheap`` (the shipped guard), ``none`` or
+    ``full``; DPI is the OCR resolution. ``fast-cheap-300`` is the engine at 300 dpi.
+    """
+    import os
+
+    guard, dpi = spec.split("-")
+    os.environ.update(WISEAU_TABLES="tatr", WISEAU_LAYOUT="ppdl", WISEAU_STRUCTURE="all",
+                      WISEAU_FAST_OCR_DPI=dpi)
+    sys.path.insert(0, str(ROOT / "backend"))
+    from parsers import ocr, serializer
+    from parsers.cleaner import clean_markdown
+    from parsers.file_parser import file_to_document
+
+    ocr.FAST_GUARD = guard
+
+    def run(data: bytes) -> tuple[str, dict]:
+        doc = file_to_document(data, "page.pdf", engine="fast")
+        return clean_markdown(serializer.to_markdown(doc)), doc.to_dict()
+
+    return run
 
 
 def no_borders_engine():
@@ -287,6 +325,10 @@ def main() -> None:
         run = tables_tatr_engine()
     elif engine == "layout-ppdl":
         run = layout_ppdl_engine()
+    elif engine == "image-default":
+        run = image_default_engine()
+    elif engine.startswith("fast-"):
+        run = fast_engine(engine[5:])
     elif engine == "tesseract-psm3":
         run = tesseract_psm3_engine()
     elif engine == "tesseract-adr035":

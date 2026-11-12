@@ -65,7 +65,7 @@ uvicorn main:app --port 7860   # from backend/, on another port
    docling-serve itself — and are independent; set whichever the deployment uses.
    Add `WISEAU_PDF_ENGINE=docling` only if docling should be Space #1's *default*
    engine; without it, docling serves the callers who ask for it by name
-   (`engine=docling`, which the UI's *Highest fidelity* option sends) — ADR-027.
+   (`engine=docling`, which the UI's *docling* option sends) — ADR-027.
 4. Verify, in order: `/health` responds; a table-heavy PDF upload through the
    backend **with `engine=docling`** returns docling-quality Markdown; then
    **pause this Space** and repeat the same upload — it must still succeed, via

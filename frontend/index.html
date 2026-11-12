@@ -131,29 +131,37 @@
             <span id="engine-auto-hint" class="engine__hint">Server's default</span>
           </label>
           <label class="engine__option">
-            <input type="radio" name="engine" value="pymupdf" />
-            <span class="engine__name">Fastest</span>
-            <span class="engine__hint">PyMuPDF · Mammoth</span>
+            <input type="radio" name="engine" value="fast" />
+            <span class="engine__name">Fast</span>
+            <span class="engine__hint">Scans: OCR only</span>
             <span class="engine__meter" aria-hidden="true"><i></i><i></i><i></i></span>
           </label>
           <label class="engine__option">
+            <input type="radio" name="engine" value="pymupdf" />
+            <span class="engine__name">Accurate</span>
+            <span class="engine__hint">OCR + layout &amp; tables</span>
+            <span class="engine__meter engine__meter--mid" aria-hidden="true"><i></i><i></i><i></i></span>
+          </label>
+          <label class="engine__option">
             <input type="radio" name="engine" value="docling" />
-            <span class="engine__name">Highest fidelity</span>
-            <span class="engine__hint">docling · slow</span>
+            <span class="engine__name">docling</span>
+            <span class="engine__hint">Experimental · slow</span>
             <span class="engine__meter engine__meter--slow" aria-hidden="true"><i></i><i></i><i></i></span>
           </label>
         </div>
         <details class="engine__about">
           <summary>Which should I choose?</summary>
           <p id="engine-note" class="engine__note">
-            The <strong>fast</strong> parser (PyMuPDF / Mammoth) is the default: a digital document
-            converts in about a second and returns the same Markdown every time; scanned pages are
-            OCR'd at several seconds each. Choose <strong>highest fidelity</strong> when a document
-            needs it — docling reads complex layouts, multi-column pages, tables and scans more
-            faithfully, but runs an ML model on a free CPU: expect <strong>tens of seconds to a few
-            minutes</strong> per document, longer after the service has been idle. It falls back to
-            the fast parser automatically if it is unavailable. The engine applies to documents; a
-            URL that serves an HTML page is always extracted the same way.
+            Digital PDFs, Word files and web pages come out the same with <strong>Fast</strong> and
+            <strong>Accurate</strong>, in about a second. The two differ on <em>scanned</em> pages.
+            <strong>Accurate</strong>, the default, reads each scan with Tesseract plus a layout model
+            and a table model, so headings get their levels and tables come back as tables.
+            <strong>Fast</strong> runs Tesseract alone: FAST_SPEEDUP quicker a scanned page, with slightly
+            more misread words and no heading levels or rebuilt tables. Both are deterministic.
+            <strong>docling</strong> is an ML converter run as a separate service. On our test pages
+            it was <em>less</em> accurate than Accurate and several times slower, so treat it as
+            experimental. It falls back to the local parser if it is unavailable. The engine
+            applies to documents; a URL that serves an HTML page is always extracted the same way.
           </p>
         </details>
       </fieldset>

@@ -26,11 +26,14 @@ Pages as-is.
 
 ## What the UI does
 
-- **Engine picker** — *Auto*, *Fastest* (PyMuPDF/Mammoth), or *Highest fidelity*
-  (docling), sent as the request's `engine`. The fast parser is the default
-  (ADR-027) and answers in about a second; docling reads complex and scanned
-  documents far more faithfully but takes tens of seconds to minutes on the free
-  CPU tier, and falls back to the fast parser automatically if it is unavailable.
+- **Engine picker** — *Auto*, *Fast* (`fast`), *Accurate* (`pymupdf`) or
+  *docling*, sent as the request's `engine` (ADR-059). *Accurate* is the default
+  (ADR-027). Digital documents come out the same from *Fast* and *Accurate*, in
+  about a second. On scanned pages *Fast* runs Tesseract alone: several times
+  quicker, without heading levels or rebuilt tables. *docling* is labelled
+  experimental: on the benchmarks it is slower and less accurate than *Accurate*.
+  It falls back to the local parser automatically if it is unavailable. *Fast* and
+  docling are shown only when `/ping` lists them in `available_engines`.
   *Auto* is labelled from `/ping`'s `default_engine`, so it says what the backend
   in front of it will actually do.
 - **Pipeline** — the stages the conversion will go through (web page, PDF link,
