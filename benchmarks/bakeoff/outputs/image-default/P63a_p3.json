@@ -1,0 +1,488 @@
+{
+ "elements": [
+  {
+   "bbox": [
+    43.92,
+    320.16,
+    46.8,
+    324.72
+   ],
+   "id": "e1",
+   "lines": [
+    {
+     "bbox": [
+      43.92,
+      320.16,
+      46.8,
+      324.72
+     ],
+     "text": "\u201ca"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "\u201ca",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    192.96,
+    46.32,
+    254.16,
+    60.72
+   ],
+   "confidence": null,
+   "id": "e2",
+   "level": 2,
+   "lines": [
+    {
+     "bbox": [
+      192.96,
+      46.32,
+      254.16,
+      60.72
+     ],
+     "text": "275390"
+    }
+   ],
+   "page": 1,
+   "score": 0.6774,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "275390",
+   "text_format": "plain",
+   "type": "heading"
+  },
+  {
+   "bbox": [
+    60.48,
+    60.48,
+    400.56,
+    121.92
+   ],
+   "confidence": null,
+   "id": "e3",
+   "lines": [
+    {
+     "bbox": [
+      61.44,
+      60.48,
+      374.88,
+      70.8
+     ],
+     "text": "is an integer fron 1 too inclusive, possess unexpected and highly useful ~"
+    },
+    {
+     "bbox": [
+      60.48,
+      77.04,
+      383.28,
+      90.0
+     ],
+     "text": "antimicrobial activity and can accordingly be employed to.protect industrial"
+    },
+    {
+     "bbox": [
+      60.72,
+      92.88,
+      400.56,
+      105.36
+     ],
+     "text": "products and intermediate preparations of wide variety. egainst the deteriorating"
+    },
+    {
+     "bbox": [
+      157.44,
+      104.16,
+      327.84,
+      110.88
+     ],
+     "text": ". . * ar :"
+    },
+    {
+     "bbox": [
+      61.2,
+      113.04,
+      308.88,
+      121.92
+     ],
+     "text": "action of bacteria and fungi. . \u2014 }o 7 4"
+    }
+   ],
+   "page": 1,
+   "score": 0.7155,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "is an integer fron 1 too inclusive, possess unexpected and highly useful ~\nantimicrobial activity and can accordingly be employed to.protect industrial\nproducts and intermediate preparations of wide variety. egainst the deteriorating\n. . * ar :\naction of bacteria and fungi. . \u2014 }o 7 4",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    279.6,
+    123.12,
+    290.64,
+    129.12
+   ],
+   "id": "e4",
+   "lines": [
+    {
+     "bbox": [
+      280.32,
+      123.12,
+      290.64,
+      126.0
+     ],
+     "text": "KF"
+    },
+    {
+     "bbox": [
+      279.6,
+      126.24,
+      289.92,
+      129.12
+     ],
+     "text": "ree"
+    }
+   ],
+   "page": 1,
+   "source": "tesseract-psm3",
+   "text": "KF\nree",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    59.76,
+    130.32,
+    382.8,
+    240.24
+   ],
+   "confidence": null,
+   "id": "e5",
+   "lines": [
+    {
+     "bbox": [
+      129.84,
+      130.32,
+      366.0,
+      140.16
+     ],
+     "text": "In the above formulas, the alkyl and alkenyl groups are"
+    },
+    {
+     "bbox": [
+      60.24,
+      144.24,
+      378.72,
+      156.72
+     ],
+     "text": "preferably lower alkyis and lower alkenyls having uy to 6 carbon atoms, bat"
+    },
+    {
+     "bbox": [
+      60.0,
+      158.16,
+      378.72,
+      175.44
+     ],
+     "text": "they may have up to 18 carbons; while the cycloalkyl groups incince \u2018cyclo"
+    },
+    {
+     "bbox": [
+      59.76,
+      177.12,
+      382.8,
+      192.72
+     ],
+     "text": "pentyl and cycLohexy! and up to cyclononyl; ani aralkyl incluces thepheny?\u2014"
+    },
+    {
+     "bbox": [
+      60.24,
+      198.24,
+      378.0,
+      206.4
+     ],
+     "text": "and haphthyl substituted lower alkanes wherein the phenyl or naphthyl group"
+    },
+    {
+     "bbox": [
+      59.76,
+      215.04,
+      370.08,
+      223.44
+     ],
+     "text": "may or may not be substituted by lower al'syl, chloro, bromo, hydroxyl arid"
+    },
+    {
+     "bbox": [
+      60.24,
+      233.52,
+      114.72,
+      240.24
+     ],
+     "text": "other groups."
+    }
+   ],
+   "page": 1,
+   "score": 0.8535,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "In the above formulas, the alkyl and alkenyl groups are\npreferably lower alkyis and lower alkenyls having uy to 6 carbon atoms, bat\nthey may have up to 18 carbons; while the cycloalkyl groups incince \u2018cyclo\npentyl and cycLohexy! and up to cyclononyl; ani aralkyl incluces thepheny?\u2014\nand haphthyl substituted lower alkanes wherein the phenyl or naphthyl group\nmay or may not be substituted by lower al'syl, chloro, bromo, hydroxyl arid\nother groups.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    57.84,
+    247.44,
+    395.04,
+    326.4
+   ],
+   "confidence": null,
+   "id": "e6",
+   "lines": [
+    {
+     "bbox": [
+      131.52,
+      247.44,
+      369.36,
+      257.28
+     ],
+     "text": "Many of the compounds embraced by the above foraulas are"
+    },
+    {
+     "bbox": [
+      59.28,
+      265.68,
+      386.4,
+      274.32
+     ],
+     "text": "known as such, but so far as we are aware they have not been \u2018morn to possess"
+    },
+    {
+     "bbox": [
+      57.84,
+      281.52,
+      386.16,
+      292.32
+     ],
+     "text": "\u201cunusual Ly high antimicrobial activity and have not been made available in the"
+    },
+    {
+     "bbox": [
+      59.76,
+      300.24,
+      395.04,
+      308.16
+     ],
+     "text": "Yorn of compositions prepared for use for the disinfection of various aaterials"
+    },
+    {
+     "bbox": [
+      59.52,
+      314.16,
+      224.16,
+      326.4
+     ],
+     "text": "subject to \u2018tungal and bacterial attack."
+    }
+   ],
+   "page": 1,
+   "score": 0.8797,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "Many of the compounds embraced by the above foraulas are\nknown as such, but so far as we are aware they have not been \u2018morn to possess\n\u201cunusual Ly high antimicrobial activity and have not been made available in the\nYorn of compositions prepared for use for the disinfection of various aaterials\nsubject to \u2018tungal and bacterial attack.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    58.32,
+    334.56,
+    386.64,
+    511.92
+   ],
+   "confidence": null,
+   "id": "e7",
+   "lines": [
+    {
+     "bbox": [
+      131.76,
+      334.56,
+      386.4,
+      342.24
+     ],
+     "text": "One of the outstanding advantages of the compositions of the"
+    },
+    {
+     "bbox": [
+      58.8,
+      349.2,
+      360.0,
+      358.8
+     ],
+     "text": "present invention is that wnite they are characterized by high potency,"
+    },
+    {
+     "bbox": [
+      59.04,
+      368.64,
+      386.16,
+      375.84
+     ],
+     "text": "they are free from toxic metals, like mercury anc copper, which are injurious"
+    },
+    {
+     "bbox": [
+      59.28,
+      381.12,
+      386.64,
+      393.84
+     ],
+     "text": "to human beings and the lower animals. A highly effective antimicrobial com\u2014"
+    },
+    {
+     "bbox": [
+      58.8,
+      402.48,
+      373.2,
+      411.12
+     ],
+     "text": "position for industrial use which was free from toxic metals, particularly"
+    },
+    {
+     "bbox": [
+      58.56,
+      419.52,
+      386.16,
+      426.72
+     ],
+     "text": "mercury, has long been sought but the non-metallic compounds end compositions"
+    },
+    {
+     "bbox": [
+      58.56,
+      430.08,
+      386.4,
+      443.52
+     ],
+     "text": "heretofore suggested have not been comparable in potency to the imom orgenic"
+    },
+    {
+     "bbox": [
+      58.56,
+      448.8,
+      372.48,
+      461.52
+     ],
+     "text": "mercurials. The compositions of the present invention, on the other hanil,"
+    },
+    {
+     "bbox": [
+      59.04,
+      463.92,
+      377.28,
+      478.8
+     ],
+     "text": "in addition to being treo ct metal, have an activity of the order of that of"
+    },
+    {
+     "bbox": [
+      58.32,
+      481.92,
+      377.52,
+      496.32
+     ],
+     "text": "many mercurial compounds and even excel many mercurial and otner metel com"
+    },
+    {
+     "bbox": [
+      58.32,
+      504.72,
+      134.64,
+      511.92
+     ],
+     "text": "pounds now in use."
+    }
+   ],
+   "page": 1,
+   "score": 0.9019,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "One of the outstanding advantages of the compositions of the\npresent invention is that wnite they are characterized by high potency,\nthey are free from toxic metals, like mercury anc copper, which are injurious\nto human beings and the lower animals. A highly effective antimicrobial com\u2014\nposition for industrial use which was free from toxic metals, particularly\nmercury, has long been sought but the non-metallic compounds end compositions\nheretofore suggested have not been comparable in potency to the imom orgenic\nmercurials. The compositions of the present invention, on the other hanil,\nin addition to being treo ct metal, have an activity of the order of that of\nmany mercurial compounds and even excel many mercurial and otner metel com\npounds now in use.",
+   "text_format": "plain",
+   "type": "text"
+  },
+  {
+   "bbox": [
+    58.32,
+    520.32,
+    390.0,
+    581.52
+   ],
+   "confidence": null,
+   "id": "e8",
+   "lines": [
+    {
+     "bbox": [
+      129.84,
+      520.32,
+      377.76,
+      531.84
+     ],
+     "text": "The compounds can be synthesized by techniques involving a"
+    },
+    {
+     "bbox": [
+      58.32,
+      538.08,
+      377.52,
+      545.52
+     ],
+     "text": "ketonic compound which sust contain at least two active hydrogen atoms on a"
+    },
+    {
+     "bbox": [
+      58.32,
+      551.76,
+      390.0,
+      563.76
+     ],
+     "text": "single carbon aton \u201cjoined to the carbonyl group, or on two cyclic carbon atoms"
+    },
+    {
+     "bbox": [
+      58.8,
+      567.84,
+      387.84,
+      581.52
+     ],
+     "text": "joined to the common carponyl, by which active hydrogens the ketonic compound."
+    }
+   ],
+   "page": 1,
+   "score": 0.8717,
+   "signal": "pp-doclayoutv3",
+   "source": "tesseract-psm3",
+   "text": "The compounds can be synthesized by techniques involving a\nketonic compound which sust contain at least two active hydrogen atoms on a\nsingle carbon aton \u201cjoined to the carbonyl group, or on two cyclic carbon atoms\njoined to the common carponyl, by which active hydrogens the ketonic compound.",
+   "text_format": "plain",
+   "type": "text"
+  }
+ ],
+ "pages": [
+  {
+   "method": "ocr",
+   "number": 1,
+   "size": [
+    495.6,
+    696.48
+   ],
+   "source": "tesseract"
+  }
+ ],
+ "relations": [],
+ "schema": "0.1"
+}
