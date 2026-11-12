@@ -334,9 +334,12 @@ FAST_GUARD_CHEAP, FAST_GUARD_NONE, FAST_GUARD_FULL = "cheap", "none", "full"
 # The fast engine's guard (ADR-059). "cheap" checks psm 3 against MuPDF's OCR at
 # FAST_GUARD_DPI and runs the full-resolution guard only for a page that fails
 # that check; "none" trusts psm 3; "full" is the default path's guard. The harness
-# switches it to measure the three.
+# switches it to measure the three. 100 dpi, with the default path's own 85% rule
+# (ADR-042): on 334 scanned pages it sent every page where psm 3 lost 37+ words to
+# the full guard, and never sent one needlessly; 150 dpi caught 4 more small
+# losses for ~45% more time (benchmarks/bakeoff/fast_guard.py).
 FAST_GUARD = FAST_GUARD_CHEAP
-FAST_GUARD_DPI = 150
+FAST_GUARD_DPI = 100
 
 
 class FastTesseractEngine(TesseractEngine):
