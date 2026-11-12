@@ -1,4 +1,4 @@
-# Frontend — Oh hi Mark(down)
+# Frontend — Wiseau ("Oh hi Mark(down)")
 
 Static, dependency-free UI for the Markdown ingestion engine. Deploys to GitHub
 Pages as-is.
@@ -13,6 +13,11 @@ Pages as-is.
 - `markdown.js` — the small, dependency-free Markdown renderer behind the
   Preview mode (ADR-026). Escapes everything before rendering: converted content
   is untrusted.
+- `pdfprobe.js` — reads a selected PDF in the browser for its page count and
+  whether it is scanned (ADR-057); what the estimate and the pipeline are based on.
+- `pipeline.js` — the animated pipeline: the route a conversion takes for the
+  chosen source, engine and options, demonstrated while idle and used as the
+  progress view while converting (ADR-057).
 - `zip.js` — a ~140-line ZIP writer, so "download every chapter" — or every
   document of a batch (ADR-031) — is one archive instead of a dozen blocked
   downloads (ADR-030). Stored entries, fixed timestamp, no dependency.
@@ -28,11 +33,16 @@ Pages as-is.
   CPU tier, and falls back to the fast parser automatically if it is unavailable.
   *Auto* is labelled from `/ping`'s `default_engine`, so it says what the backend
   in front of it will actually do.
-- **Progress bar** — an *approximation*. The API converts in one blocking call
-  and reports no progress, so the bar is estimated from the source type, the file
-  size, and the engine that will run (for *Auto*, the one `/ping` reports); it
-  keeps climbing rather than parking at "done",
-  and says so when a conversion runs past its estimate (ADR-026).
+- **Pipeline** — the stages the conversion will go through (web page, PDF link,
+  digital or scanned PDF, Word, image, batch; the engine, with docling's fallback;
+  reader mode and chapters), animated. Hover a stage to read what it does.
+- **Progress** — the upload is *measured*; the server's work is *estimated* from
+  the page count and whether the pages are scans (`pdfprobe.js`), per engine, and
+  corrected by what earlier conversions in this browser actually took on this
+  backend (kept in localStorage). Past the estimate it says so instead of
+  parking at 99%, and it warns up front when a document is likely to exceed the
+  host's per-request time limit (300 s by default; set
+  `window.WISEAU_REQUEST_TIMEOUT_S` in `config.js` for another) (ADR-057).
 - **Preview / Raw** — rendered Markdown or the exact source. Raw is what Copy and
   Download return.
 - **Download** — opens a dialog pre-filled with the document's first `#` heading

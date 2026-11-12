@@ -5,7 +5,31 @@
 > session. Keep it honest — "scaffolded but untested" is more useful than a
 > green checkmark that lies.
 
-**Last updated:** 2026-11-11 (tenth session: GPU worth it? end-to-end Kaggle T4 runs, verdict no; ADR-056 overlaps a scanned page's CPU stages, 11.7 → 8.3 s; ninth session: roadmap Tier 3 structure recovery, ADR-049..055, `POST /convert/bundle`, per-request reader mode, API 0.16.0; eighth session: Kaggle T4 run of OvisOCR3, experiment closed; seventh session: 3.7b layout-region spike, CPU leg, held-out set T, then ADR-048 shipping the layout detector in the image; sixth session: planning only, OvisOCR3/TeleOCR assessment; fifth session: ADR-047, table pass on in the Docker image; MuPDF OCR concurrency fix)
+**Last updated:** 2026-11-12 (eleventh session: frontend redesign as **Wiseau**, animated pipeline, page-aware progress, ADR-057; tenth session: GPU worth it? end-to-end Kaggle T4 runs, verdict no; ADR-056 overlaps a scanned page's CPU stages, 11.7 → 8.3 s; ninth session: roadmap Tier 3 structure recovery, ADR-049..055, `POST /convert/bundle`, per-request reader mode, API 0.16.0; eighth session: Kaggle T4 run of OvisOCR3, experiment closed; seventh session: 3.7b layout-region spike, CPU leg, held-out set T, then ADR-048 shipping the layout detector in the image; sixth session: planning only, OvisOCR3/TeleOCR assessment; fifth session: ADR-047, table pass on in the Docker image; MuPDF OCR concurrency fix)
+
+**Build note (2026-11-12, ADR-057, frontend only, no API change):** The user asked for three things. Each was done:
+- a custom animation of the process each source type and option follows;
+- a loading bar that matches the real timing (a large upload looked like a hang);
+- a more professional look, named **Wiseau**, with "Oh hi Mark(down)" as the tagline.
+
+What was built:
+- **Redesign.** New header (gradient mark, *Wiseau* wordmark, tagline, API-docs link, status pill with the version), hero line, cards, segmented tabs, engine cards with speed meters, toggle switches, refreshed dark/light themes and favicon. All element IDs that `app.js` uses are unchanged.
+- **`frontend/pipeline.js`.** An animated route for the current choice: web page, PDF link, digital/scanned/unknown PDF, Word, image, or mixed batch; the engine, with docling's and GLM-OCR's fallback drawn; reader mode; chapters. While idle it walks through each stage and explains it; hovering a stage shows its description. While converting it is the progress view.
+- **`frontend/pdfprobe.js`.** Reads page count and scanned-or-digital in the browser. The new estimate is per page and per engine, and it calibrates per deployment in localStorage.
+- **Progress.** Uploads now go through XHR, so the upload is measured. A shimmering bar keeps moving. The label shows "≈ left", then "over estimate". There is an up-front warning when the estimate exceeds the host's request limit (`window.WISEAU_REQUEST_TIMEOUT_S`, default 300 s, Cloud Run's). A timeout or dropped connection is reported specifically instead of as "Failed to fetch".
+
+Finding: the likely cause of the "hang". The old size-based estimate gave a 36-page scan about 9 s. The bar then sat at 99% for many minutes, and a document past Cloud Run's 300 s timeout can never finish in one request.
+
+Verified:
+- The probe was run under Node on all 15 PDFs in `pdf-test/` against PyMuPDF ground truth. Page counts were exact (one off by one). 15/15 scan/digital calls were correct, including the patent specs with invisible OCR layers.
+- The page was driven in headless Chromium against a mock backend: URL, single scan, docling, a batch of 2, reader mode, the chapters lock for batches, light/dark, and 390 px mobile. There were no console errors.
+
+Not verified:
+- against the live Cloud Run backend;
+- the per-page starting costs on the live service (calibration is meant to correct them);
+- how the probe behaves on encrypted or unusual PDFs (it returns null and the estimate falls back to size).
+
+Open: real progress, and conversions longer than the request limit, need a job API (ADR-026 declined that). Proposed as a follow-up.
 
 **Live check (2026-11-11, after PR #35 merged):**
 - Cloud Run redeployed from `main` about 8½ minutes after the merge; `/ping` reports **0.16.0**. GitHub Pages updated within a minute (Reader mode and Save with figures present).

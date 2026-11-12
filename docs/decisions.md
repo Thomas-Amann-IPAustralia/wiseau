@@ -21,6 +21,59 @@ one `Superseded`.
 
 ---
 
+## ADR-057 — The UI estimates from pages and scans, measures the upload, and learns the deployment; the pipeline is drawn
+**Date:** 2026-11-12 · **Status:** Accepted (amends ADR-026's progress estimate; no API change)
+**Context:**
+- The user reported that the loading bar did not match the real timing and that a
+  large upload looked like a hang. ADR-026's estimate used file size, and its
+  asymptotic curve reached ~95% at the estimate. Time is driven by pages and by
+  whether they are scans, not by size: a 4.8 MB, 36-page scan (Vol 4 No 1) takes
+  minutes on the default path, while a 2.7 MB, 371-page digital journal takes
+  seconds per hundred pages. The old estimate for the scan was about 9 s, so the
+  bar sat at 99% for minutes.
+- The upload was not shown at all: a 25 MB file over a slow link was counted as
+  server time.
+- The service runs behind Cloud Run's 300 s request timeout (docs/hosting.md). A
+  long scan can be cut off, and the UI then showed "Failed to fetch".
+- The user also asked for an animation of the process each source type and option
+  follows, and for a more professional look under the name **Wiseau**.
+**Decision:**
+- `frontend/pdfprobe.js` reads each selected PDF in the browser, with no
+  dependency. It takes the page count from the page tree, inflating object streams
+  with the native `DecompressionStream` where needed. It calls the file a scan when
+  it has no fonts, when sampled content streams draw text only invisibly
+  (`3 Tr`, ADR-040's shape) over page images, or, at low confidence, when the
+  producer is a scanner. On the 15 PDFs in `pdf-test/`, every page count was right
+  (one off by one) and every scan/digital call matched PyMuPDF.
+- The estimate is a per-engine model: base + seconds per text page or per scanned
+  page. Word files go by size, and a PDF the probe could not read falls back to
+  size. A **calibration** factor per `engine:kind` profile, kept per API base in
+  localStorage, moves toward each finished conversion's observed server time. The
+  move is weighted by the profile's share of the job and capped at ×½…×2 per
+  conversion. Storage is optional.
+- Uploads go through `XMLHttpRequest`, so the upload is **measured**. It gets its
+  share of the bar, and the measured speed is remembered. Processing time is
+  counted from the end of the upload.
+- The processing bar is linear in elapsed time over the estimate up to 90%, then
+  slows toward 98% without stopping. The label reads "≈ N left", then "N over
+  estimate". A shimmer runs throughout. When the estimate passes ~85% of the
+  request limit (`window.WISEAU_REQUEST_TIMEOUT_S`, default 300), a warning
+  appears up front. A dropped connection near the limit, or a 504/408, is
+  reported as the time limit, with advice to split the file.
+- `frontend/pipeline.js` builds the route from the source (web page, PDF link,
+  digital/scanned/unknown PDF, Word, image, mixed batch), the engine (with
+  docling's/GLM-OCR's fallback drawn) and the options (reader mode, chapters).
+  Idle, it animates through the stages and explains each one. Converting, it is
+  the progress view. Upload is measured; the later stages advance on the estimate
+  and are labelled "estimated stage".
+**Consequences:**
+- Estimates are only as good as the probe and model. The first conversions on a
+  deployment may be off by the factor between the benchmark machines and it.
+- Real per-page progress would need a job API (IDs, polling, server state), which
+  ADR-026 declined. It is also the only real fix for documents longer than the
+  request limit. This change only warns about them.
+- No new dependency; still vanilla JS with no build step.
+
 ## ADR-056 — No GPU for now; overlap a scanned page's CPU stages instead
 **Date:** 2026-11-11 · **Status:** Accepted (the user asked whether a GPU is worth it, end to end, then for the CPU-side work)
 **Context:**

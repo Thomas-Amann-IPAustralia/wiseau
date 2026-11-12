@@ -11,3 +11,7 @@
  * site talks to an unexpected backend, check that variable first.
  */
 window.MARKDOWN_API_BASE = "http://localhost:7860";
+
+// Optional: the longest one request may run on the host (Cloud Run's request
+// timeout). The UI warns before a conversion estimated to exceed it (ADR-057).
+// window.WISEAU_REQUEST_TIMEOUT_S = 300;

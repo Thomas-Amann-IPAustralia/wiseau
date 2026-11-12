@@ -1,5 +1,5 @@
 /*
- * Oh hi Mark(down) — frontend application logic.
+ * Wiseau ("Oh hi Mark(down)") — frontend application logic.
  *
  * State management + fetch calls to the FastAPI backend. Set API_BASE to your
  * deployed Hugging Face Space URL (e.g. "https://your-space.hf.space").
@@ -8,27 +8,36 @@
 // --- Configuration ----------------------------------------------------------
 const API_BASE = (window.MARKDOWN_API_BASE || "http://localhost:7860").replace(/\/$/, "");
 
-// Conversion-time estimates, in seconds, used to drive the progress bar. The API
-// reports no progress (a conversion is one blocking call), so the bar is an
-// *approximation* from what the client does know: the source type, the file
-// size, and the chosen engine. Deliberately generous — a bar that reaches the
-// end and waits reads as "stuck", one that is still climbing reads as "working".
-const ESTIMATES = {
-  // A headless-Chrome render dominates and barely varies with page size.
-  url: { base: 9, perMb: 0 },
-  // PyMuPDF/Mammoth: fast and roughly linear in document size.
-  pymupdf: { base: 2, perMb: 1.5 },
-  // The same path when the document is a scan: OCR at 300 DPI is much heavier.
-  ocr: { base: 8, perMb: 6 },
-  // docling on a free CPU Space: an ML pipeline, plus a possible cold start.
-  docling: { base: 30, perMb: 20 },
-  // GLM-OCR on CPU: a vision-language model transcribing every region of every
-  // page — measured at minutes per page (ADR-034). A scanned page is roughly
-  // 0.1-0.2 MB, so this works out near that rate; it is meant to look slow.
-  // Since ADR-036 a born-digital PDF skips GLM-OCR and finishes in seconds; the
-  // UI cannot tell the two apart before upload, so it shows the scan estimate.
-  "glm-ocr": { base: 60, perMb: 1500 },
+// Conversion-time model, in seconds (ADR-057). The API reports no progress (a
+// conversion is one blocking call), so the bar is an *estimate* — but from what
+// actually drives the time: how many pages a PDF has and whether they are
+// scans (pdfprobe.js reads that in the browser before upload), not file size.
+// A 40-page scan OCRs for minutes; a 40-page report converts in a second; the
+// old size-based estimate could not tell them apart, so on exactly the long
+// documents the bar raced to 99% and then looked hung.
+//
+// Per-page costs are starting points from the benchmarks (docs/benchmarks/
+// 2026-11-11-gpu-e2e.md; 22 s a warm scanned page on the live service before
+// ADR-056's overlap). Every finished conversion then corrects them for the
+// deployment actually in use — see `calibration` below.
+const MODEL = {
+  url: { base: 8 },
+  // A PDF link: the render and the download, then a document of unknown length.
+  urlPdf: { base: 14 },
+  pymupdf: { base: 2, textPage: 0.25, scanPage: 16, docxPerMb: 1, unknownPerMb: 6 },
+  // docling on a free CPU: an ML pipeline, plus a possible cold start.
+  docling: { base: 25, textPage: 4, scanPage: 40, docxPerMb: 6, unknownPerMb: 25 },
+  // GLM-OCR on CPU: minutes a scanned page (ADR-034); text pages skip it (ADR-036).
+  "glm-ocr": { base: 60, textPage: 0.25, scanPage: 150, docxPerMb: 1, unknownPerMb: 300 },
 };
+
+// The longest a single request may run before the hosting platform cuts it off
+// (Cloud Run's request timeout, docs/hosting.md: 300 s). A deployment with a
+// different limit can say so in config.js: `window.WISEAU_REQUEST_TIMEOUT_S`.
+const SERVER_TIMEOUT_S = Number(window.WISEAU_REQUEST_TIMEOUT_S) || 300;
+
+// Upload speed assumed until this browser has measured one.
+const DEFAULT_UPLOAD_BYTES_PER_S = 1.5 * 1024 * 1024;
 
 // Engines that run as a separate service and may not exist on a deployment.
 const REMOTE_ENGINES = ["docling", "glm-ocr"];
@@ -68,6 +77,12 @@ const el = {
   progressFill: document.getElementById("progress-fill"),
   progressLabel: document.getElementById("progress-label"),
   progressTimer: document.getElementById("progress-timer"),
+  progressEta: document.getElementById("progress-eta"),
+  progressWarning: document.getElementById("progress-warning"),
+  pipelineTrack: document.getElementById("pipeline-track"),
+  pipelineDetail: document.getElementById("pipeline-detail"),
+  pipelineSummary: document.getElementById("pipeline-summary"),
+  apiDocsLink: document.getElementById("api-docs-link"),
   output: document.getElementById("output"),
   outputPreview: document.getElementById("output-preview"),
   viewButtons: document.querySelectorAll(".view-toggle__btn"),
@@ -124,14 +139,42 @@ let keywordState = null;
 let keywordMethodsTouched = false;
 
 // --- Tab switching -----------------------------------------------------------
+let activeTab = "url";
 el.tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
     el.tabs.forEach((t) => t.classList.remove("tab--active"));
     tab.classList.add("tab--active");
     Object.values(el.panes).forEach((p) => p.classList.remove("tab-pane--active"));
     el.panes[tab.dataset.tab].classList.add("tab-pane--active");
+    activeTab = tab.dataset.tab;
+    updateRoute();
   });
 });
+
+// --- The pipeline view (pipeline.js) -----------------------------------------
+// Redrawn whenever what the conversion would do changes: the source, the files
+// and what their probes found, the engine, or an option.
+let routeSignature = "";
+
+function currentRoute() {
+  return window.wiseauPipeline.buildRoute({
+    source: activeTab,
+    url: el.urlInput.value.trim(),
+    files: selectedFiles.map((file) => ({ name: file.name, type: fileType(file), probe: probes.get(file) })),
+    engine: effectiveEngine(selectedEngine()),
+    chapters: wantsChapters(),
+    reader: activeTab === "file" && wantsReader(),
+  });
+}
+
+function updateRoute() {
+  if (!window.wiseauPipeline) return;
+  const route = currentRoute();
+  const signature = JSON.stringify([route.label, route.engine, route.notes, route.stages.map((s) => s.id + s.sub)]);
+  if (signature === routeSignature) return;
+  routeSignature = signature;
+  window.wiseauPipeline.show(route);
+}
 
 // --- Status badge ------------------------------------------------------------
 async function pingBackend() {
@@ -139,11 +182,12 @@ async function pingBackend() {
   try {
     const res = await fetch(`${API_BASE}/ping`, { method: "GET" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    setBadge("online", "online");
     const info = await res.json();
+    setBadge("online", info && info.version ? `online · v${info.version}` : "online");
     applyAvailableEngines(info);
     applyServerDefaultEngine(info);
     applyKeywordMethods(info);
+    updateRoute();
   } catch {
     setBadge("offline", "offline");
   }
@@ -240,79 +284,389 @@ function applyChapterAvailability() {
   el.splitChaptersBlocked.hidden = !blocked;
 }
 
-// --- Progress approximation --------------------------------------------------
+// --- What is selected, and what it will cost -----------------------------------
 /** The engine that will actually run: "auto" is whatever the server defaults to. */
 function effectiveEngine(engine) {
   return engine === "auto" ? serverDefaultEngine : engine;
 }
 
-/**
- * Seconds this conversion is expected to take.
- * An `auto` request is estimated as the server's reported default (the fast
- * parser unless the deployment says otherwise); if the estimate turns out long
- * the job simply finishes early, which the bar handles by jumping to done.
- */
-function estimateSeconds(kind, file, engine) {
-  if (kind === "url") return ESTIMATES.url.base;
+function fileType(file) {
+  const name = file.name.toLowerCase();
+  if (name.endsWith(".pdf")) return "pdf";
+  if (name.endsWith(".docx")) return "docx";
+  if (IMAGE_EXTENSIONS.some((ext) => name.endsWith(ext))) return "image";
+  return "other";
+}
 
-  const megabytes = (file ? file.size : 0) / (1024 * 1024);
-  const isImage = file && IMAGE_EXTENSIONS.some((ext) => file.name.toLowerCase().endsWith(ext));
+// What pdfprobe.js found in each selected PDF: { pages, kind, confidence } or null.
+const probes = new WeakMap();
+const probing = new WeakMap();
+
+function probeFile(file) {
+  if (fileType(file) !== "pdf" || !window.wiseauPdfProbe) return Promise.resolve(null);
+  if (!probing.has(file)) {
+    probing.set(
+      file,
+      window.wiseauPdfProbe.probe(file).then((probe) => {
+        probes.set(file, probe);
+        return probe;
+      })
+    );
+  }
+  return probing.get(file);
+}
+
+/** Wait for the selection's probes, but never hold a conversion up for long. */
+function probesReady(files) {
+  const all = Promise.all(files.map(probeFile));
+  const cap = new Promise((resolve) => setTimeout(resolve, 2500));
+  return Promise.race([all, cap]);
+}
+
+/**
+ * Seconds one document is expected to take, as raw model seconds split by
+ * calibration profile (`engine:kind`), so a finished conversion can correct the
+ * part of the model it exercised. `seconds` already includes the correction.
+ */
+function estimateFile(file, engine) {
   const effective = effectiveEngine(engine);
-  let profile = ESTIMATES[effective] || ESTIMATES.docling;
-  if (effective === "pymupdf") profile = isImage ? ESTIMATES.ocr : ESTIMATES.pymupdf;
-  return profile.base + profile.perMb * megabytes;
+  const model = MODEL[effective] || MODEL.docling;
+  const type = fileType(file);
+  const megabytes = file.size / (1024 * 1024);
+  const parts = {};
+  const add = (kind, seconds) => {
+    const key = `${effective}:${kind}`;
+    parts[key] = (parts[key] || 0) + seconds;
+  };
+
+  if (type === "docx") {
+    add("docx", model.base + model.docxPerMb * megabytes);
+  } else if (type === "image") {
+    add("scan", model.base + model.scanPage);
+  } else {
+    const probe = probes.get(file);
+    if (!probe) add("unknown", model.base + model.unknownPerMb * megabytes);
+    else if (probe.kind === "scan") add("scan", model.base + model.scanPage * probe.pages);
+    else add("text", model.base + model.textPage * probe.pages);
+  }
+  return corrected(parts);
+}
+
+function estimateUrl(url) {
+  const pdf = /\.pdf($|[?#])/i.test(url);
+  return corrected(pdf ? { "url:pdf": MODEL.urlPdf.base } : { "url:html": MODEL.url.base });
 }
 
 /**
- * Seconds for the whole selection: a batch converts its documents one at a
- * time, so the estimates add up. Worth being honest about — with docling
- * selected, ten documents is a wait measured in minutes, and a bar that implied
- * otherwise would look broken rather than busy.
+ * The whole selection: a batch converts its documents one at a time, so the
+ * estimates add up — with docling, ten documents is minutes, and a bar that
+ * implied otherwise would look broken rather than busy.
  */
-function estimateBatchSeconds(files, engine) {
-  return files.reduce((total, file) => total + estimateSeconds("file", file, engine), 0);
+function estimateFiles(files, engine) {
+  const parts = {};
+  files.forEach((file) => {
+    const each = estimateFile(file, engine).parts;
+    Object.keys(each).forEach((key) => (parts[key] = (parts[key] || 0) + each[key]));
+  });
+  return corrected(parts);
 }
 
-let progressTimerId = null;
+function corrected(parts) {
+  const seconds = Object.keys(parts).reduce((sum, key) => sum + parts[key] * calibration.factor(key), 0);
+  return { seconds, parts };
+}
 
-function startProgress(estimate, engine) {
-  const started = Date.now();
-  const slowEngine = REMOTE_ENGINES.includes(effectiveEngine(engine)) ? effectiveEngine(engine) : null;
-  el.progress.hidden = false;
-  el.progress.classList.remove("progress--done");
-  el.progressLabel.textContent = `Converting… about ${formatSeconds(estimate)}`;
-  el.progressFill.style.width = "0%";
-
-  progressTimerId = setInterval(() => {
-    const elapsed = (Date.now() - started) / 1000;
-    // Asymptotic: 95% at the estimate, never quite 100% until the response is in.
-    // An estimate that turns out short slows down instead of stalling at the end.
-    const fraction = Math.min(0.99, 1 - Math.exp((-3 * elapsed) / Math.max(estimate, 1)));
-    el.progressFill.style.width = `${(fraction * 100).toFixed(1)}%`;
-    el.progressTimer.textContent = formatSeconds(elapsed);
-    if (elapsed > estimate * 1.3) {
-      el.progressLabel.textContent = slowEngine
-        ? `Still working — ${slowEngine} may be starting up from cold.`
-        : "Still working — this document is taking longer than usual.";
+/**
+ * What this browser has learned about the deployment in front of it (ADR-057):
+ * one correction factor per profile and the upload speed, kept per API base in
+ * localStorage. The model's starting numbers come from benchmark machines; the
+ * live service may have fewer CPUs, a cold start, or a faster network, and only
+ * finished conversions can say so. Storage can be unavailable (private
+ * windows), so every access is guarded and the model works without it.
+ */
+const calibration = (() => {
+  const KEY = "wiseau.calibration.v1";
+  const read = () => {
+    try {
+      return JSON.parse(localStorage.getItem(KEY)) || {};
+    } catch {
+      return {};
     }
-  }, 100);
+  };
+  const write = (data) => {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(data));
+    } catch {
+      /* storage unavailable: estimates simply stay uncalibrated */
+    }
+  };
+  const scoped = (data) => (data[API_BASE] = data[API_BASE] || {});
+
+  return {
+    factor(profile) {
+      const entry = scoped(read())[profile];
+      return entry && Number.isFinite(entry.f) ? entry.f : 1;
+    },
+    /** A conversion finished: move each profile it used toward what happened. */
+    record(parts, observedSeconds) {
+      const data = read();
+      const scope = scoped(data);
+      const factor = (key) => (scope[key] && Number.isFinite(scope[key].f) ? scope[key].f : 1);
+      const predicted = Object.keys(parts).reduce((sum, key) => sum + parts[key] * factor(key), 0);
+      if (!(predicted > 0) || !(observedSeconds > 0)) return;
+      if (predicted < 2 && observedSeconds < 2) return; // noise, not signal
+      const ratio = observedSeconds / predicted;
+      Object.keys(parts).forEach((key) => {
+        const share = (parts[key] * factor(key)) / predicted;
+        // Move part of the way, by the profile's share of the job, and at most
+        // halve or double per conversion: one cold start or one unusual file
+        // must not throw every later estimate off.
+        const step = Math.min(2, Math.max(0.5, Math.pow(ratio, 0.5 * share)));
+        const next = factor(key) * step;
+        scope[key] = { f: Math.min(8, Math.max(0.15, next)), n: ((scope[key] && scope[key].n) || 0) + 1 };
+      });
+      write(data);
+    },
+    uploadRate() {
+      const rate = scoped(read()).upload;
+      return rate && rate.bps > 0 ? rate.bps : DEFAULT_UPLOAD_BYTES_PER_S;
+    },
+    recordUpload(bytes, seconds) {
+      if (bytes < 256 * 1024 || !(seconds > 0.05)) return;
+      const data = read();
+      const scope = scoped(data);
+      const previous = scope.upload && scope.upload.bps > 0 ? scope.upload.bps : bytes / seconds;
+      scope.upload = { bps: previous * 0.5 + (bytes / seconds) * 0.5 };
+      write(data);
+    },
+  };
+})();
+
+// --- The progress view -------------------------------------------------------------
+// Two phases, honestly labelled. The *upload* is measured (XHR upload events);
+// the *processing* advances on the estimate — linearly, so the bar's position
+// means "this share of the expected time has passed" — then slows near the end
+// instead of parking, switches to "over the estimate" when it runs long, and a
+// shimmer keeps moving the whole time so a long wait never looks frozen.
+const progressState = { timer: null };
+
+function startProgress(options) {
+  const opts = options || {};
+  const estimate = Math.max(1, opts.estimate || 1);
+  const uploadBytes = opts.uploadBytes || 0;
+  const uploadEstimate = uploadBytes ? uploadBytes / calibration.uploadRate() : 0;
+  stopTimer();
+  Object.assign(progressState, {
+    started: Date.now(),
+    estimate,
+    uploadBytes,
+    uploadLoaded: 0,
+    uploadEstimate,
+    // The upload's share of the bar is its share of the expected wait.
+    uploadShare: uploadBytes ? Math.min(0.6, uploadEstimate / (uploadEstimate + estimate)) : 0,
+    uploading: uploadBytes > 0,
+    processStarted: uploadBytes > 0 ? null : Date.now(),
+    label: opts.label || "Converting",
+    slowEngine: opts.slowEngine || null,
+    pipeline: Boolean(opts.pipeline),
+    fill: 0,
+  });
+
+  el.progress.hidden = false;
+  el.progress.classList.remove("progress--done", "progress--error", "progress--over");
+  el.progressFill.style.width = "0%";
+  el.progressEta.textContent = "";
+  el.progressTimer.textContent = "0s";
+  setProgressWarning(opts.warning || "");
+  if (progressState.pipeline) {
+    window.wiseauPipeline.start();
+    // The pipeline is the progress view: bring it into sight if the Convert
+    // button left it scrolled away.
+    const card = el.progress.closest(".pipeline");
+    if (card && card.getBoundingClientRect().top < 0) card.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  tickProgress();
+  progressState.timer = setInterval(tickProgress, 200);
 }
 
-function stopProgress() {
-  if (progressTimerId !== null) clearInterval(progressTimerId);
-  progressTimerId = null;
+function setProgressWarning(text) {
+  if (!el.progressWarning) return;
+  el.progressWarning.textContent = text;
+  el.progressWarning.hidden = !text;
+}
+
+/** Bytes sent so far (from XHR upload progress events). */
+function progressUpload(loaded, total) {
+  progressState.uploadLoaded = loaded;
+  if (total) progressState.uploadBytes = total;
+}
+
+/** The request body is all sent: the server is working now. */
+function progressUploaded() {
+  if (!progressState.uploading) return;
+  progressState.uploading = false;
+  progressState.processStarted = Date.now();
+  calibration.recordUpload(progressState.uploadBytes, (Date.now() - progressState.started) / 1000);
+}
+
+/** Seconds the server spent on the job, counted from the end of the upload. */
+function processingSeconds() {
+  return progressState.processStarted ? (Date.now() - progressState.processStarted) / 1000 : 0;
+}
+
+/** Share of the processing bar for a share of the estimated time. */
+function processCurve(x) {
+  if (x <= 0.9) return x;
+  return 0.9 + 0.08 * (1 - Math.exp(-(x - 0.9) * 2.5));
+}
+
+function tickProgress() {
+  const s = progressState;
+  const elapsed = (Date.now() - s.started) / 1000;
+  el.progressTimer.textContent = formatSeconds(elapsed);
+  let fill;
+  let stage = null;
+
+  if (s.uploading) {
+    const fraction = s.uploadBytes ? Math.min(1, s.uploadLoaded / s.uploadBytes) : 0;
+    fill = s.uploadShare * fraction;
+    const rate = elapsed > 0.5 && s.uploadLoaded > 0 ? s.uploadLoaded / elapsed : calibration.uploadRate();
+    const uploadLeft = Math.max(0, (s.uploadBytes - s.uploadLoaded) / rate);
+    el.progressLabel.textContent = `Uploading — ${formatBytes(s.uploadLoaded)} of ${formatBytes(s.uploadBytes)}`;
+    el.progressEta.textContent = `≈ ${formatSeconds(uploadLeft + s.estimate)} left`;
+    if (s.pipeline) window.wiseauPipeline.update({ upload: fraction });
+  } else {
+    const processed = processingSeconds();
+    const x = processed / s.estimate;
+    fill = s.uploadShare + (1 - s.uploadShare) * processCurve(x);
+    if (s.pipeline) stage = window.wiseauPipeline.update({ upload: null, process: Math.min(x, 0.999) });
+    const over = processed - s.estimate;
+    el.progress.classList.toggle("progress--over", over > 0);
+    if (over <= 0) {
+      el.progressEta.textContent = `≈ ${formatSeconds(-over)} left`;
+      el.progressLabel.textContent = stage ? `${s.label} — ${stage.title.toLowerCase()} (estimated stage)` : `${s.label}…`;
+    } else {
+      el.progressEta.textContent = `${formatSeconds(over)} over estimate`;
+      el.progressLabel.textContent = s.slowEngine
+        ? `Still working — ${s.slowEngine} may be starting up from cold.`
+        : "Still working — taking longer than estimated. The server is busy, not stuck.";
+    }
+    if (elapsed > SERVER_TIMEOUT_S * 0.95 && el.progressWarning.hidden) {
+      setProgressWarning(
+        `This request has passed ${formatSeconds(SERVER_TIMEOUT_S)}, the hosting platform's usual limit for one request. ` +
+          "If no result arrives, the document is too long to convert in one go here — split it into smaller files."
+      );
+    }
+  }
+
+  // The bar never moves backwards, whatever the estimate does.
+  s.fill = Math.max(s.fill, Math.min(fill, 0.985));
+  el.progressFill.style.width = `${(s.fill * 100).toFixed(1)}%`;
+}
+
+function stopTimer() {
+  if (progressState.timer !== null) clearInterval(progressState.timer);
+  progressState.timer = null;
+}
+
+/** The response is in (or the request failed). Returns the processing seconds. */
+function stopProgress(ok = true) {
+  const processed = progressState.uploading ? 0 : processingSeconds();
+  stopTimer();
   el.progressFill.style.width = "100%";
-  el.progress.classList.add("progress--done");
+  el.progress.classList.remove("progress--over");
+  el.progress.classList.add(ok ? "progress--done" : "progress--error");
+  el.progressEta.textContent = "";
+  if (progressState.pipeline) {
+    window.wiseauPipeline.finish(ok);
+    scheduleRouteReset();
+  }
+  const finishedAt = Date.now();
+  progressState.finishedAt = finishedAt;
   // Let the filled bar register before it disappears.
   setTimeout(() => {
-    if (progressTimerId === null) el.progress.hidden = true;
-  }, 400);
+    if (progressState.timer === null && progressState.finishedAt === finishedAt) {
+      el.progress.hidden = true;
+      setProgressWarning("");
+    }
+  }, ok ? 900 : 5000);
+  return processed;
+}
+
+let routeResetTimer = null;
+function scheduleRouteReset() {
+  clearTimeout(routeResetTimer);
+  routeResetTimer = setTimeout(() => window.wiseauPipeline.reset(), 9000);
+}
+
+/** A warning shown up front when the estimate is past the platform's limit. */
+function timeoutWarning(estimateSeconds) {
+  if (estimateSeconds < SERVER_TIMEOUT_S * 0.85) return "";
+  return (
+    `Estimated ${formatSeconds(estimateSeconds)} — longer than the ${formatSeconds(SERVER_TIMEOUT_S)} ` +
+    "a single request may usually run on this service, so it may be cut off before it finishes. " +
+    "Splitting the document into smaller files, or choosing the Fastest engine, avoids that."
+  );
 }
 
 function formatSeconds(seconds) {
-  const rounded = Math.round(seconds);
+  const rounded = Math.max(0, Math.round(seconds));
   if (rounded < 60) return `${rounded}s`;
   return `${Math.floor(rounded / 60)}m ${String(rounded % 60).padStart(2, "0")}s`;
+}
+
+function formatBytes(bytes) {
+  if (bytes < 1024 * 1024) return `${Math.max(0, Math.round(bytes / 1024))} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+// --- Requests -------------------------------------------------------------------
+/**
+ * POST a form with XMLHttpRequest — the one browser API that reports upload
+ * progress — and hand back a standard `Response`, so the rest of the code reads
+ * it exactly as it reads a `fetch`.
+ */
+function postWithUpload(url, form) {
+  const started = Date.now();
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", url);
+    xhr.responseType = "blob";
+    xhr.upload.addEventListener("progress", (event) => {
+      if (event.lengthComputable) progressUpload(event.loaded, event.total);
+    });
+    xhr.upload.addEventListener("load", progressUploaded);
+    xhr.addEventListener("load", () => {
+      progressUploaded();
+      if (!xhr.status) return reject(new Error(networkFailure(started)));
+      try {
+        const headers = { "Content-Type": xhr.getResponseHeader("Content-Type") || "" };
+        resolve(new Response(xhr.response, { status: xhr.status, headers }));
+      } catch {
+        reject(new Error(`Request failed (HTTP ${xhr.status})`));
+      }
+    });
+    xhr.addEventListener("error", () => reject(new Error(networkFailure(started))));
+    xhr.addEventListener("abort", () => reject(new Error("The request was cancelled.")));
+    xhr.send(form);
+  });
+}
+
+/** Say why a request died without an answer, as specifically as we can. */
+function networkFailure(started) {
+  const elapsed = (Date.now() - started) / 1000;
+  if (elapsed >= SERVER_TIMEOUT_S * 0.9) return timeoutMessage();
+  return (
+    "The connection to the backend closed before a response arrived — it may be offline, " +
+    "restarting, or out of memory on a very large document. Try again, or try a smaller file."
+  );
+}
+
+function timeoutMessage() {
+  return (
+    `The server stopped this request at its time limit (about ${formatSeconds(SERVER_TIMEOUT_S)}). ` +
+    "The document takes longer than that to convert here — split it into smaller files, or use the Fastest engine."
+  );
 }
 
 // --- Output helpers ----------------------------------------------------------
@@ -364,11 +718,18 @@ function showError(message) {
 function setBusy(button, busy, idleLabel) {
   button.disabled = busy;
   button.textContent = busy ? "Converting…" : idleLabel;
+  button.classList.toggle("btn--busy", busy);
   el.engineInputs.forEach((input) => (input.disabled = busy));
+  if (el.readerMode) el.readerMode.disabled = busy;
+  if (el.splitChapters) {
+    if (busy) el.splitChapters.disabled = true;
+    else applyChapterAvailability();
+  }
 }
 
 async function parseResponse(res) {
   const payload = await res.json().catch(() => ({}));
+  if (res.status === 504 || res.status === 408) throw new Error(timeoutMessage());
   if (!res.ok) {
     // The API reports failures as `detail`; the rate limiter is the exception —
     // slowapi writes its own body with `error`. Worth reading both, because a
@@ -606,21 +967,32 @@ el.convertUrlBtn.addEventListener("click", async () => {
   const url = el.urlInput.value.trim();
   if (!url) return showError("Enter a URL first.");
   const engine = selectedEngine();
+  const estimate = estimateUrl(url);
+  updateRoute();
   setBusy(el.convertUrlBtn, true, "Convert");
-  startProgress(estimateSeconds("url", null, engine), engine);
+  startProgress({ estimate: estimate.seconds, label: "Converting", pipeline: true });
+  const started = Date.now();
+  let ok = false;
   try {
-    const res = await fetch(`${API_BASE}/convert/url`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ url, engine, split_chapters: wantsChapters() }),
-    });
+    let res;
+    try {
+      res = await fetch(`${API_BASE}/convert/url`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url, engine, split_chapters: wantsChapters() }),
+      });
+    } catch {
+      throw new Error(networkFailure(started));
+    }
     const data = await parseResponse(res);
+    ok = true;
     showConverted(data, url);
     setLastUpload(null);
   } catch (err) {
     showError(err.message);
   } finally {
-    stopProgress();
+    const seconds = stopProgress(ok);
+    if (ok) calibration.record(estimate.parts, seconds);
     setBusy(el.convertUrlBtn, false, "Convert");
   }
 });
@@ -650,6 +1022,14 @@ function setFiles(list) {
   el.convertFileBtn.disabled = selectedFiles.length === 0;
   el.convertFileBtn.textContent = selectedFiles.length > 1 ? `Convert ${selectedFiles.length} files` : "Convert";
   applyChapterAvailability();
+  updateRoute();
+  // Look inside each PDF (pages, scanned or not) for the route and the estimate.
+  const current = selectedFiles;
+  Promise.all(current.map(probeFile)).then(() => {
+    if (current !== selectedFiles) return;
+    el.fileName.replaceChildren(...selectionLabel(selectedFiles));
+    updateRoute();
+  });
 }
 
 /**
@@ -660,7 +1040,14 @@ function setFiles(list) {
 function selectionLabel(files) {
   const shown = files.slice(0, 4).map((file) => {
     const line = document.createElement("span");
-    line.textContent = file.name;
+    line.className = "file-line";
+    const name = document.createElement("span");
+    name.className = "file-name";
+    name.textContent = file.name;
+    const facts = document.createElement("span");
+    facts.className = "file-probe";
+    facts.textContent = describeFile(file);
+    line.append(name, facts);
     return line;
   });
   if (files.length > shown.length) {
@@ -672,6 +1059,21 @@ function selectionLabel(files) {
   return shown;
 }
 
+/** "36 pages · likely scanned · 4.2 MB" — what the estimate is based on. */
+function describeFile(file) {
+  const parts = [];
+  const probe = probes.get(file);
+  if (probe) {
+    parts.push(`${probe.pages} page${probe.pages === 1 ? "" : "s"}`);
+    const scanned = probe.kind === "scan";
+    parts.push(probe.confidence === "high" ? (scanned ? "scanned" : "digital") : scanned ? "likely scanned" : "likely digital");
+  } else if (fileType(file) === "image") {
+    parts.push("image · OCR");
+  }
+  parts.push(formatBytes(file.size));
+  return parts.join(" · ");
+}
+
 // --- File conversion ---------------------------------------------------------
 // One file goes to /convert/file and may be split into chapters; several go to
 // /convert/batch and come back as one Markdown file each (ADR-031). The two are
@@ -679,13 +1081,23 @@ function selectionLabel(files) {
 el.convertFileBtn.addEventListener("click", async () => {
   if (!selectedFiles.length) return;
   const engine = selectedEngine();
-  const batch = selectedFiles.length > 1;
-  const idleLabel = batch ? `Convert ${selectedFiles.length} files` : "Convert";
+  const files = selectedFiles;
+  const batch = files.length > 1;
+  const idleLabel = batch ? `Convert ${files.length} files` : "Convert";
   setBusy(el.convertFileBtn, true, idleLabel);
-  startProgress(
-    batch ? estimateBatchSeconds(selectedFiles, engine) : estimateSeconds("file", selectedFiles[0], engine),
-    engine
-  );
+  await probesReady(files);
+  updateRoute();
+  const estimate = estimateFiles(files, engine);
+  const effective = effectiveEngine(engine);
+  startProgress({
+    estimate: estimate.seconds,
+    uploadBytes: files.reduce((sum, file) => sum + file.size, 0),
+    label: batch ? `Converting ${files.length} files` : "Converting",
+    slowEngine: REMOTE_ENGINES.includes(effective) ? effective : null,
+    warning: timeoutWarning(estimate.seconds),
+    pipeline: true,
+  });
+  let ok = false;
   try {
     const form = new FormData();
     form.append("engine", engine);
@@ -696,11 +1108,9 @@ el.convertFileBtn.addEventListener("click", async () => {
       form.append("file", selectedFiles[0]);
       form.append("split_chapters", String(wantsChapters()));
     }
-    const res = await fetch(`${API_BASE}/convert/${batch ? "batch" : "file"}`, {
-      method: "POST",
-      body: form,
-    });
+    const res = await postWithUpload(`${API_BASE}/convert/${batch ? "batch" : "file"}`, form);
     const data = await parseResponse(res);
+    ok = true;
     if (batch) showBatch(data);
     else showConverted(data, selectedFiles[0].name);
     const single = !batch && /\.pdf$/i.test(selectedFiles[0].name);
@@ -708,7 +1118,8 @@ el.convertFileBtn.addEventListener("click", async () => {
   } catch (err) {
     showError(err.message);
   } finally {
-    stopProgress();
+    const seconds = stopProgress(ok);
+    if (ok) calibration.record(estimate.parts, seconds);
     setBusy(el.convertFileBtn, false, idleLabel);
   }
 });
@@ -724,20 +1135,29 @@ if (el.bundleBtn) {
     const idle = el.bundleBtn.textContent;
     el.bundleBtn.disabled = true;
     el.bundleBtn.textContent = "Preparing…";
-    startProgress(estimateSeconds("file", file, engine), engine);
+    const estimate = estimateFile(file, engine);
+    startProgress({
+      estimate: estimate.seconds,
+      uploadBytes: file.size,
+      label: "Preparing the bundle",
+      warning: timeoutWarning(estimate.seconds),
+      pipeline: true,
+    });
+    let ok = false;
     try {
       const form = new FormData();
       form.append("engine", engine);
       form.append("reader", String(reader));
       form.append("file", file);
-      const res = await fetch(`${API_BASE}/convert/bundle`, { method: "POST", body: form });
+      const res = await postWithUpload(`${API_BASE}/convert/bundle`, form);
       if (!res.ok) await parseResponse(res); // throws with the API's message
       const name = filenameFor(file.name.replace(/\.pdf$/i, "")).replace(/\.md$/i, "") + ".zip";
       saveBlob(await res.blob(), name);
+      ok = true;
     } catch (err) {
       el.outputMeta.textContent = `⚠ ${err.message}`;
     } finally {
-      stopProgress();
+      stopProgress(ok);
       el.bundleBtn.disabled = false;
       el.bundleBtn.textContent = idle;
     }
@@ -862,10 +1282,12 @@ async function runKeywordExtraction() {
   // KeyBERT selected, a dozen documents is minutes, and a bar that implied
   // otherwise would look broken rather than busy.
   const each = slow ? KEYWORD_ESTIMATES.semantic : KEYWORD_ESTIMATES.fast;
-  startProgress(each * targets.length, "pymupdf");
-  el.progressLabel.textContent = slow
-    ? "Extracting keywords — KeyBERT may be loading its model."
-    : `Extracting keywords${batch ? ` from ${targets.length} documents` : ""}…`;
+  startProgress({
+    estimate: each * targets.length,
+    label: slow
+      ? "Extracting keywords — KeyBERT may be loading its model"
+      : `Extracting keywords${batch ? ` from ${targets.length} documents` : ""}`,
+  });
 
   try {
     const documents = batch
@@ -1206,6 +1628,34 @@ el.downloadBtn.addEventListener("click", () => {
 });
 
 // --- Init --------------------------------------------------------------------
+// Inline icons for the static markup (drawn by pipeline.js, so there is one set).
+document.querySelectorAll("[data-icon]").forEach((node) => {
+  node.innerHTML = window.wiseauPipeline.icon(node.dataset.icon);
+});
+if (el.apiDocsLink) el.apiDocsLink.href = `${API_BASE}/docs`;
+
+// The drop zone is a button to the keyboard too.
+el.dropZone.addEventListener("keydown", (event) => {
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    el.fileInput.click();
+  }
+});
+el.urlInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter" && !el.convertUrlBtn.disabled) el.convertUrlBtn.click();
+});
+
+// Anything that changes the route redraws the pipeline.
+el.urlInput.addEventListener("input", updateRoute);
+el.engineInputs.forEach((input) => input.addEventListener("change", updateRoute));
+[el.splitChapters, el.readerMode].forEach((input) => input && input.addEventListener("change", updateRoute));
+
+window.wiseauPipeline.mount({
+  track: el.pipelineTrack,
+  detail: el.pipelineDetail,
+  summary: el.pipelineSummary,
+});
+updateRoute();
 setView(currentView);
 renderKeywordMethods();
 pingBackend();

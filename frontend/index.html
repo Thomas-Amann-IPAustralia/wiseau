@@ -3,50 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oh hi Mark(down)</title>
+  <title>Wiseau — Oh hi Mark(down)</title>
+  <meta name="description" content="Wiseau converts web pages, PDFs, Word documents and scans into clean, structured Markdown for people and LLMs." />
+  <meta name="theme-color" content="#0a0c11" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="favicon.svg" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="backdrop" aria-hidden="true"></div>
+
   <header class="topbar">
-    <h1 class="brand">Oh hi Mark<span class="accent">(down)</span></h1>
-    <span id="status-badge" class="badge badge--unknown" title="Backend status">
-      <span class="badge__dot"></span><span id="status-text">checking…</span>
-    </span>
+    <a class="brand" href="./" aria-label="Wiseau — Oh hi Mark(down)">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <defs>
+          <linearGradient id="brand-grad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#8b7bff" />
+            <stop offset="1" stop-color="#2ad1c9" />
+          </linearGradient>
+        </defs>
+        <rect width="64" height="64" rx="16" fill="url(#brand-grad)" />
+        <path d="M12 44V20h7l7 9 7-9h7v24h-7V31l-7 9-7-9v13z" fill="#0a0c11" />
+        <path d="M50 20v14h5L47.5 46 40 34h5V20z" fill="#0a0c11" opacity=".78" />
+      </svg>
+      <span class="brand__text">
+        <span class="brand__name">Wiseau</span>
+        <span class="brand__tag">Oh hi Mark<span class="accent">(down)</span></span>
+      </span>
+    </a>
+    <nav class="topbar__nav" aria-label="Service">
+      <a id="api-docs-link" class="navlink" href="#" target="_blank" rel="noopener">API docs</a>
+      <span id="status-badge" class="badge badge--unknown" title="Backend status">
+        <span class="badge__dot"></span><span id="status-text">checking…</span>
+      </span>
+    </nav>
   </header>
 
+  <section class="hero">
+    <h1 class="hero__title">Any document, <span class="gradient-text">faithfully</span> in Markdown.</h1>
+    <p class="hero__lede">
+      Web pages, PDFs, Word files and scans in — clean, structured Markdown out, for people and for LLMs.
+    </p>
+  </section>
+
+  <!-- The route this conversion takes, animated (pipeline.js). Idle, it walks
+       through each stage and explains it; converting, it is the progress view. -->
+  <section class="card pipeline" aria-labelledby="pipeline-title">
+    <div class="card__head">
+      <h2 id="pipeline-title" class="card__title">
+        <span class="card__eyebrow">Pipeline</span>
+        <span id="pipeline-summary" class="pipeline__summary">Web page</span>
+      </h2>
+      <span class="pipeline__hint">Hover a stage to see what it does</span>
+    </div>
+    <ol id="pipeline-track" class="pipe" aria-label="Conversion stages"></ol>
+    <p id="pipeline-detail" class="pipeline__detail" aria-live="off"></p>
+
+    <div id="progress" class="progress" hidden aria-live="polite">
+      <div class="progress__bar"><div id="progress-fill" class="progress__fill"></div></div>
+      <p class="progress__meta">
+        <span id="progress-label">Converting…</span>
+        <span class="progress__times">
+          <span id="progress-eta" class="progress__eta"></span>
+          <span id="progress-timer" class="progress__timer">0s</span>
+        </span>
+      </p>
+      <p id="progress-warning" class="progress__warning" hidden></p>
+    </div>
+  </section>
+
   <main class="layout">
-    <section class="panel panel--input">
+    <section class="card card--input" aria-label="Source">
       <div class="tabs" role="tablist">
-        <button class="tab tab--active" data-tab="url" role="tab">URL</button>
-        <button class="tab" data-tab="file" role="tab">File</button>
+        <button class="tab tab--active" data-tab="url" role="tab">
+          <span class="tab__icon" data-icon="globe"></span>Web page
+        </button>
+        <button class="tab" data-tab="file" role="tab">
+          <span class="tab__icon" data-icon="upload"></span>Files
+        </button>
       </div>
 
       <div id="tab-url" class="tab-pane tab-pane--active">
-        <label for="url-input" class="field-label">Web page URL</label>
+        <label for="url-input" class="field-label">Web page or PDF link</label>
         <div class="url-row">
-          <input id="url-input" type="url" placeholder="https://example.com/article" />
+          <input id="url-input" type="url" placeholder="https://example.com/article" autocomplete="url" />
           <button id="convert-url-btn" class="btn btn--primary">Convert</button>
         </div>
       </div>
 
       <div id="tab-file" class="tab-pane">
-        <label class="field-label">PDFs, DOCX files, or scanned images</label>
-        <div id="drop-zone" class="drop-zone">
+        <label class="field-label">PDFs, Word documents, or scanned images</label>
+        <div id="drop-zone" class="drop-zone" tabindex="0" role="button" aria-label="Choose files to convert">
+          <span class="drop-zone__icon" data-icon="upload"></span>
           <p class="drop-zone__hint">Drop files here, or <span class="link">browse</span></p>
           <p class="drop-zone__sub">
-            Several at once is fine — each becomes its own <code>.md</code>, downloadable as one
-            <code>.zip</code>. Scanned &amp; handwritten PDFs and images are OCR'd automatically.
+            PDF · DOCX · PNG · JPG · TIFF — up to 25 MB each. Several at once become one
+            <code>.md</code> each, downloadable as a <code>.zip</code>. Scans are OCR'd automatically.
           </p>
           <p id="file-name" class="drop-zone__file"></p>
           <input id="file-input" type="file" multiple accept=".pdf,.docx,.png,.jpg,.jpeg,.tif,.tiff,.bmp,.webp,.gif" hidden />
         </div>
-        <button id="convert-file-btn" class="btn btn--primary" disabled>Convert</button>
+        <button id="convert-file-btn" class="btn btn--primary btn--block" disabled>Convert</button>
       </div>
 
-      <fieldset class="engine">
-        <legend class="field-label">Conversion engine</legend>
+      <fieldset class="group">
+        <legend class="field-label">Engine</legend>
         <div class="engine__options" role="radiogroup" aria-describedby="engine-note">
           <label class="engine__option">
             <input type="radio" name="engine" value="auto" checked />
@@ -56,73 +117,70 @@
           <label class="engine__option">
             <input type="radio" name="engine" value="pymupdf" />
             <span class="engine__name">Fastest</span>
-            <span class="engine__hint">PyMuPDF / Mammoth</span>
+            <span class="engine__hint">PyMuPDF · Mammoth</span>
+            <span class="engine__meter" aria-hidden="true"><i></i><i></i><i></i></span>
           </label>
           <label class="engine__option">
             <input type="radio" name="engine" value="docling" />
             <span class="engine__name">Highest fidelity</span>
-            <span class="engine__hint">docling — slow</span>
+            <span class="engine__hint">docling · slow</span>
+            <span class="engine__meter engine__meter--slow" aria-hidden="true"><i></i><i></i><i></i></span>
           </label>
         </div>
-        <p id="engine-note" class="engine__note">
-          The <strong>fast</strong> parser (PyMuPDF / Mammoth) is the default: it answers in about
-          a second and returns the same Markdown every time. Choose
-          <strong>highest fidelity</strong> when a document needs it — docling reads complex
-          layouts, multi-column pages, tables and scans far more faithfully, but it runs an ML
-          model on a free CPU: expect <strong>tens of seconds to a few minutes</strong> per
-          document, and longer still on the first request after the service has been idle. It
-          falls back to the fast parser automatically if it is unavailable. The choice applies to
-          documents; a URL that serves an HTML page is always extracted the same way.
-        </p>
+        <details class="engine__about">
+          <summary>Which should I choose?</summary>
+          <p id="engine-note" class="engine__note">
+            The <strong>fast</strong> parser (PyMuPDF / Mammoth) is the default: a digital document
+            converts in about a second and returns the same Markdown every time; scanned pages are
+            OCR'd at several seconds each. Choose <strong>highest fidelity</strong> when a document
+            needs it — docling reads complex layouts, multi-column pages, tables and scans more
+            faithfully, but runs an ML model on a free CPU: expect <strong>tens of seconds to a few
+            minutes</strong> per document, longer after the service has been idle. It falls back to
+            the fast parser automatically if it is unavailable. The engine applies to documents; a
+            URL that serves an HTML page is always extracted the same way.
+          </p>
+        </details>
       </fieldset>
 
-      <fieldset class="engine">
-        <legend class="field-label">Long documents</legend>
+      <fieldset class="group">
+        <legend class="field-label">Options</legend>
         <label class="check" id="split-chapters-label" for="split-chapters">
           <input type="checkbox" id="split-chapters" />
           <span class="check__body">
             <span class="check__name">Split into chapters</span>
             <span class="check__hint">
-              Detects chapters from the document's contents page, or from its headings, and
-              offers each one as its own <code>.md</code> file (plus a single <code>.zip</code>).
-              A document with no chapters is left whole.
+              Detects chapters from the contents page or headings and offers each as its own
+              <code>.md</code> (plus one <code>.zip</code>). A document with no chapters is left whole.
             </span>
             <span id="split-chapters-blocked" class="check__blocked" hidden>
               Unavailable while several files are selected — chapter splitting works on one
               document at a time.
             </span>
           </span>
+          <span class="switch" aria-hidden="true"></span>
         </label>
         <label class="check" id="reader-mode-label" for="reader-mode">
           <input type="checkbox" id="reader-mode" />
           <span class="check__body">
             <span class="check__name">Reader mode</span>
             <span class="check__hint">
-              Leaves out running headers, footers and page numbers, and writes a table that
-              continues across pages with its header once. Off keeps every word as printed.
-              Uploaded files only.
+              Leaves out running headers, footers and page numbers, and writes a table continued
+              across pages with its header once. Off keeps every word as printed. Uploads only.
             </span>
           </span>
+          <span class="switch" aria-hidden="true"></span>
         </label>
       </fieldset>
-
-      <div id="progress" class="progress" hidden aria-live="polite">
-        <div class="progress__bar"><div id="progress-fill" class="progress__fill"></div></div>
-        <p class="progress__meta">
-          <span id="progress-label">Converting…</span>
-          <span id="progress-timer" class="progress__timer">0s</span>
-        </p>
-      </div>
     </section>
 
-    <section class="panel panel--output">
+    <section class="card card--output" aria-label="Output">
       <div class="output-head">
         <div class="view-toggle" role="tablist" aria-label="Markdown view">
           <button id="view-preview-btn" class="view-toggle__btn view-toggle__btn--active" role="tab" data-view="preview">Preview</button>
           <button id="view-raw-btn" class="view-toggle__btn" role="tab" data-view="raw">Raw</button>
         </div>
+        <span id="output-meta" class="meta"></span>
         <div class="output-actions">
-          <span id="output-meta" class="meta"></span>
           <button id="keywords-btn" class="btn btn--ghost" disabled>Keywords</button>
           <button id="copy-btn" class="btn btn--ghost" disabled>Copy</button>
           <button id="download-btn" class="btn btn--ghost" disabled>Download</button>
@@ -171,11 +229,20 @@
       </section>
 
       <div id="output-preview" class="output output--preview markdown-body" aria-live="polite">
-        <p class="placeholder">Converted Markdown will appear here.</p>
+        <div class="placeholder">
+          <span class="placeholder__icon" data-icon="markdown"></span>
+          <p>Converted Markdown will appear here.</p>
+        </div>
       </div>
       <pre id="output" class="output output--raw" hidden aria-live="polite"><span class="placeholder">Converted Markdown will appear here.</span></pre>
     </section>
   </main>
+
+  <footer class="footer">
+    <span><strong>Wiseau</strong> · Oh hi Mark(down)</span>
+    <span class="footer__sep">·</span>
+    <span>Open API with fair-use limits · also an MCP server for agents</span>
+  </footer>
 
   <dialog id="download-dialog" class="dialog">
     <form method="dialog" class="dialog__form">
@@ -196,6 +263,8 @@
   <script src="config.js"></script>
   <script src="markdown.js"></script>
   <script src="zip.js"></script>
+  <script src="pdfprobe.js"></script>
+  <script src="pipeline.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
