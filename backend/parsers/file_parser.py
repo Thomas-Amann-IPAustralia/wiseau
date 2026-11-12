@@ -71,7 +71,7 @@ import pymupdf4llm
 from markdownify import markdownify as html_to_md
 from observability import metrics
 
-from . import docling_client, figures, glm_ocr_client, recover, serializer, text_layer
+from . import docling_client, figures, glm_ocr_client, progress, recover, serializer, text_layer
 from . import document as ir
 from .cleaner import clean_markdown
 from .ocr import get_engine, text_elements
@@ -220,8 +220,11 @@ def _add_native_document(out: ir.Document, doc: pymupdf.Document) -> None:
     statistics of all the pages it is given; `page_chunks=True` only keeps each
     page's Markdown apart (their concatenation is the single-string output).
     """
+    pages = doc.page_count
+    progress.report("stage", stage="text_layer", pages=pages)
     for chunk, page in zip(pymupdf4llm.to_markdown(doc, page_chunks=True), doc):
         _add_native_page(out, page, chunk["text"])
+        progress.report("page", page=page.number + 1, pages=pages, method="text", ocr_done=0, ocr_pages=0)
 
 
 def _ocr_elements(engine, page: pymupdf.Page, *, dpi: int, language: str) -> list[ir.Element]:
@@ -256,6 +259,7 @@ def pdf_to_document(data: bytes) -> ir.Document:
             return out
 
         page_count = doc.page_count
+        progress.report("stage", stage="inspect", pages=page_count)
         ocr_pages = _image_page_indices(doc, mode)
 
         # Fast path: nothing needs OCR — identical to the pre-OCR behaviour.
@@ -270,11 +274,16 @@ def pdf_to_document(data: bytes) -> ir.Document:
 
         # Every page is OCR'd, or mixed: native Markdown for text pages (each
         # converted on its own, as before), OCR for scanned pages, in page order.
+        progress.report("stage", stage="ocr", pages=page_count, ocr_pages=len(ocr_pages))
+        ocr_done = 0
         for i in range(page_count):
             if i in ocr_pages:
                 _add_ocr_page(out, engine, doc[i], dpi=dpi, language=lang)
+                ocr_done += 1
             else:
                 _add_native_page(out, doc[i], _native_page_markdown(doc, i))
+            progress.report("page", page=i + 1, pages=page_count, method="ocr" if i in ocr_pages else "text",
+                            ocr_done=ocr_done, ocr_pages=len(ocr_pages))
         return out
     finally:
         if not doc.is_closed:
@@ -303,8 +312,12 @@ def image_to_document(data: bytes, ext: str) -> ir.Document:
     try:
         engine = _engine()
         dpi, lang = _ocr_dpi(), _ocr_lang()
+        pages = doc.page_count
+        progress.report("stage", stage="ocr", pages=pages, ocr_pages=pages)
         for page in doc:
             _add_ocr_page(out, engine, page, dpi=dpi, language=lang)
+            progress.report("page", page=page.number + 1, pages=pages, method="ocr",
+                            ocr_done=page.number + 1, ocr_pages=pages)
         return out
     finally:
         if not doc.is_closed:
@@ -335,6 +348,7 @@ def _image_without_payload(image) -> dict:
 def docx_to_markdown(data: bytes) -> str:
     """Convert DOCX bytes to Markdown via Mammoth + Markdownify."""
     metrics.record_engine("mammoth")
+    progress.report("stage", stage="mammoth")
     result = mammoth.convert_to_html(io.BytesIO(data), convert_image=_image_without_payload)
     return html_to_md(result.value, heading_style="ATX")
 
@@ -472,10 +486,12 @@ def _call_remote(selected: str, client, error_type, data: bytes, filename: str) 
     distinguishable from a file the engine simply cannot handle (ADR-014/018).
     """
     started = time.perf_counter()
+    progress.report("stage", stage=selected)
     try:
         markdown = client.convert_document(data, filename)
     except error_type as exc:
         reason = type(exc).__name__
+        progress.report("fallback", engine=selected, reason=reason)
         metrics.record_remote_attempt(selected, (time.perf_counter() - started) * 1000, ok=False, reason=reason)
         logger.warning(
             f"{selected} conversion failed; falling back to the deterministic parser",
@@ -623,7 +639,10 @@ def file_to_document(data: bytes, filename: str, engine: str | None = None, *,
         supported = ", ".join(sorted(SUPPORTED_EXTENSIONS))
         raise ValueError(f"Unsupported file type '{ext or 'unknown'}'. Supported: {supported}.")
     passes = _passes(_reader(reader))
-    return _recover(_extract_document(data, filename, ext, engine), data, ext, passes)
+    doc = _extract_document(data, filename, ext, engine)
+    if passes:
+        progress.report("stage", stage="structure")
+    return _recover(doc, data, ext, passes)
 
 
 def file_to_markdown(data: bytes, filename: str, engine: str | None = None, *,
@@ -644,6 +663,7 @@ def file_to_markdown(data: bytes, filename: str, engine: str | None = None, *,
             default (`WISEAU_FURNITURE`); the default default is faithful (False).
     """
     doc = file_to_document(data, filename, engine, reader=reader)
+    progress.report("stage", stage="normalize")
     return clean_markdown(serializer.to_markdown(doc, reader=_reader(reader)))
 
 

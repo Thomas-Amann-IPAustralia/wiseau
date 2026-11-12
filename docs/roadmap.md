@@ -693,6 +693,13 @@ continuation, figure assets, footnotes, cross-page tables, region routing).
 
 ## Cross-cutting backlog (not phase-bound)
 
+- [ ] **Job IDs for conversions longer than one request (follow-up to ADR-058).**
+  Submit → ID → poll → fetch, with uploads straight to Cloud Storage. It is
+  needed for documents beyond Cloud Run's 60-minute request ceiling or its
+  32 MB request body. Costs (ADR-058's context): "CPU always allocated" billing,
+  shared job state across instances, unguessable IDs with result expiry, and an
+  MCP polling pattern. Not started; the user chose streaming first.
+
 - [x] **OCR for scanned / handwritten documents.** Image-only PDF pages and image
   uploads (`.png/.jpg/.tif/...`) are OCR'd; detection is per-page so mixed PDFs use
   native text where possible and OCR only scanned pages, assembled in order.

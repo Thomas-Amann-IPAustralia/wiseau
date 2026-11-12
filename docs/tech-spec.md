@@ -185,6 +185,57 @@ interactive docs are at `/docs`.
   *document* that cannot be converted is **not** an error status: it is an entry
   with `status: "error"` inside a 200.
 
+### `POST /convert/url/stream`, `POST /convert/file/stream`, `POST /convert/batch/stream` (ADR-058, API 0.17.0)
+
+The same three conversions, with the same inputs, rate limits and job slot,
+answered as **NDJSON** (`application/x-ndjson`): one JSON object a line, sent as
+the work happens. Errors found before the work starts (a bad engine, an empty or
+oversized upload, a batch over its limits, `split_chapters` on a batch) are
+ordinary HTTP errors, exactly as on the plain routes. Once the stream has begun
+the status is 200, and a failure arrives as an `error` event.
+
+| `event` | Fields | Meaning |
+| ------- | ------ | ------- |
+| `queued` | — | Every job slot is busy; this conversion waits. |
+| `started` | — | It holds a slot and is running. |
+| `document` | `index`, `count`, `source` | Batch only: document `index` of `count` starts. |
+| `stage` | `stage`, sometimes `pages`, `ocr_pages` | A stage started: `render`, `extract`, `inspect`, `text_layer`, `ocr`, `mammoth`, `docling`, `glm-ocr`, `structure`, `chapters`, `normalize`. |
+| `page` | `page`, `pages`, `method` (`ocr`/`text`), `ocr_done`, `ocr_pages` | A page finished, in page order. |
+| `fallback` | `engine`, `reason` | A remote engine failed; the local parser is taking over (ADR-014). |
+| `heartbeat` | — | Nothing new for `WISEAU_STREAM_HEARTBEAT_SECONDS` (default 10); the job is alive. |
+| `result` | `result`, `elapsed_s`, `cpu_s` | Last line on success. `result` is exactly the plain route's response body. `cpu_s` is the process's CPU during the job, so it includes helper threads and any concurrent job. |
+| `error` | `status`, `detail` | Last line on failure: the status and detail the plain route would have returned. |
+
+docling and GLM-OCR run in other services and report only `stage` (and
+`fallback`); a text-layer PDF reports its pages in a burst after one
+PyMuPDF4LLM call. A client that disconnects does not cancel the work: the
+conversion runs to the end in its thread and then frees its slot. The MCP tools
+keep the plain routes.
+
+### `GET /usage` (ADR-058)
+
+CPU usage for the UI's meter. No job slot; default rate limit.
+
+```json
+{
+  "period_start": "2026-11-01T00:00:00Z",
+  "vcpus": 1.0,
+  "allowance_vcpu_seconds": 180000.0,
+  "deployment": {"source": "cloud_monitoring", "billable_instance_seconds": 25260.0,
+                 "vcpu_seconds": 25260.0, "as_of": "2026-11-12T03:00:00Z"},
+  "process": {"cpu_seconds": 412.3, "busy_seconds": 530.1, "uptime_seconds": 3600.0, "jobs": 7}
+}
+```
+
+`deployment` is Cloud Run's `run.googleapis.com/container/billable_instance_time`
+for this service (`K_SERVICE`) since the first of the month (UTC), summed over
+all revisions and multiplied by `WISEAU_VCPUS`, read from the Cloud Monitoring
+API with the metadata server's token and cached for five minutes (ten after a
+failure). When it cannot be read it is `{"source": null, "reason": "..."}`.
+`process` is this container since it started: `time.process_time()`, the
+seconds with at least one job running, and finished jobs. It resets on every new
+instance. `/ping` also reports `"streaming": true`.
+
 ### `POST /keywords`
 - **Purpose:** rank what an already-converted document is *about*, with the
   evidence behind each term (§17, ADR-032). A **second call**, not a flag on the
@@ -513,6 +564,8 @@ Frontend configuration is the single `window.MARKDOWN_API_BASE` in
 API **0.15.0** (2026-11-11): `POST /convert/bundle` added (ADR-052). Additive.
 API **0.16.0** (2026-11-11): optional `reader` field on `/convert/file`,
 `/convert/batch` and `/convert/bundle` (ADR-055). Additive.
+API **0.17.0** (2026-11-12): `POST /convert/{url,file,batch}/stream` (NDJSON
+progress), `GET /usage`, and `streaming` on `/ping` (ADR-058). Additive.
 
 
 - The API `version` lives in `main.py` (`FastAPI(version=...)`) and is echoed by
@@ -1344,3 +1397,30 @@ names its signal** (`level_signal`, `role_signal`, `Relation.signal`; no
 Failures inside the passes are logged and the unrecovered document is returned.
 Evidence: `docs/benchmarks/2026-11-11-structure-recovery.md` (set S development,
 set T held out, six whole documents audited).
+
+## 21. Streaming progress and the CPU meter (ADR-058)
+
+- **Side channel.** `parsers/progress.py` holds a `ContextVar` listener.
+  `report()` is a no-op without one, which covers every plain route, the MCP
+  tools and the tests. A listener that raises is logged and ignored. The
+  streaming routes set the listener in the task that awaits `asyncio.to_thread`,
+  so reports from the worker thread reach it. Reports come from the
+  conversion's own thread only: `pdf_to_document`'s page loop,
+  `_add_native_document`, `image_to_document`, `_call_remote`,
+  `file_to_document`, `file_to_markdown`, `url_to_markdown`; plus `_job_slot`
+  (`queued`/`started`), `_split_or_none` (`chapters`) and the batch loop
+  (`document`). Output is unchanged: the tests compare each stream's `result`
+  with the plain route's body.
+- **Frontend.** When `/ping` says `streaming`, the UI uses the `/stream`
+  routes. Uploads are still measured with XHR. Stages drive the pipeline view
+  (`wiseauPipeline.live`). For OCR, progress is pages done and the time left is
+  the remaining pages at the server's achieved rate. Other stages fall back to
+  the estimate, with a floor per stage. A batch scales by document. A fallback
+  is drawn on the engine's node. Without `streaming`, the plain routes and
+  ADR-057's estimate apply.
+- **Meter.** The header shows this month's billable vCPU-minutes against
+  `allowance_vcpu_seconds` when `deployment.source` is set. Otherwise it shows
+  the server CPU this browser's streamed conversions reported (the sum of
+  `cpu_s`, in localStorage). The panel lists all three figures. `/usage` is
+  fetched on load, after each conversion and when the panel opens, never on a
+  timer: each call wakes the service.

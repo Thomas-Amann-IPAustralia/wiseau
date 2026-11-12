@@ -351,3 +351,10 @@ CI job. The `--watch` loop is a self-contained scheduler for demos; production
 scheduling is left to the operator. The reusable pieces (`fetch_markdown`,
 `SnapshotStore`, `check_url`, `watch`) are importable for building a richer
 integration. See [`roadmap.md`](roadmap.md) and ADR-010.
+
+## Streaming routes are not tools (ADR-058)
+
+`/convert/{url,file,batch}/stream` report progress line by line for the web UI.
+The MCP tools keep the plain routes: an agent wants the finished document, and a
+tool call returns one result either way. An agent calling the REST API directly
+may use the stream routes; their last line carries the same body.
