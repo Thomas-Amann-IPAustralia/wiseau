@@ -3,3 +3,28 @@ Volume 5 Number 1 = 01:10.08
 Volume 5 Number 3 = 00:57.16
 Volume 20 Number 4 = 17:23.02
 Volume 2 Number 2 = 04:40.90
+
+---
+
+CPU
+
+	11th Gen Intel(R) Core(TM) i7-1185G7 @ 3.00GHz
+
+	Base speed:	3.00 GHz
+	Sockets:	1
+	Cores:	4
+	Logical processors:	8
+	Virtualization:	Enabled
+	L1 cache:	320 KB
+	L2 cache:	5.0 MB
+	L3 cache:	12.0 MB
+
+
+Memory
+
+	32.0 GB LPDDR4
+
+	Speed:	4267 MT/s
+	Slots used:	8 of 8
+	Form factor:	Row of chips
+	Hardware reserved:	320 MB
