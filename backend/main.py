@@ -13,22 +13,25 @@ ADR-019). That is a pure side channel: it must never change what is extracted.
 from __future__ import annotations
 
 import asyncio
+import json
 import logging
 import os
 import time
 import uuid
 from contextlib import asynccontextmanager
 from functools import partial
-from typing import AsyncIterator
+from typing import Any, AsyncIterable, AsyncIterator, Awaitable, Callable
 
 from fastapi import FastAPI, File, Form, HTTPException, Request, Response, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field, HttpUrl
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 from slowapi.middleware import SlowAPIMiddleware
 from slowapi.util import get_remote_address
 
+import usage
 from observability import configure_logging, metrics
 from parsers import (
     REQUESTABLE_ENGINES,
@@ -48,6 +51,7 @@ from parsers import (
     unique_filenames,
     url_to_markdown,
 )
+from parsers import progress
 
 configure_logging()
 logger = logging.getLogger("markdown_engine")
@@ -180,7 +184,7 @@ app = FastAPI(
         "Deterministic conversion of web URLs, PDFs, and DOCX documents into "
         "clean, structured Markdown. Designed for both human UIs and LLM/MCP agents."
     ),
-    version="0.16.0",
+    version="0.17.0",
     lifespan=_lifespan,
 )
 
@@ -297,12 +301,19 @@ async def _job_slot() -> AsyncIterator[None]:
     (invariant #4), the measurements are what tune `MAX_CONCURRENT_JOBS`.
     """
     queued_at = time.perf_counter()
+    if _job_semaphore.locked():
+        # Only a streaming caller hears this (ADR-058): its document waits
+        # behind other conversions, which would otherwise read as a hang.
+        progress.report("queued")
     async with _job_semaphore:
         metrics.job_started((time.perf_counter() - queued_at) * 1000)
+        usage.process_usage.job_started()
+        progress.report("started")
         started = time.perf_counter()
         try:
             yield
         finally:
+            usage.process_usage.job_finished()
             metrics.job_finished((time.perf_counter() - started) * 1000)
 
 
@@ -684,6 +695,7 @@ async def _split_or_none(markdown: str, requested: bool) -> tuple[list[ChapterMo
     """
     if not requested:
         return None, None
+    progress.report("stage", stage="chapters")
     try:
         split = await asyncio.to_thread(split_into_chapters, markdown)
     except Exception:  # noqa: BLE001 - never lose a good conversion to this
@@ -800,6 +812,8 @@ async def ping(request: Request) -> dict:
         "mcp_endpoint": MCP_ENDPOINT,
         "keyword_methods": available_methods(),
         "default_keyword_methods": default_methods(),
+        # The `/stream` forms of the convert routes exist (ADR-058).
+        "streaming": True,
     }
 
 
@@ -832,8 +846,12 @@ async def read_metrics(request: Request) -> dict:
 @limiter.limit("20/minute")
 async def convert_url(request: Request, body: UrlRequest) -> MarkdownResponse:
     """Render a URL (JS-aware) and extract its primary content as Markdown."""
+    return await _convert_url(body, _resolve_engine_or_400(body.engine))
+
+
+async def _convert_url(body: UrlRequest, engine: str | None) -> MarkdownResponse:
+    """`/convert/url`'s work, shared with its streaming form (ADR-058)."""
     url = str(body.url)
-    engine = _resolve_engine_or_400(body.engine)
     async with _job_slot():
         try:
             markdown = await asyncio.to_thread(url_to_markdown, url, engine)
@@ -877,23 +895,26 @@ async def convert_file(
     data = await _read_upload(file)
     if not data:
         raise HTTPException(status_code=400, detail="Empty file upload.")
+    return await _convert_file(data, file.filename or "", resolved_engine, split_chapters, reader)
 
+
+async def _convert_file(data: bytes, filename: str, engine: str | None, split_chapters: bool,
+                        reader: bool | None) -> MarkdownResponse:
+    """`/convert/file`'s work on an upload already read, shared with its streaming form."""
     async with _job_slot():
         try:
-            markdown = await asyncio.to_thread(
-                _with_reader(file_to_markdown, reader), data, file.filename or "", resolved_engine
-            )
+            markdown = await asyncio.to_thread(_with_reader(file_to_markdown, reader), data, filename, engine)
         except ValueError as exc:
             metrics.record_conversion("file", "error")
             raise HTTPException(status_code=415, detail=str(exc)) from exc
         except Exception as exc:  # noqa: BLE001
             metrics.record_conversion("file", "error")
-            logger.exception("File conversion failed for %s", file.filename)
+            logger.exception("File conversion failed for %s", filename)
             raise HTTPException(status_code=502, detail=f"Failed to convert file: {exc}") from exc
         chapters, detection = await _split_or_none(markdown, split_chapters)
     metrics.record_conversion("file", "ok")
     return MarkdownResponse(
-        source=file.filename or "upload",
+        source=filename or "upload",
         markdown=markdown,
         length=len(markdown),
         chapters=chapters,
@@ -981,6 +1002,12 @@ async def convert_batch(
     A document that fails does not fail the batch: its entry carries the error
     the single-file endpoint would have returned, and the rest still convert.
     """
+    resolved_engine = _check_batch_or_400(files, engine, split_chapters)
+    return await _convert_batch(_batch_uploads(files), len(files), resolved_engine, reader)
+
+
+def _check_batch_or_400(files: list[UploadFile], engine: str | None, split_chapters: bool) -> str | None:
+    """The request-level checks of a batch; returns the resolved engine."""
     if split_chapters:
         # Mutually exclusive for now (ADR-031): chapter detection is a heuristic
         # a reader is meant to *check* before saving 30 files, and there is no
@@ -1002,8 +1029,15 @@ async def convert_batch(
             status_code=400,
             detail=f"A batch is limited to {MAX_BATCH_FILES} files; {len(files)} were sent.",
         )
+    return resolved_engine
 
-    results: list[BatchItem] = []
+
+async def _batch_uploads(files: list[UploadFile]) -> AsyncIterator[tuple[str, bytes | None, str | None]]:
+    """Read a batch's uploads one at a time: `(source, data, None)` or `(source, None, error)`.
+
+    Lazy, so a batch holds one document in memory at a time; raises a 413 when
+    the batch as a whole runs out of room.
+    """
     budget = MAX_BATCH_BYTES
     for position, upload in enumerate(files):
         source = upload.filename or f"upload-{position + 1}"
@@ -1017,10 +1051,23 @@ async def convert_batch(
                     status_code=413,
                     detail=f"The batch exceeds the {MAX_BATCH_BYTES // (1024 * 1024)} MB total limit.",
                 ) from None
-            results.append(_batch_failure(source, f"File exceeds the {MAX_UPLOAD_BYTES // (1024 * 1024)} MB limit."))
+            yield source, None, f"File exceeds the {MAX_UPLOAD_BYTES // (1024 * 1024)} MB limit."
             continue
         budget -= len(data)
+        yield source, data, None
 
+
+async def _convert_batch(uploads: AsyncIterable[tuple[str, bytes | None, str | None]], count: int,
+                         resolved_engine: str | None, reader: bool | None) -> BatchResponse:
+    """`/convert/batch`'s work, shared with its streaming form (ADR-058)."""
+    results: list[BatchItem] = []
+    position = 0
+    async for source, data, error in uploads:
+        position += 1
+        progress.report("document", index=position, count=count, source=source)
+        if error is not None:
+            results.append(_batch_failure(source, error))
+            continue
         if not data:
             results.append(_batch_failure(source, "Empty file upload."))
             continue
@@ -1056,6 +1103,190 @@ async def convert_batch(
     return BatchResponse(
         count=len(results), succeeded=len(converted), failed=failed, results=results
     )
+
+
+# --- Streaming conversions (ADR-058) -----------------------------------------
+# The same three conversions, answered as NDJSON: one JSON object a line, as the
+# work happens — `queued`, `started`, `stage`, `page`, `document`, `fallback`,
+# a `heartbeat` every few quiet seconds — and finally one `result` (the body the
+# non-streaming route returns, plus the job's wall and CPU seconds) or one
+# `error` (the status and detail that route would have answered with). The
+# status line is 200 once the stream starts, so errors found *before* the work
+# (a bad engine, an oversized upload) still come back as ordinary HTTP errors,
+# and only failures during the work arrive as an `error` event.
+#
+# Nothing about the conversion changes: the same job slot, the same rate limit
+# numbers (each route keeps its own counter, as every route does), and the
+# result is byte-for-byte the non-streaming route's. Progress is a side channel
+# (`parsers/progress.py`); a client that disconnects does not cancel the work
+# (it cannot: it is a thread), so the slot is held until the document finishes.
+STREAM_HEARTBEAT_SECONDS = float(os.environ.get("WISEAU_STREAM_HEARTBEAT_SECONDS", "10"))
+_STREAM_DONE = object()
+
+
+def _ndjson(work: Callable[[], Awaitable[BaseModel]]) -> StreamingResponse:
+    """Run `work` with progress reported to the response as NDJSON lines."""
+
+    async def lines() -> AsyncIterator[str]:
+        loop = asyncio.get_running_loop()
+        queue: asyncio.Queue[Any] = asyncio.Queue()
+
+        def emit(event: Any) -> None:
+            # Called from the worker thread as well as the loop.
+            loop.call_soon_threadsafe(queue.put_nowait, event)
+
+        async def run() -> None:
+            started, cpu_started = time.perf_counter(), time.process_time()
+            with progress.listening(emit):
+                try:
+                    result = await work()
+                    emit({
+                        "event": "result",
+                        "elapsed_s": round(time.perf_counter() - started, 2),
+                        # Process CPU during the job: includes helper threads, and
+                        # any other conversion running at the same time.
+                        "cpu_s": round(time.process_time() - cpu_started, 2),
+                        "result": result.model_dump(mode="json"),
+                    })
+                except HTTPException as exc:
+                    emit({"event": "error", "status": exc.status_code, "detail": exc.detail})
+                except Exception as exc:  # noqa: BLE001 - the stream must still end cleanly
+                    logger.exception("Streaming conversion failed")
+                    emit({"event": "error", "status": 500, "detail": f"Conversion failed: {exc}"})
+                finally:
+                    emit(_STREAM_DONE)
+
+        task = asyncio.create_task(run())
+        try:
+            while True:
+                try:
+                    event = await asyncio.wait_for(queue.get(), timeout=STREAM_HEARTBEAT_SECONDS)
+                except asyncio.TimeoutError:
+                    # Keeps proxies from closing a quiet connection, and tells the
+                    # client the server is alive during a minute of docling.
+                    yield '{"event": "heartbeat"}\n'
+                    continue
+                if event is _STREAM_DONE:
+                    break
+                yield json.dumps(event, ensure_ascii=False) + "\n"
+        finally:
+            if not task.done():
+                # The client went away. Let the job finish and release its slot
+                # in its own time rather than cancelling the await around a
+                # thread that would keep running regardless.
+                task.add_done_callback(lambda _: None)
+
+    return StreamingResponse(
+        lines(),
+        media_type="application/x-ndjson",
+        headers={"Cache-Control": "no-store", "X-Accel-Buffering": "no"},
+    )
+
+
+_STREAM_RESPONSES = {
+    200: {
+        "content": {"application/x-ndjson": {}},
+        "description": "Progress events, one JSON object per line, ending in one 'result' or 'error'.",
+    }
+}
+
+
+@app.post(
+    "/convert/url/stream",
+    tags=["convert"],
+    operation_id="convert_url_stream",
+    summary="Convert a web page, streaming progress as NDJSON",
+    response_class=StreamingResponse,
+    responses=_STREAM_RESPONSES,
+)
+@limiter.limit("20/minute")
+async def convert_url_stream(request: Request, body: UrlRequest) -> StreamingResponse:
+    """`/convert/url`, answered as a stream of progress events (ADR-058)."""
+    engine = _resolve_engine_or_400(body.engine)
+    return _ndjson(lambda: _convert_url(body, engine))
+
+
+@app.post(
+    "/convert/file/stream",
+    tags=["convert"],
+    operation_id="convert_file_stream",
+    summary="Convert an uploaded document, streaming progress as NDJSON",
+    response_class=StreamingResponse,
+    responses=_STREAM_RESPONSES,
+)
+@limiter.limit("20/minute")
+async def convert_file_stream(
+    request: Request,
+    file: UploadFile = File(...),
+    engine: str | None = Form(default=None, description=_ENGINE_DESCRIPTION),
+    split_chapters: bool = Form(default=False, description=_SPLIT_DESCRIPTION),
+    reader: bool | None = Form(default=None, description=_READER_DESCRIPTION),
+) -> StreamingResponse:
+    """`/convert/file`, answered as a stream of progress events (ADR-058).
+
+    Reports each page as it finishes — `{"event": "page", "page": 7, "pages": 36,
+    "method": "ocr", ...}` — so a client can show real progress through a long
+    scan instead of an estimate. docling and GLM-OCR report only that they
+    started (and a `fallback` if they fail): they run in another service.
+    """
+    resolved_engine = _resolve_engine_or_400(engine)
+    data = await _read_upload(file)
+    if not data:
+        raise HTTPException(status_code=400, detail="Empty file upload.")
+    filename = file.filename or ""
+    return _ndjson(lambda: _convert_file(data, filename, resolved_engine, split_chapters, reader))
+
+
+@app.post(
+    "/convert/batch/stream",
+    tags=["convert"],
+    operation_id="convert_batch_stream",
+    summary="Convert several uploaded documents, streaming progress as NDJSON",
+    response_class=StreamingResponse,
+    responses=_STREAM_RESPONSES,
+)
+@limiter.limit("5/minute")
+async def convert_batch_stream(
+    request: Request,
+    files: list[UploadFile] = File(..., description=_BATCH_FILES_DESCRIPTION),
+    engine: str | None = Form(default=None, description=_ENGINE_DESCRIPTION),
+    split_chapters: bool = Form(default=False, description=_BATCH_SPLIT_DESCRIPTION),
+    reader: bool | None = Form(default=None, description=_READER_DESCRIPTION),
+) -> StreamingResponse:
+    """`/convert/batch`, answered as a stream of progress events (ADR-058).
+
+    Adds a `document` event as each document starts. The uploads are read before
+    the stream begins (they cannot be read once the endpoint has returned), so
+    the batch size limits answer as ordinary HTTP errors.
+    """
+    resolved_engine = _check_batch_or_400(files, engine, split_chapters)
+    uploads = [item async for item in _batch_uploads(files)]
+
+    async def replay() -> AsyncIterator[tuple[str, bytes | None, str | None]]:
+        for item in uploads:
+            yield item
+
+    return _ndjson(lambda: _convert_batch(replay(), len(files), resolved_engine, reader))
+
+
+@app.get(
+    "/usage",
+    tags=["status"],
+    operation_id="usage",
+    summary="CPU used by this deployment this month, and by this process",
+)
+async def read_usage(request: Request) -> dict:
+    """CPU usage for the UI's meter (ADR-058).
+
+    `deployment` is Cloud Run's billable instance time for this service since the
+    first of the month (UTC) × `vcpus`, read from Cloud Monitoring with the
+    service's own identity and cached for five minutes; `null` with a `reason`
+    when it cannot be read (off Cloud Run, or no monitoring permission).
+    `process` is this container's own CPU and busy time since it started, which
+    resets on every new instance. `allowance_vcpu_seconds` is what the meter is
+    drawn against (`WISEAU_FREE_VCPU_SECONDS`). No heavy work; no job slot.
+    """
+    return await asyncio.to_thread(usage.snapshot)
 
 
 @app.post(

@@ -178,7 +178,7 @@ tab:
 | **Container port** | `8080` (leave the default) | Cloud Run injects `PORT=8080` and the image binds whatever `$PORT` says (ADR-029). Do not change it to 7860. |
 | **Memory** | **2 GiB** (4 GiB to keep tables on) | Headless Chromium plus a PDF parse will exceed 512 MB and be killed mid-request. The model passes on scanned pages (tables, layout) add about 1.5 GB more: at 2 GiB, set `WISEAU_TABLES` and `WISEAU_LAYOUT` to empty (§7); at 4 GiB, leave them. 4 GiB uses the free allowance of GiB-seconds twice as fast (§6). |
 | **CPU** | 1 | Enough; more only burns free-tier seconds faster. |
-| **Request timeout** | **300** seconds | A cold start plus a slow render can take a while. The default is usually already 300. |
+| **Request timeout** | **3600** seconds | The longest one conversion may run — Cloud Run's maximum. A scanned page takes ~16–22 s here, so 300 s (the usual default) cuts a document off after about 15 scanned pages; an hour covers roughly 160–220. You are billed only while a request runs either way, so a higher ceiling costs nothing unless a long document actually uses it. If you keep a lower value, tell the web UI in `frontend/config.js` (`window.WISEAU_REQUEST_TIMEOUT_S`) so it warns at the right point (ADR-057/058). |
 | **CPU allocation** | **CPU is only allocated during request processing** | This is what makes idle time free. |
 | **Minimum instances** | **0** | Scale to zero. Costs nothing when nobody is using it, at the price of a cold start on the first request. |
 | **Maximum instances** | **2** | A hard ceiling on what any runaway traffic can cost you. Raise it later if you ever need to. |
@@ -297,6 +297,10 @@ service (or as environment variables on any other host). None are required.
 | `WISEAU_TABLES` | `tatr` (in the image) | Table Transformer on scanned pages: tables come back as Markdown tables (ADR-046). **Set it to an empty value on a host with 2 GiB or less** (Cloud Run at 2 GiB, Render): it needs about 1 GB more memory. Off, everything else is unchanged. |
 | `WISEAU_LAYOUT` | `ppdl` (in the image) | PP-DocLayoutV3 on scanned pages: headings come back as `##` headings and run-together blocks are split, every word unchanged (ADR-048). About 3.6 s more per scanned page and 0.8 GB more memory under load. **Set it to an empty value on a host with 2 GiB or less**, alongside `WISEAU_TABLES`. Off, everything else is unchanged. |
 | `WISEAU_OCR_OVERLAP` | `auto` | Runs a scanned page's OCR and model stages side by side when the container has 2 or more CPUs (ADR-056): about 30% faster per scanned page, identical output. On **1 vCPU** set it to `0`, because overlap there costs ~6% and the automatic CPU check may not see Cloud Run's limit. With 2 vCPUs a scanned page drops from ~12 s to ~9 s (measured on 4 and 2 CPUs), at twice the vCPU-seconds. |
+| `WISEAU_VCPUS` | `1` | vCPUs per instance, for the CPU meter (`GET /usage`, ADR-058): Cloud Run bills instance time × vCPUs. Set it to match **CPU** in §4.6. |
+| `WISEAU_FREE_VCPU_SECONDS` | `180000` | The monthly allowance the CPU meter is drawn against. 180,000 vCPU-seconds (3,000 vCPU-minutes) was Cloud Run's free tier for request-based billing when this was written — check your billing page and set what applies to you. |
+| `WISEAU_USAGE_MONITORING` | `auto` | `off` stops `/usage` asking Cloud Monitoring for the month's total (the meter then shows only per-instance and per-browser figures). |
+| `WISEAU_STREAM_HEARTBEAT_SECONDS` | `10` | How often a streaming conversion sends a keep-alive line while nothing else is happening (ADR-058). |
 | `WISEAU_STRUCTURE` | `all` (in the image) | Structure recovery over the converted document (ADR-049..055): heading levels, page headers and numbers recognised, paragraphs split by a column joined, captions, footnotes, continued tables. No model, no extra memory, about 60 ms a document. Every word is kept unless a request asks for reader mode. Set it to an empty value to get the Markdown exactly as before. |
 | `WISEAU_FURNITURE` | `keep` | `drop` makes reader mode the deployment's default (page headers, footers and numbers left out). Requests can still choose either way with `reader`. |
 | `WISEAU_ALLOW_PRIVATE_URLS` | *(unset)* | Leave unset. Setting it lets callers make your server fetch private/internal addresses (ADR-021). |
@@ -305,6 +309,26 @@ After changing any of these, Cloud Run deploys a new revision automatically —
 give it 30 seconds before re-testing.
 
 ---
+
+### The CPU meter (ADR-058)
+
+The web UI's header shows how many vCPU-minutes this service has used this
+month, against the free allowance. The figure is Cloud Run's own billable
+instance time, read by the service from **Cloud Monitoring** with its own
+identity — no key to create. It needs one permission:
+
+1. Open **Cloud Run → your service → Security** and note the **Service account**
+   (by default `<number>-compute@developer.gserviceaccount.com`).
+2. Open **IAM & Admin → IAM**. If that account already has **Editor**, you are
+   done. Otherwise click **Grant access**, paste the account, choose the role
+   **Monitoring Viewer** (`roles/monitoring.viewer`), and save.
+3. Open `<your URL>/usage`. `deployment.source` should read `cloud_monitoring`
+   within a few minutes (the reading is cached for five).
+
+Without the permission the meter still works: it shows the server CPU this
+browser's own conversions used, and the panel says why the monthly total is
+missing. Reading Monitoring data is free; the meter asks at most once every
+five minutes, and only when someone loads the page or finishes a conversion.
 
 ## 8. Be honest about what is and isn't protected
 

@@ -288,6 +288,10 @@ code { font-family: var(--mono); font-size: 0.92em; }
   background: color-mix(in srgb, var(--err) 12%, var(--panel-2));
 }
 
+/* A remote engine that fell back to the local parser (ADR-014). */
+.pipe__node--fallback .pipe__icon { color: var(--warn); border-color: var(--warn); border-style: dashed; }
+.pipe__node--fallback .pipe__title { text-decoration: line-through; text-decoration-color: var(--warn); }
+
 /* The final node: Markdown out. */
 .pipe__node--final .pipe__icon { border-style: dashed; }
 .pipe__node--final[data-state="done"] .pipe__icon,
@@ -957,3 +961,71 @@ input[type="url"]:focus, .dialog__input:focus {
 
 /* The output toolbar holds up to four actions beside the view toggle. */
 .output-actions .btn { padding: 6px 11px; font-size: 0.8rem; }
+
+/* --- CPU meter (ADR-058) ------------------------------------------------------------
+   Lives in the sticky header, so it is on screen the whole time. */
+.usage-wrap { position: relative; }
+.usage {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 11px 3px 4px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text-2);
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+  font-variant-numeric: tabular-nums;
+}
+.usage:hover, .usage[aria-expanded="true"] { border-color: var(--border-strong); color: var(--text); }
+.usage__ring { width: 24px; height: 24px; transform: rotate(-90deg); }
+.usage__track { fill: none; stroke: var(--panel-3); stroke-width: 4; }
+.usage__arc {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 4;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.6s ease;
+}
+.usage--warn .usage__arc { stroke: var(--warn); }
+.usage--over .usage__arc { stroke: var(--err); }
+.usage--local .usage__track { stroke-dasharray: 3 3; }
+.usage__text { display: inline-flex; align-items: baseline; gap: 4px; }
+.usage__value { font-weight: 700; color: var(--text); }
+.usage__unit { color: var(--muted); font-size: 0.72rem; }
+
+.usage-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  z-index: 20;
+  width: min(360px, calc(100vw - 32px));
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  background: var(--panel);
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.6);
+  font-size: 0.8rem;
+  color: var(--text-2);
+  animation: fade-in 0.18s ease;
+}
+.usage-panel h3 { margin: 0 0 10px; font-size: 0.9rem; color: var(--text); }
+.usage-panel section + section { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+.usage-panel .usage-panel__label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.usage-panel .usage-panel__figure { font-size: 0.95rem; font-weight: 650; color: var(--text); font-variant-numeric: tabular-nums; }
+.usage-panel .usage-panel__note { margin: 4px 0 0; font-size: 0.74rem; color: var(--muted); line-height: 1.5; }
+.usage-panel .usage-panel__bar { height: 6px; margin-top: 6px; border-radius: 999px; background: var(--panel-3); overflow: hidden; }
+.usage-panel .usage-panel__bar i { display: block; height: 100%; background: var(--grad); border-radius: 999px; }
+
+@media (max-width: 640px) {
+  .usage__unit { display: none; }
+}

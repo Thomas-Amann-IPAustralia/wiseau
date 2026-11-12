@@ -109,6 +109,9 @@ let selectedFiles = [];
 // parser) until /ping says otherwise; only the estimate depends on it, so a
 // deployment that never answers /ping still converts normally.
 let serverDefaultEngine = "pymupdf";
+// Whether the backend has the streaming routes (ADR-058; /ping's `streaming`).
+// Without them the UI falls back to the plain routes and the estimate alone.
+let serverStreams = false;
 let lastMarkdown = "";
 // The last single upload that converted, and how: what "Save with figures"
 // sends again to /convert/bundle (ADR-052). Null after a batch, a URL or a
@@ -187,7 +190,9 @@ async function pingBackend() {
     applyAvailableEngines(info);
     applyServerDefaultEngine(info);
     applyKeywordMethods(info);
+    serverStreams = Boolean(info && info.streaming);
     updateRoute();
+    refreshUsage();
   } catch {
     setBadge("offline", "offline");
   }
@@ -469,6 +474,10 @@ function startProgress(options) {
     label: opts.label || "Converting",
     slowEngine: opts.slowEngine || null,
     pipeline: Boolean(opts.pipeline),
+    // Seconds a scanned page is expected to take, until the server's own
+    // page reports say how long they really take.
+    scanPerPage: opts.scanPerPage || 16,
+    live: null,
     fill: 0,
   });
 
@@ -520,14 +529,157 @@ function processCurve(x) {
   return 0.9 + 0.08 * (1 - Math.exp(-(x - 0.9) * 2.5));
 }
 
+// --- Live progress (ADR-058) ---------------------------------------------------
+// With the streaming routes the server says what it is doing: which stage, and
+// each page as it finishes. Those reports replace the estimate wherever they
+// can — a scan's progress is then pages done, and its time left is the pages
+// remaining at the rate the server is actually achieving.
+const LIVE_FLOORS = { inspect: 0.03, text_layer: 0.05, ocr: 0.05, structure: 0.88, normalize: 0.94, chapters: 0.97 };
+const LIVE_LABELS = {
+  inspect: "Inspecting pages",
+  text_layer: "Reading the text layer",
+  ocr: "Reading scanned pages",
+  mammoth: "Reading Word styles",
+  docling: "docling is reading the document",
+  "glm-ocr": "GLM-OCR is reading the scans",
+  render: "Rendering the page",
+  extract: "Extracting the content",
+  structure: "Recovering structure",
+  normalize: "Writing Markdown",
+  chapters: "Finding chapters",
+};
+
+/** One event from the stream. */
+function onServerEvent(event) {
+  const s = progressState;
+  const now = Date.now();
+  const live = (s.live = s.live || { docIndex: 1, docCount: 1, docStartedAt: now });
+  switch (event.event) {
+    case "queued":
+      live.queued = true;
+      if (s.pipeline) window.wiseauPipeline.note("Waiting:", "Other conversions are running; this one is next in the queue.");
+      break;
+    case "started":
+      live.queued = false;
+      break;
+    case "document":
+      live.docIndex = event.index;
+      live.docCount = event.count;
+      live.docStartedAt = now;
+      live.stage = null;
+      live.ocrPages = 0;
+      live.ocrDone = 0;
+      live.source = event.source;
+      break;
+    case "stage":
+      live.stage = event.stage;
+      live.stageStartedAt = now;
+      if (event.stage === "ocr") {
+        live.ocrPages = event.ocr_pages || 0;
+        live.ocrDone = 0;
+        live.ocrStartedAt = now;
+        live.lastPageAt = now;
+      }
+      if (event.pages) live.pages = event.pages;
+      live.page = 0;
+      if (s.pipeline) window.wiseauPipeline.live(event.stage);
+      break;
+    case "page":
+      live.page = event.page;
+      live.pages = event.pages;
+      if (event.method === "ocr") {
+        live.ocrDone = event.ocr_done;
+        live.ocrPages = event.ocr_pages;
+        live.lastPageAt = now;
+      }
+      if (s.pipeline) {
+        window.wiseauPipeline.liveSub(
+          event.method === "ocr" ? `${event.ocr_done} of ${event.ocr_pages} done` : `page ${event.page} of ${event.pages}`
+        );
+      }
+      break;
+    case "fallback":
+      live.fallback = event.engine;
+      if (s.pipeline) {
+        window.wiseauPipeline.fellBack(event.engine);
+        window.wiseauPipeline.note(
+          "Fallback:",
+          `${event.engine} was unavailable, so the fast local parser is converting the document instead (automatic).`
+        );
+      }
+      break;
+    default:
+      break;
+  }
+}
+
+/** Overall fraction and seconds left from the server's reports, or null. */
+function liveProgress(now) {
+  const s = progressState;
+  const live = s.live;
+  if (!live || !live.stage) return null;
+  const docCount = Math.max(1, live.docCount || 1);
+  const docIndex = Math.min(docCount, Math.max(1, live.docIndex || 1));
+  const perDoc = s.estimate / docCount;
+  const inDoc = (now - (live.docStartedAt || s.processStarted || now)) / 1000;
+  let fraction;
+  let left;
+
+  if (live.stage === "ocr" && live.ocrPages > 0) {
+    const sinceOcr = (now - live.ocrStartedAt) / 1000;
+    const perPage = live.ocrDone > 0 ? sinceOcr / live.ocrDone : s.scanPerPage;
+    const partial = Math.min(0.95, (now - live.lastPageAt) / 1000 / Math.max(perPage, 0.1));
+    const done = Math.min(live.ocrPages, live.ocrDone + partial);
+    fraction = 0.05 + 0.83 * (done / live.ocrPages);
+    left = perPage * (live.ocrPages - done) + Math.max(2, perPage * 0.3);
+  } else if (live.stage === "text_layer" && live.pages && live.page) {
+    fraction = 0.05 + 0.8 * (live.page / live.pages);
+    left = Math.max(1, perDoc - inDoc);
+  } else {
+    const byTime = processCurve(inDoc / Math.max(perDoc, 1));
+    fraction = Math.max(LIVE_FLOORS[live.stage] || 0.03, Math.min(byTime, 0.97));
+    left = Math.max(0, perDoc - inDoc);
+  }
+
+  const overall = (docIndex - 1 + fraction) / docCount;
+  if (docCount > docIndex) {
+    const processed = (now - (s.processStarted || now)) / 1000;
+    const perDone = docIndex > 1 ? processed / (docIndex - 1 + fraction) : perDoc;
+    left += (docCount - docIndex) * perDone;
+  }
+  return { fraction: overall, left };
+}
+
+function liveLabel() {
+  const live = progressState.live;
+  if (!live) return "";
+  if (live.queued) return "Waiting for a free slot — other conversions are running";
+  let text = LIVE_LABELS[live.stage] || "Converting";
+  if (live.stage === "ocr" && live.ocrPages) {
+    text = `OCR — page ${Math.min(live.ocrDone + 1, live.ocrPages)} of ${live.ocrPages}`;
+    if (live.pages && live.pages !== live.ocrPages) text += ` scanned (${live.pages} in all)`;
+  } else if (live.page && live.pages) {
+    text += ` — page ${live.page} of ${live.pages}`;
+  }
+  if (live.docCount > 1) text = `Document ${live.docIndex} of ${live.docCount} · ${text}`;
+  if (live.fallback) text += ` · ${live.fallback} fell back to the fast parser`;
+  return text;
+}
+
 function tickProgress() {
   const s = progressState;
   const elapsed = (Date.now() - s.started) / 1000;
   el.progressTimer.textContent = formatSeconds(elapsed);
   let fill;
   let stage = null;
+  const live = s.uploading ? null : liveProgress(Date.now());
 
-  if (s.uploading) {
+  if (live) {
+    fill = s.uploadShare + (1 - s.uploadShare) * live.fraction;
+    el.progress.classList.remove("progress--over");
+    el.progressLabel.textContent = liveLabel();
+    el.progressEta.textContent = s.live.queued ? "" : `≈ ${formatSeconds(live.left)} left`;
+  } else if (s.uploading) {
     const fraction = s.uploadBytes ? Math.min(1, s.uploadLoaded / s.uploadBytes) : 0;
     fill = s.uploadShare * fraction;
     const rate = elapsed > 0.5 && s.uploadLoaded > 0 ? s.uploadLoaded / elapsed : calibration.uploadRate();
@@ -551,6 +703,8 @@ function tickProgress() {
         ? `Still working — ${s.slowEngine} may be starting up from cold.`
         : "Still working — taking longer than estimated. The server is busy, not stuck.";
     }
+  }
+  if (!s.uploading) {
     if (elapsed > SERVER_TIMEOUT_S * 0.95 && el.progressWarning.hidden) {
       setProgressWarning(
         `This request has passed ${formatSeconds(SERVER_TIMEOUT_S)}, the hosting platform's usual limit for one request. ` +
@@ -649,6 +803,77 @@ function postWithUpload(url, form) {
     xhr.addEventListener("error", () => reject(new Error(networkFailure(started))));
     xhr.addEventListener("abort", () => reject(new Error("The request was cancelled.")));
     xhr.send(form);
+  });
+}
+
+/**
+ * POST to a streaming route (ADR-058) and read its NDJSON as it arrives: every
+ * progress event goes to `onServerEvent`, and the promise settles with the final
+ * `result` event (its `result` is the plain route's body) or rejects with the
+ * `error` event's detail. `body` is a FormData (an upload, measured) or a plain
+ * object (sent as JSON).
+ */
+function postStream(url, body) {
+  const started = Date.now();
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", url);
+    let consumed = 0;
+    let final = null;
+    const drain = () => {
+      if (xhr.status !== 200) return;
+      const text = xhr.responseText;
+      let newline;
+      while ((newline = text.indexOf("\n", consumed)) >= 0) {
+        const line = text.slice(consumed, newline).trim();
+        consumed = newline + 1;
+        if (!line) continue;
+        let event;
+        try {
+          event = JSON.parse(line);
+        } catch {
+          continue;
+        }
+        if (event.event === "result" || event.event === "error") final = event;
+        else onServerEvent(event);
+      }
+    };
+    if (body instanceof FormData) {
+      xhr.upload.addEventListener("progress", (event) => {
+        if (event.lengthComputable) progressUpload(event.loaded, event.total);
+      });
+      xhr.upload.addEventListener("load", progressUploaded);
+    } else {
+      xhr.setRequestHeader("Content-Type", "application/json");
+    }
+    xhr.addEventListener("progress", () => {
+      progressUploaded();
+      drain();
+    });
+    xhr.addEventListener("load", async () => {
+      progressUploaded();
+      if (!xhr.status) return reject(new Error(networkFailure(started)));
+      if (xhr.status !== 200) {
+        // Refused before the stream began: an ordinary HTTP error body.
+        try {
+          await parseResponse(new Response(xhr.responseText, { status: xhr.status }));
+        } catch (err) {
+          return reject(err);
+        }
+        return reject(new Error(`Request failed (HTTP ${xhr.status})`));
+      }
+      drain();
+      if (final && final.event === "result") return resolve(final);
+      if (final && final.event === "error") {
+        if (final.status === 504 || final.status === 408) return reject(new Error(timeoutMessage()));
+        return reject(new Error(final.detail || `Conversion failed (${final.status})`));
+      }
+      // The stream ended with neither: the connection was cut mid-conversion.
+      reject(new Error(networkFailure(started)));
+    });
+    xhr.addEventListener("error", () => reject(new Error(networkFailure(started))));
+    xhr.addEventListener("abort", () => reject(new Error("The request was cancelled.")));
+    xhr.send(body instanceof FormData ? body : JSON.stringify(body));
   });
 }
 
@@ -973,18 +1198,28 @@ el.convertUrlBtn.addEventListener("click", async () => {
   startProgress({ estimate: estimate.seconds, label: "Converting", pipeline: true });
   const started = Date.now();
   let ok = false;
+  let serverSeconds = null;
+  const payload = { url, engine, split_chapters: wantsChapters() };
   try {
-    let res;
-    try {
-      res = await fetch(`${API_BASE}/convert/url`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url, engine, split_chapters: wantsChapters() }),
-      });
-    } catch {
-      throw new Error(networkFailure(started));
+    let data;
+    if (serverStreams) {
+      const final = await postStream(`${API_BASE}/convert/url/stream`, payload);
+      data = final.result;
+      serverSeconds = final.elapsed_s;
+      recordServerCpu(final);
+    } else {
+      let res;
+      try {
+        res = await fetch(`${API_BASE}/convert/url`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+      } catch {
+        throw new Error(networkFailure(started));
+      }
+      data = await parseResponse(res);
     }
-    const data = await parseResponse(res);
     ok = true;
     showConverted(data, url);
     setLastUpload(null);
@@ -992,8 +1227,9 @@ el.convertUrlBtn.addEventListener("click", async () => {
     showError(err.message);
   } finally {
     const seconds = stopProgress(ok);
-    if (ok) calibration.record(estimate.parts, seconds);
+    if (ok) calibration.record(estimate.parts, serverSeconds ?? seconds);
     setBusy(el.convertUrlBtn, false, "Convert");
+    if (ok) refreshUsage();
   }
 });
 
@@ -1096,8 +1332,10 @@ el.convertFileBtn.addEventListener("click", async () => {
     slowEngine: REMOTE_ENGINES.includes(effective) ? effective : null,
     warning: timeoutWarning(estimate.seconds),
     pipeline: true,
+    scanPerPage: (MODEL[effective] || MODEL.pymupdf).scanPage * calibration.factor(`${effective}:scan`),
   });
   let ok = false;
+  let serverSeconds = null;
   try {
     const form = new FormData();
     form.append("engine", engine);
@@ -1108,8 +1346,16 @@ el.convertFileBtn.addEventListener("click", async () => {
       form.append("file", selectedFiles[0]);
       form.append("split_chapters", String(wantsChapters()));
     }
-    const res = await postWithUpload(`${API_BASE}/convert/${batch ? "batch" : "file"}`, form);
-    const data = await parseResponse(res);
+    const route = `${API_BASE}/convert/${batch ? "batch" : "file"}`;
+    let data;
+    if (serverStreams) {
+      const final = await postStream(`${route}/stream`, form);
+      data = final.result;
+      serverSeconds = final.elapsed_s;
+      recordServerCpu(final);
+    } else {
+      data = await parseResponse(await postWithUpload(route, form));
+    }
     ok = true;
     if (batch) showBatch(data);
     else showConverted(data, selectedFiles[0].name);
@@ -1119,8 +1365,9 @@ el.convertFileBtn.addEventListener("click", async () => {
     showError(err.message);
   } finally {
     const seconds = stopProgress(ok);
-    if (ok) calibration.record(estimate.parts, seconds);
+    if (ok) calibration.record(estimate.parts, serverSeconds ?? seconds);
     setBusy(el.convertFileBtn, false, idleLabel);
+    if (ok) refreshUsage();
   }
 });
 
@@ -1627,6 +1874,187 @@ el.downloadBtn.addEventListener("click", () => {
   el.downloadTitle.select();
 });
 
+// --- CPU meter (ADR-058) -------------------------------------------------------
+// Three figures, each saying what it is. The header shows the first it has:
+//   1. this deployment's billable vCPU time this month (GET /usage, from Cloud
+//      Monitoring — the number Cloud Run bills; survives restarts),
+//   2. what this browser's conversions used (server CPU seconds from each
+//      streamed result, kept in localStorage — persistent, but only yours).
+// The panel adds the server instance's own counters, which reset on restart.
+const usageEls = {
+  meter: document.getElementById("usage-meter"),
+  arc: document.getElementById("usage-arc"),
+  value: document.getElementById("usage-value"),
+  unit: document.getElementById("usage-unit"),
+  panel: document.getElementById("usage-panel"),
+};
+let lastUsage = null;
+
+const cpuTally = (() => {
+  const KEY = "wiseau.cpu.v1";
+  const read = () => {
+    try {
+      const all = JSON.parse(localStorage.getItem(KEY)) || {};
+      return all[API_BASE] || { cpu_s: 0, elapsed_s: 0, conversions: 0, since: new Date().toISOString() };
+    } catch {
+      return { cpu_s: 0, elapsed_s: 0, conversions: 0, since: new Date().toISOString() };
+    }
+  };
+  return {
+    read,
+    add(cpu, elapsed) {
+      try {
+        const all = JSON.parse(localStorage.getItem(KEY)) || {};
+        const mine = read();
+        mine.cpu_s += cpu;
+        mine.elapsed_s += elapsed;
+        mine.conversions += 1;
+        all[API_BASE] = mine;
+        localStorage.setItem(KEY, JSON.stringify(all));
+      } catch {
+        /* storage unavailable: the tally simply does not persist */
+      }
+    },
+  };
+})();
+
+/** A streamed result carries the job's server CPU seconds: add them to the tally. */
+function recordServerCpu(final) {
+  if (!final || !(final.cpu_s >= 0)) return;
+  cpuTally.add(final.cpu_s, final.elapsed_s || 0);
+  renderUsage();
+}
+
+async function refreshUsage() {
+  try {
+    const res = await fetch(`${API_BASE}/usage`);
+    if (res.ok) lastUsage = await res.json();
+  } catch {
+    /* an older backend, or offline: the browser's own tally still shows */
+  }
+  renderUsage();
+}
+
+function minutes(seconds) {
+  const value = seconds / 60;
+  if (value >= 100) return Math.round(value).toLocaleString();
+  return value.toFixed(1);
+}
+
+function renderUsage() {
+  if (!usageEls.meter) return;
+  const deployment = lastUsage && lastUsage.deployment;
+  const allowance = lastUsage ? lastUsage.allowance_vcpu_seconds : 0;
+  const tally = cpuTally.read();
+  let share = 0;
+  usageEls.meter.classList.remove("usage--warn", "usage--over", "usage--local");
+  if (deployment && deployment.source) {
+    share = allowance > 0 ? deployment.vcpu_seconds / allowance : 0;
+    usageEls.value.textContent = minutes(deployment.vcpu_seconds);
+    usageEls.unit.textContent = "vCPU-min this month";
+    usageEls.meter.title = `This deployment has used ${minutes(deployment.vcpu_seconds)} vCPU-minutes this month` +
+      (allowance ? ` of ${minutes(allowance)} (${(share * 100).toFixed(1)}%)` : "");
+    if (share >= 1) usageEls.meter.classList.add("usage--over");
+    else if (share >= 0.8) usageEls.meter.classList.add("usage--warn");
+  } else {
+    usageEls.meter.classList.add("usage--local");
+    usageEls.value.textContent = minutes(tally.cpu_s);
+    usageEls.unit.textContent = "CPU-min (yours)";
+    usageEls.meter.title = "Server CPU your conversions in this browser have used";
+  }
+  usageEls.arc.setAttribute("stroke-dasharray", `${Math.min(100, share * 100).toFixed(1)} 100`);
+  if (!usageEls.panel.hidden) renderUsagePanel();
+}
+
+function usageSection(label, figure, note, share) {
+  const section = document.createElement("section");
+  const head = document.createElement("div");
+  head.className = "usage-panel__label";
+  head.textContent = label;
+  const value = document.createElement("div");
+  value.className = "usage-panel__figure";
+  value.textContent = figure;
+  section.append(head, value);
+  if (share !== undefined) {
+    const bar = document.createElement("div");
+    bar.className = "usage-panel__bar";
+    const fill = document.createElement("i");
+    fill.style.width = `${Math.min(100, share * 100).toFixed(1)}%`;
+    bar.append(fill);
+    section.append(bar);
+  }
+  if (note) {
+    const text = document.createElement("p");
+    text.className = "usage-panel__note";
+    text.textContent = note;
+    section.append(text);
+  }
+  return section;
+}
+
+function renderUsagePanel() {
+  const title = document.createElement("h3");
+  title.textContent = "CPU used";
+  const parts = [title];
+  const tally = cpuTally.read();
+
+  if (lastUsage) {
+    const deployment = lastUsage.deployment || {};
+    const allowance = lastUsage.allowance_vcpu_seconds;
+    if (deployment.source) {
+      const share = allowance > 0 ? deployment.vcpu_seconds / allowance : 0;
+      parts.push(usageSection(
+        "This month · whole deployment",
+        `${minutes(deployment.vcpu_seconds)} of ${minutes(allowance)} vCPU-min (${(share * 100).toFixed(1)}%)`,
+        "Cloud Run's billable instance time × vCPUs since the 1st (UTC), from Cloud Monitoring; " +
+          "refreshed about every 5 minutes. The allowance is WISEAU_FREE_VCPU_SECONDS — check it against your billing.",
+        share
+      ));
+    } else {
+      parts.push(usageSection(
+        "This month · whole deployment",
+        "Not available",
+        `${deployment.reason || "The backend did not report it."} See docs/hosting.md, “CPU meter”.`
+      ));
+    }
+    const proc = lastUsage.process || {};
+    parts.push(usageSection(
+      "This server instance",
+      `${minutes(proc.cpu_seconds || 0)} CPU-min · busy ${minutes(proc.busy_seconds || 0)} min · ${proc.jobs || 0} jobs`,
+      `Up ${formatSeconds(proc.uptime_seconds || 0)}. Resets whenever Cloud Run starts a new instance.`
+    ));
+  }
+
+  parts.push(usageSection(
+    "This browser",
+    `${minutes(tally.cpu_s)} CPU-min over ${tally.conversions} conversion${tally.conversions === 1 ? "" : "s"}`,
+    `Server CPU each streamed conversion reported, kept on this device since ${new Date(tally.since).toLocaleDateString()}.`
+  ));
+  usageEls.panel.replaceChildren(...parts);
+}
+
+function toggleUsagePanel(open) {
+  const show = open ?? usageEls.panel.hidden;
+  usageEls.panel.hidden = !show;
+  usageEls.meter.setAttribute("aria-expanded", String(show));
+  if (show) {
+    renderUsagePanel();
+    refreshUsage();
+  }
+}
+
+if (usageEls.meter) {
+  usageEls.meter.addEventListener("click", (event) => {
+    event.stopPropagation();
+    toggleUsagePanel();
+  });
+  usageEls.panel.addEventListener("click", (event) => event.stopPropagation());
+  document.addEventListener("click", () => toggleUsagePanel(false));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") toggleUsagePanel(false);
+  });
+}
+
 // --- Init --------------------------------------------------------------------
 // Inline icons for the static markup (drawn by pipeline.js, so there is one set).
 document.querySelectorAll("[data-icon]").forEach((node) => {
@@ -1656,6 +2084,7 @@ window.wiseauPipeline.mount({
   summary: el.pipelineSummary,
 });
 updateRoute();
+renderUsage();
 setView(currentView);
 renderKeywordMethods();
 pingBackend();

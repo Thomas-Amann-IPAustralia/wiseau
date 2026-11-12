@@ -5,7 +5,41 @@
 > session. Keep it honest — "scaffolded but untested" is more useful than a
 > green checkmark that lies.
 
-**Last updated:** 2026-11-12 (eleventh session: frontend redesign as **Wiseau**, animated pipeline, page-aware progress, ADR-057; tenth session: GPU worth it? end-to-end Kaggle T4 runs, verdict no; ADR-056 overlaps a scanned page's CPU stages, 11.7 → 8.3 s; ninth session: roadmap Tier 3 structure recovery, ADR-049..055, `POST /convert/bundle`, per-request reader mode, API 0.16.0; eighth session: Kaggle T4 run of OvisOCR3, experiment closed; seventh session: 3.7b layout-region spike, CPU leg, held-out set T, then ADR-048 shipping the layout detector in the image; sixth session: planning only, OvisOCR3/TeleOCR assessment; fifth session: ADR-047, table pass on in the Docker image; MuPDF OCR concurrency fix)
+**Last updated:** 2026-11-12 (twelfth session: streaming progress + CPU meter, ADR-058, API 0.17.0; eleventh session: frontend redesign as **Wiseau**, animated pipeline, page-aware progress, ADR-057; tenth session: GPU worth it? end-to-end Kaggle T4 runs, verdict no; ADR-056 overlaps a scanned page's CPU stages, 11.7 → 8.3 s; ninth session: roadmap Tier 3 structure recovery, ADR-049..055, `POST /convert/bundle`, per-request reader mode, API 0.16.0; eighth session: Kaggle T4 run of OvisOCR3, experiment closed; seventh session: 3.7b layout-region spike, CPU leg, held-out set T, then ADR-048 shipping the layout detector in the image; sixth session: planning only, OvisOCR3/TeleOCR assessment; fifth session: ADR-047, table pass on in the Docker image; MuPDF OCR concurrency fix)
+
+**Build note (2026-11-12, ADR-058, API 0.17.0):** The user asked to convert very large documents, asked why the timeout was 300 s, and asked about job IDs.
+- The 300 s was only the hosting guide's copy of the Cloud Run default, never a product decision.
+- The user chose the middle option, progress streamed over the same request, and asked for a persistent graphic of CPU minutes used.
+
+What was built:
+- **`POST /convert/{url,file,batch}/stream`** answer in NDJSON: `queued`, `started`, `document`, `stage`, `page`, `fallback`, `heartbeat`, then one `result` (the plain route's body plus `elapsed_s` and `cpu_s`) or one `error`.
+- **`parsers/progress.py`**: a `ContextVar` side channel that the parsers report into. It is a no-op on the plain routes.
+- **`GET /usage`** (`backend/usage.py`):
+  - this month's Cloud Run billable instance time × `WISEAU_VCPUS`, from Cloud Monitoring with the service's own identity (needs `roles/monitoring.viewer`), cached for 5 minutes;
+  - plus the process's own CPU and busy seconds.
+- `/ping` now reports `streaming: true`.
+- **UI:**
+  - uses the stream routes when `/ping` reports `streaming`;
+  - progress for local OCR is real, page by page, with time left from the server's achieved rate;
+  - pipeline nodes follow the server's stages, and a docling fallback is drawn;
+  - a ring meter in the header shows vCPU-minutes this month against `WISEAU_FREE_VCPU_SECONDS` (default 180,000). Without Monitoring access it shows this browser's tally. A panel lists all three figures.
+- **Hosting guide:** the request timeout is now **3600 s** (Cloud Run's maximum), and there is a "CPU meter" setup section. **The live service still has whatever timeout it was given:** raising it is a console change for the user, and `window.WISEAU_REQUEST_TIMEOUT_S` in `frontend/config.js` should match.
+
+Verified:
+- 633 tests pass, 9 skipped, 0 failed, with 20 new in `tests/test_streaming.py`. Tesseract was installed in the session to run the OCR tests.
+- The stream's `result` equals the plain route's body (file and batch).
+- Real uvicorn with a 3-page scan from Vol 4 No 1: events arrived live, at 3.7 s, 6.8 s and 14.1 s.
+- Headless Chromium against that backend: the label read "OCR — page 2 of 3", the time left corrected from 52 s to 11 s, the conversion finished, the tally recorded `cpu_s`, and there were no console errors.
+- The meter panel was checked against a mock with Monitoring data.
+
+Not verified:
+- the Cloud Monitoring query against real GCP (it is unit-tested with a fake metadata server and API; the metric name and units come from the Cloud Run docs as I understand them, so check `/usage` after deploying);
+- streaming through Cloud Run's frontend (Cloud Run supports streamed responses; there is a heartbeat every 10 s);
+- the Docker image.
+
+Open:
+- job IDs for documents beyond 60 minutes or 32 MB (roadmap, cross-cutting backlog);
+- a text-layer PDF still reports its pages in one burst.
 
 **Build note (2026-11-12, ADR-057, frontend only, no API change):** The user asked for three things. Each was done:
 - a custom animation of the process each source type and option follows;

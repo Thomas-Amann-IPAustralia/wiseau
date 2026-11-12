@@ -13,5 +13,6 @@
 window.MARKDOWN_API_BASE = "http://localhost:7860";
 
 // Optional: the longest one request may run on the host (Cloud Run's request
-// timeout). The UI warns before a conversion estimated to exceed it (ADR-057).
-// window.WISEAU_REQUEST_TIMEOUT_S = 300;
+// timeout; docs/hosting.md recommends 3600). The UI warns before a conversion
+// estimated to exceed it (ADR-057). Defaults to 300 when unset.
+// window.WISEAU_REQUEST_TIMEOUT_S = 3600;

@@ -21,6 +21,62 @@ one `Superseded`.
 
 ---
 
+## ADR-058 — Progress streams over the same request; a CPU meter from Cloud Run's own billing metric
+**Date:** 2026-11-12 · **Status:** Accepted (the user chose this over job IDs; API 0.17.0)
+**Context:**
+- After ADR-057 the progress bar was still an estimate. The user wants to convert
+  very large documents and asked what job IDs would cost. The answer:
+  - Background work after the reply needs Cloud Run's "CPU always allocated",
+    which changes the billing.
+  - In-memory jobs vanish on scale-to-zero and are split across instances.
+  - A public API needs unguessable IDs and result expiry.
+  - It is a larger contract change, and awkward for MCP agents.
+- The middle option was offered: stream progress over the conversion's own
+  request. The user picked it.
+- The user also asked for a persistent graphic of CPU minutes used.
+**Decision:**
+- **Streaming routes beside the plain ones:** `/convert/{url,file,batch}/stream`.
+  - They take the same inputs and the same job slot, and their limits have the
+    same numbers.
+  - They answer in NDJSON: `queued`, `started`, `document`, `stage`, `page`,
+    `fallback`, a `heartbeat`, then exactly one `result` or `error`.
+  - The `result` is the plain route's body, and tests compare the two.
+  - Errors before the work begins stay HTTP errors.
+  - The plain routes and the MCP tools are untouched.
+- **Progress travels on a `ContextVar` listener** (`parsers/progress.py`).
+  - `asyncio.to_thread` carries it into the worker thread.
+  - Parsers call `report()`, which is a no-op with no listener. So there is no
+    signature change, and no change to any output (ADR-013's determinism is
+    unaffected).
+- **`GET /usage` reports CPU from two sources:**
+  - Cloud Run's `container/billable_instance_time` for the month, × `WISEAU_VCPUS`.
+    This is the figure billed against the free tier, and the only one that
+    survives restarts. It is read from Cloud Monitoring with the metadata
+    server's token, cached five minutes, and needs `roles/monitoring.viewer`.
+  - The process's own CPU and busy time, which reset per instance.
+- **The UI header carries a ring meter:** this month's vCPU-minutes against
+  `WISEAU_FREE_VCPU_SECONDS` (default 180,000). Without Monitoring access it
+  shows the server CPU this browser's conversions reported, kept in
+  localStorage. A panel shows all three figures and what each one is.
+**Consequences:**
+- The progress is real for local OCR, page by page, with time left from the
+  rate actually achieved. A text-layer PDF still reports in one burst, and
+  docling and GLM-OCR report only start and fallback.
+- Streaming does not lift the request timeout. The hosting guide now recommends
+  Cloud Run's maximum, 3600 s: roughly 160–220 scanned pages per request.
+  Past that, or past Cloud Run's 32 MB request body, needs job IDs and direct
+  uploads to storage. That is still open, with its costs listed above.
+- A client that disconnects does not stop the work. It finishes and frees its
+  slot, as with the plain routes today.
+- Each stream route has its own rate-limit counter, as every route does. A
+  caller alternating plain and stream routes gets twice the count, but the job
+  semaphore still bounds the load.
+- The per-job `cpu_s` is process CPU, so it includes concurrent jobs. The
+  monthly figure is billable time, not CPU actually busy: that is what the
+  allowance counts.
+- The `/usage` call wakes the service (one short request). The UI never polls
+  it on a timer.
+
 ## ADR-057 — The UI estimates from pages and scans, measures the upload, and learns the deployment; the pipeline is drawn
 **Date:** 2026-11-12 · **Status:** Accepted (amends ADR-026's progress estimate; no API change)
 **Context:**

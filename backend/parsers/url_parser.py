@@ -46,6 +46,7 @@ from observability import metrics
 
 from .browser import fetch_bytes, initialize_driver
 from .cleaner import clean_markdown
+from . import progress
 from .file_parser import file_to_markdown
 
 logger = logging.getLogger("markdown_engine.url")
@@ -300,6 +301,7 @@ def url_to_markdown(url: str, engine: str | None = None) -> str:
             extracted by Trafilatura either way, so the choice does not apply
             there (ADR-025).
     """
+    progress.report("stage", stage="render")
     page = fetch_rendered(url)
 
     if page.is_pdf:
@@ -312,6 +314,7 @@ def url_to_markdown(url: str, engine: str | None = None) -> str:
         # It records its own engine attribution, so none is recorded here.
         return file_to_markdown(page.pdf_bytes, filename, engine)
 
+    progress.report("stage", stage="extract")
     extracted = trafilatura.extract(
         page.html,
         url=url,
@@ -332,4 +335,5 @@ def url_to_markdown(url: str, engine: str | None = None) -> str:
         metrics.record_engine("trafilatura")
         extracted = _drop_repeated_run(extracted)
 
+    progress.report("stage", stage="normalize")
     return clean_markdown(extracted)

@@ -43,6 +43,15 @@ Pages as-is.
   parking at 99%, and it warns up front when a document is likely to exceed the
   host's per-request time limit (300 s by default; set
   `window.WISEAU_REQUEST_TIMEOUT_S` in `config.js` for another) (ADR-057).
+- **Live progress** — against a backend whose `/ping` reports `streaming`
+  (API 0.17.0+), conversions use the `/stream` routes: the server reports each
+  stage and each finished page, so a scan's bar is pages done and its time left
+  comes from the rate the server is actually achieving. A docling fallback is
+  drawn on the pipeline (ADR-058). Older backends get the estimate above.
+- **CPU meter** — the ring in the header: this month's billable vCPU-minutes of
+  the whole deployment against its free allowance, from `GET /usage` (needs the
+  Monitoring Viewer role — `docs/hosting.md`); without that, the server CPU this
+  browser's conversions used. Click it for all three figures (ADR-058).
 - **Preview / Raw** — rendered Markdown or the exact source. Raw is what Copy and
   Download return.
 - **Download** — opens a dialog pre-filled with the document's first `#` heading

@@ -491,6 +491,8 @@
   function update(state) {
     if (view.mode !== "running" || !view.route) return null;
     const stages = view.route.stages;
+    // Once the server reports stages, they drive the view, not the estimate.
+    if (runState.live) return stages[runState.active] || null;
     const hasUpload = stages[0] && stages[0].id === "upload";
     let active;
     if (hasUpload && state.upload !== null && state.upload !== undefined) {
@@ -530,6 +532,78 @@
     }
   }
 
+  // --- Live: what the server reports (ADR-058) -----------------------------------
+  // A stage the backend names, and the route nodes that stand for it, in order
+  // of preference: a PDF whose probe failed has a generic "Read pages" node
+  // where a scan would have "OCR".
+  const SERVER_STAGES = {
+    inspect: ["inspect"],
+    text_layer: ["textLayer", "read", "mixed"],
+    ocr: ["ocr", "read", "mixed"],
+    mammoth: ["mammoth", "mixed"],
+    docling: ["docling"],
+    "glm-ocr": ["glm"],
+    render: ["render"],
+    extract: ["extract", "fetchPdf"],
+    structure: ["structure"],
+    normalize: ["normalize"],
+    chapters: ["chapters"],
+  };
+
+  /**
+   * The server started `stage`. Moves the run to the node standing for it —
+   * forward only, so a batch's second document does not rewind the view — and
+   * returns that stage, or null when the route has no node for it.
+   */
+  function live(stage) {
+    if (view.mode !== "running" || !view.route) return null;
+    const ids = SERVER_STAGES[stage] || [];
+    const stages = view.route.stages;
+    let index = -1;
+    for (const id of ids) {
+      index = stages.findIndex((item) => item.id === id);
+      if (index >= 0) break;
+    }
+    if (index < 0) return null;
+    if (index > runState.active) {
+      runState.active = index;
+      paint(index);
+    }
+    runState.live = true;
+    if (view.pinned < 0) setDetail(runState.active, "Now:");
+    return stages[runState.active];
+  }
+
+  /** Replace the active node's subtitle — "page 7 of 36" — or restore it. */
+  function liveSub(text) {
+    const node = view.nodes[currentActive()];
+    const item = view.route && view.route.stages[currentActive()];
+    if (!node || !item) return;
+    node.querySelector(".pipe__sub").textContent = text || item.sub || "";
+  }
+
+  /** Say something about the run in the detail line (a fallback, a queue). */
+  function note(title, text) {
+    if (!view.detail) return;
+    view.detail.replaceChildren();
+    const strong = document.createElement("strong");
+    strong.textContent = title;
+    const body = document.createElement("span");
+    body.textContent = text;
+    view.detail.append(strong, body);
+  }
+
+  /** Mark a remote engine's node as having fallen back to the local parser. */
+  function fellBack(engine) {
+    const id = engine === "glm-ocr" ? "glm" : engine;
+    const index = view.route ? view.route.stages.findIndex((item) => item.id === id) : -1;
+    if (index >= 0 && view.nodes[index]) view.nodes[index].classList.add("pipe__node--fallback");
+  }
+
+  function isLive() {
+    return Boolean(runState.live);
+  }
+
   /** Back to the idle demonstration after a finished run. */
   function reset() {
     if (view.mode === "running") return;
@@ -537,5 +611,8 @@
     if (view.route) show(view.route);
   }
 
-  window.wiseauPipeline = { buildRoute, mount, show, start, update, finish, reset, icon };
+  window.wiseauPipeline = {
+    buildRoute, mount, show, start, update, finish, reset, icon,
+    live, liveSub, note, fellBack, isLive,
+  };
 })();
